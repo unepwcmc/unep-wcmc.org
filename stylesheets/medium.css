@@ -1,0 +1,271 @@
+/* line 6, ../sass/medium.scss */
+div.section {
+  width: 50%;
+  padding: 1% 2%;
+  margin: 0;
+}
+
+/* line 12, ../sass/medium.scss */
+div.heading {
+  width: 70%;
+  margin-left: 15%;
+  text-align: center;
+}
+/* line 16, ../sass/medium.scss */
+div.heading h2 {
+  display: inline-block;
+  border-top: 1px solid rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+  padding: 2% 0;
+  margin-top: 5%;
+}
+
+/* line 27, ../sass/medium.scss */
+.team_container ul.project_team li.employee {
+  width: 31%;
+}
+
+/* line 33, ../sass/medium.scss */
+div#container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+  width: 70%;
+  margin: auto;
+}
+/* line 43, ../sass/medium.scss */
+div#container .section_container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+/* line 48, ../sass/medium.scss */
+div#container .section_container#news {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: column wrap;
+  justify-content: space-around;
+  height: 1220px;
+}
+/* line 55, ../sass/medium.scss */
+div#container .section_container.about {
+  width: 66%;
+}
+/* line 57, ../sass/medium.scss */
+div#container .section_container.about h2 {
+  width: 100%;
+}
+/* line 59, ../sass/medium.scss */
+div#container .section_container.about h2.programme {
+  margin: 1em 0;
+  padding-bottom: 1%;
+}
+/* line 62, ../sass/medium.scss */
+div#container .section_container.about h2.programme#programme_1 {
+  border-bottom: 3px solid #59B200;
+}
+/* line 65, ../sass/medium.scss */
+div#container .section_container.about h2.programme#programme_2 {
+  border-bottom: 3px solid #FFC926;
+}
+/* line 71, ../sass/medium.scss */
+div#container .section_container#working {
+  height: none;
+}
+/* line 74, ../sass/medium.scss */
+div#container .section_container .section {
+  width: 50%;
+  padding: 2%;
+  margin: 0;
+}
+/* line 78, ../sass/medium.scss */
+div#container .section_container .section.about {
+  width: 100%;
+  padding: 0;
+  margin-bottom: 1em;
+}
+/* line 82, ../sass/medium.scss */
+div#container .section_container .section.about.vacancy {
+  border-bottom: 1px solid #eee;
+  padding: 4% 0;
+  margin: 0;
+}
+/* line 86, ../sass/medium.scss */
+div#container .section_container .section.about.vacancy.first {
+  padding-top: none;
+}
+/* line 89, ../sass/medium.scss */
+div#container .section_container .section.about.vacancy.last {
+  border-bottom: none;
+}
+/* line 93, ../sass/medium.scss */
+div#container .section_container .section.about h3 {
+  color: #999;
+  font-weight: 300;
+  text-align: left;
+  padding: 0;
+}
+/* line 101, ../sass/medium.scss */
+div#container .section_container .section.about.employee_projects div.employee_project h3 {
+  margin: 0 0 1% 0;
+  color: #333;
+  font-weight: 500;
+}
+/* line 108, ../sass/medium.scss */
+div#container .section_container .section.about #academic_container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+/* line 113, ../sass/medium.scss */
+div#container .section_container .section.about #academic_container h3 {
+  margin-bottom: 1%;
+}
+/* line 121, ../sass/medium.scss */
+div#container div.section {
+  width: 50%;
+  padding: 1% 2%;
+  margin: 0;
+}
+/* line 125, ../sass/medium.scss */
+div#container div.section.filters {
+  width: 33%;
+}
+/* line 127, ../sass/medium.scss */
+div#container div.section.filters#staff {
+  width: 30%;
+  margin-right: 3%;
+}
+/* line 130, ../sass/medium.scss */
+div#container div.section.filters#staff ul#fields li.header {
+  padding-right: 0;
+}
+/* line 132, ../sass/medium.scss */
+div#container div.section.filters#staff ul#fields li.header span.badge {
+  margin-top: 2%;
+}
+/* line 137, ../sass/medium.scss */
+div#container div.section.filters.about li {
+  padding: 0.5em 0;
+}
+/* line 141, ../sass/medium.scss */
+div#container div.section.data {
+  width: 33%;
+}
+/* line 144, ../sass/medium.scss */
+div#container div.section#twitter {
+  width: 29%;
+  margin: 2% 2% 0 2%;
+}
+/* line 147, ../sass/medium.scss */
+div#container div.section#twitter p.last {
+  margin-bottom: 0;
+}
+/* line 151, ../sass/medium.scss */
+div#container div.section.featured_project {
+  width: 50%;
+}
+/* line 153, ../sass/medium.scss */
+div#container div.section.featured_project .output {
+  padding-top: 2%;
+}
+/* line 157, ../sass/medium.scss */
+div#container div.section.featured_project .donors .partners_logos {
+  margin-top: 0;
+}
+/* line 159, ../sass/medium.scss */
+div#container div.section.featured_project .donors .partners_logos img {
+  padding: 0 2% 2% 2%;
+}
+/* line 166, ../sass/medium.scss */
+div#container div#data {
+  margin-left: 10%;
+  width: 56%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+/* line 173, ../sass/medium.scss */
+div#container div#data .section {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  padding: 6% 2%;
+}
+/* line 178, ../sass/medium.scss */
+div#container div#data .section h2 {
+  font-family: "museo-sans", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  margin-bottom: 0.35em;
+  margin-top: 0;
+}
+/* line 184, ../sass/medium.scss */
+div#container div#data .section h3 {
+  color: #999;
+  font-size: 0.85em;
+  font-weight: 300;
+  text-align: left;
+  padding: 0;
+  margin-bottom: 0.5em;
+}
+/* line 191, ../sass/medium.scss */
+div#container div#data .section h3 span.separator {
+  color: #ddd;
+}
+/* line 195, ../sass/medium.scss */
+div#container div#data .section p.link {
+  margin-bottom: 0;
+}
+/* line 198, ../sass/medium.scss */
+div#container div#data .section.first {
+  padding-top: 6%;
+}
+/* line 200, ../sass/medium.scss */
+div#container div#data .section.first h2 {
+  margin-top: 0;
+}
+/* line 204, ../sass/medium.scss */
+div#container div#data .section.last {
+  border-bottom: none;
+}
+
+/* line 211, ../sass/medium.scss */
+#welcome_container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+/* line 217, ../sass/medium.scss */
+#welcome_container .section#who {
+  width: 100%;
+  margin-right: 2%;
+}
+
+/* line 224, ../sass/medium.scss */
+div.hero {
+  height: 60%;
+  width: 70%;
+}
+/* line 227, ../sass/medium.scss */
+div.hero#species .heading {
+  width: 40%;
+  margin-left: 16.5%;
+  text-align: left;
+}
+/* line 231, ../sass/medium.scss */
+div.hero#species .heading h2 {
+  border: none;
+  margin-bottom: 3%;
+}
+
+/* line 239, ../sass/medium.scss */
+html, body {
+  height: 100%;
+}

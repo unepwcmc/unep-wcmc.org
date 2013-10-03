@@ -1,0 +1,56 @@
+div#container{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	justify-content: space-around;
+	margin:auto;
+	.section_container{
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-flow: row wrap;
+		justify-content: space-around;
+		&#working{
+			height: none;
+		}
+		.section{
+			width: 33%;
+			&.employee, &.partner {
+			  width: 25%;
+			}
+		}
+	}
+	div.section{
+		width: 33%;
+		padding: 1% 2%;
+		margin: 0;
+		&.featured_project{
+			width: 50%;
+		}
+	}
+	.employee_pic {
+	  width: 30%;
+    margin-right: 3%;
+    padding: 0;
+    img {
+  	  width: 100%;
+  	}
+  }
+}
+.back_nav {
+  width: 70%;
+  margin: 2em auto;
+}
+
+#welcome_container{
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	justify-content: space-around;
+	.section{
+		width: 50%;
+	}
+}
+
