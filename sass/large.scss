@@ -20,6 +20,9 @@ div#container{
 			&.employee, &.partner {
 			  width: 25%;
 			}
+			&.partner img#unep {
+			  width: 80%;
+			}
 		}
 	}
 	div.section{
@@ -28,6 +31,20 @@ div#container{
 		margin: 0;
 		&.featured_project{
 			width: 50%;
+		}
+		&.job_related {
+		  width: 28%;
+		  padding: 5.25% 0 0 0;
+		  margin-left: 5%;
+		  .team_job{
+		    display: -webkit-flex;
+    		display: flex;
+    		-webkit-flex-flow: row wrap;
+    		justify-content: space-around;
+		    .employee {
+		      width: 47.5%;
+		    }
+		  }
 		}
 	}
 	.employee_pic {
