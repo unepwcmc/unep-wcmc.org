@@ -711,6 +711,12 @@ div.section{
 	      border-bottom: 1px solid #d8d8d8;
 	      padding-bottom: 0.5em;
 	    }
+	    
+	    h3 {
+	      color: #333;
+	      margin: 0.75em 0;
+	    }
+	    
 	    .form-section {
 	      margin-top: 2em;
 	      p {
@@ -803,7 +809,43 @@ div.section{
     	}
 	  }
 	}
-	
+}
+
+.section .save-link {
+  background: #f7f7f7;
+	padding: 1em;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	p {
+	  font-size: 0.85em;
+	}
+	input {
+	  border: 1px solid #eee;
+	  padding: 0.5em;
+	  height: 3em;
+	  width: 100%;
+	  -webkit-border-radius: 3px;
+  	-moz-border-radius: 3px;
+  	border-radius: 3px;
+  	font-family: "museo-sans", Helvetica, Arial, sans-serif;
+  	font-size: 0.85em;
+  	font-weight: 300;
+  	color: #666;
+	}
+	i {
+    color: #666;
+    background: #ccc;
+    position: relative;
+    top: -29px;
+    right: -219px;
+    padding: 0.7em 0.75em 0.75em 0.75em;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+	}
 }
 
 .team_container{
