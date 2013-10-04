@@ -642,7 +642,7 @@ div.section{
 	      }
 	    }
 	  }
-	  &.employee_bio, &.job_description {
+	  &.employee_bio, &.job_description, &.application_form {
 	    ul {
 	      list-style-type: disc;
 	      padding: 2em 0 2em 1.25em;
@@ -698,6 +698,53 @@ div.section{
 	      }
 	      li {
 	        padding-bottom: 1.5%;
+	      }
+	    }
+	  }
+	  
+	  &.application_form {
+	    .button {
+	      margin-top: 3em;
+	    }
+	    
+	    h2 {
+	      border-bottom: 1px solid #d8d8d8;
+	      padding-bottom: 0.5em;
+	    }
+	    .form-section {
+	      margin-top: 2em;
+	      p {
+	        margin: 0;
+	      }
+	      input.short {
+	        width: 50%;
+	        height: 2em;
+	        margin: 0.5em 0 1em 0;
+	        border: 1px solid #eee;
+	        -webkit-border-radius: 3px;
+					-moz-border-radius: 3px;
+					border-radius: 3px;
+          font-family: "museo-sans", Helvetica, Arial, sans-serif;
+					font-size: 1.1em;
+        	font-weight: 300;
+        	color: $grey_text;
+        	padding: 0 0.5em;
+	      }
+	      textarea {
+	        width: 100%;
+	        margin: 0.5em 0 1em 0;
+	        border: 1px solid #eee;
+	        -webkit-border-radius: 3px;
+					-moz-border-radius: 3px;
+					border-radius: 3px;
+          font-family: "museo-sans", Helvetica, Arial, sans-serif;
+					font-size: 1.1em;
+        	font-weight: 300;
+        	color: $grey_text;
+        	padding: 0.5em;
+	      }
+	      .form-subsection {
+	        margin-top: 1em;
 	      }
 	    }
 	  }
