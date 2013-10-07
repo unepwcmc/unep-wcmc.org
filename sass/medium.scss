@@ -48,9 +48,8 @@ div#container{
 		&#news{
 			display: -webkit-flex;
 			display: flex;
-			-webkit-flex-flow: column wrap;
+			-webkit-flex-flow: row wrap;
 			justify-content: space-around;
-			height: 1220px;
 		}
 		&.about{
 			width: 66%;
