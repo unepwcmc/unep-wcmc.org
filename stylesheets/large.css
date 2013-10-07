@@ -28,41 +28,62 @@ div#container .section_container .section {
 div#container .section_container .section.employee, div#container .section_container .section.partner {
   width: 25%;
 }
-/* line 25, ../sass/large.scss */
+/* line 23, ../sass/large.scss */
+div#container .section_container .section.partner img#unep {
+  width: 80%;
+}
+/* line 28, ../sass/large.scss */
 div#container div.section {
   width: 33%;
   padding: 1% 2%;
   margin: 0;
 }
-/* line 29, ../sass/large.scss */
+/* line 32, ../sass/large.scss */
 div#container div.section.featured_project {
   width: 50%;
 }
-/* line 33, ../sass/large.scss */
+/* line 35, ../sass/large.scss */
+div#container div.section.job_related {
+  width: 28%;
+  padding: 5.25% 0 0 0;
+  margin-left: 5%;
+}
+/* line 39, ../sass/large.scss */
+div#container div.section.job_related .team_job {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+/* line 44, ../sass/large.scss */
+div#container div.section.job_related .team_job .employee {
+  width: 47.5%;
+}
+/* line 50, ../sass/large.scss */
 div#container .employee_pic {
   width: 30%;
   margin-right: 3%;
   padding: 0;
 }
-/* line 37, ../sass/large.scss */
+/* line 54, ../sass/large.scss */
 div#container .employee_pic img {
   width: 100%;
 }
 
-/* line 42, ../sass/large.scss */
+/* line 59, ../sass/large.scss */
 .back_nav {
   width: 70%;
   margin: 2em auto;
 }
 
-/* line 47, ../sass/large.scss */
+/* line 64, ../sass/large.scss */
 #welcome_container {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-flow: row wrap;
   justify-content: space-around;
 }
-/* line 52, ../sass/large.scss */
+/* line 69, ../sass/large.scss */
 #welcome_container .section {
   width: 50%;
 }
