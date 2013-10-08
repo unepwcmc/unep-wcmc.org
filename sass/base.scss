@@ -353,12 +353,26 @@ div#nav{
   -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   padding: 1.2% 0;
+  a#home_link {
+	  display: block;
+	  float: left;
+		width: 40%;
+		padding: 0 0 0 15%;
+		img {
+			max-width: 100%;
+			min-width: 250px;
+			opacity: 0.9;
+			display: block;
+		}
+	}
 	ul{
-		width: 70%;
-		margin: auto;
+	  min-width: 45%;
+		margin-right: 15%;
 	  list-style: none;
+	  float: right;
+	  margin-top: 1.4%;
 		li{
-			padding: 2.5% 0 0 2%;
+			padding: 0 0 0 2%;
 			float: right;
 			a {
 				font-family: "museo-sans", Helvetica, Arial, sans-serif;
@@ -377,18 +391,6 @@ div#nav{
 				}
 				&.active {
 					color: rgba(255,255,255, 0.9);
-				}
-			}
-		}
-		li#home_link{
-			float: left;
-			width: 40%;
-			padding: 0;
-			a {
-				padding: 0;
-				img {
-					max-width: 100%;
-					opacity: 0.9;
 				}
 			}
 		}
