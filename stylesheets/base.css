@@ -478,18 +478,19 @@ div#nav ul {
 }
 /* line 360, ../sass/base.scss */
 div#nav ul li {
-  padding: 0 0 0 2%;
+  padding: 2.5% 0 0 2%;
   float: right;
 }
 /* line 363, ../sass/base.scss */
 div#nav ul li a {
   font-family: "museo-sans", Helvetica, Arial, sans-serif;
-  font-size: 0.8em;
+  font-size: 0.75em;
+  font-weight: 300;
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
 }
-/* line 369, ../sass/base.scss */
+/* line 370, ../sass/base.scss */
 div#nav ul li a:hover {
   color: rgba(255, 255, 255, 0.9);
   -webkit-transition: all 0.5s ease;
@@ -498,27 +499,27 @@ div#nav ul li a:hover {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-/* line 377, ../sass/base.scss */
+/* line 378, ../sass/base.scss */
 div#nav ul li a.active {
   color: rgba(255, 255, 255, 0.9);
 }
-/* line 382, ../sass/base.scss */
+/* line 383, ../sass/base.scss */
 div#nav ul li#home_link {
   float: left;
-  padding-left: 0;
-}
-/* line 385, ../sass/base.scss */
-div#nav ul li#home_link a {
+  width: 40%;
   padding: 0;
 }
 /* line 387, ../sass/base.scss */
+div#nav ul li#home_link a {
+  padding: 0;
+}
+/* line 389, ../sass/base.scss */
 div#nav ul li#home_link a img {
-  max-width: 45%;
-  margin-bottom: -2%;
+  max-width: 100%;
   opacity: 0.9;
 }
 
-/* line 397, ../sass/base.scss */
+/* line 398, ../sass/base.scss */
 div.button {
   width: 150px;
   display: block;
@@ -537,77 +538,77 @@ div.button {
   transition: all 0.5s ease;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
-/* line 414, ../sass/base.scss */
+/* line 415, ../sass/base.scss */
 div.button p {
   font-weight: 300;
   font-size: 1em;
   margin: 0;
   letter-spacing: 0.05em;
 }
-/* line 420, ../sass/base.scss */
+/* line 421, ../sass/base.scss */
 div.button a {
   text-decoration: none;
   color: #fff;
 }
-/* line 425, ../sass/base.scss */
+/* line 426, ../sass/base.scss */
 div.button:hover {
   border: 1px solid #3c89c8;
   background-color: #3c89c8;
 }
-/* line 428, ../sass/base.scss */
+/* line 429, ../sass/base.scss */
 div.button:hover a {
   color: #fff;
 }
 
-/* line 435, ../sass/base.scss */
+/* line 436, ../sass/base.scss */
 div.hero {
   background: url("../imgs/project_13.png") no-repeat center;
   background-size: 100%;
   width: 70%;
   margin: 3% 15%;
 }
-/* line 440, ../sass/base.scss */
+/* line 441, ../sass/base.scss */
 div.hero#featured_projects {
   background: url("../imgs/project_13.png") no-repeat bottom;
   background-size: 100%;
 }
-/* line 444, ../sass/base.scss */
+/* line 445, ../sass/base.scss */
 div.hero#data {
   background: url("../imgs/project_7.png") no-repeat bottom;
   background-size: 115%;
 }
-/* line 449, ../sass/base.scss */
+/* line 450, ../sass/base.scss */
 div.hero#about {
   background: url("../imgs/project_18.png") no-repeat center;
   background-size: 100%;
 }
-/* line 453, ../sass/base.scss */
+/* line 454, ../sass/base.scss */
 div.hero#areas_of_work {
   background: url("../imgs/project_14.jpg") no-repeat bottom;
   background-size: 120%;
 }
-/* line 457, ../sass/base.scss */
+/* line 458, ../sass/base.scss */
 div.hero#species {
   background: url("../imgs/project_10.jpg") no-repeat center;
   background-size: 100%;
 }
 
-/* line 463, ../sass/base.scss */
+/* line 464, ../sass/base.scss */
 div.heading {
   padding-top: 3.5em;
 }
-/* line 465, ../sass/base.scss */
+/* line 466, ../sass/base.scss */
 div.heading h1 {
   margin-bottom: 0;
   font-size: 2.5em;
   line-height: 1.25em;
   font-weight: bold;
 }
-/* line 470, ../sass/base.scss */
+/* line 471, ../sass/base.scss */
 div.heading h1#featured {
   font-size: 2em;
 }
-/* line 474, ../sass/base.scss */
+/* line 475, ../sass/base.scss */
 div.heading h2 {
   font-weight: 300;
   margin: 0.5em 0;
@@ -615,14 +616,14 @@ div.heading h2 {
   line-height: 1.4em;
   font-family: "museo-sans", Helvetica, Arial, sans-serif;
 }
-/* line 481, ../sass/base.scss */
+/* line 482, ../sass/base.scss */
 div.heading h1, div.heading h2 {
   padding: 1% 0;
   color: #fff;
   text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* line 488, ../sass/base.scss */
+/* line 489, ../sass/base.scss */
 div#welcome {
   width: 70%;
   margin: auto;
@@ -630,60 +631,60 @@ div#welcome {
   border-bottom: 1px solid #eee;
   margin: 5% 15%;
 }
-/* line 494, ../sass/base.scss */
+/* line 495, ../sass/base.scss */
 div#welcome p {
   font-size: 1.25em;
   margin-bottom: 0;
 }
-/* line 498, ../sass/base.scss */
+/* line 499, ../sass/base.scss */
 div#welcome a {
   text-decoration: none;
   color: #3c89c8;
 }
 
-/* line 504, ../sass/base.scss */
+/* line 505, ../sass/base.scss */
 div#dashboard {
   width: 70%;
   margin: 3% 15%;
 }
-/* line 507, ../sass/base.scss */
+/* line 508, ../sass/base.scss */
 div#dashboard img {
   width: 100%;
 }
 
-/* line 512, ../sass/base.scss */
+/* line 513, ../sass/base.scss */
 div.section {
   margin: 2.25em 0;
 }
-/* line 514, ../sass/base.scss */
+/* line 515, ../sass/base.scss */
 div.section h3 {
   font-size: 0.75em;
   text-transform: uppercase;
   font-weight: 400;
 }
-/* line 520, ../sass/base.scss */
+/* line 521, ../sass/base.scss */
 div.section p {
   color: #5e5a5c;
 }
-/* line 522, ../sass/base.scss */
+/* line 523, ../sass/base.scss */
 div.section p.link {
   float: left;
   font-size: 0.85em;
 }
-/* line 525, ../sass/base.scss */
+/* line 526, ../sass/base.scss */
 div.section p.link.last {
   margin: 0 3%;
 }
-/* line 530, ../sass/base.scss */
+/* line 531, ../sass/base.scss */
 div.section a {
   text-decoration: none;
   color: #3c89c8;
 }
-/* line 533, ../sass/base.scss */
+/* line 534, ../sass/base.scss */
 div.section a.heading {
   color: #333;
 }
-/* line 535, ../sass/base.scss */
+/* line 536, ../sass/base.scss */
 div.section a.heading:hover {
   color: #3c89c8;
   -webkit-transition: all 0.2s ease;
@@ -692,27 +693,27 @@ div.section a.heading:hover {
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
-/* line 545, ../sass/base.scss */
+/* line 546, ../sass/base.scss */
 div.section img {
   max-width: 100%;
 }
-/* line 548, ../sass/base.scss */
+/* line 549, ../sass/base.scss */
 div.section#twitter {
   background: #f4f2f2;
 }
-/* line 550, ../sass/base.scss */
+/* line 551, ../sass/base.scss */
 div.section#twitter #top_twitter {
   width: 100%;
   padding: 2% 0 5% 0;
 }
-/* line 553, ../sass/base.scss */
+/* line 554, ../sass/base.scss */
 div.section#twitter #top_twitter img {
   display: block;
   max-width: 15%;
   opacity: 0.3;
   float: left;
 }
-/* line 559, ../sass/base.scss */
+/* line 560, ../sass/base.scss */
 div.section#twitter #top_twitter div.button {
   width: 120px;
   float: right;
@@ -721,11 +722,11 @@ div.section#twitter #top_twitter div.button {
   border: 2% 5%;
   box-shadow: none;
 }
-/* line 564, ../sass/base.scss */
+/* line 565, ../sass/base.scss */
 div.section#twitter #top_twitter div.button p, div.section#twitter #top_twitter div.button a {
   color: #999;
 }
-/* line 569, ../sass/base.scss */
+/* line 570, ../sass/base.scss */
 div.section#twitter #top_twitter div.button:hover {
   border: 1px solid #3c89c8;
   -webkit-transition: all 0.5s ease;
@@ -734,78 +735,78 @@ div.section#twitter #top_twitter div.button:hover {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-/* line 570, ../sass/base.scss */
+/* line 571, ../sass/base.scss */
 div.section#twitter #top_twitter div.button:hover a {
   color: #fff;
 }
-/* line 583, ../sass/base.scss */
+/* line 584, ../sass/base.scss */
 div.section#twitter .tweet {
   padding: 3% 0;
 }
-/* line 585, ../sass/base.scss */
+/* line 586, ../sass/base.scss */
 div.section#twitter .tweet small {
   margin-bottom: 3%;
 }
-/* line 592, ../sass/base.scss */
+/* line 593, ../sass/base.scss */
 div.section.employee h2 {
   margin: 5% 0 2% 0;
   font-size: 1em;
 }
-/* line 596, ../sass/base.scss */
+/* line 597, ../sass/base.scss */
 div.section.employee p {
   margin: 0;
   font-size: 0.75em;
   text-transform: uppercase;
   color: #5e5a5c;
 }
-/* line 605, ../sass/base.scss */
+/* line 606, ../sass/base.scss */
 div.section.partner h2 {
   margin: 0.5em 0 0 0;
   text-align: left;
 }
-/* line 609, ../sass/base.scss */
+/* line 610, ../sass/base.scss */
 div.section.partner a p {
   font-size: 1em;
   color: #3c89c8;
 }
-/* line 617, ../sass/base.scss */
+/* line 618, ../sass/base.scss */
 div.section.about.employee_projects h2 {
   font-size: 1.75em;
   font-weight: 300;
   padding: 0.5em 0 0.25em 0;
 }
-/* line 622, ../sass/base.scss */
+/* line 623, ../sass/base.scss */
 div.section.about.employee_projects div.employee_project {
   padding: 6% 0;
   border-bottom: 1px solid #eee;
 }
-/* line 626, ../sass/base.scss */
+/* line 627, ../sass/base.scss */
 div.section.about.employee_projects div.employee_project h3 span.project_role {
   text-transform: none;
 }
-/* line 629, ../sass/base.scss */
+/* line 630, ../sass/base.scss */
 div.section.about.employee_projects div.employee_project h3 span.separator {
   color: #ddd;
 }
-/* line 633, ../sass/base.scss */
+/* line 634, ../sass/base.scss */
 div.section.about.employee_projects div.employee_project.first {
   padding-top: 0;
 }
-/* line 636, ../sass/base.scss */
+/* line 637, ../sass/base.scss */
 div.section.about.employee_projects div.employee_project.last {
   border-bottom: none;
 }
-/* line 639, ../sass/base.scss */
+/* line 640, ../sass/base.scss */
 div.section.about.employee_projects div.employee_project p.link {
   float: none;
   margin: 0;
 }
-/* line 646, ../sass/base.scss */
+/* line 647, ../sass/base.scss */
 div.section.about.employee_bio ul, div.section.about.job_description ul, div.section.about.application_form ul {
   list-style-type: disc;
   padding: 2em 0 2em 1.25em;
 }
-/* line 649, ../sass/base.scss */
+/* line 650, ../sass/base.scss */
 div.section.about.employee_bio ul li, div.section.about.job_description ul li, div.section.about.application_form ul li {
   font-size: 1.1em;
   margin-bottom: 0.75em;
@@ -813,27 +814,27 @@ div.section.about.employee_bio ul li, div.section.about.job_description ul li, d
   font-weight: 300;
   color: #5e5a5c;
 }
-/* line 657, ../sass/base.scss */
+/* line 658, ../sass/base.scss */
 div.section.about.employee_bio .button, div.section.about.job_description .button, div.section.about.application_form .button {
   width: 35%;
   border: 1px solid #3c89c8;
   background: none;
   box-shadow: none;
 }
-/* line 662, ../sass/base.scss */
+/* line 663, ../sass/base.scss */
 div.section.about.employee_bio .button:hover, div.section.about.job_description .button:hover, div.section.about.application_form .button:hover {
   border: 1px solid #3c89c8;
   background-color: #3c89c8;
 }
-/* line 665, ../sass/base.scss */
+/* line 666, ../sass/base.scss */
 div.section.about.employee_bio .button:hover a, div.section.about.job_description .button:hover a, div.section.about.application_form .button:hover a {
   color: #fff;
 }
-/* line 671, ../sass/base.scss */
+/* line 672, ../sass/base.scss */
 div.section.about.employee_bio h1, div.section.about.job_description h1, div.section.about.application_form h1 {
   margin-bottom: 0.3em;
 }
-/* line 674, ../sass/base.scss */
+/* line 675, ../sass/base.scss */
 div.section.about.employee_bio span.position, div.section.about.job_description span.position, div.section.about.application_form span.position {
   font-size: 1em;
   text-transform: uppercase;
@@ -841,56 +842,56 @@ div.section.about.employee_bio span.position, div.section.about.job_description 
   font-weight: 300;
   color: #5e5a5c;
 }
-/* line 681, ../sass/base.scss */
+/* line 682, ../sass/base.scss */
 div.section.about.employee_bio span.programme_name, div.section.about.job_description span.programme_name, div.section.about.application_form span.programme_name {
   display: inline-block;
   margin-bottom: 2em;
 }
-/* line 685, ../sass/base.scss */
+/* line 686, ../sass/base.scss */
 div.section.about.employee_bio span.programme_bar, div.section.about.job_description span.programme_bar, div.section.about.application_form span.programme_bar {
   color: #59B200;
   font-weight: 900;
   display: inline-block;
   padding: 2%;
 }
-/* line 691, ../sass/base.scss */
+/* line 692, ../sass/base.scss */
 div.section.about.employee_bio ul.contact_details, div.section.about.job_description ul.contact_details, div.section.about.application_form ul.contact_details {
   color: #5e5a5c;
   font-weight: 300;
   text-align: left;
   margin-bottom: 1em;
 }
-/* line 696, ../sass/base.scss */
+/* line 697, ../sass/base.scss */
 div.section.about.employee_bio ul.contact_details i, div.section.about.job_description ul.contact_details i, div.section.about.application_form ul.contact_details i {
   padding-right: 1%;
 }
-/* line 699, ../sass/base.scss */
+/* line 700, ../sass/base.scss */
 div.section.about.employee_bio ul.contact_details li, div.section.about.job_description ul.contact_details li, div.section.about.application_form ul.contact_details li {
   padding-bottom: 1.5%;
 }
-/* line 706, ../sass/base.scss */
+/* line 707, ../sass/base.scss */
 div.section.about.application_form .button {
   margin-top: 3em;
 }
-/* line 710, ../sass/base.scss */
+/* line 711, ../sass/base.scss */
 div.section.about.application_form h2 {
   border-bottom: 1px solid #d8d8d8;
   padding-bottom: 0.5em;
 }
-/* line 715, ../sass/base.scss */
+/* line 716, ../sass/base.scss */
 div.section.about.application_form h3 {
   color: #333;
   margin: 0.75em 0;
 }
-/* line 720, ../sass/base.scss */
+/* line 721, ../sass/base.scss */
 div.section.about.application_form .form-section {
   margin-top: 2em;
 }
-/* line 722, ../sass/base.scss */
+/* line 723, ../sass/base.scss */
 div.section.about.application_form .form-section p {
   margin: 0;
 }
-/* line 725, ../sass/base.scss */
+/* line 726, ../sass/base.scss */
 div.section.about.application_form .form-section input.short {
   width: 50%;
   height: 2em;
@@ -905,7 +906,7 @@ div.section.about.application_form .form-section input.short {
   color: #5e5a5c;
   padding: 0 0.5em;
 }
-/* line 739, ../sass/base.scss */
+/* line 740, ../sass/base.scss */
 div.section.about.application_form .form-section textarea {
   width: 100%;
   margin: 0.5em 0 1em 0;
@@ -919,19 +920,19 @@ div.section.about.application_form .form-section textarea {
   color: #5e5a5c;
   padding: 0.5em;
 }
-/* line 752, ../sass/base.scss */
+/* line 753, ../sass/base.scss */
 div.section.about.application_form .form-section .form-subsection {
   margin-top: 1em;
 }
-/* line 758, ../sass/base.scss */
+/* line 759, ../sass/base.scss */
 div.section.about h1 {
   margin-bottom: 7%;
 }
-/* line 762, ../sass/base.scss */
+/* line 763, ../sass/base.scss */
 div.section.about h2#first {
   margin-top: 0;
 }
-/* line 765, ../sass/base.scss */
+/* line 766, ../sass/base.scss */
 div.section.about img {
   display: inline-block;
   float: right;
@@ -939,17 +940,17 @@ div.section.about img {
   margin: 1% 0 0 3%;
   padding: 0;
 }
-/* line 771, ../sass/base.scss */
+/* line 772, ../sass/base.scss */
 div.section.about img#staff_pic {
   float: none;
   max-width: 100%;
   margin: 0 0 5% 0;
 }
-/* line 777, ../sass/base.scss */
+/* line 778, ../sass/base.scss */
 div.section.about p.link {
   letter-spacing: 0.065em;
 }
-/* line 783, ../sass/base.scss */
+/* line 784, ../sass/base.scss */
 div.section.job_related h2 {
   border-bottom: 1px solid #5e5a5c;
   font-size: 1em;
@@ -961,29 +962,29 @@ div.section.job_related h2 {
   margin-top: 2em;
   padding-bottom: 0.2em;
 }
-/* line 794, ../sass/base.scss */
+/* line 795, ../sass/base.scss */
 div.section.job_related h4 {
   font-size: 1em;
   color: #3c89c8;
 }
-/* line 798, ../sass/base.scss */
+/* line 799, ../sass/base.scss */
 div.section.job_related .button {
   width: 100%;
   border: 1px solid #3c89c8;
   background: none;
   box-shadow: none;
 }
-/* line 803, ../sass/base.scss */
+/* line 804, ../sass/base.scss */
 div.section.job_related .button:hover {
   border: 1px solid #3c89c8;
   background-color: #3c89c8;
 }
-/* line 806, ../sass/base.scss */
+/* line 807, ../sass/base.scss */
 div.section.job_related .button:hover a {
   color: #fff;
 }
 
-/* line 814, ../sass/base.scss */
+/* line 815, ../sass/base.scss */
 .section .save-link {
   background: #f7f7f7;
   padding: 1em;
@@ -991,11 +992,11 @@ div.section.job_related .button:hover a {
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
-/* line 820, ../sass/base.scss */
+/* line 821, ../sass/base.scss */
 .section .save-link p {
   font-size: 0.85em;
 }
-/* line 823, ../sass/base.scss */
+/* line 824, ../sass/base.scss */
 .section .save-link input {
   border: 1px solid #eee;
   padding: 0.5em;
@@ -1009,7 +1010,7 @@ div.section.job_related .button:hover a {
   font-weight: 300;
   color: #666;
 }
-/* line 836, ../sass/base.scss */
+/* line 837, ../sass/base.scss */
 .section .save-link i {
   color: #666;
   background: #ccc;
@@ -1024,31 +1025,31 @@ div.section.job_related .button:hover a {
   border-bottom-left-radius: 0px;
 }
 
-/* line 851, ../sass/base.scss */
+/* line 852, ../sass/base.scss */
 .team_container {
   margin: 0;
   padding-left: 2%;
 }
-/* line 855, ../sass/base.scss */
+/* line 856, ../sass/base.scss */
 .team_container p.link {
   float: left;
 }
-/* line 857, ../sass/base.scss */
+/* line 858, ../sass/base.scss */
 .team_container p.link.last {
   margin: 0 3%;
 }
-/* line 862, ../sass/base.scss */
+/* line 863, ../sass/base.scss */
 .team_container a {
   font-size: 0.75em;
   text-transform: uppercase;
   text-decoration: none;
   color: #3c89c8;
 }
-/* line 869, ../sass/base.scss */
+/* line 870, ../sass/base.scss */
 .team_container img {
   max-width: 100%;
 }
-/* line 872, ../sass/base.scss */
+/* line 873, ../sass/base.scss */
 .team_container ul.project_team {
   padding: 0;
   margin: 0;
@@ -1059,7 +1060,7 @@ div.section.job_related .button:hover a {
   justify-content: space-around;
   margin: auto;
 }
-/* line 881, ../sass/base.scss */
+/* line 882, ../sass/base.scss */
 .team_container ul.project_team li.employee {
   border: 5px solid #fff;
   width: 33%;
@@ -1071,17 +1072,17 @@ div.section.job_related .button:hover a {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-/* line 891, ../sass/base.scss */
+/* line 892, ../sass/base.scss */
 .team_container ul.project_team li.employee.active {
   background-color: #f7f7f7;
   border: 5px solid #f7f7f7;
 }
-/* line 895, ../sass/base.scss */
+/* line 896, ../sass/base.scss */
 .team_container ul.project_team li.employee img {
   max-width: 100%;
   display: block;
 }
-/* line 899, ../sass/base.scss */
+/* line 900, ../sass/base.scss */
 .team_container ul.project_team li.employee:hover {
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -1091,55 +1092,55 @@ div.section.job_related .button:hover a {
   background-color: #f7f7f7;
   border: 5px solid #f7f7f7;
 }
-/* line 907, ../sass/base.scss */
+/* line 908, ../sass/base.scss */
 .team_container ul.project_team li.employee:hover .employee_info {
   display: block;
   padding: 5%;
 }
-/* line 910, ../sass/base.scss */
+/* line 911, ../sass/base.scss */
 .team_container ul.project_team li.employee:hover .employee_info h4 {
   padding: 0;
   line-height: 1em;
 }
-/* line 914, ../sass/base.scss */
+/* line 915, ../sass/base.scss */
 .team_container ul.project_team li.employee:hover .employee_info p {
   padding-bottom: 0;
   font-size: 0.9em;
 }
-/* line 921, ../sass/base.scss */
+/* line 922, ../sass/base.scss */
 .team_container ul.project_team li.employee .employee_info {
   display: block;
   padding: 0 0 3% 2%;
 }
-/* line 924, ../sass/base.scss */
+/* line 925, ../sass/base.scss */
 .team_container ul.project_team li.employee .employee_info h4 {
   padding-bottom: 0.25em;
   line-height: 1.3em;
 }
-/* line 928, ../sass/base.scss */
+/* line 929, ../sass/base.scss */
 .team_container ul.project_team li.employee .employee_info p {
   margin-bottom: 0;
   padding-bottom: 0;
   font-size: 0.9em;
 }
 
-/* line 938, ../sass/base.scss */
+/* line 939, ../sass/base.scss */
 .back_nav {
   display: block;
 }
-/* line 940, ../sass/base.scss */
+/* line 941, ../sass/base.scss */
 .back_nav a {
   font-size: 1em;
   color: #3c89c8;
   text-decoration: none;
   margin-bottom: 10%;
 }
-/* line 945, ../sass/base.scss */
+/* line 946, ../sass/base.scss */
 .back_nav a i {
   font-size: 0.75em;
 }
 
-/* line 951, ../sass/base.scss */
+/* line 952, ../sass/base.scss */
 div#footer_container {
   width: 100%;
   position: absolute;
@@ -1154,18 +1155,18 @@ div#footer_container {
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* line 966, ../sass/base.scss */
+/* line 967, ../sass/base.scss */
 ul.footer {
   width: 70%;
   margin: auto;
   list-style: none;
 }
-/* line 970, ../sass/base.scss */
+/* line 971, ../sass/base.scss */
 ul.footer li {
   padding: 0 1%;
   float: left;
 }
-/* line 973, ../sass/base.scss */
+/* line 974, ../sass/base.scss */
 ul.footer li a {
   font-size: 0.8em;
   font-family: "museo-sans", Helvetica, Arial, sans-serif;
@@ -1173,7 +1174,7 @@ ul.footer li a {
   color: #bbb;
   text-transform: uppercase;
 }
-/* line 979, ../sass/base.scss */
+/* line 980, ../sass/base.scss */
 ul.footer li a:hover {
   color: #3c89c8;
   -webkit-transition: all 0.5s ease;
@@ -1182,18 +1183,18 @@ ul.footer li a:hover {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-/* line 989, ../sass/base.scss */
+/* line 990, ../sass/base.scss */
 ul.footer li#address {
   text-align: right;
   float: right;
   font-size: 0.85em;
 }
-/* line 993, ../sass/base.scss */
+/* line 994, ../sass/base.scss */
 ul.footer li#address p {
   color: #bbb;
 }
 
-/* line 999, ../sass/base.scss */
+/* line 1000, ../sass/base.scss */
 div.clear {
   clear: both;
 }

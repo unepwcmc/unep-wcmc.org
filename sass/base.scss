@@ -358,13 +358,14 @@ div#nav{
 		margin: auto;
 	  list-style: none;
 		li{
-			padding: 0 0 0 2%;
+			padding: 2.5% 0 0 2%;
 			float: right;
 			a {
 				font-family: "museo-sans", Helvetica, Arial, sans-serif;
-				font-size: 0.8em;
+				font-size: 0.75em;
+				font-weight: 300;
 				text-decoration: none;
-				color: rgba(255,255,255, 0.45);
+				color: rgba(255,255,255, 0.6);
 				text-transform: uppercase;
 				&:hover{
 					color: rgba(255,255,255, 0.9);
@@ -381,12 +382,12 @@ div#nav{
 		}
 		li#home_link{
 			float: left;
-			padding-left: 0;
+			width: 40%;
+			padding: 0;
 			a {
 				padding: 0;
 				img {
-					max-width: 45%;
-					margin-bottom: -2%;
+					max-width: 100%;
 					opacity: 0.9;
 				}
 			}
