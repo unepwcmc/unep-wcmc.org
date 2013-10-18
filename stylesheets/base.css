@@ -281,8 +281,8 @@ div.hero#species {
 }
 /* line 196, ../sass/base.scss */
 div.hero#species .heading {
-  width: 55%;
-  margin-left: 5%;
+  width: 45%;
+  margin-left: 15%;
   text-align: left;
 }
 
@@ -966,28 +966,33 @@ ul#fields li span.badge i.icon-caret-down, ul#content li span.badge i.icon-caret
   font-size: 1.5em;
 }
 
-/* line 812, ../sass/base.scss */
+/* line 814, ../sass/base.scss */
+ul#fields.staff_filters li.active, ul#fields.staff_filters li:hover {
+  border-left: 5px solid #4c9cda;
+}
+
+/* line 820, ../sass/base.scss */
 ul#sorting {
   border: 1px solid #eee;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 817, ../sass/base.scss */
+/* line 825, ../sass/base.scss */
 ul#sorting li {
   padding: 3% 5%;
   margin: 0;
 }
-/* line 820, ../sass/base.scss */
+/* line 828, ../sass/base.scss */
 ul#sorting li:hover {
   padding-left: 5%;
 }
-/* line 823, ../sass/base.scss */
+/* line 831, ../sass/base.scss */
 ul#sorting li span.badge {
   margin-top: -7px;
 }
 
-/* line 829, ../sass/base.scss */
+/* line 837, ../sass/base.scss */
 div.data_policy {
   margin-top: 40px;
   background: #f7f7f7;
@@ -996,25 +1001,25 @@ div.data_policy {
   border-radius: 3px;
   padding: 5%;
 }
-/* line 836, ../sass/base.scss */
+/* line 844, ../sass/base.scss */
 div.data_policy h3 {
   color: #5e5a5c;
   text-align: left;
   margin-top: 0;
   margin-bottom: 3%;
 }
-/* line 842, ../sass/base.scss */
+/* line 850, ../sass/base.scss */
 div.data_policy p {
   font-size: 0.85em;
   margin-bottom: 0;
 }
 
-/* line 850, ../sass/base.scss */
+/* line 858, ../sass/base.scss */
 form section ul {
   list-style-type: disc;
   padding: 2em 0 2em 1.25em;
 }
-/* line 853, ../sass/base.scss */
+/* line 861, ../sass/base.scss */
 form section ul li {
   font-size: 1.1em;
   margin-bottom: 0.75em;
@@ -1022,7 +1027,7 @@ form section ul li {
   font-weight: 300;
   color: #5e5a5c;
 }
-/* line 861, ../sass/base.scss */
+/* line 869, ../sass/base.scss */
 form section input.short {
   width: 50%;
   height: 2em;
@@ -1037,7 +1042,7 @@ form section input.short {
   color: #5e5a5c;
   padding: 0 0.5em;
 }
-/* line 875, ../sass/base.scss */
+/* line 883, ../sass/base.scss */
 form section textarea {
   width: 100%;
   margin: 0.5em 0 1em 0;
@@ -1052,7 +1057,7 @@ form section textarea {
   padding: 0.5em;
 }
 
-/* line 891, ../sass/base.scss */
+/* line 899, ../sass/base.scss */
 div#footer_container {
   width: 100%;
   position: absolute;
@@ -1065,12 +1070,12 @@ div#footer_container {
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* line 903, ../sass/base.scss */
+/* line 911, ../sass/base.scss */
 ul.footer {
   margin: auto;
   list-style: none;
 }
-/* line 907, ../sass/base.scss */
+/* line 915, ../sass/base.scss */
 ul.footer li a {
   font-size: 0.8em;
   font-family: "museo-sans", Helvetica, Arial, sans-serif;
@@ -1078,7 +1083,7 @@ ul.footer li a {
   color: #bbb;
   text-transform: uppercase;
 }
-/* line 913, ../sass/base.scss */
+/* line 921, ../sass/base.scss */
 ul.footer li a:hover {
   color: #4c9cda;
   -webkit-transition: all 0.5s ease;
@@ -1087,11 +1092,11 @@ ul.footer li a:hover {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-/* line 923, ../sass/base.scss */
+/* line 931, ../sass/base.scss */
 ul.footer li#address {
   font-size: 0.85em;
 }
-/* line 925, ../sass/base.scss */
+/* line 933, ../sass/base.scss */
 ul.footer li#address p {
   color: #bbb;
 }

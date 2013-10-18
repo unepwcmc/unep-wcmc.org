@@ -130,14 +130,21 @@ div#nav{
   }
 }
 
-div.hero, .banner{
-  margin: 50px 0;
+div.hero{
+  margin: 0 0 70px 0;
+}
+
+div.banner {
+  margin: 0 0 70px 0;
+  img {
+    width: 100%;
+  }
 }
 
 div.heading{
-  width: 70%;
+  width: 60%;
   margin: auto;
-  padding: 4em 0;
+  padding: 100px 0;
   text-align: center;
 	h1{
 		margin-bottom: 0;

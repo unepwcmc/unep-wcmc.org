@@ -156,29 +156,38 @@ div#nav .nav-container ul li {
 }
 
 /* line 133, ../sass/large.scss */
-div.hero, .banner {
-  margin: 50px 0;
+div.hero {
+  margin: 0 0 70px 0;
 }
 
 /* line 137, ../sass/large.scss */
+div.banner {
+  margin: 0 0 70px 0;
+}
+/* line 139, ../sass/large.scss */
+div.banner img {
+  width: 100%;
+}
+
+/* line 144, ../sass/large.scss */
 div.heading {
-  width: 70%;
+  width: 60%;
   margin: auto;
-  padding: 4em 0;
+  padding: 100px 0;
   text-align: center;
 }
-/* line 142, ../sass/large.scss */
+/* line 149, ../sass/large.scss */
 div.heading h1 {
   margin-bottom: 0;
   font-size: 2.5em;
   line-height: 1.25em;
   font-weight: bold;
 }
-/* line 147, ../sass/large.scss */
+/* line 154, ../sass/large.scss */
 div.heading h1#featured {
   font-size: 2em;
 }
-/* line 151, ../sass/large.scss */
+/* line 158, ../sass/large.scss */
 div.heading h2 {
   font-weight: 300;
   margin: 0.5em 0;
@@ -186,37 +195,37 @@ div.heading h2 {
   line-height: 1.4em;
   font-family: "museo-sans", Helvetica, Arial, sans-serif;
 }
-/* line 158, ../sass/large.scss */
+/* line 165, ../sass/large.scss */
 div.heading h1, div.heading h2 {
   padding: 1% 0;
   color: #fff;
   text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* line 164, ../sass/large.scss */
+/* line 171, ../sass/large.scss */
 div#welcome {
   margin: auto;
   margin-bottom: 60px;
   width: 90%;
 }
 
-/* line 170, ../sass/large.scss */
+/* line 177, ../sass/large.scss */
 div#footer_container {
   padding: 2% 0;
   margin-top: 6em;
 }
 
-/* line 175, ../sass/large.scss */
+/* line 182, ../sass/large.scss */
 ul.footer {
   width: 70%;
   margin: auto;
 }
-/* line 178, ../sass/large.scss */
+/* line 185, ../sass/large.scss */
 ul.footer li {
   padding: 0 1%;
   float: left;
 }
-/* line 182, ../sass/large.scss */
+/* line 189, ../sass/large.scss */
 ul.footer li#address {
   text-align: right;
   float: right;

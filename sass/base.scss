@@ -194,8 +194,8 @@ div.hero{
 		background: url('../imgs/project_10.jpg') no-repeat center;
 		background-size: 100%;
 		.heading {
-		  width: 55%;
-		  margin-left: 5%;
+		  width: 45%;
+		  margin-left: 15%;
 		  text-align: left;
 		}
 	}
@@ -807,6 +807,14 @@ ul#fields, ul#content, ul#sorting, ul#programmes {
 			}
 		}
 	}
+}
+
+ul#fields.staff_filters {
+  li {
+    &.active, &:hover {
+      border-left: 5px solid $blue;
+    }
+  }
 }
 
 ul#sorting {
