@@ -1,89 +1,232 @@
-/* line 1, ../sass/large.scss */
-div#container {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  justify-content: space-around;
+/* line 7, ../sass/large.scss */
+#container {
+  width: 70%;
   margin: auto;
+  overflow: hidden;
 }
-/* line 10, ../sass/large.scss */
-div#container .section_container {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  justify-content: space-around;
+/* line 11, ../sass/large.scss */
+#container img {
+  max-width: 100%;
 }
-/* line 15, ../sass/large.scss */
-div#container .section_container#working {
-  height: none;
+/* line 13, ../sass/large.scss */
+#container img.areas_work {
+  display: inline-block;
+  float: right;
+  max-width: 50%;
+  margin: 0 0 20px 20px;
+  padding: 0;
 }
-/* line 18, ../sass/large.scss */
-div#container .section_container .section {
-  width: 33%;
-}
-/* line 20, ../sass/large.scss */
-div#container .section_container .section.employee, div#container .section_container .section.partner {
-  width: 25%;
+/* line 21, ../sass/large.scss */
+#container .section-row {
+  overflow: hidden;
 }
 /* line 23, ../sass/large.scss */
-div#container .section_container .section.partner img#unep {
-  width: 80%;
-}
-/* line 28, ../sass/large.scss */
-div#container div.section {
-  width: 33%;
-  padding: 1% 2%;
+#container .section-row:last-child {
   margin: 0;
 }
-/* line 32, ../sass/large.scss */
-div#container div.section.featured_project {
-  width: 50%;
+/* line 26, ../sass/large.scss */
+#container .section-row section {
+  width: 30.3%;
+  margin-right: 4.5%;
+  float: left;
 }
-/* line 35, ../sass/large.scss */
-div#container div.section.job_related {
-  width: 28%;
-  padding: 5.25% 0 0 0;
-  margin-left: 5%;
+/* line 30, ../sass/large.scss */
+#container .section-row section.column-1-4 {
+  width: 23.5%;
+  margin-right: 2%;
 }
-/* line 39, ../sass/large.scss */
-div#container div.section.job_related .team_job {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  justify-content: space-around;
-}
-/* line 44, ../sass/large.scss */
-div#container div.section.job_related .team_job .employee {
+/* line 34, ../sass/large.scss */
+#container .section-row section.column-1-2 {
   width: 47.5%;
+  margin-right: 5%;
 }
-/* line 50, ../sass/large.scss */
-div#container .employee_pic {
-  width: 30%;
-  margin-right: 3%;
+/* line 37, ../sass/large.scss */
+#container .section-row section.column-1-2 ul.partners_logos {
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+/* line 40, ../sass/large.scss */
+#container .section-row section.column-1-2 ul.partners_logos li {
+  display: inline-block;
+  margin-right: 5%;
+}
+/* line 45, ../sass/large.scss */
+#container .section-row section.column-1-2 ul.project_team {
+  overflow: hidden;
+  margin-top: 20px;
+}
+/* line 48, ../sass/large.scss */
+#container .section-row section.column-1-2 ul.project_team li {
+  float: left;
+  width: 30.3%;
+  margin-right: 4.5%;
+}
+/* line 52, ../sass/large.scss */
+#container .section-row section.column-1-2 ul.project_team li:last-child {
+  margin-right: 0;
+}
+/* line 58, ../sass/large.scss */
+#container .section-row section#twitter {
+  padding: 1.5%;
+}
+/* line 60, ../sass/large.scss */
+#container .section-row section#twitter #top_twitter {
+  width: 100%;
+  padding: 2% 0 5% 0;
+}
+/* line 63, ../sass/large.scss */
+#container .section-row section#twitter #top_twitter div.button {
+  width: 120px;
+  margin-right: 1.75%;
+}
+/* line 68, ../sass/large.scss */
+#container .section-row section#twitter .tweet {
+  padding: 3% 0;
+}
+/* line 70, ../sass/large.scss */
+#container .section-row section#twitter .tweet small {
+  margin-bottom: 3%;
+}
+/* line 75, ../sass/large.scss */
+#container .section-row section:last-child {
+  margin-right: 0;
+}
+/* line 80, ../sass/large.scss */
+#container .column-1-3 {
+  width: 35%;
+  float: left;
+  padding-right: 9%;
+}
+/* line 84, ../sass/large.scss */
+#container .column-1-3.right {
+  float: right;
+  padding: 0 0 0 9%;
+}
+/* line 88, ../sass/large.scss */
+#container .column-1-3 img.employee_pic {
+  width: 100%;
+  margin-top: 30px;
+}
+/* line 92, ../sass/large.scss */
+#container .column-1-3 img.partner_logo {
+  width: 70%;
+  margin-top: 30px;
+}
+/* line 97, ../sass/large.scss */
+#container .column-2-3 {
+  width: 65%;
+  float: right;
+}
+/* line 100, ../sass/large.scss */
+#container .column-2-3.left {
+  float: left;
+}
+
+/* line 106, ../sass/large.scss */
+div#nav {
+  width: 100%;
+  padding: 25px 0;
+}
+/* line 109, ../sass/large.scss */
+div#nav .nav-container {
+  overflow: hidden;
+}
+/* line 111, ../sass/large.scss */
+div#nav .nav-container a#home_link {
   padding: 0;
+  float: left;
+  padding-left: 0;
+  width: 35%;
 }
-/* line 54, ../sass/large.scss */
-div#container .employee_pic img {
+/* line 116, ../sass/large.scss */
+div#nav .nav-container a#home_link img {
+  max-width: 100%;
+}
+/* line 120, ../sass/large.scss */
+div#nav .nav-container ul {
+  width: 65%;
+  margin: auto;
+  float: right;
+  overflow: hidden;
+}
+/* line 125, ../sass/large.scss */
+div#nav .nav-container ul li {
+  padding: 3.25% 0 0 2%;
+  float: right;
+}
+
+/* line 133, ../sass/large.scss */
+div.hero {
+  margin: 0 0 70px 0;
+}
+
+/* line 137, ../sass/large.scss */
+div.banner {
+  margin: 0 0 70px 0;
+}
+/* line 139, ../sass/large.scss */
+div.banner img {
   width: 100%;
 }
 
-/* line 59, ../sass/large.scss */
-.back_nav {
-  width: 70%;
-  margin: 2em auto;
+/* line 144, ../sass/large.scss */
+div.heading {
+  width: 60%;
+  margin: auto;
+  padding: 100px 0;
+  text-align: center;
+}
+/* line 149, ../sass/large.scss */
+div.heading h1 {
+  margin-bottom: 0;
+  font-size: 2.5em;
+  line-height: 1.25em;
+  font-weight: bold;
+}
+/* line 154, ../sass/large.scss */
+div.heading h1#featured {
+  font-size: 2em;
+}
+/* line 158, ../sass/large.scss */
+div.heading h2 {
+  font-weight: 300;
+  margin: 0.5em 0;
+  font-size: 1.25em;
+  line-height: 1.4em;
+  font-family: "museo-sans", Helvetica, Arial, sans-serif;
+}
+/* line 165, ../sass/large.scss */
+div.heading h1, div.heading h2 {
+  padding: 1% 0;
+  color: #fff;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* line 64, ../sass/large.scss */
-#welcome_container {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  justify-content: space-around;
+/* line 171, ../sass/large.scss */
+div#welcome {
+  margin: auto;
+  margin-bottom: 60px;
+  width: 90%;
 }
-/* line 69, ../sass/large.scss */
-#welcome_container .section {
-  width: 50%;
+
+/* line 177, ../sass/large.scss */
+div#footer_container {
+  padding: 2% 0;
+  margin-top: 6em;
+}
+
+/* line 182, ../sass/large.scss */
+ul.footer {
+  width: 70%;
+  margin: auto;
+}
+/* line 185, ../sass/large.scss */
+ul.footer li {
+  padding: 0 1%;
+  float: left;
+}
+/* line 189, ../sass/large.scss */
+ul.footer li#address {
+  text-align: right;
+  float: right;
 }
