@@ -295,12 +295,7 @@ div.button {
     &#staff {
       h2 {
         padding-bottom: 8px;
-        &#programme_1 {
-          border-bottom: 3px solid #59B200;
-        }
-        &#programme_2 {
-          border-bottom: 3px solid #FFC926;
-        }
+        border-bottom: 3px solid $blue;
       }
     }
     &#job_description {
@@ -569,6 +564,9 @@ div.button {
       }
       a img {
         margin-bottom: 20px;
+      }
+      h2.partner, p.partner {
+        text-align: center;
       }
     }
     &.column-1-2 {
