@@ -1,6 +1,6 @@
 /* line 7, ../sass/large.scss */
 #container {
-  width: 70%;
+  min-width: 968px;
   margin: auto;
   overflow: hidden;
 }
