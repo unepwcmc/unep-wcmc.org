@@ -210,22 +210,32 @@ div#welcome {
 }
 
 /* line 177, ../sass/large.scss */
+div.back_nav {
+  margin-bottom: 30px;
+}
+
+/* line 181, ../sass/large.scss */
+section.save-link {
+  margin-top: 30px;
+}
+
+/* line 185, ../sass/large.scss */
 div#footer_container {
   padding: 2% 0;
   margin-top: 6em;
 }
 
-/* line 182, ../sass/large.scss */
+/* line 190, ../sass/large.scss */
 ul.footer {
   width: 70%;
   margin: auto;
 }
-/* line 185, ../sass/large.scss */
+/* line 193, ../sass/large.scss */
 ul.footer li {
   padding: 0 1%;
   float: left;
 }
-/* line 189, ../sass/large.scss */
+/* line 197, ../sass/large.scss */
 ul.footer li#address {
   text-align: right;
   float: right;

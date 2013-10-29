@@ -43,7 +43,7 @@ h2{
     font-size: 1.4em;
     &#featured_projects {
       font-size: 1.6em;
-      padding: 1.75em 0 1em 0;
+      padding: 1.7em 0 1em 0;
       border-top: 1px solid $grey;
     }
 	}
@@ -226,10 +226,6 @@ div.heading{
 }
 
 div.button {
-
-}
-
-div.button {
   text-align: center;
 	display: block;
 	padding: 0.5em 1em;
@@ -283,10 +279,17 @@ div.button {
 	}
 }
 
+div#button-row {
+    margin-top: 1em;
+    div.button#more_projects {
+      margin: auto;
+      width: 290px;
+    }
+}
+
 
 #container {
   width: 968px;
-  width: 70%;
   margin: auto;
   img {
     max-width: 100%;
@@ -669,6 +672,7 @@ div.button {
 ul.subnav {
   border-left: 3px solid $blue;
   padding-left: 5%;
+  margin-top: 15px;
   li{
 		padding-bottom: 1em;
 		&:last-child {
