@@ -1,6 +1,6 @@
 /* line 7, ../sass/large.scss */
 #container {
-  min-width: 968px;
+  width: 70%;
   margin: auto;
   overflow: hidden;
 }
@@ -17,177 +17,195 @@
   padding: 0;
 }
 /* line 21, ../sass/large.scss */
-#container .section-row {
-  overflow: hidden;
-}
-/* line 23, ../sass/large.scss */
-#container .section-row:last-child {
-  margin: 0;
-}
-/* line 26, ../sass/large.scss */
-#container .section-row section {
+#container section.group {
   width: 30.3%;
   margin-right: 4.5%;
-  float: left;
+}
+/* line 24, ../sass/large.scss */
+#container section.group:nth-child(2n) {
+  margin-right: 4.5%;
+}
+/* line 27, ../sass/large.scss */
+#container section.group:nth-child(2n+3) {
+  clear: none;
 }
 /* line 30, ../sass/large.scss */
-#container .section-row section.column-1-4 {
+#container section.group:nth-child(3n) {
+  margin-right: 0;
+}
+/* line 33, ../sass/large.scss */
+#container section.group:nth-child(3n+4) {
+  clear: left;
+}
+/* line 36, ../sass/large.scss */
+#container section.group.column-1-4 {
   width: 23.5%;
   margin-right: 2%;
 }
-/* line 34, ../sass/large.scss */
-#container .section-row section.column-1-2 {
+/* line 40, ../sass/large.scss */
+#container section.group.column-1-2 {
   width: 47.5%;
   margin-right: 5%;
 }
-/* line 37, ../sass/large.scss */
-#container .section-row section.column-1-2 ul.partners_logos {
+/* line 43, ../sass/large.scss */
+#container section.group.column-1-2 ul.partners_logos {
   overflow: hidden;
   margin-bottom: 40px;
 }
-/* line 40, ../sass/large.scss */
-#container .section-row section.column-1-2 ul.partners_logos li {
+/* line 46, ../sass/large.scss */
+#container section.group.column-1-2 ul.partners_logos li {
   display: inline-block;
   margin-right: 5%;
 }
-/* line 45, ../sass/large.scss */
-#container .section-row section.column-1-2 ul.project_team {
+/* line 51, ../sass/large.scss */
+#container section.group.column-1-2 ul.project_team {
   overflow: hidden;
   margin-top: 20px;
 }
-/* line 48, ../sass/large.scss */
-#container .section-row section.column-1-2 ul.project_team li {
+/* line 54, ../sass/large.scss */
+#container section.group.column-1-2 ul.project_team li {
   float: left;
   width: 30.3%;
   margin-right: 4.5%;
 }
-/* line 52, ../sass/large.scss */
-#container .section-row section.column-1-2 ul.project_team li:last-child {
+/* line 58, ../sass/large.scss */
+#container section.group.column-1-2 ul.project_team li:last-child {
   margin-right: 0;
 }
-/* line 58, ../sass/large.scss */
-#container .section-row section#twitter {
+/* line 64, ../sass/large.scss */
+#container section.group#twitter {
   padding: 1.5%;
 }
-/* line 60, ../sass/large.scss */
-#container .section-row section#twitter #top_twitter {
+/* line 66, ../sass/large.scss */
+#container section.group#twitter #top_twitter {
   width: 100%;
   padding: 2% 0 5% 0;
 }
-/* line 63, ../sass/large.scss */
-#container .section-row section#twitter #top_twitter div.button {
+/* line 69, ../sass/large.scss */
+#container section.group#twitter #top_twitter div.button {
   width: 120px;
   margin-right: 1.75%;
 }
-/* line 68, ../sass/large.scss */
-#container .section-row section#twitter .tweet {
+/* line 74, ../sass/large.scss */
+#container section.group#twitter .tweet {
   padding: 3% 0;
 }
-/* line 70, ../sass/large.scss */
-#container .section-row section#twitter .tweet small {
+/* line 76, ../sass/large.scss */
+#container section.group#twitter .tweet small {
   margin-bottom: 3%;
 }
-/* line 75, ../sass/large.scss */
-#container .section-row section:last-child {
+/* line 81, ../sass/large.scss */
+#container section.group:last-child {
   margin-right: 0;
 }
-/* line 80, ../sass/large.scss */
+/* line 85, ../sass/large.scss */
 #container .column-1-3 {
   width: 35%;
   float: left;
   padding-right: 9%;
 }
-/* line 84, ../sass/large.scss */
+/* line 89, ../sass/large.scss */
 #container .column-1-3.right {
   float: right;
   padding: 0 0 0 9%;
 }
-/* line 88, ../sass/large.scss */
+/* line 93, ../sass/large.scss */
 #container .column-1-3 img.employee_pic {
   width: 100%;
   margin-top: 30px;
 }
-/* line 92, ../sass/large.scss */
+/* line 97, ../sass/large.scss */
 #container .column-1-3 img.partner_logo {
   width: 70%;
   margin-top: 30px;
 }
-/* line 97, ../sass/large.scss */
+/* line 102, ../sass/large.scss */
 #container .column-2-3 {
   width: 65%;
   float: right;
 }
-/* line 100, ../sass/large.scss */
+/* line 105, ../sass/large.scss */
 #container .column-2-3.left {
   float: left;
 }
 
-/* line 106, ../sass/large.scss */
+/* line 111, ../sass/large.scss */
 div#nav {
   width: 100%;
   padding: 25px 0;
 }
-/* line 109, ../sass/large.scss */
+/* line 114, ../sass/large.scss */
 div#nav .nav-container {
   overflow: hidden;
 }
-/* line 111, ../sass/large.scss */
+/* line 116, ../sass/large.scss */
 div#nav .nav-container a#home_link {
   padding: 0;
   float: left;
   padding-left: 0;
   width: 35%;
 }
-/* line 116, ../sass/large.scss */
+/* line 121, ../sass/large.scss */
 div#nav .nav-container a#home_link img {
   max-width: 100%;
 }
-/* line 120, ../sass/large.scss */
+/* line 125, ../sass/large.scss */
 div#nav .nav-container ul {
   width: 65%;
   margin: auto;
   float: right;
   overflow: hidden;
 }
-/* line 125, ../sass/large.scss */
+/* line 130, ../sass/large.scss */
 div#nav .nav-container ul li {
   padding: 3.25% 0 0 2%;
   float: right;
 }
 
-/* line 133, ../sass/large.scss */
-div.hero {
-  margin: 0 0 70px 0;
-}
-
-/* line 137, ../sass/large.scss */
+/* line 138, ../sass/large.scss */
 div.banner {
   margin: 0 0 70px 0;
 }
-/* line 139, ../sass/large.scss */
+/* line 140, ../sass/large.scss */
 div.banner img {
   width: 100%;
 }
 
-/* line 144, ../sass/large.scss */
+/* line 145, ../sass/large.scss */
+div#container.other_projects {
+  padding-bottom: 6em;
+}
+/* line 147, ../sass/large.scss */
+div#container.other_projects section h2 {
+  margin: 0.75em 0;
+}
+/* line 150, ../sass/large.scss */
+div#container.other_projects .section-group {
+  width: 70%;
+  margin: auto;
+}
+
+/* line 156, ../sass/large.scss */
 div.heading {
   width: 60%;
   margin: auto;
   padding: 100px 0;
   text-align: center;
 }
-/* line 149, ../sass/large.scss */
+/* line 161, ../sass/large.scss */
 div.heading h1 {
   margin-bottom: 0;
   font-size: 2.5em;
   line-height: 1.25em;
   font-weight: bold;
+  display: inline-block;
+  width: 80%;
 }
-/* line 154, ../sass/large.scss */
+/* line 168, ../sass/large.scss */
 div.heading h1#featured {
   font-size: 2em;
 }
-/* line 158, ../sass/large.scss */
+/* line 172, ../sass/large.scss */
 div.heading h2 {
   font-weight: 300;
   margin: 0.5em 0;
@@ -195,47 +213,52 @@ div.heading h2 {
   line-height: 1.4em;
   font-family: "museo-sans", Helvetica, Arial, sans-serif;
 }
-/* line 165, ../sass/large.scss */
+/* line 179, ../sass/large.scss */
 div.heading h1, div.heading h2 {
   padding: 1% 0;
   color: #fff;
   text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* line 171, ../sass/large.scss */
+/* line 185, ../sass/large.scss */
 div#welcome {
   margin: auto;
   margin-bottom: 60px;
   width: 90%;
 }
 
-/* line 177, ../sass/large.scss */
+/* line 191, ../sass/large.scss */
 div.back_nav {
   margin-bottom: 30px;
 }
 
-/* line 181, ../sass/large.scss */
+/* line 195, ../sass/large.scss */
 section.save-link {
   margin-top: 30px;
 }
 
-/* line 185, ../sass/large.scss */
+/* line 199, ../sass/large.scss */
 div#footer_container {
   padding: 2% 0;
   margin-top: 6em;
 }
 
-/* line 190, ../sass/large.scss */
+/* line 204, ../sass/large.scss */
+div#footer_container.featured {
+  margin-top: 0;
+}
+
+/* line 208, ../sass/large.scss */
 ul.footer {
   width: 70%;
   margin: auto;
 }
-/* line 193, ../sass/large.scss */
+/* line 211, ../sass/large.scss */
 ul.footer li {
   padding: 0 1%;
   float: left;
 }
-/* line 197, ../sass/large.scss */
+/* line 215, ../sass/large.scss */
 ul.footer li#address {
   text-align: right;
   float: right;

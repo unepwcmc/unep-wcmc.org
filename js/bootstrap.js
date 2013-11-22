@@ -1219,7 +1219,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
         .css({ top: 0, left: 0, display: 'block' })
         .addClass(placement)
 
-      this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)
+      this.options#container ? $tip.appendTo(this.options#container) : $tip.insertAfter(this.$element)
 
       var pos          = this.getPosition()
       var actualWidth  = $tip[0].offsetWidth
@@ -1230,9 +1230,9 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
         var orgPlacement = placement
         var docScroll    = document.documentElement.scrollTop || document.body.scrollTop
-        var parentWidth  = this.options.container == 'body' ? window.innerWidth  : $parent.outerWidth()
-        var parentHeight = this.options.container == 'body' ? window.innerHeight : $parent.outerHeight()
-        var parentLeft   = this.options.container == 'body' ? 0 : $parent.offset().left
+        var parentWidth  = this.options#container == 'body' ? window.innerWidth  : $parent.outerWidth()
+        var parentHeight = this.options#container == 'body' ? window.innerHeight : $parent.outerHeight()
+        var parentLeft   = this.options#container == 'body' ? 0 : $parent.offset().left
 
         placement = placement == 'bottom' && pos.top   + pos.height  + actualHeight - docScroll > parentHeight  ? 'top'    :
                     placement == 'top'    && pos.top   - docScroll   - actualHeight < 0                         ? 'bottom' :
