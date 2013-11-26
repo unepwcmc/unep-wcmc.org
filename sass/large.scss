@@ -86,6 +86,7 @@ $grey_text: #5e5a5c;
     width: 35%;
     float: left;
     padding-right: 9%;
+    margin-right: 0;
     &.right {
       float: right;
       padding: 0 0 0 9%;
@@ -113,6 +114,7 @@ div#nav{
   padding: 25px 0;
   .nav-container {
     overflow: hidden;
+    width: 70%;
     a#home_link {
   		padding: 0;
   		float: left;
@@ -154,7 +156,7 @@ div#container.other_projects {
 }
 
 div.heading{
-  width: 60%;
+  width: 68%;
   margin: auto;
   padding: 100px 0;
   text-align: center;
@@ -216,4 +218,8 @@ ul.footer{
 		text-align: right;
 		float: right;
 	}
+}
+
+.nav-container {
+  width: 70% !important;
 }

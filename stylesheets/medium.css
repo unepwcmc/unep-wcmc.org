@@ -132,23 +132,23 @@ div#nav {
 /* line 112, ../sass/medium.scss */
 div#nav .nav-container {
   overflow: hidden;
+  width: 90%;
 }
-/* line 114, ../sass/medium.scss */
+/* line 115, ../sass/medium.scss */
 div#nav .nav-container a#home_link {
   padding: 0;
   float: left;
   padding-left: 0;
   width: 35%;
 }
-/* line 119, ../sass/medium.scss */
+/* line 120, ../sass/medium.scss */
 div#nav .nav-container a#home_link img {
   max-width: 100%;
 }
-/* line 123, ../sass/medium.scss */
+/* line 124, ../sass/medium.scss */
 div#nav .nav-container ul {
   width: 65%;
   margin: auto;
-  float: right;
   overflow: hidden;
 }
 /* line 128, ../sass/medium.scss */
@@ -168,7 +168,7 @@ div.banner img {
 
 /* line 143, ../sass/medium.scss */
 div.heading {
-  width: 60%;
+  width: 68%;
   margin: auto;
   padding: 100px 0;
   text-align: center;

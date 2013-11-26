@@ -111,6 +111,7 @@ div#nav{
   padding: 25px 0;
   .nav-container {
     overflow: hidden;
+    width: 90%;
     a#home_link {
   		padding: 0;
   		float: left;
@@ -123,7 +124,6 @@ div#nav{
   	ul{
   		width: 65%;
   		margin: auto;
-  		float: right;
   	  overflow: hidden;
   		li{
   			padding: 3.25% 0 0 2%;
@@ -141,7 +141,7 @@ div.banner {
 }
 
 div.heading{
-  width: 60%;
+  width: 68%;
   margin: auto;
   padding: 100px 0;
   text-align: center;
