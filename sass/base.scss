@@ -22,38 +22,44 @@ body {
   box-sizing: border-box;
 }
 
+#container {
+  width: 90%;
+  section {
+    float: none;
+  }
+}
+
 h1, h2, h3, h5 {
 	font-family: "museo-slab", Helvetica, Arial, sans-serif;
 }
 
 h1{
-	font-size: 2em;
+	font-size: 2.25em;
 	line-height: 1.5em;
 	margin: 0 0 0.75em 0;
 	color: $grey_text;
 }
 
 h2{
-	font-weight: 500;
+	font-weight: 700;
 	font-size: 1.2em;
 	line-height: 1.3em;
 	margin: 0.75em 0;
-	color: #333;
+	color: $grey_text;
 	&.large_subheading {
     font-size: 1.4em;
     &#featured_projects {
       font-size: 1.6em;
-      padding: 1.75em 0 1em 0;
-      border-top: 1px solid $grey;
+      padding: 1.7em 0 1em 0;
     }
 	}
 }
 
 h3{
-	font-weight: bold;
+	font-weight: 700;
 	font-size: 1em;
 	line-height: 1.25em;
-	margin: 0.75em 0;
+	margin: 0.75em 0 0.3em 0;
 	color: rgba(0,0,0,0.3);
 	&#news {
 	  width: 100%;
@@ -90,12 +96,17 @@ h5{
 	margin-bottom: 2%;
 }
 
-p {
-	font-size: 1.1em;
+address, p {
+	font-size: 1em;
 	margin-bottom: 0.75em;
 	line-height: 1.5em;
 	font-weight: 300;
 	color: $grey_text;
+	i {
+	  display: inline-block;
+	  font-size: 0.85em;
+	  padding-right: 5px;
+	}
 }
 
 a {
@@ -108,6 +119,7 @@ a {
 		-ms-transition: all 0.5s ease;
 		-o-transition: all 0.5s ease;
 		transition: all 0.5s ease;
+		text-decoration: underline;
   }
 }
 
@@ -131,7 +143,7 @@ div#nav{
   -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   div.nav-container {
-    width: 70%;
+    width: 90%;
     margin: auto;
     a#home_link {
       display: block;
@@ -201,6 +213,15 @@ div.hero{
 	}
 }
 
+div#container.other_projects {
+  background-color: #f7f7f7;
+  width: 100%;
+  h2 {
+    width: 70%;
+    margin: auto;
+  }
+}
+
 div.heading{
 	h1{
 		margin-bottom: 0;
@@ -223,10 +244,6 @@ div.heading{
 		color: #fff;
 		text-shadow: 0 2px 15px rgba(0,0,0,0.3);
 	}
-}
-
-div.button {
-
 }
 
 div.button {
@@ -283,10 +300,16 @@ div.button {
 	}
 }
 
+div#button-row {
+    margin-top: 1em;
+    div.button#more_projects {
+      margin: auto;
+      width: 290px;
+    }
+}
+
 
 #container {
-  width: 968px;
-  width: 70%;
   margin: auto;
   img {
     max-width: 100%;
@@ -297,6 +320,11 @@ div.button {
       h2 {
         padding-bottom: 8px;
         border-bottom: 3px solid $blue;
+      }
+    }
+    &#contact-page {
+      h2 {
+        margin-top: 30px;
       }
     }
     &#job_description {
@@ -553,84 +581,82 @@ div.button {
       padding-bottom: 50px;
     }
   }
-  .section-row {
-    section {
-    &.column-1-4{
-      p {
-        font-size: 0.85em;
-        line-height: 0.7em;
-      }
-      h4 {
-          padding: 0 0 0.5em 0;
-      }
-      a img {
-        margin-bottom: 20px;
-      }
-      h2.partner, p.partner {
-        text-align: center;
-      }
+  section {
+  &.column-1-4{
+    p {
+      font-size: 0.85em;
+      line-height: 0.7em;
     }
-    &.column-1-2 {
-         ul.project_team {
-    		    overflow: hidden;
-    		    margin-top: 20px;
-    		    li {
-    		      img {
-    		        margin-bottom: 1em;
-    		      }
-              p {
-                font-size: 0.85em;
-                line-height: 0.7em;
-              }
-              h4 {
-                  padding: 0 0 0.5em 0;
-              }
+    h4 {
+        padding: 0 0 0.5em 0;
+    }
+    a img {
+      margin-bottom: 20px;
+    }
+    h2.partner, p.partner {
+      text-align: center;
+    }
+  }
+  &.column-1-2 {
+       ul.project_team {
+  		    overflow: hidden;
+  		    margin-top: 20px;
+  		    li {
+  		      img {
+  		        margin-bottom: 1em;
+  		      }
+            p {
+              font-size: 0.85em;
+              line-height: 0.7em;
             }
-    		  }
-      }
-      &#twitter{
-    		background: $grey;
-    		#top_twitter{
-    			width: 100%;
-    			padding: 2% 0 5% 0;
-    			img{
-    				display: block;
-    				max-width: 19%;
-    				opacity: 0.3;
-    				float: left;
-    			}
-    			div.button{
-    				width: 120px;
-    				float: right;
-    				margin-right: 1.75%;
-    				border: 1px solid rgba(0,0,0,0.2);
-    				p, a {
-    					color: #999;
-    					text-decoration: none;
-    				}
-    				border: 2% 5%;
-    				box-shadow: none;
-    				&:hover {
-    					a{
-    						color: #fff;						
-    					}
-    					border: 1px solid $blue;
-    					-webkit-transition: all 0.5s ease;
-    					-moz-transition: all 0.5s ease;
-    					-ms-transition: all 0.5s ease;
-    					-o-transition: all 0.5s ease;
-    					transition: all 0.5s ease;
-    				}
-    			}
-    		}
-    		.tweet{
-    			padding: 3% 0;
-    			small{
-    				margin-bottom: 3%;
-    			}
-    		}
-    	}
+            h4 {
+                padding: 0 0 0.5em 0;
+            }
+          }
+  		  }
     }
+    &#twitter{
+  		background: $grey;
+  		#top_twitter{
+  			width: 100%;
+  			padding: 2% 0 5% 0;
+  			img{
+  				display: block;
+  				max-width: 19%;
+  				opacity: 0.3;
+  				float: left;
+  			}
+  			div.button{
+  				width: 120px;
+  				float: right;
+  				margin-right: 1.75%;
+  				border: 1px solid rgba(0,0,0,0.2);
+  				p, a {
+  					color: #999;
+  					text-decoration: none;
+  				}
+  				border: 2% 5%;
+  				box-shadow: none;
+  				&:hover {
+  					a{
+  						color: #fff;						
+  					}
+  					border: 1px solid $blue;
+  					-webkit-transition: all 0.5s ease;
+  					-moz-transition: all 0.5s ease;
+  					-ms-transition: all 0.5s ease;
+  					-o-transition: all 0.5s ease;
+  					transition: all 0.5s ease;
+  				}
+  			}
+  		}
+  		.tweet{
+  			padding: 3% 0;
+  			small{
+  				margin-bottom: 3%;
+  			}
+  		}
+  	}
   }
 }
 
@@ -669,6 +695,7 @@ div.button {
 ul.subnav {
   border-left: 3px solid $blue;
   padding-left: 5%;
+  margin-top: 15px;
   li{
 		padding-bottom: 1em;
 		&:last-child {
@@ -925,6 +952,9 @@ ul.footer{
 				-o-transition: all 0.5s ease;
 				transition: all 0.5s ease;
 			}
+			&.active {
+			  color: $blue;
+			}
 		}
 	}
 	li#address{
@@ -933,4 +963,23 @@ ul.footer{
 			color: #bbb;
 		}
 	}
+}
+
+.section-group {
+  overflow: hidden;
+}
+
+div#welcome, div#featured_heading {
+  h1 {
+    font-size: 2.5em;
+    line-height: 1.25em;
+  }
+}
+
+div#featured_heading {
+  h1 {
+    text-align: center;
+    line-height: 1em;
+    font-size: 2.25em;
+  }
 }

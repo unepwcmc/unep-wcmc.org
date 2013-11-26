@@ -5,7 +5,7 @@ $grey_text: #5e5a5c;
 
 
 #container {
-  width: 968px;
+  width: 90%;
   margin: auto;
   overflow: hidden;
   img {
@@ -18,69 +18,71 @@ $grey_text: #5e5a5c;
       padding: 0;
     }
   }
-  .section-row {
-    overflow: hidden;
-    &:last-child {
-      margin: 0;
+  section.group {
+    width: 45%;
+    margin-right: 4.5%;
+    float: left;
+    &:nth-child(2n) {  
+      margin-right: 0;
     }
-    section {
-      width: 30.3%;
-      margin-right: 4.5%;
-      float: left;
-      &.column-1-4 {
-  		  width: 23.5%;
-  		  margin-right: 2%;
+    &:nth-child(2n+3) {  
+      clear: left;
+    }
+
+    &.column-1-4 {
+		  width: 23.5%;
+		  margin-right: 2%;
+		}
+		&.column-1-2 {
+		  width: 47.5%;
+		  margin-right: 5%;
+		  ul.partners_logos {
+		    overflow: hidden;
+		    margin-bottom: 40px;
+		    li {
+          display: inline-block;
+          margin-right: 5%;
+		    }
+		  }
+		  ul.project_team {
+		    overflow: hidden;
+		    margin-top: 20px;
+		    li {
+		      float: left;
+		      width: 30.3%;
+          margin-right: 4.5%;
+          &:last-child {
+            margin-right: 0;
+          }
+		    }
+		  }
+		}
+    &#twitter{
+      padding: 1.5%;
+  		#top_twitter{
+  			width: 100%;
+  			padding: 2% 0 5% 0;
+  			div.button{
+  				width: 120px;
+  				margin-right: 1.75%;
+  			}
   		}
-  		&.column-1-2 {
-  		  width: 47.5%;
-  		  margin-right: 5%;
-  		  ul.partners_logos {
-  		    overflow: hidden;
-  		    margin-bottom: 40px;
-  		    li {
-            display: inline-block;
-            margin-right: 5%;
-  		    }
-  		  }
-  		  ul.project_team {
-  		    overflow: hidden;
-  		    margin-top: 20px;
-  		    li {
-  		      float: left;
-  		      width: 30.3%;
-            margin-right: 4.5%;
-            &:last-child {
-              margin-right: 0;
-            }
-  		    }
-  		  }
+  		.tweet{
+  			padding: 3% 0;
+  			small{
+  				margin-bottom: 3%;
+  			}
   		}
-      &#twitter{
-        padding: 1.5%;
-    		#top_twitter{
-    			width: 100%;
-    			padding: 2% 0 5% 0;
-    			div.button{
-    				width: 120px;
-    				margin-right: 1.75%;
-    			}
-    		}
-    		.tweet{
-    			padding: 3% 0;
-    			small{
-    				margin-bottom: 3%;
-    			}
-    		}
-    	}
-      &:last-child {
-        margin-right: 0;
-      }
+  	}
+    &:last-child {
+      margin-right: 0;
     }
   }
   .column-1-3 {
-    width: 35%;
+    width: 30%;
     float: left;
-    padding-right: 9%;
+    padding-top: 70px;
+    margin-right: 7%;
     &.right {
       float: right;
       padding: 0 0 0 9%;
@@ -95,7 +97,8 @@ $grey_text: #5e5a5c;
     }
   }
   .column-2-3 {
-    width: 65%;
+    padding-top: 70px;
+    width: 63%;
     float: right;
     &.left {
       float: left;
@@ -108,6 +111,7 @@ div#nav{
   padding: 25px 0;
   .nav-container {
     overflow: hidden;
+    width: 90%;
     a#home_link {
   		padding: 0;
   		float: left;
@@ -120,7 +124,6 @@ div#nav{
   	ul{
   		width: 65%;
   		margin: auto;
-  		float: right;
   	  overflow: hidden;
   		li{
   			padding: 3.25% 0 0 2%;
@@ -128,10 +131,6 @@ div#nav{
   		}
   	}
   }
-}
-
-div.hero{
-  margin: 0 0 70px 0;
 }
 
 div.banner {
@@ -142,7 +141,7 @@ div.banner {
 }
 
 div.heading{
-  width: 60%;
+  width: 75%;
   margin: auto;
   padding: 100px 0;
   text-align: center;
@@ -151,6 +150,8 @@ div.heading{
 		font-size: 2.5em;
 		line-height: 1.25em;
 		font-weight: bold;
+		display: inline-block;
+		width: 80%;
 		&#featured {
 			font-size: 2em;
 		}
@@ -167,11 +168,33 @@ div.heading{
 		color: #fff;
 		text-shadow: 0 2px 15px rgba(0,0,0,0.3);
 	}
+	h1.short, h2.short, h2.shorter {
+    margin: auto;
+  }
+
+  h1.short {
+    width: 70%;
+  }
+
+  h2.short {
+    width: 84%;
+  }
+  
+  h2.shorter {
+    width: 64%;
+  }
 }
-div#welcome {
+div#welcome, div#featured_heading {
   margin: auto;
   margin-bottom: 60px;
   width: 90%;
+  p {
+    font-size: 1.2em;
+  }
+}
+
+div#featured_heading {
+  margin-top: 70px;
 }
 
 div#footer_container {
@@ -186,8 +209,24 @@ ul.footer{
 		padding: 0 1%;
 		float: left;
 	}
-	li#address{
-		text-align: right;
-		float: right;
-	}
+}
+
+iframe {
+  margin: 20px 0;
+}
+
+.call-action {
+  margin-top: 40px;
+  div.button#action {
+    padding: 10px 20px;
+    width: 280px;
+  }
+}
+
+ul.subnav#staff {
+  margin-bottom: 30px;
+}
+
+h1.page_header#featured{
+  padding-top: 70px;
 }
