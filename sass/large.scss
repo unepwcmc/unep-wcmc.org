@@ -156,13 +156,13 @@ div#container.other_projects {
 }
 
 div.heading{
-  width: 68%;
+  width: 75%;
   margin: auto;
   padding: 100px 0;
   text-align: center;
 	h1{
 		margin-bottom: 0;
-		font-size: 2.5em;
+		font-size: 2.75em;
 		line-height: 1.25em;
 		font-weight: bold;
 		display: inline-block;
@@ -183,11 +183,31 @@ div.heading{
 		color: #fff;
 		text-shadow: 0 2px 15px rgba(0,0,0,0.3);
 	}
+	h1.short, h2.short, h2.shorter {
+    margin: auto;
+    display: inline-block;
+  }
+
+  h1.short {
+    width: 70%;
+  }
+
+  h2.short {
+    width: 84%;
+  }
+  
+  h2.shorter {
+    width: 64%;
+  }
 }
-div#welcome {
+div#welcome, div#featured_heading {
   margin: auto;
   margin-bottom: 60px;
   width: 90%;
+}
+
+div#featured_heading {
+  margin-top: 70px;
 }
 
 div.back_nav {

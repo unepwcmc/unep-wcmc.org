@@ -141,7 +141,7 @@ div.banner {
 }
 
 div.heading{
-  width: 68%;
+  width: 75%;
   margin: auto;
   padding: 100px 0;
   text-align: center;
@@ -168,14 +168,33 @@ div.heading{
 		color: #fff;
 		text-shadow: 0 2px 15px rgba(0,0,0,0.3);
 	}
+	h1.short, h2.short, h2.shorter {
+    margin: auto;
+  }
+
+  h1.short {
+    width: 70%;
+  }
+
+  h2.short {
+    width: 84%;
+  }
+  
+  h2.shorter {
+    width: 64%;
+  }
 }
-div#welcome {
+div#welcome, div#featured_heading {
   margin: auto;
   margin-bottom: 60px;
   width: 90%;
   p {
     font-size: 1.2em;
   }
+}
+
+div#featured_heading {
+  margin-top: 70px;
 }
 
 div#footer_container {

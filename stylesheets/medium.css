@@ -168,7 +168,7 @@ div.banner img {
 
 /* line 143, ../sass/medium.scss */
 div.heading {
-  width: 68%;
+  width: 75%;
   margin: auto;
   padding: 100px 0;
   text-align: center;
@@ -200,56 +200,77 @@ div.heading h1, div.heading h2 {
   color: #fff;
   text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
+/* line 171, ../sass/medium.scss */
+div.heading h1.short, div.heading h2.short, div.heading h2.shorter {
+  margin: auto;
+}
+/* line 175, ../sass/medium.scss */
+div.heading h1.short {
+  width: 70%;
+}
+/* line 179, ../sass/medium.scss */
+div.heading h2.short {
+  width: 84%;
+}
+/* line 183, ../sass/medium.scss */
+div.heading h2.shorter {
+  width: 64%;
+}
 
-/* line 172, ../sass/medium.scss */
-div#welcome {
+/* line 187, ../sass/medium.scss */
+div#welcome, div#featured_heading {
   margin: auto;
   margin-bottom: 60px;
   width: 90%;
 }
-/* line 176, ../sass/medium.scss */
-div#welcome p {
+/* line 191, ../sass/medium.scss */
+div#welcome p, div#featured_heading p {
   font-size: 1.2em;
 }
 
-/* line 181, ../sass/medium.scss */
+/* line 196, ../sass/medium.scss */
+div#featured_heading {
+  margin-top: 70px;
+}
+
+/* line 200, ../sass/medium.scss */
 div#footer_container {
   padding: 2% 0;
   margin-top: 6em;
 }
 
-/* line 186, ../sass/medium.scss */
+/* line 205, ../sass/medium.scss */
 ul.footer {
   width: 70%;
   margin: auto;
 }
-/* line 189, ../sass/medium.scss */
+/* line 208, ../sass/medium.scss */
 ul.footer li {
   padding: 0 1%;
   float: left;
 }
 
-/* line 195, ../sass/medium.scss */
+/* line 214, ../sass/medium.scss */
 iframe {
   margin: 20px 0;
 }
 
-/* line 199, ../sass/medium.scss */
+/* line 218, ../sass/medium.scss */
 .call-action {
   margin-top: 40px;
 }
-/* line 201, ../sass/medium.scss */
+/* line 220, ../sass/medium.scss */
 .call-action div.button#action {
   padding: 10px 20px;
   width: 280px;
 }
 
-/* line 207, ../sass/medium.scss */
+/* line 226, ../sass/medium.scss */
 ul.subnav#staff {
   margin-bottom: 30px;
 }
 
-/* line 211, ../sass/medium.scss */
+/* line 230, ../sass/medium.scss */
 h1.page_header#featured {
   padding-top: 70px;
 }

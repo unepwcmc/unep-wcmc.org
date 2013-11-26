@@ -34,7 +34,7 @@ h1, h2, h3, h5 {
 }
 
 h1{
-	font-size: 2em;
+	font-size: 2.25em;
 	line-height: 1.5em;
 	margin: 0 0 0.75em 0;
 	color: $grey_text;
@@ -217,11 +217,7 @@ div#container.other_projects {
   background-color: #f7f7f7;
   width: 100%;
   h2 {
-    max-width: 968px;
-    margin: auto;
-  }
-  div.section-row{
-    max-width: 968px;
+    width: 70%;
     margin: auto;
   }
 }
@@ -973,9 +969,17 @@ ul.footer{
   overflow: hidden;
 }
 
-div#welcome {
+div#welcome, div#featured_heading {
   h1 {
-    font-size: 2.65em;
-    line-height: 1.4em;
+    font-size: 2.5em;
+    line-height: 1.25em;
+  }
+}
+
+div#featured_heading {
+  h1 {
+    text-align: center;
+    line-height: 1em;
+    font-size: 2.25em;
   }
 }
