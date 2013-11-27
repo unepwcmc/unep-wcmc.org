@@ -33,30 +33,6 @@ $grey_text: #5e5a5c;
 		  width: 23.5%;
 		  margin-right: 2%;
 		}
-		&.column-1-2 {
-		  width: 47.5%;
-		  margin-right: 5%;
-		  ul.partners_logos {
-		    overflow: hidden;
-		    margin-bottom: 40px;
-		    li {
-          display: inline-block;
-          margin-right: 5%;
-		    }
-		  }
-		  ul.project_team {
-		    overflow: hidden;
-		    margin-top: 20px;
-		    li {
-		      float: left;
-		      width: 30.3%;
-          margin-right: 4.5%;
-          &:last-child {
-            margin-right: 0;
-          }
-		    }
-		  }
-		}
     &#twitter{
       padding: 1.5%;
   		#top_twitter{
@@ -95,6 +71,20 @@ $grey_text: #5e5a5c;
       width: 70%;
       margin-top: 30px;
     }
+    section.actions {
+      padding-bottom: 0;
+      &:first-child {
+        margin-top: 22px;
+      }
+      h2 {
+        margin-bottom: 3px;
+        font-size: 1em;
+      }
+      p {
+        font-size: 0.85em;
+      }
+    }
+    
   }
   .column-2-3 {
     padding-top: 70px;
@@ -102,6 +92,35 @@ $grey_text: #5e5a5c;
     float: right;
     &.left {
       float: left;
+    }
+  }
+}
+
+ul.partners_logos {
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  li {
+    display: inline-block;
+    margin-right: 5%;
+    float: left;
+  }
+}
+ul.project_team {
+  overflow: hidden;
+  margin-top: 25px;
+  li {
+    float: left;
+    width: 30.3%;
+    margin-right: 4.5%;
+    h4 {
+      padding-bottom: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    h4, p {
+      text-align: center;
     }
   }
 }

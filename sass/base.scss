@@ -42,10 +42,13 @@ h1{
 
 h2{
 	font-weight: 700;
-	font-size: 1.2em;
+	font-size: 1.65em;
 	line-height: 1.3em;
 	margin: 0.75em 0;
 	color: $grey_text;
+	&.smaller {
+	  font-size: 1.2em;
+	}
 	&.large_subheading {
     font-size: 1.4em;
     &#featured_projects {
@@ -297,6 +300,16 @@ div.button {
   			color: #fff;
   		}
   	}
+	}
+	&#contact {
+	  width: 200px;
+	  &:hover, &:active {
+	   a {
+	     color: #fff;
+	     font-weight: 300;
+	     text-decoration: none;
+	   }
+	  }
 	}
 }
 
