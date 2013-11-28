@@ -9,7 +9,7 @@
 			<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 			<link rel="stylesheet" href="stylesheets/base.css" type="text/css" media="screen" title="no title" charset="utf-8">
 			<link rel="stylesheet" href="stylesheets/medium.css" type="text/css" media="only screen and (min-width: 700px)" title="no title" charset="utf-8">
-			<link rel="stylesheet" href="stylesheets/large.css" type="text/css" media="screen and (min-width: 1100px)" title="no title" charset="utf-8">
+			<link rel="stylesheet" href="stylesheets/large.css" type="text/css" media="screen and (min-width: 1000px)" title="no title" charset="utf-8">
 			<script type="text/javascript" src="//use.typekit.net/tqb5win.js"></script>
 			<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	</head>
@@ -17,11 +17,18 @@
 		<div id="nav">
 		  <div class="nav-container">
   		  <a id="home_link" href="index.html" title="Home"><img src="imgs/logos/logo_white_transparent.png" width="" height="" alt="project 2"/></a>
-  			<ul>
+  			<ul id="large-menu">
   				<li><a href="about_us.html" title="About us">About us</a></li>
   				<li><a href="data.html" title="Resources &amp; Data">Resources &amp; Data</a></li>
   				<li><a href="featured_projects.html" title="Featured Projects">Featured Projects</a></li>				
   				<li><a href="areas_of_work.html" title="Areas of Work">Our Work</a></li>								
+  			</ul>
+        <button id="trigger-menu"><i class="icon-align-justify"></i></button>
+  			<ul id="button-menu">
+  				<li><a href="areas_of_work.html" title="Areas of Work">Our Work</a></li>								
+  				<li><a href="featured_projects.html" title="Featured Projects">Featured Projects</a></li>				
+  				<li><a href="data.html" title="Resources &amp; Data">Resources &amp; Data</a></li>
+  				<li><a href="about_us.html" title="About us">About us</a></li>
   			</ul>
 			</div><!--nav-container-->
 		</div><!--nav-->
@@ -36,28 +43,28 @@
   			 	<section class="group">
     				<small>Thursday, 2 July 2013</small>
     				<img src="imgs/project_3.jpg" width="" height="" alt="project 2"/>
-    				<h2 class="smaller"><a class="heading" href="">MDG Report 2013 published</a></h2>
+    				<h2 class="smaller"><a class="heading" href="news-item.html">MDG Report 2013 published</a></h2>
     				<p>The ‘Millennium Development Goals’ (MDG) Report for 2013 was released by the UN Secretary General in Geneva on 1st July 2013. The eight MDGs range from halving the proportion of people living in extreme poverty, to reducing child mortality and fighting HIV/AIDS, malaria and other diseases.</p>
     			</section>
     			<section class="group">
     				<small>Thursday, 2 July 2013</small>
-    				<h2 class="smaller"><a class="heading" href="">Showcasing Species+</a></h2>
+    				<h2 class="smaller"><a class="heading" href="news-item.html">Showcasing Species+</a></h2>
     				<p>UNEP’s World Conservation Monitoring Centre (UNEP-WCMC) will be showcasing plans for a new on-line portal at the 16th Meeting of the Conference of Parties to CITES (CoP) in Thailand from 3–14 March. The new integrated species information platform, known as Species+, will enable Parties to search CITES species lists and databases of legal trade in CITES-listed species more quickly and interactively than ever before, when complete.</p>
     			</section>
     			<section class="group">
     				<small>Thursday, 2 July 2013</small>					
-    				<h2 class="smaller"><a class="heading" href="">New PARCC project website</a></h2>
+    				<h2 class="smaller"><a class="heading" href="news-item.html">New PARCC project website</a></h2>
     				<p>The GEF funded project PARCC (‘Protected Areas Resilient to Climate Change’) West Africa aims to address the impacts of climate change on protected areas. This full-sized project will run until 2015 and involves five countries in West Africa (Togo, Mali, Chad, Sierra Leone and The Gambia), and UNEP-WCMC is the executing agency. The project now has a new website, which includes a data portal.</p>
     			</section>
     			<section class="group">
     				<small>Thursday, 2 July 2013</small>
     				<img src="imgs/project_5.jpg" width="" height="" alt="project 2"/>					
-    				<h2 class="smaller"><a class="heading" href="">New PARCC project website</a></h2>
+    				<h2 class="smaller"><a class="heading" href="news-item.html">New PARCC project website</a></h2>
     				<p>The GEF funded project PARCC (‘Protected Areas Resilient to Climate Change’) West Africa aims to address the impacts of climate change on protected areas. This full-sized project will run until 2015 and involves five countries in West Africa (Togo, Mali, Chad, Sierra Leone and The Gambia), and UNEP-WCMC is the executing agency. The project now has a new website, which includes a data portal.</p>
     			</section>
     			<section class="group">
     				<small>Thursday, 2 July 2013</small>
-    				<h2 class="smaller"><a class="heading" href="">Showcasing Species+</a></h2>
+    				<h2 class="smaller"><a class="heading" href="news-item.html">Showcasing Species+</a></h2>
     				<p>UNEP’s World Conservation Monitoring Centre (UNEP-WCMC) will be showcasing plans for a new on-line portal at the 16th Meeting of the Conference of Parties to CITES (CoP) in Thailand from 3–14 March. The new integrated species information platform, known as Species+, will enable Parties to search CITES species lists and databases of legal trade in CITES-listed species more quickly and interactively than ever before, when complete.</p>
     			</section>
     			<section class="group" id="twitter">
@@ -89,5 +96,7 @@
     		<li><a href="contact.html#contact-page" title="Contact">Contact</a></li>	
 			</ul>
 		</div><!--#footer-->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="js/interactions.js"></script>
 	</body>
 </html>

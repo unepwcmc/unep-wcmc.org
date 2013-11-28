@@ -9,8 +9,8 @@
 			<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 			<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 			<link rel="stylesheet" href="stylesheets/base.css" type="text/css" media="screen" title="no title" charset="utf-8">
-			<link rel="stylesheet" href="stylesheets/medium.css" type="text/css" media="only screen and (min-width: 800px)" title="no title" charset="utf-8">
-			<link rel="stylesheet" href="stylesheets/large.css" type="text/css" media="only screen and (min-width: 1100px)" title="no title" charset="utf-8">
+			<link rel="stylesheet" href="stylesheets/medium.css" type="text/css" media="only screen and (min-width: 700px)" title="no title" charset="utf-8">
+			<link rel="stylesheet" href="stylesheets/large.css" type="text/css" media="screen and (min-width: 1000px)" title="no title" charset="utf-8">
 			<script type="text/javascript" src="//use.typekit.net/tqb5win.js"></script>
 			<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	</head>
@@ -18,34 +18,121 @@
 		<div id="nav">
 		  <div class="nav-container">
   		  <a id="home_link" href="index.html" title="Home"><img src="imgs/logos/logo_white_transparent.png" width="" height="" alt="project 2"/></a>
-  			<ul>
+  			<ul id="large-menu">
   				<li><a href="about_us.html" title="About us">About us</a></li>
-  				<li><a class="active" href="data.html" title="Resources &amp; Data">Resources &amp; Data</a></li>
+  				<li><a href="data.html" title="Resources &amp; Data">Resources &amp; Data</a></li>
   				<li><a href="featured_projects.html" title="Featured Projects">Featured Projects</a></li>				
   				<li><a href="areas_of_work.html" title="Areas of Work">Our Work</a></li>								
+  			</ul>
+  			<button id="trigger-menu"><i class="icon-align-justify"></i></button>
+  			<ul id="button-menu">
+  				<li><a href="areas_of_work.html" title="Areas of Work">Our Work</a></li>								
+  				<li><a href="featured_projects.html" title="Featured Projects">Featured Projects</a></li>				
+  				<li><a href="data.html" title="Resources &amp; Data">Resources &amp; Data</a></li>
+  				<li><a href="about_us.html" title="About us">About us</a></li>
   			</ul>
 			</div><!--nav-container-->
 		</div><!--nav-->
 		<div class="hero" id="data">
 			<div class="heading" id="data">
-				<h1>We share a vast information resource with our partners and the wider public</h1>
+				<h1>We share vast resources with our partners and the public</h1>
 				<h2 class="short">We source, collate, verify and analyse information on biodiversity and ecosystems. Many of our outputs are freely available to download or view through publicly accessible websites.</h2>
 			</div><!--heading-->
 		</div><!--hero-->
 		<div id="container">
-  		<div id="data" class="column-1-3">
+		  <div id="data-small" class="column-1-3">
 				<div class="search_field_container">
+					<div class="search_input">
+						<p>Search resources or datasets</p>
+					</div><!--search_input-->
 					<div class="icon_search">
 						<i class="icon-search"></i>
 					</div><!--icon_search-->
+				</div><!--search field-->
+        <button>Most recent first <i class="icon-caret-down"></i></button>
+        <button id="content-button">Type of content <i class="icon-caret-down"></i></button>
+        <ul id="content-small">
+					<li class="active content_type">
+						<span class="badge">20</span>
+						Tools / Applications
+					</li>
+					<li class="content_type">
+						<span class="badge">33</span>
+						Spatial Data / Maps
+					</li>
+					<li class="active content_type">
+						<span class="badge">26</span>
+						Posters						
+					</li>
+					<li class="content_type">
+						<span class="badge">38</span>
+						Books
+					</li>
+					<li class="content_type">
+						<span class="badge">80</span>
+						Reports
+					</li>
+					<li class="last content_type">
+						<span class="badge">54</span>
+						Journal Papers
+					</li>
+				</ul>
+        <button id="fields-button">Area of work <i class="icon-caret-down"></i></button>        
+				<ul id="fields-small">
+					<li class="active" id="programme_1">
+					  <span class="badge">50</span>						
+						Climate Change
+					</li>
+					<li class="active" id="programme_2">
+						<span class="badge">34</span>
+						Green Economy
+					</li>
+					<li id="programme_3">
+						<span class="badge">22</span>
+						Ecosystem Services
+					</li>
+					<li id="programme_4">
+						<span class="badge">37</span>
+						Protected Areas
+					</li>
+					<li id="programme_5">
+						<span class="badge">10</span>
+						Foster skills &amp; competencies
+					</li>
+					<li id="programme_6">
+						<span class="badge">23</span>
+						Enhance the knowledge base
+					</li>
+					<li id="programme_7">
+						<span class="badge">28</span>
+						Develop tools &amp; methodologies
+					</li>
+					<li id="programme_8">
+						<span class="badge">14</span>
+						Build policies &amp; institutions
+					</li>
+				</ul>
+				<div class="data_policy">
+				  <h3>Our data policy</h3>
+				  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc bibendum velit at mi auctor imperdiet. Praesent vestibulum ac eros quis scelerisque.</p>
+				</div><!-- data policy -->
+				<div class="data_policy-small">
+				  <h3>View our data policy</h3>
+				</div><!-- data policy -->
+  		</div><!--column-1-3-->
+  		<div id="data" class="column-1-3">
+				<div class="search_field_container">
 					<div class="search_input">
-						<p>Search for a resource or a dataset</p>
+						<p>Search resources or datasets</p>
 					</div><!--search_input-->
+					<div class="icon_search">
+						<i class="icon-search"></i>
+					</div><!--icon_search-->
 				</div><!--search field-->
 				<ul id="sorting">
 					<li class="last">
 						<span class="badge"><i class="icon-caret-down"></i></span>
-						Sort by most recent first
+						Most recent first
 					</li>
 				</ul>
 				<ul id="content">
@@ -80,7 +167,7 @@
 				</ul>
 				<ul id="fields">
 					<li class="header">
-						Filter by area of work
+						Area of work
 						<span class="badge">All | None</span>						
 					</li>
 					<li class="active" id="programme_1">
@@ -134,14 +221,14 @@
   					<h3>Dataset <span class="separator">|</span> 14 June 2013</h3>
   					<p>The World Atlas of Biodiversity is the first map-based view of the world's living resources and so addresses the remarkable growth in concern at all levels for living things and the environment. It provides a wealth of facts and figures on the importance of forests, wetlands, marine and coastal environments and other key ecosystems.</p>
   					<p class="link"><a href="">Download</a></p>
-  					<p class="link last"><a href="">Read online</a></p>
+  					<p class="link"><a href="">Read online</a></p>
   				</section>
   				<section>
   					<h2 class="smaller">Carbon, Biodiversity &amp; Ecosystem Services: Exploring Co-benefits Tanzania</h2>
   					<h3>Report <span class="separator">|</span> 10 May 2013</h3>
   					<p>The maintenance and enhancement of natural carbon stocks is now considered a key climate change mitigation measure. Emissions from land use change, mainly tropical forest loss, contribute an estimated 17.4% of total anthropogenic greenhouse gas emissions (IPCC 2007a), equivalent to around 5.8 Gigatonnes (Gt) of carbon dioxide (CO2) per year.</p>
   					<p class="link"><a href="">Download</a></p>
-  					<p class="link last"><a href="">Read online</a></p>
+  					<p class="link"><a href="">Read online</a></p>
   				</section>
   				<section>
   					<h2 class="smaller">Protected Planet</h2>
@@ -177,5 +264,7 @@
     		<li><a href="contact.html#contact-page" title="Contact">Contact</a></li>	
 			</ul>
 		</div><!--#footer-->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="js/interactions.js"></script>
 	</body>
 </html>

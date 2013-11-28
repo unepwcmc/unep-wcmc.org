@@ -11,6 +11,10 @@ $grey_text: #5e5a5c;
   box-sizing: border-box;
 }
 
+img {
+  max-width: 100%;
+}
+
 body {
 	font-size: 100%;
 	font-family: "museo-sans", Helvetica, Arial, sans-serif;
@@ -34,7 +38,7 @@ h1, h2, h3, h5 {
 }
 
 h1{
-	font-size: 2.25em;
+	font-size: 1.75em;
 	line-height: 1.5em;
 	margin: 0 0 0.75em 0;
 	color: $grey_text;
@@ -42,7 +46,7 @@ h1{
 
 h2{
 	font-weight: 700;
-	font-size: 1.65em;
+	font-size: 1em;
 	line-height: 1.3em;
 	margin: 0.75em 0;
 	color: $grey_text;
@@ -62,7 +66,7 @@ h3{
 	font-weight: 700;
 	font-size: 1em;
 	line-height: 1.25em;
-	margin: 0.75em 0 0.3em 0;
+	margin: 0.75em 0 0.5em 0;
 	color: rgba(0,0,0,0.3);
 	&#news {
 	  width: 100%;
@@ -140,16 +144,20 @@ div.clear {
   clear: both;
 }
 
-div#nav{
+#nav{
 	background-color: $dark_blue;
 	-webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   div.nav-container {
     width: 90%;
+    padding: 15px 0;
     margin: auto;
+    overflow: hidden;
     a#home_link {
       display: block;
+      width: 83%;
+      float: left;
   			img {
   				opacity: 0.9;
   				display: block;
@@ -220,15 +228,22 @@ div#container.other_projects {
   background-color: #f7f7f7;
   width: 100%;
   h2 {
-    width: 70%;
+    margin: auto;
+  }
+  div.section-group {
+    width: 90%;
     margin: auto;
   }
 }
 
 div.heading{
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  padding: 40px 0;
 	h1{
 		margin-bottom: 0;
-		font-size: 2.5em;
+		font-size: 1.4em;
 		line-height: 1.25em;
 		font-weight: bold;
 		&#featured {
@@ -236,9 +251,10 @@ div.heading{
 		}
 	}
 	h2 {
+	  display: none;
 		font-weight: 300;
 		margin: 0.5em 0;
-		font-size: 1.25em;
+		font-size: 0.85em;
 		line-height: 1.4em;
 		font-family: "museo-sans", Helvetica, Arial, sans-serif;
 	}
@@ -302,7 +318,7 @@ div.button {
   	}
 	}
 	&#contact {
-	  width: 200px;
+	  width: 215px;
 	  &:hover, &:active {
 	   a {
 	     color: #fff;
@@ -329,6 +345,7 @@ div#button-row {
     display: block;
   }
   .column-2-3 {
+    padding-top: 30px;
     &#staff {
       h2 {
         padding-bottom: 8px;
@@ -384,10 +401,7 @@ div#button-row {
         }
         p.link {
           float: left;
-        }
-        p.link.last {
-          float: right;
-          margin-right: 70%;
+          margin-right: 20px;
         }
         &:last-child {
           border-bottom: none;
@@ -525,6 +539,7 @@ div#button-row {
     }
   }
   .column-1-3 {
+    padding-top: 30px;
     &#job_related {
       h2 {
       border-bottom: 1px solid $grey;
@@ -630,6 +645,7 @@ div#button-row {
     }
     &#twitter{
   		background: $grey;
+  		padding: 25px;
   		#top_twitter{
   			width: 100%;
   			padding: 2% 0 5% 0;
@@ -668,6 +684,12 @@ div#button-row {
   			small{
   				margin-bottom: 3%;
   			}
+  			&:last-child {
+  			  padding-bottom: 0;
+  			  p {
+  			    margin-bottom: 0;
+  			  }
+  			}
   		}
   	}
   }
@@ -676,28 +698,26 @@ div#button-row {
 .search_field_container{
 	margin-bottom: 15%;
 	width: 100%;
-	padding: 5% 0 5% 5%;
-	padding-left: 0;
+	padding: 15px 0;
 	border-bottom: 1px solid #eee;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-flow: row wrap;
-	justify-content: space-around;
 	font-size: 0.85em;
+	overflow: hidden;
 	&#staff {
 	  width: 80%;
 	}
 	.icon_search{
 		color: $grey_text;
 		padding: 0;
-		margin: 2% 2% 0 0;
+		margin: 0;
+		float: right;
 		i{
 			font-size: 1em;
 			line-height: 0.5em;
 		}
 	}
 	.search_input{
-		padding:0 0 0 2%;
+	  float: left;
+		padding:0;
 		p{
 			margin:0;
 			color: $grey_text;
@@ -762,7 +782,7 @@ ul.subnav {
 	}
 }
 
-ul#fields, ul#content, ul#sorting, ul#programmes {
+ul#fields, ul#content, ul#fields-small, ul#content-small, ul#sorting, ul#programmes {
 	margin: 0 0 15% 0;
 	font-size: 0.85em;
 	li{
@@ -873,7 +893,7 @@ ul#sorting {
 	}
 }
 
-div.data_policy{
+div.data_policy, div.data_policy-small{
   margin-top: 40px;
   background: #f7f7f7;
   -webkit-border-radius: 3px;
@@ -945,12 +965,18 @@ div#footer_container {
 	-webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+  padding: 25px 0;
+  margin-top: 30px;
 }
 
 ul.footer{	
 	margin: auto;
   list-style: none;
+  width: 90%;
+  overflow: hidden;
 	li{
+	  float: left;
+	  padding-right: 6px;
 		a {
 			font-size: 0.8em;
 			font-family: "museo-sans", Helvetica, Arial, sans-serif;
@@ -984,9 +1010,13 @@ ul.footer{
 
 div#welcome, div#featured_heading {
   h1 {
-    font-size: 2.5em;
+    font-size: 1.65em;
     line-height: 1.25em;
   }
+}
+
+div#welcome {
+  padding-top: 30px;
 }
 
 div#featured_heading {
@@ -995,4 +1025,214 @@ div#featured_heading {
     line-height: 1em;
     font-size: 2.25em;
   }
+}
+
+div#news {
+  h1 {
+    border-bottom: 1px solid #f4f2f2;
+    font-size: 1em;
+    color: #333;
+    text-transform: uppercase;
+    font-family: "museo-sans", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    color: #5e5a5c;
+    margin-top: 0;
+    margin-bottom: 25px;
+  }
+  h2 {
+    font-size: 1em;
+  }
+  p{
+    margin: 0;
+  }
+  section {
+    padding-bottom: 10px;
+  }
+}
+
+div#news-item {
+  small {
+    font-size: 0.85em;
+  }
+  img {
+    margin-bottom: 30px;
+  }
+}
+
+a.back_nav {
+  margin-bottom: 30px;
+  display: inline-block;
+}
+
+section.group.staff {
+  overflow: hidden;
+  width: 45%;
+  margin-right: 4.5%;
+  float: left !important;
+  &:nth-child(2n) {  
+    margin-right: 0;
+  }
+  &:nth-child(2n+3) {  
+    clear: left;
+  } 
+}
+
+div#news-archive {
+  h3 {
+    word-spacing: 0.07em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-family: "museo-sans", Helvetica, Arial, sans-serif;
+  }
+}
+
+section.group {
+  float: none;
+  width: 100%;
+  margin-right: 0;
+}
+
+ul#large-menu {
+  display: none;
+}
+
+ul#button-menu {
+  display: none;
+  clear: both;
+  li {
+    padding-bottom: 3px;
+    margin: 0;
+    clear: both;
+    text-align: right;
+    font-size: 0.85em;
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+}
+
+
+button#trigger-menu {
+  background: $dark_blue;
+  font-family: "museo-sans", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.85em;
+  border: none;
+  border-radius: 5px;
+  float: right;
+  padding: 0;
+  i {
+    padding-right: 3px;
+    line-height: 30px;
+    &:after {
+      content: "Menu";
+      display: none;
+    }
+  }
+  outline: none;
+  &:hover {
+    color: #fff;
+    -webkit-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		-ms-transition: all 0.5s ease;
+		-o-transition: all 0.5s ease;
+		transition: all 0.5s ease;
+  }
+}
+
+@media all and (min-width: 480px){
+  button#trigger-menu {
+    i:after {
+      display: inline-block;
+      content: "Menu";
+      font-family: "museo-sans", Helvetica, Arial, sans-serif;
+      padding-left: 3px;
+    }
+  }
+}
+
+div.column-1-3#data {
+  display: none;
+}
+
+div.column-1-3#data-small {
+  display: block;
+  div.search_field_container, ul#fields-small, ul#content-small {
+    margin-bottom: 10px;
+  }
+  button {
+    width: 100%;
+    text-align: left;
+    background: none;
+    display: block;
+    border: 1px solid #eee;
+    -webkit-border-radius: 5px;
+  	-moz-border-radius: 5px;
+  	border-radius: 5px;
+    padding: 3% 5%;
+  	margin: 0 0 10px 0;
+  	font-family: "museo-sans", Helvetica, Arial, sans-serif;
+    color: $grey_text;
+    font-size: 0.85em;
+    outline: none;
+    i {
+      display: block;
+      float: right;
+    }
+    &:active {
+      background: $blue;
+      color: #fff;
+    }
+  }
+  ul#fields-small, ul#content-small {
+    display: none;
+  }
+  div.data_policy {
+    display: none;
+  }
+  div.data_policy-small {
+    text-align: center;
+    margin-top: 10px;
+   h3 {
+     margin: 0;
+   } 
+  }
+  div.search_field_container{
+    padding: 10px 0;
+  }
+}
+
+ul.subnav {
+  display: none;
+}
+
+ul.subnav-small {
+  overflow: hidden;
+  li{
+		padding: 10px 0 5px 0;
+		border-bottom: 1px solid $blue;
+		float: left;
+		width: 48%;
+		margin-right: 4%;
+		&:nth-child(2n) {
+		  margin-right: 0;
+		}
+		&:nth-child(2n+1) {
+		  clear: left;
+		}
+		 a{
+			font-size: 0.85em;
+			font-weight: 300;
+			word-spacing: 0.05em;
+			letter-spacing: 0.10em;
+			text-transform: uppercase;
+			color: #333;
+			border-bottom: 1px solid #fff;
+			&.active {
+				color: $blue;
+			}
+		}
+	}
 }

@@ -30,271 +30,384 @@
 #container section.group:nth-child(2n+3) {
   clear: left;
 }
-/* line 32, ../sass/medium.scss */
-#container section.group.column-1-4 {
-  width: 23.5%;
-  margin-right: 2%;
-}
-/* line 36, ../sass/medium.scss */
+/* line 31, ../sass/medium.scss */
 #container section.group#twitter {
-  padding: 1.5%;
+  padding: 25px;
 }
-/* line 38, ../sass/medium.scss */
+/* line 33, ../sass/medium.scss */
 #container section.group#twitter #top_twitter {
   width: 100%;
   padding: 2% 0 5% 0;
 }
-/* line 41, ../sass/medium.scss */
+/* line 36, ../sass/medium.scss */
 #container section.group#twitter #top_twitter div.button {
   width: 120px;
   margin-right: 1.75%;
 }
-/* line 46, ../sass/medium.scss */
+/* line 41, ../sass/medium.scss */
 #container section.group#twitter .tweet {
   padding: 3% 0;
 }
-/* line 48, ../sass/medium.scss */
+/* line 43, ../sass/medium.scss */
+#container section.group#twitter .tweet:last-child {
+  padding-bottom: 0;
+}
+/* line 46, ../sass/medium.scss */
 #container section.group#twitter .tweet small {
   margin-bottom: 3%;
 }
-/* line 53, ../sass/medium.scss */
+/* line 51, ../sass/medium.scss */
 #container section.group:last-child {
   margin-right: 0;
 }
-/* line 57, ../sass/medium.scss */
+/* line 55, ../sass/medium.scss */
 #container .column-1-3 {
   width: 30%;
   float: left;
   padding-top: 70px;
   margin-right: 7%;
 }
-/* line 62, ../sass/medium.scss */
+/* line 60, ../sass/medium.scss */
 #container .column-1-3.right {
   float: right;
   padding: 0 0 0 9%;
 }
-/* line 66, ../sass/medium.scss */
+/* line 64, ../sass/medium.scss */
 #container .column-1-3 img.employee_pic {
   width: 100%;
   margin-top: 30px;
 }
-/* line 70, ../sass/medium.scss */
+/* line 68, ../sass/medium.scss */
 #container .column-1-3 img.partner_logo {
   width: 70%;
   margin-top: 30px;
 }
-/* line 74, ../sass/medium.scss */
+/* line 72, ../sass/medium.scss */
 #container .column-1-3 section.actions {
   padding-bottom: 0;
 }
-/* line 76, ../sass/medium.scss */
+/* line 74, ../sass/medium.scss */
 #container .column-1-3 section.actions:first-child {
   margin-top: 22px;
 }
-/* line 79, ../sass/medium.scss */
+/* line 77, ../sass/medium.scss */
 #container .column-1-3 section.actions h2 {
   margin-bottom: 3px;
   font-size: 1em;
 }
-/* line 83, ../sass/medium.scss */
+/* line 81, ../sass/medium.scss */
 #container .column-1-3 section.actions p {
-  font-size: 0.85em;
+  font-size: 1em;
 }
-/* line 89, ../sass/medium.scss */
+/* line 87, ../sass/medium.scss */
 #container .column-2-3 {
   padding-top: 70px;
   width: 63%;
   float: right;
 }
-/* line 93, ../sass/medium.scss */
+/* line 91, ../sass/medium.scss */
 #container .column-2-3.left {
   float: left;
 }
 
-/* line 99, ../sass/medium.scss */
+/* line 97, ../sass/medium.scss */
 ul.partners_logos {
   overflow: hidden;
   margin-top: 20px;
   margin-bottom: 40px;
 }
-/* line 103, ../sass/medium.scss */
+/* line 101, ../sass/medium.scss */
 ul.partners_logos li {
   display: inline-block;
   margin-right: 5%;
   float: left;
 }
 
-/* line 109, ../sass/medium.scss */
+/* line 107, ../sass/medium.scss */
 ul.project_team {
   overflow: hidden;
   margin-top: 25px;
 }
-/* line 112, ../sass/medium.scss */
+/* line 110, ../sass/medium.scss */
 ul.project_team li {
   float: left;
   width: 30.3%;
   margin-right: 4.5%;
 }
-/* line 116, ../sass/medium.scss */
+/* line 114, ../sass/medium.scss */
 ul.project_team li h4 {
   padding-bottom: 0;
 }
-/* line 119, ../sass/medium.scss */
+/* line 117, ../sass/medium.scss */
 ul.project_team li:last-child {
   margin-right: 0;
 }
-/* line 122, ../sass/medium.scss */
+/* line 120, ../sass/medium.scss */
 ul.project_team li h4, ul.project_team li p {
   text-align: center;
 }
 
-/* line 128, ../sass/medium.scss */
+/* line 126, ../sass/medium.scss */
+h1, h2, h3, h5 {
+  font-family: "museo-slab", Helvetica, Arial, sans-serif;
+}
+
+/* line 130, ../sass/medium.scss */
+h1 {
+  font-size: 2.25em;
+  line-height: 1.5em;
+  margin: 0 0 0.75em 0;
+  color: #5e5a5c;
+}
+
+/* line 137, ../sass/medium.scss */
+h2 {
+  font-weight: 700;
+  font-size: 1.65em;
+  line-height: 1.3em;
+  margin: 0.75em 0;
+  color: #5e5a5c;
+}
+/* line 143, ../sass/medium.scss */
+h2.smaller {
+  font-size: 1.2em;
+}
+/* line 146, ../sass/medium.scss */
+h2.large_subheading {
+  font-size: 1.4em;
+}
+/* line 148, ../sass/medium.scss */
+h2.large_subheading#featured_projects {
+  font-size: 1.6em;
+  padding: 1.7em 0 1em 0;
+}
+
+/* line 155, ../sass/medium.scss */
+h3 {
+  font-weight: 700;
+  font-size: 1em;
+  line-height: 1.25em;
+  margin: 0.75em 0 0.5em 0;
+  color: rgba(0, 0, 0, 0.3);
+}
+/* line 161, ../sass/medium.scss */
+h3#news {
+  width: 100%;
+  margin: auto;
+  margin-bottom: 60px;
+  padding-top: 60px;
+  display: inline-block;
+  text-align: center;
+  font-weight: 400;
+  font-family: "museo-sans", Helvetica, Arial, sans-serif;
+  word-spacing: 0.07em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5175a3;
+  border-top: 1px solid #f4f2f2;
+}
+
+/* line 178, ../sass/medium.scss */
+h4 {
+  width: 100%;
+  font-size: 0.75em;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #333;
+  padding: 1em 0;
+  line-height: 1.75em;
+}
+
+/* line 188, ../sass/medium.scss */
+h5 {
+  font-weight: 500;
+  font-size: 2em;
+  line-height: 1.3em;
+  color: #5e5a5c;
+  margin-bottom: 2%;
+}
+
+/* line 197, ../sass/medium.scss */
 div#nav {
   width: 100%;
-  padding: 25px 0;
 }
-/* line 131, ../sass/medium.scss */
+/* line 199, ../sass/medium.scss */
 div#nav .nav-container {
   overflow: hidden;
+  padding: 20px 0;
   width: 90%;
 }
-/* line 134, ../sass/medium.scss */
+/* line 203, ../sass/medium.scss */
 div#nav .nav-container a#home_link {
   padding: 0;
   float: left;
   padding-left: 0;
-  width: 35%;
+  width: 50%;
 }
-/* line 139, ../sass/medium.scss */
+/* line 208, ../sass/medium.scss */
 div#nav .nav-container a#home_link img {
   max-width: 100%;
 }
-/* line 143, ../sass/medium.scss */
+/* line 212, ../sass/medium.scss */
 div#nav .nav-container ul {
-  width: 65%;
   margin: auto;
   overflow: hidden;
 }
-/* line 147, ../sass/medium.scss */
+/* line 215, ../sass/medium.scss */
 div#nav .nav-container ul li {
   padding: 3.25% 0 0 2%;
   float: right;
 }
+/* line 219, ../sass/medium.scss */
+div#nav .nav-container ul#button-menu {
+  display: none;
+  clear: both;
+}
+/* line 222, ../sass/medium.scss */
+div#nav .nav-container ul#button-menu li {
+  padding: 0 0 3px 0;
+  margin: 0;
+  clear: both;
+  text-align: right;
+  font-size: 0.85em;
+}
+/* line 228, ../sass/medium.scss */
+div#nav .nav-container ul#button-menu li:last-child {
+  padding-bottom: 0;
+}
 
-/* line 155, ../sass/medium.scss */
+/* line 237, ../sass/medium.scss */
 div.banner {
   margin: 0 0 70px 0;
 }
-/* line 157, ../sass/medium.scss */
+/* line 239, ../sass/medium.scss */
 div.banner img {
-  width: 100%;
+  max-width: 100%;
 }
 
-/* line 162, ../sass/medium.scss */
+/* line 244, ../sass/medium.scss */
 div.heading {
-  width: 75%;
+  width: 90%;
   margin: auto;
   padding: 100px 0;
   text-align: center;
 }
-/* line 167, ../sass/medium.scss */
+/* line 249, ../sass/medium.scss */
 div.heading h1 {
   margin-bottom: 0;
-  font-size: 2.5em;
+  font-size: 2.25em;
   line-height: 1.25em;
   font-weight: bold;
   display: inline-block;
-  width: 80%;
 }
-/* line 174, ../sass/medium.scss */
+/* line 255, ../sass/medium.scss */
 div.heading h1#featured {
   font-size: 2em;
 }
-/* line 178, ../sass/medium.scss */
+/* line 259, ../sass/medium.scss */
 div.heading h2 {
+  display: inline-block;
   font-weight: 300;
   margin: 0.5em 0;
   font-size: 1.25em;
   line-height: 1.4em;
   font-family: "museo-sans", Helvetica, Arial, sans-serif;
 }
-/* line 185, ../sass/medium.scss */
+/* line 267, ../sass/medium.scss */
 div.heading h1, div.heading h2 {
   padding: 1% 0;
   color: #fff;
   text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
-/* line 190, ../sass/medium.scss */
+/* line 272, ../sass/medium.scss */
 div.heading h1.short, div.heading h2.short, div.heading h2.shorter {
   margin: auto;
 }
-/* line 194, ../sass/medium.scss */
-div.heading h1.short {
-  width: 70%;
-}
-/* line 198, ../sass/medium.scss */
-div.heading h2.short {
-  width: 84%;
-}
-/* line 202, ../sass/medium.scss */
-div.heading h2.shorter {
-  width: 64%;
-}
 
-/* line 206, ../sass/medium.scss */
+/* line 277, ../sass/medium.scss */
 div#welcome, div#featured_heading {
   margin: auto;
   margin-bottom: 60px;
   width: 90%;
 }
-/* line 210, ../sass/medium.scss */
+/* line 278, ../sass/medium.scss */
+div#welcome h1, div#featured_heading h1 {
+  font-size: 2.5em;
+  line-height: 1.25em;
+}
+/* line 285, ../sass/medium.scss */
 div#welcome p, div#featured_heading p {
   font-size: 1.2em;
 }
 
-/* line 215, ../sass/medium.scss */
+/* line 290, ../sass/medium.scss */
 div#featured_heading {
   margin-top: 70px;
 }
 
-/* line 219, ../sass/medium.scss */
+/* line 294, ../sass/medium.scss */
 div#footer_container {
   padding: 2% 0;
   margin-top: 6em;
 }
 
-/* line 224, ../sass/medium.scss */
+/* line 299, ../sass/medium.scss */
 ul.footer {
   width: 70%;
   margin: auto;
 }
-/* line 227, ../sass/medium.scss */
+/* line 302, ../sass/medium.scss */
 ul.footer li {
   padding: 0 1%;
   float: left;
 }
 
-/* line 233, ../sass/medium.scss */
+/* line 308, ../sass/medium.scss */
 iframe {
   margin: 20px 0;
 }
 
-/* line 237, ../sass/medium.scss */
+/* line 312, ../sass/medium.scss */
 .call-action {
   margin-top: 40px;
 }
-/* line 239, ../sass/medium.scss */
+/* line 314, ../sass/medium.scss */
 .call-action div.button#action {
   padding: 10px 20px;
   width: 280px;
 }
 
-/* line 245, ../sass/medium.scss */
+/* line 320, ../sass/medium.scss */
 ul.subnav#staff {
   margin-bottom: 30px;
 }
 
-/* line 249, ../sass/medium.scss */
+/* line 324, ../sass/medium.scss */
 h1.page_header#featured {
   padding-top: 70px;
+}
+
+/* line 328, ../sass/medium.scss */
+div.column-1-3#data {
+  display: block;
+}
+
+/* line 332, ../sass/medium.scss */
+div.column-1-3#data-small {
+  display: none;
+}
+
+/* line 336, ../sass/medium.scss */
+div.data_policy-small {
+  display: none;
+}
+
+/* line 340, ../sass/medium.scss */
+ul.subnav {
+  display: block;
+}
+
+/* line 344, ../sass/medium.scss */
+ul.subnav-small {
+  display: none;
 }
