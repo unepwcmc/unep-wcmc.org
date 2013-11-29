@@ -72,7 +72,7 @@ $grey_text: #5e5a5c;
     &.right {
       float: right;
       padding: 0 0 0 9%;
-      padding-top: 70px;
+      padding-top: 60px;
     }
     img.employee_pic {
       width: 100%;
@@ -120,7 +120,7 @@ div#nav{
 }
 
 div.banner {
-  margin: 0 0 70px 0;
+  margin: 0 0 60px 0;
   img {
     max-width: 100%;
   }
@@ -183,6 +183,7 @@ div.heading{
     width: 64%;
   }
 }
+
 div#welcome, div#featured_heading {
   margin: auto;
   margin-bottom: 60px;
@@ -190,12 +191,12 @@ div#welcome, div#featured_heading {
 }
 
 div#featured_heading {
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
 div#footer_container {
 	padding: 2% 0;
-	margin-top: 6em;
+	margin-top: 60px;
 }
 
 div#footer_container.featured {

@@ -87,7 +87,7 @@
 #container .column-1-3.right {
   float: right;
   padding: 0 0 0 9%;
-  padding-top: 70px;
+  padding-top: 60px;
 }
 /* line 77, ../sass/large.scss */
 #container .column-1-3 img.employee_pic {
@@ -144,7 +144,7 @@ div#nav .nav-container ul li {
 
 /* line 122, ../sass/large.scss */
 div.banner {
-  margin: 0 0 70px 0;
+  margin: 0 0 60px 0;
 }
 /* line 124, ../sass/large.scss */
 div.banner img {
@@ -218,98 +218,98 @@ div.heading h2.shorter {
   width: 64%;
 }
 
-/* line 186, ../sass/large.scss */
+/* line 187, ../sass/large.scss */
 div#welcome, div#featured_heading {
   margin: auto;
   margin-bottom: 60px;
   width: 90%;
 }
 
-/* line 192, ../sass/large.scss */
+/* line 193, ../sass/large.scss */
 div#featured_heading {
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
-/* line 196, ../sass/large.scss */
+/* line 197, ../sass/large.scss */
 div#footer_container {
   padding: 2% 0;
-  margin-top: 6em;
+  margin-top: 60px;
 }
 
-/* line 201, ../sass/large.scss */
+/* line 202, ../sass/large.scss */
 div#footer_container.featured {
   margin-top: 0;
 }
 
-/* line 205, ../sass/large.scss */
+/* line 206, ../sass/large.scss */
 ul.footer {
   width: 70%;
   margin: auto;
 }
-/* line 208, ../sass/large.scss */
+/* line 209, ../sass/large.scss */
 ul.footer li {
   padding: 0 1%;
   float: left;
 }
-/* line 212, ../sass/large.scss */
+/* line 213, ../sass/large.scss */
 ul.footer li#address {
   text-align: right;
   float: right;
 }
 
-/* line 218, ../sass/large.scss */
+/* line 219, ../sass/large.scss */
 .nav-container {
   width: 70% !important;
 }
 
-/* line 223, ../sass/large.scss */
+/* line 224, ../sass/large.scss */
 .slicknav_menu {
   display: none;
 }
 
 @media screen and (max-width: 40em) {
   /* #menu is the original menu */
-  /* line 229, ../sass/large.scss */
+  /* line 230, ../sass/large.scss */
   .js #menu {
     display: none;
   }
 
-  /* line 233, ../sass/large.scss */
+  /* line 234, ../sass/large.scss */
   .js .slicknav_menu {
     display: block;
   }
 }
-/* line 238, ../sass/large.scss */
+/* line 239, ../sass/large.scss */
 ul#large-menu {
   display: block;
 }
 
-/* line 242, ../sass/large.scss */
+/* line 243, ../sass/large.scss */
 button#trigger-menu {
   display: none;
 }
 
-/* line 246, ../sass/large.scss */
+/* line 247, ../sass/large.scss */
 div.column-1-3#data {
   display: block;
 }
 
-/* line 250, ../sass/large.scss */
+/* line 251, ../sass/large.scss */
 div.column-1-3#data-small {
   display: none;
 }
 
-/* line 254, ../sass/large.scss */
+/* line 255, ../sass/large.scss */
 div.data_policy-small {
   display: none;
 }
 
-/* line 258, ../sass/large.scss */
+/* line 259, ../sass/large.scss */
 ul.subnav {
   display: block;
 }
 
-/* line 262, ../sass/large.scss */
+/* line 263, ../sass/large.scss */
 ul.subnav-small {
   display: none;
 }

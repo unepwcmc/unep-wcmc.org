@@ -56,8 +56,11 @@ h2{
 	&.large_subheading {
     font-size: 1.4em;
     &#featured_projects {
+      display: block;
+      margin: auto;
+      width: 90%;
       font-size: 1.6em;
-      padding: 1.7em 0 1em 0;
+      padding: 60px 0 30px 0;
     }
 	}
 }
@@ -71,8 +74,9 @@ h3{
 	&#news {
 	  width: 100%;
 	  margin: auto;
-	  margin-bottom: 60px;
-	  padding-top: 60px;
+	  font-size: 0.8em;
+	  margin-bottom: 30px;
+	  padding-top: 30px;
 	  display: inline-block;
     text-align: center;
     font-weight: 400;
@@ -227,9 +231,6 @@ div.hero{
 div#container.other_projects {
   background-color: #f7f7f7;
   width: 100%;
-  h2 {
-    margin: auto;
-  }
   div.section-group {
     width: 90%;
     margin: auto;
@@ -967,6 +968,7 @@ div#footer_container {
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
   padding: 25px 0;
   margin-top: 30px;
+  padding: 20px 0;
 }
 
 ul.footer{	
@@ -1010,13 +1012,13 @@ ul.footer{
 
 div#welcome, div#featured_heading {
   h1 {
-    font-size: 1.65em;
+    font-size: 1.25em;
     line-height: 1.25em;
   }
 }
 
 div#welcome {
-  padding-top: 30px;
+  padding: 30px 0;
 }
 
 div#featured_heading {
