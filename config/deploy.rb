@@ -1,9 +1,27 @@
-set :application, 'unep-wcmc'
-set :repository, 'git@github.com:unepwcmc/unep-wcmc.org'
+set :application, "unepwcmc"
+set :repository, "git@github.com:unepwcmc/unep-wcmc.org"
 set :deploy_via, :remote_cache
 set :scm, :git
+set :branch, "rails"
 
 set :ssh_options, {forward_agent: true}
+
+set :domain, "unep-wcmc.demo.llp.pl"
+set :port, 20021
+set :rails_env, "production"
+
+role :web, domain
+role :app, domain
+role :db, domain, :primary => true
+
+set :user, "unepwcmc"
+set :use_sudo, false
+set :deploy_to, "/home/app/unepwcmc"
+
+set :keep_releases, 2
+
+after "deploy:update_code", "db:symlink"
+before "deploy:assets:precompile", "db:symlink"
 
 namespace :db do
   desc "Make symlink for database yaml"
