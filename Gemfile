@@ -20,6 +20,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'comfortable_mexican_sofa', '~> 1.11.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
