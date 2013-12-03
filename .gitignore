@@ -2,3 +2,5 @@
 /chef/**
 .DS_Store
 tmp/**
+log/**
+
