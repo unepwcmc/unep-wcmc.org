@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/anjlab/bootstrap-rails.git
+  revision: 99d4f2a5cb5423a6f1ac4e10ba96bfe497dcaebe
+  specs:
+    anjlab-bootstrap-rails (3.0.3.0)
+      railties (>= 3.0)
+      sass (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -36,6 +44,7 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    chunky_png (1.2.9)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.3)
@@ -62,10 +71,19 @@ GEM
       paperclip (>= 3.4.0)
       rails (~> 4.0)
       sass-rails (>= 3.1.0)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-rails (2.0.alpha.0)
+      compass (>= 0.12.2, < 0.14)
     erubis (2.7.0)
     execjs (2.0.2)
+    font-awesome-rails (4.0.3.0)
+      railties (>= 3.2, < 5.0)
     formatted_form (2.1.2)
       rails (>= 3.1)
+    fssm (0.2.10)
     haml (4.0.4)
       tilt
     haml-rails (0.5.1)
@@ -169,9 +187,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  anjlab-bootstrap-rails!
   capistrano (~> 2.15.0)
   coffee-rails (~> 4.0.0)
   comfortable_mexican_sofa (~> 1.11.0)
+  compass-rails (~> 2.0.alpha.0)
+  font-awesome-rails
   jbuilder (~> 1.2)
   jquery-rails
   pg
