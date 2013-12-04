@@ -1,6 +1,6 @@
 ---
-label: Species +
-layout: featured-project
+label: homepage
+layout: homepage
 parent: 
 target_page: 
 categories: []

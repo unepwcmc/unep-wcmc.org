@@ -1,0 +1,13 @@
+<div class="hero" id="featured_projects" style="background: url({{ cms:page_file:hero_background }}) no-repeat center; background-size: 100%">
+  <div class="heading">
+    <h1>{{ cms:page:hero_title:string }}</h1>
+    <h2 class="shorter">{{ cms:page:hero_subtitle:string }}</h2>
+  </div>
+</div>
+<div id="container"> 
+  <div id="featured_heading">
+    <h1>{{ cms:page:heading:string }}</h1>
+    <p>{{ cms:page:intro }}</p>
+  </div>
+  {{ cms:partial:featured_projects/list }}
+</div>
