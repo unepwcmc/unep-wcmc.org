@@ -23,6 +23,8 @@ gem 'font-awesome-rails'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
 
+gem 'angularjs-rails'
+
 group :doc do
   gem 'sdoc', require: false
 end

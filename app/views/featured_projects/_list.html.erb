@@ -1,17 +1,5 @@
 <div class="section-group">
-  <% @cms_page.children.each do |page| %>
-    <section class="group">
-      <a href="<%= page.full_path %>">
-        <img src="<%= cms_page_content(:thumbnail, page).file.url %>" />
-      </a>
-      <h2 class="smaller">
-        <a class="heading" href="<%= page.full_path %>">
-          <%= cms_page_content(:project_name, page) %>
-        </a>
-      </h2>
-      <p>
-        <%= cms_page_content(:short_description, page) %>
-      </p>
-    </section>
+  <% @cms_page.children.published.take(6).each do |page| %>
+    <%= render partial: "featured_projects/project", locals: {page: page} %>
   <% end %>
 </div>
