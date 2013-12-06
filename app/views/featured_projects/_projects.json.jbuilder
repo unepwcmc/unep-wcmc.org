@@ -4,7 +4,7 @@ json.array! pages do |page|
   else
     json.thumbnail_url ""
   end
-  json.project_url page.full_path
+  json.project_url @cms_site.path + page.full_path
   json.project_name cms_page_content(:project_name, page)
   json.description cms_page_content(:short_description, page)
 end

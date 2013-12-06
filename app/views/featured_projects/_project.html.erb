@@ -1,11 +1,11 @@
 <section class="group">
   <% if cms_page_content(:thumbnail, page) %>
-    <a href="<%= page.full_path %>">
+    <a href="<%= @cms_site.path + page.full_path %>">
       <img src="<%= cms_page_content(:thumbnail, page).file.url %>" />
     </a>
   <% end %>
   <h2 class="smaller">
-    <a class="heading" href="<%= page.full_path %>">
+    <a class="heading" href="<%= @cms_site.path + page.full_path %>">
       <%= cms_page_content(:project_name, page) %>
     </a>
   </h2>
