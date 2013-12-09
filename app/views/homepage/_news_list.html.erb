@@ -1,0 +1,14 @@
+<div class="section-group">
+  <% @cms_page.children.each do |page|   %>
+    <section class="group">
+    <small>
+      <%= cms_page_content(:time, page)  %>
+    </small>
+    <img src="<%= cms_page_content(:news_img, page) %>" width="" height="" alt="project 2"/>
+    <h2 class="smaller"><a class="heading" href="news-item.html"> <%= cms_page_content(:news_header,page) %> </a></h2>
+    <p>
+      <%= cms_page_content(:short_description, page) %>
+    </p>
+    </section>
+  <% end  %>
+</div>
