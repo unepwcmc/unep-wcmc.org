@@ -1,1 +1,1 @@
-angular.module("ProjectsList", []);
+angular.module("ProjectsList", ["ngAnimate"]);

@@ -11,7 +11,7 @@ $grey_text: #5e5a5c;
   box-sizing: border-box;
 }
 
-img {
+img, iframe {
   max-width: 100%;
 }
 
@@ -39,14 +39,14 @@ h1, h2, h3, h5 {
 
 h1{
 	font-size: 1.75em;
-	line-height: 1.5em;
+	line-height: 1em;
 	margin: 0 0 0.75em 0;
 	color: $grey_text;
 }
 
 h2{
 	font-weight: 700;
-	font-size: 1em;
+	font-size: 1.3em;
 	line-height: 1.3em;
 	margin: 0.75em 0;
 	color: $grey_text;
@@ -56,11 +56,12 @@ h2{
 	&.large_subheading {
     font-size: 1.4em;
     &#featured_projects {
+      text-align: center;
       display: block;
       margin: auto;
       width: 90%;
       font-size: 1.6em;
-      padding: 60px 0 30px 0;
+      padding: 30px 0;
     }
 	}
 }
@@ -68,8 +69,8 @@ h2{
 h3{
 	font-weight: 700;
 	font-size: 1em;
-	line-height: 1.25em;
-	margin: 0.75em 0 0.5em 0;
+	line-height: 1.4em;
+	margin: 1em 0 0.5em 0;
 	color: rgba(0,0,0,0.3);
 	&#news {
 	  width: 100%;
@@ -86,6 +87,20 @@ h3{
     text-transform: uppercase;
     color: #5175a3;
     border-top: 1px solid $grey;
+	}
+	&#position {
+	  font-size: 1em;
+    font-family: "museo-sans", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    color: #bbb;
+    margin-bottom: 5px;
+    span#separator {
+      display: inline-block;
+      padding: 0 5px;
+    }
+    span#department {
+      text-transform: uppercase;
+    }
 	}
 }
 
@@ -153,47 +168,42 @@ div.clear {
 	-webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-  div.nav-container {
-    width: 90%;
-    padding: 15px 0;
-    margin: auto;
-    overflow: hidden;
-    a#home_link {
-      display: block;
-      width: 83%;
-      float: left;
-  			img {
-  				opacity: 0.9;
-  				display: block;
-  			}
-    }
-  	ul{
-  		margin: auto;
-  	  list-style: none;
-  	  overflow: hidden;
-  		li{
-  			a {
-  				font-family: "museo-sans", Helvetica, Arial, sans-serif;
-  				font-size: 0.8em;
-  				text-decoration: none;
-  				color: rgba(255,255,255, 0.65);
-  				text-transform: uppercase;
-  				&:hover{
-  					color: rgba(255,255,255, 0.9);
-  					-webkit-transition: all 0.5s ease;
-  					-moz-transition: all 0.5s ease;
-  					-ms-transition: all 0.5s ease;
-  					-o-transition: all 0.5s ease;
-  					transition: all 0.5s ease;
-  				}
-  				&.active {
-  					color: #fff;
-  				}
-  			}
-  		}
-  	}
-    
+  overflow: hidden;
+  a#home_link {
+    display: block;
+    width: 100%;
+    float: left;
+    padding: 10px 5%;
+			img {
+				opacity: 0.9;
+				display: block;
+			}
   }
+	ul{
+		margin: auto;
+	  list-style: none;
+	  overflow: hidden;
+		li{
+			a {
+				font-family: "museo-sans", Helvetica, Arial, sans-serif;
+				font-size: 0.8em;
+				text-decoration: none;
+				color: rgba(255,255,255, 0.75);
+				text-transform: uppercase;
+				&:hover{
+					color: #fff;
+					-webkit-transition: all 0.5s ease;
+					-moz-transition: all 0.5s ease;
+					-ms-transition: all 0.5s ease;
+					-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;
+				}
+				&.active {
+					color: #fff;
+				}
+			}
+		}
+	}
 }
 
 div.hero{
@@ -221,8 +231,8 @@ div.hero{
 		background: url('../imgs/project_10.jpg') no-repeat center;
 		background-size: 100%;
 		.heading {
-		  width: 45%;
-		  margin-left: 15%;
+		  width: 60%;
+		  margin-left: 5%;
 		  text-align: left;
 		}
 	}
@@ -230,8 +240,10 @@ div.hero{
 
 div#container.other_projects {
   background-color: #f7f7f7;
-  width: 100%;
+  padding-bottom: 60px;
+  margin-top: 30px;
   margin-bottom: -60px;
+  width: 100%;
   div.section-group {
     width: 90%;
     margin: auto;
@@ -331,11 +343,15 @@ div.button {
 	}
 }
 
+div.button#featured_project {
+  margin-top: 10px;
+}
+
 div#button-row {
     margin-top: 1em;
     div.button#more_projects {
       margin: auto;
-      width: 290px;
+      width: 90%;
     }
 }
 
@@ -354,6 +370,12 @@ div#button-row {
         border-bottom: 3px solid $blue;
       }
     }
+    &#featured-project {
+      h2 {
+        font-size: 1.2em;
+      }
+    }
+
     &#contact-page {
       h2 {
         margin-top: 30px;
@@ -364,61 +386,78 @@ div#button-row {
         list-style-type: disc;
         padding: 1em 0 1em 1.25em;
         li {
-          font-size: 1.1em;
+          font-size: 1em;
           margin-bottom: 0.75em;
           line-height: 1.5em;
           font-weight: 300;
           color: $grey_text;
         }
       }
-      span.position {
-        font-size: 1em;
-        text-transform: uppercase;
-        font-family: "museo-sans", Helvetica, Arial, sans-serif;
-        font-weight: 300;
-        color: $grey_text;
+      p#salary {
+        margin-bottom: 30px;
       }
-      span.programme_name {
+
+    }
+    ul.partners_logos {
+      overflow: hidden;
+      margin-top: 20px;
+      li {
         display: inline-block;
-        margin-bottom: 2em;
-      }
-      span.programme_bar {
-        color: #59B200; 
-        font-weight: 900;
-        display: inline-block;
-        padding: 2%;
+        margin: 10px 10px 10px 0;
+        float: left;
       }
     }
-    &#data, &#employee_work, &#vacancies, &#partner {
+    &#data, &#employee_work, &#vacancies-page, &#news-archive, &#partner {
       section {
         border-bottom: 1px solid $grey;
         padding: 30px 0;
         overflow: hidden;
+        h2 {
+          margin-bottom: 0;
+        }
         h3 {
           word-spacing: 0.07em;
           letter-spacing: 0.1em;
           text-transform: uppercase;
+          font-size: 0.75em;
           font-weight: 300;
           font-family: "museo-sans", Helvetica, Arial, sans-serif;
+          margin: 1em 0;
         }
         p.link {
           float: left;
           margin-right: 20px;
         }
-        &:last-child {
+        &:last-child, &:first-child {
           border-bottom: none;
           padding-bottom: 0;
         }
       }
+      section:first-of-type {
+        padding-top: 0;
+      }
     }
     &#job_application{
+      h1 {
+        margin-bottom: 30px;
+        span {
+          font-size: 0.55em;
+          color: #d8d8d8;
+          padding-left: 5px;
+          margin-bottom: -20px;
+          display: block;
+        }
+      }
       h2 {
-      border-bottom: 1px solid #d8d8d8;
-      padding-bottom: 0.5em;
-      margin: 1.5em 0;
-    }
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      margin: 0 0 20px 0;
+    } 
+      textarea {
+        margin-bottom: 8px;
+      }
 
-    h3 {
+      h3 {
       color: #333;
       margin: 0.75em 0;
     }
@@ -459,11 +498,6 @@ div#button-row {
         margin-top: 1em;
       }
     }
-
-        h1{
-                margin-bottom: 7%;
-        }
-
         h2#first {
                 margin-top: 0;
         }
@@ -542,8 +576,8 @@ div#button-row {
   }
   .column-1-3 {
     padding-top: 30px;
-    &#job_related {
-      h2 {
+    &#job_related, &#job_related_small {
+      h1 {
       border-bottom: 1px solid $grey;
       font-size: 1em;
       color: #333;
@@ -553,16 +587,21 @@ div#button-row {
       color: $grey_text;
       margin-top: 2em;
       padding-bottom: 0.2em;
+      margin-bottom: 20px;
     }
-      h4 {
+      h2 {
         font-size: 1em;
         color: $blue;
         text-transform: none;
-        font-weight: 300;
+        font-weight: 400;
+        font-family: "museo-sans", Helvetica, Arial, sans-serif;
       }
     .button {
       width: 100%;
       margin-bottom: 30px;
+    }
+    section {
+      padding-bottom: 1px;
     }
   }
     section.save-link {
@@ -607,44 +646,14 @@ div#button-row {
     &:last-child {
       padding-bottom: 0;
     }
+    img {
+      padding-bottom: 0;
+    }
     img#staff_pic {
       padding-bottom: 50px;
     }
   }
   section {
-  &.column-1-4{
-    p {
-      font-size: 0.85em;
-      line-height: 0.7em;
-    }
-    h4 {
-        padding: 0 0 0.5em 0;
-    }
-    a img {
-      margin-bottom: 20px;
-    }
-    h2.partner, p.partner {
-      text-align: center;
-    }
-  }
-  &.column-1-2 {
-       ul.project_team {
-  		    overflow: hidden;
-  		    margin-top: 20px;
-  		    li {
-  		      img {
-  		        margin-bottom: 1em;
-  		      }
-            p {
-              font-size: 0.85em;
-              line-height: 0.7em;
-            }
-            h4 {
-                padding: 0 0 0.5em 0;
-            }
-          }
-  		  }
-    }
     &#twitter{
   		background: $grey;
   		padding: 25px;
@@ -730,7 +739,7 @@ div#button-row {
 ul.subnav {
   border-left: 3px solid $blue;
   padding-left: 5%;
-  margin-top: 15px;
+  margin-top: 14px;
   li{
 		padding-bottom: 1em;
 		&:last-child {
@@ -745,7 +754,6 @@ ul.subnav {
 			color: #333;
 			border-bottom: 1px solid #fff;
 			&:hover{
-				border-bottom: 1px solid $blue;
 				color: $blue;
 				-webkit-transition: all 0.3s ease;
         -moz-transition: all 0.3s ease;
@@ -916,34 +924,9 @@ div.data_policy, div.data_policy-small{
 
 form {
   section {
-    ul {
-      list-style-type: disc;
-      padding: 2em 0 2em 1.25em;
-      li {
-        font-size: 1.1em;
-        margin-bottom: 0.75em;
-        line-height: 1.5em;
-        font-weight: 300;
-        color: $grey_text;
-      }
-    }
-    input.short {
-      width: 50%;
-      height: 2em;
-      margin: 0.5em 0 1em 0;
-      border: 1px solid #eee;
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
-      border-radius: 3px;
-      font-family: "museo-sans", Helvetica, Arial, sans-serif;
-      font-size: 1.1em;
-      font-weight: 300;
-      color: $grey_text;
-      padding: 0 0.5em;
-    }
-    textarea {
+    textarea, input {
       width: 100%;
-      margin: 0.5em 0 1em 0;
+      margin: 0 0 10px 0;
       border: 1px solid #eee;
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
@@ -954,6 +937,29 @@ form {
       color: $grey_text;
       padding: 0.5em;
     }
+    input[type="radio"] {
+      width: 2%;
+    }
+    input.short {
+      width: 75%;
+      height: 2em;
+      border: 1px solid #eee;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      font-family: "museo-sans", Helvetica, Arial, sans-serif;
+      font-size: 1.1em;
+      font-weight: 300;
+      color: $grey_text;
+      padding: 0 0.5em;
+    }
+  }
+}
+
+#container div.column-2-3.left#job_application section {
+  padding-bottom: 40px;
+  &:last-of-type {
+    padding-bottom: 0;
   }
 }
 
@@ -1011,23 +1017,28 @@ ul.footer{
   overflow: hidden;
 }
 
-div#welcome, div#featured_heading {
+div#welcome {
   h1 {
     font-size: 1.25em;
     line-height: 1.25em;
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
+
+div#featured_heading {
+  padding: 30px 0;
+  h2 {
+    font-size: 1.6em;
+    line-height: 1.25em;
+    text-align: center;
+    margin-top: 0;
   }
 }
 
 div#welcome {
   padding: 30px 0;
-}
-
-div#featured_heading {
-  h1 {
-    text-align: center;
-    line-height: 1em;
-    font-size: 2.25em;
-  }
 }
 
 div#news {
@@ -1067,10 +1078,38 @@ a.back_nav {
   display: inline-block;
 }
 
+div.section-group#staff {
+  padding-top: 10px;
+}
+
 section.group.staff {
   overflow: hidden;
-  width: 45%;
-  margin-right: 4.5%;
+  width: 47.5%;
+  margin-right: 5%;
+  float: left !important;
+  &:nth-child(2n) {  
+    margin-right: 0;
+  }
+  &:nth-child(2n+3) {  
+    clear: left;
+  } 
+  img{
+    padding-bottom: 0;
+  }
+  
+  h4 {
+    padding: 10px 0 0 0;
+  }
+  
+  p {
+    margin-bottom: 0;
+  }
+}
+
+section.group.staff#vacancy-team {
+  overflow: hidden;
+  width: 47.5%;
+  margin-right: 5%;
   float: left !important;
   &:nth-child(2n) {  
     margin-right: 0;
@@ -1082,6 +1121,7 @@ section.group.staff {
 
 div#news-archive {
   h3 {
+    font-size: 0.75em;
     word-spacing: 0.07em;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -1101,14 +1141,15 @@ ul#large-menu {
 }
 
 ul#button-menu {
+  background: #006AB8;
   display: none;
   clear: both;
+  padding: 1% 5% 5% 5%;
   li {
     padding-bottom: 3px;
     margin: 0;
     clear: both;
-    text-align: right;
-    font-size: 0.85em;
+    font-size: 1.1em;
     &:last-child {
       padding-bottom: 0;
     }
@@ -1122,16 +1163,23 @@ button#trigger-menu {
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.65);
   font-size: 0.85em;
+  float: right;
   border: none;
   border-radius: 5px;
-  float: right;
-  padding: 0;
+  padding: 1% 5%;
+  clear: both;
+  width: 100%;
+  text-align: left;
+  background: #006AB8;
+  margin: 0;
+  border-radius: 0;
   i {
-    padding-right: 3px;
     line-height: 30px;
     &:after {
-      content: "Menu";
-      display: none;
+      display: inline-block;
+      content: "Navigation";
+      font-family: "museo-sans", Helvetica, Arial, sans-serif;
+      padding-left: 5px;
     }
   }
   outline: none;
@@ -1142,17 +1190,6 @@ button#trigger-menu {
 		-ms-transition: all 0.5s ease;
 		-o-transition: all 0.5s ease;
 		transition: all 0.5s ease;
-  }
-}
-
-@media all and (min-width: 480px){
-  button#trigger-menu {
-    i:after {
-      display: inline-block;
-      content: "Menu";
-      font-family: "museo-sans", Helvetica, Arial, sans-serif;
-      padding-left: 3px;
-    }
   }
 }
 
@@ -1217,8 +1254,8 @@ ul.subnav-small {
 		padding: 10px 0 5px 0;
 		border-bottom: 1px solid $blue;
 		float: left;
-		width: 48%;
-		margin-right: 4%;
+		width: 47%;
+		margin-right: 6%;
 		&:nth-child(2n) {
 		  margin-right: 0;
 		}
@@ -1227,6 +1264,7 @@ ul.subnav-small {
 		}
 		 a{
 			font-size: 0.85em;
+			line-height: 1.4em;
 			font-weight: 300;
 			word-spacing: 0.05em;
 			letter-spacing: 0.10em;
@@ -1238,4 +1276,77 @@ ul.subnav-small {
 			}
 		}
 	}
+}
+
+section#actions-column {
+  display: none;
+}
+
+section.column-2-3#actions-column-small {
+  display: block;
+  padding-top: 0;
+  div.button {
+    width: 100%;
+  }
+}
+
+h2.programme {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+}
+
+div.column-1-3#job_related {
+  display: none;
+}
+
+div#container.job-related {
+  background: $grey;
+  width: 100%;
+  margin-bottom: -60px;
+}
+
+#container.job-related div.column-1-3#job_related_small {
+  clear: both;
+  width: 90%;
+  margin: 0 5%;
+  padding-bottom: 60px;
+  h1 {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}
+
+div.column-2-3.left#job_description {
+  clear: both;
+  width: 100%;
+  div.button {
+    margin: 30px 0 60px 0;
+  }
+}
+
+div.column-1-3#save-link {
+  display: none;
+}
+
+div.column-1-3.right#save-link-small {
+  clear: both;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 40px;
+  float: none;
+  i {
+    right: -218px;
+  }
+}
+
+div.column-2-3.left#job_application {
+  clear: both;
+  width: 100%;
+  div.button {
+    margin: 50px 0 60px 0;
+    width: 100%;
+  }
 }

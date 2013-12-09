@@ -3,7 +3,7 @@
        ng-init="init(<%= render partial: "featured_projects/projects", locals: {pages: @cms_page.children.published.drop(6)}, formats: :json %>)">
     <h2 id="featured_projects" class="large_subheading">Other projects you may also want to see</h2>
     <div class="section-group">
-      <section class="group" ng-repeat="project in projects">
+      <section class="group featured-project" ng-repeat="project in projects">
         <a href="{{project.project_url}}" ng-if="project.thumbnail_url" >
           <img ng-src="{{project.thumbnail_url}}" />
         </a>

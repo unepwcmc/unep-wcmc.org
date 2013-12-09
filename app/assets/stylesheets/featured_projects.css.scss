@@ -1,0 +1,15 @@
+.ng-enter.featured-project {
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  transition: 0.3s linear all;
+}
+
+.featured-project.ng-enter.ng-enter-active {
+  max-height: 500px;
+  overflow: auto;
+}
+
+.ng-enter.featured-project {
+  max-height: 0px;
+  overflow: hidden;
+}

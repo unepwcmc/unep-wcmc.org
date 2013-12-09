@@ -19,8 +19,8 @@ $grey_text: #5e5a5c;
     }
   }
   section.group {
-    width: 45%;
-    margin-right: 4.5%;
+    width: 47.5%;
+    margin-right: 5%;
     float: left;
     &:nth-child(2n) {  
       margin-right: 0;
@@ -60,6 +60,7 @@ $grey_text: #5e5a5c;
     &.right {
       float: right;
       padding: 0 0 0 9%;
+      margin-top: 60px;
     }
     img.employee_pic {
       width: 100%;
@@ -129,7 +130,7 @@ h1, h2, h3, h5 {
 
 h1{
 	font-size: 2.25em;
-	line-height: 1.5em;
+	line-height: 1em;
 	margin: 0 0 0.75em 0;
 	color: $grey_text;
 }
@@ -146,8 +147,8 @@ h2{
 	&.large_subheading {
     font-size: 1.4em;
     &#featured_projects {
-      font-size: 1.6em;
-      padding: 60px 0 30px 0;
+      font-size: 2em;
+      padding: 60px 0 60px 0;
     }
 	}
 }
@@ -179,42 +180,37 @@ h5{
 
 div#nav{
 	width:100%;
-  .nav-container {
-    overflow: hidden;
-    padding: 20px 0;
-    width: 90%;
+  overflow: hidden;
     a#home_link {
-  		padding: 0;
-  		float: left;
-  		padding-left: 0;
-  		width: 50%;
-  		img {
-  			max-width: 100%;
-  		}
-  	}
-  	ul{
-  		margin: auto;
-  	  overflow: hidden;
-  		li{
-  			padding: 3.25% 0 0 2%;
-  			float: right;
-  		}
-  		&#button-menu {
-        display: none;
+		float: left;
+		width: 50%;
+		padding: 20px 5%;
+		img {
+			max-width: 100%;
+		}
+	}
+	ul{
+		margin: auto;
+	  overflow: hidden;
+		li{
+			padding: 3.25% 0 0 2%;
+			float: right;
+		}
+		&#button-menu {
+      display: none;
+      clear: both;
+      padding: 2% 5%;
+      li {
+        padding: 0 0 3px 0;
+        margin: 0;
         clear: both;
-        li {
-          padding: 0 0 3px 0;
-          margin: 0;
-          clear: both;
-          text-align: right;
-          font-size: 0.85em;
-          &:last-child {
-            padding-bottom: 0;
-          }
+        text-align: right;
+        &:last-child {
+          padding-bottom: 0;
         }
       }
-  	}
-  }
+    }
+	}
 }
 
 div.banner {
@@ -257,6 +253,17 @@ div.heading{
   }
 }
 
+div.hero#species div.heading {
+  width: 45%;
+  margin-left: 15%;
+  text-align: left;
+}
+
+div#container.other_projects {
+  padding-bottom: 60px;
+  margin-bottom: -60px;
+}
+
 div#welcome, div#featured_heading {
   h1 {
     font-size: 2.5em;
@@ -272,10 +279,15 @@ div#welcome, div#featured_heading {
 
 div#welcome {
   padding-top: 0;
+  padding-bottom: 0;
 }
 
 div#featured_heading {
+  h2 {
+    font-size: 2em;
+  }
   margin-top: 60px;
+  padding: 0;
 }
 
 div#footer_container {
@@ -304,6 +316,16 @@ iframe {
   }
 }
 
+button#trigger-menu {
+  background: none;
+  float: right;
+  width: 23.75%;
+  clear: none;
+  padding: 0 5%;
+  line-height: 38px;
+  margin: 20px 0;
+}
+
 ul.subnav#staff {
   margin-bottom: 30px;
 }
@@ -315,6 +337,7 @@ h1.page_header#featured{
 div.column-1-3#data {
   display: block;
 }
+
 
 div.column-1-3#data-small {
   display: none;
@@ -330,4 +353,36 @@ ul.subnav {
 
 ul.subnav-small {
   display: none;
+}
+
+div#button-row {
+    margin-top: 1em;
+    div.button#more_projects {
+      margin: auto;
+      width: 290px;
+    }
+}
+
+div.column-1-3#job_related_small section.group.staff {
+  width: 22%;
+  margin-right: 4%;
+  &:nth-child(4n) {  
+    margin-right: 0;
+  }
+  &:nth-child(4n+4) {  
+    clear: none;
+  }
+}
+
+div.column-1-3.right#save-link-small i {
+  right: -618px;
+}
+
+div.column-2-3.left#job_application div.button {
+  width: 250px;
+}
+
+#container div.column-2-3.left#job_application h1 span {
+  display: inline;
+  font-size: 0.45em;
 }

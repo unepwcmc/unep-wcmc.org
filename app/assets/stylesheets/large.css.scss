@@ -55,7 +55,7 @@ $grey_text: #5e5a5c;
     }
     &.staff {
       width: 22%;
-      margin-right: 1%;
+      margin-right: 4%;
       &:nth-child(4n) {  
         margin-right: 0;
       }
@@ -92,31 +92,52 @@ $grey_text: #5e5a5c;
   }
 }
 
+div.project-team {
+  overflow: hidden;
+  padding-top: 10px;
+  section {
+    width: 45%;
+    margin-right: 5%;
+    float: left;
+  }
+}
+
 div#nav{
 	width:100%;
-  .nav-container {
-    overflow: hidden;
-    width: 70%;
+  overflow: hidden;
     a#home_link {
-  		padding: 0;
-  		float: left;
-  		padding-left: 0;
-  		width: 35%;
-  		img {
-  			max-width: 100%;
-  		}
-  	}
-  	ul{
-  		width: 65%;
-  		margin: auto;
-  		float: right;
-  	  overflow: hidden;
-  		li{
-  			padding: 3.25% 0 0 2%;
-  			float: right;
-  		}
-  	}
-  }
+		float: left;
+		width: 40%;
+		padding: 20px 0 20px 15%;
+		img {
+			max-width: 100%;
+		}
+	}
+	ul#large-menu{
+	  width: 60%;
+		padding: 20px 15% 20px 0;
+		margin: 0;
+	  overflow: hidden;
+		li{
+		  padding: 0 0 0 2%;
+			float: right;
+			line-height: 37px;
+		}
+		&#button-menu {
+      display: none;
+      clear: both;
+      li {
+        padding: 0 0 3px 0;
+        margin: 0;
+        clear: both;
+        text-align: right;
+        font-size: 0.85em;
+        &:last-child {
+          padding-bottom: 0;
+        }
+      }
+    }
+	}
 }
 
 div.banner {
@@ -128,13 +149,16 @@ div.banner {
 
 div#container.other_projects {
   padding-bottom: 6em;
-  section h2 {
-    margin: 0.75em 0;
-  }
-  .section-group {
-    width: 70%;
-    margin: auto;
-  }
+}
+
+div#container.other_projects h2.large_subheading#featured_projects {
+  width: 70%;
+  margin: auto;
+}
+
+div#container.other_projects div.section-group {
+  width: 70%;
+  margin: auto;
 }
 
 div.heading{
@@ -184,23 +208,13 @@ div.heading{
   }
 }
 
-div#welcome, div#featured_heading {
-  margin: auto;
-  margin-bottom: 60px;
-  width: 90%;
-}
-
 div#featured_heading {
   margin-top: 60px;
 }
 
 div#footer_container {
-	padding: 2% 0;
+	padding: 30px 0;
 	margin-top: 60px;
-}
-
-div#footer_container.featured {
-	margin-top: 0;
 }
 
 ul.footer{	
@@ -262,4 +276,58 @@ ul.subnav {
 
 ul.subnav-small {
   display: none;
+}
+
+section.group.staff#vacancy-team {
+  overflow: hidden;
+  width: 47.5%;
+  margin-right: 5%;
+  float: left !important;
+  &:nth-child(2n) {  
+    margin-right: 0;
+  }
+  &:nth-child(2n+3) {  
+    clear: left;
+  } 
+}
+
+div.column-1-3#job_related_small {
+  display: none;
+}
+
+#container div.column-1-3#job_related {
+  display: block;
+  margin-bottom: 60px;
+  div.button {
+    margin-bottom: 40px;
+  }
+}
+
+div.column-1-3#save-link {
+  display: block;
+}
+
+div.column-1-3#save-link-small {
+  display: none;
+}
+
+section#actions-column {
+  display: block;
+}
+
+section.column-2-3#actions-column-small {
+  display: none;
+}
+
+section#actions-column {
+  display: block;
+}
+
+section.column-2-3#actions-column-small {
+  display: none;
+}
+
+#container div.column-2-3.left#job_application, div.column-2-3.left#job_description {
+  float: left;
+  width: 63%;
 }

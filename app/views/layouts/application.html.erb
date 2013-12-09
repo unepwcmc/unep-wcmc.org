@@ -11,28 +11,27 @@
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <%= javascript_include_tag "application.js" %>
     <%= stylesheet_link_tag "base", media: "screen" %>
+    <%= stylesheet_link_tag "application", media: "all" %>
     <%= stylesheet_link_tag "medium", media: "only screen and (min-width: 700px)" %>
     <%= stylesheet_link_tag "large", media: "screen and (min-width: 1000px)" %>
     <%= csrf_meta_tags %>
 	</head>
 	<body>
 		<div id="nav">
-		  <div class="nav-container">
-        <a id="home_link" href="index.html" title="Home"><%= image_tag "logo_white_transparent.png" %></a>
-  			<ul id="large-menu">
-  				<li><a href="about_us.html" title="About us">About us</a></li>
-  				<li><a href="data.html" title="Resources &amp; Data">Resources &amp; Data</a></li>
-  				<li><a href="featured_projects.html" title="Featured Projects">Featured Projects</a></li>				
-  				<li><a href="areas_of_work.html" title="Areas of Work">Our Work</a></li>								
-  			</ul>
-        <button id="trigger-menu"><i class="icon-align-justify"></i></button>
-  			<ul id="button-menu">
-  				<li><a href="areas_of_work.html" title="Areas of Work">Our Work</a></li>								
-  				<li><a href="featured_projects.html" title="Featured Projects">Featured Projects</a></li>				
-  				<li><a href="data.html" title="Resources &amp; Data">Resources &amp; Data</a></li>
-  				<li><a href="about_us.html" title="About us">About us</a></li>
-  			</ul>
-			</div>
+      <a id="home_link" href="index.html" title="Home"><%= image_tag "logo_white_transparent.png" %></a>
+      <ul id="large-menu">
+        <li><a href="about_us.html" title="About us">About us</a></li>
+        <li><a href="data.html" title="Resources &amp; Data">Resources &amp; Data</a></li>
+        <li><a href="featured_projects.html" title="Featured Projects">Featured Projects</a></li>				
+        <li><a href="areas_of_work.html" title="Areas of Work">Expertise</a></li>								
+      </ul>
+      <button id="trigger-menu"><i class="icon-align-justify"></i></button>
+      <ul id="button-menu">
+        <li><a href="areas_of_work.html" title="Areas of Work">Expertise</a></li>								
+        <li><a href="featured_projects.html" title="Featured Projects">Featured Projects</a></li>				
+        <li><a href="data.html" title="Resources &amp; Data">Resources &amp; Data</a></li>
+        <li><a href="about_us.html" title="About us">About us</a></li>
+      </ul>
 		</div>
 
     <%= yield %>
