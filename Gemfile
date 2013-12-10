@@ -25,6 +25,8 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 
 gem 'angularjs-rails'
 
+gem 'underscore-rails'
+
 group :doc do
   gem 'sdoc', require: false
 end
