@@ -1,9 +1,9 @@
 <div id="container" ng-app="DatasetsResources" ng-controller="DatasetsCtrl" ng-init="init(<%= render partial: "datasets/list", formats: :json %>)">
   <div id="data" class="column-1-3">
     <ul id="content">
-      <li class="content_type" ng-repeat="contentType in contentTypes">
+      <li ng-click="toggleContentType()" ng-class="{active: contentType.selected && contentType.count > 0}" class="content_type" ng-repeat="contentType in contentTypes">
         <span class="badge">{{ contentType.count }}</span>
-        {{ contentType.plural }}
+        <p ng-style="{color: contentType.count > 0 ? '#000' : '#ddd'}">{{ contentType.plural }}</p>
       </li>
     </ul>
   </div>
@@ -11,7 +11,7 @@
     <h1>
       Resources &amp; data
     </h1>
-    <section ng-repeat="dataset in datasets">
+    <section ng-repeat="dataset in activeDatasets">
       <h2 class="smaller">{{ dataset.title }}</h2>
       <h3>
         {{ dataset.content_type }}
