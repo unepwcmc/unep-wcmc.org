@@ -15,5 +15,7 @@
 //= require angular
 //= require angular-animate
 //= require underscore
+//= require augment
+//= require lunr
 //= require main
 //= require_tree .

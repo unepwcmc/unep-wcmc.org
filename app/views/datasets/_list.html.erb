@@ -1,7 +1,7 @@
 <div id="container" ng-app="DatasetsResources" ng-controller="DatasetsCtrl" ng-init="init(<%= render partial: "datasets/list", formats: :json %>)">
   <div id="data-small" class="column-1-3">
     <div class="search_field_container">
-      <input class="search_input" type="text" placeholder="Search resources or datasets" ng-model="searchQuery" />
+      <input class="search_input" type="text" placeholder="Search resources or datasets" ng-model="query" ng-change="search()"/>
       <div class="icon_search">
         <i class="icon-search"></i>
       </div>
@@ -18,7 +18,7 @@
   </div>
   <div id="data" class="column-1-3">
     <div class="search_field_container">
-      <input class="search_input" type="text" placeholder="Search resources or datasets" ng-model="searchQuery" />
+      <input class="search_input" type="text" placeholder="Search resources or datasets" ng-model="query" ng-change="search()" />
       <div class="icon_search">
         <i class="icon-search"></i>
       </div>
