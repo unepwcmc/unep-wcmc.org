@@ -1,5 +1,7 @@
 <div id="container" ng-app="DatasetsResources" ng-controller="DatasetsCtrl" ng-init="init(<%= render partial: "datasets/list", formats: :json %>)">
   <div id="data" class="column-1-3">
+    <select id="sorting" ng-model="sortOrder" ng-options="order.value as order.name for order in sortOrders" ng-change="sortDatesets()">
+    </select>
     <ul id="content">
       <li class="header">
         Type of content

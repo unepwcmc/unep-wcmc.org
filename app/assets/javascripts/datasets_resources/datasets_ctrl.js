@@ -6,6 +6,19 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", functi
     });
   }
 
+  $scope.sortOrders = [
+    {value: 0, name: "Most recent first"},
+    {value: 1, name: "Alphabetically"}
+  ];
+
+  $scope.sortDatesets = function () {
+    if ($scope.sortOrder === 0) {
+      $scope.activeDatasets = _.sortBy($scope.activeDatasets, "publication_date").reverse();
+    } else if ($scope.sortOrder === 1) {
+      $scope.activeDatasets = _.sortBy($scope.activeDatasets, "title");
+    }
+  }
+
   $scope.selectAll = function () {
     _.each($scope.contentTypes, function (contentType) {
       contentType.selected = true;
@@ -28,7 +41,7 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", functi
         $scope.activeDatasets.push(dataset);
       }
     });
-    $scope.activeDatasets = _.sortBy($scope.activeDatasets, "publication_date").reverse();
+    $scope.sortDatesets();
   }
 
   var initPublicationDates = function () {
@@ -38,6 +51,7 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", functi
   }
 
   $scope.init = function (data) {
+    $scope.sortOrder = $scope.sortOrders[0].value;
     $scope.datasets = data.datasets;
     $scope.contentTypes = data.content_types;
     countByContentType($scope.datasets, $scope.contentTypes);
