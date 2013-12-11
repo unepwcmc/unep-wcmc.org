@@ -75,10 +75,6 @@ $grey_text: #5e5a5c;
       &:first-child {
         margin-top: 22px;
       }
-      h2 {
-        margin-bottom: 3px;
-        font-size: 1em;
-      }
       p {
         font-size: 1em;
       }
@@ -91,6 +87,11 @@ $grey_text: #5e5a5c;
     float: right;
     &.left {
       float: left;
+    }
+    &#featured-project {
+      h2 {
+        font-size: 1.65em;
+      }
     }
   }
 }
