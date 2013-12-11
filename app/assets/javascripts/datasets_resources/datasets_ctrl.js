@@ -28,13 +28,20 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", functi
         $scope.activeDatasets.push(dataset);
       }
     });
+    $scope.activeDatasets = _.sortBy($scope.activeDatasets, "publication_date").reverse();
+  }
+
+  var initPublicationDates = function () {
+    _.each($scope.datasets, function (dataset) {
+      dataset.publication_date = Date.parse(dataset.publication_date);
+    });
   }
 
   $scope.init = function (data) {
-    $scope.activeDatasets = data.datasets;
     $scope.datasets = data.datasets;
     $scope.contentTypes = data.content_types;
     countByContentType($scope.datasets, $scope.contentTypes);
+    initPublicationDates();
     $scope.selectAll();
   }
 
