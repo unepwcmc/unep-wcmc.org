@@ -6,9 +6,16 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", functi
     });
   }
 
-  var selectAll = function (contentTypes) {
-    _.each(contentTypes, function (contentType) {
+  $scope.selectAll = function () {
+    _.each($scope.contentTypes, function (contentType) {
       contentType.selected = true;
+    });
+    applyFilters();
+  }
+
+  $scope.deselectAll = function () {
+    _.each($scope.contentTypes, function (contentType) {
+      contentType.selected = false;
     });
     applyFilters();
   }
@@ -28,7 +35,7 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", functi
     $scope.datasets = data.datasets;
     $scope.contentTypes = data.content_types;
     countByContentType($scope.datasets, $scope.contentTypes);
-    selectAll($scope.contentTypes);
+    $scope.selectAll();
   }
 
   $scope.toggleContentType = function () {
