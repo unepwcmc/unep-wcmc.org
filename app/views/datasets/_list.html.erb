@@ -51,6 +51,12 @@
       <p>
         {{ dataset.content }}
       </p>
+      <p class="link">
+        <a href="{{dataset.first_link}}">{{dataset.first_link_label}}</a>
+      </p>
+      <p class="link">
+        <a href="{{dataset.second_link}}">{{dataset.second_link_label}}</a>
+      </p>
     </section>
     <h2 ng-if="activeDatasets.length == 0" class="smaller">No data found.</h2>
   </div>
