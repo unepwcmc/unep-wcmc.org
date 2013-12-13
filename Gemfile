@@ -27,6 +27,9 @@ gem 'angularjs-rails'
 
 gem 'underscore-rails'
 
+gem 'guard'
+gem 'guard-livereload'
+
 group :doc do
   gem 'sdoc', require: false
 end
