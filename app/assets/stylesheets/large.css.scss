@@ -4,7 +4,7 @@ $grey: #f4f2f2;
 $grey_text: #5e5a5c;
 
 
-#container {
+.container {
   width: 70%;
   margin: auto;
   overflow: hidden;
@@ -147,16 +147,16 @@ div.banner {
   }
 }
 
-div#container.other_projects {
+div.container#other_projects, div.container#other-news-small {
   padding-bottom: 6em;
 }
 
-div#container.other_projects h2.large_subheading#featured_projects {
+div.container#other_projects h2.large_subheading#featured_projects {
   width: 70%;
   margin: auto;
 }
 
-div#container.other_projects div.section-group {
+div.container#other_projects div.section-group {
   width: 70%;
   margin: auto;
 }
@@ -221,7 +221,6 @@ ul.footer{
 	width: 70%;
 	margin: auto;
 	li{
-		padding: 0 1%;
 		float: left;
 	}
 	li#address{
@@ -295,7 +294,7 @@ div.column-1-3#job_related_small {
   display: none;
 }
 
-#container div.column-1-3#job_related {
+.container div.column-1-3#job_related {
   display: block;
   margin-bottom: 60px;
   div.button {
@@ -319,15 +318,48 @@ section.column-2-3#actions-column-small {
   display: none;
 }
 
-section#actions-column {
+.container div.column-2-3.left#job_application, div.column-2-3.left#job_description {
+  float: left;
+  width: 63%;
+}
+
+div#news-item {
+  h1 {
+    line-height: 1.25em;
+  }
+  section.actions#share {
+    font-size: 0.85em;
+    span {
+      font-size: 1em !important;
+    }
+  }
+}
+
+.container div.column-1-3#news {
   display: block;
 }
 
-section.column-2-3#actions-column-small {
+.container div.column-2-3.left#news-item {
+  width: 63%;
+}
+
+div.container#other-news-small {
   display: none;
 }
 
-#container div.column-2-3.left#job_application, div.column-2-3.left#job_description {
-  float: left;
-  width: 63%;
+select#sorting, div.search-field input {
+	font-size: 0.85em;
+}
+
+div.search-field i {
+  font-size: 0.85em;
+}
+
+ul#fields, ul#content, ul#fields-small, ul#content-small, ul#programmes {
+	li{
+		font-size: 1em;
+		&.header {
+			font-size: 1.25em;
+		}
+	}
 }

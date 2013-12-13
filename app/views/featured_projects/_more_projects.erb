@@ -1,5 +1,5 @@
 <% if @cms_page.children.published.count > 6 %>
-  <div id="container" class="other_projects" ng-app="ProjectsList" ng-cloak ng-controller="ProjectsCtrl"
+  <div class="container" id="other_projects" ng-app="ProjectsList" ng-cloak ng-controller="ProjectsCtrl"
        ng-init="init(<%= render partial: "featured_projects/projects", locals: {pages: @cms_page.children.published.drop(6)}, formats: :json %>)">
     <h2 id="featured_projects" class="large_subheading">Other projects you may also want to see</h2>
     <div class="section-group">

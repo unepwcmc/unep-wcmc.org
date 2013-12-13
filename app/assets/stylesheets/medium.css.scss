@@ -4,7 +4,7 @@ $grey: #f4f2f2;
 $grey_text: #5e5a5c;
 
 
-#container {
+.container {
   width: 90%;
   margin: auto;
   overflow: hidden;
@@ -82,7 +82,8 @@ $grey_text: #5e5a5c;
     
   }
   .column-2-3 {
-    padding-top: 60px;
+    margin-top: -50px;
+    padding-top: 110px;
     width: 63%;
     float: right;
     &.left {
@@ -131,8 +132,8 @@ h1, h2, h3, h5 {
 
 h1{
 	font-size: 2.25em;
-	line-height: 1em;
-	margin: 0 0 0.75em 0;
+	line-height: 1.2em;
+	margin: 0 0 30px 0;
 	color: $grey_text;
 }
 
@@ -147,10 +148,9 @@ h2{
 	}
 	&.large_subheading {
     font-size: 1.4em;
-    &#featured_projects {
-      font-size: 2em;
-      padding: 60px 0 60px 0;
-    }
+    font-size: 2em;
+    padding: 60px 0 30px 0;
+    text-align: center;
 	}
 }
 
@@ -260,11 +260,6 @@ div.hero#species div.heading {
   text-align: left;
 }
 
-div#container.other_projects {
-  padding-bottom: 60px;
-  margin-bottom: -60px;
-}
-
 div#welcome, div#featured_heading {
   h1 {
     font-size: 2.5em;
@@ -300,7 +295,6 @@ ul.footer{
 	width: 90%;
 	margin: auto;
 	li{
-		padding: 0 1%;
 		float: left;
 	}
 }
@@ -383,7 +377,62 @@ div.column-2-3.left#job_application div.button {
   width: 250px;
 }
 
-#container div.column-2-3.left#job_application h1 span {
+.container div.column-2-3.left#job_application h1 span {
   display: inline;
   font-size: 0.45em;
+}
+
+section#actions-column {
+  display: block;
+}
+
+section.column-2-3#actions-column-small {
+  display: none;
+}
+
+div.container#other_projects, div.container#other-news-small {
+  h2.large_subheading {
+    text-align: center;
+  }
+}
+
+div#footer_container {
+	background: image-url('map_world.png') no-repeat center;
+	width:100%;
+	position: absolute;
+	background-size: 100%;
+}
+
+ul.footer{	
+  overflow: hidden;
+	li{
+	  float: left;
+	  padding-right: 15px;
+	  padding-bottom: 0;
+	  &#logo {
+  	  float: right;
+  	  padding-right: 0;
+  	  padding-top: 0;
+  	  img {
+  	    float: right;
+  	  }
+  	}
+	}
+}
+
+div.data_policy, div.data_policy-small{
+  h3 {
+    color: $grey_text;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 3%;
+  }
+  p {
+    font-size: 0.85em;
+    margin-bottom: 0;
+  }
+}
+
+div.search-field input, div.search-field i {
+  font-size: 0.75em;
 }
