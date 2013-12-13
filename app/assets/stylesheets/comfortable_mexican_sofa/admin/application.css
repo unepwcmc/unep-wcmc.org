@@ -1,1 +1,5 @@
 /* Overwrite this file in your application /app/assets/stylesheets/comfortable_mexican_sofa/admin/application.css */
+
+body#comfy .CodeMirror {
+  height: 100px;
+}
