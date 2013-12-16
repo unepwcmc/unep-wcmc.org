@@ -27,8 +27,11 @@ gem 'angularjs-rails'
 
 gem 'underscore-rails'
 
-gem 'guard'
-gem 'guard-livereload'
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'guard'
+  gem 'guard-livereload'
+end
 
 group :doc do
   gem 'sdoc', require: false
