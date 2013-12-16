@@ -1,5 +1,6 @@
 UnepWcmcOrg::Application.routes.draw do
   namespace :admin do
+    resources :employees
     resources :featured_projects do
       collection do
         put :reorder

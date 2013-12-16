@@ -1,0 +1,5 @@
+.page-header
+  %h2 Employee
+  = @employee.name
+  - if @employee.photo.exists?
+    %img{:src => @employee.photo.url}
