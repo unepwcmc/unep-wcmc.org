@@ -1,5 +1,6 @@
 class Admin::FeaturedProjectsController < Admin::Cms::PagesController
   before_action :set_site
+  before_action :set_employees, only: [:new, :edit]
 
   def index
     super
@@ -13,7 +14,7 @@ class Admin::FeaturedProjectsController < Admin::Cms::PagesController
     else
       flash[:error] = I18n.t("cms.pages.update_failure")
     end
-    redirect_to action: :index
+    redirect_to action: :edit
   end
 
   protected
@@ -26,6 +27,9 @@ class Admin::FeaturedProjectsController < Admin::Cms::PagesController
 
   private
 
+  def set_employees
+    @employees = Employee.all.to_a
+  end
   def set_site
     @site = Cms::Site.find_by_identifier('featured-projects')
   end

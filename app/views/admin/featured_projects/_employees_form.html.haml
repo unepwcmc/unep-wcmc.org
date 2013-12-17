@@ -1,0 +1,18 @@
+.control-group{ "ng-app" => "EmployeesForm", "ng-controller" => "EmployeesCtrl"}
+  %label.control-label Employee 1
+  .controls
+    .control-group
+      %label.control-label{:for => "employees[0][id]"} Name
+      .controls
+        = select_tag("employees[0][id]", options_from_collection_for_select(@employees, :id, :name))
+    .control-group
+      %label.control-label{:for => "employees[0][role]"} Role
+      .controls
+        = text_field_tag "employees[0][role]"
+    .control-group
+      .controls
+        %input.btn.btn-danger{:type => "button", :value => "Remove"}
+
+.control-group
+  .controls
+    %input.btn{:type => "button", :value => "Add an employee"}
