@@ -1,6 +1,7 @@
 class Admin::FeaturedProjectsController < Admin::Cms::PagesController
-  before_action :set_site
-  before_action :set_employees, only: [:new, :edit]
+  skip_before_filter :load_admin_site
+  prepend_before_action :set_site
+  before_action :set_employees
 
   def index
     super
@@ -28,9 +29,10 @@ class Admin::FeaturedProjectsController < Admin::Cms::PagesController
   private
 
   def set_employees
-    @employees = Employee.all.to_a
+    @employees = ::Cms::Site.find_by_identifier("employees").pages.root.children
   end
+
   def set_site
-    @site = Cms::Site.find_by_identifier('featured-projects')
+    @site = ::Cms::Site.find_by_identifier('featured-projects')
   end
 end

@@ -1,19 +1,10 @@
 .page-header
-  = link_to 'New Employee', new_admin_employee_path, :class => 'btn pull-right'
-  %h2= 'Employees'
+  = link_to "Add employee", new_admin_employee_path, :class => 'btn pull-right'
+  %h2 Employees
 
-= paginate @employees
+= render 'admin/cms/partials/pages_before'
 
-%table.table.table-hover.table-bordered
-  %tr
-    %th Name
-    %th Actions
-  - @employees.each do |employee|
-    %tr
-      %td= employee.name
-      %td
-        .btn-group
-          = link_to 'Edit', edit_admin_employee_path(employee), :class => 'btn btn-small'
-          = link_to 'Delete', admin_employee_path(employee), :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-small btn-danger'
+%ul.list.sortable
+  = render :partial => 'index_branch', :collection => @pages
 
-= paginate @employees
+= render 'admin/cms/partials/pages_after'

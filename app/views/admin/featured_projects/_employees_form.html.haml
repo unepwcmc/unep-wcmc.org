@@ -4,7 +4,7 @@
     .control-group
       %label.control-label{:for => "employees[0][id]"} Name
       .controls
-        = select_tag("employees[0][id]", options_from_collection_for_select(@employees, :id, :name))
+        = select_tag("employees[0][id]", employees_options)
     .control-group
       %label.control-label{:for => "employees[0][role]"} Role
       .controls

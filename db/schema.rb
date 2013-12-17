@@ -156,19 +156,10 @@ ActiveRecord::Schema.define(version: 20131216145013) do
     t.string "plural"
   end
 
-  create_table "employees", force: true do |t|
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "employments", force: true do |t|
     t.integer  "employee_id"
     t.integer  "project_id"
+    t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,62 +1,33 @@
-class Admin::EmployeesController < Admin::Cms::BaseController
-
-  before_action :build_employee,  :only => [:new, :create]
-  before_action :load_employee,   :only => [:show, :edit, :update, :destroy]
+class Admin::EmployeesController < Admin::Cms::PagesController
+  skip_before_filter :load_admin_site
+  prepend_before_action :set_site
 
   def index
-    @employees = Employee.page(params[:page])
-  end
-
-  def show
-    render
-  end
-
-  def new
-    render
-  end
-
-  def edit
-    render
-  end
-
-  def create
-    @employee.save!
-    flash[:success] = 'Employee created'
-    redirect_to :action => :show, :id => @employee
-  rescue ActiveRecord::RecordInvalid
-    flash.now[:error] = 'Failed to create Employee'
-    render :action => :new
+    super
+    @page = @site.pages.root
+    @pages = @page.children
   end
 
   def update
-    @employee.update_attributes!(employee_params)
-    flash[:success] = 'Employee updated'
-    redirect_to :action => :show, :id => @employee
-  rescue ActiveRecord::RecordInvalid
-    flash.now[:error] = 'Failed to update Employee'
-    render :action => :edit
+    if @page.save
+      flash[:success] = I18n.t("cms.pages.updated")
+    else
+      flash[:error] = I18n.t("cms.pages.update_failure")
+    end
+    redirect_to action: :edit
   end
 
-  def destroy
-    @employee.destroy
-    flash[:success] = 'Employee deleted'
-    redirect_to :action => :index
+  protected
+
+  def build_cms_page
+    @page = @site.pages.new(page_params)
+    @page.parent ||= @site.pages.root
+    @page.layout ||= @site.layouts.find_by_identifier('employee')
   end
 
-protected
+  private
 
-  def build_employee
-    @employee = Employee.new(employee_params)
-  end
-
-  def load_employee
-    @employee = Employee.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    flash[:error] = 'Employee not found'
-    redirect_to :action => :index
-  end
-
-  def employee_params
-    params.fetch(:employee, {}).permit(:name, :photo)
+  def set_site
+    @site = ::Cms::Site.find_by_identifier('employees')
   end
 end
