@@ -1,18 +1,22 @@
-.control-group{ "ng-app" => "EmployeesForm", "ng-controller" => "EmployeesCtrl"}
-  %label.control-label Employee 1
-  .controls
-    .control-group
-      %label.control-label{:for => "employees[0][id]"} Name
-      .controls
-        = select_tag("employees[0][id]", employees_options)
-    .control-group
-      %label.control-label{:for => "employees[0][role]"} Role
-      .controls
-        = text_field_tag "employees[0][role]"
-    .control-group
-      .controls
-        %input.btn.btn-danger{:type => "button", :value => "Remove"}
+.control-group{ "ng-app" => "EmployeesForm", "ng-controller" => "EmployeesCtrl", "ng-init" => "init(#{render partial: "employees", formats: :json}, #{render partial: "employments", formats: :json})" }
+  .control-group{ "ng-repeat" => "form in forms" }
+    %label.control-label Employee {{ formIndex() + 1 }}
+    .controls
+      .control-group
+        %label.control-label{:for => "employees[{{ formIndex() }}][id]"} Name
+        .controls
+          %select{ "ng-change" => "logger()", "ng-model" => "form.employee_id", "name" => "employees[{{ formIndex() }}][id]"}
+            %option{ "ng-repeat" => "employee in employees", :value => "{{ employee.id }}", "ng-selected" => "form.employee_id == employee.id" }
+              {{ employee.name }}
 
-.control-group
-  .controls
-    %input.btn{:type => "button", :value => "Add an employee"}
+      .control-group
+        %label.control-label{:for => "employees[{{ formIndex() }}][role]"} Role
+        .controls
+          %input{ :type => "text", "ng-model" => "form.role", :name => "employees[{{ formIndex() }}][role]"}
+      .control-group
+        .controls
+          %input.btn.btn-danger{:type => "button", :value => "Remove", "ng-click" => "removeForm()"}
+
+  .control-group
+    .controls
+      %input.btn{:type => "button", :value => "Add an employee", "ng-click" => "addEmployee()"}

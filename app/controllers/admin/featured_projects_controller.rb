@@ -18,6 +18,10 @@ class Admin::FeaturedProjectsController < Admin::Cms::PagesController
     redirect_to action: :edit
   end
 
+  def edit
+    @employments = Employment.where(project_id: @page.id)
+  end
+
   protected
 
   def build_cms_page
