@@ -10,7 +10,8 @@ class Admin::FeaturedProjectsController < Admin::Cms::PagesController
   end
 
   def update
-    if @page.save
+    employments = ::EmploymentsBuilder.new(@page, employments_params)
+    if @page.save && employments.save
       flash[:success] = I18n.t("cms.pages.updated")
     else
       flash[:error] = I18n.t("cms.pages.update_failure")
@@ -31,6 +32,10 @@ class Admin::FeaturedProjectsController < Admin::Cms::PagesController
   end
 
   private
+
+  def employments_params
+    params[:employees].values
+  end
 
   def set_employees
     @employees = ::Cms::Site.find_by_identifier("employees").pages.root.children

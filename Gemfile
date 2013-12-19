@@ -31,6 +31,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'guard'
   gem 'guard-livereload'
+  gem 'guard-rspec'
 end
 
 group :doc do
