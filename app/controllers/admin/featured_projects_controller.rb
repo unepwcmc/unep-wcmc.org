@@ -34,7 +34,7 @@ class Admin::FeaturedProjectsController < Admin::Cms::PagesController
   private
 
   def employments_params
-    params[:employees].values
+    params[:employees].try(:values) || []
   end
 
   def set_employees

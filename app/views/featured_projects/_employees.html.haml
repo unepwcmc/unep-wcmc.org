@@ -1,0 +1,8 @@
+- employments = Employment.with_employees_for_project(@cms_page)
+
+.section-group#staff
+  - employments.each do |employment|
+    %section.group.staff
+      = image_tag cms_page_content(:photo, employment.employee).file.url
+      %h4= cms_page_content(:name, employment.employee)
+      %p= employment.role
