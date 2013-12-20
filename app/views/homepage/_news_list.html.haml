@@ -1,0 +1,12 @@
+.section-group
+  - Cms::Page.find_by_full_path('/').children.reverse.take(6).each do |page|
+    %section.group
+      %small= cms_page_content(:time, page)
+      = link_to(page.full_path) do
+        - if cms_page_content(:news_img, page)
+          %img{:src => cms_page_content(:news_img, page).file.url, :width => "", :height => "",  :alt => "project 2" }
+      %h2.smaller
+        %a.heading{:href => page.full_path}
+          = cms_page_content(:news_header,page)
+      %p
+        = cms_page_content(:short_description, page)
