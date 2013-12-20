@@ -1,0 +1,23 @@
+.page-header
+  = link_to 'New Programme', new_admin_programme_path, :class => 'btn pull-right'
+  %h2= 'Programmes'
+
+= paginate @programmes
+
+%table.table.table-hover.table-bordered
+  %tr
+    %th.main Name
+    %th Phone Number
+    %th Email
+    %th
+  - @programmes.each do |programme|
+    %tr
+      %td.main= programme.name
+      %td= programme.phone_number
+      %td= programme.email
+      %td
+        .btn-group
+          = link_to 'Edit', edit_admin_programme_path(programme), :class => 'btn btn-small'
+          = link_to 'Delete', admin_programme_path(programme), :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-small btn-danger'
+
+= paginate @programmes
