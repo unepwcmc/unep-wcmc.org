@@ -9,6 +9,17 @@ class Admin::FeaturedProjectsController < Admin::Cms::PagesController
     @pages = @page.children
   end
 
+  def create
+    employments = ::EmploymentsBuilder.new(@page, employments_params)
+    if @page.save && employments.save
+      flash[:success] = I18n.t('cms.pages.created')
+      redirect_to :action => :edit, :id => @page
+    else
+      flash.now[:error] = I18n.t('cms.pages.creation_failure')
+      render :action => :new
+    end
+  end
+
   def update
     employments = ::EmploymentsBuilder.new(@page, employments_params)
     if @page.save && employments.save

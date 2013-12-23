@@ -2,15 +2,14 @@ class EmploymentsBuilder
 
   def initialize(project, params)
     @project = project
-    @employments = params.map do |employment|
-      Employment.new(project_id: project.id, employee_id: employment[:id], role: employment[:role])
-    end
+    @params = params
   end
 
   def save
+    build_employments
     begin
       ActiveRecord::Base.transaction do
-        Employment.where(project_id: @project.id).destroy_all
+        Employment.destroy_for_project(@project)
         unless @employments.all? { |employment| employment.save }
           raise ActiveRecord::RecordInvalid
         end
@@ -19,5 +18,11 @@ class EmploymentsBuilder
       return false
     end
     true
+  end
+
+  def build_employments
+    @employments = @params.map do |employment|
+      Employment.new(project_id: @project.id, employee_id: employment[:id], role: employment[:role])
+    end
   end
 end
