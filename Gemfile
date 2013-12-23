@@ -27,11 +27,15 @@ gem 'angularjs-rails'
 
 gem 'underscore-rails'
 
+gem 'rails-observers'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'guard'
   gem 'guard-livereload'
   gem 'guard-rspec'
+  gem 'factory_girl_rails'
+  gem 'terminal-notifier-guard'
 end
 
 group :doc do
