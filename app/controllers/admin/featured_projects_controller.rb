@@ -56,6 +56,6 @@ class Admin::FeaturedProjectsController < Admin::Cms::PagesController
   end
 
   def build_employments
-    @employments = ::EmploymentsBuilder.new(project: @page, employments: employments_params)
+    @employments = ::ProjectEmploymentsBuilder.new(project: @page, employments: employments_params)
   end
 end
