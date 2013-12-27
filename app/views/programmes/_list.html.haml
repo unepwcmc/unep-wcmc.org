@@ -1,0 +1,10 @@
+- programmes.each do |programme|
+  %h2.programme= programme.name
+  #team-details
+    %span
+      %i.icon-phone
+      = programme.phone_number
+    %span
+      %i.icon-envelope-alt
+      = programme.email
+  = render partial: "programmes/employees_list", locals: {programme: programme}
