@@ -22,4 +22,8 @@ class Employment < ActiveRecord::Base
   def self.destroy_for_employee(employee)
     for_employee(employee).destroy_all
   end
+
+  def self.destroy_for_programme(programme)
+    where(programme_id: programme.id).destroy_all
+  end
 end

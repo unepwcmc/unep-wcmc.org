@@ -1,28 +1,45 @@
 class EmploymentsBuilder
 
-  def initialize(project, params)
-    @project = project
-    @params = params
+  def initialize(params)
+    @project = params[:project]
+    @programme = params[:programme]
+    @employments_params = params[:employments]
   end
 
   def save
-    build_employments
-    begin
-      ActiveRecord::Base.transaction do
-        Employment.destroy_for_project(@project)
-        unless @employments.all? { |employment| employment.save }
-          raise ActiveRecord::RecordInvalid
-        end
+    ActiveRecord::Base.transaction do
+      destroy_employments
+      employments.each do |employment|
+        employment.save!
       end
-    rescue ActiveRecord::RecordInvalid
-      return false
     end
     true
+  rescue ActiveRecord::RecordInvalid
+    false
   end
 
-  def build_employments
-    @employments = @params.map do |employment|
-      Employment.new(project_id: @project.id, employee_id: employment[:id], role: employment[:role])
+  private
+
+  def destroy_employments
+    if @project
+      Employment.destroy_for_project(@project)
+    elsif @programme
+      Employment.destroy_for_programme(@programme)
     end
   end
+
+  def employments
+    @employments_params.map do |employment|
+      build_employment(employment)
+    end
+  end
+
+  def build_employment(params)
+    if @project
+      return Employment.new(project_id: @project.id, employee_id: params[:id], role: params[:role])
+    else
+      return Employment.new(programme_id: @programme.id, employee_id: params[:id], role: params[:role])
+    end
+  end
+
 end

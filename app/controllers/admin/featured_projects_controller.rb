@@ -2,6 +2,7 @@ class Admin::FeaturedProjectsController < Admin::Cms::PagesController
   skip_before_filter :load_admin_site
   prepend_before_action :set_site
   before_action :set_employees
+  before_action :build_employments, only: [:create, :update]
 
   def index
     super
@@ -10,8 +11,7 @@ class Admin::FeaturedProjectsController < Admin::Cms::PagesController
   end
 
   def create
-    employments = ::EmploymentsBuilder.new(@page, employments_params)
-    if @page.save && employments.save
+    if @page.save && @employments.save
       flash[:success] = I18n.t('cms.pages.created')
       redirect_to :action => :edit, :id => @page
     else
@@ -21,8 +21,7 @@ class Admin::FeaturedProjectsController < Admin::Cms::PagesController
   end
 
   def update
-    employments = ::EmploymentsBuilder.new(@page, employments_params)
-    if @page.save && employments.save
+    if @page.save && @employments.save
       flash[:success] = I18n.t("cms.pages.updated")
     else
       flash[:error] = I18n.t("cms.pages.update_failure")
@@ -54,5 +53,9 @@ class Admin::FeaturedProjectsController < Admin::Cms::PagesController
 
   def set_site
     @site = ::Cms::Site.find_by_identifier('featured-projects')
+  end
+
+  def build_employments
+    @employments = ::EmploymentsBuilder.new(project: @page, employments: employments_params)
   end
 end
