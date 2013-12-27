@@ -21,7 +21,15 @@
 
 = render :partial => 'form_blocks'
 
-= select_tag :programme
+.control-group
+  %label.control-label Programme
+  .controls
+    = select_tag "programme[id]", options_from_collection_for_select(@programmes, :id, :name, @employment.try(:programme_id))
+
+.control-group
+  %label.control-label Role
+  .controls
+    = text_field_tag "programme[role]", @employment.try(:role)
 
 = form.check_box :is_published, :label => "Published"
 

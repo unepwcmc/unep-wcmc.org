@@ -1,8 +1,7 @@
-class EmploymentsBuilder
+class ProjectEmploymentsBuilder
 
   def initialize(params)
     @project = params[:project]
-    @programme = params[:programme]
     @employments_params = params[:employments]
   end
 
@@ -21,11 +20,7 @@ class EmploymentsBuilder
   private
 
   def destroy_employments
-    if @project
-      Employment.destroy_for_project(@project)
-    elsif @programme
-      Employment.destroy_for_programme(@programme)
-    end
+    Employment.destroy_for_project(@project)
   end
 
   def employments
@@ -35,11 +30,7 @@ class EmploymentsBuilder
   end
 
   def build_employment(params)
-    if @project
-      return Employment.new(project_id: @project.id, employee_id: params[:id], role: params[:role])
-    else
-      return Employment.new(programme_id: @programme.id, employee_id: params[:id], role: params[:role])
-    end
+    Employment.new(project_id: @project.id, employee_id: params[:id], role: params[:role])
   end
 
 end
