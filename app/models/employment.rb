@@ -19,6 +19,10 @@ class Employment < ActiveRecord::Base
     where("programme_id IS NOT NULL")
   end
 
+  def self.for_projects
+    where("project_id IS NOT NULL")
+  end
+
   def self.destroy_for_project(project)
     for_project(project).destroy_all
   end

@@ -1,2 +1,36 @@
-{{ cms:page_file:photo }}
-{{ cms:page:name:string }}
+<div class="hero" id="about" style="background: url({{cms:file:project_10.jpg:url}}) no-repeat center; background-size: 100%">
+  <div class="heading">
+    <h1>We believe in a world where biodiversity counts</h1>
+    <h2 class="shorter">The UNEP World Conservation Monitoring Centre (UNEP-WCMC) is the specialist biodiversity assessment centre of the United Nations Environment Programme, the world’s foremost intergovernmental organisation</h2>
+  </div>
+</div>
+<div class="container">
+  <div class="column-1-3">
+    <a class="back" href="/about-us/staff/">
+      <i class="icon-chevron-left"></i>
+      Back to The Team
+    </a>
+    <img class="employee_pic" src="{{ cms:page_file:photo }}"/>
+  </div>
+  <div id="employee_work" class="column-2-3">
+    <section>
+      <h1>
+        {{ cms:page:name:string }}
+      </h1>
+      {{ cms:partial:employees/position }}
+      {{ cms:page:role_at_unep }}
+    </section>
+    <section id="expertise">
+      <h2>
+        Previous experience &amp; epertise
+      </h2>
+      {{ cms:page:experience_and_expertise }}
+    </section>
+    <section id="recent-work">
+      <h2>
+        Recent work
+      </h2>
+      {{ cms:partial:employees/recent_projects }}
+    </section>
+  </div>  
+</div>

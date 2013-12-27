@@ -27,7 +27,7 @@
     = select_tag "programme[id]", options_from_collection_for_select(@programmes, :id, :name, @employment.try(:programme_id))
 
 .control-group
-  %label.control-label Role
+  %label.control-label Position
   .controls
     = text_field_tag "programme[role]", @employment.try(:role)
 
