@@ -1,0 +1,3 @@
+%li{ :id => page.identifier == 'how-we-work' ? 'how_we_work' : false }
+  %a{ :href => '/' + @cms_site.path + page.full_path, :class => page == @cms_page ? 'active' : false }
+    = cms_page_content(:title, page)

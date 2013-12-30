@@ -1,5 +1,0 @@
-<li <%= 'id=how_we_work' if page.identifier == "how-we-work" %>>
-  <a <%= 'class=active' if page == @cms_page %> href="<%= "/" + @cms_site.path + page.full_path %>">
-    <%= cms_page_content(:title, page) %>
-  </a>
-</li>
