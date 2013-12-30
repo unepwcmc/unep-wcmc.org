@@ -21,6 +21,9 @@
 
 = render :partial => 'form_blocks'
 
+- unless @page == @site.pages.root
+  = render :partial => 'custom_fields'
+
 = form.check_box :is_published, :label => "Published"
 
 = render 'admin/cms/partials/page_form_after', :object => form
