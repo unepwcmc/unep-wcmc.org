@@ -1,4 +1,4 @@
-angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", function ($scope) {
+angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce", function ($scope, $sce) {
 
   lunr.stopWordFilter = function (word) { return word == "" ? undefined : word; }
   lunr.Pipeline.registerFunction(lunr.stopWordFilter, 'stopWordFilter')
@@ -68,6 +68,7 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", functi
   var initDatasets = function () {
     _.each($scope.datasets, function (dataset) {
       dataset.publication_date = Date.parse(dataset.publication_date);
+      dataset.content = $sce.trustAsHtml(dataset.content);
     });
     for (var i=0; i<$scope.datasets.length; i++) {
       $scope.datasets[i].index = i;

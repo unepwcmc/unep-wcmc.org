@@ -1,8 +1,11 @@
-angular.module("ProjectsList").controller("ProjectsCtrl", ["$scope", function ($scope) {
+angular.module("ProjectsList").controller("ProjectsCtrl", ["$scope", "$sce", function ($scope, $sce) {
   $scope.hiddenProjects = [];
   $scope.projects = [];
   $scope.init = function (projects) {
     $scope.hiddenProjects = projects;
+    _.each(projects, function (project) {
+      project.description = $sce.trustAsHtml(project.description);
+    });
     $scope.showMore();
   }
 

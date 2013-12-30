@@ -48,8 +48,8 @@
         <span class="separator">|</span>
         {{ dataset.publication_date | date}}
       </h3>
-      <p>
-        {{ dataset.content }}
+      <p ng-bind-html="dataset.content">
+        <%#{{ dataset.content }}%>
       </p>
       <p class="link">
         <a href="{{dataset.first_link}}">{{dataset.first_link_label}}</a>

@@ -10,8 +10,7 @@
         <h2 class="smaller">
           <a class="heading" href="{{project.project_url}}">{{project.project_name}}</a>
         </h2>
-        <p>
-          {{ project.description }}
+        <p ng-bind-html="project.description">
         </p>
       </section>
     </div>
