@@ -1,0 +1,44 @@
+!!! 5
+%html
+  %head
+    %meta{ :charset => "utf-8" }
+    %meta{ :name => "viewport", :p => true, :content => "width=device-width,initial-scale=1.0" }
+    %title Welcome to UNEP-WCMC
+    %link{ :href => 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700', :rel => 'stylesheet', :type => 'text/css' }
+    %link{ :href => 'http://fonts.googleapis.com/css?family=Lato:300,400,700', :rel => 'stylesheet', :type => 'text/css' }
+    %link{ :href => 'http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', :rel => "stylesheet" }
+    %script{ :type => "text/javascript", :src => "//use.typekit.net/tqb5win.js" }
+    %script{ :type => "text/javascript" }
+      try {Typekit.load();} catch(e){}
+    = javascript_include_tag "pages/application.js"
+    = stylesheet_link_tag "base", media: "screen"
+    = stylesheet_link_tag "application", media: "all"
+    = stylesheet_link_tag "medium", media: "only screen and (min-width: 700px)"
+    = stylesheet_link_tag "large", media: "screen and (min-width: 1000px)"
+    = csrf_meta_tags
+
+  %body
+    #nav
+      %a#home_link{ :href => "/", :title => "Home" }
+        = image_tag "logo_white_transparent.png"
+      %ul#large-menu
+        %li= link_to "About us", "/about-us"
+        %li= link_to "Resources & Data", "/resources-and-data"
+        %li= link_to "Featured Projects", "/featured-projects"
+        %li= link_to "Expertise", "/expertise"
+      %button#trigger-menu
+        %i.icon-align-justify
+      %ul#button-menu
+        %li= link_to "Expertise", "/expertise"
+        %li= link_to "Featured Projects", "/featured-projects"
+        %li= link_to "Resources & Data", "/resources-and-data"
+        %li= link_to "About us", "/about-us"
+
+    = yield
+
+    #footer_container
+      %ul.footer
+        %li= link_to "Partners", "/partners"
+        %li= link_to "Vacancies", "/vacancies"
+        %li= link_to "The Team", "/employees"
+        %li= link_to "Contact", "/about-us/contact"
