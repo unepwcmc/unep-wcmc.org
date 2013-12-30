@@ -1,1 +1,39 @@
-{{ cms:page:content:text }}
+<div class="hero" id="about" style="background: url({{ cms:page_file:background_image:url }}) no-repeat center; background-size: 100%">
+  <div class="heading">
+    <h1>We believe in a world where biodiversity counts</h1>
+    <h2 class="shorter">Our dedicated team of specialists and support staff combines scientific excellence, technical ability and passion for nature</h2>
+  </div>
+</div>
+<div class="container">
+  <div class="column-1-3">
+    <ul class="subnav">
+      <li><a href="/about-us/partners" title="Our partners">Our partners</a></li>															
+      <li><a href="/about-us/working-with-us" title="Working with us">Working at UNEP-WCMC</a></li>		
+      <li><a href="/about-us/vacancies" title="Vacancies">Vacancies</a></li>
+      <li><a href="/employees" title="The Team">The Team</a></li>
+      <li><a href="/about-us/news-archive" title="Contact">News archive</a></li>	
+      <li><a href="/about-us/contact" title="Contact">Contact</a></li>								
+    </ul>
+    <ul class="subnav-small">
+      <li><a href="/about-us/partners" title="Our partners">Our partners</a></li>															
+      <li><a href="/about-us/working-with-us" title="Working with us">Working at UNEP-WCMC</a></li>		
+      <li><a href="/about-us/vacancies" title="Vacancies">Vacancies</a></li>
+      <li><a href="/about-us/staff" title="The Team">The Team</a></li>
+      <li><a href="/about-us/news-archive" title="Contact">News archive</a></li>	
+      <li><a href="/about-us/contact" title="Contact">Contact</a></li>								
+
+    </ul>
+
+    {{ cms:partial:about_us/partners_data_policy }}
+
+  </div>
+
+  <div class="column-2-3" id="staff-page">
+    <h1 id="first">
+      The Team
+    </h1>
+    {{ cms:page:intro_text:rich_text }}
+    {{ cms:partial:programmes/list }}
+  </div>			
+</div>
+

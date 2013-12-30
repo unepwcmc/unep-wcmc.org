@@ -2,6 +2,9 @@
   = link_to "Add employee", new_admin_employee_path, :class => 'btn pull-right'
   %h2 Employees
 
+= comfy_form_for @page, :as => :page, url: admin_employee_path(@page), :html => {:multipart => true} do |form|
+  = render form
+
 = render 'admin/cms/partials/pages_before'
 
 %ul.list.sortable

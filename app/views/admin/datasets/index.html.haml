@@ -2,6 +2,9 @@
   = link_to "Add dataset", new_admin_dataset_path, :class => 'btn pull-right'
   %h2 Datasets
 
+= comfy_form_for @page, :as => :page, url: admin_dataset_path(@page), :html => {:multipart => true} do |form|
+  = render form
+
 = render 'admin/cms/partials/pages_before'
 
 %ul.list.sortable
