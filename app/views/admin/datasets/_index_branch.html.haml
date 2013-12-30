@@ -1,0 +1,17 @@
+- page ||= index_branch
+
+%li{:id => dom_id(page)}
+  .item
+    .icon{:class => page.is_published?? 'published' : 'draft'}
+      .dragger
+        %span &#8645;
+
+    .btn-group
+      = link_to t('.edit'), edit_admin_dataset_path(page), :class => 'btn btn-small'
+      = link_to t('.delete'), admin_dataset_path(page), :method => :delete, :data => {:confirm => "Are you sure?"}, :class => 'btn btn-small btn-danger'
+
+    .item-content
+      .item-title
+        = link_to page.label, edit_admin_dataset_path(page), :class => 'item-label'
+      .item-meta
+        = link_to page.url, page.url, :target => '_blank'

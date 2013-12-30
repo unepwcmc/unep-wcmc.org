@@ -1,0 +1,10 @@
+.page-header
+  = link_to "Add dataset", new_admin_dataset_path, :class => 'btn pull-right'
+  %h2 Datasets
+
+= render 'admin/cms/partials/pages_before'
+
+%ul.list.sortable
+  = render :partial => 'index_branch', :collection => @pages
+
+= render 'admin/cms/partials/pages_after'
