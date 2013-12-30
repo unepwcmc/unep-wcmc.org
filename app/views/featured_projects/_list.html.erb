@@ -1,5 +1,0 @@
-<div class="section-group">
-  <% @cms_page.children.published.take(6).each do |page| %>
-    <%= render partial: "featured_projects/project", locals: {page: page} %>
-  <% end %>
-</div>

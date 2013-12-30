@@ -1,0 +1,14 @@
+- if @cms_page.children.published.count > 6
+  #other_projects.container{"ng-app" => "ProjectsList", "ng-cloak" => "", "ng-controller" => "ProjectsCtrl", "ng-init" => "init(#{render partial: "featured_projects/projects", locals: {pages: @cms_page.children.published.drop(6)}, formats: :json})"}
+    %h2#featured_projects.large_subheading Other projects you may also want to see
+    .section-group
+      %section.group.featured-project{"ng-repeat" => "project in projects"}
+        %a{:href => "{{project.project_url}}", "ng-if" => "project.thumbnail_url"}
+          %img{"ng-src" => "{{project.thumbnail_url}}"}
+        %h2.smaller
+          %a.heading{:href => "{{project.project_url}}"} {{project.project_name}}
+        %p{"ng-bind-html" => "project.description"}
+    #button-row{"ng-if" => "hiddenProjects.length > 0"}
+      #more_projects.button{"ng-click" => "showMore()"}
+        %p
+          %a{:href => ""} View more projects
