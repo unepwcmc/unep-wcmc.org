@@ -1,4 +1,4 @@
-{{ cms:field:short_description:text }}
+{{ cms:field:short_description:rich_text }}
 {{ cms:page_file:thumbnail:field }}
 
 <div class="hero" id="species" style="background: url({{ cms:page_file:hero_background:url}}) no-repeat center; background-size: 100%">
@@ -22,7 +22,7 @@
   <section class="column-1-3">
   	<section class="actions">
       <h2>Output</h2>
-      {{ cms:page:output }}
+      {{ cms:page:output:rich_text }}
     </section>
     <section class="actions">
       <h2>Get in touch</h2>
@@ -46,21 +46,21 @@
       <h2>
         The problem
       </h2>
-      {{ cms:page:the_problem }}
+      {{ cms:page:the_problem:rich_text }}
     </section>
     <section>
       <h2>
         Our solution &amp; impact
       </h2>
-      {{ cms:page:our_solution_and_impact }}
+      {{ cms:page:our_solution_and_impact:rich_text }}
     </section>
     <section>
       <h2>
         Expertise &amp; Team
       </h2>
-      {{ cms:page:expertise_body_copy }}
+      {{ cms:page:expertise_body_copy:rich_text }}
       {{ cms:partial:featured_projects/employees }}
     </section>
-    {{ cms:page:partners_and_donors }}
+    {{ cms:page:partners_and_donors:rich_text }}
   </section>
 </div>

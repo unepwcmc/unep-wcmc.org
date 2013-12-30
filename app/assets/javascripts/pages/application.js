@@ -17,5 +17,5 @@
 //= require underscore
 //= require augment
 //= require lunr
-//= require main
+//= require pages/main
 //= require_tree .

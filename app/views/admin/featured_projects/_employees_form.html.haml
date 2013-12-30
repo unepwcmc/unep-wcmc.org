@@ -5,7 +5,7 @@
       .control-group
         %label.control-label{:for => "employees[{{ formIndex() }}][id]"} Name
         .controls
-          %select{ "ng-change" => "logger()", "ng-model" => "form.employee_id", "name" => "employees[{{ formIndex() }}][id]"}
+          %select{ "ng-model" => "form.employee_id", "name" => "employees[{{ formIndex() }}][id]"}
             %option{ "ng-repeat" => "employee in employees", :value => "{{ employee.id }}", "ng-selected" => "form.employee_id == employee.id" }
               {{ employee.name }}
 

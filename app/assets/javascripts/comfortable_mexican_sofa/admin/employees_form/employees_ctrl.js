@@ -5,7 +5,6 @@ angular.module("EmployeesForm", []).controller("EmployeesCtrl", ["$scope", funct
   }
 
   $scope.init = function (employees, employments) {
-    console.log(employments);
     $scope.forms = employments;
     $scope.employees = employees;
   }
@@ -15,15 +14,10 @@ angular.module("EmployeesForm", []).controller("EmployeesCtrl", ["$scope", funct
   }
 
   $scope.addEmployee = function () {
-    console.log($scope.employees)
     $scope.forms.push({
       role: "",
       employee_id: $scope.employees[0].id
     });
-  }
-
-  $scope.logger = function () {
-    console.log(this.form);
   }
 
 }]);
