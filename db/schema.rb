@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131223144520) do
+ActiveRecord::Schema.define(version: 20131231151826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,10 +147,44 @@ ActiveRecord::Schema.define(version: 20131223144520) do
     t.integer  "programme_id"
   end
 
+  create_table "field_submissions", force: true do |t|
+    t.integer  "field_id"
+    t.integer  "form_submission_id"
+    t.string   "type"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+  end
+
+  create_table "fields", force: true do |t|
+    t.integer  "form_id"
+    t.string   "type"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "forms", force: true do |t|
+    t.integer  "vacancy_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "programmes", force: true do |t|
     t.string   "name"
     t.string   "phone_number"
     t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "submissions", force: true do |t|
+    t.integer  "form_id"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
