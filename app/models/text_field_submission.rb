@@ -1,0 +1,2 @@
+class TextFieldSubmission < FieldSubmission
+end

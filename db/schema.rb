@@ -149,7 +149,7 @@ ActiveRecord::Schema.define(version: 20131231151826) do
 
   create_table "field_submissions", force: true do |t|
     t.integer  "field_id"
-    t.integer  "form_submission_id"
+    t.integer  "submission_id"
     t.string   "type"
     t.text     "content"
     t.datetime "created_at"

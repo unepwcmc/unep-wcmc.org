@@ -2,7 +2,7 @@ class CreateFieldSubmissions < ActiveRecord::Migration
   def change
     create_table :field_submissions do |t|
       t.integer :field_id
-      t.integer :form_submission_id
+      t.integer :submission_id
       t.string :type
       t.text :content
 

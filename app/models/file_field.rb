@@ -1,0 +1,2 @@
+class FileField < Field
+end
