@@ -7,7 +7,7 @@ set :branch, "rails"
 set :ssh_options, {forward_agent: true}
 
 set :domain, "unep-wcmc.demo.llp.pl"
-set :port, 20021
+set :port, 20120
 set :rails_env, "production"
 
 role :web, domain
