@@ -2,3 +2,10 @@ unep-wcmc.org
 =============
 
 mockups of the unep-wcmc.org website
+
+QUICK SETUP GUIDE:
+  rake db:migrate
+  rake db:seed
+  HOSTNAME="localhost:3000" rake unepwcmc:setup
+  
+(amend HOSTNAME as required)
