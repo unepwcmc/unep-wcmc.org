@@ -18,7 +18,6 @@ describe Submission do
     end
 
     it "builds fields with correct types" do
-      binding.pry
       @submission.field_submissions.size.should == 2
       @submission.field_submissions[0].type.should == "TextFieldSubmission"
       @submission.field_submissions[1].type.should == "FileFieldSubmission"

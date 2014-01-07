@@ -24,6 +24,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'factory_girl_rails'
   gem 'terminal-notifier-guard'
+  gem 'pry-remote'
 end
 
 group :doc do

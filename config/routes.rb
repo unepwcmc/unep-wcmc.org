@@ -24,8 +24,8 @@ UnepWcmcOrg::Application.routes.draw do
     end
   end
 
-  resources :vacancies, only: [] do
-    resources :form_submissions, path: "applications", except: [:index]
+  resources :forms, only: [] do
+    resources :submissions, path: "applications", except: [:index]
   end
 
   comfy_route :cms_admin, :path => '/admin'
