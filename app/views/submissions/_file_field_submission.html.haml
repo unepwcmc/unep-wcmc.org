@@ -1,4 +1,4 @@
-= f.label :file, f.object.name
+%p= f.object.name
 = f.file_field :file
 - if f.object.file.present?
   = link_to(f.object.file_file_name, f.object.file.url)

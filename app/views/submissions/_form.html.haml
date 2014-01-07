@@ -1,7 +1,9 @@
 = form_for [@form, @submission], html: {multipart: true} do |f|
-  = f.fields_for :field_submissions do |ff|
-    = ff.hidden_field :type
-    = ff.hidden_field :field_id
-    = ff.hidden_field :id
-    = render ff.object.class.name.underscore, f: ff
-  = f.submit
+  %section
+    %h2 Practical Question
+    = f.fields_for :field_submissions do |ff|
+      = ff.hidden_field :type
+      = ff.hidden_field :field_id
+      = ff.hidden_field :id
+      = render ff.object.class.name.underscore, f: ff
+  = f.submit "Submit the application"
