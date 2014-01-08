@@ -1,0 +1,15 @@
+<div id="vacancies-page" class="column-2-3">
+  <section>
+    <h1 id="first">
+      {{ cms:page:subheading_title:string }}
+    </h1>
+    <p>
+      {{ cms:page:subheading_intro_text:rich_text }}
+    </p>
+  </section>
+  
+  {{ cms:partial:vacancies/list_of_vacancies }}
+  
+</div><!--column-2-3-->
+
+{{ cms:page:content:text }}
