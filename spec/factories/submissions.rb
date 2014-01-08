@@ -4,5 +4,6 @@ FactoryGirl.define do
   factory :submission do
     form_id 1
     slug "MyString"
+    email "someone@example.com"
   end
 end

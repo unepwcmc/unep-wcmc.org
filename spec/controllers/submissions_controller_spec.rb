@@ -25,6 +25,7 @@ describe SubmissionsController do
       create(:field, form_id: @form.id, type: "TextField")
       create(:field, form_id: @form.id, type: "FileField")
       @submission = Submission.build_for_form(@form)
+      @submission.email = "some@example.com"
       @submission.save
     end
 

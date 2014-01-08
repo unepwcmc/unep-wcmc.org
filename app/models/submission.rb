@@ -4,6 +4,7 @@ class Submission < ActiveRecord::Base
   accepts_nested_attributes_for :field_submissions
 
   validates :form, presence: true
+  validates :email, presence: true
 
   before_create :set_slug
 

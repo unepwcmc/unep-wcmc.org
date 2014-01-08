@@ -34,6 +34,6 @@ class SubmissionsController < ApplicationController
   private
 
   def submission_params
-    params.require(:submission).permit(field_submissions_attributes: [:id, :content, :field_id, :type, :file])
+    params.require(:submission).permit(:email, field_submissions_attributes: [:id, :content, :field_id, :type, :file])
   end
 end

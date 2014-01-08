@@ -1,9 +1,14 @@
 = form_for [@form, @submission], html: {multipart: true} do |f|
   %section
+    %h2 Personal Details
+    %p Email
+    = f.text_field :email
+  %section
     %h2 Practical Question
     = f.fields_for :field_submissions do |ff|
       = ff.hidden_field :type
       = ff.hidden_field :field_id
       = ff.hidden_field :id
       = render ff.object.class.name.underscore, f: ff
-  = f.submit "Submit the application"
+  = f.submit "Submit the application", name: "submit"
+  = f.submit "Save and edit later", name: "save"
