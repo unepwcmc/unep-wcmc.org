@@ -1,8 +1,8 @@
 ---
 label: vacancies
 layout: vacancies
-parent: index
+parent: 
 target_page: 
 categories: []
 is_published: true
-position: 9
+position: 0

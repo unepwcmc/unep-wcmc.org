@@ -11,7 +11,6 @@
 
 <div class="container">
   <div class="column-1-3">
-    
     <ul class="subnav">
       <li><a href="/about-us/partners" title="Our partners">Our partners</a></li>									
       <li><a href="/about-us/working-with-us" title="Working with us">Working at UNEP-WCMC</a></li>		
@@ -29,10 +28,22 @@
       <li><a href="/about-us/news-archive" title="Contact">News archive</a></li>	
       <li><a href="/about-us/contact" title="Contact">Contact</a></li>								     
     </ul>
-    {{ cms:partial:about_us/partners_data_policy }}
   </div><!--column-1-3-->
-			     
-  {{ cms:page:content:text }}  
+			
+  <div id="vacancies-page" class="column-2-3">
+    <section>
+      <h1 id="first">
+        {{ cms:page:subheading_title:string }}
+      </h1>
+      <p>
+        {{ cms:page:subheading_intro_text:rich_text }}
+      </p>
+    </section>
+  
+    {{ cms:partial:vacancies/list_of_vacancies }}
+  
+  </div><!--column-2-3-->
+
+  {{ cms:page:content:text }}		
 
 </div><!--container-->
-
