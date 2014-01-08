@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131231151826) do
+ActiveRecord::Schema.define(version: 20140108124810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -188,5 +188,7 @@ ActiveRecord::Schema.define(version: 20131231151826) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "submissions", ["slug"], name: "index_submissions_on_slug", unique: true, using: :btree
 
 end

@@ -6,7 +6,7 @@ class SubmissionsController < ApplicationController
 
   def edit
     @form = Form.find(params[:form_id])
-    @submission = @form.submissions.find(params[:id])
+    @submission = @form.submissions.find_by_slug!(params[:id])
   end
 
   def create
@@ -14,7 +14,7 @@ class SubmissionsController < ApplicationController
     @submission = @form.submissions.build(submission_params)
     if @submission.save
       flash.now[:success] = "Your submission has been saved"
-      redirect_to action: :edit, id: @submission.id
+      redirect_to action: :edit, id: @submission.slug
     else
       render action: :new
     end
@@ -22,10 +22,10 @@ class SubmissionsController < ApplicationController
 
   def update
     @form = Form.find(params[:form_id])
-    @submission = @form.submissions.find(params[:id])
+    @submission = @form.submissions.find_by_slug!(params[:id])
     if @submission.update(submission_params)
       flash.now[:success] = "Your submission has been saved"
-      redirect_to action: :edit, id: @submission.id
+      redirect_to action: :edit, id: @submission.slug
     else
       render action: :edit
     end

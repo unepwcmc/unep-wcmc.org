@@ -8,6 +8,14 @@ describe Submission do
     create(:field, form_id: @form.id, type: "FileField")
   end
 
+  it "assigns random and unique slug on creation" do
+    f1 = create(:submission, form_id: @form.id)
+    f2 = create(:submission, form_id: @form.id)
+    f1.slug.should be_present
+    f2.slug.should be_present
+    f1.slug.should_not == f2.slug
+  end
+
   describe "#build_for_form" do
     before do
       @submission = described_class.build_for_form(@form)

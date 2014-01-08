@@ -29,7 +29,7 @@ describe SubmissionsController do
     end
 
     it "assigns form and submission" do
-      get :edit, form_id: @form.id, id: @submission.id
+      get :edit, form_id: @form.id, id: @submission.slug
       assigns(:submission).should == @submission
       assigns(:form).should == @form
     end
