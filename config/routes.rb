@@ -22,6 +22,13 @@ UnepWcmcOrg::Application.routes.draw do
         put :reorder
       end
     end
+
+    resources :vacancies do
+      collection do
+        put :reorder
+      end
+    end
+
   end
 
   resources :forms, only: [] do
