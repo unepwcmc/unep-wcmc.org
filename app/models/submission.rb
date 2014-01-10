@@ -1,6 +1,14 @@
 class Submission < ActiveRecord::Base
 
-  ALLOWED_CONTENT_FIELDS = [:uk_working_ability, :last_salary, :benefits, :interview_availability, :notice_period]
+  ALLOWED_CONTENT_FIELDS = [:uk_working_ability, :last_salary, :benefits, :interview_availability, :notice_period, :reference, :reference_details]
+
+  REFERENCE_SOURCES = [
+    {value: "UNEP-WCMC website", details: false},
+    {value: "Advertisement", details: "Please state publication"},
+    {value: "Network email", details: false},
+    {value: "Agency", details: false},
+    {value: "Other", details: "Please state medium"}
+  ]
 
   belongs_to :form
   has_many :field_submissions, dependent: :destroy, inverse_of: :submission

@@ -43,6 +43,16 @@
       = ff.text_field :interview_availability
       %p Notice period
       = ff.text_field :notice_period
+  %section
+    %h2 How did you hear about us?
+    = f.fields_for :content, @submission.content do |ff|
+      - Submission::REFERENCE_SOURCES.each do |reference|
+        %p.radio-state
+          %label
+            = ff.radio_button :reference, reference[:value]
+            = reference[:value]
+        - if reference[:details]
+          = ff.text_field "reference_details[#{reference[:value]}]", class: "state", placeholder: reference[:details], value: @submission.content.reference == reference[:value] ? @submission.content.reference_details : ""
 
   = f.submit "Submit the application", name: "submit"
   = f.submit "Save and edit later", name: "save"

@@ -1,4 +1,6 @@
 class SubmissionsController < ApplicationController
+  before_action :build_reference_details, only: [:create, :update]
+
   def new
     @form = Form.find(params[:form_id])
     @submission = Submission.build_for_form(@form)
@@ -37,5 +39,9 @@ class SubmissionsController < ApplicationController
 
   def submission_params
     params.require(:submission).permit(:cv, :cover_letter, :name, :phone, :email, field_submissions_attributes: [:id, :content, :field_id, :type, :file], content: Submission::ALLOWED_CONTENT_FIELDS)
+  end
+
+  def build_reference_details
+    params[:submission][:content][:reference_details] = params[:submission][:content][:reference_details][params[:submission][:content][:reference]]
   end
 end
