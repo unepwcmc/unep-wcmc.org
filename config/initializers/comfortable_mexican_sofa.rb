@@ -87,8 +87,6 @@ ComfortableMexicanSofa.configure do |config|
   # e.g. config.hostname_aliases = {'host.com' => 'host.inv', 'host_a.com' => ['host.lvh.me', 'host.dev']}
   # Default is nil (not used)
   
-  config.hostname_aliases = {'127.0.0.1' => '127.0.0.1:3000'}
-
   # Reveal partials that can be overwritten in the admin area.
   # Default is false.
   #   config.reveal_cms_partials = false

@@ -16,6 +16,16 @@
           = ff.check_box :uk_working_ability
           I confirm I am entitled to work in the UK
   %section
+    %h2 CV and cover letter
+    %p CV
+    = f.file_field :cv
+    - if @submission.cv.present?
+      = link_to(@submission.cv_file_name, @submission.cv.url)
+    %p Cover Letter
+    = f.file_field :cover_letter
+    - if @submission.cover_letter.present?
+      = link_to(@submission.cover_letter_file_name, @submission.cover_letter.url)
+  %section
     %h2 Practical Question
     = f.fields_for :field_submissions do |ff|
       = ff.hidden_field :type

@@ -4,6 +4,10 @@ class Submission < ActiveRecord::Base
 
   belongs_to :form
   has_many :field_submissions, dependent: :destroy, inverse_of: :submission
+
+  has_attached_file :cv
+  has_attached_file :cover_letter
+
   accepts_nested_attributes_for :field_submissions
 
   serialize :content, OpenStruct
