@@ -1,0 +1,7 @@
+- if @submission.errors.any?
+  %h2
+    = pluralize(@submission.errors.count, "error")
+    prohibited this submission from being saved:
+  %ul
+    - @submission.errors.full_messages.each do |msg|
+      %li= msg
