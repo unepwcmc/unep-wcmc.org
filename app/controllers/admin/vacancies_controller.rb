@@ -1,4 +1,4 @@
-class Admin:VacanciesController < Admin::PageResourcesController
+class Admin::VacanciesController < Admin::PageResourcesController
 
   private
 
@@ -11,7 +11,7 @@ class Admin:VacanciesController < Admin::PageResourcesController
   end
 
   def layout_identifier
-    'vacancies'
+    'vacancy'
   end
 
 end
