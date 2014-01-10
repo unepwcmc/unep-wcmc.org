@@ -1,8 +1,20 @@
+= render 'errors'
 = form_for [@form, @submission], html: {multipart: true} do |f|
   %section
     %h2 Personal Details
+    %p Full name
+    = f.text_field :name
     %p Email
     = f.text_field :email
+    %p Phone Number
+    = f.text_field :phone
+  %section
+    %h2 Ability to work in the UK
+    = f.fields_for :content, @submission.content do |ff|
+      %p
+        %label
+          = ff.check_box :uk_working_ability
+          I confirm I am entitled to work in the UK
   %section
     %h2 Practical Question
     = f.fields_for :field_submissions do |ff|
@@ -10,5 +22,17 @@
       = ff.hidden_field :field_id
       = ff.hidden_field :id
       = render ff.object.class.name.underscore, f: ff
+  %section
+    %h2 Employment Conditions
+    = f.fields_for :content, @submission.content do |ff|
+      %p Current or last salary
+      = ff.text_field :last_salary
+      %p Current benefits
+      = ff.text_field :benefits
+      %p Availability for an interview
+      = ff.text_field :interview_availability
+      %p Notice period
+      = ff.text_field :notice_period
+
   = f.submit "Submit the application", name: "submit"
   = f.submit "Save and edit later", name: "save"

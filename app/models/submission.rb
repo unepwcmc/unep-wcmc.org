@@ -1,12 +1,21 @@
 class Submission < ActiveRecord::Base
+
+  ALLOWED_CONTENT_FIELDS = [:uk_working_ability, :last_salary, :benefits, :interview_availability, :notice_period]
+
   belongs_to :form
   has_many :field_submissions, dependent: :destroy, inverse_of: :submission
   accepts_nested_attributes_for :field_submissions
+
+  serialize :content, OpenStruct
 
   validates :form, presence: true
   validates :email, presence: true
 
   before_create :set_slug
+
+  def content=(params)
+    write_attribute(:content, OpenStruct.new(params))
+  end
 
   def self.build_for_form(form)
     submission = new(form_id: form.id)
