@@ -8,7 +8,8 @@ namespace :unepwcmc do
       {label: "featured-projects", path: "featured-projects"},
       {label: "resources-and-data", path: "resources-and-data"},
       {label: "expertise", path: "expertise"},
-      {label: "employees", path: "employees"}
+      {label: "employees", path: "employees"},
+      {label: "vacancies", path: "vacancies"}
     ]
     sites.each do |site|
       Cms::Site.create(label: site[:label], identifier: site[:label], path: site[:path], hostname: hostname)
