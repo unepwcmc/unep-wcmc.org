@@ -1,0 +1,24 @@
+.control-group{ "ng-app" => "PracticalQuestionForm", "ng-controller" => "FormCtrl", "ng-init" => "init(#{render partial: "fields", formats: :json})"}
+  %label.control-label Practical Question Fields
+  .control-group{ "ng-repeat" => "form in forms" }
+    .controls
+      .control-group
+        %label.control-label{:for => "fields[{{ formIndex() }}][label]"} Label
+        .controls
+          %input{ :type => "text", "ng-model" => "form.label", :name => "fields[{{ formIndex() }}][label]" }
+          %input{ :type => "hidden", "ng-model" => "form.id", :name => "fields[{{ formIndex() }}][id]", "ng-if" => "form.id"}
+      .control-group
+        %label.control-label{:form => "fields[{{ formIndex() }}][type]"} Type
+        .controls
+          %select{ "ng-model" => "form.type", "name" => "fields[{{ formIndex() }}][type]"}
+            %option{ :value => "FileField", "ng-selected" => "form.type == 'FileField'" }
+              File field
+            %option{ :value => "TextField", "ng-selected" => "form.type == 'TextField'" }
+              Text field
+      .control-group
+        .controls
+          %input.btn.btn-danger{:type => "button", :value => "Remove", "ng-click" => "removeForm()"}
+
+  .control-group
+    .controls
+      %input.btn{:type => "button", :value => "Add a field", "ng-click" => "addField()"}
