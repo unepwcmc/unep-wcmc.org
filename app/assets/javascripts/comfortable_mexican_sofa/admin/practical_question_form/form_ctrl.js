@@ -1,7 +1,11 @@
 angular.module("PracticalQuestionForm", []).controller("FormCtrl", ["$scope", function ($scope) {
 
   $scope.removeForm = function () {
-    $scope.forms.splice($scope.forms.indexOf(this.form), 1);
+    if (this.form.id) {
+      this.form.removed = true;
+    } else {
+      $scope.forms.splice($scope.forms.indexOf(this.form), 1);
+    }
   }
 
   $scope.init = function (fields) {

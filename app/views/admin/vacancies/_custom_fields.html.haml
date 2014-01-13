@@ -1,12 +1,13 @@
 .control-group{ "ng-app" => "PracticalQuestionForm", "ng-controller" => "FormCtrl", "ng-init" => "init(#{render partial: "fields", formats: :json})"}
   %label.control-label Practical Question Fields
-  .control-group{ "ng-repeat" => "form in forms" }
+  .control-group{ "ng-repeat" => "form in forms", "ng-show" => "!form.removed" }
     .controls
       .control-group
         %label.control-label{:for => "form[fields_attributes][{{ formIndex() }}][name]"} Label
         .controls
           %input{ :type => "text", "ng-model" => "form.label", :name => "form[fields_attributes][{{ formIndex() }}][name]" }
-            %input{ :type => "hidden", "ng-model" => "form.id", :name => "form[fields_attributes][{{ formIndex() }}][id]", "ng-if" => "form.id", "value" => "{{ form.id }}"}
+          %input{ :type => "hidden", "ng-model" => "form.id", :name => "form[fields_attributes][{{ formIndex() }}][id]", "ng-if" => "form.id", "value" => "{{ form.id }}"}
+          %input{ :type => "hidden", :name => "form[fields_attributes][{{ formIndex() }}][_destroy]", "ng-if" => "form.removed", :value => '1' }
       .control-group
         %label.control-label{:form => "form[fields_attributes][{{ formIndex() }}][type]"} Type
         .controls
