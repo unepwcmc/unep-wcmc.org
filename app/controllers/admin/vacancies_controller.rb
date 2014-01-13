@@ -1,11 +1,16 @@
 class Admin::VacanciesController < Admin::PageResourcesController
-  before_action :set_form, only: :edit
-  before_action :build_form, only: :new
+  before_action :set_form, only: [:edit, :update]
+  before_action :build_form, only: [:create]
 
   private
 
   def save_resources
-    @page.save
+    saved = @page.save
+    if saved
+      @form.update(form_params.merge(vacancy_id: @page.id))
+    else
+      false
+    end
   end
 
   def site_identifier
@@ -21,7 +26,11 @@ class Admin::VacanciesController < Admin::PageResourcesController
   end
 
   def build_form
-    @form = Form.new
+    @form = Form.new(vacancy_id: @page.id)
+  end
+
+  def form_params
+    params[:form].try(:permit, fields_attributes: [:name, :id, :type]) || {}
   end
 
 end

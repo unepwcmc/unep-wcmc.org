@@ -3,14 +3,14 @@
   .control-group{ "ng-repeat" => "form in forms" }
     .controls
       .control-group
-        %label.control-label{:for => "fields[{{ formIndex() }}][label]"} Label
+        %label.control-label{:for => "form[fields_attributes][{{ formIndex() }}][name]"} Label
         .controls
-          %input{ :type => "text", "ng-model" => "form.label", :name => "fields[{{ formIndex() }}][label]" }
-          %input{ :type => "hidden", "ng-model" => "form.id", :name => "fields[{{ formIndex() }}][id]", "ng-if" => "form.id"}
+          %input{ :type => "text", "ng-model" => "form.label", :name => "form[fields_attributes][{{ formIndex() }}][name]" }
+            %input{ :type => "hidden", "ng-model" => "form.id", :name => "form[fields_attributes][{{ formIndex() }}][id]", "ng-if" => "form.id", "value" => "{{ form.id }}"}
       .control-group
-        %label.control-label{:form => "fields[{{ formIndex() }}][type]"} Type
+        %label.control-label{:form => "form[fields_attributes][{{ formIndex() }}][type]"} Type
         .controls
-          %select{ "ng-model" => "form.type", "name" => "fields[{{ formIndex() }}][type]"}
+          %select{ "ng-model" => "form.type", "name" => "form[fields_attributes][{{ formIndex() }}][type]"}
             %option{ :value => "FileField", "ng-selected" => "form.type == 'FileField'" }
               File field
             %option{ :value => "TextField", "ng-selected" => "form.type == 'TextField'" }
