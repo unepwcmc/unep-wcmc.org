@@ -17,6 +17,8 @@ gem 'underscore-rails'
 gem 'rails-observers'
 gem 'tinymce-rails'
 
+gem 'devise'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'guard'

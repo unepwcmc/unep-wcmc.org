@@ -1,6 +1,6 @@
 UnepWcmcOrg::Application.routes.draw do
-  namespace :admin do
-  end
+
+  devise_for :admins
 
   namespace :admin do
     resources :employees do

@@ -9,7 +9,17 @@ ComfortableMexicanSofa.configure do |config|
 
   # Module responsible for authentication. You can replace it with your own.
   # It simply needs to have #authenticate method. See http_auth.rb for reference.
-  #   config.admin_auth = 'ComfortableMexicanSofa::HttpAuth'
+  #
+
+  module CmsAuth
+    def authenticate
+      unless current_admin
+        redirect_to new_admin_session_path
+      end
+    end
+  end
+
+  config.admin_auth = 'CmsAuth'
 
   # Module responsible for public authentication. Similar to the above. You also
   # will have access to @cms_site, @cms_layout, @cms_page so you can use them in
@@ -92,8 +102,3 @@ ComfortableMexicanSofa.configure do |config|
   #   config.reveal_cms_partials = false
 
 end
-
-# Default credentials for ComfortableMexicanSofa::HttpAuth
-# YOU REALLY WANT TO CHANGE THIS BEFORE PUTTING YOUR SITE LIVE
-ComfortableMexicanSofa::HttpAuth.username = 'username'
-ComfortableMexicanSofa::HttpAuth.password = 'password'
