@@ -16,6 +16,7 @@ gem 'angularjs-rails'
 gem 'underscore-rails'
 gem 'rails-observers'
 gem 'tinymce-rails'
+gem 'letter_opener'
 
 gem 'devise'
 
