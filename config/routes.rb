@@ -1,6 +1,6 @@
 UnepWcmcOrg::Application.routes.draw do
 
-  devise_for :admins
+  devise_for :users
 
   namespace :admin do
     resources :employees do
@@ -29,6 +29,7 @@ UnepWcmcOrg::Application.routes.draw do
       end
     end
 
+    resources :users
   end
 
   resources :forms, only: [] do

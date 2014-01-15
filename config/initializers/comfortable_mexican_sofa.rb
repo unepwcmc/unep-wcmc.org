@@ -13,8 +13,8 @@ ComfortableMexicanSofa.configure do |config|
 
   module CmsAuth
     def authenticate
-      unless current_admin
-        redirect_to new_admin_session_path
+      unless current_user
+        redirect_to new_user_session_path
       end
     end
   end

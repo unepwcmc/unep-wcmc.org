@@ -8,4 +8,6 @@
 
 %li= active_link_to 'Vacancies', admin_vacancies_path
 
-%li= link_to 'Sign out', destroy_admin_session_path, method: :delete
+%li= active_link_to 'Manage users', admin_users_path
+
+%li= link_to 'Sign out', destroy_user_session_path, method: :delete
