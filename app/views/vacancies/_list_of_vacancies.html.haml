@@ -1,0 +1,10 @@
+- Cms::Site.find_by_identifier('vacancies').pages.root.children.each do |page|
+  %section
+    %h2 
+      = link_to(page.full_path) do
+        = cms_page_content(:position_title, page)
+    %p
+      = cms_page_content(:position_excerpt, page)
+    %p.link 
+      = link_to(page.full_path) do 
+        Apply
