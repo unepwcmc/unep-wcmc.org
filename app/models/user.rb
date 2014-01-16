@@ -3,4 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
   validates :name, presence: true
+
+  def password_required?
+    !password.nil? || !password_confirmation.nil?
+  end
 end
