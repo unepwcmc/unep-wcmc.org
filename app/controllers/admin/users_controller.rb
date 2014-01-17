@@ -1,5 +1,6 @@
 class Admin::UsersController < Admin::Cms::BaseController
 
+  before_action :authorize_superadmin!
   before_action :build_user,  :only => [:new, :create]
   before_action :load_user,   :only => [:edit, :update, :destroy]
 
@@ -58,5 +59,11 @@ protected
 
   def user_params
     params.fetch(:user, {}).permit(:name, :email, :is_superadmin)
+  end
+
+  def authorize_superadmin!
+    unless current_user.is_superadmin
+      redirect_to admin_cms_path
+    end
   end
 end
