@@ -1,6 +1,10 @@
 UnepWcmcOrg::Application.routes.draw do
 
-  devise_for :users
+  as :user do
+    patch '/user/confirmation' => 'confirmations#update', via: :patch, as: :update_user_confirmation
+  end
+
+  devise_for :users, :controllers => { :confirmations => "confirmations" }
 
   namespace :admin do
     resources :employees do

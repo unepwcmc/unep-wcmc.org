@@ -9,12 +9,14 @@
     %th.main Name
     %th Email
     %th Superadmin?
+    %th Confirmed?
     %th
   - @users.each do |user|
     %tr
       %td.main= user.name
       %td= user.email
       %td= user.is_superadmin
+      %td= user.confirmed_at.present?
       %td
         .btn-group
           = link_to 'Edit', edit_admin_user_path(user), :class => 'btn btn-small'

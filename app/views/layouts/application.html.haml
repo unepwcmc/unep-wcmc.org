@@ -34,6 +34,9 @@
         %li= link_to "Resources & Data", "/resources-and-data"
         %li= link_to "About us", "/about-us"
 
+    - if notice
+      %p.notice= notice
+
     = yield
 
     #footer_container
