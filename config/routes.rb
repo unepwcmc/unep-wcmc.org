@@ -2,6 +2,8 @@ UnepWcmcOrg::Application.routes.draw do
 
   as :user do
     patch '/user/confirmation' => 'confirmations#update', via: :patch, as: :update_user_confirmation
+    get 'users/edit' => 'registrations#edit', :as => 'edit_user_registration'
+    put 'users' => 'registrations#update', :as => 'user_registration'
   end
 
   devise_for :users, :controllers => { :confirmations => "confirmations" }, skip: [:registrations]
