@@ -74,8 +74,8 @@ UnepWcmcOrg::Application.configure do
     :port => 587,
     :domain => "unep-wcmc.org",
     :authentication => :login,
-    :user_name => MAILER_CONFIG[:user_name],
-    :password => MAILER_CONFIG[:password]
+    :user_name => MAILER_CONFIG['user_name'],
+    :password => MAILER_CONFIG['password']
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
