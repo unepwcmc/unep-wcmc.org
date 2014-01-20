@@ -17,3 +17,12 @@ if ContentType.count == 0
     ContentType.create(singular: type[0], plural: type[1])
    end
 end
+
+if PositionType.count == 0
+   ["permanent",
+    "temporary",
+    "part-time",
+    "full-time" ].each do |position|
+      PositionType.create(name: position)
+    end
+end
