@@ -31,6 +31,7 @@ namespace :db do
   desc "Make symlink for database yaml"
   task :symlink do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/config/mailer_config.yml #{release_path}/config/mailer_config.yml"
   end
 end
 
@@ -73,5 +74,21 @@ namespace :db do
     put(spec.to_yaml, "#{shared_path}/config/database.yml")
   end
 end
-after "deploy:setup", 'db:setup'
+namespace :mailer do
+  task :setup do
+    smtp_user = Capistrano::CLI.ui.ask("SMTP username: ")
+    smtp_password = Capistrano::CLI.password_prompt("SMTP password: ")
 
+    require 'yaml'
+
+    spec = {
+      "user_name" => smtp_user,
+      "password" => smtp_password
+    }
+
+    run "mkdir -p #{shared_path}/config"
+    put(spec.to_yaml, "#{shared_path}/config/mailer_config.yml")
+  end
+end
+after "deploy:setup", 'db:setup'
+after "deploy:setup", 'mailer:setup'
