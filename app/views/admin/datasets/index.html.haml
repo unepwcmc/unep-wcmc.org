@@ -8,6 +8,6 @@
 = render 'admin/cms/partials/pages_before'
 
 %ul.list.sortable
-  = render :partial => 'index_branch', :collection => @pages
+  = render :partial => 'index_branch', :collection => @pages, :editions => @editions
 
 = render 'admin/cms/partials/pages_after'

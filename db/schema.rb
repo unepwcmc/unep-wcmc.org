@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140117131223) do
+ActiveRecord::Schema.define(version: 20140120150428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -138,6 +138,13 @@ ActiveRecord::Schema.define(version: 20140117131223) do
     t.string "plural"
   end
 
+  create_table "editions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "resource_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "employments", force: true do |t|
     t.integer  "employee_id"
     t.integer  "project_id"
@@ -174,6 +181,10 @@ ActiveRecord::Schema.define(version: 20140117131223) do
     t.datetime "updated_at"
   end
 
+  create_table "position_types", force: true do |t|
+    t.string "name"
+  end
+
   create_table "programmes", force: true do |t|
     t.string   "name"
     t.string   "phone_number"
@@ -203,10 +214,6 @@ ActiveRecord::Schema.define(version: 20140117131223) do
   end
 
   add_index "submissions", ["slug"], name: "index_submissions_on_slug", unique: true, using: :btree
-
-  create_table "types_of_positions", force: true do |t|
-    t.string "name"
-  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

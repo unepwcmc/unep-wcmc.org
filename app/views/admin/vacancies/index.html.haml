@@ -2,7 +2,7 @@
   = link_to "Add a vacancy", new_admin_vacancy_path, :class => 'btn pull-right'
   %h2 Vacancies
 
-= comfy_form_for @page, :as => :page, url: admin_vacancies_path(@page), :html => {:multipart => true} do |form|
+= comfy_form_for @page, :as => :page, url: admin_vacancy_path(@page), :html => {:multipart => true} do |form|
   = render form
 
 = render 'admin/cms/partials/pages_before'

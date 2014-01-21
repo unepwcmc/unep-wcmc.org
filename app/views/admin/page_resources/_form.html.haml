@@ -29,5 +29,7 @@
 = render 'admin/cms/partials/page_form_after', :object => form
 
 .form-actions
+  - if edition_for(@page)
+    %p= "Updated by #{edition_for(@page).user.name} on #{edition_for(@page).created_at.to_formatted_s(:long)}"
   = form.submit "Preview", :name => 'preview', :id => nil, :class => 'btn'
   = form.submit "Update", :class => 'btn btn-primary'

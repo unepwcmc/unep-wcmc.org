@@ -1,6 +1,6 @@
 class ConfirmationsController < Devise::ConfirmationsController
   skip_before_filter :authenticate_user!
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:show, :update]
 
   def update
     if @user.update(password_params)
