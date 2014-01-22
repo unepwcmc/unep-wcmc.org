@@ -33,3 +33,4 @@
     %p= "Updated by #{edition_for(@page).user.name} on #{edition_for(@page).created_at.to_formatted_s(:long)}"
   = form.submit "Preview", :name => 'preview', :id => nil, :class => 'btn'
   = form.submit "Update", :class => 'btn btn-primary'
+  = link_to "Cancel changes", url_for(params), class: "btn btn-danger pull-right", data: {confirm: "Do you really want to cancel all changes?"}
