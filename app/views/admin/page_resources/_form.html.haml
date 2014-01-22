@@ -24,13 +24,13 @@
 - unless @page == @site.pages.root
   = render :partial => 'custom_fields', locals: {form: form}
 
-= form.check_box :is_published, :label => "Published"
 
 = render 'admin/cms/partials/page_form_after', :object => form
 
 .form-actions
   - if edition_for(@page)
     %p= "Updated by #{edition_for(@page).user.name} on #{edition_for(@page).created_at.to_formatted_s(:long)}"
+  = form.check_box :is_published, :label => "Published", class: "left"
   = form.submit "Preview", :name => 'preview', :id => nil, :class => 'btn'
   = form.submit "Update", :class => 'btn btn-primary'
   = link_to "Cancel changes", url_for(params), class: "btn btn-danger pull-right", data: {confirm: "Do you really want to cancel all changes?"}

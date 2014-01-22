@@ -2,6 +2,10 @@
  *= require select2
  */
 
+.form-actions .controls {
+  margin-left: 0;
+}
+
 body#comfy .CodeMirror {
   height: 200px;
 }
