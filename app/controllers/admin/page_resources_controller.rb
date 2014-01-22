@@ -3,6 +3,10 @@ class Admin::PageResourcesController < Admin::Cms::PagesController
   prepend_before_action :set_site
   before_action :set_editions
 
+  def new
+    @page.is_published = false
+  end
+
   def index
     super
     @page = @site.pages.root
