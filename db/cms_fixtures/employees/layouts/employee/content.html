@@ -30,45 +30,24 @@
       <h2>
         Recent work by {{ cms:page:name:string }}
       </h2>
-      <section>
-        <h3>
-          <a href="{{ cms:page:recent_project_1_link:string }}">
-            {{ cms:page:recent_project_1_title:string }}
-          </a>  
-          <span class="separator">|</span> 
-          <span class="project_role">{{ cms:page:recent_project_1_role:string }}</span>
-        </h3>
-        <p>
-          {{ cms:page:recent_project_1_content:rich_text }}
-        </p>
-      </section>
+
+      {{ cms:partial:employees/recent_projects }}
       
-            <section>
-        <h3>
-          <a href="{{ cms:page:recent_project_2_link:string }}">
-            {{ cms:page:recent_project_2_title:string }}
-          </a>  
-          <span class="separator">|</span> 
-          <span class="project_role">{{ cms:page:recent_project_2_role:string }}</span>
-        </h3>
-        <p>
-          {{ cms:page:recent_project_2_content:rich_text }}
-        </p>
-      </section>
+      {{ cms:field:recent_project_1_link:string }}
+      {{ cms:field:recent_project_1_title:string }}
+	  {{ cms:field:recent_project_1_role:string }}
+      {{ cms:field:recent_project_1_content:rich_text }}
+
+      {{ cms:field:recent_project_2_link:string }}
+	  {{ cms:field:recent_project_2_title:string }}
+	  {{ cms:field:recent_project_2_role:string }}
+      {{ cms:field:recent_project_2_content:rich_text }}
       
-            <section>
-        <h3>
-          <a href="{{ cms:page:recent_project_3_link:string }}">
-            {{ cms:page:recent_project_3_title:string }}
-          </a>  
-          <span class="separator">|</span> 
-          <span class="project_role">{{ cms:page:recent_project_3_role:string }}</span>
-        </h3>
-        <p>
-          {{ cms:page:recent_project_3_content:rich_text }}
-        </p>
-      </section>
+	  {{ cms:field:recent_project_3_link:string }}
+	  {{ cms:field:recent_project_3_title:string }}
+	  {{ cms:field:recent_project_3_role:string }}
+	  {{ cms:field:recent_project_3_content:rich_text }}
       
     </section>
-  </div>  
+  </div>
 </div>
