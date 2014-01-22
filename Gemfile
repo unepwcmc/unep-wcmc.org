@@ -12,6 +12,8 @@ gem 'compass-rails', '~> 1.1.3'
 gem 'font-awesome-rails'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
+gem 'select2-rails'
+
 gem 'angularjs-rails'
 gem 'underscore-rails'
 gem 'rails-observers'

@@ -1,4 +1,6 @@
-/* Overwrite this file in your application /app/assets/stylesheets/comfortable_mexican_sofa/admin/application.css */
+/* Overwrite this file in your application /app/assets/stylesheets/comfortable_mexican_sofa/admin/application.css
+ *= require select2
+ */
 
 body#comfy .CodeMirror {
   height: 200px;
