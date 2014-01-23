@@ -11,7 +11,8 @@
     {{ cms:page:news_header:string }}
 		
     </h1>
-    <small>{{ cms:page:time:datetime }} </small>
+    {{ cms:field:time:datetime }}
+    <small>{{ cms:helper:formatted_time }} </small>
     {{ cms:page_file:news_img:image }}
     {{ cms:page:content:text }}
 			
