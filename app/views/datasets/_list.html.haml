@@ -35,7 +35,7 @@
       %h3
         {{ dataset.content_type }}
         %span.separator |
-        {{ dataset.publication_date | date}}
+        {{ dataset.publication_date | date: 'dd MMMM yyyy'}}
       %p{"ng-bind-html" => "dataset.content"}
       %p.link
         %a{:href => "{{dataset.first_link}}"} {{dataset.first_link_label}}

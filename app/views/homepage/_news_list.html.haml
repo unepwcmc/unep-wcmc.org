@@ -1,7 +1,7 @@
 .section-group
   - Cms::Site.find_by_identifier('homepage').pages.root.children.published.reverse.take(6).each do |page|
     %section.group
-      %small= cms_page_content(:time, page)
+      %small= formatted_time(cms_page_content(:time, page))
       = link_to(page.full_path) do
         - if cms_page_content(:news_img, page).present?
           %img{:src => cms_page_content(:news_img, page).file.url, :width => "", :height => "",  :alt => "project 2" }

@@ -6,6 +6,6 @@
         %a{:href => page.full_path}
           = cms_page_content(:news_header,page)
       %h3 
-        = cms_page_content(:time, page)
+        = formatted_time(cms_page_content(:time, page))
       %p
         = cms_page_content(:short_description, page)
