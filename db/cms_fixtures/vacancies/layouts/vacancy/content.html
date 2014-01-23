@@ -52,30 +52,33 @@
       <h1>
         {{ cms:page:related_projects_title:string }}
       </h1>
+    
+   	  {{ cms:partial:vacancies/related_projects }}
+      
       <section>
-        <h2><a href="{{ cms:page:related_project_1_link:string }}">
-          {{ cms:page:related_project_1_title:string }}
+        <h2><a href="{{ cms:field:related_project_1_link:string }}">
+          {{ cms:field:related_project_1_title:string }}
         </a></h2>
         <p>
-          {{ cms:page:related_project_1_content:rich_text }}
+          {{ cms:field:related_project_1_content:rich_text }}
         </p>
       </section>
       
       <section>
-        <h2><a href="{{ cms:page:related_project_2_link:string }}">
-          {{ cms:page:related_project_2_title:string }}
+        <h2><a href="{{ cms:field:related_project_2_link:string }}">
+          {{ cms:field:related_project_2_title:string }}
         </a></h2>
         <p>
-          {{ cms:page:related_project_2_content:rich_text }}
+          {{ cms:field:related_project_2_content:rich_text }}
         </p>
       </section>
     
       <section>
-        <h2><a href="{{ cms:page:related_project_3_link:string }}">
-          {{ cms:page:related_project_3_title:string }}
+        <h2><a href="{{ cms:field:related_project_3_link:string }}">
+          {{ cms:field:related_project_3_title:string }}
         </a></h2>
         <p>
-          {{ cms:page:related_project_3_content:rich_text }}
+          {{ cms:field:related_project_3_content:rich_text }}
         </p>
       </section>
       
