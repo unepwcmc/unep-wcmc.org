@@ -22,11 +22,11 @@
       %li.header
         Type of content
         %span.badge{"ng-click" => "deselectAll()"} None
-        %span.badge |
+        %span.badge= '|'
         %span.badge{"ng-click" => "selectAll()"} All
       %li.content_type{"ng-show" => "contentType.count > 0", "ng-class" => "{active: contentType.selected && contentType.count > 0}", "ng-click" => "toggleContentType()", "ng-repeat" => "contentType in contentTypes"}
         %span.badge {{ contentType.count }}
-        %p {{ contentType.plural }}
+        %p{"ng-style" => "{color: contentType.selected ? '#5e5e5e' : '#aaa'}"} {{ contentType.plural }}
   #data.column-2-3
     %h1
       Resources &amp; data
@@ -34,7 +34,7 @@
       %h2.smaller {{ dataset.title }}
       %h3
         {{ dataset.content_type }}
-        %span.separator |
+        %span.separator= '|'
         {{ dataset.publication_date | date: 'dd MMMM yyyy'}}
       %p{"ng-bind-html" => "dataset.content"}
       %p.link
