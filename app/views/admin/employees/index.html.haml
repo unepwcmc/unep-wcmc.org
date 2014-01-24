@@ -7,7 +7,9 @@
 
 = render 'admin/cms/partials/pages_before'
 
-%ul.list.sortable
+
+%ul.list{"ng-app" => "EmployeesList"}
+  %input{:type => "text", "ng-model" => "pattern", :placeholder => "Search Employees"}
   = render :partial => 'index_branch', :collection => @pages
 
 = render 'admin/cms/partials/pages_after'
