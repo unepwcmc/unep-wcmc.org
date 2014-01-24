@@ -1,6 +1,6 @@
 #news-archive.column-2-3
   %h1#first News archive
-  - Cms::Site.find_by_identifier('homepage').pages.root.children.published.reverse.each do |page|
+  - Cms::Site.find_by_identifier('news').pages.root.children.published.reverse.each do |page|
     %section
       %h2.smaller
         %a{:href => page.full_path}
