@@ -1,9 +1,10 @@
 .section-group
   - programme.employments.each do |employment|
-    %section.group.staff
-      = link_to employment.employee.url do
-        = image_tag cms_page_content(:photo, employment.employee).file
-      %h4= cms_page_content(:name, employment.employee)
-      %p= employment.role
+    - if employment.employee.is_published
+      %section.group.staff
+        = link_to employment.employee.url do
+          = image_tag cms_page_content(:photo, employment.employee).file
+        %h4= cms_page_content(:name, employment.employee)
+        %p= employment.role
 
 
