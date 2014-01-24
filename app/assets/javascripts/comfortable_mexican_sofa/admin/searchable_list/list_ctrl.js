@@ -1,4 +1,4 @@
-angular.module("EmployeesList", []).controller("EmployeeCtrl", ["$scope", function ($scope) {
+angular.module("SearchableList", []).controller("ListCtrl", ["$scope", function ($scope) {
   $scope.init = function (name) {
     this.name = name;
   }

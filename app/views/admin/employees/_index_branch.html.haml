@@ -1,6 +1,6 @@
 - page ||= index_branch
 
-%li{:id => dom_id(page), "ng-controller" => "EmployeeCtrl", "ng-show" => "matchSearch()", "ng-init" => "init('#{page.label.downcase}')"}
+%li{:id => dom_id(page), "ng-controller" => "ListCtrl", "ng-show" => "matchSearch()", "ng-init" => "init('#{page.label.downcase}')"}
   .item
     .icon{:class => page.is_published?? 'published' : 'draft'}
 
