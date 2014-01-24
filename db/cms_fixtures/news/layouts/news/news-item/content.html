@@ -1,0 +1,27 @@
+<div class="container" id="vacancy-page">
+  <div id="news-item" class="column-2-3 left">
+    <a class="back_nav" href="index.html"><i class="icon-chevron-left"></i> Back to Home</a>
+	<h1 id="first">
+    {{ cms:page:news_header:string }}
+		
+    </h1>
+    <small>{{ cms:page:time:datetime }} </small>
+    {{ cms:page_file:news_img:image }}
+    {{ cms:page:content:rich_text }}
+			
+  </div><!--column-2-3-->
+  <div id="news" class="column-1-3 right">
+    <h1>Related news</h1>
+    <section>
+      <h2><a href="">EU Wildlife Trade Regulations</a></h2>
+      <small>Thursday, 2 July 2013</small>
+      <p>UNEP-WCMC provides a wide range of services to the European Commission in support of the effective implementation of the EU Wildlife Trade Regulations, the legislation that provides for the enforcement of CITES within the European Union.</p>
+    </section>
+    <section>
+      <h2><a href="">Biodiversity Indicators Partnership</a></h2>
+      <small>Thursday, 2 July 2013</small>
+      <p>The CBD-mandated Biodiversity Indicators Partnership (BIP) is a global initiative that has operated since 2007, promoting and coordinating development and delivery of biodiversity indicators in support of the CBD and related Conventions, national and regional governments and a range of other sectors.</p>
+    </section>
+  </div><!--column-1-3-->
+</div><!--container-->
+{{ cms:field:short_description:rich_text }}
