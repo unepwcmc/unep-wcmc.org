@@ -26,3 +26,9 @@ if PositionType.count == 0
       PositionType.create(name: position)
     end
 end
+
+if User.count == 0
+  user = User.new name: "user", email: "username@unep-wcmc.org", password: "password"
+  user.skip_confirmation!
+  user.save
+end
