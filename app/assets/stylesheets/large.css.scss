@@ -1,7 +1,13 @@
-$blue: #94BBFF;
-$dark_blue: #5175A3;
-$grey: #f4f2f2;
+$blue: #4c9cda;
+$dark_blue: #4295d5;
+$blue_news: #5175a3;
+$grey: #ddd;
+$light_grey: #f7f7f7;
+$dark_grey: #333;
 $grey_text: #5e5a5c;
+$green: #CCE283;
+$red: #EC8486;
+$yellow: #FFDB65;
 
 
 .container {
@@ -105,36 +111,31 @@ div.project-team {
 div#nav{
 	width:100%;
   overflow: hidden;
-    a#home_link {
-		float: left;
-		width: 40%;
-		padding: 20px 0 20px 15%;
-		img {
-			max-width: 100%;
-		}
-	}
+  a#home_link {
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 25%;
+    float: left;
+    margin-left: 15%;
+			img {
+				display: block;
+				background: #4295d5;
+			}
+  }
 	ul#large-menu{
 	  width: 60%;
-		padding: 20px 15% 20px 0;
+		padding: 5px 15% 5px 0;
 		margin: 0;
 	  overflow: hidden;
+	  float: right;
 		li{
 		  padding: 0 0 0 2%;
-			float: right;
 			line-height: 37px;
 		}
 		&#button-menu {
-      display: none;
-      clear: both;
       li {
-        padding: 0 0 3px 0;
-        margin: 0;
-        clear: both;
-        text-align: right;
         font-size: 0.85em;
-        &:last-child {
-          padding-bottom: 0;
-        }
       }
     }
 	}
@@ -362,4 +363,8 @@ ul#fields, ul#content, ul#fields-small, ul#content-small, ul#programmes {
 			font-size: 1.25em;
 		}
 	}
+}
+
+div#welcome {
+  padding: 60px 15% 60px 15%;
 }

@@ -1,7 +1,13 @@
-$blue: #94BBFF;
-$dark_blue: #5175A3;
-$grey: #f4f2f2;
+$blue: #4c9cda;
+$dark_blue: #4295d5;
+$blue_news: #5175a3;
+$grey: #ddd;
+$light_grey: #f7f7f7;
+$dark_grey: #333;
 $grey_text: #5e5a5c;
+$green: #CCE283;
+$red: #EC8486;
+$yellow: #FFDB65;
 
 
 .container {
@@ -180,14 +186,21 @@ h5{
 
 
 div#nav{
+  margin-top: 0;
 	width:100%;
   overflow: hidden;
+  border-top: 10px solid $dark_blue;
     a#home_link {
 		float: left;
-		width: 50%;
-		padding: 20px 5%;
+		width: 40%;
+		padding: 10px 0;
+		margin-left: 5%;
 		img {
 			max-width: 100%;
+			padding: 10px 20px 15px 20px;
+			-webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
 		}
 	}
 	ul{
@@ -200,7 +213,7 @@ div#nav{
 		&#button-menu {
       display: none;
       clear: both;
-      padding: 2% 5%;
+      padding: 0 5% 20px 5%;
       li {
         padding: 0 0 3px 0;
         margin: 0;
@@ -265,17 +278,9 @@ div#welcome, div#featured_heading {
     font-size: 2.5em;
     line-height: 1.25em;
   }
-  margin: auto;
-  margin-bottom: 60px;
-  width: 90%;
   p {
     font-size: 1.2em;
   }
-}
-
-div#welcome {
-  padding-top: 0;
-  padding-bottom: 0;
 }
 
 div#featured_heading {
@@ -318,7 +323,7 @@ button#trigger-menu {
   clear: none;
   padding: 0 5%;
   line-height: 38px;
-  margin: 20px 0;
+  margin: 5px 0;
 }
 
 ul.subnav#staff {

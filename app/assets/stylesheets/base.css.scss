@@ -2,8 +2,14 @@
 
 $blue: #4c9cda;
 $dark_blue: #4295d5;
-$grey: #f4f2f2;
+$blue_news: #5175a3;
+$grey: #ddd;
+$light_grey: #f7f7f7;
+$dark_grey: #333;
 $grey_text: #5e5a5c;
+$green: #CCE283;
+$red: #EC8486;
+$yellow: #FFDB65;
 
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
@@ -84,7 +90,6 @@ h3{
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #5175a3;
-    border-top: 1px solid $grey;
 	}
 	&#position {
 	  font-size: 1em;
@@ -162,25 +167,30 @@ div.clear {
 }
 
 #nav{
-	background-color: $dark_blue;
+  margin-top: 48px;
+	background-color: #222;
 	-webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   a#home_link {
+    position: absolute;
+    top: 0;
     display: block;
     width: 100%;
     float: left;
-    padding: 10px 5%;
+    padding: 0;
 			img {
-				opacity: 0.9;
 				display: block;
+				background: #4295d5;
+				padding: 10px 15px 10px 15px;
 			}
   }
 	ul{
 		margin: auto;
 	  list-style: none;
 	  overflow: hidden;
+	  float: right;
 		li{
 			a {
 				font-family: "museo-sans", Helvetica, Arial, sans-serif;
@@ -203,6 +213,7 @@ div.clear {
 		}
 	}
 }
+
 
 div.hero{
 	background: url('../imgs/project_13.png') no-repeat center;
@@ -1052,6 +1063,9 @@ ul.footer{
 }
 
 div#welcome {
+  width: 100%;
+  padding: 60px 5% 60px 5%;
+  background: $light_grey;
   h1 {
     font-size: 1.25em;
     line-height: 1.25em;
@@ -1069,10 +1083,6 @@ div#featured_heading {
     text-align: center;
     margin-top: 0;
   }
-}
-
-div#welcome {
-  padding: 30px 0;
 }
 
 div#news-item {
@@ -1156,10 +1166,11 @@ ul#large-menu {
 }
 
 ul#button-menu {
-  background: #006AB8;
+  background: #222;
   display: none;
   clear: both;
   padding: 1% 5% 5% 5%;
+  float: none;
   li {
     padding-bottom: 3px;
     margin: 0;
@@ -1173,7 +1184,7 @@ ul#button-menu {
 
 
 button#trigger-menu {
-  background: $dark_blue;
+  background: #222;
   font-family: "museo-sans", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.65);
@@ -1185,7 +1196,6 @@ button#trigger-menu {
   clear: both;
   width: 100%;
   text-align: left;
-  background: #006AB8;
   margin: 0;
   border-radius: 0;
   i {
