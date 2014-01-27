@@ -1,5 +1,5 @@
 .section-group
-  - Cms::Site.find_by_identifier('homepage').pages.root.children.published.reverse.take(6).each do |page|
+  - Cms::Site.find_by_identifier('news').pages.root.children.published.reverse.take(6).each do |page|
     %section.group
       %small= formatted_time(cms_page_content(:time, page))
       = link_to(page.full_path) do
