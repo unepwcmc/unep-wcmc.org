@@ -148,18 +148,19 @@ div.banner {
   }
 }
 
-div.container#other_projects, div.container#other-news-small {
+div.container#other_projects {
   padding-bottom: 6em;
+  margin-bottom: -60px;
 }
 
 div.container#other_projects h2.large_subheading#featured_projects {
   width: 70%;
-  margin: auto;
+  margin: 60px auto;
 }
 
-div.container#other_projects div.section-group {
+div.container#other_projects {
   width: 70%;
-  margin: auto;
+  margin: 60px auto -60px auto;
 }
 
 div.heading{
