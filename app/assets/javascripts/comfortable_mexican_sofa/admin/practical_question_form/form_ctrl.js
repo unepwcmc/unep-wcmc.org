@@ -1,25 +1,44 @@
 angular.module("PracticalQuestionForm", []).controller("FormCtrl", ["$scope", function ($scope) {
 
-  $scope.removeForm = function () {
+  $scope.removeFieldForm = function () {
     if (this.form.id) {
       this.form.removed = true;
     } else {
-      $scope.forms.splice($scope.forms.indexOf(this.form), 1);
+      $scope.fieldForms.splice($scope.fieldForms.indexOf(this.form), 1);
     }
   }
 
-  $scope.init = function (fields) {
-    $scope.forms = fields;
+  $scope.removeAttachmentForm = function () {
+    if (this.form.id) {
+      this.form.removed = true;
+    } else {
+      $scope.attachmentForms.splice($scope.attachmentForms.indexOf(this.form), 1);
+    }
   }
 
-  $scope.formIndex = function () {
-    return $scope.forms.indexOf(this.form);
+  $scope.init = function (fields, attachments) {
+    $scope.fieldForms = fields;
+    $scope.attachmentForms = attachments;
+  }
+
+  $scope.fieldFormIndex = function () {
+    return $scope.fieldForms.indexOf(this.form);
+  }
+
+  $scope.attachmentFormIndex = function () {
+    return $scope.attachmentForms.indexOf(this.form);
   }
 
   $scope.addField = function () {
-    $scope.forms.push({
+    $scope.fieldForms.push({
       type: "FileField",
       label: ""
+    });
+  }
+
+  $scope.addAttachment = function () {
+    $scope.attachmentForms.push({
+      name: ""
     });
   }
 

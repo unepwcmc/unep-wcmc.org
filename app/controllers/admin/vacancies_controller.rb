@@ -30,7 +30,7 @@ class Admin::VacanciesController < Admin::PageResourcesController
   end
 
   def form_params
-    params[:form].try(:permit, fields_attributes: [:_destroy, :name, :id, :type]) || {}
+    params[:form].try(:permit, fields_attributes: [:_destroy, :name, :id, :type], attachments_attributes: [:_destroy, :name, :id, :file]) || {}
   end
 
 end

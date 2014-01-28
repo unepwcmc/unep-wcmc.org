@@ -1,25 +1,48 @@
-.control-group{ "ng-app" => "PracticalQuestionForm", "ng-controller" => "FormCtrl", "ng-init" => "init(#{render partial: "fields", formats: :json})"}
+.control-group{ "ng-app" => "PracticalQuestionForm", "ng-controller" => "FormCtrl", "ng-init" => "init(#{render partial: "fields", formats: :json}, #{render partial: "attachments", formats: :json})"}
   %label.control-label Practical Question Fields
-  .control-group{ "ng-repeat" => "form in forms", "ng-show" => "!form.removed" }
+  .control-group{ "ng-repeat" => "form in fieldForms", "ng-show" => "!form.removed" }
     .controls
       .control-group
-        %label.control-label{:for => "form[fields_attributes][{{ formIndex() }}][name]"} Label
+        %label.control-label{:for => "form[fields_attributes][{{ fieldFormIndex() }}][name]"} Label
         .controls
-          %input{ :type => "text", "ng-model" => "form.label", :name => "form[fields_attributes][{{ formIndex() }}][name]" }
-          %input{ :type => "hidden", "ng-model" => "form.id", :name => "form[fields_attributes][{{ formIndex() }}][id]", "ng-if" => "form.id", "value" => "{{ form.id }}"}
-          %input{ :type => "hidden", :name => "form[fields_attributes][{{ formIndex() }}][_destroy]", "ng-if" => "form.removed", :value => '1' }
+          %input{ :type => "text", "ng-model" => "form.label", :name => "form[fields_attributes][{{ fieldFormIndex() }}][name]" }
+          %input{ :type => "hidden", "ng-model" => "form.id", :name => "form[fields_attributes][{{ fieldFormIndex() }}][id]", "ng-if" => "form.id", "value" => "{{ form.id }}"}
+          %input{ :type => "hidden", :name => "form[fields_attributes][{{ fieldFormIndex() }}][_destroy]", "ng-if" => "form.removed", :value => '1' }
       .control-group
-        %label.control-label{:form => "form[fields_attributes][{{ formIndex() }}][type]"} Type
+        %label.control-label{:form => "form[fields_attributes][{{ fieldFormIndex() }}][type]"} Type
         .controls
-          %select{ "ng-model" => "form.type", "name" => "form[fields_attributes][{{ formIndex() }}][type]"}
+          %select{ "ng-model" => "form.type", "name" => "form[fields_attributes][{{ fieldFormIndex() }}][type]"}
             %option{ :value => "FileField", "ng-selected" => "form.type == 'FileField'" }
               File field
             %option{ :value => "TextField", "ng-selected" => "form.type == 'TextField'" }
               Text field
       .control-group
         .controls
-          %input.btn.btn-danger{:type => "button", :value => "Remove", "ng-click" => "removeForm()"}
+          %input.btn.btn-danger{:type => "button", :value => "Remove", "ng-click" => "removeFieldForm()"}
 
   .control-group
     .controls
       %input.btn{:type => "button", :value => "Add a field", "ng-click" => "addField()"}
+
+  %label.control-label Practical Question Attachments
+  .control-group{ "ng-repeat" => "form in attachmentForms", "ng-show" => "!form.removed" }
+    .controls
+      .control-group
+        %label.control-label{:for => "form[attachments_attributes][{{ attachmentFormIndex() }}][name]"} Name
+        .controls
+          %input{ :type => "text", "ng-model" => "form.name", :name => "form[attachments_attributes][{{ attachmentFormIndex() }}][name]" }
+          %input{ :type => "hidden", "ng-model" => "form.id", :name => "form[attachments_attributes][{{ attachmentFormIndex() }}][id]", "ng-if" => "form.id", "value" => "{{ form.id }}"}
+          %input{ :type => "hidden", :name => "form[attachments_attributes][{{ attachmentFormIndex() }}][_destroy]", "ng-if" => "form.removed", :value => '1' }
+      .control-group
+        %label.control-label{:for => "form[attachments_attributes][{{ fieldFormIndex() }}][type]"} File
+        .controls
+          %input{ :type => "file", :name => "form[attachments_attributes][{{ attachmentFormIndex() }}][file]" }
+          %a{ :href => "{{ form.url }}", "ng-if" => "form.url"}
+            %p {{ form.filename }}
+      .control-group
+        .controls
+          %input.btn.btn-danger{:type => "button", :value => "Remove", "ng-click" => "removeAttachmentForm()"}
+
+  .control-group
+    .controls
+      %input.btn{:type => "button", :value => "Add an attachment", "ng-click" => "addAttachment()"}
