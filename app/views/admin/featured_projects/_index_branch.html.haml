@@ -15,3 +15,4 @@
         = link_to page.label, edit_admin_featured_project_path(page), :class => 'item-label'
       .item-meta
         = link_to page.url, page.url, :target => '_blank'
+        = render partial: "editions", locals: {page: page}

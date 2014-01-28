@@ -1,4 +1,5 @@
 - programmes.each do |programme|
+  %a{ :id => programme.id }
   %h2.programme= programme.name
   #team-details
     %span

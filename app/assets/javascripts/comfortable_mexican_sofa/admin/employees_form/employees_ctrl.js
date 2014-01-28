@@ -1,4 +1,4 @@
-angular.module("EmployeesForm", []).controller("EmployeesCtrl", ["$scope", function ($scope) {
+angular.module("EmployeesForm", ["ui.select2"]).controller("EmployeesCtrl", ["$scope", function ($scope) {
 
   $scope.removeForm = function () {
     $scope.forms.splice($scope.forms.indexOf(this.form), 1);

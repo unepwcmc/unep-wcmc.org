@@ -11,15 +11,16 @@
 
 <div class="container" id="vacancy-page">
   <div id="job_description" class="column-2-3 left">
-    <a class="back_nav" href="vacancies.html"><i class="icon-chevron-left"></i> Back to Vacancies</a>
+    <a class="back_nav" href="/vacancies"><i class="icon-chevron-left"></i> Back to Vacancies</a>
 	<h1 id="first">
       {{ cms:page:position_title:string }}
     </h1>
 	<h3 id="position">
-      <a id="department" href="staff.html#climate-change">
-        {{ cms:page:programme:string }}
+      <a id="department">  
+        {{ cms:collection:programme:programmes:programmes/programme:name:name }}
       </a><span id="separator">|</span>
-      {{ cms:page:type_of_position:string }}
+      {{ cms:collection:position_type_1:position_types:position_types/position_type_1:name:name }}
+      {{ cms:collection:position_type_2:position_types:position_types/position_type_2:name:name }}
     </h3>
 	<p id="salary">
       {{ cms:page:salary:string }}      
@@ -32,7 +33,7 @@
       </span>
     </section>
 	<p>
-      {{ cms:page:position_excerpt:rich_text }}
+      {{ cms:page:position_excerpt:rich_text }}            
     </p>
     {{ cms:page:position_description:rich_text }}
     
@@ -41,38 +42,45 @@
   </div><!--column-2-3-->
   
   <div id="job_related" class="column-1-3 right">
-      <h1>Working at WCMC</h1>
-      <p>We provide a stimulating and supportive work environment and 93% of our team agree that we provide exposure to interesting people and new ideas.</p>
-      <p><a href="" alt="">Find out more</a></p>
-      <h1>Work by Protected Areas</h1>
+      <h1>
+     	{{ cms:page:job_related_title:string }} 
+      </h1>
+      <p>
+        {{ cms:page:job_related_content:rich_text }}
+      </p>
+      <p><a href="{{ cms:page:find_out_more_link:string }}" alt="">Find out more</a></p>
+      <h1>
+        {{ cms:page:related_projects_title:string }}
+      </h1>
+    
+   	  {{ cms:partial:vacancies/related_projects }}
+      
       <section>
-        <h2><a href="">EU Wildlife Trade Regulations</a></h2>
-        <p>UNEP-WCMC provides a wide range of services to the European Commission in support of the effective implementation of the EU Wildlife Trade Regulations, the legislation that provides for the enforcement of CITES within the European Union.</p>
+        <h2><a href="{{ cms:field:related_project_1_link:string }}">
+          {{ cms:field:related_project_1_title:string }}
+        </a></h2>
+        <p>
+          {{ cms:field:related_project_1_content:rich_text }}
+        </p>
       </section>
       
       <section>
-        <h2><a href="">Biodiversity Indicators Partnership</a></h2>
-        <p>The CBD-mandated Biodiversity Indicators Partnership (BIP) is a global initiative that has operated since 2007, promoting and coordinating development and delivery of biodiversity indicators in support of the CBD and related Conventions, national and regional governments and a range of other sectors.</p>
+        <h2><a href="{{ cms:field:related_project_2_link:string }}">
+          {{ cms:field:related_project_2_title:string }}
+        </a></h2>
+        <p>
+          {{ cms:field:related_project_2_content:rich_text }}
+        </p>
+      </section>
+    
+      <section>
+        <h2><a href="{{ cms:field:related_project_3_link:string }}">
+          {{ cms:field:related_project_3_title:string }}
+        </a></h2>
+        <p>
+          {{ cms:field:related_project_3_content:rich_text }}
+        </p>
       </section>
       
 	</div><!--column-1-3-->
   </div><!--container-->
-
-  <div class="container" id="job_related-small">
-    <h2 class="large_subheading">Working at WCMC</h2>
-    <p>We provide a stimulating and supportive work environment and 93% of our team agree that we provide exposure to interesting people and new ideas.</p>
-    <p><a href="" alt="">Find out more</a></p>
-    <h2 class="large_subheading">Work by Protected Areas</h2>      
-  	
-    <div class="section-group">
-      <section class="group">
-        <h2 class="smaller"><a href="">EU Wildlife Trade Regulations</a></h2>
-        <p>UNEP-WCMC provides a wide range of services to the European Commission in support of the effective implementation of the EU Wildlife Trade Regulations, the legislation that provides for the enforcement of CITES within the European Union.</p>
-      </section>
-      
-      <section class="group">
-        <h2 class="smaller"><a href="">Biodiversity Indicators Partnership</a></h2>
-        <p>The CBD-mandated Biodiversity Indicators Partnership (BIP) is a global initiative that has operated since 2007, promoting and coordinating development and delivery of biodiversity indicators in support of the CBD and related Conventions, national and regional governments and a range of other sectors.</p>
-      </section>
-  </div><!-- section group -->
-</div><!--container-->

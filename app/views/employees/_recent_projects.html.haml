@@ -1,7 +1,12 @@
-- project_employments.each do |employment|
-  %section
-    %h3
-      = link_to cms_page_content(:project_name, employment.project), employment.project.url
-      %span.separator= '|'
-      = employment.role
-    %p= cms_page_content(:short_description, employment.project)
+- (1..3).each do |i|
+  - if cms_page_content(:"recent_project_#{i}_title").present?
+    %section
+      %h3
+        - if cms_page_content(:"recent_project_#{i}_link").present?
+          = link_to cms_page_content(:"recent_project_#{i}_title"), cms_page_content(:"recent_project_#{i}_link")
+        - else
+          = cms_page_content(:"recent_project_#{i}_title")
+        %span.separator= '|'
+        %span.project_role
+          = cms_page_content(:"recent_project_#{i}_role")
+      %p= cms_page_content(:"recent_project_#{i}_content")

@@ -6,12 +6,13 @@
 </div><!--hero-->
 <div class="container" id="vacancy-page">
   <div id="news-item" class="column-2-3 left">
-    <a class="back_nav" href="index.html"><i class="icon-chevron-left"></i> Back to Home</a>
+    {{ cms:partial:homepage/back_link }}
 	<h1 id="first">
     {{ cms:page:news_header:string }}
 		
     </h1>
-    <small>{{ cms:page:time:datetime }} </small>
+    {{ cms:field:time:datetime }}
+    <small>{{ cms:helper:formatted_time }} </small>
     {{ cms:page_file:news_img:image }}
     {{ cms:page:content:text }}
 			

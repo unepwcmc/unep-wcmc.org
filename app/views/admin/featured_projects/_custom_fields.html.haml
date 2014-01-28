@@ -1,3 +1,7 @@
+.control-group
+  %label.control-label Top featured project?
+  = form.check_box :is_top_project
+
 .control-group{ "ng-app" => "EmployeesForm", "ng-controller" => "EmployeesCtrl", "ng-init" => "init(#{render partial: "employees", formats: :json}, #{render partial: "employments", formats: :json})" }
   .control-group{ "ng-repeat" => "form in forms" }
     %label.control-label Employee {{ formIndex() + 1 }}
@@ -5,7 +9,7 @@
       .control-group
         %label.control-label{:for => "employees[{{ formIndex() }}][id]"} Name
         .controls
-          %select{ "ng-model" => "form.employee_id", "name" => "employees[{{ formIndex() }}][id]"}
+          %select{ "ui-select2" => true, "ng-model" => "form.employee_id", "name" => "employees[{{ formIndex() }}][id]"}
             %option{ "ng-repeat" => "employee in employees", :value => "{{ employee.id }}", "ng-selected" => "form.employee_id == employee.id" }
               {{ employee.name }}
 

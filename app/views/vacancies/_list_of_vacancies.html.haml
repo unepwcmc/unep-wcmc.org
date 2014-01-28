@@ -1,10 +1,9 @@
-- Cms::Site.find_by_identifier('vacancies').pages.root.children.each do |page|
+- Cms::Site.find_by_identifier('vacancies').pages.root.children.published.each do |page|
   %section
-    %h2 
-      = link_to(page.full_path) do
+    %h2
+      = link_to(page.url) do
         = cms_page_content(:position_title, page)
     %p
       = cms_page_content(:position_excerpt, page)
-    %p.link 
-      = link_to(page.full_path) do 
-        Apply
+    %p.link
+      = link_to "Apply", new_form_submission_path(Form.find_by_vacancy_id(page.id))

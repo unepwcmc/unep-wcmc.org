@@ -1,10 +1,8 @@
 - page ||= index_branch
 
-%li{:id => dom_id(page)}
+%li{:id => dom_id(page), "ng-controller" => "ListCtrl", "ng-show" => "matchSearch()", "ng-init" => "init('#{page.label.downcase}')"}
   .item
     .icon{:class => page.is_published?? 'published' : 'draft'}
-      .dragger
-        %span &#8645;
 
     .btn-group
       = link_to t('.edit'), edit_admin_dataset_path(page), :class => 'btn btn-small'
@@ -15,3 +13,4 @@
         = link_to page.label, edit_admin_dataset_path(page), :class => 'item-label'
       .item-meta
         = link_to page.url, page.url, :target => '_blank'
+        = render partial: "editions", locals: {page: page}

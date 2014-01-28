@@ -1,3 +1,3 @@
 .section-group
-  - @cms_page.children.published.take(6).each do |page|
+  - @cms_page.children.published.where(is_top_project: true).each do |page|
     = render partial: "featured_projects/project", locals: {page: page}

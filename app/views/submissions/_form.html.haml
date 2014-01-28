@@ -32,6 +32,11 @@
       = ff.hidden_field :field_id
       = ff.hidden_field :id
       = render ff.object.class.name.underscore, f: ff
+    - if @form.attachments.count > 0
+      %h3 Attachments
+      - @form.attachments.each do |attachment|
+        %p
+          = link_to attachment.name, attachment.file.url
   %section
     %h2 Employment Conditions
     = f.fields_for :content, @submission.content do |ff|

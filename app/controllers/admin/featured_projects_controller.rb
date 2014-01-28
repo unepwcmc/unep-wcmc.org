@@ -9,6 +9,7 @@ class Admin::FeaturedProjectsController < Admin::PageResourcesController
   private
 
   def save_resources
+    @page.is_top_project = params[:page][:is_top_project]
     @page.save && @employments.save
   end
 

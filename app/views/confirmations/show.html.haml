@@ -1,0 +1,13 @@
+%h2 Account Activation
+
+= form_for @user, url: update_user_confirmation_path, html: {method: :patch} do |f|
+  = devise_error_messages!
+  %p
+    = f.label :password, "Pick a password"
+    = f.password_field :password
+  %p
+    = f.label :password_confirmation, "Confirm password"
+    = f.password_field :password_confirmation
+  = hidden_field_tag :confirmation_token, params[:confirmation_token]
+  = f.submit "Set password"
+

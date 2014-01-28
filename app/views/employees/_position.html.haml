@@ -1,5 +1,5 @@
 %h3#position
   = employment.role
   %span.separator= '|'
-  = employment.programme.name
+  = link_to employment.programme.name, "/employees##{employment.programme.id}"
 

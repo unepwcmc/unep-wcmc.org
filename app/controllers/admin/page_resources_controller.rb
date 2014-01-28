@@ -1,6 +1,11 @@
 class Admin::PageResourcesController < Admin::Cms::PagesController
   skip_before_filter :load_admin_site
   prepend_before_action :set_site
+  before_action :set_editions
+
+  def new
+    @page.is_published = false
+  end
 
   def index
     super
@@ -9,7 +14,8 @@ class Admin::PageResourcesController < Admin::Cms::PagesController
   end
 
   def update
-    if save_resources
+    if save
+      create_edition
       flash[:success] = I18n.t("cms.pages.updated")
     else
       flash[:error] = I18n.t("cms.pages.update_failure")
@@ -18,7 +24,8 @@ class Admin::PageResourcesController < Admin::Cms::PagesController
   end
 
   def create
-    if save_resources
+    if save
+      create_edition
       flash[:success] = I18n.t('cms.pages.created')
       redirect_to :action => :edit, :id => @page
     else
@@ -36,6 +43,22 @@ class Admin::PageResourcesController < Admin::Cms::PagesController
   end
 
   private
+
+  def set_editions
+    @editions = ::Edition.where("resource_id IN (?)", @site.pages.map(&:id)).order("created_at DESC").load
+  end
+
+  def create_edition
+    Edition.create(user: current_user, resource: @page)
+  end
+
+  def save
+    if @page == @site.pages.root
+      @page.save
+    else
+      save_resources
+    end
+  end
 
   def save_resources
     raise NotImplementedError

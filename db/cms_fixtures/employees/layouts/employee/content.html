@@ -28,9 +28,26 @@
     </section>
     <section id="recent-work">
       <h2>
-        Recent work
+        Recent work by {{ cms:page:name:string }}
       </h2>
+
       {{ cms:partial:employees/recent_projects }}
+      
+      {{ cms:field:recent_project_1_link:string }}
+      {{ cms:field:recent_project_1_title:string }}
+	  {{ cms:field:recent_project_1_role:string }}
+      {{ cms:field:recent_project_1_content:rich_text }}
+
+      {{ cms:field:recent_project_2_link:string }}
+	  {{ cms:field:recent_project_2_title:string }}
+	  {{ cms:field:recent_project_2_role:string }}
+      {{ cms:field:recent_project_2_content:rich_text }}
+      
+	  {{ cms:field:recent_project_3_link:string }}
+	  {{ cms:field:recent_project_3_title:string }}
+	  {{ cms:field:recent_project_3_role:string }}
+	  {{ cms:field:recent_project_3_content:rich_text }}
+      
     </section>
-  </div>  
+  </div>
 </div>

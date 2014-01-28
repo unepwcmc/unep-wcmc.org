@@ -7,7 +7,12 @@
 = comfy_form_for @page, :as => :page, url: admin_featured_project_path(@page), :html => {:multipart => true} do |form|
   = render form
 
+%h4 Top Featured Projects
 %ul.list.sortable
-  = render :partial => 'index_branch', :collection => @pages
+  = render :partial => 'index_branch', :collection => @pages.where(is_top_project: true)
+
+%h4 Other Featured Projects
+%ul.list.sortable
+  = render :partial => 'index_branch', :collection => @pages.where(is_top_project: false)
 
 = render 'admin/cms/partials/pages_after'

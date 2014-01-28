@@ -1,0 +1,3 @@
+- if edition_for(page)
+  %br
+  = "Updated by #{edition_for(page).user.name} on #{edition_for(page).created_at.to_formatted_s(:long)}"

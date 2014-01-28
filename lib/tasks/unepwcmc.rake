@@ -4,6 +4,7 @@ namespace :unepwcmc do
     hostname = ENV['HOSTNAME'] || '127.0.0.1'
     sites = [
       {label: "homepage", path: ""},
+      {label: "news", path: "news"},
       {label: "about-us", path: "about-us"},
       {label: "featured-projects", path: "featured-projects"},
       {label: "resources-and-data", path: "resources-and-data"},
