@@ -271,19 +271,6 @@ div#featured_heading {
   padding: 0;
 }
 
-div#footer_container {
-	padding: 30px 0;
-	margin-top: 60px;
-}
-
-ul.footer{	
-	width: 90%;
-	margin: auto;
-	li{
-		float: left;
-	}
-}
-
 iframe {
   margin: 20px 0;
 }
@@ -376,26 +363,30 @@ section.column-2-3#actions-column-small {
 }
 
 div#footer_container {
-	background: url('../images/map_world.png') no-repeat center;
+  overflow: hidden;
+	background: image-url('map_world.png') no-repeat center;
 	width:100%;
 	position: absolute;
 	background-size: 100%;
+	padding: 30px 15%;
+	margin-top: 60px;
+	a#unep {
+    padding: 0;
+    float: right;
+    img {
+		  width: 15%;
+		  float: right;
+		}
+	}
 }
 
 ul.footer{	
   overflow: hidden;
+  float: left;
 	li{
 	  float: left;
 	  padding-right: 15px;
 	  padding-bottom: 0;
-	  &#logo {
-  	  float: right;
-  	  padding-right: 0;
-  	  padding-top: 0;
-  	  img {
-  	    float: right;
-  	  }
-  	}
 	}
 }
 

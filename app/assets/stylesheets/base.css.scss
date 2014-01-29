@@ -1019,18 +1019,30 @@ div#footer_container {
 	width:100%;
 	position: absolute;
 	background-color: $dark_grey;
-	background: url('../images/map_world_small.png') no-repeat center;
+	background: image-url('map_world_small.png') no-repeat center;
 	background-opacity: 0.2;
 	background-size: 100%;
-  padding: 25px 0;
   margin-top: 60px;
-  padding: 20px 0;
+  padding: 20px 5%;
+  a#unep {
+    padding: 10px 0 0 0;
+    img {
+		  width: 15%;
+		  opacity: 0.6;
+		  &:hover, &:active {
+  		  opacity: 1;
+  		  -webkit-transition: all 0.5s ease;
+				-moz-transition: all 0.5s ease;
+				-ms-transition: all 0.5s ease;
+				-o-transition: all 0.5s ease;
+				transition: all 0.5s ease;
+  		}
+		}
+	}
 }
 
 ul.footer{	
-	margin: auto;
   list-style: none;
-  width: 90%;
   overflow: hidden;
 	li{
 	  padding-bottom: 10px;
@@ -1051,13 +1063,6 @@ ul.footer{
 			&.active {
 			  color: $blue;
 			}
-			img {
-			  width: 15%;
-			  opacity: 0.6;
-			}
-		}
-		&#logo {
-      padding: 10px 0 0 0;
 		}
 	}
 }
