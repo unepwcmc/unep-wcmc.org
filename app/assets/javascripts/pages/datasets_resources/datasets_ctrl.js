@@ -91,4 +91,16 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     applyFilters();
   }
 
+  $scope.noneSelected = function () {
+    return !_.some($scope.contentTypes, function (type) {
+      return type.selected && type.count > 0;
+    });
+  }
+
+  $scope.allSelected = function () {
+    return _.every($scope.contentTypes, function (type) {
+      return type.selected || type.count === 0;
+    });
+  }
+
 }]);
