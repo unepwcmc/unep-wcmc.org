@@ -235,39 +235,19 @@ div.banner {
 }
 
 div.heading{
-  width: 90%;
-  margin: auto;
-  padding: 100px 0;
-  text-align: center;
 	h1{
-		margin-bottom: 0;
 		font-size: 2.25em;
 		line-height: 1.25em;
-		font-weight: bold;
 		display: inline-block;
-		&#featured {
-			font-size: 2em;
-		}
 	}
 	h2 {
 	  display: inline-block;
-		font-weight: 300;
-		margin: 0.5em 0;
 		font-size: 1.25em;
 		line-height: 1.4em;
-		font-family: "museo-sans", Helvetica, Arial, sans-serif;
 	}
-	h1,h2{
-		padding: 1% 0;
-		color: #fff;
-		text-shadow: 0 2px 15px rgba(0,0,0,0.3);
-	}
-	h1.short, h2.short, h2.shorter {
-    margin: auto;
-  }
 }
 
-div.hero#species div.heading {
+div.hero#project div.heading {
   width: 45%;
   margin-left: 15%;
   text-align: left;
@@ -289,19 +269,6 @@ div#featured_heading {
   }
   margin-top: 60px;
   padding: 0;
-}
-
-div#footer_container {
-	padding: 30px 0;
-	margin-top: 60px;
-}
-
-ul.footer{	
-	width: 90%;
-	margin: auto;
-	li{
-		float: left;
-	}
 }
 
 iframe {
@@ -396,26 +363,30 @@ section.column-2-3#actions-column-small {
 }
 
 div#footer_container {
-	background: url('../images/map_world.png') no-repeat center;
+  overflow: hidden;
+	background: image-url('map_world.png') no-repeat center;
 	width:100%;
 	position: absolute;
 	background-size: 100%;
+	padding: 30px 15%;
+	margin-top: 60px;
+	a#unep {
+    padding: 0;
+    float: right;
+    img {
+		  width: 15%;
+		  float: right;
+		}
+	}
 }
 
 ul.footer{	
   overflow: hidden;
+  float: left;
 	li{
 	  float: left;
 	  padding-right: 15px;
 	  padding-bottom: 0;
-	  &#logo {
-  	  float: right;
-  	  padding-right: 0;
-  	  padding-top: 0;
-  	  img {
-  	    float: right;
-  	  }
-  	}
 	}
 }
 
@@ -434,4 +405,17 @@ div.data_policy, div.data_policy-small{
 
 div.search-field input, div.search-field i {
   font-size: 0.75em;
+}
+
+div.hero{
+	&#featured_projects{
+		background-position: 0 -80px;
+	}
+	&#data{
+		background-position: 0 -80px;
+	}
+	&#about{
+		background-position: center;
+	}
+	background-size: 100%;
 }

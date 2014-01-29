@@ -17,10 +17,6 @@ $yellow: #FFDB65;
   box-sizing: border-box;
 }
 
-img, iframe {
-  max-width: 100%;
-}
-
 body {
 	font-size: 100%;
 	font-family: "museo-sans", Helvetica, Arial, sans-serif;
@@ -181,6 +177,7 @@ div.clear {
     float: left;
     padding: 0;
 		img {
+		  max-width: 100%;
 			display: block;
 			background: #4295d5;
 			padding: 10px 15px 10px 15px;
@@ -216,35 +213,50 @@ div.clear {
 
 
 div.hero{
-	background: url('../imgs/project_13.png') no-repeat center;
-	background-size: 100%;
-	
 	&#featured_projects{
-		background: url('../imgs/project_13.png') no-repeat bottom;
-		background-size: 100%;
+		background-image: url('../imgs/savanna-2.png');
+		background-position: top;
 	}
 	&#data{
-		background: url('../imgs/project_7.png') no-repeat bottom;
-		background-size: 115%;
+		background-image: url('../imgs/polar-2.png');
+		background-position: bottom;
+		.heading h2 {
+		  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+		}
 	}
 	
 	&#about{
-		background: url('../imgs/project_18.png') no-repeat center;
-		background-size: 100%;
+		background-image: url('../imgs/lake-1.png');
+		background-position: center;
+		.heading h2 {
+		  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+		}
 	}
 	&#areas_of_work{
-		background: url('../imgs/project_14.jpg') no-repeat bottom;
-		background-size: 120%;
+		background-image: url('../imgs/rain-forest-3.png');
+		background-position: center;
 	}
-	&#species{
-		background: url('../imgs/project_10.jpg') no-repeat center;
-		background-size: 100%;
+	&#project{
+		background-image: url('../imgs/project_10.jpg');
+		background-position: center;
 		.heading {
 		  width: 60%;
 		  margin-left: 5%;
 		  text-align: left;
+		  h1, h2 {
+		    padding: 0;
+		  }
+		  h2 {
+		    margin: 25px 0;
+		    padding: 5px 0;
+		  }
+		  div.button#featured_project {
+		    margin: 0;
+		  }
 		}
 	}
+	background-size: 200%;
+  background-repeat: no-repeat;
 }
 
 div.container#other_projects, div.container#other-news-small, div.container#job_related-small {
@@ -266,8 +278,8 @@ div.container#other_projects, div.container#other-news-small, div.container#job_
 div.heading{
   width: 90%;
   margin: auto;
+  padding: 100px 0;
   text-align: center;
-  padding: 40px 0;
 	h1{
 		margin-bottom: 0;
 		font-size: 1.4em;
@@ -276,19 +288,22 @@ div.heading{
 		&#featured {
 			font-size: 2em;
 		}
+		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 	}
 	h2 {
-	  display: none;
 		font-weight: 300;
 		margin: 0.5em 0;
 		font-size: 0.85em;
 		line-height: 1.4em;
 		font-family: "museo-sans", Helvetica, Arial, sans-serif;
+		border-top: 1px solid rgba(255,255,255, 0.9);
+		border-bottom: 1px solid rgba(255,255,255, 0.9);
+		margin-top: 20px;
+		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 	}
 	h1,h2{
 		padding: 1% 0;
 		color: #fff;
-		text-shadow: 0 2px 15px rgba(0,0,0,0.3);
 	}
 }
 
@@ -329,7 +344,6 @@ div.button {
 	}
 
 	&#featured_project, &#twitter {
-	  width: 170px;
 	  box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
   	border: 1px solid rgba(255,255,255,0.8);
   	background-color: rgba(0,0,0,0.05);
@@ -856,6 +870,7 @@ ul#fields, ul#content, ul#fields-small, ul#content-small, ul#programmes {
 			  font-size: 0.85em;
 			  font-weight: 300;
 			  margin-top: 1.5%;
+			  cursor: pointer;
 			}
 			&:hover{
 				background: none;
@@ -864,49 +879,15 @@ ul#fields, ul#content, ul#fields-small, ul#content-small, ul#programmes {
 		}
 		&.active, &:hover {
 			padding-left: 3%;
-      &#programme_1 {
-        border-left: 5px solid #59B200;
-      }
-      &#programme_2 {
-        border-left: 5px solid #FFC926;
-      }
-      &#programme_3 {
-        border-left: 5px solid #0085B2;
-      }
-      &#programme_4 {
-        border-left: 5px solid #FF9326;
-      }
-      &#programme_5 {
-        border-left: 5px solid #D42B29;
-      }
-      &#programme_6 {
-        border-left: 5px solid #8C008C;
-      }
-      &#programme_7 {
-        border-left: 5px solid #8C4600;
-      }
-      &#programme_8 {
-        border-left: 5px solid #38B8B9;
-      }
-      &#programme_9 {
-        border-left: 5px solid #9EC23B;
-      }
-      &#programme_10 {
-        border-left: 5px solid #FF7A4D;
-      }
       &.content_type {
         border-left: 5px solid $blue;
       }
-		}
-		
+		}		
 		span.badge{
 			margin-top: 0.5%;
 			margin-left: 5%;
 			padding: 3% 0;
 			float: right;
-			-webkit-border-radius: 5px;
-			-moz-border-radius: 5px;
-			border-radius: 5px;
 			line-height: 0.5em;
 			font-weight: 300;
 			color: #ddd;
@@ -968,31 +949,27 @@ form {
     textarea, input {
       width: 100%;
       margin: 0 0 10px 0;
-      border: 1px solid #eee;
+      border: 1px solid $grey;
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
       border-radius: 3px;
       font-family: "museo-sans", Helvetica, Arial, sans-serif;
-      font-size: 1.1em;
+      font-size: 1em;
       font-weight: 300;
       color: $grey_text;
       padding: 0.5em;
     }
     input[type="radio"], input[type="checkbox"] {
       width: 2%;
+      margin-left: 1px;
+      margin-right: 5px;
     }
-    input.short {
-      width: 75%;
-      height: 2em;
-      border: 1px solid #eee;
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
-      border-radius: 3px;
-      font-family: "museo-sans", Helvetica, Arial, sans-serif;
-      font-size: 1.1em;
-      font-weight: 300;
-      color: $grey_text;
-      padding: 0 0.5em;
+    
+    p#practical-instructions {
+      margin-bottom: 15px;
+    }
+    input.state {
+      margin-top: -10px;
     }
   }
 }
@@ -1008,18 +985,30 @@ div#footer_container {
 	width:100%;
 	position: absolute;
 	background-color: $dark_grey;
-	background: url('../images/map_world_small.png') no-repeat center;
+	background: image-url('map_world_small.png') no-repeat center;
 	background-opacity: 0.2;
 	background-size: 100%;
-  padding: 25px 0;
   margin-top: 60px;
-  padding: 20px 0;
+  padding: 20px 5%;
+  a#unep {
+    padding: 10px 0 0 0;
+    img {
+		  width: 15%;
+		  opacity: 0.6;
+		  &:hover, &:active {
+  		  opacity: 1;
+  		  -webkit-transition: all 0.5s ease;
+				-moz-transition: all 0.5s ease;
+				-ms-transition: all 0.5s ease;
+				-o-transition: all 0.5s ease;
+				transition: all 0.5s ease;
+  		}
+		}
+	}
 }
 
 ul.footer{	
-	margin: auto;
   list-style: none;
-  width: 90%;
   overflow: hidden;
 	li{
 	  padding-bottom: 10px;
@@ -1040,13 +1029,6 @@ ul.footer{
 			&.active {
 			  color: $blue;
 			}
-			img {
-			  width: 15%;
-			  opacity: 0.6;
-			}
-		}
-		&#logo {
-      padding: 10px 0 0 0;
 		}
 	}
 }
