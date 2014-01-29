@@ -36,8 +36,10 @@
         Share:
       </h1>
       <span>
-        <a href="mailto:{{ cms:page:email:string }}"><i class="icon-envelope"></i>Email</a>
-        <a href=""><i class="icon-twitter"></i>Twitter</a>
+        {{ cms:field:twitter_share_text:string }}
+        {{ cms:field:email_share_subject:string }}
+        {{ cms:field:email_share_content:string }}
+        {{ cms:partial:shared/share_links }}
       </span>
     </section>
   </section>

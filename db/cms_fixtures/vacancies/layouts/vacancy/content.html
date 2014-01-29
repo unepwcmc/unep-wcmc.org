@@ -26,10 +26,14 @@
       {{ cms:page:salary:string }}      
     </p>
 	<section class="actions" id="share">
-      <h1>Share:</h1>
+      <h1>
+        Share:
+      </h1>
       <span>
-        <a><i class="icon-envelope"></i> Email</a>
-    	<a><i class="icon-twitter"></i> Twitter</a>
+        {{ cms:field:twitter_share_text:string }}
+        {{ cms:field:email_share_subject:string }}
+        {{ cms:field:email_share_content:string }}
+        {{ cms:partial:shared/share_links }}
       </span>
     </section>
 	<p>
