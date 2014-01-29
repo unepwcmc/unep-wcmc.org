@@ -165,35 +165,17 @@ div.container#other_projects {
 
 div.heading{
   width: 75%;
-  margin: auto;
-  padding: 100px 0;
-  text-align: center;
 	h1{
-		margin-bottom: 0;
 		font-size: 2.75em;
 		line-height: 1.25em;
-		font-weight: bold;
 		display: inline-block;
 		width: 80%;
-		&#featured {
-			font-size: 2em;
-		}
 	}
 	h2 {
-	  display: inline-block;
-		font-weight: 300;
-		margin: 0.5em 0;
 		font-size: 1.25em;
 		line-height: 1.4em;
-		font-family: "museo-sans", Helvetica, Arial, sans-serif;
-	}
-	h1,h2{
-		padding: 1% 0;
-		color: #fff;
-		text-shadow: 0 2px 15px rgba(0,0,0,0.3);
 	}
 	h1.short, h2.short, h2.shorter {
-    margin: auto;
     display: inline-block;
   }
 
@@ -202,14 +184,13 @@ div.heading{
   }
 
   h2.short {
-    width: 84%;
+    width: 87%;
   }
   
   h2.shorter {
     width: 64%;
   }
 }
-
 div#featured_heading {
   margin-top: 60px;
 }
@@ -368,4 +349,21 @@ ul#fields, ul#content, ul#fields-small, ul#content-small, ul#programmes {
 
 div#welcome {
   padding: 60px 15% 60px 15%;
+}
+
+div.hero{
+	&#featured_projects{
+		background-position: 0 -80px;
+	}
+	&#data{
+		background-position: bottom;
+	}
+	
+	&#about{
+		background-position: 0 -180px;
+	}
+	&#areas_of_work{
+		background-position: 0 -200px;
+	}
+	background-size: 100%;
 }

@@ -235,39 +235,19 @@ div.banner {
 }
 
 div.heading{
-  width: 90%;
-  margin: auto;
-  padding: 100px 0;
-  text-align: center;
 	h1{
-		margin-bottom: 0;
 		font-size: 2.25em;
 		line-height: 1.25em;
-		font-weight: bold;
 		display: inline-block;
-		&#featured {
-			font-size: 2em;
-		}
 	}
 	h2 {
 	  display: inline-block;
-		font-weight: 300;
-		margin: 0.5em 0;
 		font-size: 1.25em;
 		line-height: 1.4em;
-		font-family: "museo-sans", Helvetica, Arial, sans-serif;
 	}
-	h1,h2{
-		padding: 1% 0;
-		color: #fff;
-		text-shadow: 0 2px 15px rgba(0,0,0,0.3);
-	}
-	h1.short, h2.short, h2.shorter {
-    margin: auto;
-  }
 }
 
-div.hero#species div.heading {
+div.hero#project div.heading {
   width: 45%;
   margin-left: 15%;
   text-align: left;
@@ -434,4 +414,17 @@ div.data_policy, div.data_policy-small{
 
 div.search-field input, div.search-field i {
   font-size: 0.75em;
+}
+
+div.hero{
+	&#featured_projects{
+		background-position: 0 -80px;
+	}
+	&#data{
+		background-position: 0 -80px;
+	}
+	&#about{
+		background-position: center;
+	}
+	background-size: 100%;
 }
