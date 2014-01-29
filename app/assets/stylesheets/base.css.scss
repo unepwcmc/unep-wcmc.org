@@ -344,7 +344,6 @@ div.button {
 	}
 
 	&#featured_project, &#twitter {
-	  width: 170px;
 	  box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
   	border: 1px solid rgba(255,255,255,0.8);
   	background-color: rgba(0,0,0,0.05);
@@ -871,6 +870,7 @@ ul#fields, ul#content, ul#fields-small, ul#content-small, ul#programmes {
 			  font-size: 0.85em;
 			  font-weight: 300;
 			  margin-top: 1.5%;
+			  cursor: pointer;
 			}
 			&:hover{
 				background: none;
@@ -879,49 +879,15 @@ ul#fields, ul#content, ul#fields-small, ul#content-small, ul#programmes {
 		}
 		&.active, &:hover {
 			padding-left: 3%;
-      &#programme_1 {
-        border-left: 5px solid #59B200;
-      }
-      &#programme_2 {
-        border-left: 5px solid #FFC926;
-      }
-      &#programme_3 {
-        border-left: 5px solid #0085B2;
-      }
-      &#programme_4 {
-        border-left: 5px solid #FF9326;
-      }
-      &#programme_5 {
-        border-left: 5px solid #D42B29;
-      }
-      &#programme_6 {
-        border-left: 5px solid #8C008C;
-      }
-      &#programme_7 {
-        border-left: 5px solid #8C4600;
-      }
-      &#programme_8 {
-        border-left: 5px solid #38B8B9;
-      }
-      &#programme_9 {
-        border-left: 5px solid #9EC23B;
-      }
-      &#programme_10 {
-        border-left: 5px solid #FF7A4D;
-      }
       &.content_type {
         border-left: 5px solid $blue;
       }
-		}
-		
+		}		
 		span.badge{
 			margin-top: 0.5%;
 			margin-left: 5%;
 			padding: 3% 0;
 			float: right;
-			-webkit-border-radius: 5px;
-			-moz-border-radius: 5px;
-			border-radius: 5px;
 			line-height: 0.5em;
 			font-weight: 300;
 			color: #ddd;
