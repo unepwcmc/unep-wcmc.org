@@ -21,12 +21,20 @@
     %ul#content
       %li.header
         Type of content
-        %span.badge{"ng-click" => "deselectAll()"} None
+        %span.badge{"ng-click" => "deselectAll()", "ng-style" => "{color: noneSelected() ? '#4c9cda' : '#ddd'}"} None
         %span.badge= '|'
-        %span.badge{"ng-click" => "selectAll()"} All
+        %span.badge{"ng-click" => "selectAll()", "ng-style" => "{color: allSelected() ? '#4c9cda' : '#ddd'}"} All
       %li.content_type{"ng-show" => "contentType.count > 0", "ng-class" => "{active: contentType.selected && contentType.count > 0}", "ng-click" => "toggleContentType()", "ng-repeat" => "contentType in contentTypes"}
         %span.badge {{ contentType.count }}
         %p{"ng-style" => "{color: contentType.selected ? '#5e5e5e' : '#aaa'}"} {{ contentType.plural }}
+
+    .data_policy
+      %h3 Policies
+      %p UNEP-WCMC does not assert any intellectual property rights in the data made available to it by data providers.
+      %p Access to UNEP-WCMC datasets is provided on the understanding that you read and consent to be bound by the Terms and Conditions set out in our policies.
+      %p
+        %a{:href => "/policies"} View our policies
+
   #data.column-2-3
     %h1
       Resources &amp; data

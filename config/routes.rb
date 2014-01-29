@@ -15,6 +15,12 @@ UnepWcmcOrg::Application.routes.draw do
       end
     end
 
+    resources :news_items do
+      collection do
+        put :reorder
+      end
+    end
+    
     resources :programmes, except: [:show]
 
     resources :featured_projects do

@@ -247,28 +247,19 @@ div.hero{
 	}
 }
 
-div.container#other_projects, div.container#other-news-small {
-  background-color: #f7f7f7;
-  padding-bottom: 60px;
-  margin-top: 30px;
-  margin-bottom: -60px;
-  width: 100%;
-  div.section-group {
-    width: 90%;
-    margin: auto;
-  }
-  h2 {
-    text-align: left;
-  }
-}
-
-div.container#other_projects, div.container#other-news-small {
-  h2 {
-    text-align: left;
-  }
-  
-  section h2:first-of-type {
-    margin-top: 0;
+div.container#other_projects, div.container#other-news-small, div.container#job_related-small {
+  border-top: 1px solid $grey;
+  margin: 60px auto;
+  width: 90%;
+  h2.large_subheading {
+    padding: 0;
+    text-transform: uppercase;
+    font-family: "museo sans";
+    font-weight: 400;
+    font-size: 1.25em;
+    margin: 60px 0 60px 0;
+    text-align: center;
+    width: 100%;
   }
 }
 
@@ -730,60 +721,65 @@ div#button-row {
   }
 }
 
+ul.subnav, ul.subnav-small {
+  text-transform: uppercase;
+  font-weight: 300;
+  li {
+    padding: 10px;
+    border-bottom: 1px solid $blue;
+    a {
+      text-decoration: none;
+    }
+    &.header {
+      color: $grey_text;
+      border-bottom: none;
+      i {
+        color: $blue;
+      }
+      &:hover i, .active i {
+        background-color: none;
+        color: $blue;
+        -webkit-transition: all 0.5s ease;
+  			-moz-transition: all 0.5s ease;
+  			-ms-transition: all 0.5s ease;
+  			-o-transition: all 0.5s ease;
+  			transition: all 0.5s ease;
+  			background: none;
+      }
+    }
+    &:hover, &:active, &.active {
+      background: $blue;
+      a {
+        color: #fff;
+      }
+      -webkit-transition: all 0.5s ease;
+			-moz-transition: all 0.5s ease;
+			-ms-transition: all 0.5s ease;
+			-o-transition: all 0.5s ease;
+			transition: all 0.5s ease;
+    }
+  }
+  ul.expertise-small, ul.expertise {
+    text-transform: none;
+    padding-left: 10px;
+    font-size: 0.85em;
+    li {
+      line-height: 1.25em;
+    }
+    &:first-of-type {
+      margin-bottom: 15px;
+    }
+    &#specialise li:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  ul.expertise-small {
+    display: none;
+  }
+}
+
 ul.subnav {
-  border-left: 3px solid $blue;
-  padding-left: 5%;
-  margin-top: 14px;
-  li{
-		padding-bottom: 1em;
-		&:last-child {
-		  padding-bottom: 0;
-		}
-		 a{
-			font-size: 0.85em;
-			font-weight: 400;
-			word-spacing: 0.05em;
-			letter-spacing: 0.10em;
-			text-transform: uppercase;
-			color: #333;
-			border-bottom: 1px solid #fff;
-			&:hover{
-				color: $blue;
-				-webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        -ms-transition: all 0.3s ease;
-        -o-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-			}
-			&.active {
-				color: $blue;
-			}
-		}
-	}
-	&.areas {
-	  li {
-	    padding-bottom: 0.75em;
-	  }
-	  li#how_we_work {
-	    padding-top: 25px;
-	  }
-	  ul.submenu_areas {
-	    li {
-	      padding-bottom: 0.5em;
-    		&:last-child {
-    		  padding-bottom: 0;
-    		}
-	      a {
-	        font-size: 0.9em;
-	        display: inline-block;
-	        text-transform: none;
-    	    word-spacing: 0;
-    	    letter-spacing: 0;
-    	    margin-left: 10px;
-	      }
-	    }
-	  }
-	}
+  display: none;
 }
 
 select#sorting, div.search-field {
@@ -1011,15 +1007,12 @@ form {
 div#footer_container {
 	width:100%;
 	position: absolute;
-	background-color: #333;
-	background: image-url('map_world_small.png') no-repeat center;
+	background-color: $dark_grey;
+	background: url('../images/map_world_small.png') no-repeat center;
 	background-opacity: 0.2;
 	background-size: 100%;
-	-webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
   padding: 25px 0;
-  margin-top: 30px;
+  margin-top: 60px;
   padding: 20px 0;
 }
 
@@ -1077,8 +1070,7 @@ div#welcome {
 
 div#featured_heading {
   padding: 30px 0;
-  h2 {
-    font-size: 1.6em;
+  h1 {
     line-height: 1.25em;
     text-align: center;
     margin-top: 0;
@@ -1275,36 +1267,6 @@ ul.subnav {
 
 ul.subnav.areas {
   display: block;
-}
-
-ul.subnav-small {
-  overflow: hidden;
-  li{
-		padding: 10px 0 5px 0;
-		border-bottom: 1px solid $blue;
-		float: left;
-		width: 47%;
-		margin-right: 6%;
-		&:nth-child(2n) {
-		  margin-right: 0;
-		}
-		&:nth-child(2n+1) {
-		  clear: left;
-		}
-		 a{
-			font-size: 0.85em;
-			line-height: 1.4em;
-			font-weight: 300;
-			word-spacing: 0.05em;
-			letter-spacing: 0.10em;
-			text-transform: uppercase;
-			color: #333;
-			border-bottom: 1px solid #fff;
-			&.active {
-				color: $blue;
-			}
-		}
-	}
 }
 
 section#actions-column {

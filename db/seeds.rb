@@ -19,8 +19,8 @@ if ContentType.count == 0
 end
 
 if PositionType.count == 0
-   ["permanent",
-    "temporary",
+   ["Permanent",
+    "Temporary",
     "part-time",
     "full-time" ].each do |position|
       PositionType.create(name: position)
