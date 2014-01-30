@@ -2,12 +2,9 @@
 = form_for [@form, @submission], html: {multipart: true} do |f|
   %section
     %h2 Personal Details
-    %p Full name
-    = f.text_field :name
-    %p Email
-    = f.text_field :email
-    %p Phone Number
-    = f.text_field :phone
+    = f.text_field :name, :placeholder => "Full name"
+    = f.text_field :email, :placeholder => "Email"
+    = f.text_field :phone, :placeholder => "Phone number"
   %section
     %h2 Ability to work in the UK
     = f.fields_for :content, @submission.content do |ff|
@@ -17,11 +14,11 @@
           I confirm I am entitled to work in the UK
   %section
     %h2 CV and cover letter
-    %p CV
+    <p><i class="icon-upload-alt"></i> Upload your CV</p>
     = f.file_field :cv
     - if @submission.cv.present?
       = link_to(@submission.cv_file_name, @submission.cv.url)
-    %p Cover Letter
+    <p><i class="icon-upload-alt"></i> Upload your cover letter</p>
     = f.file_field :cover_letter
     - if @submission.cover_letter.present?
       = link_to(@submission.cover_letter_file_name, @submission.cover_letter.url)
@@ -32,22 +29,13 @@
       = ff.hidden_field :field_id
       = ff.hidden_field :id
       = render ff.object.class.name.underscore, f: ff
-    - if @form.attachments.count > 0
-      %h3 Attachments
-      - @form.attachments.each do |attachment|
-        %p
-          = link_to attachment.name, attachment.file.url
   %section
     %h2 Employment Conditions
     = f.fields_for :content, @submission.content do |ff|
-      %p Current or last salary
-      = ff.text_field :last_salary
-      %p Current benefits
-      = ff.text_field :benefits
-      %p Availability for an interview
-      = ff.text_field :interview_availability
-      %p Notice period
-      = ff.text_field :notice_period
+      = ff.text_field :last_salary, :placeholder => "Current or last salary"
+      = ff.text_field :benefits, :placeholder => "Current benefits"
+      = ff.text_field :interview_availability, :placeholder => "Availability for an interview"
+      = ff.text_field :notice_period, :placeholder => "Notice period"
   %section
     %h2 How did you hear about us?
     = f.fields_for :content, @submission.content do |ff|

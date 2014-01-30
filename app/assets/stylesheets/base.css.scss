@@ -964,7 +964,9 @@ form {
       margin-left: 1px;
       margin-right: 5px;
     }
-    
+    input[type="file"] {
+      border: none;
+    }
     p#practical-instructions {
       margin-bottom: 15px;
     }
