@@ -1,5 +1,4 @@
 class Admin::NewsItemsController < Admin::PageResourcesController
-  include NewsHelper
 
   before_action :set_news_list, :only => [:edit, :new, :create, :update]
   before_action :set_references, :only => [:edit, :new, :create, :update]
