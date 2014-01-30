@@ -3,7 +3,8 @@
     - if employment.employee.is_published
       %section.group.staff
         = link_to employment.employee.url do
-          = image_tag cms_page_content(:photo, employment.employee).file
+          - if cms_page_content(:photo, employment.employee)
+            = image_tag cms_page_content(:photo, employment.employee).file
         %h4= cms_page_content(:name, employment.employee)
         %p= employment.role
 
