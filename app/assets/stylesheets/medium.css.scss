@@ -419,3 +419,17 @@ div.hero{
 	}
 	background-size: 100%;
 }
+
+form {
+  section {
+    p.radio-state {
+      display: inline;
+      padding-right: 20px;
+    }
+    input.state {
+      display: inline;
+      width: 40%;
+      margin-top: 0px;
+    }
+  }
+}
