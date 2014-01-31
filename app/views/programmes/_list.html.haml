@@ -7,5 +7,5 @@
       = programme.phone_number
     %span
       %i.icon-envelope-alt
-      = programme.email
+      %a{:href => "mailto:#{programme.email}"}= programme.email
   = render partial: "programmes/employees_list", locals: {programme: programme}
