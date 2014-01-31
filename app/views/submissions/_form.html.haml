@@ -14,11 +14,15 @@
           I confirm I am entitled to work in the UK
   %section
     %h2 CV and cover letter
-    <p><i class="icon-upload-alt"></i> Upload your CV</p>
+    %p
+      %i.icon-upload-alt
+      Upload your CV
     = f.file_field :cv
     - if @submission.cv.present?
       = link_to(@submission.cv_file_name, @submission.cv.url)
-    <p><i class="icon-upload-alt"></i> Upload your cover letter</p>
+    %p
+      %i.icon-upload-alt
+      Upload your cover letter
     = f.file_field :cover_letter
     - if @submission.cover_letter.present?
       = link_to(@submission.cover_letter_file_name, @submission.cover_letter.url)
