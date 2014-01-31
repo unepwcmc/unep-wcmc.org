@@ -52,7 +52,7 @@
     %h2 How did you hear about us?
     = f.fields_for :content, @submission.content do |ff|
       - Submission::REFERENCE_SOURCES.each do |reference|
-        %p.radio-state
+        %p{ :class => ('radio-state' if reference[:details])}
           %label
             = ff.radio_button :reference, reference[:value]
             = reference[:value]
