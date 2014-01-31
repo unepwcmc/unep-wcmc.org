@@ -816,23 +816,6 @@ ul.subnav, ul.subnav-small {
     a {
       text-decoration: none;
     }
-    &.header {
-      color: $grey_text;
-      border-bottom: none;
-      i {
-        color: $blue;
-      }
-      &:hover i, .active i {
-        background-color: none;
-        color: $blue;
-        -webkit-transition: all 0.5s ease;
-  			-moz-transition: all 0.5s ease;
-  			-ms-transition: all 0.5s ease;
-  			-o-transition: all 0.5s ease;
-  			transition: all 0.5s ease;
-  			background: none;
-      }
-    }
     &:hover, &:active, &.active {
       background: $blue;
       a {
@@ -843,6 +826,24 @@ ul.subnav, ul.subnav-small {
 			-ms-transition: all 0.5s ease;
 			-o-transition: all 0.5s ease;
 			transition: all 0.5s ease;
+    }
+    &.header {
+      color: $grey_text;
+      border-bottom: none;
+      padding-left: 0;
+      i {
+        color: $blue;
+      }
+      &:hover {
+        background-color: none;
+        color: $blue;
+        -webkit-transition: all 0.5s ease;
+  			-moz-transition: all 0.5s ease;
+  			-ms-transition: all 0.5s ease;
+  			-o-transition: all 0.5s ease;
+  			transition: all 0.5s ease;
+  			background: none;
+      }
     }
   }
   ul.expertise-small, ul.expertise {
@@ -868,7 +869,9 @@ ul.subnav {
   display: none;
 }
 
-select#sorting, div.search-field {
+div
+
+select#sorting, select#sorting option, div.search_field_container, div.search-field {
   width: 100%;
   cursor: pointer;
   background: #fff;
@@ -883,25 +886,25 @@ select#sorting, div.search-field {
 	border-radius: 5px;
 }
 
-select#sorting, select#sorting option {
-	font-size: 0.75em;
-	font-weight: 300;
+select#sorting, select#sorting option, button#content-button {
+  padding: 10px;
+	font-size: 0.85em;
 	font-family: "museo-sans", Helvetica, Arial, sans-serif;
 	line-height: 1.5em;
 	color: $grey_text;
-  padding: 5px 10px;
 }
 
-div.search-field {
+div.search_field_container, div.search-field {
   overflow: hidden;
   input {
+    margin: 0;
+    padding: 10px;
     box-shadow: none;
     background: none;
     font-family: "museo-sans", Helvetica, Arial, sans-serif;
   	line-height: 1.5em;
   	font-size: 0.85em;
   	font-weight: 300;
-  	padding: 5px 0 5px 10px;
   	border: none;
   	width: 86%;
   	outline: none;
@@ -911,14 +914,64 @@ div.search-field {
     color: $grey_text;
     font-size: 0.85em;
     display: block;
-   	padding: 5px 10px 5px 0;
+   	padding: 10px 10px 10px 0;
     float: right;
     line-height: 1.5em;
     margin-top: 1px;
   }
 }
 
-ul#fields, ul#content, ul#fields-small, ul#content-small, ul#programmes {
+div.column-1-3#data-small {
+  div.search_field_container, select#sorting {
+    margin-bottom: 10px;
+    font-size: 1em;
+  }
+  div.search_field_container input {
+    font-size: 1em;
+  }
+  display: block;
+  ul#content-small {
+    margin-bottom: 10px;
+  }
+  button {
+    width: 100%;
+    text-align: left;
+    background: none;
+    display: block;
+    border: 1px solid #eee;
+    -webkit-border-radius: 5px;
+  	-moz-border-radius: 5px;
+  	border-radius: 5px;
+  	margin: 0 0 10px 0;
+  	font-family: "museo-sans", Helvetica, Arial, sans-serif;
+    color: $grey_text;
+    font-size: 1em;
+    outline: none;
+    i {
+      display: block;
+      float: right;
+    }
+    &:active {
+      background: $blue;
+      color: #fff;
+    }
+  }
+  ul#fields-small, ul#content-small {
+    display: none;
+  }
+  div.data_policy {
+    display: none;
+  }
+  div.data_policy-small {
+    text-align: center;
+    margin-top: 10px;
+   h3 {
+     margin: 0;
+   } 
+  }
+}
+
+ul#content, ul#content-small {
 	margin: 0 0 30px 0;
 	font-size: 0.85em;
 	li{
@@ -1064,7 +1117,7 @@ form {
     font-size: 1em;
     font-weight: 300;
     display: inline-block;
-    margin: 30px 30px 30px 0;
+    margin: 30px 2% 30px 0;
     width: 45%;
     outline: none;
     &[name="save"] {
@@ -1304,53 +1357,6 @@ button#trigger-menu {
 
 div.column-1-3#data {
   display: none;
-}
-
-div.column-1-3#data-small {
-  div.search-field {
-    margin-bottom: 10px;
-  }
-  display: block;
-  ul#fields-small, ul#content-small {
-    margin-bottom: 10px;
-  }
-  button {
-    width: 100%;
-    text-align: left;
-    background: none;
-    display: block;
-    border: 1px solid #eee;
-    -webkit-border-radius: 5px;
-  	-moz-border-radius: 5px;
-  	border-radius: 5px;
-    padding: 3% 5%;
-  	margin: 0 0 10px 0;
-  	font-family: "museo-sans", Helvetica, Arial, sans-serif;
-    color: $grey_text;
-    font-size: 0.85em;
-    outline: none;
-    i {
-      display: block;
-      float: right;
-    }
-    &:active {
-      background: $blue;
-      color: #fff;
-    }
-  }
-  ul#fields-small, ul#content-small {
-    display: none;
-  }
-  div.data_policy {
-    display: none;
-  }
-  div.data_policy-small {
-    text-align: center;
-    margin-top: 10px;
-   h3 {
-     margin: 0;
-   } 
-  }
 }
 
 ul.subnav {
