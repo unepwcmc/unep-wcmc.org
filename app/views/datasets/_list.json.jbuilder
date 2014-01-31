@@ -7,6 +7,8 @@ json.datasets @cms_page.children.published.each do |dataset|
   json.first_link_label cms_page_content(:first_url_label, dataset)
   json.second_link cms_page_content(:second_url, dataset)
   json.second_link_label cms_page_content(:second_url_label, dataset)
+  json.author cms_page_content(:author, dataset)
+  json.isbn cms_page_content(:isbn, dataset)
 end
 json.content_types ContentType.all do |content_type|
   json.plural content_type.plural
