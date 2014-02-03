@@ -2,4 +2,4 @@
   .control-group
     %label.control-label Related news #{n+1}
     .controls
-      = select_tag "news_item[n][id]", options_from_collection_for_select(@news_list, :id, :label, @references[n].try(:related_news_id))
+      = select_tag "news_item[#{n}][id]", options_from_collection_for_select(@news_list, :id, :label, @references[#{n}].try(:related_news_id))
