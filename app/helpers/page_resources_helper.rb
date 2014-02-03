@@ -7,4 +7,9 @@ module PageResourcesHelper
   def about_us_page
     @about_us_page ||= Cms::Site.find_by_identifier('about-us').pages.root
   end
+
+  def news_page
+    @news_page ||= Cms::Site.find_by_identifier('news').pages.root
+  end
+
 end

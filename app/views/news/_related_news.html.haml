@@ -1,0 +1,10 @@
+%h1 Related news
+- related_news(@cms_page.id).each do |page|
+  %section
+    %h2 
+      %a{:href => page.url} 
+        = cms_page_content(:news_header, page)
+    %small
+      = formatted_time(cms_page_content(:time, page))
+    %p
+      = cms_page_content(:short_description, page)

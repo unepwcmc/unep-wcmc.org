@@ -3,7 +3,7 @@
   - Cms::Site.find_by_identifier('news').pages.root.children.published.reverse.each do |page|
     %section
       %h2.smaller
-        %a{:href => "/news" + page.full_path}
+        %a{:href => page.url}
           = cms_page_content(:news_header,page)
       %h3 
         = formatted_time(cms_page_content(:time, page))
