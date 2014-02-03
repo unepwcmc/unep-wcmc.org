@@ -1,9 +1,5 @@
-.control-group
-  %label.control-label Related news 1
-  .controls
-    = select_tag "news_item[0][id]", options_from_collection_for_select(@news_list, :id, :label, @references[0].try(:related_news_id))
-.control-group
-  %label.control-label Related news 2
-  .controls
-    = select_tag "news_item[1][id]", options_from_collection_for_select(@news_list, :id, :label, @references[1].try(:related_news_id))
-
+- 2.times do |n|
+  .control-group
+    %label.control-label Related news #{n+1}
+    .controls
+      = select_tag "news_item[n][id]", options_from_collection_for_select(@news_list, :id, :label, @references[n].try(:related_news_id))
