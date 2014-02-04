@@ -276,6 +276,9 @@ div.container#other_projects, div.container#other-news-small, div.container#job_
   border-top: 1px solid $grey;
   margin: 60px auto;
   width: 90%;
+  h2 {
+    margin-top: 0;
+  }
   h2.large_subheading {
     padding: 0;
     text-transform: uppercase;
@@ -460,6 +463,20 @@ div#button-row {
           font-weight: 300;
           font-family: "museo-sans", Helvetica, Arial, sans-serif;
           margin: 1em 0;
+          &.author, &.isbn {
+            word-spacing: 0;
+            letter-spacing: 0;
+            text-transform: none;
+            font-size: 0.85em;
+            font-weight: 300;
+            color: $grey_text;
+          }
+          &.author {
+            margin-bottom: 0.5em;
+          }
+          &.isbn {
+            margin-top: 0;
+          }
         }
         p.link {
           float: left;

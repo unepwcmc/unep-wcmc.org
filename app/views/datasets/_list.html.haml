@@ -44,9 +44,9 @@
         {{ dataset.content_type }}
         %span.separator= '|'
         {{ dataset.publication_date | date: 'dd MMMM yyyy'}}
-      %h3{ "ng-if" => "dataset.author" }
+      %h3.author{ "ng-if" => "dataset.author" }
         Author: {{ dataset.author }}
-      %h3{ "ng-if" => "dataset.isbn" }
+      %h3.isbn{ "ng-if" => "dataset.isbn" }
         ISBN: {{ dataset.isbn }}
       %p{"ng-bind-html" => "dataset.content"}
       %p.link
