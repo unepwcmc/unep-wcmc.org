@@ -82,7 +82,7 @@ $yellow: #FFDB65;
     }
     img.employee_pic {
       width: 100%;
-      margin-top: 30px;
+      margin-top: 60px;
     }
     img.partner_logo {
       width: 70%;
@@ -381,4 +381,17 @@ div.hero{
 
 div.hero#project div.heading {
   margin-left: 15%;
+}
+
+
+div.container div.column-2-3#employee_work {
+  padding-top: 180px;
+}
+
+a.back_nav {
+  margin: 0 0 60px 0;
+}
+
+.container .column-1-3.right {
+  margin-top: 80px;
 }
