@@ -1,0 +1,5 @@
+.page-header
+  %h2 Editing Policy
+
+= comfy_form_for @page, :as => :page, :url => {:action => :update}, :html => {:multipart => true} do |form|
+  = render form

@@ -20,7 +20,7 @@ UnepWcmcOrg::Application.routes.draw do
         put :reorder
       end
     end
-    
+
     resources :programmes, except: [:show]
 
     resources :featured_projects do
@@ -30,6 +30,12 @@ UnepWcmcOrg::Application.routes.draw do
     end
 
     resources :datasets do
+      collection do
+        put :reorder
+      end
+    end
+
+    resources :policies do
       collection do
         put :reorder
       end

@@ -10,6 +10,8 @@
 
 %li= active_link_to 'Vacancies', admin_vacancies_path
 
+%li= active_link_to 'Policies', admin_policies_path
+
 - if current_user.is_superadmin
   %li= active_link_to 'Manage users', admin_users_path
 
