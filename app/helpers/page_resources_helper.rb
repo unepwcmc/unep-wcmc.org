@@ -12,4 +12,8 @@ module PageResourcesHelper
     @news_page ||= Cms::Site.find_by_identifier('news').pages.root
   end
 
+  def datasets_page
+    @datasets_page ||= Cms::Site.find_by_identifier('resources-and-data').pages.root
+  end
+
 end
