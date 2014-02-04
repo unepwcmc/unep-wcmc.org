@@ -2,11 +2,11 @@
   - Cms::Site.find_by_identifier('news').pages.root.children.published.reverse.take(6).each do |page|
     %section.group
       %small= formatted_time(cms_page_content(:time, page))
-      = link_to("/news" + page.full_path) do
+      = link_to(page.url) do
         - if cms_page_content(:news_img, page).present?
           %img{:src => cms_page_content(:news_img, page).file.url, :width => "", :height => ""}
       %h2.smaller
-        %a.heading{:href => "/news" + page.full_path}
+        %a.heading{:href => page.url}
           = cms_page_content(:news_header,page)
       %p
         = cms_page_content(:short_description, page)

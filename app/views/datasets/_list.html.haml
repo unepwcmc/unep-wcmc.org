@@ -44,9 +44,15 @@
         {{ dataset.content_type }}
         %span.separator= '|'
         {{ dataset.publication_date | date: 'dd MMMM yyyy'}}
+      %h3.author{ "ng-if" => "dataset.author" }
+        Author: {{ dataset.author }}
+      %h3.isbn{ "ng-if" => "dataset.isbn" }
+        ISBN: {{ dataset.isbn }}
       %p{"ng-bind-html" => "dataset.content"}
       %p.link
         %a{:href => "{{dataset.first_link}}"} {{dataset.first_link_label}}
       %p.link
         %a{:href => "{{dataset.second_link}}"} {{dataset.second_link_label}}
+      %p.link{ 'ng-show' => 'dataset.file_url' }
+        %a{:href => "{{dataset.file_url}}" } Download
     %h2.smaller{"ng-if" => "activeDatasets.length == 0"} No data found.

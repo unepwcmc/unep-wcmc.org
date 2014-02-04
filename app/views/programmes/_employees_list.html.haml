@@ -1,11 +1,12 @@
 .section-group
   - programme.employments.each do |employment|
     - if employment.employee.is_published
-      %section.group.staff
+      %section.group.staff{ "ng-if" => "matchName('#{cms_page_content(:name, employment.employee).downcase}')" }
         = link_to employment.employee.url do
           - if cms_page_content(:photo, employment.employee)
             = image_tag cms_page_content(:photo, employment.employee).file
-        %h4= cms_page_content(:name, employment.employee)
+        = link_to employment.employee.url do
+          %h4= cms_page_content(:name, employment.employee)
         %p= employment.role
 
 
