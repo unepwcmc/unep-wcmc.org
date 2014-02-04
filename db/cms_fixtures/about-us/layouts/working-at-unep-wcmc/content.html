@@ -1,0 +1,36 @@
+<div class="hero" id="about" style="background: url({{ cms:page_file:about_us_background:url}}) no-repeat center; background-size: 100%">
+  <div class="heading">
+    <h1>
+      {{ cms:page:heading:string }}
+    </h1>
+	<h2 class="shorter">
+      {{ cms:page:heading_tagline:string }}
+    </h2>
+  </div><!--heading-->
+</div><!--hero-->
+<div class="container">
+  {{ cms:partial:about_us/navigation }}
+
+  <div class="column-2-3" id="working-with-us-page">
+    <section>
+      <h1 id="first">
+        {{ cms:page:subheading_title:string }}
+      </h1>
+      {{ cms:page:subheading_intro_text:rich_text }}    
+    </section>
+  
+    <section>			
+      <h2>
+        {{ cms:page:section_1_title:string }}
+      </h2>
+      {{ cms:page:section_1_content:rich_text }}  
+    </section>	
+    		
+    <section>			
+      <h2>
+        {{ cms:page:section_2_title:string }}
+      </h2>
+	  {{ cms:page:section_2_content:rich_text }} 
+    </section>
+  </div><!--column-2-3-->
+</div>
