@@ -90,6 +90,8 @@ $yellow: #FFDB65;
     }
   }
   .column-2-3 {
+    margin-top: -50px;
+    padding-top: 110px;
     width: 65%;
     float: right;
     &.left {
@@ -115,7 +117,7 @@ div#nav{
     position: absolute;
     top: 0;
     display: block;
-    width: 25%;
+    width: 30%;
     float: left;
     margin-left: 15%;
 			img {
@@ -253,6 +255,12 @@ div.data_policy-small {
 
 ul.subnav {
   display: block;
+  li.header {
+    padding-left: 10px;
+    &:hover {
+      color: $grey_text;
+    }
+  }
 }
 
 ul.subnav-small {
@@ -303,6 +311,10 @@ section.column-2-3#actions-column-small {
 .container div.column-2-3.left#job_application, div.column-2-3.left#job_description {
   float: left;
   width: 63%;
+}
+
+div.column-1-3.right#application-related {
+  padding-left: 9%;
 }
 
 div#news-item {
@@ -365,4 +377,8 @@ div.hero{
 		background-position: 0 -200px;
 	}
 	background-size: 100%;
+}
+
+div.hero#project div.heading {
+  margin-left: 15%;
 }

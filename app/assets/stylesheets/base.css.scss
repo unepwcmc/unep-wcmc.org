@@ -158,29 +158,42 @@ small {
 	margin-bottom: 30px;
 }
 
+div.column-2-3 ul {
+  list-style-type: disc;
+  padding: 1em 0 1em 1.25em;
+  li {
+    font-size: 1em;
+    margin-bottom: 0.75em;
+    line-height: 1.5em;
+    font-weight: 300;
+    color: $grey_text;
+  }
+}
+
 div.clear {
   clear: both;
 }
 
 #nav{
-  margin-top: 48px;
 	background-color: #222;
 	-webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   a#home_link {
-    position: absolute;
+    position: relative;
     top: 0;
     display: block;
     width: 100%;
     float: left;
     padding: 0;
+    background: $dark_blue;
 		img {
 		  max-width: 100%;
+		  max-height: 52px;
 			display: block;
 			background: #4295d5;
-			padding: 10px 15px 10px 15px;
+			padding: 2% 5%;
 		}
   }
 	ul{
@@ -393,7 +406,6 @@ div#button-row {
     display: block;
   }
   .column-2-3 {
-    padding-top: 30px;
     &#staff {
       h2 {
         padding-bottom: 8px;
@@ -768,7 +780,7 @@ div#button-row {
 }
 
 div.container div.column-2-3#employee_work {
-  padding-top: 150px;
+  padding-top: 60px;
   h1 {
     margin-bottom: 20px;
   }
@@ -815,6 +827,7 @@ ul.subnav, ul.subnav-small {
     border-bottom: 1px solid $blue;
     a {
       text-decoration: none;
+      line-height: 1.25em;
     }
     &:hover, &:active, &.active {
       background: $blue;
@@ -829,7 +842,7 @@ ul.subnav, ul.subnav-small {
     }
     &.header {
       color: $grey_text;
-      border-bottom: none;
+      border-bottom: 1px solid #4c9cda;
       padding-left: 0;
       i {
         color: $blue;
@@ -869,7 +882,9 @@ ul.subnav {
   display: none;
 }
 
-div
+ul.subnav-small {
+  margin-bottom: 30px;
+}
 
 select#sorting, select#sorting option, div.search_field_container, div.search-field {
   width: 100%;
@@ -922,6 +937,7 @@ div.search_field_container, div.search-field {
 }
 
 div.column-1-3#data-small {
+  margin-bottom: 30px;
   div.search_field_container, select#sorting {
     margin-bottom: 10px;
     font-size: 1em;
@@ -1236,7 +1252,7 @@ div#news-item {
 }
 
 a.back_nav {
-  margin-bottom: 30px;
+  margin: 30px 0;
   display: inline-block;
 }
 
@@ -1329,7 +1345,7 @@ button#trigger-menu {
   float: right;
   border: none;
   border-radius: 5px;
-  padding: 1% 5%;
+  padding: 2% 5% 1% 5%;
   clear: both;
   width: 100%;
   text-align: left;
@@ -1523,6 +1539,11 @@ div#team-details {
   }
 }
 
+img.employee_pic {
+  margin-top: 30px;
+  width: 100%;
+}
+
 .container div.column-2-3 section.group.staff:last-child {
   padding-bottom: 20px;
 }
@@ -1541,4 +1562,8 @@ div#news-item {
 
 div.search-field#staff input, div.search-field#staff i {
   font-size: 0.85em;
+}
+
+iframe {
+  max-width: 100%;
 }
