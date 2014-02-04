@@ -295,7 +295,21 @@ button#trigger-menu {
 }
 
 ul.subnav-small {
+  overflow: hidden;
   margin-bottom: 60px;
+  li:nth-child(1n) {  
+    float: right;
+    margin-right: 0;
+    width: 48%;
+  }
+  li:nth-child(2n) {  
+    float: left;
+    margin-right: 4%;
+    width: 48%;
+  }
+  li.header {
+    float: none;
+  }
 }
 
 ul.subnav#staff {
