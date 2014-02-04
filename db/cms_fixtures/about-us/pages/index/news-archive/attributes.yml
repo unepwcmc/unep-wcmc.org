@@ -1,8 +1,8 @@
 ---
 label: news-archive
-layout: aboutus
+layout: news-archive
 parent: index
 target_page: 
 categories: []
 is_published: true
-position: 4
+position: 9
