@@ -1,5 +1,5 @@
 .section-group
-  - programme.employments.each do |employment|
+  - programme.employments.joins(:employee).order('cms_pages.position').each do |employment|
     - if employment.employee.is_published
       %section.group.staff{ "ng-if" => "matchName('#{cms_page_content(:name, employment.employee).downcase}')" }
         = link_to employment.employee.url do

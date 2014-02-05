@@ -3,6 +3,7 @@
 %li{:id => dom_id(page), "ng-controller" => "ListCtrl", "ng-show" => "matchSearch()", "ng-init" => "init('#{page.label.downcase}')"}
   .item
     .icon{:class => page.is_published?? 'published' : 'draft'}
+      .dragger{ "ng-if" => "!pattern" }
 
     .btn-group
       = link_to t('.edit'), edit_admin_employee_path(page), :class => 'btn btn-small'

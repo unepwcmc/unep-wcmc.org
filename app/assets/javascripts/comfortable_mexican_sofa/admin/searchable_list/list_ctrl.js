@@ -1,4 +1,8 @@
 angular.module("SearchableList", []).controller("ListCtrl", ["$scope", function ($scope) {
+  $scope.clearPattern = function () {
+    this.pattern = "";
+  }
+
   $scope.init = function (name) {
     this.name = name;
   }
