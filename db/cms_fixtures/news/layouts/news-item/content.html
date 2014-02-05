@@ -26,9 +26,18 @@
 			
   </div><!--column-2-3-->
   <div id="news" class="column-1-3 right">
-    
+    <h1>
+      Related news
+    </h1>
     {{ cms:partial:news/related_news }}
     
   </div><!--column-1-3-->
 </div><!--container-->
+<div class="container" id="other-news-small">
+  <h2 class="large_subheading">
+    Related news
+  </h2>
+  {{ cms:partial:news/related_news }}
+</div>
+
 {{ cms:field:short_description:rich_text }}

@@ -34,8 +34,26 @@
         %li= link_to "Resources & Data", "/resources-and-data"
         %li= link_to "About us", "/about-us"
 
+    - if flash[:success]
+      .container.status#ok
+        %p
+          %i.icon-ok
+          = flash[:success]
+        %i.icon-chevron-up
+
+    - if flash[:error]
+      .container.status#warning
+        %p
+          %i.icon-warning-sign
+          = flash[:error]
+        %i.icon-chevron-up
+
     - if notice
-      %p.notice= notice
+      .container.status#ok
+        %p
+          %i.icon-ok
+          = notice
+        %i.icon-chevron-up
 
     = yield
 

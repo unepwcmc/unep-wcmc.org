@@ -2,7 +2,7 @@
   .search-field#staff
     %input.short{ :type => "text", :placeholder => "Search for a member of staff", 'ng-model' => 'query' }
     %i.icon-search
-  - programmes.each do |programme|
+  - programmes.order("name").each do |programme|
     %a{ :id => programme.id }
     %h2.programme= programme.name
     #team-details

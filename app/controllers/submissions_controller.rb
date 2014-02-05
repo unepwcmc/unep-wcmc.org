@@ -16,9 +16,10 @@ class SubmissionsController < ApplicationController
     @submission = @form.submissions.build(submission_params)
     @submission.is_submitted ||= !!params[:submit]
     if @submission.save
-      flash.now[:success] = "Your submission has been saved"
+      flash[:success] = "Application sent! You'll shortly receive a confirmation email."
       redirect_to action: :edit, id: @submission.slug
     else
+      flash.now[:error] = "We couldn't submit your application, please try again."
       render action: :new
     end
   end
@@ -28,9 +29,10 @@ class SubmissionsController < ApplicationController
     @submission = @form.submissions.find_by_slug!(params[:id])
     @submission.is_submitted ||= !!params[:submit]
     if @submission.update(submission_params)
-      flash.now[:success] = "Your submission has been saved"
+      flash[:success] = "Your submission has been saved."
       redirect_to action: :edit, id: @submission.slug
     else
+      flash.now[:error] = "We couldn't submit your application, please try again."
       render action: :edit
     end
   end
