@@ -182,21 +182,27 @@ h5{
 	margin-bottom: 2%;
 }
 
-
-div#nav{
+#nav-container {
   margin-top: 0;
 	width:100%;
+	border-top: 10px solid $dark_blue;
+	background: #222;
+}
+
+
+div#nav{
   overflow: hidden;
-  border-top: 10px solid $dark_blue;
+  width: 90%;
+  margin: auto;
     a#home_link {
     position: absolute;
 		float: left;
-		width: 50%;
+		width: 60%;
 		padding: 10px 0;
-		margin-left: 5%;
 		background: none;
 		img {
-			max-width: 100%;
+		  width: 70%;
+		  max-height: 100%;
 			padding: 10px 20px 15px 20px;
 			-webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
       -moz-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
@@ -213,7 +219,7 @@ div#nav{
 		&#button-menu {
       display: none;
       clear: both;
-      padding: 0 5% 20px 5%;
+      padding: 0 0 20px 0;
       li {
         padding: 0 0 3px 0;
         margin: 0;
@@ -289,7 +295,7 @@ button#trigger-menu {
   width: 35%;
   text-align: right;
   clear: none;
-  padding: 0 5%;
+  padding: 0;
   line-height: 38px;
   margin: 5px 0;
 }

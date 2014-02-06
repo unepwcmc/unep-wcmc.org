@@ -111,23 +111,26 @@ div.project-team {
 }
 
 div#nav{
-	width:100%;
+	width:70%;
+	margin: auto;
+	max-width: 980px;
   overflow: hidden;
   a#home_link {
     position: absolute;
     top: 0;
     display: block;
-    width: 30%;
+    width: 40%;
     float: left;
-    margin-left: 15%;
 			img {
+			  width: 65%;
+			  max-height: 100%;
 				display: block;
 				background: #4295d5;
 			}
   }
 	ul#large-menu{
 	  width: 60%;
-		padding: 5px 15% 5px 0;
+		padding: 5px 5px 0;
 		margin: 0;
 	  overflow: hidden;
 	  float: right;
@@ -166,7 +169,7 @@ div.container#other_projects {
 }
 
 div.heading{
-  width: 75%;
+  width: 70%;
   max-width: 980px;
 	h1{
 		font-size: 2.75em;
@@ -200,8 +203,14 @@ div#featured_heading {
 
 div#footer_container {
   width: 100%;
-	padding: 30px 15%;
+	padding: 30px 0;
 	margin-top: 60px;
+}
+
+#footer {
+  width: 70%;
+  max-width: 980px;
+  margin: auto;
 }
 
 ul.footer{	
@@ -385,7 +394,9 @@ div.hero{
 }
 
 div.hero#project div.heading {
-  margin-left: 15%;
+  width: 70%;
+  max-width: 980px;
+  margin: auto;
 }
 
 
