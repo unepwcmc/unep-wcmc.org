@@ -1,0 +1,31 @@
+- page ||= index_branch
+
+%li{:id => dom_id(page)}
+  .item
+    .icon{:class => page.is_published?? 'published' : 'draft'}
+
+    .btn-group
+      = link_to t('.edit'), edit_admin_expertise_page_path(page), :class => 'btn btn-small'
+
+    .item-content
+      .item-title
+        = link_to page.label, edit_admin_expertise_page_path(page), :class => 'item-label'
+      .item-meta
+        = link_to page.url, page.url, :target => '_blank'
+        = render partial: "editions", locals: {page: page}
+
+  %ul.children
+    %li{:id => dom_id(page)}
+      - page.children.each do |page|
+        .item
+          .icon{:class => page.is_published?? 'published' : 'draft'}
+
+          .btn-group
+            = link_to t('.edit'), edit_admin_expertise_page_path(page), :class => 'btn btn-small'
+
+          .item-content
+            .item-title
+              = link_to page.label, edit_admin_expertise_page_path(page), :class => 'item-label'
+            .item-meta
+              = link_to page.url, page.url, :target => '_blank'
+              = render partial: "editions", locals: {page: page}
