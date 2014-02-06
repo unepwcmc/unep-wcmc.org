@@ -74,7 +74,8 @@ $yellow: #FFDB65;
       margin-top: 30px;
     }
     section.actions {
-      padding-bottom: 20px;
+      max-width: 280px;
+      padding-bottom: 10px;
       &:last-of-type {
         padding-bottom: 0;
       }
@@ -269,6 +270,11 @@ div#welcome, div#featured_heading {
   }
 }
 
+div.button#contact {
+  width: 235px;
+  margin-bottom: 5px;
+}
+
 div#featured_heading {
   h2 {
     font-size: 2em;
@@ -368,14 +374,6 @@ div.column-2-3.left#job_application div.button {
 
 div.container div.column-2-3#employee_work {
   padding-top: 60px;
-}
-
-section#actions-column {
-  display: block;
-}
-
-section.column-2-3#actions-column-small {
-  display: none;
 }
 
 div#footer_container {

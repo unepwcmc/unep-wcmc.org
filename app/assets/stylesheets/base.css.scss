@@ -372,7 +372,8 @@ div.button {
   	}
 	}
 	&#contact {
-	  width: 215px;
+	  width: 100%;
+	  margin-bottom: 5px;
 	  &:hover, &:active {
 	   a {
 	     color: #fff;
@@ -380,9 +381,6 @@ div.button {
 	     text-decoration: none;
 	   }
 	  }
-	}
-	&#contact {
-	  margin-bottom: 5px;
 	}
 }
 
@@ -1408,15 +1406,6 @@ ul.subnav {
 
 ul.subnav.areas {
   display: block;
-}
-
-section#actions-column {
-  display: none;
-}
-
-section.column-2-3#actions-column-small {
-  display: block;
-  padding-top: 0;
 }
 
 h2.programme {
