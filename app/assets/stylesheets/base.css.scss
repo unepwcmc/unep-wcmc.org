@@ -1236,10 +1236,15 @@ ul.footer{
   overflow: hidden;
 }
 
-div#welcome {
+div#welcome-container {
   width: 100%;
-  padding: 60px 5% 60px 5%;
   background: $light_grey;
+}
+
+div#welcome {
+  width: 90%;
+  margin: auto;
+  padding: 60px 0;
   h1 {
     font-size: 1.25em;
     line-height: 1.25em;

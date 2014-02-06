@@ -9,9 +9,9 @@ $green: #CCE283;
 $red: #EC8486;
 $yellow: #FFDB65;
 
-
 .container {
   width: 70%;
+  max-width: 980px;
   margin: auto;
   overflow: hidden;
   img {
@@ -167,6 +167,7 @@ div.container#other_projects {
 
 div.heading{
   width: 75%;
+  max-width: 980px;
 	h1{
 		font-size: 2.75em;
 		line-height: 1.25em;
@@ -359,7 +360,11 @@ ul#fields, ul#content, ul#fields-small, ul#content-small, ul#programmes {
 }
 
 div#welcome {
-  padding: 60px 15% 60px 15%;
+  width: 70%;
+  max-width: 980px;
+  h1, h2 {
+    max-width: 980px;
+  }
 }
 
 div.hero{
