@@ -10,7 +10,9 @@
 
 %div{ "ng-app" => "SearchableList"}
   %input{:type => "text", "ng-model" => "pattern", :placeholder => "Search Employees"}
-  %ul.list.sortable.ui-sortable
-    = render :partial => 'index_branch', :collection => @pages
+    - Programme.order("name ASC").includes(employments: :employee).each do |programme|
+      %h4= programme.name
+      %ul.list.sortable.ui-sortable
+        = render :partial => 'index_branch', :collection => programme.employments.map(&:employee).sort_by(&:position)
 
 = render 'admin/cms/partials/pages_after'
