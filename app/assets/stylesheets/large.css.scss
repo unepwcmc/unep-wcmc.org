@@ -412,3 +412,12 @@ a.back_nav {
 .container .column-1-3.right {
   margin-top: 80px;
 }
+
+div.container#other-news-small, div.container#job_related-small {
+  display: none;
+}
+
+div.container.status {
+  margin: 0;
+  padding: 0 15%;
+}

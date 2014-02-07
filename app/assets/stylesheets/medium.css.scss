@@ -322,6 +322,12 @@ ul.subnav-small {
   li.header {
     float: none;
   }
+  ul.expertise-small:first-of-type {
+    overflow: hidden;
+  }
+  ul.expertise-small li {
+    float: none;
+  }
 }
 
 ul.subnav#staff {
@@ -330,6 +336,15 @@ ul.subnav#staff {
 
 h1.page_header#featured{
   padding-top: 60px;
+}
+
+div.data_policy {
+  display: block;
+  padding: 15px;
+  margin-top: 10px;
+  h3 {
+    margin-bottom: 10px;
+  }
 }
 
 div.data_policy-small {
@@ -408,7 +423,6 @@ div.data_policy, div.data_policy-small{
     color: $grey_text;
     text-align: left;
     margin-top: 0;
-    margin-bottom: 3%;
   }
   p {
     font-size: 0.85em;
@@ -444,5 +458,22 @@ form {
       width: 40%;
       margin-top: 0px;
     }
+  }
+}
+
+div.container.status {
+  p {
+    display: block;
+    float: left;
+    width: 90%;
+  }
+  i.icon-chevron-up {
+    text-align: center;
+    display: block;
+    float: right;
+    width: 10%;
+    border-top: none;
+    line-height: 44px;
+    padding: 0;
   }
 }
