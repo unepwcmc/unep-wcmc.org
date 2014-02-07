@@ -14,6 +14,7 @@ module PageResourcesHelper
 
   def datasets_page
     @datasets_page ||= Cms::Site.find_by_identifier('resources-and-data').pages.root
+  end
 
   def expertise_page
     @expertise_page ||= Cms::Site.find_by_identifier('expertise').pages.root
