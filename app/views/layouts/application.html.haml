@@ -18,21 +18,22 @@
     = csrf_meta_tags
 
   %body
-    #nav
-      %a#home_link{ :href => "/", :title => "Home" }
-        = image_tag "logo_white_transparent.png"
-      %ul#large-menu
-        %li= link_to "About us", "/about-us"
-        %li= link_to "Resources & Data", "/resources-and-data"
-        %li= link_to "Featured Projects", "/featured-projects"
-        %li= link_to "Expertise", "/expertise"
-      %button#trigger-menu
-        %i.icon-align-justify
-      %ul#button-menu
-        %li= link_to "Expertise", "/expertise"
-        %li= link_to "Featured Projects", "/featured-projects"
-        %li= link_to "Resources & Data", "/resources-and-data"
-        %li= link_to "About us", "/about-us"
+    #nav-container
+      #nav
+        %a#home_link{ :href => "/", :title => "Home" }
+          = image_tag "logo_white_transparent.png"
+        %ul#large-menu
+          %li= link_to "About us", "/about-us"
+          %li= link_to "Resources & Data", "/resources-and-data"
+          %li= link_to "Featured work", "/featured-projects"
+          %li= link_to "Our expertise", "/expertise"
+        %button#trigger-menu
+          %i.icon-align-justify
+        %ul#button-menu
+          %li= link_to "Our expertise", "/expertise"
+          %li= link_to "Featured work", "/featured-projects"
+          %li= link_to "Resources & Data", "/resources-and-data"
+          %li= link_to "About us", "/about-us"
 
     - if flash[:success]
       .container.status#ok
@@ -58,10 +59,11 @@
     = yield
 
     #footer_container
-      %ul.footer
-        %li= link_to "Partners", "/partners"
-        %li= link_to "Vacancies", "/vacancies"
-        %li= link_to "The Team", "/employees"
-        %li= link_to "Contact", "/about-us/contact"
-      %a#unep{ :href => "http://unep.org", :title => "UNEP" }
-        = image_tag "unep_logo.png"
+      #footer
+        %ul.footer
+          %li= link_to "Partners", "/about-us/partners"
+          %li= link_to "Vacancies", "/vacancies"
+          %li= link_to "The Team", "/employees"
+          %li= link_to "Contact", "/about-us/contact"
+        %a#unep{ :href => "http://unep.org", :title => "UNEP" }
+          = image_tag "unep_logo.png"

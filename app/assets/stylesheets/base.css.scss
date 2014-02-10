@@ -158,7 +158,7 @@ small {
 	margin-bottom: 30px;
 }
 
-div.column-2-3 ul {
+section.column-2-3 ul, section.column-2-3 section ul {
   list-style-type: disc;
   padding: 1em 0 1em 1.25em;
   li {
@@ -176,9 +176,6 @@ div.clear {
 
 #nav{
 	background-color: #222;
-	-webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   a#home_link {
     position: relative;
@@ -291,6 +288,14 @@ div.container#other_projects, div.container#other-news-small, div.container#job_
   }
 }
 
+div.container#other-news-small, div.container#job_related-small {
+  margin: 0 auto;
+  h2.large_subheading {
+    margin: 30px 0;
+    text-align: left;
+  }
+}
+
 div.heading{
   width: 90%;
   margin: auto;
@@ -375,7 +380,8 @@ div.button {
   	}
 	}
 	&#contact {
-	  width: 215px;
+	  width: 100%;
+	  margin-bottom: 5px;
 	  &:hover, &:active {
 	   a {
 	     color: #fff;
@@ -383,9 +389,6 @@ div.button {
 	     text-decoration: none;
 	   }
 	  }
-	}
-	&#contact {
-	  margin-bottom: 5px;
 	}
 }
 
@@ -897,10 +900,15 @@ ul.subnav, ul.subnav-small {
 
 ul.subnav {
   display: none;
+  margin-bottom: 50px;
 }
 
 ul.subnav-small {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+}
+
+ul.subnav.areas {
+  display: block;
 }
 
 select#sorting, select#sorting option, div.search_field_container, div.search-field {
@@ -992,19 +1000,6 @@ div.column-1-3#data-small {
   ul#fields-small, ul#content-small {
     display: none;
   }
-  div.data_policy {
-    display: none;
-  }
-  div.data_policy-small {
-    margin-top: 10px;
-   h3 {
-     margin: 0;
-     text-align: center;
-     font-size: 1em;
-     font-weight: 300;
-     font-family: "museo-sans", Helvetica, Arial, sans-serif;
-   } 
-  }
 }
 
 ul#content, ul#content-small {
@@ -1087,23 +1082,39 @@ ul#sorting {
 }
 
 div.data_policy, div.data_policy-small{
-  margin-top: 40px;
+  margin: 40px 0;
   background: #f7f7f7;
   -webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	padding: 5%;
+	padding: 15px;
   h3 {
     color: $grey_text;
     text-align: left;
     margin-top: 0;
-    margin-bottom: 3%;
+    margin-bottom: 10px;
   }
   p {
     font-size: 0.75em;
     margin-bottom: 0;
   }
 }
+
+div.data_policy {
+  display: none;
+}
+
+div.data_policy-small {
+  margin-top: 10px;
+ h3 {
+   margin: 0;
+   text-align: center;
+   font-size: 1em;
+   font-weight: 300;
+   font-family: "museo-sans", Helvetica, Arial, sans-serif;
+ } 
+}
+
 
 form {
   section {
@@ -1188,7 +1199,7 @@ div#footer_container {
 	background-opacity: 0.2;
 	background-size: 100%;
   margin-top: 60px;
-  padding: 20px 5%;
+  padding: 20px;
   a#unep {
     padding: 10px 0 0 0;
     img {
@@ -1204,6 +1215,11 @@ div#footer_container {
   		}
 		}
 	}
+}
+
+#footer {
+  width: 90%;
+  margin: auto;
 }
 
 ul.footer{	
@@ -1236,10 +1252,15 @@ ul.footer{
   overflow: hidden;
 }
 
-div#welcome {
+div#welcome-container {
   width: 100%;
-  padding: 60px 5% 60px 5%;
   background: $light_grey;
+}
+
+div#welcome {
+  width: 90%;
+  margin: auto;
+  padding: 60px 0;
   h1 {
     font-size: 1.25em;
     line-height: 1.25em;
@@ -1393,23 +1414,6 @@ button#trigger-menu {
 
 div.column-1-3#data {
   display: none;
-}
-
-ul.subnav {
-  display: none;
-}
-
-ul.subnav.areas {
-  display: block;
-}
-
-section#actions-column {
-  display: none;
-}
-
-section.column-2-3#actions-column-small {
-  display: block;
-  padding-top: 0;
 }
 
 h2.programme {
@@ -1586,4 +1590,37 @@ div.search-field#staff input, div.search-field#staff i {
 
 iframe {
   max-width: 100%;
+}
+
+div.container.status {
+  width: 100%;
+  margin: 0;
+  padding: 0 5%;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  p {
+    margin-bottom: 0;
+    color: #fff;
+    margin: 10px 0;
+  }
+  i.icon-chevron-up {
+    line-height: 100%;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    padding: 5px 0;
+    border-top: 1px solid rgba(255,255,255,0.3);
+  }
+  &#ok {
+    background: $green;
+  }
+  &#warning {
+    background: $yellow;
+  }
+  &#error {
+    background: $red;
+  }
+  display: none;
 }

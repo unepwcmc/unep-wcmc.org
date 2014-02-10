@@ -1,0 +1,30 @@
+{{ cms:partial:about_us/hero }}
+
+<div class="container">
+  {{ cms:partial:about_us/navigation }}
+  <div id="contact-page" class="column-2-3">
+    <section>
+      <h1>
+        {{ cms:page:subheading_title:string }}
+      </h1>
+      {{ cms:page:subheading_intro_text:rich_text }}
+      {{ cms:page:map:string }}
+    </section>
+    
+    <section>
+      <h2>Address and contact details</h2>
+      <address>
+  	   {{ cms:page:address:string }}	    
+  	  </address>
+	  <p><a href={{cms:page_file:directions_to_the_centre_PDF}}>Directions to the Centre</a></p>
+
+    </section>
+
+    <section>
+      <h2 id="inquiry">Making an enquiry</h2>
+  	  <p>If you think we can help you or have any further questions about our work, please contact <a href="">info@unep-wcmc.org</a>, including your name, organisation and any deadlines for the request.</p>
+    </section>
+
+  </div><!--column-2-3-->
+  
+</div>

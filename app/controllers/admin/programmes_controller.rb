@@ -4,7 +4,7 @@ class Admin::ProgrammesController < Admin::Cms::BaseController
   before_action :load_programme,   :only => [:edit, :update, :destroy]
 
   def index
-    @programmes = Programme.page(params[:page])
+    @programmes = Programme.order("name ASC").page(params[:page])
   end
 
   def show
