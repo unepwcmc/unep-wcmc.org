@@ -21,7 +21,7 @@ class Submission < ActiveRecord::Base
   serialize :content, OpenStruct
 
   validates :form, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, email: true
 
   before_create :set_slug
 
