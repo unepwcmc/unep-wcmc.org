@@ -42,7 +42,7 @@
       %p= @submission.content.notice_period
     %section
       %h2 How did you hear about us?
-      %p= @submission.content.reference + (" - #{@submission.content.reference_details}" if @submission.content.reference_details)
+      %p= @submission.content.reference + (@submission.content.reference_details ? " - #{@submission.content.reference_details}" : "")
 
 
 

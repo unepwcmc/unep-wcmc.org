@@ -18,9 +18,7 @@ class SubmissionsController < ApplicationController
     @submission = @form.submissions.build(submission_params)
     @submission.is_submitted ||= !!params[:submit]
     if @submission.save
-      send_confirmation_email
-      flash[:success] = success_message
-      redirect_to action: :edit, id: @submission.slug
+      success_redirect
     else
       flash.now[:error] = failure_message
       render action: :new
@@ -30,9 +28,7 @@ class SubmissionsController < ApplicationController
   def update
     @submission.is_submitted ||= !!params[:submit]
     if @submission.update(submission_params)
-      send_confirmation_email
-      flash[:success] = success_message
-      redirect_to action: :edit, id: @submission.slug
+      success_redirect
     else
       flash.now[:error] = failure_message
       render action: :edit
@@ -40,6 +36,16 @@ class SubmissionsController < ApplicationController
   end
 
   private
+
+  def success_redirect
+    send_confirmation_email
+    flash[:success] = success_message
+    if @submission.is_submitted
+      redirect_to action: :show, id: @submission.slug
+    else
+      redirect_to action: :edit, id: @submission.slug
+    end
+  end
 
   def find_submission
     @submission = @form.submissions.where(is_submitted: false).find_by_slug!(params[:id])
