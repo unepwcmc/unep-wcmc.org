@@ -18,15 +18,17 @@
     %section
       %h2 CV and cover letter
       %h3 CV
-      = link_to(@submission.cv_file_name, @submission.cv.url)
+      - if @submission.cv.present?
+        = link_to(@submission.cv_file_name, @submission.cv.url)
       %h3 Cover letter
-      = link_to(@submission.cover_letter_file_name, @submission.cover_letter.url)
+      - if @submission.cover_letter.present?
+        = link_to(@submission.cover_letter_file_name, @submission.cover_letter.url)
     %section
       %h2 Practical Question
       %p= cms_page_content(:practical_question_explanation, @form.vacancy)
       - @submission.field_submissions.each do |field|
         %h3= field.name
-        - if field.type == 'FileFieldSubmission'
+        - if field.type == 'FileFieldSubmission' && field.file.present?
           = link_to(field.file_file_name, field.file.url)
         - else
           %p= field.content
@@ -42,7 +44,7 @@
       %p= @submission.content.notice_period
     %section
       %h2 How did you hear about us?
-      %p= @submission.content.reference + (@submission.content.reference_details ? " - #{@submission.content.reference_details}" : "")
+      %p= @submission.content.reference.to_s + (@submission.content.reference_details ? " - #{@submission.content.reference_details}" : "")
 
 
 
