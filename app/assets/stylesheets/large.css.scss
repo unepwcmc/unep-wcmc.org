@@ -63,6 +63,10 @@ $yellow: #FFDB65;
       width: 22%;
       margin-right: 4%;
       
+      &:nth-child(2n) {  
+        margin-right: 4%;
+      }
+    
       &:nth-child(3n) {  
         margin-right: 4%;
       }
