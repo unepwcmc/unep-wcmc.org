@@ -1,0 +1,49 @@
+.container#application-page
+  #job-application.column-2-3.left
+    %a.back_nav{ :href => @form.vacancy.url }
+      %i.icon-chevron-left
+      Back to Vacancy
+    %h1#first= @form.vacancy.label
+    %section
+      %h2 Personal Details
+      %h3 Full name
+      %p= @submission.name
+      %h3 Email
+      %p= @submission.email
+      %h3 Phone number
+      %p= @submission.phone
+    %section
+      %h2 Ability to work in the UK
+      %p= @submission.content.uk_working_ability ? 'Confirmed' : 'Not confirmed'
+    %section
+      %h2 CV and cover letter
+      %h3 CV
+      = link_to(@submission.cv_file_name, @submission.cv.url)
+      %h3 Cover letter
+      = link_to(@submission.cover_letter_file_name, @submission.cover_letter.url)
+    %section
+      %h2 Practical Question
+      %p= cms_page_content(:practical_question_explanation, @form.vacancy)
+      - @submission.field_submissions.each do |field|
+        %h3= field.name
+        - if field.type == 'FileFieldSubmission'
+          = link_to(field.file_file_name, field.file.url)
+        - else
+          %p= field.content
+    %section
+      %h2 Employment Conditions
+      %h3 Current or last salary
+      %p= @submission.content.last_salary
+      %h3 Current benefits
+      %p= @submission.content.benefits
+      %h3 Availability for an interview
+      %p= @submission.content.interview_availability
+      %h3 Notice period
+      %p= @submission.content.notice_period
+    %section
+      %h2 How did you hear about us?
+      %p= @submission.content.reference + (" - #{@submission.content.reference_details}" if @submission.content.reference_details)
+
+
+
+

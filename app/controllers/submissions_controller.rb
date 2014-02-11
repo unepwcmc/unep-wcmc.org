@@ -10,6 +10,10 @@ class SubmissionsController < ApplicationController
   def edit
   end
 
+  def show
+    @submission = @form.submissions.where(is_submitted: true).find_by_slug!(params[:id])
+  end
+
   def create
     @submission = @form.submissions.build(submission_params)
     @submission.is_submitted ||= !!params[:submit]
