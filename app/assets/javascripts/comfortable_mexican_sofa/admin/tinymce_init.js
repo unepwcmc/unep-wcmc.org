@@ -2,7 +2,7 @@ window.CMS.wysiwyg = function () {
   tinymce.init({
     extended_valid_elements: "iframe[src|width|height|name|align]",
     plugins: "autolink link image autoresize media paste",
-    toolbar: "undo redo | bold italic underline | styleselect | blockquote | link image",
+    toolbar: "undo redo | bold italic underline | styleselect | blockquote | link image | bullist numlist",
     paste_text_sticky: true,
     style_formats: [
       {title: "Paragraph", block: "p"},
