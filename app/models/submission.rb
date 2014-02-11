@@ -37,6 +37,10 @@ class Submission < ActiveRecord::Base
     submission
   end
 
+  def saved_first_time?
+    created_at == updated_at
+  end
+
   def to_param
     slug
   end
