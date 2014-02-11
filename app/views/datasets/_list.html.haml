@@ -21,6 +21,11 @@
       %p Access to UNEP-WCMC datasets is provided on the understanding that you read and consent to be bound by the Terms and Conditions set out in our policies.
       %p
         %a{:href => "/policies"} View our policies
+    %section.actions#search-button
+      %h1 Biodiversity Heritage Library
+      .button
+        %p
+          %a{:href => "/policies"} Search WCMC publications
     
   #data.column-1-3
     .search-field
@@ -37,13 +42,17 @@
       %li.content_type{"ng-show" => "contentType.count > 0", "ng-class" => "{active: contentType.selected && contentType.count > 0}", "ng-click" => "toggleContentType()", "ng-repeat" => "contentType in contentTypes"}
         %span.badge {{ contentType.count }}
         %p{"ng-style" => "{color: contentType.selected ? '#5e5e5e' : '#aaa'}"} {{ contentType.plural }}
-
     .data_policy
       %h3 Policies
       %p UNEP-WCMC does not assert any intellectual property rights in the data made available to it by data providers.
       %p Access to UNEP-WCMC datasets is provided on the understanding that you read and consent to be bound by the Terms and Conditions set out in our policies.
       %p
         %a{:href => "/policies"} View our policies
+    %section.actions#search-button
+      %h1 Biodiversity Heritage Library
+      .button
+        %p
+          %a{:href => "/policies"} Search WCMC publications
 
   #data.column-2-3
     %h1
