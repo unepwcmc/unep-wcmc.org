@@ -661,12 +661,12 @@ div#button-row {
         margin-top: 4px;
       }
     }
-      h2 {
-        font-size: 1em;
-        text-transform: none;
-        font-weight: 400;
-        font-family: "museo-sans", Helvetica, Arial, sans-serif;
-      }
+    h2 {
+      font-size: 1em;
+      text-transform: none;
+      font-weight: 400;
+      font-family: "museo-sans", Helvetica, Arial, sans-serif;
+    }
     .button {
       width: 100%;
       margin-bottom: 30px;
@@ -675,6 +675,12 @@ div#button-row {
       padding-bottom: 1px;
     }
   }
+    section.actions#search-button {
+      margin-bottom: 40px;
+      div.button {
+        margin-top: 5px;
+      }
+    }
     section.info-application {
       background: #f7f7f7;
       padding: 15px;
