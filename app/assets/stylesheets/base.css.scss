@@ -412,11 +412,8 @@ div#button-row {
     display: block;
   }
   .column-2-3 {
-    &#staff {
-      h2 {
-        padding-bottom: 8px;
-        border-bottom: 3px solid $blue;
-      }
+    &#staff-page img{
+      width: 100%;
     }
 
     &#contact-page {
@@ -1311,7 +1308,7 @@ section.group.staff {
   overflow: hidden;
   width: 47.5%;
   margin-right: 5%;
-  float: left !important;
+  float: left;
   &:nth-child(2n) {  
     margin-right: 0;
   }
