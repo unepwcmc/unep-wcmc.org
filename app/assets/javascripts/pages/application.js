@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require angular
 //= require angular-animate
+//= require select2
+//= require ui-select2
 //= require underscore
 //= require augment
 //= require lunr
