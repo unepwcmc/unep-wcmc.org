@@ -214,11 +214,11 @@ div#nav{
     a#home_link {
     position: absolute;
 		float: left;
-		width: 60%;
+		width: 40%;
 		padding: 10px 0;
 		background: none;
 		img {
-		  width: 70%;
+		  width: 100%;
 		  max-height: 100%;
 			padding: 10px 20px 15px 20px;
 			-webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
@@ -466,13 +466,15 @@ form {
   }
 }
 
-div.container.status {
+div.status div.message {
+  padding: 15px 0;
   p {
     display: block;
     float: left;
     width: 90%;
   }
   i.icon-chevron-up {
+    border-left: 1px solid rgba(255,255,255,0.3);
     text-align: center;
     display: block;
     float: right;

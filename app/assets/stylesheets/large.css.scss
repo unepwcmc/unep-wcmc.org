@@ -130,18 +130,18 @@ div#nav{
     position: absolute;
     top: 0;
     display: block;
-    width: 40%;
+    width: 26%;
     float: left;
 			img {
-			  width: 65%;
+			  width: 100%;
 			  max-height: 100%;
 				display: block;
 				background: #4295d5;
 			}
   }
 	ul#large-menu{
-	  width: 60%;
-		padding: 5px 5px 0;
+	  width: 65%;
+		padding: 0 5px ;
 		margin: 0;
 	  overflow: hidden;
 	  float: right;
@@ -413,4 +413,9 @@ a.back_nav {
 
 div.container#other-news-small, div.container#job_related-small {
   display: none;
+}
+
+div.status div.message {
+  width: 70%;
+  max-width: 980px;
 }
