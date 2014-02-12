@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $('button#trigger-menu').click(function() {
-    $('ul#button-menu').animate({height:"toggle"}, 500, function() {});
+    $('ul#button-menu').slideToggle('slow');
   });
 
   $('button#content-button').click(function() {
@@ -25,11 +25,11 @@ $(document).ready(function(){
   });
 
   $('ul.subnav-small li.header#strengthen-button i').click(function() {
-    $('ul.expertise-small#strengthen').toggle('normal');
+    $('ul.expertise-small#strengthen').slideToggle('normal');
   });
 
   $('ul.subnav-small li.header#specialise-button i').click(function() {
-    $('ul.expertise-small#specialise').toggle('normal');
+    $('ul.expertise-small#specialise').slideToggle('normal');
   });
 
 });
