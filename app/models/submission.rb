@@ -1,3 +1,6 @@
+# Represents concrete instance of Form filled with data
+# by a candidate.
+
 class Submission < ActiveRecord::Base
 
   ALLOWED_CONTENT_FIELDS = [:uk_working_ability, :last_salary, :benefits, :interview_availability, :notice_period, :reference, :reference_details]

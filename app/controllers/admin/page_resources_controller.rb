@@ -1,3 +1,10 @@
+# This is the base class for integrating CMS pages with custom resource types.
+# It adds ability to save custom resources alongside standard pages. Known resources that
+# use this ability are: about us pages, datasets, employees' profiles, expertise pages,
+# featured projects, news items, policies and vacancies. Extending this class requires
+# defining CMS site name, name of the CMS layout to be used as default for new resources
+# and method for saving custom resources.
+
 class Admin::PageResourcesController < Admin::Cms::PagesController
   skip_before_filter :load_admin_site
   prepend_before_action :set_site
