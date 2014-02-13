@@ -1,17 +1,29 @@
-%div{:class => "dashboard", "ng-app" => "stats", "ng-controller" => "SapiStatsCtrl"} 
+%div{:class => "dashboard", "ng-app" => "stats"}
 
-  %ul
-    %li{'ng-repeat' => "s in species_cites_eu"} {{s.common_name_en}} ({{s.name}}): {{s.count}}
+  %div{:class => "geo_entities", "ng-controller" => "CountryPickerCtrl"}
 
-  %ul
-    %li{'ng-repeat' => "s in species_cms"} {{s.common_name_en}} ({{s.name}}): {{s.count}}
+  
 
 
-  %ul
-    %li{'ng-repeat' => "t in trade_exports_top"} {{t.common_name_en}} ({{t.name}}): {{t.count}}
+    %select{"ui-select2" => true, "ng-model" => "geo.current_country", "data-placeholder" => "Search for another country"}
+      %option
+      %option{'ng-repeat' => "g in geo_entities", 'value' => "{{g.iso_code2}}" } {{g.name}}
+    
 
-  %ul
-    %li{'ng-repeat' => "t in trade_imports_top"} {{t.common_name_en}} ({{t.name}}): {{t.count}}
+  %div{:class => "sapi", "ng-controller" => "SapiStatsCtrl"}
+    %div{:class => "spinner", "ng-show" => "loading"}
+
+    %ul
+      %li{'ng-repeat' => "s in species_cites_eu", "ng-show" => "loaded"} {{s.common_name_en}} ({{s.name}}): {{s.count}}
+
+    %ul
+      %li{'ng-repeat' => "s in species_cms", "ng-show" => "loaded"} {{s.common_name_en}} ({{s.name}}): {{s.count}}
+
+    %ul
+      %li{'ng-repeat' => "t in trade_exports_top", "ng-show" => "loaded"} {{t.common_name_en}} ({{t.name}}): {{t.count}}
+
+    %ul
+      %li{'ng-repeat' => "t in trade_imports_top", "ng-show" => "loaded"} {{t.common_name_en}} ({{t.name}}): {{t.count}}
 
 
   

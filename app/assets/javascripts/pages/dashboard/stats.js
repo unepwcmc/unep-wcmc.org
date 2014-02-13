@@ -1,19 +1,53 @@
-angular.module("stats").controller("SapiStatsCtrl", [
-  "$scope", 
-  "$sce", 
-  "fetchData", 
-  "SAPI_API_URL",
-  "country",
-  function ($scope, $sce, fetchData, SAPI_API_URL, country) {
+angular.module('stats').controller('CountryPickerCtrl', [
+  '$scope',
+  '$rootScope',
+  '$sce', 
+  'fetchData', 
+  'GEO_ENTITIES_URL',
+function ($scope, $rootScope, $sce, fetchData, GEO_ENTITIES_URL) {
+
+  $scope.$watch('geo.current_country', function (newVal, oldVal) {
+      if (oldVal === newVal || newVal === '') return;
+      $rootScope.$emit('geo.current_country', newVal);
+      console.log(newVal);
+  }, true);
+
+  var geo_entities_data = $.when(
+    fetchData(GEO_ENTITIES_URL, {geo_entity_types_set: 2})
+  ).then(
+    function (data) {
+      $scope.geo_entities = data.geo_entities;
+      $scope.$apply();
+    },
+    function (err) {console.log(err)}
+  );
+
+}]);
+
+angular.module('stats').controller('SapiStatsCtrl', [
+  '$scope',
+  '$rootScope',
+  '$sce', 
+  'fetchData', 
+  'SAPI_API_URL',
+  'country',
+function ($scope, $rootScope, $sce, fetchData, SAPI_API_URL, country) {
+
+  $scope.loading = true;
+  $scope.loaded = false;
   
-  $scope.hello_dash = 'Hello dash!';
+  $rootScope.$on('geo.current_country', function(evt, args) {
+    $scope.loading = true;
+    $scope.loaded = false;
+    getPromisedData(args);
+  });
 
   // Aggregates the least numerous groups.
   function getOtherSpeciesResults (sorted_results, top) {
     var other_results, other_result;
     other_results = sorted_results.slice(top);
     other_result = {
-      common_name_en: "other",
+      common_name_en: 'other',
       count: 0
     };
     angular.forEach(other_results, function(result) {
@@ -43,18 +77,24 @@ angular.module("stats").controller("SapiStatsCtrl", [
     return data;
   };
 
-  var promised_data = $.when(
-    fetchData(SAPI_API_URL + country, {kingdom: 'Animalia'})
-  ).then(
-    function (data) {
-      var data = getTopSpeciesResults(data, 5).taxon_concept_stats;
-      $scope.species_cites_eu = data.species.cites_eu;
-      $scope.species_cms = data.species.cms;
-      $scope.trade_exports_top = data.trade.exports.top_traded;
-      $scope.trade_imports_top = data.trade.imports.top_traded;
-      $scope.$apply();
-    },
-    function (err) {console.log(err)}
-  );
+  var getPromisedData = function (current_country) {
+    current_country = (typeof current_country === "undefined") ? country : current_country;
+    return $.when(
+      fetchData(SAPI_API_URL + current_country, {kingdom: 'Animalia'})
+    ).then(
+      function (data) {
+        var data = getTopSpeciesResults(data, 5).taxon_concept_stats;
+        $scope.species_cites_eu = data.species.cites_eu;
+        $scope.species_cms = data.species.cms;
+        $scope.trade_exports_top = data.trade.exports.top_traded;
+        $scope.trade_imports_top = data.trade.imports.top_traded;
+        $scope.loading = false;
+        $scope.loaded = true;
+        $scope.$apply();
+      },
+      function (err) {console.log(err)}
+    );
+  }
+  getPromisedData();
 
 }]);

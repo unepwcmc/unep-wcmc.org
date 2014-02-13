@@ -1626,7 +1626,20 @@ div.container.status {
 }
 
 div.dashboard {
+  .spinner {
+    background-image: image-url('loading.gif');
+    width: 64px;
+    height: 64px;
+  }
+
   ul {
     margin: 10px;
   } 
+
+  .geo_entities {
+    .select2-container {
+      width: 300px;
+      margin: 10px;
+    }
+  }
 }
