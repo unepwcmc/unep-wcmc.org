@@ -13,12 +13,14 @@ gem 'font-awesome-rails'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
 gem 'select2-rails'
+gem 'modernizr-rails'
 
 gem 'angularjs-rails'
 gem 'underscore-rails'
 gem 'rails-observers'
 gem 'tinymce-rails'
 gem 'letter_opener'
+gem 'email_validator'
 
 gem 'devise'
 

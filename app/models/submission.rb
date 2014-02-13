@@ -1,3 +1,6 @@
+# Represents concrete instance of Form filled with data
+# by a candidate.
+
 class Submission < ActiveRecord::Base
 
   ALLOWED_CONTENT_FIELDS = [:uk_working_ability, :last_salary, :benefits, :interview_availability, :notice_period, :reference, :reference_details]
@@ -21,7 +24,11 @@ class Submission < ActiveRecord::Base
   serialize :content, OpenStruct
 
   validates :form, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, email: true
+  validates :name, presence: true, if: :is_submitted
+  validates :phone, presence: true, if: :is_submitted
+  validates :cv, presence: true, if: :is_submitted
+  validates :cover_letter, presence: true, if: :is_submitted
 
   before_create :set_slug
 
@@ -35,6 +42,10 @@ class Submission < ActiveRecord::Base
       submission.field_submissions.build(type: field.type + "Submission", field_id: field.id)
     end
     submission
+  end
+
+  def saved_first_time?
+    created_at == updated_at
   end
 
   def to_param

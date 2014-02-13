@@ -13,8 +13,15 @@
     = javascript_include_tag "pages/application.js"
     = stylesheet_link_tag "base", media: "screen"
     = stylesheet_link_tag "application", media: "all"
-    = stylesheet_link_tag "medium", media: "only screen and (min-width: 600px)"
-    = stylesheet_link_tag "large", media: "screen and (min-width: 1000px)"
+    :erb
+      <!--[if !(IE 8)]><!-->
+        <%= stylesheet_link_tag "medium", :media => "only screen and (min-width: 600px)" %>
+        <%= stylesheet_link_tag "large", :media => "screen and (min-width: 1000px)" %>
+      <!--<![endif]-->
+    /[if lt IE 9]
+      = stylesheet_link_tag "medium", media: "all"
+      = stylesheet_link_tag "large", media: "all"
+    = javascript_include_tag "modernizr.js"
     = csrf_meta_tags
 
   %body
@@ -36,25 +43,28 @@
           %li= link_to "About us", "/about-us"
 
     - if flash[:success]
-      .container.status#ok
-        %p
-          %i.icon-ok
-          = flash[:success]
-        %i.icon-chevron-up
+      .status#ok
+        .message
+          %p
+            %i.icon-ok
+            = flash[:success]
+          %i.icon-chevron-up
 
     - if flash[:error]
-      .container.status#warning
-        %p
-          %i.icon-warning-sign
-          = flash[:error]
-        %i.icon-chevron-up
+      .status#warning
+        .message
+          %p
+            %i.icon-warning-sign
+            = flash[:error]
+          %i.icon-chevron-up
 
     - if notice
-      .container.status#ok
-        %p
-          %i.icon-ok
-          = notice
-        %i.icon-chevron-up
+      .status#ok
+        .message
+          %p
+            %i.icon-ok
+            = notice
+          %i.icon-chevron-up
 
     = yield
 

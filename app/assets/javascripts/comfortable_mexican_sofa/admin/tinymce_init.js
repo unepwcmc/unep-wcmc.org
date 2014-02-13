@@ -2,8 +2,8 @@ window.CMS.wysiwyg = function () {
   tinymce.init({
     extended_valid_elements: "iframe[src|width|height|name|align]",
     plugins: "autolink link image autoresize media paste",
-    toolbar: "undo redo | bold italic underline | styleselect | blockquote | link image",
-    paste_text_sticky: true,
+    toolbar: "undo redo | bold italic underline | styleselect | blockquote | link image | bullist numlist",
+    paste_as_text: true,
     style_formats: [
       {title: "Paragraph", block: "p"},
       {title: "Header 1", block: "h1"},
@@ -16,3 +16,4 @@ window.CMS.wysiwyg = function () {
     height: 200
   });
 }
+

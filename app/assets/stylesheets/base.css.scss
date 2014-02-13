@@ -7,7 +7,7 @@ $grey: #ddd;
 $light_grey: #f7f7f7;
 $dark_grey: #333;
 $grey_text: #5e5a5c;
-$green: #CCE283;
+$green: #B7CF65;
 $red: #EC8486;
 $yellow: #FFDB65;
 
@@ -37,6 +37,9 @@ body {
 
 h1, h2, h3, h5 {
 	font-family: "museo-slab", Helvetica, Arial, sans-serif;
+	em {
+	  font-style: italic;
+	}
 }
 
 h1{
@@ -134,6 +137,14 @@ address, p {
 	}
 }
 
+p strong {
+  font-weight: 600;
+}
+
+p em {
+  font-style: italic;
+}
+
 a {
   text-decoration: none;
   color: $blue;
@@ -158,7 +169,7 @@ small {
 	margin-bottom: 30px;
 }
 
-section.column-2-3 ul, section.column-2-3 section ul {
+section.column-2-3 ul, section.column-2-3 section ul, div.column-2-3 ul {
   list-style-type: disc;
   padding: 1em 0 1em 1.25em;
   li {
@@ -412,11 +423,8 @@ div#button-row {
     display: block;
   }
   .column-2-3 {
-    &#staff {
-      h2 {
-        padding-bottom: 8px;
-        border-bottom: 3px solid $blue;
-      }
+    &#staff-page img{
+      width: 100%;
     }
 
     &#contact-page {
@@ -661,12 +669,12 @@ div#button-row {
         margin-top: 4px;
       }
     }
-      h2 {
-        font-size: 1em;
-        text-transform: none;
-        font-weight: 400;
-        font-family: "museo-sans", Helvetica, Arial, sans-serif;
-      }
+    h2 {
+      font-size: 1em;
+      text-transform: none;
+      font-weight: 400;
+      font-family: "museo-sans", Helvetica, Arial, sans-serif;
+    }
     .button {
       width: 100%;
       margin-bottom: 30px;
@@ -675,6 +683,12 @@ div#button-row {
       padding-bottom: 1px;
     }
   }
+    section.actions#search-button {
+      margin-bottom: 40px;
+      div.button {
+        margin-top: 5px;
+      }
+    }
     section.info-application {
       background: #f7f7f7;
       padding: 15px;
@@ -1305,7 +1319,7 @@ section.group.staff {
   overflow: hidden;
   width: 47.5%;
   margin-right: 5%;
-  float: left !important;
+  float: left;
   &:nth-child(2n) {  
     margin-right: 0;
   }
@@ -1386,7 +1400,7 @@ button#trigger-menu {
   float: right;
   border: none;
   border-radius: 5px;
-  padding: 2% 5% 1% 5%;
+  padding: 0 5%;
   clear: both;
   width: 100%;
   text-align: left;
@@ -1592,12 +1606,26 @@ iframe {
   max-width: 100%;
 }
 
-div.container.status {
+div.status {
   width: 100%;
-  margin: 0;
-  padding: 0 5%;
   position: fixed;
   top: 0;
+  &#ok {
+    background: $green;
+  }
+  &#warning {
+    background: $red;
+  }
+  &#error {
+    background: $red;
+  }
+  display: none;
+}
+
+div.status div.message {
+  width: 90%;
+  padding: 10px 0;
+  margin: auto;
   overflow: hidden;
   p {
     margin-bottom: 0;
@@ -1613,16 +1641,39 @@ div.container.status {
     padding: 5px 0;
     border-top: 1px solid rgba(255,255,255,0.3);
   }
-  &#ok {
-    background: $green;
+}
+
+div.error-message {
+  border: 2px solid $red;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  padding: 15px;
+  h2 {
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 1em;
+    font-family: "museo-sans", Helvetica, Arial, sans-serif;
+  	border-bottom: 1px solid $grey;
+  	margin: 4px 0 10px 0;
+  	padding-bottom: 5px;
+  	i {
+  	  color: $red;
+  	  padding-right: 5px;
+  	}
   }
-  &#warning {
-    background: $yellow;
+  ul {
+    list-style-type: none;
+    li {
+      color: $grey_text;
+      font-size: 1em;
+      font-weight: 300;
+      padding-bottom: 5px;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
   }
-  &#error {
-    background: $red;
-  }
-  display: none;
 }
 
 div.dashboard {

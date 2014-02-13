@@ -1,3 +1,6 @@
+# Helper class that encapsulates the logic of updating
+# employments for a Programme.
+
 class ProgrammeEmploymentBuilder
   def initialize(params)
     @employment_params = params[:employment]
