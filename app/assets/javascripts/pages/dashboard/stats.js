@@ -1,3 +1,30 @@
+angular.module('stats').controller('StatsCtrl', [
+  '$scope',
+  '$rootScope',
+  '$sce',
+function ($scope, $rootScope, $sce) {
+
+  $scope.visible = false;
+  $rootScope.$on('stats.visible', function(evt, args) {
+    $scope.visible = true;
+  });
+
+}]);
+
+angular.module('stats').controller('StatsBtnCtrl', [
+  '$scope',
+  '$rootScope',
+  '$sce',
+function ($scope, $rootScope, $sce) {
+
+  $scope.visible = true;
+  $scope.showStats = function () {
+    $scope.visible = false;
+    $rootScope.$emit('stats.visible', true);
+  }
+
+}]);
+
 angular.module('stats').controller('CountryPickerCtrl', [
   '$scope',
   '$rootScope',
@@ -9,7 +36,6 @@ function ($scope, $rootScope, $sce, fetchData, GEO_ENTITIES_URL) {
   $scope.$watch('geo.current_country', function (newVal, oldVal) {
       if (oldVal === newVal || newVal === '') return;
       $rootScope.$emit('geo.current_country', newVal);
-      console.log(newVal);
   }, true);
 
   var geo_entities_data = $.when(
