@@ -37,6 +37,9 @@ body {
 
 h1, h2, h3, h5 {
 	font-family: "museo-slab", Helvetica, Arial, sans-serif;
+	em {
+	  font-style: italic;
+	}
 }
 
 h1{
@@ -132,6 +135,14 @@ address, p {
 	  font-size: 0.85em;
 	  padding-right: 5px;
 	}
+}
+
+p strong {
+  font-weight: 600;
+}
+
+p em {
+  font-style: italic;
 }
 
 a {
