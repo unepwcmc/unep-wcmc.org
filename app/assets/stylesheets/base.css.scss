@@ -1683,9 +1683,19 @@ div.dashboard {
     height: 64px;
   }
 
+  button.transparent {
+    margin: 20px 0 0 0;
+  }
+
   ul {
     margin: 10px;
-  } 
+  }
+
+  span.option-selector {
+    float: right;
+    cursor: pointer;
+    color: $blue;
+  }
 
   .geo_entities {
     .select2-container {

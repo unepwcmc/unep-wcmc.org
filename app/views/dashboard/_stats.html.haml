@@ -1,30 +1,48 @@
-%div{:class => "dashboard", "ng-app" => "stats"}
+%div{:class => "container dashboard", "ng-app" => "stats"}
 
-  %button{:class => "transparent", "ng-controller" => "StatsBtnCtrl", "ng-click" => "showStats()", "ng-show" => "visible"} View Now
+  %div{:class => "section-group"}
+    %section{:class => "group"}
+      %button{:class => "transparent", "ng-controller" => "StatsBtnCtrl", "ng-click" => "showStats()", "ng-show" => "visible"} View Now
 
-  %div{:class => "geo_entities", "ng-controller" => "CountryPickerCtrl"}
+    %section{:class => "group"}
+      %div{:class => "geo_entities", "ng-controller" => "CountryPickerCtrl"}
 
-    %select{"ui-select2" => true, "ng-model" => "geo.current_country", "data-placeholder" => "Search for another country"}
-      %option
-      %option{'ng-repeat' => "g in geo_entities", 'value' => "{{g.iso_code2}}" } {{g.name}}
+        %select{"ui-select2" => true, "ng-model" => "geo.current_country", "data-placeholder" => "Search for another country"}
+          %option
+          %option{'ng-repeat' => "g in geo_entities", 'value' => "{{g.iso_code2}}" } {{g.name}}
     
 
   %div{:class => "stats", "ng-controller" => "StatsCtrl", "ng-show" => "visible"}
   
     %div{:class => "sapi", "ng-controller" => "SapiStatsCtrl"}
       %div{:class => "spinner", "ng-show" => "loading"}
+
+      %div{:class => "section-group"}
+        %section{:class => "group"}
+          %header{}
+            %p
+            %span {{trade_title}}
+            %span{:class => "option-selector", "ng-click" => "toggleTrade()"} {{trade_selector}}
+          %div{"ng-show" => "trade_export"}
+            %ul
+              %li{'ng-repeat' => "t in trade_exports_top_data", "ng-show" => "loaded"} {{t.common_name_en}} ({{t.name}}): {{t.count}}
+          %div{"ng-show" => "trade_import"}
+            %ul
+              %li{'ng-repeat' => "t in trade_imports_top_data", "ng-show" => "loaded"} {{t.common_name_en}} ({{t.name}}): {{t.count}}         
+
+        %section{:class => "group"}
+          %header{}
+            %p
+            %span {{species_title}}
+            %span{:class => "option-selector", "ng-click" => "toggleSpecies()"} {{species_selector}}
+          %div{"ng-show" => "species_cites_eu"}
+            %ul
+              %li{'ng-repeat' => "s in species_cites_eu_data", "ng-show" => "loaded"} {{s.common_name_en}} ({{s.name}}): {{s.count}}
+          %div{"ng-show" => "species_cms"}
+            %ul
+              %li{'ng-repeat' => "s in species_cms_data", "ng-show" => "loaded"} {{s.common_name_en}} ({{s.name}}): {{s.count}}
   
-      %ul
-        %li{'ng-repeat' => "s in species_cites_eu", "ng-show" => "loaded"} {{s.common_name_en}} ({{s.name}}): {{s.count}}
-  
-      %ul
-        %li{'ng-repeat' => "s in species_cms", "ng-show" => "loaded"} {{s.common_name_en}} ({{s.name}}): {{s.count}}
-  
-      %ul
-        %li{'ng-repeat' => "t in trade_exports_top", "ng-show" => "loaded"} {{t.common_name_en}} ({{t.name}}): {{t.count}}
-  
-      %ul
-        %li{'ng-repeat' => "t in trade_imports_top", "ng-show" => "loaded"} {{t.common_name_en}} ({{t.name}}): {{t.count}}
+
   
 
   
