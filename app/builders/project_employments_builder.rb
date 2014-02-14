@@ -1,3 +1,6 @@
+# Helper class that encapsulates the logic of updating
+# info about employments in Featured Projects.
+
 class ProjectEmploymentsBuilder
 
   def initialize(params)

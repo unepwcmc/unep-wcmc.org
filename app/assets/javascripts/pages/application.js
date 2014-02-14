@@ -18,6 +18,5 @@
 //= require augment
 //= require lunr
 //= require pages/main
-//= require html5shiv-printshiv
-//= require html5shiv
+//= require placeholder
 //= require_tree .

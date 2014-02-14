@@ -13,6 +13,8 @@ gem 'font-awesome-rails'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
 gem 'select2-rails'
+gem 'modernizr-rails'
+gem 'placeholder-gem'
 
 gem 'angularjs-rails'
 gem 'underscore-rails'
