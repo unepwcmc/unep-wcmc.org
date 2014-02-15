@@ -1,5 +1,8 @@
 %div{:class => "container dashboard", "ng-app" => "stats"}
 
+  %header{"ng-controller" => "GeoIpCtrl", "ng-model" => "country"}
+    Biodiversity data for {{country.name}}
+
   %div{:class => "section-group"}
     %section{:class => "group"}
       %button{:class => "transparent", "ng-controller" => "StatsBtnCtrl", "ng-click" => "showStats()", "ng-show" => "visible"} View Now
@@ -7,42 +10,68 @@
     %section{:class => "group"}
       %div{:class => "geo_entities", "ng-controller" => "CountryPickerCtrl"}
 
-        %select{"ui-select2" => true, "ng-model" => "geo.current_country", "data-placeholder" => "Search for another country"}
+        %select{"ui-select2" => true, "ng-model" => "geo.current_iso2", "data-placeholder" => "Search for another country"}
           %option
-          %option{'ng-repeat' => "g in geo_entities", 'value' => "{{g.iso_code2}}" } {{g.name}}
+          %option{'ng-repeat' => "g in geo.entities", 'value' => "{{g.iso_code2}}" } {{g.name}}
     
 
   %div{:class => "stats", "ng-controller" => "StatsCtrl", "ng-show" => "visible"}
   
-    %div{:class => "sapi", "ng-controller" => "SapiStatsCtrl"}
-      %div{:class => "spinner", "ng-show" => "loading"}
-
+    %div{:class => "biodiversity"}
       %div{:class => "section-group"}
         %section{:class => "group"}
-          %header{}
-            %p
-            %span {{trade_title}}
-            %span{:class => "option-selector", "ng-click" => "toggleTrade()"} {{trade_selector}}
-          %div{"ng-show" => "trade_export"}
-            %ul
-              %li{'ng-repeat' => "t in trade_exports_top_data", "ng-show" => "loaded"} {{t.common_name_en}} ({{t.name}}): {{t.count}}
-          %div{"ng-show" => "trade_import"}
-            %ul
-              %li{'ng-repeat' => "t in trade_imports_top_data", "ng-show" => "loaded"} {{t.common_name_en}} ({{t.name}}): {{t.count}}         
+          %header
+            %p Estimated biodiversity change
+          %div{"ng-controller" => "CartodbStatsCtrl", "ng-model" => "country"}
+            %div{:class => "spinner", "ng-show" => "loading"}
+            %p {{carbo.biodiversity_loss}}%
+          %header
+            %p Number of protected areas
+          %div{"ng-controller" => "PpeStatsCtrl", "ng-model" => "ppe"}
+            %div{:class => "spinner", "ng-show" => "loading"}
+            %p {{ppe.protected_areas_count}} (covering {{ppe.percentage_protected}}% of ppe.total area)
+        %section{:class => "group"}
+          %header
+            %p Carbon storage
+          %div{"ng-controller" => "CartodbStatsCtrl", "ng-model" => "country"}
+            %p Carbon stored in above ground biomass
+            %div{:class => "spinner", "ng-show" => "loading"}
+            %p {{carbo.carbon_sums | number}} T
+          %div{"ng-controller" => "PpeStatsCtrl", "ng-model" => "ppe"}
+            %p Carbon stored by protected areas
+            %p {{ppe.protected_areas_carbon_percent | number}}%
+
+      %div{:class => "section-group", "ng-controller" => "SapiStatsCtrl", "ng-model" => "sapi"}
+        %div{:class => "spinner", "ng-show" => "sapi.loading"}
 
         %section{:class => "group"}
           %header{}
             %p
-            %span {{species_title}}
-            %span{:class => "option-selector", "ng-click" => "toggleSpecies()"} {{species_selector}}
-          %div{"ng-show" => "species_cites_eu"}
-            %ul
-              %li{'ng-repeat' => "s in species_cites_eu_data", "ng-show" => "loaded"} {{s.common_name_en}} ({{s.name}}): {{s.count}}
-          %div{"ng-show" => "species_cms"}
-            %ul
-              %li{'ng-repeat' => "s in species_cms_data", "ng-show" => "loaded"} {{s.common_name_en}} ({{s.name}}): {{s.count}}
-  
+              %span {{sapi.trade_title}}
+              %span{:class => "option-selector", "ng-click" => "toggleTrade()"} {{sapi.trade_selector}}
+          %div{"ng-show" => "sapi.trade_export"}
+            %ol
+              %li{'ng-repeat' => "t in sapi.trade_exports_top_data", "ng-show" => "sapi.loaded"} 
+                %p {{t.common_name_en}}: {{t.count}}
+                %p {{t.name}}
+          %div{"ng-show" => "sapi.trade_import"}
+            %ol
+              %li{'ng-repeat' => "t in sapi.trade_imports_top_data", "ng-show" => "sapi.loaded"}  
+                %p {{t.common_name_en}}: {{t.count}}
+                %p {{t.name}}     
 
-  
-
-  
+        %section{:class => "group"}
+          %header{}
+            %p
+              %span {{sapi.species_title}}
+              %span{:class => "option-selector", "ng-click" => "toggleSpecies()"} {{sapi.species_selector}}
+          %div{"ng-show" => "sapi.species_cites_eu"}
+            %ol
+              %li{'ng-repeat' => "s in sapi.species_cites_eu_data", "ng-show" => "sapi.loaded"}
+                %p {{s.common_name_en}}: {{s.count}}
+                %p {{s.name}}
+          %div{"ng-show" => "sapi.species_cms"}
+            %ol
+              %li{'ng-repeat' => "s in sapi.species_cms_data", "ng-show" => "sapi.loaded"} 
+                %p {{s.common_name_en}}: {{s.count}}
+                %p {{s.name}}

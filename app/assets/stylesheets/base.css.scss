@@ -1677,18 +1677,21 @@ div.error-message {
 }
 
 div.dashboard {
+  background-color: $grey;
+
   .spinner {
     background-image: image-url('loading.gif');
     width: 64px;
     height: 64px;
   }
 
-  button.transparent {
-    margin: 20px 0 0 0;
+  section.group {
+    margin-top: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
   }
 
-  ul {
-    margin: 10px;
+  button.transparent {
+    margin: 20px 0 0 0;
   }
 
   span.option-selector {
@@ -1703,4 +1706,48 @@ div.dashboard {
       margin: 10px;
     }
   }
+
+  ol {
+    counter-reset:li; /* Initiate a counter */
+    margin-left:0; /* Remove the default left margin */
+    padding-left:0; /* Remove the default left padding */
+  }
+  ol > li {
+    position:relative; /* Create a positioning context */
+    margin:0 0 6px 2em; /* Give each list item a left margin to make room for the numbers */
+    padding:12px 8px; /* Add some spacing around the content */
+    list-style:none; /* Disable the normal item numbering */
+    //border-top:2px solid #666;
+    background:#f6f6f6;
+  }
+  ol > li:before {
+    content:counter(li); /* Use the counter as content */
+    counter-increment:li; /* Increment the counter by 1 */
+    /* Position and style the number */
+    position:absolute;
+    top:15px;
+    left:-2em;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    width:2em;
+    /* Some space between the number and the content in browsers that support
+       generated content but not positioning it (Camino 2 is one example) */
+    margin-right:8px;
+    padding:4px;
+    //border-top:2px solid #666;
+    color:#fff;
+    background:$blue;
+    font-weight:bold;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    text-align:center;
+  }
+
+  ol {
+    p {
+      line-height: 0.8;
+    }
+  }
+
+
 }
