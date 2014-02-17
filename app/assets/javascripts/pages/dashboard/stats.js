@@ -1,13 +1,15 @@
 angular.module('stats').controller('StatsCtrl', [
   '$scope',
-  '$rootScope',
-  '$sce',
-  'country',
-function ($scope, $rootScope, $sce, country) {
+  'statsVisibilityService',
+function ($scope, statsVisibilityService) {
   $scope.visible = false;
-  $rootScope.$on('stats.visible', function(evt, args) {
-    $scope.visible = true;
-  });
+  $scope.$watch(
+    function () { return statsVisibilityService.getVisibility(); }, 
+    function (newVal, oldVal) {
+      if (newVal && newVal !== oldVal) {
+        $scope.visible = newVal;
+      }
+  }, true);
 }]);
 
 
@@ -32,37 +34,43 @@ function ($scope, $rootScope, $resource, GEOIP_URL, countryService) {
       countryService.setCountry($scope.country);
     }
   });
-  $scope
-    .$watch(function () { return countryService.getCountry(); }, 
-      function (newCountry, oldCountry) {
-        if (oldCountry.iso2 && newCountry.iso2 && newCountry.iso2 !== oldCountry.iso2) {
-          $scope.country.name = newCountry.name;
-          $scope.country.iso2 = newCountry.iso2;
-        }
-    }, true);
+  $scope.$watch(
+    function () { return countryService.getCountry(); }, 
+    function (newCountry, oldCountry) {
+      if (oldCountry.iso2 && newCountry.iso2 && newCountry.iso2 !== oldCountry.iso2) {
+        $scope.country.name = newCountry.name;
+        $scope.country.iso2 = newCountry.iso2;
+      }
+  }, true);
 }]);
 
 
 angular.module('stats').controller('StatsBtnCtrl', [
   '$scope',
-  '$rootScope',
-  '$sce',
-function ($scope, $rootScope, $sce) {
+  'statsVisibilityService',
+function ($scope, statsVisibilityService) {
   $scope.visible = true;
   $scope.showStats = function () {
     $scope.visible = false;
-    $rootScope.$emit('stats.visible', true);
+    statsVisibilityService.setVisibility(true);
   }
+  $scope.$watch(
+    function () { return statsVisibilityService.getVisibility(); }, 
+    function (newVal, oldVal) {
+      if (newVal && newVal !== oldVal) {
+        $scope.visible = !newVal;
+      }
+  }, true);
 }]);
 
 
 angular.module('stats').controller('CountryPickerCtrl', [
   '$scope',
-  '$rootScope',
   '$resource', 
   'GEO_ENTITIES_URL',
   'countryService',
-function ($scope, $rootScope, $resource, GEO_ENTITIES_URL, countryService) {
+  'statsVisibilityService',
+function ($scope, $resource, GEO_ENTITIES_URL, countryService, statsVisibilityService) {
   $scope.geo = {};
   var Geo = $resource(GEO_ENTITIES_URL, {geo_entity_types_set:'@gts'});
   Geo.get({gts: 2}, function(data) {
@@ -70,12 +78,14 @@ function ($scope, $rootScope, $resource, GEO_ENTITIES_URL, countryService) {
   });
   
   $scope.$watch('geo.current_iso2', function (newVal, oldVal) {
-      if (oldVal === newVal || newVal === '') return;
-      var country_name = _.find($scope.geo.entities, function(entity) {
-          return entity.iso_code2 === newVal;
-        }).name,
-        country = {iso2: newVal, name: country_name}
-      countryService.setCountry(country);
+    if (oldVal === newVal || newVal === '') return;
+    var country_name = _.find($scope.geo.entities, function(entity) {
+      return entity.iso_code2 === newVal;
+    }).name;
+    countryService.setCountry( {iso2: newVal, name: country_name} );
+    if (statsVisibilityService.getVisibility() === false) {
+      statsVisibilityService.setVisibility(true);
+    }
   }, true);
 
 }]);
@@ -83,11 +93,10 @@ function ($scope, $rootScope, $resource, GEO_ENTITIES_URL, countryService) {
 
 angular.module('stats').controller('SapiStatsCtrl', [
   '$scope',
-  '$rootScope',
   '$resource',
   'SAPI_API_URL',
   'countryService',
-function ($scope, $rootScope, $resource, SAPI_API_URL, countryService) {
+function ($scope, $resource, SAPI_API_URL, countryService) {
 
   var Sapi = $resource(SAPI_API_URL, {country:'@country'});
 
@@ -204,15 +213,11 @@ function ($scope, $rootScope, $resource, SAPI_API_URL, countryService) {
 
 angular.module('stats').controller('PpeStatsCtrl', [
   '$scope',
-  '$rootScope',
   '$resource',
-  '$q',
   'PPE_API_URL',
   'countryService',
   'carboStatsService',
-function ($scope, $rootScope, $resource, $q, PPE_API_URL, countryService, carboStatsService) {
-
-  var deferred = $q.defer();
+function ($scope, $resource, PPE_API_URL, countryService, carboStatsService) {
 
   var Ppe = $resource(PPE_API_URL, {country:'@country'}),
     ppe_stored_carbon, 
@@ -252,7 +257,6 @@ function ($scope, $rootScope, $resource, $q, PPE_API_URL, countryService, carboS
       $scope.ppe.percentage_protected = data.percentage_protected.toFixed(0);
       $scope.ppe.loading = false;
       $scope.ppe.loaded = true;
-      //$scope.ppe.protected_areas_carbon_percent = getCarbonRatio();
     });
   }
 
@@ -261,12 +265,11 @@ function ($scope, $rootScope, $resource, $q, PPE_API_URL, countryService, carboS
 
 angular.module('stats').controller('CartodbStatsCtrl', [
   '$scope',
-  '$rootScope',
   '$resource',
   'CARTODB_URL',
   'carboStatsService',
   'countryService',
-function ($scope, $rootScope, $resource, CARTODB_URL, carboStatsService, countryService) {
+function ($scope, $resource, CARTODB_URL, carboStatsService, countryService) {
 
   var Carbo = $resource(CARTODB_URL);
 
