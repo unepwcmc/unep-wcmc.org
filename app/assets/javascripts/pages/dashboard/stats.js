@@ -4,7 +4,7 @@ angular.module('stats').controller('StatsCtrl', [
   '$sce',
   'country',
 function ($scope, $rootScope, $sce, country) {
-  $scope.visible = false;
+  $scope.visible = true;
   $rootScope.$on('stats.visible', function(evt, args) {
     $scope.visible = true;
   });
@@ -168,7 +168,7 @@ function ($scope, $rootScope, $resource, SAPI_API_URL, countryService) {
 
   // For each taxonomy (cms, cites_eu) it selects the top most numerous groups.
   function getTopSpeciesResults (data, top, other) {
-    var species = data.taxon_concept_stats.species;
+    var species = data.dashboard_stats.species;
     angular.forEach(species, function(results, taxonomy) {
       var other_result, other_results, sorted_results, top_results;
       sorted_results = results.sort( function( a, b) {
@@ -182,14 +182,14 @@ function ($scope, $rootScope, $resource, SAPI_API_URL, countryService) {
       if (top_results[0].count === 0) {
         top_results = [];
       }
-      data.taxon_concept_stats.species[taxonomy] = top_results;
+      data.dashboard_stats.species[taxonomy] = top_results;
     });
     return data;
   };
 
   function getData (iso2) {
     return Sapi.get({country:iso2, kingdom:'Animalia'}, function(data) {
-      var data = getTopSpeciesResults(data, 5).taxon_concept_stats;
+      var data = getTopSpeciesResults(data, 5).dashboard_stats;
       $scope.sapi.species_cites_eu_data = data.species.cites_eu;
       $scope.sapi.species_cms_data = data.species.cms;
       $scope.sapi.trade_exports_top_data = data.trade.exports.top_traded;
