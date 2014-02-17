@@ -1717,9 +1717,12 @@ div.dashboard {
   }
 
   section.group.stats {
+    p {
+      margin-bottom: 0;
+    }
 
     .stat {
-      margin: 0 0 26px 0;
+      margin: 0 0 33px 0;
       padding-bottom: 5px;
       background-color: rgba(225, 225, 225, 0.8);
       .number {
@@ -1742,11 +1745,13 @@ div.dashboard {
         font-weight: bold;
       }
     }
-    .stat.carbon div {
+    .stat.carbon > div {
+      margin: 0;
+      padding: 9px 0;
       border-top: 1px solid $grey;
     }
     header {
-      padding: 7px;
+      padding: 16px 10px;
       text-transform: uppercase;
       background-color: rgba(255, 255, 255, 0.8);
       p {
@@ -1827,22 +1832,24 @@ div.dashboard {
   }
   ol > li {
     position:relative; /* Create a positioning context */
-    margin:0 0 6px 2em; /* Give each list item a left margin to make room for the numbers */
+    margin:0 0 6px 2.5em; /* Give each list item a left margin to make room for the numbers */
     padding:12px 8px; /* Add some spacing around the content */
     list-style:none; /* Disable the normal item numbering */
     //border-top:2px solid #666;
-    background:#f6f6f6;
+    //background:#f6f6f6;
+    border-top: 1px solid $grey;
   }
   ol > li:before {
     content:counter(li); /* Use the counter as content */
     counter-increment:li; /* Increment the counter by 1 */
     /* Position and style the number */
     position:absolute;
-    top:15px;
-    left:-2em;
+    top:23px;
+    left:-32px;
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
     box-sizing:border-box;
+    border-radius: 4px;
     width:2em;
     /* Some space between the number and the content in browsers that support
        generated content but not positioning it (Camino 2 is one example) */
@@ -1858,7 +1865,7 @@ div.dashboard {
 
   ol {
     p {
-      line-height: 0.8;
+      line-height: 1.5;
     }
   }
   
