@@ -1676,8 +1676,11 @@ div.error-message {
   }
 }
 
+div.banner {
+  background-color: rgba(200, 200, 200, 0.3);
+}
+
 div.dashboard {
-  background-color: $grey;
 
   .spinner {
     background-image: image-url('loading.gif');
@@ -1685,19 +1688,129 @@ div.dashboard {
     height: 64px;
   }
 
+  .dashboard-title {
+    font-size: 2.4em;
+    color: white;
+    margin: 50px 0;
+  }
+
+  div.section-group.controls {
+    section.group {
+      background-color: rgba(255, 255, 255, 0);
+      margin-top: 0;
+    }
+    button {
+      color: white;
+      background: none;
+      border: 2px solid white;
+      font-size: 1.4em;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    margin-bottom: 30px;
+
+  }
+
   section.group {
     margin-top: 40px;
-    background-color: rgba(255, 255, 255, 0.8);
+    //background-color: rgba(255, 255, 255, 0.8);
   }
 
-  button.transparent {
-    margin: 20px 0 0 0;
+  section.group.stats {
+
+    .stat {
+      margin: 0 0 26px 0;
+      padding-bottom: 5px;
+      background-color: rgba(225, 225, 225, 0.8);
+      .number {
+        font-size: 2.5em;
+        font-weight: bold;
+        color: $dark-grey;
+      }
+      .small {
+        font-size: 0.5em;
+      }
+      .content {
+        margin: 10px 5px;
+        p {
+          margin: 0px 0 0 5px;
+          padding-top: 13px;
+          //padding: 16px 0;
+        }
+      }
+      b {
+        font-weight: bold;
+      }
+    }
+    .stat.carbon div {
+      border-top: 1px solid $grey;
+    }
+    header {
+      padding: 7px;
+      text-transform: uppercase;
+      background-color: rgba(255, 255, 255, 0.8);
+      p {
+        margin-bottom: 0;
+        font-weight: bold;
+      }
+      span.option-selector {
+        float: right;
+        cursor: pointer;
+        color: $blue;
+        text-transform: none;
+        font-weight: normal;
+      }
+    }
   }
 
-  span.option-selector {
+  .bar-main-container {
+    margin: 10px 5px;
+    width: 330px;
+    height: 50px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    font-weight: normal;
+    color: #FFF;
+  }
+  
+  .wrap { padding: 8px; }
+  
+  .bar-percentage {
+    //font-size: 3em;
+    //font-weight: bold;
+    //.small {
+    //  font-size: 0.5em;
+    //}
+    float: left;
+    color: $dark_grey;
+    padding: 0;
+  }
+  
+  .bar-container {
     float: right;
-    cursor: pointer;
-    color: $blue;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    height: 12px;
+    background: rgba($blue, 0.4);
+    width: 70%;
+    margin: 22px 0 0 0;
+    overflow: hidden;
+  }
+  
+  .bar {
+    float: left;
+    background: $blue;
+    height: 100%;
+    -webkit-border-radius: 10px 0px 0px 10px;
+    -moz-border-radius: 10px 0px 0px 10px;
+    border-radius: 10px 0px 0px 10px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    opacity: 1;
   }
 
   .geo_entities {
@@ -1739,7 +1852,7 @@ div.dashboard {
     color:#fff;
     background:$blue;
     font-weight:bold;
-    font-family:"Helvetica Neue", Arial, sans-serif;
+    //font-family:"Helvetica Neue", Arial, sans-serif;
     text-align:center;
   }
 
@@ -1748,6 +1861,9 @@ div.dashboard {
       line-height: 0.8;
     }
   }
+  
+
+
 
 
 }
