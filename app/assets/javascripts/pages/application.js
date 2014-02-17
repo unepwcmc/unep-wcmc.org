@@ -21,4 +21,5 @@
 //= require augment
 //= require lunr
 //= require pages/main
+//= require placeholder
 //= require_tree .
