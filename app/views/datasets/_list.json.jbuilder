@@ -1,6 +1,7 @@
 json.datasets @cms_page.children.published.each do |dataset|
   json.title cms_page_content(:title, dataset)
   json.content cms_page_content(:content, dataset)
+  json.slug dataset.slug
   json.publication_date cms_page_content(:publication_date, dataset)
   json.content_type cms_page_content(:content_type, dataset)
   json.first_link cms_page_content(:first_url, dataset)
