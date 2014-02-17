@@ -30,7 +30,7 @@
                   {{carbo.biodiversity_loss}} 
                   %span{:class => "small"}%
                 %div{:class => "bar-container"}
-                  %div{:class => "bar", :style => "width: {{carbo.biodiversity_loss}}px;"}
+                  %div{:class => "bar", :style => "width: {{carbo.biodiversity_loss * 3.3 * .7}}px;"}
           %div{:class => "stat"}
             %header
               %p Number of protected areas
@@ -53,10 +53,14 @@
             %div{:class => "content", "ng-controller" => "PpeStatsCtrl", "ng-model" => "ppe"}
               %p 
                 %b Carbon stored by protected areas
-              %p 
-              %span{:class => "number"}
-                {{ppe.protected_areas_carbon_percent | number}}
-              %span %
+              %div{:class => "bar-main-container", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "country"}
+                %div{:class => "spinner", "ng-show" => "loading"}
+                %div{:class => "wrap"}
+                  %div{:class => "bar-percentage number"} 
+                    {{ppe.protected_areas_carbon_percent | number}} 
+                    %span{:class => "small"}%
+                  %div{:class => "bar-container"}
+                    %div{:class => "bar", :style => "width: {{ppe.protected_areas_carbon_percent * 3.3 * .7}}px;"}
 
       %div{:class => "section-group", "ng-controller" => "SapiStatsCtrl", "ng-model" => "sapi"}
         %div{:class => "spinner", "ng-show" => "sapi.loading"}
@@ -70,12 +74,14 @@
             %div{"ng-show" => "sapi.trade_export"}
               %ol
                 %li{'ng-repeat' => "t in sapi.trade_exports_top_data", "ng-show" => "sapi.loaded"} 
-                  %p {{t.common_name_en}}: {{t.count}}
+                  %p 
+                    %b {{t.common_name_en}}: {{t.count}}
                   %p {{t.name}}
             %div{"ng-show" => "sapi.trade_import"}
               %ol
                 %li{'ng-repeat' => "t in sapi.trade_imports_top_data", "ng-show" => "sapi.loaded"}  
-                  %p {{t.common_name_en}}: {{t.count}}
+                  %p 
+                    %b {{t.common_name_en}}: {{t.count}}
                   %p {{t.name}}     
 
         %section{:class => "group stats"}
@@ -87,10 +93,12 @@
             %div{"ng-show" => "sapi.species_cites_eu"}
               %ol
                 %li{'ng-repeat' => "s in sapi.species_cites_eu_data", "ng-show" => "sapi.loaded"}
-                  %p {{s.common_name_en}}: {{s.count}}
+                  %p 
+                    %b {{s.common_name_en}}: {{s.count}}
                   %p {{s.name}}
             %div{"ng-show" => "sapi.species_cms"}
               %ol
                 %li{'ng-repeat' => "s in sapi.species_cms_data", "ng-show" => "sapi.loaded"} 
-                  %p {{s.common_name_en}}: {{s.count}}
+                  %p 
+                    %b {{s.common_name_en}}: {{s.count}}
                   %p {{s.name}}
