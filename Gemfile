@@ -38,6 +38,7 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'debugger'
 end
 
 group :doc do
@@ -47,3 +48,5 @@ end
 gem 'comfortable_mexican_sofa', '~> 1.11.0'
 gem 'unicorn'
 gem 'capistrano', '~> 2.15.0', group: :development
+
+gem "geoip", "~> 1.3.5"

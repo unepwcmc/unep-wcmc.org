@@ -58,6 +58,10 @@ UnepWcmcOrg::Application.routes.draw do
     resources :submissions, path: "applications", except: [:index]
   end
 
+  namespace :api do
+    resources :geoip, only: [:index]
+  end
+
   comfy_route :cms_admin, :path => '/admin'
   comfy_route :cms, :path => '/', :sitemap => false
 end
