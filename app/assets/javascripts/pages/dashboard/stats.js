@@ -4,7 +4,7 @@ angular.module('stats').controller('StatsCtrl', [
   '$sce',
   'country',
 function ($scope, $rootScope, $sce, country) {
-  $scope.visible = true;
+  $scope.visible = false;
   $rootScope.$on('stats.visible', function(evt, args) {
     $scope.visible = true;
   });
