@@ -193,6 +193,8 @@ GEM
       cocaine (~> 0.5.3)
       mime-types
     pg (0.17.0)
+    placeholder-gem (3.0.0.0)
+      railties (>= 3.1)
     polyglot (0.3.3)
     pry (0.9.12.4)
       coderay (~> 1.0)
@@ -312,6 +314,7 @@ DEPENDENCIES
   letter_opener
   modernizr-rails
   pg
+  placeholder-gem
   pry-remote
   rails (= 4.0.0)
   rails-observers
