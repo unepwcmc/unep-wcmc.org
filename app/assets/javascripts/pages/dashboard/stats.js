@@ -222,8 +222,6 @@ function ($scope, $rootScope, $resource, $q, PPE_API_URL, countryService, carboS
     .$watch(function () { return countryService.getCountry(); }, 
       function (newCountry, oldCountry) {
         if (newCountry.iso2 && newCountry.iso2 !== oldCountry.iso2) {
-          $scope.ppe.loading = true;
-          $scope.ppe.loaded = false;
           getData(newCountry.iso2);
         }
     }, true);
@@ -272,20 +270,17 @@ function ($scope, $rootScope, $resource, CARTODB_URL, carboStatsService, country
 
   var Carbo = $resource(CARTODB_URL);
 
-  $scope
-    .$watch(function () { return countryService.getCountry(); }, 
-      function (newCountry, oldCountry) {
-        if (newCountry.iso2 && newCountry.iso2 !== oldCountry.iso2) {
-          $scope.carbo.loading = true;
-          $scope.carbo.loaded = false;
-          getData(newCountry.iso2);
-        }
-    }, true);
-
   $scope.carbo = {}
   $scope.carbo.loading = true;
   $scope.carbo.loaded = false;
-  
+  $scope.$watch(
+    function () { return countryService.getCountry(); }, 
+    function (newCountry, oldCountry) {
+      if (newCountry.iso2 && newCountry.iso2 !== oldCountry.iso2) {
+        getData(newCountry.iso2);
+      }
+  }, true);
+
   function getData (iso2) {
     var q = {
       q: "SELECT biodiversity_loss, carbon_sums FROM wcmc_api_stats WHERE iso2 = '" + iso2 + "'"
