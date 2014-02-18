@@ -77,44 +77,62 @@ function ($scope, $resource, GEO_ENTITIES_URL, countryService, statsVisibilitySe
     $scope.geo.entities = data.geo_entities;
   });
 
+  $scope.findCountry = function (current_country) {
+    var country = _.find($scope.geo.entities, function(country) {
+      return $scope.geo.current_country.name === country.name;
+    });
+    countryService.setCountry({
+      iso2: country.iso_code2, 
+      name: country.name,
+      loaded: true
+    });
+    //console.log(countryService)
+    if (statsVisibilityService.getVisibility() === false) {
+      statsVisibilityService.setVisibility(true);
+    }
+  }
+
   var countries = new Bloodhound({
-    datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.name); },
+    datumTokenizer: function(d) { 
+      return Bloodhound.tokenizers.whitespace(d.name); 
+    },
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     limit: 10,
     prefetch: {
       url: GEO_ENTITIES_URL + '?gts=2',
       filter: function(list) {
-        return $.map(list.geo_entities, function(country) { return { name: country.name }; });
+        return $.map(list.geo_entities, 
+          function(country) { 
+            return { 
+              name: country.name,
+            }; 
+        });
     }
   }
   });
   countries.initialize();
 
   // Typeahead options object
-  $scope.exampleOptions = {
+  $scope.country_options = {
     highlight: true
   };
 
   // Single dataset example
-  $scope.exampleData = {
+  $scope.country_data = {
     displayKey: 'name',
     source: countries.ttAdapter()
   };
+
+  //$scope.$on('typeahead:selected', function () {
+  //  $scope.findCountry($scope.geo.current_country);
+  //});
   
-  //$scope.$watch('geo.current_iso2', function (newVal, oldVal) {
-  //  if (oldVal === newVal || newVal === '') return;
-  //  var country_name = _.find($scope.geo.entities, function(entity) {
-  //    return entity.iso_code2 === newVal;
-  //  }).name;
-  //  countryService.setCountry( {iso2: newVal, name: country_name} );
-  //  if (statsVisibilityService.getVisibility() === false) {
-  //    statsVisibilityService.setVisibility(true);
-  //  }
-  //}, true);
+  $scope.$watch('geo.current_country', function (newVal, oldVal) {
+    if (oldVal === newVal || newVal === '') return;
+    $scope.geo.current_country = newVal;
+  }, true);
 
 }]);
-
-
 
 
 angular.module('stats').controller('SapiStatsCtrl', [
