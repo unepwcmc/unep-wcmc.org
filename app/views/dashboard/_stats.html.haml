@@ -76,14 +76,16 @@
               %ol
                 %li{'ng-repeat' => "t in sapi.trade_exports_top_data", "ng-show" => "sapi.loaded"} 
                   %p 
-                    %b {{t.common_name_en}}: {{t.count}}
+                    %b {{t.common_name_en || t.name}}: {{t.count}}
                   %p {{t.name}}
+                %p{'ng-hide'=>"sapi.trade_exports_top_data.length", :class => "no-data"} No exported species.
             %div{"ng-show" => "sapi.trade_import"}
               %ol
                 %li{'ng-repeat' => "t in sapi.trade_imports_top_data", "ng-show" => "sapi.loaded"}  
                   %p 
-                    %b {{t.common_name_en}}: {{t.count}}
+                    %b {{t.common_name_en || t.name}}: {{t.count}}
                   %p {{t.name}}     
+                %p{'ng-hide'=>"sapi.trade_imports_top_data.length", :class => "no-data"} No imported species.
 
         %section{:class => "group stats"}
           %div{:class => "stat"}
@@ -96,11 +98,13 @@
               %ol
                 %li{'ng-repeat' => "s in sapi.species_cites_eu_data", "ng-show" => "sapi.loaded"}
                   %p 
-                    %b {{s.common_name_en}}: {{s.count}}
+                    %b {{s.common_name_en || s.name}}: {{s.count}}
                   %p {{s.name}}
+                %p{'ng-hide'=>"sapi.species_cites_eu_data.length", :class => "no-data"} No listed species.
             %div{"ng-show" => "sapi.species_cms"}
               %ol
                 %li{'ng-repeat' => "s in sapi.species_cms_data", "ng-show" => "sapi.loaded"} 
                   %p 
-                    %b {{s.common_name_en}}: {{s.count}}
+                    %b {{s.common_name_en || s.name}}: {{s.count}}
                   %p {{s.name}}
+                %p{'ng-hide'=>"sapi.species_cms_data.length", :class => "no-data"} No listed species.

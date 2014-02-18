@@ -175,15 +175,28 @@ function ($scope, $resource, SAPI_API_URL, countryService) {
     return other_result;
   }
 
+  function spliceNoData (arr) {
+    var len = arr.length, el;
+    while (len--) {
+      el = arr[len];
+      if ( el.count === 0 ) {
+        arr.splice(len, 1);
+      }
+    }
+    return arr;
+  }
+
   // For each taxonomy (cms, cites_eu) it selects the top most numerous groups.
   function getTopSpeciesResults (data, top, other) {
     var species = data.dashboard_stats.species;
     angular.forEach(species, function(results, taxonomy) {
-      var other_result, other_results, sorted_results, top_results;
+      var other_result, other_results, sorted_results, filtered_results, 
+        top_results;
       sorted_results = results.sort( function( a, b) {
         return a.count - b.count;
       }).reverse();
-      top_results = sorted_results.slice(0, top);
+      filtered_results = spliceNoData(sorted_results);
+      top_results = filtered_results.slice(0, top);
       if (other) {
         other_result = getOtherSpeciesResults(sorted_results, top);
         top_results.push(other_result);
