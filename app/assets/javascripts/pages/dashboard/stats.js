@@ -77,11 +77,10 @@ function ($scope, $resource, GEO_ENTITIES_URL, countryService, statsVisibilitySe
     $scope.geo.entities = data.geo_entities;
   });
 
-
-
   var countries = new Bloodhound({
     datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.name); },
     queryTokenizer: Bloodhound.tokenizers.whitespace,
+    limit: 10,
     prefetch: {
       url: GEO_ENTITIES_URL + '?gts=2',
       filter: function(list) {
@@ -91,7 +90,7 @@ function ($scope, $resource, GEO_ENTITIES_URL, countryService, statsVisibilitySe
   });
   countries.initialize();
 
-    // Typeahead options object
+  // Typeahead options object
   $scope.exampleOptions = {
     highlight: true
   };
