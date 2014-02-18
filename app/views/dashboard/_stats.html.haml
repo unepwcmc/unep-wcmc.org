@@ -1,7 +1,8 @@
 %div{:class => "container dashboard", "ng-app" => "stats"}
 
   %header{:class => "dashboard-title", "ng-controller" => "GeoIpCtrl", "ng-model" => "country"}
-    Biodiversity data for {{country.name}}
+    %h1
+      Biodiversity data for {{country.name}}
 
   %div{:class => "section-group controls"}
     %section#view-button{:class => "group", "ng-controller" => "StatsBtnCtrl", "ng-show" => "visible"}

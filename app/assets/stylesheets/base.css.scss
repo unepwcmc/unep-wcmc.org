@@ -1679,7 +1679,7 @@ div.error-message {
   }
 }
 
-div.banner {
+div.dashboard-container {
   background-image: url('dashboard_background.jpg');
   background-position: center;
 	overflow: visible;
@@ -1699,11 +1699,12 @@ div.dashboard {
     width: 32px;
     height: 32px;
   }
-
-  .dashboard-title {
+  
+  header h1 {
     font-size: 2.4em;
     color: white;
     margin: 50px 0;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   }
 
   div.section-group.controls {
@@ -1727,11 +1728,14 @@ div.dashboard {
       background: none;
       border: 2px solid #fff;
       font-size: 1.25em;
+    	font-family: "museo-sans", Helvetica, Arial, sans-serif;
+    	font-weight: 300;      
       padding: 10px 20px;
       cursor: pointer;
       -webkit-border-radius: 3px;
     	-moz-border-radius: 3px;
     	border-radius: 3px;
+    	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
     }
     margin-bottom: 30px;
 
@@ -1749,9 +1753,14 @@ div.dashboard {
     }
 
     .stat {
-      margin: 0 0 33px 0;
-      padding-bottom: 5px;
+      margin: 0 0 20px 0;
       background-color: rgba(225, 225, 225, 0.8);
+      header {
+        padding: 20px;
+        p {
+          font-weight: 300;
+        }
+      }
       .number {
         font-size: 2.5em;
         font-weight: bold;
