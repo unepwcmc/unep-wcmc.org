@@ -1692,6 +1692,12 @@ div.dashboard {
     height: 64px;
   }
 
+  .spinner-small {
+    background-image: image-url('loading_small.gif');
+    width: 32px;
+    height: 32px;
+  }
+
   .dashboard-title {
     font-size: 2.4em;
     color: white;

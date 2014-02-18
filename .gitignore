@@ -4,3 +4,6 @@
 tmp/**
 log/**
 
+# App specific Max Mind config
+config/max_mind.yml
+

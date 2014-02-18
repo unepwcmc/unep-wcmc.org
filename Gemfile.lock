@@ -193,6 +193,8 @@ GEM
       cocaine (~> 0.5.3)
       mime-types
     pg (0.17.0)
+    placeholder-gem (3.0.0.0)
+      railties (>= 3.1)
     polyglot (0.3.3)
     pry (0.9.12.4)
       coderay (~> 1.0)
@@ -241,6 +243,8 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
+    rvm-capistrano (1.5.1)
+      capistrano (~> 2.15.4)
     sass (3.2.12)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -312,10 +316,12 @@ DEPENDENCIES
   letter_opener
   modernizr-rails
   pg
+  placeholder-gem
   pry-remote
   rails (= 4.0.0)
   rails-observers
   rspec-rails
+  rvm-capistrano
   sass-rails (~> 4.0.0)
   sdoc
   select2-rails
