@@ -76,19 +76,46 @@ function ($scope, $resource, GEO_ENTITIES_URL, countryService, statsVisibilitySe
   Geo.get({gts: 2}, function(data) {
     $scope.geo.entities = data.geo_entities;
   });
-  
-  $scope.$watch('geo.current_iso2', function (newVal, oldVal) {
-    if (oldVal === newVal || newVal === '') return;
-    var country_name = _.find($scope.geo.entities, function(entity) {
-      return entity.iso_code2 === newVal;
-    }).name;
-    countryService.setCountry( {iso2: newVal, name: country_name} );
-    if (statsVisibilityService.getVisibility() === false) {
-      statsVisibilityService.setVisibility(true);
+
+
+
+  var countries = new Bloodhound({
+    datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.name); },
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    prefetch: {
+      url: GEO_ENTITIES_URL + '?gts=2',
+      filter: function(list) {
+        return $.map(list.geo_entities, function(country) { return { name: country.name }; });
     }
-  }, true);
+  }
+  });
+  countries.initialize();
+
+    // Typeahead options object
+  $scope.exampleOptions = {
+    highlight: true
+  };
+
+  // Single dataset example
+  $scope.exampleData = {
+    displayKey: 'name',
+    source: countries.ttAdapter()
+  };
+  
+  //$scope.$watch('geo.current_iso2', function (newVal, oldVal) {
+  //  if (oldVal === newVal || newVal === '') return;
+  //  var country_name = _.find($scope.geo.entities, function(entity) {
+  //    return entity.iso_code2 === newVal;
+  //  }).name;
+  //  countryService.setCountry( {iso2: newVal, name: country_name} );
+  //  if (statsVisibilityService.getVisibility() === false) {
+  //    statsVisibilityService.setVisibility(true);
+  //  }
+  //}, true);
 
 }]);
+
+
 
 
 angular.module('stats').controller('SapiStatsCtrl', [
