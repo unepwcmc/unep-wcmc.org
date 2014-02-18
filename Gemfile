@@ -48,5 +48,7 @@ end
 gem 'comfortable_mexican_sofa', '~> 1.11.0'
 gem 'unicorn'
 gem 'capistrano', '~> 2.15.0', group: :development
+gem 'rvm-capistrano'
 
 gem "geoip", "~> 1.3.5"
+

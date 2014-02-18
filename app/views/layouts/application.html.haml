@@ -21,6 +21,8 @@
     /[if lt IE 9]
       = stylesheet_link_tag "medium", media: "all"
       = stylesheet_link_tag "large", media: "all"
+    /[if IE]
+      = stylesheet_link_tag "ie", media: "all"
     = javascript_include_tag "modernizr.js"
     = csrf_meta_tags
 

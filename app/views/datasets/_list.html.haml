@@ -57,8 +57,10 @@
   #data.column-2-3
     %h1
       Resources &amp; data
-    %section{"ng-repeat" => "dataset in activeDatasets"}
-      %h2.smaller {{ dataset.title }}
+    %section{"ng-repeat" => "dataset in activeDatasets"}      
+
+      %h2.smaller{:id => "{{ dataset.slug }}" }
+        {{ dataset.title }}
       %h3
         {{ dataset.content_type }}
         %span.separator= '|'
