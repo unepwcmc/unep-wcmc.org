@@ -12,9 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require typeahead.bundle
 //= require angular
 //= require angular-resource
 //= require angular-animate
+//= require angular-typeahead
 //= require select2
 //= require ui-select2
 //= require underscore
