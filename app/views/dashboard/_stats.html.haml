@@ -4,10 +4,10 @@
     Biodiversity data for {{country.name}}
 
   %div{:class => "section-group controls"}
-    %section{:class => "group"}
+    %section#view-button{:class => "group"}
       %button{:class => "transparent", "ng-controller" => "StatsBtnCtrl", "ng-click" => "showStats()", "ng-show" => "visible"} View Now
 
-    %section{:class => "group"}
+    %section#search-field{:class => "group"}
       %div{:class => "geo_entities", "ng-controller" => "CountryPickerCtrl"}
 
         %select{"ui-select2" => true, "ng-model" => "geo.current_iso2", "data-placeholder" => "Search for another country"}

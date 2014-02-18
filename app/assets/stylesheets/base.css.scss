@@ -1679,7 +1679,9 @@ div.error-message {
 }
 
 div.banner {
-  background-color: rgba(200, 200, 200, 0.3);
+  background-image: url('dashboard_background.jpg');
+  background-position: center;
+  background-size: cover;
 }
 
 div.dashboard {
@@ -1700,14 +1702,23 @@ div.dashboard {
     section.group {
       background-color: rgba(255, 255, 255, 0);
       margin-top: 0;
+      &#view-button {
+        width: 20%;
+      }
+      &#search-field {
+        width: 75%;
+      }
     }
     button {
-      color: white;
+      color: #fff;
       background: none;
-      border: 2px solid white;
-      font-size: 1.4em;
-      padding: 5px 10px;
+      border: 2px solid #fff;
+      font-size: 1.25em;
+      padding: 10px 20px;
       cursor: pointer;
+      -webkit-border-radius: 3px;
+    	-moz-border-radius: 3px;
+    	border-radius: 3px;
     }
     margin-bottom: 30px;
 
@@ -1822,8 +1833,10 @@ div.dashboard {
 
   .geo_entities {
     .select2-container {
-      width: 300px;
-      margin: 10px;
+      width: 100%;
+    }
+    .select2-chosen {
+      padding: 10px 0;
     }
   }
 
