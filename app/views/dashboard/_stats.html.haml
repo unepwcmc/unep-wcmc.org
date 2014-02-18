@@ -27,42 +27,39 @@
           %div{:class => "stat"}
             %header
               %p Estimated biodiversity change
-            %div{:class => "bar-main-container", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "country"}
-              
-              %div{:class => "wrap"}
-                %div{:class => "bar-percentage number"}
-                  %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
-                  {{carbo.biodiversity_loss}} 
-                  %span{:class => "small"}%
-                %div{:class => "bar-container"}
-                  %div{:class => "bar", :style => "width: {{carbo.biodiversity_loss * 3.3 * .7}}px;"}
+            %div{:class => "metrics-container", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "country"}
+              %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
+              %div.metric.percentage
+                %span{:class => "number"} {{carbo.biodiversity_loss}} 
+                %span{:class => "small"}%
+              %div{:class => "bar-container"}
+                %div{:class => "bar", :style => "width: {{carbo.biodiversity_loss * 3.3 * .7}}px;"}
           %div{:class => "stat"}
             %header
               %p Number of protected areas
-            %div{:class => "content", "ng-controller" => "PpeStatsCtrl", "ng-model" => "ppe"}
+            %div{:class => "metrics-container", "ng-controller" => "PpeStatsCtrl", "ng-model" => "ppe"}
               %div{:class => "spinner-small", "ng-show" => "ppe.loading"}
-              %p 
-                %span{:class => "number"} {{ppe.protected_areas_count}} 
-                %span{:class => ""} covering {{ppe.percentage_protected}}% of total area
+              %div.metric
+                %span{:class => "number protected-areas"} {{ppe.protected_areas_count}} 
+                %span{:class => "small"} covering {{ppe.percentage_protected}}% of total area
         %section{:class => "group stats"}
           %div{:class => "stat carbon"}
             %header
               %p Carbon storage
-            %div{:class => "content", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "country"}
-              %p 
-                %b Carbon stored in above ground biomass
-              %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
-              %p 
-                %span{:class => "number"}{{carbo.carbon_sums | number}}
-                %span T
-            %div{:class => "content", "ng-controller" => "PpeStatsCtrl", "ng-model" => "ppe"}
-              %p 
-                %b Carbon stored by protected areas
-              %div{:class => "bar-main-container", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "country"}
-                %div{:class => "spinner-small", "ng-show" => "ppe.loading"}
-                %div{:class => "wrap"}
-                  %div{:class => "bar-percentage number"} 
-                    {{ppe.protected_areas_carbon_percent | number}} 
+            %div{:class => "metrics-container carbon"}
+              %div.metric
+                %p{:class => "subheader"} Carbon stored in above ground biomass
+                %div{:class => "submetric", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "country"}
+                  %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
+                  %span{:class => "number"} {{carbo.carbon_sums | number}} 
+                  %span{:class => "small"} T
+            %div{:class => "metrics-container carbon"}
+              %div.metric
+                %p{:class => "subheader"} Carbon stored by protected areas
+                %div{:class => "submetric", "ng-controller" => "PpeStatsCtrl", "ng-model" => "ppe"}
+                  %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
+                  %div.metric.percentage
+                    %span{:class => "number"} {{ppe.protected_areas_carbon_percent | number}} 
                     %span{:class => "small"}%
                   %div{:class => "bar-container"}
                     %div{:class => "bar", :style => "width: {{ppe.protected_areas_carbon_percent * 3.3 * .7}}px;"}
