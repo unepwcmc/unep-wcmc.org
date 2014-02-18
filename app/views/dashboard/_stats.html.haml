@@ -5,8 +5,8 @@
       Biodiversity data for {{country.name}}
 
   %div{:class => "section-group controls"}
-    %section#view-button{:class => "group"}
-      %button{:class => "transparent", "ng-controller" => "StatsBtnCtrl", "ng-click" => "showStats()", "ng-show" => "visible"} View Now
+    %section#view-button{:class => "group", "ng-controller" => "StatsBtnCtrl", "ng-show" => "visible"}
+      %button{:class => "transparent", "ng-click" => "showStats()", "ng-show" => "visible"} View Now
 
     %section#search-field{:class => "group"}
       %div{:class => "geo_entities", "ng-controller" => "CountryPickerCtrl"}
