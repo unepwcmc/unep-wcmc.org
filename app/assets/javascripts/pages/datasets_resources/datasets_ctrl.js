@@ -3,6 +3,7 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
   lunr.stopWordFilter = function (word) { return word == "" ? undefined : word; }
   lunr.Pipeline.registerFunction(lunr.stopWordFilter, 'stopWordFilter')
 
+
   var index = lunr(function () {
     this.field('title', {boost: 10});
     this.field('content');
@@ -74,12 +75,21 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
       $scope.datasets[i].index = i;
       index.add($scope.datasets[i]);
     }
+    $scope.hiddenDatasets = $scope.activeDatasets;
+  }
+
+  $scope.showMore = function () {
+    for (var i=0; i < 4 && $scope.hiddenDatasets.length > 0; i++) {
+      var datasetItem = $scope.hiddenDatasets.shift();
+      $scope.activeDatasets.push(datasetItem);
+    }
   }
 
   $scope.init = function (data) {
     $scope.sortOrder = $scope.sortOrders[0].value;
     $scope.query = "";
     $scope.datasets = data.datasets;
+    $scope.hiddenDatasets = [];
     $scope.contentTypes = data.content_types;
     initDatasets();
     $scope.selectAll();
