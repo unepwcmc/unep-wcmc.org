@@ -13,6 +13,7 @@ $yellow: #FFDB65;
   width: 70%;
   max-width: 980px;
   margin: auto;
+  overflow: hidden;
   img {
     max-width: 100%;
     &.areas_work {
@@ -236,11 +237,6 @@ ul.footer{
 	}
 }
 
-.nav-container {
-  width: 70% !important;
-}
-
-
 .slicknav_menu {
 	display:none;
 }
@@ -335,7 +331,7 @@ div#news-item {
   section.actions#share {
     font-size: 0.85em;
     span {
-      font-size: 1em !important;
+      font-size: 1em;
     }
   }
 }
