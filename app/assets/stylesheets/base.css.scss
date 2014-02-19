@@ -607,9 +607,9 @@ div#button-row {
       h3 {
         margin: 0 0 20px 0;
         color: #333;
-        font-weight: 500 !important;
-        word-spacing: 0 !important;
-        letter-spacing: 0 !important;
+        font-weight: 500;
+        word-spacing: 0;
+        letter-spacing: 0;
         span.project_role {
           text-transform: none;
         }
@@ -1340,19 +1340,6 @@ section.group.staff {
   p {
     margin-bottom: 0;
   }
-}
-
-section.group.staff#vacancy-team {
-  overflow: hidden;
-  width: 47.5%;
-  margin-right: 5%;
-  float: left !important;
-  &:nth-child(2n) {  
-    margin-right: 0;
-  }
-  &:nth-child(2n+3) {  
-    clear: left;
-  } 
 }
 
 div#news-archive {
