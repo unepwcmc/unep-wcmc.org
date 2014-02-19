@@ -10,14 +10,7 @@
 
     %section#search-field{:class => "group"}
       %div{:class => "geo_entities", "ng-controller" => "CountryPickerCtrl"}
-
-
-
-        %input{:type=>"text", :class=>"sfTypeahead", 'options'=>"country_options", 'datasets'=>"country_data", 'ng-model'=>"geo.current_country"}
-        
-        %button{"ng-click" => "findCountry()"} search
-
-
+        %input{:type=>"text", "ng-model"=>"selected", "typeahead"=>"country as country.name for country in getCountry($viewValue)"}
 
   %div{:class => "stats", "ng-controller" => "StatsCtrl", "ng-show" => "visible"}
   
