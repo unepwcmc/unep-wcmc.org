@@ -75,13 +75,12 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
       $scope.datasets[i].index = i;
       index.add($scope.datasets[i]);
     }
-    $scope.hiddenDatasets = $scope.activeDatasets;
   }
 
   $scope.showMore = function () {
     for (var i=0; i < 4 && $scope.hiddenDatasets.length > 0; i++) {
       var datasetItem = $scope.hiddenDatasets.shift();
-      $scope.activeDatasets.push(datasetItem);
+      $scope.datasetsToBeDisplayed.push(datasetItem);
     }
   }
 
@@ -90,10 +89,20 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     $scope.query = "";
     $scope.datasets = data.datasets;
     $scope.hiddenDatasets = [];
+    $scope.datasetsToBeDisplayed = [];
     $scope.contentTypes = data.content_types;
     initDatasets();
     $scope.selectAll();
     $scope.search();
+    $scope.hiddenDatasets = $scope.activeDatasets;
+    $scope.setInitialDatasets();
+  }
+
+  $scope.setInitialDatasets = function () {
+    for (var i=0; i < 4 && $scope.hiddenDatasets.length > 0; i++) {
+      var datasetItem = $scope.hiddenDatasets.shift();
+      $scope.datasetsToBeDisplayed.push(datasetItem);
+    }
   }
 
   $scope.toggleContentType = function () {
