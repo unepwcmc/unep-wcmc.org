@@ -3,7 +3,6 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
   lunr.stopWordFilter = function (word) { return word == "" ? undefined : word; }
   lunr.Pipeline.registerFunction(lunr.stopWordFilter, 'stopWordFilter')
 
-
   var index = lunr(function () {
     this.field('title', {boost: 10});
     this.field('content');
@@ -30,7 +29,6 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     applyFilters();
   }
 
-
   $scope.sortOrders = [
     {value: 0, name: "Most recent first"},
     {value: 1, name: "Alphabetically"}
@@ -56,6 +54,7 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
       }
     });
     $scope.sortDatesets();
+    $scope.setHiddenDatasets();
   }
 
   $scope.sortDatesets = function () {
@@ -84,6 +83,13 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     }
   }
 
+  $scope.setHiddenDatasets = function () {
+    $scope.hiddenDatasets = [];
+    $scope.datasetsToBeDisplayed = [];
+    $scope.hiddenDatasets = $scope.activeDatasets;
+    $scope.setInitialDatasets();
+  }
+
   $scope.init = function (data) {
     $scope.sortOrder = $scope.sortOrders[0].value;
     $scope.query = "";
@@ -94,8 +100,6 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     initDatasets();
     $scope.selectAll();
     $scope.search();
-    $scope.hiddenDatasets = $scope.activeDatasets;
-    $scope.setInitialDatasets();
   }
 
   $scope.setInitialDatasets = function () {
