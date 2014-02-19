@@ -1913,12 +1913,15 @@ div.dashboard {
   }
   ol > li {
     position:relative; /* Create a positioning context */
-    margin:0 0 6px 2.5em; /* Give each list item a left margin to make room for the numbers */
-    padding:12px 8px; /* Add some spacing around the content */
+    margin:0 0 0 3.4em; /* Give each list item a left margin to make room for the numbers */
+    padding: 20px; /* Add some spacing around the content */
     list-style:none; /* Disable the normal item numbering */
     //border-top:2px solid #666;
     //background:#f6f6f6;
     border-top: 1px solid $grey;
+    &:first-child {
+      border-top: none;
+    }
   }
   ol > li:before {
     content:counter(li); /* Use the counter as content */
@@ -1931,16 +1934,15 @@ div.dashboard {
     -webkit-box-sizing:border-box;
     box-sizing:border-box;
     border-radius: 4px;
-    width:2em;
     /* Some space between the number and the content in browsers that support
        generated content but not positioning it (Camino 2 is one example) */
-    margin-right:8px;
-    padding:4px;
     //border-top:2px solid #666;
+    padding: 5px 10px;
     color:#fff;
-    background:$blue;
-    font-weight:bold;
-    //font-family:"Helvetica Neue", Arial, sans-serif;
+    background: $blue;
+    font-weight: 500;
+    font-size: 2em;
+    font-family: "museo-sans", Helvetica, Arial, sans-serif;
     text-align:center;
   }
 
