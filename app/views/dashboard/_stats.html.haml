@@ -27,7 +27,7 @@
                 %span{:class => "number"} {{carbo.biodiversity_loss}} 
                 %span{:class => "small"}%
               %div{:class => "bar-container"}
-                %div{:class => "bar", :style => "width: {{carbo.biodiversity_loss * 3.3 * .7}}px;"}
+                %div{:class => "bar", :style => "width: {{carbo.biodiversity_loss}}%;"}
           %div{:class => "stat"}
             %header
               %p Number of protected areas
@@ -56,7 +56,7 @@
                     %span{:class => "number"} {{ppe.protected_areas_carbon_percent | number}} 
                     %span{:class => "small"}%
                   %div{:class => "bar-container"}
-                    %div{:class => "bar", :style => "width: {{ppe.protected_areas_carbon_percent * 3.3 * .7}}px;"}
+                    %div{:class => "bar", :style => "width: {{ppe.protected_areas_carbon_percent}}%;"}
 
       %div{:class => "section-group", "ng-controller" => "SapiStatsCtrl", "ng-model" => "sapi"}
 
