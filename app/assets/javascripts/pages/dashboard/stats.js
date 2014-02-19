@@ -136,14 +136,8 @@ function ($scope, $resource, SAPI_API_URL, countryService) {
   $scope.sapi.trade_selector_import = 'See imports';
   $scope.sapi.trade_selector = $scope.sapi.trade_selector_import;
   // Species
-  $scope.sapi.species_cites_eu = true;
-  $scope.sapi.species_cms = false;
-  $scope.sapi.species_title_cites_eu = 'Top cites eu listings';
-  $scope.sapi.species_title_cms = 'Top cms listings';
-  $scope.sapi.species_title = $scope.sapi.species_title_cites_eu;
-  $scope.sapi.species_selector_cites_eu = 'See cites eu';
-  $scope.sapi.species_selector_cms = 'See cms';
-  $scope.sapi.species_selector = $scope.sapi.species_selector_cms;  
+  $scope.sapi.species_cites = false;
+  $scope.sapi.species_title = 'Top cites listings';
 
   $scope.toggleTrade = function () {
     if ($scope.sapi.trade_export) {
@@ -156,20 +150,6 @@ function ($scope, $resource, SAPI_API_URL, countryService) {
       $scope.sapi.trade_import = false;
       $scope.sapi.trade_title = $scope.sapi.trade_title_export;
       $scope.sapi.trade_selector = $scope.sapi.trade_selector_import;
-    }
-  }
-
-  $scope.toggleSpecies = function () {
-    if ($scope.sapi.species_cites_eu) {
-      $scope.sapi.species_cites_eu = false;
-      $scope.sapi.species_cms = true;
-      $scope.sapi.species_title = $scope.sapi.species_title_cms;
-      $scope.sapi.species_selector = $scope.sapi.species_selector_cites_eu;
-    } else {
-      $scope.sapi.species_cites_eu = true;
-      $scope.sapi.species_cms = false;
-      $scope.sapi.species_title = $scope.sapi.species_title_cites_eu;
-      $scope.sapi.species_selector = $scope.sapi.species_selector_cms;  
     }
   }
 
@@ -200,32 +180,28 @@ function ($scope, $resource, SAPI_API_URL, countryService) {
 
   // For each taxonomy (cms, cites_eu) it selects the top most numerous groups.
   function getTopSpeciesResults (data, top, other) {
-    var species = data.dashboard_stats.species;
-    angular.forEach(species, function(results, taxonomy) {
-      var other_result, other_results, sorted_results, filtered_results, 
-        top_results;
-      sorted_results = results.sort( function( a, b) {
-        return a.count - b.count;
-      }).reverse();
-      filtered_results = spliceNoData(sorted_results);
-      top_results = filtered_results.slice(0, top);
-      if (other) {
-        other_result = getOtherSpeciesResults(sorted_results, top);
-        top_results.push(other_result);
-      }
-      if (top_results[0].count === 0) {
-        top_results = [];
-      }
-      data.dashboard_stats.species[taxonomy] = top_results;
-    });
+    var results = data.dashboard_stats.species, other_result, 
+      other_results, sorted_results, filtered_results, top_results;
+    sorted_results = results.sort( function( a, b) {
+      return a.count - b.count;
+    }).reverse();
+    filtered_results = spliceNoData(sorted_results);
+    top_results = filtered_results.slice(0, top);
+    if (other) {
+      other_result = getOtherSpeciesResults(sorted_results, top);
+      top_results.push(other_result);
+    }
+    if (top_results[0].count === 0) {
+      top_results = [];
+    }
+    data.dashboard_stats.species = top_results;
     return data;
   };
 
   function getData (iso2) {
     return Sapi.get({country:iso2, kingdom:'Animalia'}, function(data) {
       var data = getTopSpeciesResults(data, 5).dashboard_stats;
-      $scope.sapi.species_cites_eu_data = data.species.cites_eu;
-      $scope.sapi.species_cms_data = data.species.cms;
+      $scope.sapi.species_cites = data.species;
       $scope.sapi.trade_exports_top_data = data.trade.exports.top_traded;
       $scope.sapi.trade_imports_top_data = data.trade.imports.top_traded;
       $scope.sapi.loading = false;
