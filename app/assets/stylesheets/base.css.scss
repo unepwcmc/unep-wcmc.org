@@ -1682,8 +1682,12 @@ div.error-message {
 div.dashboard-container {
   background-image: url('dashboard_background.jpg');
   background-position: center;
-	overflow: visible;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
+	border-top: 1px solid #222;
+	border-bottom: 1px solid $light_grey;
 }
 
 div.dashboard {
