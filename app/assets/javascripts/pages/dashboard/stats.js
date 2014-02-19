@@ -96,6 +96,7 @@ function ($scope, $http, GEO_ENTITIES_URL, countryService, statsVisibilityServic
     if (statsVisibilityService.getVisibility() === false) {
       statsVisibilityService.setVisibility(true);
     }
+    $scope.selected = '';
 
   }, true);
 
