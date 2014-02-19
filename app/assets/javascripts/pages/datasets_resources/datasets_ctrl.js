@@ -29,7 +29,6 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     applyFilters();
   }
 
-
   $scope.sortOrders = [
     {value: 0, name: "Most recent first"},
     {value: 1, name: "Alphabetically"}
@@ -55,6 +54,7 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
       }
     });
     $scope.sortDatesets();
+    $scope.setHiddenDatasets();
   }
 
   $scope.sortDatesets = function () {
@@ -76,14 +76,37 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     }
   }
 
+  $scope.showMore = function () {
+    for (var i=0; i < 20 && $scope.hiddenDatasets.length > 0; i++) {
+      var datasetItem = $scope.hiddenDatasets.shift();
+      $scope.datasetsToBeDisplayed.push(datasetItem);
+    }
+  }
+
+  $scope.setHiddenDatasets = function () {
+    $scope.hiddenDatasets = [];
+    $scope.datasetsToBeDisplayed = [];
+    $scope.hiddenDatasets = $scope.activeDatasets;
+    $scope.setInitialDatasets();
+  }
+
   $scope.init = function (data) {
     $scope.sortOrder = $scope.sortOrders[0].value;
     $scope.query = "";
     $scope.datasets = data.datasets;
+    $scope.hiddenDatasets = [];
+    $scope.datasetsToBeDisplayed = [];
     $scope.contentTypes = data.content_types;
     initDatasets();
     $scope.selectAll();
     $scope.search();
+  }
+
+  $scope.setInitialDatasets = function () {
+    for (var i=0; i < 20 && $scope.hiddenDatasets.length > 0; i++) {
+      var datasetItem = $scope.hiddenDatasets.shift();
+      $scope.datasetsToBeDisplayed.push(datasetItem);
+    }
   }
 
   $scope.toggleContentType = function () {

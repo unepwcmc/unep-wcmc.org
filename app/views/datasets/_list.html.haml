@@ -57,7 +57,7 @@
   #data.column-2-3
     %h1
       Resources &amp; data
-    %section{"ng-repeat" => "dataset in activeDatasets"}      
+    %section{"ng-repeat" => "dataset in datasetsToBeDisplayed"}      
 
       %h2.smaller{:id => "{{ dataset.slug }}" }
         {{ dataset.title }}
@@ -76,4 +76,8 @@
         %a{:href => "{{dataset.second_link}}"} {{dataset.second_link_label}}
       %p.link{ 'ng-show' => 'dataset.file_url' }
         %a{:href => "{{dataset.file_url}}" } Download
-    %h2.smaller{"ng-if" => "activeDatasets.length == 0"} No data found.
+    %h2.smaller{"ng-if" => "datasetsToBeDisplayed.length == 0"} No data found.
+    #button-row{"ng-if" => "hiddenDatasets.length > 0"}
+      #more_projects.button{"ng-click" => "showMore()"}
+        %p
+          %a{:href => ""} View more datasets
