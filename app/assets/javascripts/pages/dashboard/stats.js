@@ -138,14 +138,10 @@ function ($scope, $resource, SAPI_API_URL, countryService) {
   // Species
   $scope.sapi.species_cites_eu = true;
   $scope.sapi.species_cms = false;
-  $scope.sapi.species_title_cites_eu = 'Top cites listings';
+  $scope.sapi.species_title_cites_eu = 'Top CITES listings';
   $scope.sapi.species_title_cms = 'Top cms listings';
   $scope.sapi.species_title = $scope.sapi.species_title_cites_eu;
-<<<<<<< HEAD
-  $scope.sapi.species_selector_cites_eu = 'See CITES EU';
-=======
   $scope.sapi.species_selector_cites_eu = 'See CITES';
->>>>>>> b45598623a459186a7fc29e2aebc3be4d5b0c193
   $scope.sapi.species_selector_cms = 'See CMS';
   $scope.sapi.species_selector = $scope.sapi.species_selector_cms;  
 
