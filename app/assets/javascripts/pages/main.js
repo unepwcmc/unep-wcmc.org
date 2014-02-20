@@ -30,14 +30,3 @@ angular.module('stats', ['ngAnimate', 'ngResource', 'ui.select2', 'ui.bootstrap'
       }
     };
   })
-  .service('carboStatsService', function() {
-    var _carbo_stats = {};
-    return {
-      getCarboStats: function () {
-        return _carbo_stats;
-      },
-      setCarboStats: function (value) {
-        _carbo_stats = value;
-      }
-    };
-  })
