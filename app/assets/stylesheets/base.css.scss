@@ -1696,6 +1696,7 @@ div.dashboard {
   div.section-group.controls {
 		position: relative;
 		width: 100%;
+		min-height: 100px;
 		z-index: 1000;
 		overflow: visible;
 		margin-bottom: 30px;
@@ -1793,12 +1794,13 @@ div.dashboard {
           font-weight: 300;
           display: inline;
           font-size: 0.85em;
+          line-height: 1em;
         }
         i.icon-info-sign {
           float: right;
           color: #ccc;
           font-size: 1em;
-          line-height: 1.5em;
+          line-height: 1em;
           &:hover, &:active {
             color: $blue;
             -webkit-transition: all 0.5s ease;
@@ -1856,6 +1858,7 @@ div.dashboard {
       padding: 16px 10px;
       text-transform: uppercase;
       background-color: rgba(255, 255, 255, 0.8);
+      overflow: hidden;
       p {
         margin-bottom: 0;
         font-weight: bold;
@@ -1874,13 +1877,15 @@ div.dashboard {
       }
       div.info-link {
         float: right;
-        i.icon-info-sign {
-          margin-left: 10px;
-          padding-left: 10px;
-          border-left: 1px solid #ccc;
-        }
         span.option-selector {
-          float: left;
+          display: none;
+        }
+      }
+      div.info-link-small {
+        float: none;
+        padding-top: 2px;
+        span.option-selector {
+          float: none;
         }
       }
     }
