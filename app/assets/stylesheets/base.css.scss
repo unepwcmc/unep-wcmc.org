@@ -1675,89 +1675,92 @@ div.dashboard {
 
   .spinner {
     background-image: image-url('loading.gif');
-    width: 64px;
-    height: 64px;
+    width: 20px;
+    height: 20px;
   }
 
   .spinner-small {
     background-image: image-url('loading_small.gif');
-    width: 32px;
-    height: 32px;
+    width: 10px;
+    height: 10px;
   }
   
   header h1 {
-    font-size: 2.4em;
+    font-size: 1.75em;
     color: white;
-    margin: 50px 0;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    margin: 30px 0;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
     text-align: center;
   }
 
   div.section-group.controls {
 		position: relative;
 		width: 100%;
-		min-height: 100px;
 		z-index: 1000;
 		overflow: visible;
+		margin-bottom: 30px;
     section.group {
       background-color: rgba(255, 255, 255, 0);
       margin-top: 0;
       &#view-button {
-        width: 20%;
+        width: 100%;
       }
       &#search-field {
-        width: 75%;
+        width: 100%;
         border-bottom: 2px solid #fff;
         position: relative;
         input {
-          width: 95%;
+          width: 89%;
           padding: 5px 0;
         	font-family: "museo-sans", Helvetica, Arial, sans-serif;
-        	color: #fff;
+        	color: #fff;       	
         	background: none;
         	border: none;
-        	font-size: 1.5em;
+        	font-size: 1.25em;
         	outline: none;
         }
         input::-webkit-input-placeholder {
         	color: rgba(255, 255, 255, 1);
-        	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+        	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
         }
         input::-moz-placeholder {
         	color: rgba(255, 255, 255, 1);
-        	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+        	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
         }
         input:-moz-placeholder {   /* Older versions of Firefox */
         	color: rgba(255, 255, 255, 1);
-        	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+        	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
         }
         input:-ms-input-placeholder { 
         	color: rgba(255, 255, 255, 1);
-        	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+        	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
         }
         i.icon-search {
+          float: right;
           width: 5%;
         	color: #fff;
         	background: rgba(255,255,255, 0.3);
-        	padding: 5px;
+        	padding: 5px 25px 5px 5px;
         	margin-bottom: 10px;
         	border: 2px solid #fff;
-        	font-size: 1.5em;
+        	font-size: 1.25em;
         	-webkit-border-radius: 3px;
         	-moz-border-radius: 3px;
         	border-radius: 3px;
         	position: absolute;
         	top: 0;
+        	right: 0;
         	float: right;
         	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
         }
       }
     }
     button {
+      width: 100%;
       color: #fff;
       background: none;
       border: 2px solid #fff;
-      font-size: 1.5em;
+      font-size: 1.25em;
     	font-family: "museo-sans", Helvetica, Arial, sans-serif;
     	font-weight: 400;      
       padding: 5px 15px;
@@ -1765,16 +1768,15 @@ div.dashboard {
       -webkit-border-radius: 3px;
     	-moz-border-radius: 3px;
     	border-radius: 3px;
-    	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
     }
-    margin-bottom: 30px;
-
   }
-
+  
   section.group {
-    margin-top: 40px;
-
-    //background-color: rgba(255, 255, 255, 0.8);
+    margin-top: 30px;
+    &:last-child {
+      margin-top: -10px;
+    }
   }
 
   section.group.stats {
@@ -1783,13 +1785,14 @@ div.dashboard {
     }
 
     .stat {
-      margin: 0 0 40px 0;
+      margin: 0 0 20px 0;
       background-color: rgba(225, 225, 225, 0.8);
       header {
-        padding: 20px;
+        padding: 15px;
         p {
           font-weight: 300;
           display: inline;
+          font-size: 0.85em;
         }
         i.icon-info-sign {
           float: right;
@@ -1807,34 +1810,26 @@ div.dashboard {
         }
       }
       .metrics-container {
-        padding: 20px;
+        padding: 15px;
         width: 100%;
         overflow: hidden;
         position: relative;
-        &.carbon {
-          padding: 25px 20px;
-          .bar-container {
-            bottom: 25px;
-          }
-        }
       }
       .metric {
         width: 100%;
-        float: left;
         line-height: 0.75em;
         &.percentage {
-          width: 18%;
-          margin-right: 2%;
+          width: 100%;
         }
       }
       .number {
-        font-size: 2.5em;
+        font-size: 2em;
         font-weight: bold;
         color: $dark-grey;
         line-height: 0.75em;
       }
       .small {
-        font-size: 1em;
+        font-size: 0.85em;
         font-weight: 300;
       }
       .number, .small {
@@ -1855,6 +1850,7 @@ div.dashboard {
     }
     .stat.carbon .metrics-container .metric p.subheader {
       margin-bottom: 4%;
+      font-size: 0.85em;
     }
     header {
       padding: 16px 10px;
@@ -1865,6 +1861,7 @@ div.dashboard {
         font-weight: bold;
       }
       span.option-selector {
+        font-size: 0.85em;
         float: right;
         cursor: pointer;
         color: $blue;
@@ -1901,15 +1898,13 @@ div.dashboard {
   }
   
   .bar-container {
-    float: right;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
     height: 12px;
     background: rgba($blue, 0.4);
-    width: 75%;
+    width: 100%;
     overflow: hidden;
-    position: absolute;
     bottom: 20px;
     right: 20px;
   }
@@ -1941,6 +1936,9 @@ div.dashboard {
     counter-reset:li; /* Initiate a counter */
     margin-left:0; /* Remove the default left margin */
     padding-left:0; /* Remove the default left padding */
+    p.no-data {
+      padding: 15px;
+    }
   }
   
   div.species-container {
