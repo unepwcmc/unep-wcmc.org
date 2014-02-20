@@ -1788,6 +1788,21 @@ div.dashboard {
         padding: 20px;
         p {
           font-weight: 300;
+          display: inline;
+        }
+        i.icon-info-sign {
+          float: right;
+          color: #ccc;
+          font-size: 1em;
+          line-height: 1.5em;
+          &:hover, &:active {
+            color: $blue;
+            -webkit-transition: all 0.5s ease;
+        		-moz-transition: all 0.5s ease;
+        		-ms-transition: all 0.5s ease;
+        		-o-transition: all 0.5s ease;
+        		transition: all 0.5s ease;
+          }
         }
       }
       .metrics-container {
@@ -1853,7 +1868,22 @@ div.dashboard {
         cursor: pointer;
         color: $blue;
         text-transform: none;
-        font-weight: normal;
+        font-weight: 300;
+        line-height: 1.5em;
+        &:hover, &:active {
+          text-decoration: underline;
+        }
+      }
+      div.info-link {
+        float: right;
+        i.icon-info-sign {
+          margin-left: 10px;
+          padding-left: 10px;
+          border-left: 1px solid #ccc;
+        }
+        span.option-selector {
+          float: left;
+        }
       }
     }
   }
