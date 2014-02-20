@@ -1,12 +1,12 @@
 .section-group
   - programme.employments.joins(:employee).order('cms_pages.position').each do |employment|
     - if employment.employee.is_published
-      %section.group.staff{ "ng-if" => "matchName('#{cms_page_content(:name, employment.employee).downcase}')" }
+      %section.group.staff{ "ng-if" => "matchName('#{cms_page_block_content(:name, employment.employee).downcase}')" }
         = link_to employment.employee.url do
-          - if cms_page_content(:photo, employment.employee)
+          - if !cms_page_files(:photo, employment.employee).empty?
             = image_tag cms_page_content(:photo, employment.employee).file
         = link_to employment.employee.url do
-          %h4= cms_page_content(:name, employment.employee)
+          %h4= cms_page_block_content(:name, employment.employee)
         %p= employment.role
 
 
