@@ -217,8 +217,7 @@ angular.module('stats').controller('PpeStatsCtrl', [
   '$resource',
   'PPE_API_URL',
   'countryService',
-  'carboStatsService',
-function ($scope, $resource, PPE_API_URL, countryService, carboStatsService) {
+function ($scope, $resource, PPE_API_URL, countryService) {
 
   var Ppe = $resource(PPE_API_URL, {country:'@country'}),
     ppe_stored_carbon, 
@@ -231,20 +230,6 @@ function ($scope, $resource, PPE_API_URL, countryService, carboStatsService) {
           getData(newCountry.iso2);
         }
     }, true);
-  $scope
-    .$watch(function () { return carboStatsService.getCarboStats(); }, 
-      function (newStats, oldStats) {
-        if (newStats && newStats !== oldStats) {
-          $scope.ppe.carbo_stats = newStats;
-        }
-    }, true);
-  $scope.$watch('ppe.carbo_stats', function (newVal, oldVal) {
-    if (newVal) {
-      $scope.ppe
-        .protected_areas_carbon_percent = ($scope.ppe.ppe_stored_carbon / newVal * 100)
-          .toFixed(0);
-    }
-  }, true);
 
   $scope.ppe = {};
   $scope.ppe.loading = true;
@@ -268,9 +253,8 @@ angular.module('stats').controller('CartodbStatsCtrl', [
   '$scope',
   '$resource',
   'CARTODB_URL',
-  'carboStatsService',
   'countryService',
-function ($scope, $resource, CARTODB_URL, carboStatsService, countryService) {
+function ($scope, $resource, CARTODB_URL, countryService) {
 
   var Carbo = $resource(CARTODB_URL);
 
@@ -287,14 +271,14 @@ function ($scope, $resource, CARTODB_URL, carboStatsService, countryService) {
 
   function getData (iso2) {
     var q = {
-      q: "SELECT biodiversity_loss, carbon_sums FROM wcmc_api_stats WHERE iso2 = '" + iso2 + "'"
+      q: "SELECT biodiversity_loss, carbon_sums, carbon_from_pas FROM wcmc_api_stats WHERE iso2 = '" + iso2 + "'"
     }
     return Carbo.get(q, function(data) {
       var data = data.rows[0];
       if (data) {
         $scope.carbo.biodiversity_loss = -data.biodiversity_loss.toFixed(0);
         $scope.carbo.carbon_sums = data.carbon_sums;
-        carboStatsService.setCarboStats(data.carbon_sums);
+        $scope.carbo.carbon_pas = (data.carbon_from_pas / data.carbon_sums * 100).toFixed(0);
       }
       $scope.carbo.loading = false;
       $scope.carbo.loaded = true;

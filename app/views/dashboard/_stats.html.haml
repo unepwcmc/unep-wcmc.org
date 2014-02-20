@@ -39,27 +39,27 @@
                 %span{:class => "number protected-areas"} {{ppe.protected_areas_count}} 
                 %span{:class => "small"} covering {{ppe.percentage_protected}}% of the country 
         %section{:class => "group stats"}
-          %div{:class => "stat carbon"}
+          %div{:class => "stat carbon", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "carbo"}
             %header
               %p Carbon storage
               %i.icon-info-sign
             %div{:class => "metrics-container carbon"}
               %div.metric
                 %p{:class => "subheader"} Carbon stored in above ground biomass
-                %div{:class => "submetric", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "country"}
+                %div{:class => "submetric"}
                   %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
                   %span{:class => "number"} {{carbo.carbon_sums | number}} 
                   %span{:class => "small"} T
             %div{:class => "metrics-container carbon"}
               %div.metric
                 %p{:class => "subheader"} Carbon stored by protected areas
-                %div{:class => "submetric", "ng-controller" => "PpeStatsCtrl", "ng-model" => "ppe"}
+                %div{:class => "submetric"}
                   %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
                   %div.metric.percentage
-                    %span{:class => "number"} {{ppe.protected_areas_carbon_percent | number}} 
+                    %span{:class => "number"} {{carbo.carbon_pas | number}} 
                     %span{:class => "small"}%
                   %div{:class => "bar-container"}
-                    %div{:class => "bar", :style => "width: {{ppe.protected_areas_carbon_percent}}%;"}
+                    %div{:class => "bar", :style => "width: {{carbo.carbon_pas}}%;"}
 
       %div{:class => "section-group", "ng-controller" => "SapiStatsCtrl", "ng-model" => "sapi"}
 
