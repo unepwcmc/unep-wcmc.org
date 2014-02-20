@@ -13,7 +13,7 @@
         %input{:type=>"text", "ng-model"=>"selected", 'placeholder'=>"Search for another country", "typeahead"=>"country as country.name for country in getCountry($viewValue)"}
         %i.icon-search
 
-  %div{:class => "stats", "ng-controller" => "StatsCtrl", "ng-show" => "visible"}
+  %div{:class => "stats", "ng-controller" => "StatsCtrl", "ng-show" => "visible" }
   
     %div{:class => "biodiversity"}
       %div{:class => "section-group"}
@@ -77,7 +77,7 @@
             %div{"ng-show" => "sapi.trade_export"}
               %ol
                 %div.species-container{'ng-repeat' => "t in sapi.trade_exports_top_data", "ng-show" => "sapi.loaded"}
-                  %li 
+                  %li{:class => "list-{{$index}}"}
                     %p 
                       %b {{t.common_name_en || t.name}}: {{t.count}}
                     %p {{t.name}}
@@ -85,7 +85,7 @@
             %div{"ng-show" => "sapi.trade_import"}
               %ol
                 %div.species-container{'ng-repeat' => "t in sapi.trade_imports_top_data", "ng-show" => "sapi.loaded"}
-                  %li  
+                  %li{:class => "list-{{$index}}"}
                     %p 
                       %b {{t.common_name_en || t.name}}: {{t.count}}
                     %p {{t.name}}     
@@ -106,7 +106,7 @@
             %div{"ng-show" => "sapi.species_cites"}
               %ol
                 %div.species-container{'ng-repeat' => "s in sapi.species_cites", "ng-show" => "sapi.loaded"}
-                  %li
+                  %li{:class => "list-{{$index}}"}
                     %p 
                       %b {{s.common_name_en || s.name}}: {{s.count}}
                     %p {{s.name}}
