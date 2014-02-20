@@ -500,6 +500,7 @@ div.dashboard {
   div.section-group.controls {
 		position: relative;
 		width: 100%;
+		min-height: 100px;
 		z-index: 1000;
 		overflow: visible;
     section.group {
