@@ -1690,6 +1690,7 @@ div.dashboard {
     color: white;
     margin: 50px 0;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
   }
 
   div.section-group.controls {
@@ -1941,19 +1942,24 @@ div.dashboard {
     margin-left:0; /* Remove the default left margin */
     padding-left:0; /* Remove the default left padding */
   }
-  ol > li {
+  
+  div.species-container {
+    border-top: 1px solid $grey;
+    &:first-child {
+      border-top: none;
+    }
+  }
+  
+  ol > div.species-container li {
     position:relative; /* Create a positioning context */
     margin:0 0 0 3.4em; /* Give each list item a left margin to make room for the numbers */
     padding: 20px; /* Add some spacing around the content */
     list-style:none; /* Disable the normal item numbering */
     //border-top:2px solid #666;
     //background:#f6f6f6;
-    border-top: 1px solid $grey;
-    &:first-child {
-      border-top: none;
-    }
   }
-  ol > li:before {
+  
+  ol > div.species-container li:before {
     content:counter(li); /* Use the counter as content */
     counter-increment:li; /* Increment the counter by 1 */
     /* Position and style the number */
@@ -1974,6 +1980,26 @@ div.dashboard {
     font-size: 2em;
     font-family: "museo-sans", Helvetica, Arial, sans-serif;
     text-align:center;
+  }
+  
+  ol > div.species-container li.list-1:before {
+    background: #4295D5;
+  }
+  
+  ol > div.species-container li.list-2:before {
+    background: #4B92D5;
+  }
+  
+  ol > div.species-container li.list-3:before {
+    background: #66A4DD;
+  }
+  
+  ol > div.species-container li.list-4:before {
+    background: #85B7E4;
+  }
+  
+  ol > div.species-container li.list-5:before {
+    background: #AFD1ED;
   }
 
   ol {
