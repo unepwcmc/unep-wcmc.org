@@ -22,7 +22,7 @@
         %section{:class => "group stats"}
           %div{:class => "stat"}
             %header
-              %p Estimated biodiversity change
+              %p Estimated biodiversity loss
             %div{:class => "bar-main-container", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "country"}
               
               %div{:class => "wrap"}
@@ -39,7 +39,7 @@
               %div{:class => "spinner-small", "ng-show" => "ppe.loading"}
               %p 
                 %span{:class => "number"} {{ppe.protected_areas_count}} 
-                %span{:class => ""} covering {{ppe.percentage_protected}}% of total area
+                %span{:class => ""} covering {{ppe.percentage_protected}}% of the country
         %section{:class => "group stats"}
           %div{:class => "stat carbon"}
             %header
@@ -53,7 +53,7 @@
                 %span T
             %div{:class => "content", "ng-controller" => "PpeStatsCtrl", "ng-model" => "ppe"}
               %p 
-                %b Carbon stored by protected areas
+                %b Percentage of Carbon stored within protected areas
               %div{:class => "bar-main-container", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "country"}
                 %div{:class => "spinner-small", "ng-show" => "ppe.loading"}
                 %div{:class => "wrap"}
