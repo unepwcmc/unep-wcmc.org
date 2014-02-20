@@ -21,6 +21,7 @@
           %div{:class => "stat"}
             %header
               %p Estimated biodiversity change
+              %i.icon-info-sign
             %div{:class => "metrics-container", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "country"}
               %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
               %div.metric.percentage
@@ -31,6 +32,7 @@
           %div{:class => "stat"}
             %header
               %p Number of protected areas
+              %i.icon-info-sign
             %div{:class => "metrics-container", "ng-controller" => "PpeStatsCtrl", "ng-model" => "ppe"}
               %div{:class => "spinner-small", "ng-show" => "ppe.loading"}
               %div.metric
@@ -40,6 +42,7 @@
           %div{:class => "stat carbon"}
             %header
               %p Carbon storage
+              %i.icon-info-sign
             %div{:class => "metrics-container carbon"}
               %div.metric
                 %p{:class => "subheader"} Carbon stored in above ground biomass
@@ -65,7 +68,9 @@
             %header{}
               %p
                 %span {{sapi.trade_title}}
+              %div.info-link
                 %span{:class => "option-selector", "ng-click" => "toggleTrade()"} {{sapi.trade_selector}}
+                %i.icon-info-sign
             %div{:class => "spinner", "ng-show" => "sapi.loading"}
             %div{"ng-show" => "sapi.trade_export"}
               %ol
@@ -87,7 +92,9 @@
             %header{}
               %p
                 %span {{sapi.species_title}}
+              %div.info-link
                 %span{:class => "option-selector", "ng-click" => "toggleSpecies()"} {{sapi.species_selector}}
+                %i.icon-info-sign
             %div{:class => "spinner", "ng-show" => "sapi.loading"}
             %div{"ng-show" => "sapi.species_cites_eu"}
               %ol

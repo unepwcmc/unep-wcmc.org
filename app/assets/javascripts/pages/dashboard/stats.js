@@ -141,8 +141,8 @@ function ($scope, $resource, SAPI_API_URL, countryService) {
   $scope.sapi.species_title_cites_eu = 'Top cites eu listings';
   $scope.sapi.species_title_cms = 'Top cms listings';
   $scope.sapi.species_title = $scope.sapi.species_title_cites_eu;
-  $scope.sapi.species_selector_cites_eu = 'See cites eu';
-  $scope.sapi.species_selector_cms = 'See cms';
+  $scope.sapi.species_selector_cites_eu = 'See CITES EU';
+  $scope.sapi.species_selector_cms = 'See CMS';
   $scope.sapi.species_selector = $scope.sapi.species_selector_cms;  
 
   $scope.toggleTrade = function () {
