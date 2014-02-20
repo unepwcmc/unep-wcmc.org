@@ -137,7 +137,7 @@ function ($scope, $resource, SAPI_API_URL, countryService) {
   $scope.sapi.trade_selector = $scope.sapi.trade_selector_import;
   // Species
   $scope.sapi.species_cites = false;
-  $scope.sapi.species_title = 'Top cites listings';
+  $scope.sapi.species_title = 'Top CITES listings';
 
   $scope.toggleTrade = function () {
     if ($scope.sapi.trade_export) {
@@ -199,7 +199,7 @@ function ($scope, $resource, SAPI_API_URL, countryService) {
   };
 
   function getData (iso2) {
-    return Sapi.get({country:iso2, kingdom:'Animalia'}, function(data) {
+    return Sapi.get({country:iso2, kingdom:'Animalia', trade_limit:5}, function(data) {
       var data = getTopSpeciesResults(data, 5).dashboard_stats;
       $scope.sapi.species_cites = data.species;
       $scope.sapi.trade_exports_top_data = data.trade.exports.top_traded;
