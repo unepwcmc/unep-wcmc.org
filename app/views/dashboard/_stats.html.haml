@@ -109,7 +109,7 @@
             %div{:class => "spinner", "ng-show" => "sapi.loading"}
             %div{"ng-show" => "sapi.species_cites"}
               %ol
-                %div.species-container{'ng-repeat' => "s in sapi.species_cites", "ng-show" => "sapi.loaded"}
+                %div.species-container{'ng-repeat' => "s in sapi.species_cites_data", "ng-show" => "sapi.loaded"}
                   %li{:class => "list-{{$index}}"}
                     %p.common-name {{s.common_name_en || s.name}}
                     %p.scientific-name {{s.name}}
@@ -119,7 +119,7 @@
                 %p{'ng-hide'=>"sapi.species_cites.length", :class => "no-data"} No listed species.
             %div{"ng-show" => "sapi.species_cms"}
               %ol
-                %div.species-container{'ng-repeat' => "s in sapi.species_cms", "ng-show" => "sapi.loaded"}
+                %div.species-container{'ng-repeat' => "s in sapi.species_cms_data", "ng-show" => "sapi.loaded"}
                   %li{:class => "list-{{$index}}"}
                     %p.common-name {{s.common_name_en || s.name}}
                     %p.scientific-name {{s.name}}
