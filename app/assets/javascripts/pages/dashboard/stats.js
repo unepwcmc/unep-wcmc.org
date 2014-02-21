@@ -130,15 +130,15 @@ function ($scope, $resource, SAPI_API_URL, countryService) {
   // Trade
   $scope.sapi.trade_export = true;
   $scope.sapi.trade_import = false;
-  $scope.sapi.trade_title_export = 'Most exported species';
-  $scope.sapi.trade_title_import = 'Most imported species';
+  $scope.sapi.trade_title_export = 'Top species by number of exports';
+  $scope.sapi.trade_title_import = 'Top species by number of imports';
   $scope.sapi.trade_title = $scope.sapi.trade_title_export;
   $scope.sapi.trade_selector_export = 'See exports';
   $scope.sapi.trade_selector_import = 'See imports';
   $scope.sapi.trade_selector = $scope.sapi.trade_selector_import;
   // Species
   $scope.sapi.species_cites = false;
-  $scope.sapi.species_title = 'Top CITES listings';
+  $scope.sapi.species_title = 'Top classes by number of species listed in CITES';
 
   $scope.toggleTrade = function () {
     if ($scope.sapi.trade_export) {
