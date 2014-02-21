@@ -754,11 +754,9 @@ div.dashboard {
     padding-left:0; /* Remove the default left padding */
   }
   
-  div.species-container {
-    border-top: 1px solid $grey;
-    &:first-child {
-      border-top: none;
-    }
+  
+  ol > div.species-container {
+    overflow: hidden;
   }
   
   ol > div.species-container li {
@@ -768,15 +766,45 @@ div.dashboard {
     list-style:none; /* Disable the normal item numbering */
     //border-top:2px solid #666;
     //background:#f6f6f6;
-  }
-  
-  ol {
-    p {
-      line-height: 1.5;
+    width: 63%;
+    float: left;
+    p.species-count-small {
+      display: none;
     }
   }
   
-
+  ol > div.species-container li:before {
+    content:counter(li); /* Use the counter as content */
+    counter-increment:li; /* Increment the counter by 1 */
+    /* Position and style the number */
+    position:absolute;
+    top:23px;
+    left:-32px;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    border-radius: 4px;
+    padding: 5px 12px;
+    color:#fff;
+    background: $blue;
+    font-weight: 300;
+    font-size: 1.75em;
+    font-family: "museo-sans", Helvetica, Arial, sans-serif;
+    text-align: center;
+  }
+  
+  div.species-count {
+    display: block;
+    width: 10%;
+    float: right;
+    margin: 20px;
+    padding: 5px 12px;
+    font-weight: 300;
+    font-size: 1.75em;
+    text-align: center;
+    color: #888;
+  }
+  
 
 .dropdown-menu {
   position: absolute;
