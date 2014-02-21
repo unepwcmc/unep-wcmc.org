@@ -577,11 +577,17 @@ div.dashboard {
 
   section.group {
     margin-top: 40px;
+    &:last-child {
+      margin-top: 0;
+    }
 
     //background-color: rgba(255, 255, 255, 0.8);
   }
 
   section.group.stats {
+    &:first-child {
+      margin-top: 0;
+    }
     p {
       margin-bottom: 0;
     }
@@ -594,12 +600,13 @@ div.dashboard {
         p {
           font-weight: 300;
           display: inline;
+          line-height: 1em;
         }
         i.icon-info-sign {
           float: right;
           color: #ccc;
           font-size: 1em;
-          line-height: 1.5em;
+          line-height: 1em;
           &:hover, &:active {
             color: $blue;
             -webkit-transition: all 0.5s ease;
@@ -614,9 +621,9 @@ div.dashboard {
         padding: 20px;
         width: 100%;
         overflow: hidden;
-        position: relative;
         &.carbon {
           padding: 25px 20px;
+          margin-top: 0px;
           .bar-container {
             bottom: 25px;
           }
@@ -624,15 +631,13 @@ div.dashboard {
       }
       .metric {
         width: 100%;
-        float: left;
         line-height: 0.75em;
         &.percentage {
-          width: 18%;
-          margin-right: 2%;
+          width: 100%;
         }
       }
       .number {
-        font-size: 2.5em;
+        font-size: 1.85em;
         font-weight: bold;
         color: $dark-grey;
         line-height: 0.75em;
@@ -658,7 +663,7 @@ div.dashboard {
       border-top: 1px solid $grey;
     }
     .stat.carbon .metrics-container .metric p.subheader {
-      margin-bottom: 4%;
+      margin-bottom: 20px;
     }
     header {
       padding: 16px 10px;
@@ -667,6 +672,7 @@ div.dashboard {
       p {
         margin-bottom: 0;
         font-weight: bold;
+        font-size: 0.85em;
       }
       span.option-selector {
         float: right;
@@ -679,6 +685,9 @@ div.dashboard {
           text-decoration: underline;
         }
       }
+      div.info-link-small {
+        display: none;
+      }
       div.info-link {
         float: right;
         i.icon-info-sign {
@@ -688,17 +697,13 @@ div.dashboard {
         }
         span.option-selector {
           float: left;
+          display: block;
         }
       }
     }
   }
   
   .bar-percentage {
-    //font-size: 3em;
-    //font-weight: bold;
-    //.small {
-    //  font-size: 0.5em;
-    //}
     float: left;
     color: $dark_grey;
     padding: 0;
@@ -711,15 +716,11 @@ div.dashboard {
     border-radius: 10px;
     height: 12px;
     background: rgba($blue, 0.4);
-    width: 75%;
+    width: 100%;
     overflow: hidden;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
   }
   
   .bar {
-    float: left;
     background: $blue;
     height: 100%;
     -webkit-border-radius: 10px 0px 0px 10px;
