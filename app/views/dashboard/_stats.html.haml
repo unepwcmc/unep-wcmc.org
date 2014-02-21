@@ -69,7 +69,6 @@
               %p
                 %span {{sapi.trade_title}}
               %div.info-link
-                %span{:class => "option-selector", "ng-click" => "toggleTrade()"} {{sapi.trade_selector}}
                 %i.icon-info-sign
               %div.info-link-small
                 %span{:class => "option-selector", "ng-click" => "toggleTrade()"} {{sapi.trade_selector}}
@@ -96,12 +95,9 @@
             %header{}
               %p
                 %span {{sapi.species_title}}
-
               %div.info-link
-                %span{:class => "option-selector"} {{sapi.species_selector}}
                 %i.icon-info-sign
-              %div.info-link-small
-                %span{:class => "option-selector", "ng-click" => "toggleTrade()"} {{sapi.trade_selector}}              
+              %div.info-link-small            
             %div{:class => "spinner", "ng-show" => "sapi.loading"}
             %div{"ng-show" => "sapi.species_cites"}
               %ol
