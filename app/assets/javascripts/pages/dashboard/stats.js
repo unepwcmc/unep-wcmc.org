@@ -3,11 +3,12 @@ angular.module('stats').controller('StatsCtrl', [
   'statsVisibilityService',
 function ($scope, statsVisibilityService) {
   $scope.visible = false;
+  $scope.isCollapsed = true;
   $scope.$watch(
     function () { return statsVisibilityService.getVisibility(); }, 
     function (newVal, oldVal) {
       if (newVal && newVal !== oldVal) {
-        $scope.visible = newVal;
+        $scope.isCollapsed = !newVal;
       }
   }, true);
 }]);

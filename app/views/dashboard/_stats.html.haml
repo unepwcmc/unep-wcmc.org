@@ -13,7 +13,7 @@
         %input{:type=>"text", "ng-model"=>"selected", 'placeholder'=>"Search for another country", "typeahead"=>"country as country.name for country in getCountry($viewValue)"}
         %i.icon-search
 
-  %div{:class => "stats", "ng-controller" => "StatsCtrl", "ng-show" => "visible" }
+  %div{:class => "stats", "ng-controller" => "StatsCtrl", "collapse"=>"isCollapsed" }
   
     %div{:class => "biodiversity"}
       %div{:class => "section-group"}
