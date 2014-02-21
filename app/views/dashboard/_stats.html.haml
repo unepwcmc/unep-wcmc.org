@@ -36,7 +36,7 @@
             %div{:class => "metrics-container", "ng-controller" => "PpeStatsCtrl", "ng-model" => "ppe"}
               %div{:class => "spinner-small", "ng-show" => "ppe.loading"}
               %div.metric
-                %span{:class => "number protected-areas"} {{ppe.protected_areas_count}} 
+                %span{:class => "number protected-areas"} {{ppe.protected_areas_count | number}} 
                 %span{:class => "small"} covering {{ppe.percentage_protected}}% of the country 
         %section{:class => "group stats"}
           %div{:class => "stat carbon", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "carbo"}
@@ -56,7 +56,7 @@
                 %div{:class => "submetric"}
                   %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
                   %div.metric.percentage
-                    %span{:class => "number"} {{carbo.carbon_pas | number}} 
+                    %span{:class => "number"} {{carbo.carbon_pas}} 
                     %span{:class => "small"}%
                   %div{:class => "bar-container"}
                     %div{:class => "bar", :style => "width: {{carbo.carbon_pas}}%;"}
@@ -79,7 +79,7 @@
                 %div.species-container{'ng-repeat' => "t in sapi.trade_exports_top_data", "ng-show" => "sapi.loaded"}
                   %li{:class => "list-{{$index}}"}
                     %p 
-                      %b {{t.common_name_en || t.name}}: {{t.count}}
+                      %b {{t.common_name_en || t.name}}: {{t.count | number}}
                     %p {{t.name}}
                 %p{'ng-hide'=>"sapi.trade_exports_top_data.length", :class => "no-data"} No exported species.
             %div{"ng-show" => "sapi.trade_import"}
@@ -87,7 +87,7 @@
                 %div.species-container{'ng-repeat' => "t in sapi.trade_imports_top_data", "ng-show" => "sapi.loaded"}
                   %li{:class => "list-{{$index}}"}
                     %p 
-                      %b {{t.common_name_en || t.name}}: {{t.count}}
+                      %b {{t.common_name_en || t.name}}: {{t.count | number}}
                     %p {{t.name}}     
                 %p{'ng-hide'=>"sapi.trade_imports_top_data.length", :class => "no-data"} No imported species.
 
@@ -107,7 +107,7 @@
                 %div.species-container{'ng-repeat' => "s in sapi.species_cites", "ng-show" => "sapi.loaded"}
                   %li{:class => "list-{{$index}}"}
                     %p 
-                      %b {{s.common_name_en || s.name}}: {{s.count}}
+                      %b {{s.common_name_en || s.name}}: {{s.count | number}}
                     %p {{s.name}}
                 %p{'ng-hide'=>"sapi.species_cites.length", :class => "no-data"} No listed species.
             
