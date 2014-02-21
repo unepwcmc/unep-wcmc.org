@@ -226,8 +226,8 @@ function ($scope, $resource, SAPI_API_URL, countryService) {
   function getData (iso2) {
     return Sapi.get({country:iso2, kingdom:'Animalia', trade_limit:5}, function(data) {
       var data = getTopSpeciesResults(data, 5).dashboard_stats;
-      $scope.sapi.species_cites = data.species.cites_eu;
-      $scope.sapi.species_cms = data.species.cms;
+      $scope.sapi.species_cites_data = data.species.cites_eu;
+      $scope.sapi.species_cms_data = data.species.cms;
       $scope.sapi.trade_exports_top_data = data.trade.exports.top_traded;
       $scope.sapi.trade_imports_top_data = data.trade.imports.top_traded;
       $scope.sapi.loading = false;
