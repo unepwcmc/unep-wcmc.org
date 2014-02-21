@@ -1682,12 +1682,6 @@ div.dashboard-background {
 }
 
 div.dashboard-container {
-//  background-image: url('dashboard_background.jpg');
-//  background-position: top;
-//  -webkit-background-size: cover;
-//  -moz-background-size: cover;
-//  -o-background-size: cover;
-//  background-size: cover;
   background: transparent;
 	border-top: 1px solid #222;
 	border-bottom: 1px solid $light_grey;
@@ -1874,6 +1868,7 @@ div.dashboard {
     .stat.carbon .metrics-container .metric p.subheader {
       margin-bottom: 4%;
       font-size: 0.85em;
+      color: #333;
     }
     header {
       padding: 16px 10px;
@@ -1891,7 +1886,7 @@ div.dashboard {
         color: $blue;
         text-transform: none;
         font-weight: 300;
-        line-height: 1.5em;
+        line-height: 1em;
         &:hover, &:active {
           text-decoration: underline;
         }
@@ -1913,11 +1908,6 @@ div.dashboard {
   }
   
   .bar-percentage {
-    //font-size: 3em;
-    //font-weight: bold;
-    //.small {
-    //  font-size: 0.5em;
-    //}
     float: left;
     color: $dark_grey;
     padding: 0;
@@ -1975,13 +1965,40 @@ div.dashboard {
     }
   }
   
+  ol > div.species-container {
+    overflow: hidden;
+  }
+  
   ol > div.species-container li {
     position:relative; /* Create a positioning context */
     margin:0 0 0 3.4em; /* Give each list item a left margin to make room for the numbers */
     padding: 20px; /* Add some spacing around the content */
     list-style:none; /* Disable the normal item numbering */
-    //border-top:2px solid #666;
-    //background:#f6f6f6;
+    p {
+      line-height: 1.35em;
+    }
+    p.common-name {
+      font-weight: 500;
+      color: #333;
+    }
+    p.scientific-name {
+      font-weight: 300;
+      font-style: italic;
+      color: #888;
+    }
+    width: 63%;
+    float: left;
+  }
+  
+  div.species-count {
+    width: 10%;
+    float: right;
+    margin: 20px;
+    padding: 5px 12px;
+    font-weight: 300;
+    font-size: 1.75em;
+    text-align: center;
+    color: #888;
   }
   
   ol > div.species-container li:before {
@@ -1995,16 +2012,13 @@ div.dashboard {
     -webkit-box-sizing:border-box;
     box-sizing:border-box;
     border-radius: 4px;
-    /* Some space between the number and the content in browsers that support
-       generated content but not positioning it (Camino 2 is one example) */
-    //border-top:2px solid #666;
-    padding: 5px 10px;
+    padding: 5px 12px;
     color:#fff;
     background: $blue;
-    font-weight: 500;
-    font-size: 2em;
+    font-weight: 300;
+    font-size: 1.75em;
     font-family: "museo-sans", Helvetica, Arial, sans-serif;
-    text-align:center;
+    text-align: center;
   }
   
   ol > div.species-container li.list-0:before {

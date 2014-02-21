@@ -21,7 +21,8 @@
           %div{:class => "stat"}
             %header
               %p Estimated biodiversity loss
-              %i.icon-info-sign
+              %div.info-link
+                %i.icon-info-sign
             %div{:class => "metrics-container", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "country"}
               %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
               %div.metric.percentage
@@ -32,7 +33,8 @@
           %div{:class => "stat"}
             %header
               %p Number of protected areas
-              %i.icon-info-sign
+              %div.info-link
+                %i.icon-info-sign
             %div{:class => "metrics-container", "ng-controller" => "PpeStatsCtrl", "ng-model" => "ppe"}
               %div{:class => "spinner-small", "ng-show" => "ppe.loading"}
               %div.metric
@@ -42,7 +44,8 @@
           %div{:class => "stat carbon", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "carbo"}
             %header
               %p Carbon storage
-              %i.icon-info-sign
+              %div.info-link
+                %i.icon-info-sign
             %div{:class => "metrics-container carbon"}
               %div.metric
                 %p{:class => "subheader"} Carbon stored in above ground biomass
@@ -69,7 +72,7 @@
               %p
                 %span {{sapi.trade_title}}
               %div.info-link
-                %i.icon-info-sign
+                %i.icon-info-sign.toggle
                 %span{:class => "option-selector", "ng-click" => "toggleTrade()"} {{sapi.trade_selector}}
               %div.info-link-small
                 %span{:class => "option-selector", "ng-click" => "toggleTrade()"} {{sapi.trade_selector}}
@@ -98,16 +101,14 @@
                 %span {{sapi.species_title}}
               %div.info-link
                 %i.icon-info-sign
-                %span{:class => "option-selector", "ng-click" => "toggleSpecies()"} {{sapi.species_selector}}
-              %div.info-link-small
-                %span{:class => "option-selector", "ng-click" => "toggleSpecies()"} {{sapi.species_selector}}
             %div{:class => "spinner", "ng-show" => "sapi.loading"}
             %div{"ng-show" => "sapi.species_cites"}
               %ol
                 %div.species-container{'ng-repeat' => "s in sapi.species_cites", "ng-show" => "sapi.loaded"}
                   %li{:class => "list-{{$index}}"}
-                    %p 
-                      %b {{s.common_name_en || s.name}}: {{s.count | number}}
-                    %p {{s.name}}
+                    %p.common-name {{s.common_name_en || s.name}}
+                    %p.scientific-name {{s.name}}
+                  %div.species-count
+                    %span {{s.count | number}}
                 %p{'ng-hide'=>"sapi.species_cites.length", :class => "no-data"} No listed species.
             
