@@ -1965,14 +1965,10 @@ div.dashboard {
     }
   }
   
-  ol > div.species-container {
-    overflow: hidden;
-  }
-  
   ol > div.species-container li {
     position:relative; /* Create a positioning context */
-    margin:0 0 0 3.4em; /* Give each list item a left margin to make room for the numbers */
-    padding: 20px; /* Add some spacing around the content */
+    margin:0 0 0 3em; /* Give each list item a left margin to make room for the numbers */
+    padding: 15px; /* Add some spacing around the content */
     list-style:none; /* Disable the normal item numbering */
     p {
       line-height: 1.35em;
@@ -1986,19 +1982,13 @@ div.dashboard {
       font-style: italic;
       color: #888;
     }
-    width: 63%;
-    float: left;
+    p.species-count-small {
+      font-weight: 500;
+    }
   }
   
   div.species-count {
-    width: 10%;
-    float: right;
-    margin: 20px;
-    padding: 5px 12px;
-    font-weight: 300;
-    font-size: 1.75em;
-    text-align: center;
-    color: #888;
+    display: none;
   }
   
   ol > div.species-container li:before {
@@ -2006,7 +1996,7 @@ div.dashboard {
     counter-increment:li; /* Increment the counter by 1 */
     /* Position and style the number */
     position:absolute;
-    top:23px;
+    top: 17px;
     left:-32px;
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
