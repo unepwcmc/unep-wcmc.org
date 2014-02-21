@@ -14,6 +14,11 @@ $yellow: #FFDB65;
   width: 90%;
   margin: auto;
   overflow: hidden;
+  &#news-home {
+    width: 100%;
+    padding: 0 5% 60px 5%;
+    margin-bottom: -60px;
+  }
   img {
     max-width: 100%;
     &.areas_work {
@@ -643,7 +648,7 @@ div.dashboard {
         line-height: 0.75em;
       }
       .small {
-        font-size: 1em;
+        font-size: 0.85em;
         font-weight: 300;
       }
       .number, .small {
@@ -661,9 +666,6 @@ div.dashboard {
     
     .stat.carbon > div {
       border-top: 1px solid $grey;
-    }
-    .stat.carbon .metrics-container .metric p.subheader {
-      margin-bottom: 20px;
     }
     header {
       padding: 16px 10px;
