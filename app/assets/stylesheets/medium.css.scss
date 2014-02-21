@@ -691,22 +691,22 @@ div.dashboard {
           text-decoration: underline;
         }
       }
-      div.info-link-small {
-        display: none;
-      }
-      div.info-link {
-        float: right;
-        i.icon-info-sign.toggle {
-          margin-left: 10px;
-          padding-left: 10px;
-          border-left: 1px solid #ccc;
-        }
-        span.option-selector {
-          float: left;
-          display: block;
-          padding-top: 2px;
-        }
-      }
+//      div.info-link-small {
+//        display: none;
+//      }
+//      div.info-link {
+//        float: right;
+//        i.icon-info-sign.toggle {
+//          margin-left: 10px;
+//          padding-left: 10px;
+//          border-left: 1px solid #ccc;
+//        }
+//        span.option-selector {
+//          float: left;
+//          display: block;
+//          padding-top: 2px;
+//        }
+//      }
     }
   }
   
@@ -767,7 +767,7 @@ div.dashboard {
     list-style:none; /* Disable the normal item numbering */
     //border-top:2px solid #666;
     //background:#f6f6f6;
-    width: 60%;
+    width: 55%;
     float: left;
     p.species-count-small {
       display: none;
@@ -799,10 +799,10 @@ div.dashboard {
     width: 10%;
     float: right;
     margin: 20px;
-    padding: 5px 12px;
+    padding: 5px 0;
     font-weight: 300;
     font-size: 1.75em;
-    text-align: center;
+    text-align: right;
     color: #888;
   }
   
