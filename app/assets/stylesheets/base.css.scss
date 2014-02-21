@@ -424,6 +424,12 @@ div#button-row {
     max-width: 100%;
     display: block;
   }
+  &#news-home {
+    background-color: #fff;
+    width: 100%;
+    padding: 0 5% 60px 5%;
+    margin-bottom: -60px;
+  }
   .column-2-3 {
     &#staff-page img{
       width: 100%;
@@ -1660,13 +1666,29 @@ div.error-message {
   }
 }
 
-div.dashboard-container {
+div.dashboard-background {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: -9999;
   background-image: url('dashboard_background.jpg');
   background-position: top;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+div.dashboard-container {
+//  background-image: url('dashboard_background.jpg');
+//  background-position: top;
+//  -webkit-background-size: cover;
+//  -moz-background-size: cover;
+//  -o-background-size: cover;
+//  background-size: cover;
+  background: transparent;
 	border-top: 1px solid #222;
 	border-bottom: 1px solid $light_grey;
 }

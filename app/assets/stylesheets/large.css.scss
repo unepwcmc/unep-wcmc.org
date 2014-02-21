@@ -14,6 +14,16 @@ $yellow: #FFDB65;
   max-width: 980px;
   margin: auto;
   overflow: hidden;
+  &#news-home {
+    width: 100%;
+    padding: 0 15% 60px 15%;
+    max-width: 100%;
+    margin-bottom: -60px;
+    #news-home-content {
+      max-width: 980px;
+      margin: auto;
+    }
+  }
   img {
     max-width: 100%;
     &.areas_work {
@@ -431,6 +441,10 @@ div.dashboard {
     .stat {
       margin: 0 0 40px 0;
       background-color: rgba(225, 225, 225, 0.8);
+      header p {
+        font-size: 1em;
+        line-height: 1em;
+      }
       .number {
         font-size: 2em;
       }
