@@ -514,6 +514,11 @@ div.dashboard {
       &#view-button {
         width: 20%;
       }
+      &#search-field.full {
+        width: 98%;
+        -webkit-transition: width .65s ease;
+                transition: width .65s ease;
+      }
       &#search-field {
         width: 75%;
         border-bottom: 2px solid #fff;
