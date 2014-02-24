@@ -2,7 +2,7 @@ angular.module('ProjectsList', ['ngAnimate']);
 angular.module('DatasetsResources', []);
 
 angular.module('stats', ['ngAnimate', 'ngResource', 'ui.select2', 'ui.bootstrap'])
-  .constant('GEOIP_URL', 'http://localhost:3000/api/geoip')
+  .constant('GEOIP_URL', 'http://127.0.0.1:3000/api/geoip')
   .constant('PPE_API_URL', 'http://www.protectedplanet.net/api2/countries/')
   .constant('SAPI_API_URL', 'http://sapi.unepwcmc-012.vm.brightbox.net/api/v1/dashboard_stats/:country')
   .constant('GEO_ENTITIES_URL', 'http://sapi.unepwcmc-012.vm.brightbox.net/api/v1/geo_entities/')

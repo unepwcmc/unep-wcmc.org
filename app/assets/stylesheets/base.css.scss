@@ -1683,11 +1683,14 @@ div.dashboard-background {
 
 div.dashboard-container {
   background: transparent;
-	border-top: 1px solid #222;
-	border-bottom: 1px solid $light_grey;
 }
 
 div.dashboard {
+  margin: 30px auto;
+  div.biodiversity {
+    clear: both;
+    margin-top: 30px;
+  }
 
   .spinner {
     background-image: image-url('loading.gif');
@@ -1704,7 +1707,7 @@ div.dashboard {
   header h1 {
     font-size: 1.75em;
     color: white;
-    margin: 30px 0;
+    margin: 0 0 30px 0;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
     text-align: center;
   }
@@ -1713,8 +1716,7 @@ div.dashboard {
 		position: relative;
 		width: 100%;
 		z-index: 1000;
-		overflow: visible;
-		margin-bottom: 30px;
+		overflow: auto;
     section.group {
       background-color: rgba(255, 255, 255, 0);
       margin-top: 0;
@@ -1727,12 +1729,12 @@ div.dashboard {
         position: relative;
         input {
           width: 89%;
-          padding: 5px 0;
+          padding: 5px 0 10px 0;
         	font-family: "museo-sans", Helvetica, Arial, sans-serif;
         	color: #fff;       	
         	background: none;
         	border: none;
-        	font-size: 1em;
+        	font-size: 1.1em;
         	outline: none;
         }
         input::-webkit-input-placeholder {
@@ -1752,22 +1754,19 @@ div.dashboard {
         	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
         }
         i.icon-search {
-          float: right;
-          width: 5%;
-        	color: #fff;
-        	background: rgba(255,255,255, 0.3);
-        	padding: 5px 25px 5px 5px;
-        	margin-bottom: 10px;
-        	border: 2px solid #fff;
-        	font-size: 1.25em;
-        	-webkit-border-radius: 3px;
-        	-moz-border-radius: 3px;
-        	border-radius: 3px;
-        	position: absolute;
-        	top: 0;
-        	right: 0;
-        	float: right;
-        	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+          width: 30px;
+          color: #fff;
+          background: rgba(255, 255, 255, 0.3);
+          padding: 5px 25px 5px 5px;
+          margin-bottom: 10px;
+          border: 2px solid #fff;
+          font-size: 1.1em;
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          border-radius: 3px;
+          position: absolute;
+          right: 0;
+          text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
         }
       }
     }
@@ -1809,13 +1808,14 @@ div.dashboard {
           font-weight: 300;
           display: inline;
           font-size: 0.85em;
-          line-height: 1em;
+          line-height: 1.25em;
         }
         i.icon-info-sign {
-          float: right;
           color: #ccc;
           font-size: 1em;
           line-height: 1em;
+          padding-right: 0;
+          padding-left: 5px;
           &:hover, &:active {
             color: $blue;
             -webkit-transition: all 0.5s ease;
@@ -1840,10 +1840,10 @@ div.dashboard {
         }
       }
       .number {
-        font-size: 2em;
+        font-size: 1.75em;
         font-weight: bold;
         color: $dark-grey;
-        line-height: 0.75em;
+        line-height: 1.25em;
       }
       .small {
         font-size: 0.85em;
