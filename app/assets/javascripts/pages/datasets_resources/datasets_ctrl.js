@@ -77,7 +77,7 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
   }
 
   $scope.showMore = function () {
-    for (var i=0; i < 20 && $scope.hiddenDatasets.length > 0; i++) {
+    for (var i=0; i < 10 && $scope.hiddenDatasets.length > 0; i++) {
       var datasetItem = $scope.hiddenDatasets.shift();
       $scope.datasetsToBeDisplayed.push(datasetItem);
     }
@@ -103,7 +103,7 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
   }
 
   $scope.setInitialDatasets = function () {
-    for (var i=0; i < 20 && $scope.hiddenDatasets.length > 0; i++) {
+    for (var i=0; i < 10 && $scope.hiddenDatasets.length > 0; i++) {
       var datasetItem = $scope.hiddenDatasets.shift();
       $scope.datasetsToBeDisplayed.push(datasetItem);
     }
