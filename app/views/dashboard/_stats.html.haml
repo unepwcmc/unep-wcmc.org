@@ -20,8 +20,8 @@
         %section{:class => "group stats"}
           %div{:class => "stat"}
             %header
-              %p Estimated biodiversity loss
-              %div.info-link
+              %p 
+                %span Estimated biodiversity loss
                 %i.icon-info-sign
             %div{:class => "metrics-container", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "country"}
               %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
@@ -32,8 +32,8 @@
                 %div{:class => "bar", :style => "width: {{carbo.biodiversity_loss}}%;"}
           %div{:class => "stat"}
             %header
-              %p Number of protected areas
-              %div.info-link
+              %p 
+                %span Number of protected areas
                 %i.icon-info-sign
             %div{:class => "metrics-container", "ng-controller" => "PpeStatsCtrl", "ng-model" => "ppe"}
               %div{:class => "spinner-small", "ng-show" => "ppe.loading"}
@@ -43,8 +43,8 @@
         %section{:class => "group stats"}
           %div{:class => "stat carbon", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "carbo"}
             %header
-              %p Carbon storage
-              %div.info-link
+              %p 
+                %span Carbon storage&nbsp;
                 %i.icon-info-sign
             %div{:class => "metrics-container carbon"}
               %div.metric
@@ -71,9 +71,7 @@
             %header{}
               %p
                 %span {{sapi.trade_title}}
-              %div.info-link
                 %i.icon-info-sign.toggle
-                %span{:class => "option-selector", "ng-click" => "toggleTrade()"} {{sapi.trade_selector}}
               %div.info-link-small
                 %span{:class => "option-selector", "ng-click" => "toggleTrade()"} {{sapi.trade_selector}}
             %div{:class => "spinner", "ng-show" => "sapi.loading"}
@@ -101,9 +99,7 @@
             %header{}
               %p
                 %span {{sapi.species_title}}
-              %div.info-link
                 %i.icon-info-sign.toggle
-                %span{:class => "option-selector", "ng-click" => "toggleSpecies()"} {{sapi.species_selector}}
               %div.info-link-small
                 %span{:class => "option-selector", "ng-click" => "toggleSpecies()"} {{sapi.species_selector}}
             %div{:class => "spinner", "ng-show" => "sapi.loading"}
