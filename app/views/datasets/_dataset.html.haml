@@ -1,0 +1,29 @@
+%section
+  %h2.smaller
+    = cms_page_block_content(:title, @page)
+  %h3
+    = cms_page_block_content(:content_type, @page)
+    %span.separator= '|'
+    = cms_page_block_content(:publication_date, @page)
+  - if !cms_page_block_content(:author, @page).empty?
+    %h3.author 
+      Author:
+      = cms_page_block_content(:author, @page)
+  - if !cms_page_block_content(:isbn, @page).empty?
+    %h3.isbn 
+      ISBN:
+      = cms_page_block_content(:isbn, @page)
+  %p
+    = cms_page_content(:content, @page)
+  - if !cms_page_block_content(:first_url, @page).empty?
+    %p.link
+      = link_to(cms_page_block_content(:first_url, @page)) do
+        = cms_page_block_content(:first_url_label, @page)
+  - if !cms_page_block_content(:second_url, @page).empty?
+    %p.link
+      = link_to(cms_page_block_content(:second_url, @page)) do
+        = cms_page_block_content(:second_url_label, @page)
+  - if cms_page_content(:file, @page)
+    %p.link
+      %a{:href => cms_page_content(:file, @page)}
+        Download
