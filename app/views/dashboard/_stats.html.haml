@@ -114,7 +114,7 @@
                     %p.species-count-small {{s.count | number}}
                   %div.species-count
                     %span {{s.count | number}}
-                %p{'ng-hide'=>"sapi.species_cites.length", :class => "no-data"} No listed species.
+                %p{'ng-hide'=>"sapi.species_cites_data.length", :class => "no-data"} No listed species.
             %div{"ng-show" => "sapi.species_cms"}
               %ol
                 %div.species-container{'ng-repeat' => "s in sapi.species_cms_data", "ng-show" => "sapi.loaded"}
@@ -124,5 +124,5 @@
                     %p.species-count-small {{s.count | number}}
                   %div.species-count
                     %span {{s.count | number}}
-                %p{'ng-hide'=>"sapi.cms.length", :class => "no-data"} No listed species.
+                %p{'ng-hide'=>"sapi.species_cms_data.length", :class => "no-data"} No listed species.
             
