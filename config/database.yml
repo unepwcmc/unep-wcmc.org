@@ -3,10 +3,7 @@ development:
   encoding: unicode
   database: unep_wcmc_development
   pool: 5
-  username: blancatortajada
-  password:
-  timeout: 5000
-  port: 5432
+  user: postgres
   host: localhost
 
 test:
@@ -14,10 +11,7 @@ test:
   encoding: unicode
   database: unep_wcmc_test
   pool: 5
-  username: blancatortajada
-  password:
-  timeout: 5000
-  port: 5432
+  user: postgres
   host: localhost
 
 production:
