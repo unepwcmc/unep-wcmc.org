@@ -75,6 +75,7 @@
                 %i.icon-info-sign.toggle
                 %span{:class => "option-selector", "ng-click" => "toggleTrade()"} {{sapi.trade_selector}}
               %div.info-link-small
+                %span{:class => "option-selector", "ng-click" => "toggleTrade()"} {{sapi.trade_selector}}
             %div{:class => "spinner", "ng-show" => "sapi.loading"}
             %div{"ng-show" => "sapi.trade_export"}
               %ol
@@ -101,9 +102,10 @@
               %p
                 %span {{sapi.species_title}}
               %div.info-link
-                %i.icon-info-sign
+                %i.icon-info-sign.toggle
                 %span{:class => "option-selector", "ng-click" => "toggleSpecies()"} {{sapi.species_selector}}
               %div.info-link-small
+                %span{:class => "option-selector", "ng-click" => "toggleSpecies()"} {{sapi.species_selector}}
             %div{:class => "spinner", "ng-show" => "sapi.loading"}
             %div{"ng-show" => "sapi.species_cites"}
               %ol
