@@ -14,6 +14,9 @@ $yellow: #FFDB65;
   width: 90%;
   margin: auto;
   overflow: hidden;
+	&.dashboard{
+	overflow: visible;
+	}
   &#news-home {
     width: 100%;
     padding: 0 5% 60px 5%;
