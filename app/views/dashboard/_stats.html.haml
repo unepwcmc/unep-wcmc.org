@@ -24,7 +24,7 @@
                 %span Estimated biodiversity loss
                 %i.icon-info-sign
             %div{:class => "metrics-container", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "country"}
-              %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
+              %div{:class => "spinner", "ng-show" => "carbo.loading"}
               %div.metric.percentage
                 %span{:class => "number"} {{carbo.biodiversity_loss}} 
                 %span{:class => "small"}%
@@ -36,7 +36,7 @@
                 %span Number of protected areas
                 %i.icon-info-sign
             %div{:class => "metrics-container", "ng-controller" => "PpeStatsCtrl", "ng-model" => "ppe"}
-              %div{:class => "spinner-small", "ng-show" => "ppe.loading"}
+              %div{:class => "spinner", "ng-show" => "ppe.loading"}
               %div.metric
                 %span{:class => "number protected-areas"} {{ppe.protected_areas_count | number}} 
                 %span{:class => "small"} covering {{ppe.percentage_protected}}% of the country 
@@ -50,14 +50,14 @@
               %div.metric
                 %p{:class => "subheader"} Carbon stored in above ground biomass
                 %div{:class => "submetric"}
-                  %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
+                  %div{:class => "spinner", "ng-show" => "carbo.loading"}
                   %span{:class => "number"} {{carbo.carbon_sums | number}} 
                   %span{:class => "small"} T
             %div{:class => "metrics-container carbon"}
               %div.metric
                 %p{:class => "subheader"} Carbon stored by protected areas
                 %div{:class => "submetric"}
-                  %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
+                  %div{:class => "spinner", "ng-show" => "carbo.loading"}
                   %div.metric.percentage
                     %span{:class => "number"} {{carbo.carbon_pas}} 
                     %span{:class => "small"}%
