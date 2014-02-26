@@ -1,0 +1,2 @@
+class DatasetUrlField < DataseField
+end
