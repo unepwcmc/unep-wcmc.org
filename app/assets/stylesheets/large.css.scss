@@ -14,6 +14,9 @@ $yellow: #FFDB65;
   max-width: 980px;
   margin: auto;
   overflow: hidden;
+	&.dashboard{
+	overflow: visible;
+	}
   &#news-home {
     width: 100%;
     padding: 0 15% 60px 15%;
@@ -24,6 +27,8 @@ $yellow: #FFDB65;
       margin: auto;
     }
   }
+
+	
   img {
     max-width: 100%;
     &.areas_work {
@@ -125,6 +130,11 @@ $yellow: #FFDB65;
 div.dashboard section.group {
   width: 47%;
   margin-right: 4.5%;
+	 overflow: visible;
+}
+
+div.container.dashboard{
+
 }
 
 div.project-team {
