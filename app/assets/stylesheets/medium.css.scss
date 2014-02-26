@@ -739,13 +739,7 @@ div.dashboard {
     margin:0 0 0 3.4em; /* Give each list item a left margin to make room for the numbers */
     padding: 20px; /* Add some spacing around the content */
     list-style:none; /* Disable the normal item numbering */
-    //border-top:2px solid #666;
-    //background:#f6f6f6;
-    width: 55%;
     float: left;
-    p.species-count-small {
-      display: none;
-    }
   }
   
   ol > div.species-container li:before {
@@ -766,18 +760,6 @@ div.dashboard {
     font-size: 1.75em;
     font-family: "museo-sans", Helvetica, Arial, sans-serif;
     text-align: center;
-  }
-  
-  div.species-count {
-    display: block;
-    width: 14%;
-    float: right;
-    margin: 20px;
-    padding: 5px 0;
-    font-weight: 300;
-    font-size: 1.75em;
-    text-align: right;
-    color: #888;
   }
   
 
