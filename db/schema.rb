@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207153157) do
+ActiveRecord::Schema.define(version: 20140226111638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -146,6 +146,17 @@ ActiveRecord::Schema.define(version: 20140207153157) do
   create_table "content_types", force: true do |t|
     t.string "singular"
     t.string "plural"
+  end
+
+  create_table "dataset_fields", force: true do |t|
+    t.integer  "dataset_id"
+    t.string   "label"
+    t.string   "url"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.string   "type"
   end
 
   create_table "editions", force: true do |t|

@@ -57,6 +57,9 @@
   #data.column-2-3
     %h1
       Resources &amp; data
+
+    = render "datasets/dataset"
+
     %section{"ng-repeat" => "dataset in datasetsToBeDisplayed"}      
 
       %h2.smaller{:id => "{{ dataset.slug }}" }
