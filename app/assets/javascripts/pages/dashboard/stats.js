@@ -139,8 +139,8 @@ function ($scope, $resource, SAPI_API_URL, countryService) {
   // Species
   $scope.sapi.species_cites = true;
   $scope.sapi.species_cms = false;
-  $scope.sapi.species_title_cites = 'Top classes by number of species listed in CITES';
-  $scope.sapi.species_title_cms = 'Top classes by number of species listed in CMS';
+  $scope.sapi.species_title_cites = 'Top 5 Animal sub-groups by species listed in CITES';
+  $scope.sapi.species_title_cms = 'Top 5 Animal sub-groups by species listed in CMS';
   $scope.sapi.species_title = $scope.sapi.species_title_cites;
   $scope.sapi.species_selector_cites = 'See CITES';
   $scope.sapi.species_selector_cms = 'See CMS';

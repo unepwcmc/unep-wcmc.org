@@ -19,9 +19,3 @@ production:
   encoding: unicode
   database: unep_wcmc_production
   pool: 5
-  username: blancatortajada
-  password: postgres
-  host: localhost
-  port: 5432
-  password: 
-  template: template0
