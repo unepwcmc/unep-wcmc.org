@@ -1694,14 +1694,20 @@ div.dashboard {
 
   .spinner {
     background-image: image-url('loading.gif');
-    width: 20px;
-    height: 20px;
+    background-size: 100%;
+    background-position: center;
+    width: 30px;
+    height: 30px;
+    margin: 20px auto 20px auto;
   }
 
   .spinner-small {
     background-image: image-url('loading_small.gif');
-    width: 10px;
-    height: 10px;
+    background-size: 100%;
+    background-position: center;
+    width: 30px;
+    height: 30px;
+    margin: 20px auto 20px auto;
   }
   
   header h1 {
@@ -1804,6 +1810,7 @@ div.dashboard {
     }
 
     .stat {
+      overflow: auto;
       margin: 0 0 20px 0;
       background-color: rgba(225, 225, 225, 0.8);
       header {
