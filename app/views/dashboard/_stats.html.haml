@@ -48,7 +48,7 @@
                 %i.icon-info-sign
             %div{:class => "metrics-container carbon"}
               %div.metric
-                %p{:class => "subheader"} Carbon stored in above ground biomass
+                %p{:class => "subheader"} Carbon stored in above and below ground biomass and soil
                 %div{:class => "submetric"}
                   %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
                   %span{:class => "number"} {{carbo.carbon_sums | number}} 
@@ -79,9 +79,11 @@
               %ol
                 %div.species-container{'ng-repeat' => "t in sapi.trade_exports_top_data", "ng-show" => "sapi.loaded"}
                   %li{:class => "list-{{$index}}"}
-                    %p 
-                      %b {{t.common_name_en || t.name}}: {{t.count | number}}
-                    %p {{t.name}}
+                    %p.common-name {{t.common_name_en || t.name}}
+                    %p.scientific-name {{t.name}}
+                    %p.species-count-small {{t.count | number}}
+                  %div.species-count
+                    %span {{t.count | number}}
                 %p{'ng-hide'=>"sapi.trade_exports_top_data.length", :class => "no-data"} No exported species.
             %div{"ng-show" => "sapi.trade_import"}
               %ol
@@ -90,8 +92,8 @@
                     %p.common-name {{t.common_name_en || t.name}}
                     %p.scientific-name {{t.name}}
                     %p.species-count-small {{t.count | number}}
-                    %div.species-count
-                      %span {{t.count | number}}  
+                  %div.species-count
+                    %span {{t.count | number}}  
                 %p{'ng-hide'=>"sapi.trade_imports_top_data.length", :class => "no-data"} No imported species.
 
         %section{:class => "group stats"}
