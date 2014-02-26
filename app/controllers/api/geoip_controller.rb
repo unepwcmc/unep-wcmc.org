@@ -5,23 +5,12 @@ class Api::GeoipController < ApplicationController
   end
   
   def index
-    client_ip = remote_ip()
-    if client_ip == 'GB'
+    client_ip = request.remote_ip
+    geo = GeoIP.new(GEO_IP_CONFIG['country_db']).country(client_ip)
+    if geo[:country_code] == 0
       render :json => {:country_code2=>"GB", :country_name=>"United Kingdom"}
     else
-      geo = GeoIP.new(GEO_IP_CONFIG['country_db']).country(client_ip)
       render :json => geo
-    end
-  end
-
-  private
-
-  def remote_ip
-    if request.remote_ip == '127.0.0.1'
-      # Default to GB
-      'GB'
-    else
-      request.remote_ip
     end
   end
 
