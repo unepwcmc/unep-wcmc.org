@@ -3,12 +3,16 @@ development:
   encoding: unicode
   database: unep_wcmc_development
   pool: 5
+  user: postgres
+  host: localhost
 
 test:
   adapter: postgresql
   encoding: unicode
   database: unep_wcmc_test
   pool: 5
+  user: postgres
+  host: localhost
 
 production:
   adapter: postgresql
