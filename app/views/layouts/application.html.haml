@@ -7,6 +7,8 @@
     %link{ :href => 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700', :rel => 'stylesheet', :type => 'text/css' }
     %link{ :href => 'http://fonts.googleapis.com/css?family=Lato:300,400,700', :rel => 'stylesheet', :type => 'text/css' }
     %link{ :href => 'http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', :rel => "stylesheet" }
+    %script
+      var my_url = "#{request.protocol}#{request.host}:#{request.port}";
     %script{ :type => "text/javascript", :src => "//use.typekit.net/tqb5win.js" }
     %script{ :type => "text/javascript" }
       try {Typekit.load();} catch(e){}
