@@ -32,6 +32,7 @@ namespace :db do
   task :symlink do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/config/mailer_config.yml #{release_path}/config/mailer_config.yml"
+    run "ln -nfs #{shared_path}/config/max_mind.yml #{release_path}/config/max_mind.yml"
   end
 end
 
