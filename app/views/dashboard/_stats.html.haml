@@ -22,7 +22,8 @@
             %header
               %p 
                 %span Estimated biodiversity loss
-                %i.icon-info-sign
+                %a{:href => "/dashboard#predicts"}
+                  %i.icon-info-sign
             %div{:class => "metrics-container", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "country"}
               %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
               %div.metric.percentage
@@ -34,7 +35,8 @@
             %header
               %p 
                 %span Number of protected areas
-                %i.icon-info-sign
+                %a{:href => "/dashboard#protected-areas"}
+                  %i.icon-info-sign
             %div{:class => "metrics-container", "ng-controller" => "PpeStatsCtrl", "ng-model" => "ppe"}
               %div{:class => "spinner-small", "ng-show" => "ppe.loading"}
               %div.metric
@@ -45,7 +47,8 @@
             %header
               %p 
                 %span Carbon storage&nbsp;
-                %i.icon-info-sign
+                %a{:href => "/dashboard#carbon-storage"}
+                  %i.icon-info-sign
             %div{:class => "metrics-container carbon"}
               %div.metric
                 %p{:class => "subheader"} Carbon stored in above and below ground biomass and soil
@@ -71,7 +74,8 @@
             %header{}
               %p
                 %span {{sapi.trade_title}}
-                %i.icon-info-sign.toggle
+                %a{:href => "/dashboard#species-trades"}
+                  %i.icon-info-sign.toggle
               %div.info-link-small
                 %span{:class => "option-selector", "ng-click" => "toggleTrade()"} {{sapi.trade_selector}}
             %div{:class => "spinner", "ng-show" => "sapi.loading"}
@@ -101,7 +105,8 @@
             %header{}
               %p
                 %span {{sapi.species_title}}
-                %i.icon-info-sign.toggle
+                %a{:href => "/dashboard#species-lists"}
+                  %i.icon-info-sign.toggle
               %div.info-link-small
                 %span{:class => "option-selector", "ng-click" => "toggleSpecies()"} {{sapi.species_selector}}
             %div{:class => "spinner", "ng-show" => "sapi.loading"}
