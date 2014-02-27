@@ -1,11 +1,14 @@
 class DatasetFieldsBuilder
   def initialize(params) 
     @fields_params = params[:fields_params]
-    @dataset = params[:dataset]
+    @dataset_id = params[:dataset].id
+    @type = params[:type]
   end
 
   def save
     @fields_params.each do |params|
+      binding.pry
+      params = params.merge(type: @type).merge(dataset_id: @dataset_id)
       if params[:id]
         update_field(params)
       else
@@ -21,11 +24,10 @@ class DatasetFieldsBuilder
   end
 
   def update_field(params)
-    if params[:type] == "DatasetFileField"
-
-    else
-      DatasetField.update(params)
+    unless params[:file]
+      params.delete(:file)
     end
+    DatasetField.find(params[:id]).update(params)
   end
 
 end

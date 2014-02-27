@@ -1,10 +1,13 @@
 class Admin::DatasetsController < Admin::PageResourcesController
-  before_action :set_fields
+  before_action :set_fields, only: [:edit, :create]
 
   private
 
   def save_resources
-    @page.save && fields.save
+    if @page.save
+      url_fields.save 
+      file_fields.save
+    end
   end
 
   def site_identifier
@@ -16,16 +19,25 @@ class Admin::DatasetsController < Admin::PageResourcesController
   end
 
   def set_fields
-    @url_fields = url_fields_for_dataset
-    @file_fields = file_fields_for_dataset
+    @url_fields ||= DatasetUrlField.for_dataset(@page)
+    @file_fields ||= DatasetFileField.for_dataset(@page)
   end
 
-  def dataset_fields_params
-    params[:dataset_fields].try(:values) || []
+  def dataset_url_fields_params
+    params[:urlFieldForms].try(:values) || []
+
   end
 
-  def fields
-    DatasetFieldsBuilder.new(fields_params: dataset_fields_params, dataset: @page)
+  def dataset_file_fields_params
+    params[:fileFieldForms].try(:values) || []
+  end
+
+  def file_fields
+    DatasetFieldsBuilder.new(fields_params: dataset_file_fields_params, dataset: @page, type: "DatasetFileField")
+  end
+
+  def url_fields
+    DatasetFieldsBuilder.new(fields_params: dataset_url_fields_params, dataset: @page, type: "DatasetUrlField")
   end
 
 end
