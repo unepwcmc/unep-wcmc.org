@@ -1,0 +1,61 @@
+.control-group{ "ng-app" => "DatasetFieldForm", "ng-controller" => "DatasetFieldCtrl", "ng-init" => "init(#{render partial: "dataset_url_fields", formats: :json}, #{render partial: "dataset_file_fields", formats: :json})"}
+  .control-group{ "ng-repeat" => "form in urlFieldForms" }
+
+    %label.control-label Url
+    .controls
+      .control-group
+        %label.control-label{:for => "urlFieldForms[{{ urlFieldFormIndex() }}][label]"} Label
+        .controls
+          %select{ "ui-select2" => true, "ng-model" => "form.label", "name" => "urlFieldForms[{{ urlFieldFormIndex() }}][label]"}
+            %option{ :value => "form.label", "ng-selected" => "form.label == form.label" }
+              Access data at ArcGIS.com
+            %option{ :value => "form.label", "ng-selected" => "form.label == form.label" }
+              Read online
+            %option{ :value => "form.label", "ng-selected" => "form.label == form.label" }
+              View summary metadata
+            %option{ :value => "form.label", "ng-selected" => "form.label == form.label" }
+              Visit the site
+            %option{"ng-selected" => "urlLabelInput = true" }
+              Add a new label...  
+        .controls
+          %input{ :type => "text", "ng-model" => "form.label", :name => "urlFieldForms[{{ urlFieldFormIndex() }}][label]"}
+
+      .control-group
+        %label.control-label{:for => "urlFieldForms[{{ urlFieldFormIndex() }}][url]"} Url
+        .controls
+          %input{ :type => "text", "ng-model" => "form.url", :name => "urlFieldForms[{{ urlFieldFormIndex() }}][url]"}
+      .control-group
+        .controls
+          %input.btn.btn-danger{:type => "button", :value => "Remove", "ng-click" => "removeUrlFieldForm()"}
+
+  .control-group
+    .controls
+      %input.btn{:type => "button", :value => "Add a link", "ng-click" => "addUrlField()"}
+
+
+  .control-group{ "ng-repeat" => "form in fileFieldForms" }
+
+    %label.control-label File 
+    .controls
+      .control-group
+        %label.control-label{:for => "fileFieldForms[{{ urlFieldFormIndex() }}][label]"} Label
+        .controls
+          %select{ "ui-select2" => true, "ng-model" => "form.label", "name" => "fileFieldForms[{{ fileFieldFormIndex() }}][label]"}
+            %option{ :value => "form.label", "ng-selected" => "form.label == form.label" }
+              Download 
+            %option{"ng-selected" => "fileLabelInput = true" }
+              Add a new label...
+        .controls
+          %input{ :type => "text", "ng-model" => "form.label", :name => "fileFieldForms[{{ urlFieldFormIndex() }}][label]"}
+
+      .control-group
+        %label.control-label{:for => "fileFieldForms[{{ fileFieldFormIndex() }}][file]"} File
+        .controls
+          %input{ :type => "file", "ng-model" => "form.file", :name => "fileFieldForms[{{ fileFieldFormIndex() }}][file]"}
+      .control-group
+        .controls
+          %input.btn.btn-danger{:type => "button", :value => "Remove", "ng-click" => "removeFileFieldForm()"}
+
+  .control-group
+    .controls
+      %input.btn{:type => "button", :value => "Add a file", "ng-click" => "addFileField()"}
