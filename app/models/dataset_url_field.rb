@@ -1,2 +1,2 @@
-class DatasetUrlField < DataseField
+class DatasetUrlField < DatasetField
 end
