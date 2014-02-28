@@ -7,7 +7,6 @@ class DatasetFieldsBuilder
 
   def save
     @fields_params.each do |params|
-      binding.pry
       params = params.merge(type: @type).merge(dataset_id: @dataset_id)
       if params[:id]
         update_field(params)

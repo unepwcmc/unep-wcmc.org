@@ -8,6 +8,10 @@ angular.module("DatasetFieldForm", []).controller("DatasetFieldCtrl", ["$scope",
     $scope.fileFieldForms.splice($scope.fileFieldForms.indexOf(this.form), 1);
   }
 
+  $scope.showUrlLabelInput = function(form) {
+    return (form.label == 'Add a new label');
+  }
+
   $scope.init = function (urlFields, fileFields) {
     $scope.urlFieldForms = urlFields;
     $scope.fileFieldForms = fileFields;
