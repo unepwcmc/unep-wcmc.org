@@ -7,18 +7,18 @@
         %label.control-label{:for => "urlFieldForms[{{ urlFieldFormIndex() }}][label]"} Label
         .controls
           %select{ "ui-select2" => true, "ng-model" => "form.label", "name" => "urlFieldForms[{{ urlFieldFormIndex() }}][label]"}
-            %option{ :value => "Access data at ArcGIS.com", "ng-selected" => "form.label == 'Access data at ArcGIS.com' "}
+            %option{ :value => "form.label", "ng-selected" => "form.label == form.label" }
               Access data at ArcGIS.com
-            %option{ :value => "Read online", "ng-selected" => "form.label == 'Read online'" }
+            %option{ :value => "form.label", "ng-selected" => "form.label == form.label", "ng-click" => "urlLabelInput = false"}
               Read online
-            %option{ :value => "View summary metadata", "ng-selected" => "form.label == 'View summary metadata'" }
+            %option{ :value => "form.label", "ng-selected" => "form.label == form.label", "ng-click" => "urlLabelInput = false"}
               View summary metadata
-            %option{ :value => "Visit the site", "ng-selected" => "form.label == 'Visit the site'" }
+            %option{ :value => "form.label", "ng-selected" => "form.label == form.label", "ng-click" => "urlLabelInputi = false"}
               Visit the site
-            %option{ :value => "Add a new label", "ng-selected" => "urlLabelInput" }
+            %option{"ng-selected" => "urlLabelInput", "ng-click" => "showUrlLabelInput()" }
               Add a new label
         .controls
-          %input{ :type => "text", "ng-model" => "form.custom_label", :name => "urlFieldForms[{{ urlFieldFormIndex() }}][label]", "ng-show" => "showUrlLabelInput(form)"}
+          %input{ :type => "text", "ng-model" => "form.label", :name => "urlFieldForms[{{ urlFieldFormIndex() }}][label]", "ng-show" => "urlLabelInput"}
           %input{ :type => "hidden", "ng-model" => "form.id", :name => "urlFieldForms[{{ urlFieldFormIndex() }}][id]", "ng-if" => "form.id", "value" => "{{ form.id }}"}
 
       .control-group
@@ -41,13 +41,14 @@
       .control-group
         %label.control-label{:for => "fileFieldForms[{{ urlFieldFormIndex() }}][label]"} Label
         .controls
+          %input{ :type => "hidden", "ng-model" => "form.id", :name => "fileFieldForms[{{ fileFieldFormIndex() }}][id]", "ng-if" => "form.id", "value" => "{{ form.id }}"}
           %select{ "ui-select2" => true, "ng-model" => "form.label", "name" => "fileFieldForms[{{ fileFieldFormIndex() }}][label]"}
-            %option{ :value => "form.label", "ng-selected" => "form.label == form.label" }
+            %option{ :value => "form.label", "ng-selected" => "form.label == form.label"}
               Download 
             %option{"ng-selected" => "fileLabelInput = true" }
               Add a new label...
         .controls
-          %input{ :type => "text", "ng-model" => "form.label", :name => "fileFieldForms[{{ urlFieldFormIndex() }}][label]"}
+          %input{ :type => "text", "ng-model" => "form.label", :name => "fileFieldForms[{{ urlFieldFormIndex() }}][label]", "ng-show" => "fileLabelInput" }
 
       .control-group
         %label.control-label{:for => "fileFieldForms[{{ fileFieldFormIndex() }}][file]"} File
