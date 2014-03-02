@@ -6,15 +6,9 @@
       .control-group
         %label.control-label{:for => "urlFieldForms[{{ urlFieldFormIndex() }}][label]"} Label
         .controls
-          %select{ "ui-select2" => true, "ng-model" => "form.label", "name" => "urlFieldForms[{{ urlFieldFormIndex() }}][label]"}
-            %option{ :value => "Access data at ArcGIS.com", "ng-selected" => "form.label == 'Access data at ArcGIS.com' "}
-              Access data at ArcGIS.com
-            %option{ :value => "Read online", "ng-selected" => "form.label == 'Read online'" }
-              Read online
-            %option{ :value => "View summary metadata", "ng-selected" => "form.label == 'View summary metadata'" }
-              View summary metadata
-            %option{ :value => "Visit the site", "ng-selected" => "form.label == 'Visit the site'" }
-              Visit the site
+          %select{ "ui-select2" => true, "ng-model" => "form.label", "name" => "urlFieldForms[{{ urlFieldFormIndex() }}][label]" }
+            %option{"ng-repeat" => "option in urlSelectDefaultOptions", :value => "option", "ng-selected" => "form.label == option "}
+              {{ option }}
             %option{ :value => "Add a new label", "ng-selected" => "urlLabelInput" }
               Add a new label
         .controls
