@@ -9,6 +9,9 @@ class DatasetFieldsBuilder
     @fields_params.each do |params|
       params = params.merge(type: @type).merge(dataset_id: @dataset_id)
       if params[:id]
+        if !params[:custom_label].empty?
+          params[:label] = params[:custom_label]
+        end
         update_field(params)
       else
         create_field(params)
@@ -19,6 +22,7 @@ class DatasetFieldsBuilder
   private
 
   def create_field(params)
+    params.delete(:custom_label)
     DatasetField.create(params)
   end
 
@@ -26,6 +30,7 @@ class DatasetFieldsBuilder
     unless params[:file]
       params.delete(:file)
     end
+    params.delete(:custom_label)
     DatasetField.find(params[:id]).update(params)
   end
 
