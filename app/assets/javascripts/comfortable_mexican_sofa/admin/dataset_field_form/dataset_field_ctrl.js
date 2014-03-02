@@ -17,11 +17,17 @@ angular.module("DatasetFieldForm", []).controller("DatasetFieldCtrl", ["$scope",
     $scope.fileFieldForms = fileFields;
     $scope.urlLabelInput = false;
     $scope.fileLabelInput = false;
+    $scope.urlSelectDefaultOptions = [
+      "Access data at ArcGIS.com",
+      "Read online",
+      "View summary metadata",
+      "Visit the site"
+    ];
   }
 
   $scope.urlFieldFormIndex = function () {
     return $scope.urlFieldForms.indexOf(this.form);
-  }
+  }s
 
   $scope.fileFieldFormIndex = function () {
     return $scope.fileFieldForms.indexOf(this.form);
