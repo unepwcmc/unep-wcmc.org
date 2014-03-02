@@ -6,13 +6,13 @@
       .control-group
         %label.control-label{:for => "urlFieldForms[{{ urlFieldFormIndex() }}][label]"} Label
         .controls
-          %select{ "ui-select2" => true, "ng-model" => "form.label", "name" => "urlFieldForms[{{ urlFieldFormIndex() }}][label]" }
-            %option{"ng-repeat" => "option in urlSelectDefaultOptions", :value => "option", "ng-selected" => "form.label == option "}
+          %select{ "ui-select2" => true, "ng-model" => "form.label", "name" => "urlFieldForms[{{ urlFieldFormIndex() }}][label]", "ng-change" => "clearCustomLabel(urlFieldFormIndex(), 'url')" }
+            %option{"ng-repeat" => "option in urlSelectDefaultOptions", :value => "{{ option }}", "ng-selected" => "form.label == '{{ option }}' "}
               {{ option }}
-            %option{ :value => "Add a new label", "ng-selected" => "urlLabelInput" }
-              Add a new label
+            %option{ :value => "Custom label", "ng-selected" => "form.label == 'Custom label'" }
+              Custom label
         .controls
-          %input{ :type => "text", "ng-model" => "form.custom_label", :name => "urlFieldForms[{{ urlFieldFormIndex() }}][label]", "ng-show" => "showUrlLabelInput(form)"}
+          %input{ :type => "text", "ng-model" => "form.custom_label", :name => "urlFieldForms[{{ urlFieldFormIndex() }}][custom_label]", "ng-show" => "showLabelInput(form)"}
           %input{ :type => "hidden", "ng-model" => "form.id", :name => "urlFieldForms[{{ urlFieldFormIndex() }}][id]", "ng-if" => "form.id", "value" => "{{ form.id }}"}
 
       .control-group
@@ -35,22 +35,25 @@
       .control-group
         %label.control-label{:for => "fileFieldForms[{{ urlFieldFormIndex() }}][label]"} Label
         .controls
-          %select{ "ui-select2" => true, "ng-model" => "form.label", "name" => "fileFieldForms[{{ fileFieldFormIndex() }}][label]"}
-            %option{ :value => "form.label", "ng-selected" => "form.label == form.label" }
+          %select{ "ui-select2" => true, "ng-model" => "form.label", "name" => "fileFieldForms[{{ fileFieldFormIndex() }}][label]", "ng-change" => "clearCustomLabel(fileFieldFormIndex())" }
+            %option{ :value => "Download", "ng-selected" => "form.label == 'Download'"}
               Download 
-            %option{"ng-selected" => "fileLabelInput = true" }
-              Add a new label...
+            %option{:value => "Custom label", "ng-selected" => "form.label == 'Custom label'" }
+              Custom label
         .controls
-          %input{ :type => "text", "ng-model" => "form.label", :name => "fileFieldForms[{{ urlFieldFormIndex() }}][label]"}
+          %input{ :type => "text", "ng-model" => "form.custom_label", :name => "fileFieldForms[{{ fileFieldFormIndex() }}][custom_label]", "ng-show" => "showLabelInput(form)"}
+          %input{ :type => "hidden", "ng-model" => "form.id", :name => "fileFieldForms[{{ fileFieldFormIndex() }}][id]", "ng-if" => "form.id", "value" => "{{ form.id }}"}
 
       .control-group
         %label.control-label{:for => "fileFieldForms[{{ fileFieldFormIndex() }}][file]"} File
         .controls
-          %input{ :type => "file", "ng-model" => "form.file", :name => "fileFieldForms[{{ fileFieldFormIndex() }}][file]"}
+          %input{ :type => "file", "ng-model" => "form.file", :name => "fileFieldForms[{{ fileFieldFormIndex() }}][file]" }
+          %a{ :href => "{{ form.url }}", "ng-if" => "form.url"}
+            %p {{ form.filename }}
       .control-group
         .controls
-          %input.btn.btn-danger{:type => "button", :value => "Remove", "ng-click" => "removeFileFieldForm()"}
+          %input.btn.btn-danger{:type => "button", :value => "Remove", "ng-click" => "removeFileFieldForm()" }
 
   .control-group
     .controls
-      %input.btn{:type => "button", :value => "Add a file", "ng-click" => "addFileField()"}
+      %input.btn{:type => "button", :value => "Add a file", "ng-click" => "addFileField()" }
