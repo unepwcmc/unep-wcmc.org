@@ -2,7 +2,7 @@
 
   %header{:class => "dashboard-title", "ng-controller" => "GeoIpCtrl", "ng-model" => "country"}
     %h1
-      Biodiversity data for {{country.name}}
+      Conservation Dashboard for {{country.name}}
 
   %div{:class => "section-group controls", "ng-controller" => "StatsBtnCtrl"}
     %section#view-button{:class => "group", "ng-show" => "visible"}
@@ -14,38 +14,38 @@
         %i.icon-search
 
   %div{:class => "stats", "ng-controller" => "StatsCtrl", "collapse"=>"isCollapsed" }
-  
+
     %div{:class => "biodiversity"}
       %div{:class => "section-group"}
         %section{:class => "group stats"}
           %div{:class => "stat"}
             %header
-              %p 
+              %p
                 %span Estimated biodiversity loss
                 %a{:href => "/dashboard#predicts"}
                   %i.icon-info-sign
             %div{:class => "metrics-container", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "country"}
               %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
               %div.metric.percentage
-                %span{:class => "number"} {{carbo.biodiversity_loss}} 
+                %span{:class => "number"} {{carbo.biodiversity_loss}}
                 %span{:class => "small"}%
               %div{:class => "bar-container"}
                 %div{:class => "bar", :style => "width: {{carbo.biodiversity_loss}}%;"}
           %div{:class => "stat"}
             %header
-              %p 
+              %p
                 %span Number of protected areas
                 %a{:href => "/dashboard#protected-areas"}
                   %i.icon-info-sign
             %div{:class => "metrics-container", "ng-controller" => "PpeStatsCtrl", "ng-model" => "ppe"}
               %div{:class => "spinner-small", "ng-show" => "ppe.loading"}
               %div.metric
-                %span{:class => "number protected-areas"} {{ppe.protected_areas_count | number}} 
-                %span{:class => "small"} covering {{ppe.percentage_protected}}% of the country 
+                %span{:class => "number protected-areas"} {{ppe.protected_areas_count | number}}
+                %span{:class => "small"} covering {{ppe.percentage_protected}}% of the country
         %section{:class => "group stats"}
           %div{:class => "stat carbon", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "carbo"}
             %header
-              %p 
+              %p
                 %span Carbon storage&nbsp;
                 %a{:href => "/dashboard#carbon-storage"}
                   %i.icon-info-sign
@@ -54,7 +54,7 @@
                 %p{:class => "subheader"} Carbon stored in above and below ground biomass and soil
                 %div{:class => "submetric"}
                   %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
-                  %span{:class => "number"} {{carbo.carbon_sums | number}} 
+                  %span{:class => "number"} {{carbo.carbon_sums | number}}
                   %span{:class => "small"} T
             %div{:class => "metrics-container carbon"}
               %div.metric
@@ -62,7 +62,7 @@
                 %div{:class => "submetric"}
                   %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
                   %div.metric.percentage
-                    %span{:class => "number"} {{carbo.carbon_pas}} 
+                    %span{:class => "number"} {{carbo.carbon_pas}}
                     %span{:class => "small"}%
                   %div{:class => "bar-container"}
                     %div{:class => "bar", :style => "width: {{carbo.carbon_pas}}%;"}
@@ -97,7 +97,7 @@
                     %p.scientific-name {{t.name}}
                     %p.species-count-small {{t.count | number}}
                   %div.species-count
-                    %span {{t.count | number}}  
+                    %span {{t.count | number}}
                 %p{'ng-hide'=>"sapi.trade_imports_top_data.length", :class => "no-data"} No imported species.
 
         %section{:class => "group stats"}
@@ -130,4 +130,3 @@
                   %div.species-count
                     %span {{s.count | number}}
                 %p{'ng-hide'=>"sapi.species_cms_data.length", :class => "no-data"} No listed species.
-            
