@@ -90,7 +90,7 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     $scope.setInitialDatasets();
   }
 
-  $scope.init = function (data) {
+  $scope.init = function (data, url_fields, file_fields) {
     $scope.sortOrder = $scope.sortOrders[0].value;
     $scope.query = "";
     $scope.datasets = data.datasets;
