@@ -27,3 +27,13 @@
     %p.link
       %a{:href => cms_page_content(:file, @page)}
         Download
+  - url_fields = DatasetUrlField.for_dataset(@cms_page)
+  - url_fields.each do |url|
+    %p.link
+      = link_to(url.url) do
+        = url.label
+  - file_fields = DatasetFileField.for_dataset(@cms_page)
+  - file_fields.each do |file|
+    %p.link
+      = link_to(file.file.url) do
+        = file.label
