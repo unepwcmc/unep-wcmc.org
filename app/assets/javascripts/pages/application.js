@@ -12,8 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+
 //= require angular
+//= require angular-resource
 //= require angular-animate
+//= require ui-bootstrap-custom-0.10.0
+//= require ui-bootstrap-custom-tpls-0.10.0
+//= require select2
+//= require ui-select2
 //= require underscore
 //= require augment
 //= require lunr
