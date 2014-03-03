@@ -100,6 +100,8 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     initDatasets();
     $scope.selectAll();
     $scope.search();
+    $scope.fileFields = file_fields;
+    $scope.urlFields = url_fields;
   }
 
   $scope.setInitialDatasets = function () {
@@ -107,6 +109,26 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
       var datasetItem = $scope.hiddenDatasets.shift();
       $scope.datasetsToBeDisplayed.push(datasetItem);
     }
+  }
+
+  $scope.urlFieldsForDataset = function (datasetId) {
+    var fields = [];
+    angular.forEach($scope.urlFields, function(field, i) {
+      if (field.dataset_id == datasetId) {
+        fields.push(field);
+      }
+    });
+    return fields;
+  }
+
+  $scope.fileFieldsForDataset = function (datasetId) {
+    var fields = [];
+    angular.forEach($scope.fileFields, function(field, i) {
+      if (field.dataset_id == datasetId) {
+        fields.push(field);
+      }
+    });
+    return fields;
   }
 
   $scope.toggleContentType = function () {
