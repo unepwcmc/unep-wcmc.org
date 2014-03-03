@@ -657,6 +657,24 @@ div.dashboard {
       b {
         font-weight: bold;
       }
+      &.sapi{
+        header {
+          min-height: 95px;
+        }
+        ol > div {
+          min-height: 105px;
+        }
+        @media screen and (max-width: 1000px) {
+          ol > div {
+            min-height: 110px;
+          }
+        }
+        @media screen and (max-width: 615px) {
+          header {
+            min-height: 115px;
+          }
+        }
+      }
     }
     
     .stat.carbon > div {
