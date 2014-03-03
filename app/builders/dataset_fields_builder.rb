@@ -8,10 +8,10 @@ class DatasetFieldsBuilder
   def save
     @fields_params.each do |params|
       params = params.merge(type: @type).merge(dataset_id: @dataset_id)
+      if !params[:custom_label].empty?
+        params[:label] = params[:custom_label]
+      end
       if params[:id]
-        if !params[:custom_label].empty?
-          params[:label] = params[:custom_label]
-        end
         update_field(params)
       else
         create_field(params)
