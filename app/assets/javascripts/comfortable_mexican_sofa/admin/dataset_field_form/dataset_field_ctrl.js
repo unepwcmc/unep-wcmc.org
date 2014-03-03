@@ -1,11 +1,11 @@
 angular.module("DatasetFieldForm", []).controller("DatasetFieldCtrl", ["$scope", function ($scope) {
   
-  $scope.removeUrlFieldForm = function () {
-    $scope.urlFieldForms.splice($scope.urlFieldForms.indexOf(this.form), 1);
+  $scope.removeUrlFieldForm = function (form_index) {
+    $scope.urlFieldForms[form_index].removed = true;
   }
 
-  $scope.removeFileFieldForm = function () {
-    $scope.fileFieldForms.splice($scope.fileFieldForms.indexOf(this.form), 1);
+  $scope.removeFileFieldForm = function (form_index) {
+    $scope.fileFieldForms[form_index].removed = true;
   }
 
   $scope.showLabelInput = function(form) {
@@ -59,6 +59,7 @@ angular.module("DatasetFieldForm", []).controller("DatasetFieldCtrl", ["$scope",
         field.custom_label = field.label;
         field.label = 'Custom label';
       }
+      field.removed = false;
     });
   }
 

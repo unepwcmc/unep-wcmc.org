@@ -24,7 +24,6 @@ class Admin::DatasetsController < Admin::PageResourcesController
   end
 
   def dataset_url_fields_params
-    binding.pry
     params[:urlFieldForms].try(:values) || []
 
   end
