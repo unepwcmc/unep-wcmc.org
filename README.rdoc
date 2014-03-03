@@ -9,3 +9,12 @@ QUICK SETUP GUIDE:
   HOSTNAME="localhost:3000" rake unepwcmc:setup
   
 (amend HOSTNAME as required)
+
+
+MaxMind
+
+You will need to setup a config/max_mind.yml file with the locations of your MaxMind DB. 
+An example of this is in config/max_mind.yml.example.
+
+The GeoIP.dat file can be found here:
+Dropbox/Informatics/MaxMind_IP/GeoIP/GeoIP.dat
