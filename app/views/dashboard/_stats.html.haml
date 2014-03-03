@@ -70,7 +70,7 @@
       %div{:class => "section-group", "ng-controller" => "SapiStatsCtrl", "ng-model" => "sapi"}
 
         %section{:class => "group stats"}
-          %div{:class => "stat"}
+          %div{:class => "stat sapi"}
             %header{}
               %p
                 %span {{sapi.trade_title}}
@@ -101,7 +101,7 @@
                 %p{'ng-hide'=>"sapi.trade_imports_top_data.length", :class => "no-data"} No imported species.
 
         %section{:class => "group stats"}
-          %div{:class => "stat"}
+          %div{:class => "stat sapi"}
             %header{}
               %p
                 %span {{sapi.species_title}}
@@ -112,21 +112,23 @@
             %div{:class => "spinner", "ng-show" => "sapi.loading"}
             %div{"ng-show" => "sapi.species_cites"}
               %ol
-                %div.species-container{'ng-repeat' => "s in sapi.species_cites_data", "ng-show" => "sapi.loaded"}
+                %div.species-container{'ng-repeat' => "group in sapi.species_cites_data", "ng-show" => "sapi.loaded"}
                   %li{:class => "list-{{$index}}"}
-                    %p.common-name {{s.common_name_en || s.name}}
-                    %p.scientific-name {{s.name}}
-                    %p.species-count-small {{s.count | number}}
+                    %p.common-name {{group[0]}}
+                    %p.species-count-small {{group[1] | number}}
                   %div.species-count
-                    %span {{s.count | number}}
-                %p{'ng-hide'=>"sapi.species_cites_data.length", :class => "no-data"} No listed species.
+                    %span {{group[1] | number}}
             %div{"ng-show" => "sapi.species_cms"}
               %ol
-                %div.species-container{'ng-repeat' => "s in sapi.species_cms_data", "ng-show" => "sapi.loaded"}
+                %div.species-container{'ng-repeat' => "group in sapi.species_cms_data", "ng-show" => "sapi.loaded"}
                   %li{:class => "list-{{$index}}"}
-                    %p.common-name {{s.common_name_en || s.name}}
-                    %p.scientific-name {{s.name}}
-                    %p.species-count-small {{s.count | number}}
+                    %p.common-name {{group[0]}}
+                    %p.species-count-small {{group[1] | number}}
                   %div.species-count
+<<<<<<< HEAD
                     %span {{s.count | number}}
                 %p{'ng-hide'=>"sapi.species_cms_data.length", :class => "no-data"} No listed species.
+=======
+                    %span {{group[1] | number}}
+            
+>>>>>>> 3b720713a4eebb759131a81aae469f18fde384ef
