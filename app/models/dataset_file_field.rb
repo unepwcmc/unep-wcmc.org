@@ -12,4 +12,8 @@ class DatasetFileField < DatasetField
   def custom_label
   	@custom_label
   end
+
+  def removed
+  	@removed
+  end
 end
