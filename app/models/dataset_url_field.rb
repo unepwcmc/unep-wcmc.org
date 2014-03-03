@@ -7,4 +7,12 @@ class DatasetUrlField < DatasetField
   def self.destroy_for_dataset(dataset)
     for_dataset(dataset).destroy_all
   end
+
+  def custom_label
+  	@custom_label
+  end
+
+  def removed
+  	@removed
+  end
 end
