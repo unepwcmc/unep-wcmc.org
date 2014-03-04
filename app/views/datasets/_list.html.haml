@@ -78,11 +78,11 @@
         %a{:href => "{{dataset.file_url}}" } Download
 
       %p.link{ "ng-repeat" => "field in urlFieldsForDataset( dataset.id ) " }
-        %a{:href => "{{ field.url }}"}
+        %a{:href => "{{field.url}}"}
           {{ field.label }}
 
       %p.link{ "ng-repeat" => "file in fileFieldsForDataset( dataset.id ) " }
-        %a{:href => "{{ file.file.url }}"}
+        %a{:href => "{{file.url}}"}
           {{ file.label }}
     
     %h2.smaller{"ng-if" => "datasetsToBeDisplayed.length == 0"} No data found.
