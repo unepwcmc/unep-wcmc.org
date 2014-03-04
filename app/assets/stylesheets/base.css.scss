@@ -1860,6 +1860,9 @@ div.dashboard {
       .small {
         font-size: 0.85em;
         font-weight: 300;
+        &.protected {
+          padding-top: 10px;
+        }
       }
       .number, .small {
         display: inline-block;
@@ -1961,8 +1964,8 @@ div.dashboard {
     }
   }
 
-  ol {
-    counter-reset:li; /* Initiate a counter */
+  table {
+    width: 100%;
     margin-left:0; /* Remove the default left margin */
     padding-left:0; /* Remove the default left padding */
     p.no-data {
@@ -1970,18 +1973,25 @@ div.dashboard {
     }
   }
 
-  div.species-container {
+  tr.species-container {
+    display: block;
     border-top: 1px solid $grey;
+    padding: 15px;
+    width: 100%;
     &:first-child {
       border-top: none;
     }
   }
+  
+  tr.species-container {
+    overflow: hidden;
+    td {
+      vertical-align: top;
+    }
+  }
 
-  ol > div.species-container li {
-    position:relative; /* Create a positioning context */
-    margin:0 0 0 3em; /* Give each list item a left margin to make room for the numbers */
-    padding: 15px; /* Add some spacing around the content */
-    list-style:none; /* Disable the normal item numbering */
+  tr.species-container td.ranking {
+    padding-left: 10px;
     p {
       line-height: 1.35em;
     }
@@ -2001,17 +2011,14 @@ div.dashboard {
     }
   }
 
-  div.species-count {
+  td.species-count {
     display: none;
   }
 
-  ol > div.species-container li:before {
-    content:counter(li); /* Use the counter as content */
-    counter-increment:li; /* Increment the counter by 1 */
-    /* Position and style the number */
-    position:absolute;
-    top: 17px;
-    left:-32px;
+  tr.species-container td.counter-container {
+  }
+  
+  tr.species-container td.counter-container div.counter {
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
     box-sizing:border-box;
@@ -2025,31 +2032,31 @@ div.dashboard {
     text-align: center;
   }
 
-  ol > div.species-container li.list-0:before {
-    background: #4295D5;
-  }
-
-  ol > div.species-container li.list-1:before {
-    background: #4B92D5;
-  }
-
-  ol > div.species-container li.list-2:before {
-    background: #66A4DD;
-  }
-
-  ol > div.species-container li.list-3:before {
-    background: #85B7E4;
-  }
-
-  ol > div.species-container li.list-4:before {
-    background: #AFD1ED;
-  }
-
-  ol > div.species-container li.list-5:before {
+  tr.species-container td.counter.list-0 {
+    background: #4295D5;        
+  }                             
+                                
+  tr.species-container td.counter.list-1 {
+    background: #4B92D5;        
+  }                             
+                                
+  tr.species-container td.counter.list-2 {
+    background: #66A4DD;        
+  }                             
+                                
+  tr.species-container td.counter.list-3 {
+    background: #85B7E4;        
+  }                             
+                                
+  tr.species-container td.counter.list-4 {
+    background: #AFD1ED;        
+  }                             
+                                
+  tr.species-container td.counter.list-5 {
     background: #c7dced;
   }
 
-  ol {
+  table{
     p {
       line-height: 1.5;
     }
