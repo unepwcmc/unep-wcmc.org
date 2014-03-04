@@ -1,4 +1,4 @@
-.container{"ng-app" => "DatasetsResources", "ng-controller" => "DatasetsCtrl", "ng-init" => "init(#{render partial: "datasets/list", formats: :json})"}
+.container{"ng-app" => "DatasetsResources", "ng-controller" => "DatasetsCtrl", "ng-init" => "init(#{render partial: "datasets/list", formats: :json},  #{render partial: "datasets/dataset_url_fields", formats: :json}, #{render partial: "datasets/dataset_file_fields", formats: :json})"}
   #data-small.column-1-3
     .search_field_container
       %input.search_input{"ng-change" => "search()", "ng-model" => "query", :placeholder => "Search resources or datasets", :type => "text"}
@@ -76,6 +76,15 @@
         %a{:href => "{{dataset.second_link}}"} {{dataset.second_link_label}}
       %p.link{ 'ng-show' => 'dataset.file_url' }
         %a{:href => "{{dataset.file_url}}" } Download
+
+      %p.link{ "ng-repeat" => "field in urlFieldsForDataset( dataset.id ) " }
+        %a{:href => "{{field.url}}"}
+          {{ field.label }}
+
+      %p.link{ "ng-repeat" => "file in fileFieldsForDataset( dataset.id ) " }
+        %a{:href => "{{file.url}}"}
+          {{ file.label }}
+    
     %h2.smaller{"ng-if" => "datasetsToBeDisplayed.length == 0"} No data found.
     #button-row{"ng-if" => "hiddenDatasets.length > 0"}
       #more_projects.button{"ng-click" => "showMore()"}

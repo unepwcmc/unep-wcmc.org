@@ -1,6 +1,7 @@
 json.datasets Cms::Site.find_by_identifier('resources-and-data').pages.root.children.published.each do |dataset|
   json.title cms_page_block_content(:title, dataset)
   json.content cms_page_block_content(:content, dataset)
+  json.id dataset.id
   json.slug dataset.slug
   json.publication_date cms_page_block_content(:publication_date, dataset)
   json.content_type cms_page_block_content(:content_type, dataset)
