@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require jQuery.XDomainRequest
 //= require angular
 //= require angular-resource
 //= require angular-animate
