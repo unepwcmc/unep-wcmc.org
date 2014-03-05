@@ -108,8 +108,9 @@ angular.module('stats').controller('SapiStatsCtrl', [
   '$scope',
   '$resource',
   'SAPI_API_URL',
+  'SAPI_SPECIES_GROUPS',
   'countryService',
-function ($scope, $resource, SAPI_API_URL, countryService) {
+function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService) {
 
   var Sapi = $resource(SAPI_API_URL, {country:'@country'});
 
@@ -139,8 +140,8 @@ function ($scope, $resource, SAPI_API_URL, countryService) {
   // Species
   $scope.sapi.species_cites = true;
   $scope.sapi.species_cms = false;
-  $scope.sapi.species_title_cites = 'Top five CITES listed animal classes';
-  $scope.sapi.species_title_cms = 'Top five CMS listed animal classes ';
+  $scope.sapi.species_title_cites = 'Number of CITES-listed species by group';
+  $scope.sapi.species_title_cms = 'Number of CMS-listed species in by group';
   $scope.sapi.species_title = $scope.sapi.species_title_cites;
   $scope.sapi.species_selector_cites = 'See CITES';
   $scope.sapi.species_selector_cms = 'See CMS';
@@ -222,9 +223,33 @@ function ($scope, $resource, SAPI_API_URL, countryService) {
     return data;
   };
 
+  function groupSpeciesResults (data) {
+    var species = data.dashboard_stats.species,
+        groups = _.object(
+          _.keys(SAPI_SPECIES_GROUPS), 
+          _.map(SAPI_SPECIES_GROUPS, function() {return 0;})
+        );
+    angular.forEach(species, function(taxonomy_classes, taxonomy) {
+      var g = _.clone(groups);
+      angular.forEach(taxonomy_classes, function(result, index) {
+        angular.forEach(SAPI_SPECIES_GROUPS, function(classes, group) {
+          var match = _.find(classes, function(class_name){ 
+            return result.name == class_name; 
+          });
+          if (match) {
+            g[group] += result.count;
+          }
+        });
+      });
+      species[taxonomy] = _.sortBy( _.pairs(g), 
+        function(el) { return el[1]; } ).reverse();
+    });
+    return data;
+  }
+
   function getData (iso2) {
-    return Sapi.get({country:iso2, kingdom:'Animalia', trade_limit:5}, function(data) {
-      var data = getTopSpeciesResults(data, 5).dashboard_stats;
+    return Sapi.get({country:iso2, kingdom:'Animalia', trade_limit:6}, function(data) {
+      var data = groupSpeciesResults(data).dashboard_stats;
       $scope.sapi.species_cites_data = data.species.cites_eu;
       $scope.sapi.species_cms_data = data.species.cms;
       $scope.sapi.trade_exports_top_data = data.trade.exports.top_traded;
