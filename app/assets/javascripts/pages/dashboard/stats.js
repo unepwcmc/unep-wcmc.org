@@ -114,7 +114,8 @@ angular.module('stats').controller('SapiStatsCtrl', [
   'statsVisibilityService',
 function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, sapiHelpers, statsVisibilityService) {
 
-  var Sapi = $resource(SAPI_API_URL, {country:'@country'});
+  var Sapi = $resource(SAPI_API_URL, {country:'@country'}),
+      va_selectors;
 
   $scope
     .$watch(function () { return countryService.getCountry(); }, 
@@ -161,6 +162,11 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
       $scope.sapi.trade_title = $scope.sapi.trade_title_export;
       $scope.sapi.trade_selector = $scope.sapi.trade_selector_import;
     }
+    setTimeout(function(){
+      va_selectors = va_selectors || sapiHelpers.getStatSelections();
+      sapiHelpers.setVerticalAlignment(va_selectors);
+    },100);
+    
   }
 
   $scope.toggleSpecies = function () {
@@ -175,6 +181,10 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
       $scope.sapi.species_title = $scope.sapi.species_title_cites;
       $scope.sapi.species_selector = $scope.sapi.species_selector_cms;  
     }
+    setTimeout(function(){
+      va_selectors = va_selectors || sapiHelpers.getStatSelections();
+      sapiHelpers.setVerticalAlignment(va_selectors);
+    },100);
   }
 
   // Aggregates the least numerous groups.
@@ -253,7 +263,7 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
     function () { return statsVisibilityService.getVisibility(); }, 
     function (newVal, oldVal) {
       if (newVal && newVal !== oldVal) {
-        var va_selectors = sapiHelpers.getStatSelections();
+        va_selectors = va_selectors || sapiHelpers.getStatSelections();
         sapiHelpers.setVerticalAlignment(va_selectors);
       }
   }, true);
@@ -268,7 +278,8 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
       $scope.sapi.loading = false;
       $scope.sapi.loaded = true;
       // Resize sapi stats containers!
-      var va_selectors = sapiHelpers.getStatSelections();
+      va_selectors = va_selectors || sapiHelpers.getStatSelections();
+      sapiHelpers.setVerticalAlignment(va_selectors) }, 500 ) );
       $( window ).resize( _.debounce( function () {
         sapiHelpers.setVerticalAlignment(va_selectors) }, 500 ) );
     });
