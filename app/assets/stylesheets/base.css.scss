@@ -247,7 +247,7 @@ div.hero{
 		  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
 		}
 	}
-	
+
 	&#about{
 		background-image: url('../imgs/lake-1.png');
 //    background-position: center;
@@ -537,7 +537,7 @@ div#button-row {
       border-bottom: 1px solid #ddd;
       padding-bottom: 10px;
       margin: 0 0 20px 0;
-    } 
+    }
       textarea {
         margin-bottom: 8px;
       }
@@ -788,7 +788,7 @@ div#button-row {
   				box-shadow: none;
   				&:hover {
   					a{
-  						color: #fff;						
+  						color: #fff;
   					}
   					border: 1px solid $blue;
   					-webkit-transition: all 0.5s ease;
@@ -1054,7 +1054,7 @@ ul#content, ul#content-small {
       &.content_type {
         border-left: 5px solid $blue;
       }
-		}		
+		}
 		span.badge{
 			margin-top: 0.5%;
 			margin-left: 5%;
@@ -1128,7 +1128,7 @@ div.data_policy-small {
    font-size: 1em;
    font-weight: 300;
    font-family: "museo-sans", Helvetica, Arial, sans-serif;
- } 
+ }
 }
 
 
@@ -1238,7 +1238,7 @@ div#footer_container {
   margin: auto;
 }
 
-ul.footer{	
+ul.footer{
   list-style: none;
   overflow: hidden;
 	li{
@@ -1323,20 +1323,20 @@ section.group.staff {
   width: 47.5%;
   margin-right: 5%;
   float: left;
-  &:nth-child(2n) {  
+  &:nth-child(2n) {
     margin-right: 0;
   }
-  &:nth-child(2n+3) {  
+  &:nth-child(2n+3) {
     clear: left;
-  } 
+  }
   img{
     padding-bottom: 0;
   }
-  
+
   h4 {
     padding: 10px 0 0 0;
   }
-  
+
   p {
     margin-bottom: 0;
   }
@@ -1528,7 +1528,7 @@ div.column-2-3.left#job_application {
         padding: 0 8px 0 0;
         cursor: pointer;
         &:last-of-type{
-         border: none; 
+         border: none;
          padding: 0 0 0 4px;
          i {
            font-size: 1.25em;
@@ -1673,7 +1673,7 @@ div.dashboard-background {
   position: fixed;
   top: 0;
   z-index: -9999;
-  background-image: url('dashboard_background.jpg');
+  background-image: image-url('dashboard_background.jpg');
   background-position: top;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -1709,7 +1709,7 @@ div.dashboard {
     height: 30px;
     margin: 20px auto 20px auto;
   }
-  
+
   header h1 {
     font-size: 1.75em;
     color: white;
@@ -1738,7 +1738,7 @@ div.dashboard {
           width: 89%;
           padding: 5px 0 10px 0;
         	font-family: "museo-sans", Helvetica, Arial, sans-serif;
-        	color: #fff;       	
+        	color: #fff;
         	background: none;
         	border: none;
         	font-size: 1.1em;
@@ -1756,7 +1756,7 @@ div.dashboard {
         	color: rgba(255, 255, 255, 1);
         	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
         }
-        input:-ms-input-placeholder { 
+        input:-ms-input-placeholder {
         	color: rgba(255, 255, 255, 1);
         	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
         }
@@ -1784,7 +1784,7 @@ div.dashboard {
       border: 2px solid #fff;
       font-size: 1.25em;
     	font-family: "museo-sans", Helvetica, Arial, sans-serif;
-    	font-weight: 400;      
+    	font-weight: 400;
       padding: 5px 15px;
       cursor: pointer;
       -webkit-border-radius: 3px;
@@ -1793,7 +1793,7 @@ div.dashboard {
     	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
     }
   }
-  
+
   section.group {
     margin-top: 30px;
     &:last-child {
@@ -1860,6 +1860,9 @@ div.dashboard {
       .small {
         font-size: 0.85em;
         font-weight: 300;
+        &.protected {
+          padding-top: 10px;
+        }
       }
       .number, .small {
         display: inline-block;
@@ -1873,7 +1876,7 @@ div.dashboard {
         font-weight: bold;
       }
     }
-    
+
     .stat.carbon > div {
       border-top: 1px solid $grey;
     }
@@ -1918,13 +1921,13 @@ div.dashboard {
       }
     }
   }
-  
+
   .bar-percentage {
     float: left;
     color: $dark_grey;
     padding: 0;
   }
-  
+
   .bar-container {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -1937,7 +1940,7 @@ div.dashboard {
     right: 20px;
     margin-top: 10px;
   }
-  
+
   .bar {
     float: left;
     background: $blue;
@@ -1961,27 +1964,34 @@ div.dashboard {
     }
   }
 
-  ol {
-    counter-reset:li; /* Initiate a counter */
+  table {
+    width: 100%;
     margin-left:0; /* Remove the default left margin */
     padding-left:0; /* Remove the default left padding */
     p.no-data {
       padding: 15px;
     }
   }
-  
-  div.species-container {
+
+  tr.species-container {
+    display: block;
     border-top: 1px solid $grey;
+    padding: 15px;
+    width: 100%;
     &:first-child {
       border-top: none;
     }
   }
   
-  ol > div.species-container li {
-    position:relative; /* Create a positioning context */
-    margin:0 0 0 3em; /* Give each list item a left margin to make room for the numbers */
-    padding: 15px; /* Add some spacing around the content */
-    list-style:none; /* Disable the normal item numbering */
+  tr.species-container {
+    overflow: hidden;
+    td {
+      vertical-align: top;
+    }
+  }
+
+  tr.species-container td.ranking {
+    padding-left: 10px;
     p {
       line-height: 1.35em;
     }
@@ -2000,18 +2010,15 @@ div.dashboard {
       color: #888;
     }
   }
-  
-  div.species-count {
+
+  td.species-count {
     display: none;
   }
+
+  tr.species-container td.counter-container {
+  }
   
-  ol > div.species-container li:before {
-    content:counter(li); /* Use the counter as content */
-    counter-increment:li; /* Increment the counter by 1 */
-    /* Position and style the number */
-    position:absolute;
-    top: 17px;
-    left:-32px;
+  tr.species-container td.counter-container div.counter {
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
     box-sizing:border-box;
@@ -2024,33 +2031,37 @@ div.dashboard {
     font-family: "museo-sans", Helvetica, Arial, sans-serif;
     text-align: center;
   }
-  
-  ol > div.species-container li.list-0:before {
-    background: #4295D5;
-  }
-  
-  ol > div.species-container li.list-1:before {
-    background: #4B92D5;
-  }
-  
-  ol > div.species-container li.list-2:before {
-    background: #66A4DD;
-  }
-  
-  ol > div.species-container li.list-3:before {
-    background: #85B7E4;
-  }
-  
-  ol > div.species-container li.list-4:before {
-    background: #AFD1ED;
+
+  tr.species-container td.counter.list-0 {
+    background: #4295D5;        
+  }                             
+                                
+  tr.species-container td.counter.list-1 {
+    background: #4B92D5;        
+  }                             
+                                
+  tr.species-container td.counter.list-2 {
+    background: #66A4DD;        
+  }                             
+                                
+  tr.species-container td.counter.list-3 {
+    background: #85B7E4;        
+  }                             
+                                
+  tr.species-container td.counter.list-4 {
+    background: #AFD1ED;        
+  }                             
+                                
+  tr.species-container td.counter.list-5 {
+    background: #c7dced;
   }
 
-  ol {
+  table{
     p {
       line-height: 1.5;
     }
   }
-  
+
 
 
 .dropdown-menu {
