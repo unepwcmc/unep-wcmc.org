@@ -279,7 +279,7 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
       $scope.sapi.loaded = true;
       // Resize sapi stats containers!
       va_selectors = va_selectors || sapiHelpers.getStatSelections();
-      sapiHelpers.setVerticalAlignment(va_selectors) }, 500 ) );
+      sapiHelpers.setVerticalAlignment(va_selectors);
       $( window ).resize( _.debounce( function () {
         sapiHelpers.setVerticalAlignment(va_selectors) }, 500 ) );
     });
