@@ -110,7 +110,9 @@ angular.module('stats').controller('SapiStatsCtrl', [
   'SAPI_API_URL',
   'SAPI_SPECIES_GROUPS',
   'countryService',
-function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService) {
+  'sapiHelpers',
+  'statsVisibilityService',
+function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, sapiHelpers, statsVisibilityService) {
 
   var Sapi = $resource(SAPI_API_URL, {country:'@country'});
 
@@ -247,6 +249,15 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService) 
     return data;
   }
 
+  $scope.$watch(
+    function () { return statsVisibilityService.getVisibility(); }, 
+    function (newVal, oldVal) {
+      if (newVal && newVal !== oldVal) {
+        var va_selectors = sapiHelpers.getStatSelections();
+        sapiHelpers.setVerticalAlignment(va_selectors);
+      }
+  }, true);
+
   function getData (iso2) {
     return Sapi.get({country:iso2, kingdom:'Animalia', trade_limit:6}, function(data) {
       var data = groupSpeciesResults(data).dashboard_stats;
@@ -256,6 +267,10 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService) 
       $scope.sapi.trade_imports_top_data = data.trade.imports.top_traded;
       $scope.sapi.loading = false;
       $scope.sapi.loaded = true;
+      // Resize sapi stats containers!
+      var va_selectors = sapiHelpers.getStatSelections();
+      $( window ).resize( _.debounce( function () {
+        sapiHelpers.setVerticalAlignment(va_selectors) }, 500 ) );
     });
   }
 
