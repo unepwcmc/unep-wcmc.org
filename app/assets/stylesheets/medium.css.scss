@@ -36,25 +36,25 @@ $yellow: #FFDB65;
     width: 47.5%;
     margin-right: 5%;
     float: left;
-    &:nth-child(2n) {  
+    &:nth-child(2n) {
       margin-right: 0;
     }
-    &:nth-child(2n+3) {  
+    &:nth-child(2n+3) {
       clear: left;
     }
     &.staff {
       width: 30%;
       margin-right: 1.5%;
-      &:nth-child(2n) {  
+      &:nth-child(2n) {
         margin-right: 1.5%;
       }
-      &:nth-child(2n+3) {  
+      &:nth-child(2n+3) {
         clear: none;
       }
-      &:nth-child(3n) {  
+      &:nth-child(3n) {
         margin-right: 0;
       }
-      &:nth-child(3n+4) {  
+      &:nth-child(3n+4) {
         clear: left;
       }
     }
@@ -111,7 +111,7 @@ $yellow: #FFDB65;
       }
     }
     &#data-small {
-     margin-bottom: 60px; 
+     margin-bottom: 60px;
     }
   }
   .column-2-3 {
@@ -330,12 +330,12 @@ button#trigger-menu {
 ul.subnav-small {
   overflow: hidden;
   margin-bottom: 60px;
-  li:nth-child(1n) {  
+  li:nth-child(1n) {
     float: right;
     margin-right: 0;
     width: 48%;
   }
-  li:nth-child(2n) {  
+  li:nth-child(2n) {
     float: left;
     margin-right: 4%;
     width: 48%;
@@ -418,7 +418,7 @@ div#footer_container {
 	}
 }
 
-ul.footer{	
+ul.footer{
   overflow: hidden;
   float: left;
 	li{
@@ -500,7 +500,7 @@ div.dashboard {
   div.biodiversity {
     margin-top: 0px;
   }
-  
+
   header h1 {
     font-size: 2.4em;
     color: white;
@@ -550,7 +550,7 @@ div.dashboard {
         	color: rgba(255, 255, 255, 1);
         	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
         }
-        input:-ms-input-placeholder { 
+        input:-ms-input-placeholder {
         	color: rgba(255, 255, 255, 1);
         	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
         }
@@ -577,7 +577,7 @@ div.dashboard {
       border: 2px solid #fff;
       font-size: 1.25em;
     	font-family: "museo-sans", Helvetica, Arial, sans-serif;
-    	font-weight: 400;      
+    	font-weight: 400;
       padding: 5px 15px;
       cursor: pointer;
       -webkit-border-radius: 3px;
@@ -611,7 +611,7 @@ div.dashboard {
         padding: 20px;
         p {
           font-size: 0.8em;
-        }        
+        }
         i.icon-info-sign {
           font-size: 1em;
           line-height: 1em;
@@ -658,7 +658,7 @@ div.dashboard {
         font-weight: bold;
       }
     }
-    
+
     .stat.carbon > div {
       border-top: 1px solid $grey;
     }
@@ -683,13 +683,13 @@ div.dashboard {
       }
     }
   }
-  
+
   .bar-percentage {
     float: left;
     color: $dark_grey;
     padding: 0;
   }
-  
+
   .bar-container {
     float: right;
     -webkit-border-radius: 10px;
@@ -700,7 +700,7 @@ div.dashboard {
     width: 100%;
     overflow: hidden;
   }
-  
+
   .bar {
     background: $blue;
     height: 100%;
@@ -723,32 +723,18 @@ div.dashboard {
     }
   }
 
-  ol {
+  table {
     counter-reset:li; /* Initiate a counter */
     margin-left:0; /* Remove the default left margin */
     padding-left:0; /* Remove the default left padding */
   }
-  
-  
-  ol > div.species-container {
-    overflow: hidden;
+
+
+  tr.species-container {
+    padding: 20px;
   }
-  
-  ol > div.species-container li {
-    position:relative; /* Create a positioning context */
-    margin:0 0 0 3.4em; /* Give each list item a left margin to make room for the numbers */
-    padding: 20px; /* Add some spacing around the content */
-    list-style:none; /* Disable the normal item numbering */
-    float: left;
-  }
-  
-  ol > div.species-container li:before {
-    content:counter(li); /* Use the counter as content */
-    counter-increment:li; /* Increment the counter by 1 */
-    /* Position and style the number */
-    position:absolute;
-    top:23px;
-    left:-32px;
+
+  tr.species-container td.counter {
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
     box-sizing:border-box;
@@ -761,7 +747,7 @@ div.dashboard {
     font-family: "museo-sans", Helvetica, Arial, sans-serif;
     text-align: center;
   }
-  
+
 
 .dropdown-menu {
   position: absolute;
