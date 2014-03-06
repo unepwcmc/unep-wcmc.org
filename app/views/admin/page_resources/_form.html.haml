@@ -15,6 +15,9 @@
   - unless @page.new_record?
     = form.text_field :full_path, :id => 'full-path', :disabled => true
 
+- if (options = ::Cms::Page.options_for_select(@site, @page)).present? && @site.identifier == 'expertise'
+  = form.select :parent_id, options
+
 = render 'admin/cms/partials/page_form_inner', :object => form
 
 = render :partial => 'admin/cms/categories/form', :object => form

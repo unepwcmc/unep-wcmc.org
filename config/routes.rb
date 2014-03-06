@@ -19,7 +19,7 @@ UnepWcmcOrg::Application.routes.draw do
 
     resources :aboutus_pages, except: [:new, :destroy]
 
-    resources :expertise_pages, except: [:new, :destroy]
+    resources :expertise_pages
 
     resources :news_items do
       collection do
