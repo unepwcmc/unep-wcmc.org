@@ -11,7 +11,7 @@ class Admin::ExpertisePagesController < Admin::PageResourcesController
   end
 
   def layout_identifier
-    'expertise-layout'
+    'expertise'
   end
 
 end
