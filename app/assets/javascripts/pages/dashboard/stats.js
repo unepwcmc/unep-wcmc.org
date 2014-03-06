@@ -110,9 +110,12 @@ angular.module('stats').controller('SapiStatsCtrl', [
   'SAPI_API_URL',
   'SAPI_SPECIES_GROUPS',
   'countryService',
-function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService) {
+  'sapiHelpers',
+  'statsVisibilityService',
+function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, sapiHelpers, statsVisibilityService) {
 
-  var Sapi = $resource(SAPI_API_URL, {country:'@country'});
+  var Sapi = $resource(SAPI_API_URL, {country:'@country'}),
+      va_selectors;
 
   $scope
     .$watch(function () { return countryService.getCountry(); }, 
@@ -159,6 +162,11 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService) 
       $scope.sapi.trade_title = $scope.sapi.trade_title_export;
       $scope.sapi.trade_selector = $scope.sapi.trade_selector_import;
     }
+    setTimeout(function(){
+      va_selectors = va_selectors || sapiHelpers.getStatSelections();
+      sapiHelpers.setVerticalAlignment(va_selectors);
+    },100);
+    
   }
 
   $scope.toggleSpecies = function () {
@@ -173,6 +181,10 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService) 
       $scope.sapi.species_title = $scope.sapi.species_title_cites;
       $scope.sapi.species_selector = $scope.sapi.species_selector_cms;  
     }
+    setTimeout(function(){
+      va_selectors = va_selectors || sapiHelpers.getStatSelections();
+      sapiHelpers.setVerticalAlignment(va_selectors);
+    },100);
   }
 
   // Aggregates the least numerous groups.
@@ -247,6 +259,15 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService) 
     return data;
   }
 
+  $scope.$watch(
+    function () { return statsVisibilityService.getVisibility(); }, 
+    function (newVal, oldVal) {
+      if (newVal && newVal !== oldVal) {
+        va_selectors = va_selectors || sapiHelpers.getStatSelections();
+        sapiHelpers.setVerticalAlignment(va_selectors);
+      }
+  }, true);
+
   function getData (iso2) {
     return Sapi.get({country:iso2, kingdom:'Animalia', trade_limit:6}, function(data) {
       var data = groupSpeciesResults(data).dashboard_stats;
@@ -256,6 +277,11 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService) 
       $scope.sapi.trade_imports_top_data = data.trade.imports.top_traded;
       $scope.sapi.loading = false;
       $scope.sapi.loaded = true;
+      // Resize sapi stats containers!
+      va_selectors = va_selectors || sapiHelpers.getStatSelections();
+      sapiHelpers.setVerticalAlignment(va_selectors);
+      $( window ).resize( _.debounce( function () {
+        sapiHelpers.setVerticalAlignment(va_selectors) }, 500 ) );
     });
   }
 
