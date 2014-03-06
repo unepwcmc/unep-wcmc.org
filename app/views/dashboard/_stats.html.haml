@@ -133,5 +133,5 @@
                     %p.common-name {{group[0]}}
                     %p.species-count-small {{group[1] | number}}
                   %td.species-count
-                    %span {{s.count | number}}
+                    %span {{group[1] | number}}
                 %p{'ng-hide'=>"sapi.species_cms_data.length", :class => "no-data"} No listed species.
