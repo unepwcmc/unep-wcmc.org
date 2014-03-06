@@ -4,6 +4,7 @@ json.datasets Cms::Site.find_by_identifier('resources-and-data').pages.root.chil
   json.id dataset.id
   json.slug dataset.slug
   json.publication_date cms_page_block_content(:publication_date, dataset)
+  json.publication_date_year cms_page_block_content(:publication_date_display_only_year, dataset)
   json.content_type cms_page_block_content(:content_type, dataset)
   json.first_link cms_page_block_content(:first_url, dataset)
   json.first_link_label cms_page_block_content(:first_url_label, dataset)

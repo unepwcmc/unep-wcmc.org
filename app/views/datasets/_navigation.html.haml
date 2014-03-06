@@ -66,7 +66,10 @@
         {{ dataset.title }}
       %h3
         {{ dataset.content_type }}
-        %span{"ng-if" => "dataset.content_type == 'Book' || dataset.content_type == 'Journal Paper' || dataset.content_type == 'Report' || dataset.content_type == 'Dataset'"}
+        %span{"ng-if" => "dataset.publication_date_year != ''"}
+          %span.separator= '|'
+          {{ dataset.publication_date_year }}
+        %span{"ng-if" => "dataset.publication_date_year=='' && dataset.content_type != 'Online Tool'"}
           %span.separator= '|'
           {{ dataset.publication_date | date: 'MMMM yyyy' }}
       %h3.author{ "ng-if" => "dataset.author" }
