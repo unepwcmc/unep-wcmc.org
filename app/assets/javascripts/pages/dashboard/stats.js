@@ -360,7 +360,7 @@ function ($scope, $resource, CARTODB_URL, countryService) {
       var data = data.rows[0];
       if (data) {
         $scope.carbo.biodiversity_loss = -data.biodiversity_loss.toFixed(0);
-        $scope.carbo.carbon_sums = data.carbon_sums;
+        $scope.carbo.carbon_sums = (data.carbon_sums / 1000000000).toFixed(2);
         $scope.carbo.carbon_pas = (data.carbon_from_pas / data.carbon_sums * 100).toFixed(0);
       }
       $scope.carbo.loading = false;
