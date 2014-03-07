@@ -9,6 +9,14 @@ input[type="radio"], input[type="checkbox"] {
   margin-right: 5px;
 }
 
+div.dashboard table {
+  width: 100%;
+}
+
 tr.species-container td {
   padding: 20px;
+}
+
+tr.species-container td.species-count{
+  padding-right: 20px;
 }
