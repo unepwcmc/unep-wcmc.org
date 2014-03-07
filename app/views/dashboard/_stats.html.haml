@@ -5,10 +5,10 @@
       Conservation dashboard for {{country.name}}
 
   %div{:class => "section-group controls", "ng-controller" => "StatsBtnCtrl"}
-    %section#view-button{:class => "group", "ng-show" => "visible"}
+    %div#view-button{:class => "group", "ng-show" => "visible"}
       %button{:class => "transparent", "ng-click" => "showStats()", "ng-show" => "visible"} View Now
 
-    %section#search-field{:class => "group", "ng-class"=>"{full: !visible}"}
+    %div#search-field{:class => "group", "ng-class"=>"{full: !visible}"}
       %div{:class => "geo_entities", "ng-controller" => "CountryPickerCtrl"}
         %input{:type=>"text", "ng-model"=>"selected", 'placeholder'=>"Search for another country", "typeahead"=>"country as country.name for country in getCountry($viewValue)"}
         %i.icon-search
