@@ -114,6 +114,9 @@
                 %span {{sapi.species_title}}
                 %a{:href => "/dashboard#species-lists"}
                   %i.icon-info-sign.toggle
+                %p  
+                  %span{:class => "infotext"}
+                    {{sapi.species_info}}
               %div.info-link-small
                 %span{:class => "option-selector", "ng-click" => "toggleSpecies()"} {{sapi.species_selector}}
             %div{:class => "spinner", "ng-show" => "sapi.loading"}
