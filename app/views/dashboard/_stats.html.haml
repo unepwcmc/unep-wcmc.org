@@ -76,6 +76,9 @@
                 %span {{sapi.trade_title}}
                 %a{:href => "/dashboard#species-trades"}
                   %i.icon-info-sign.toggle
+              %p  
+                %span{:class => "infotext"}
+                  {{sapi.trade_info}}
               %div.info-link-small
                 %span{:class => "option-selector", "ng-click" => "toggleTrade()"} {{sapi.trade_selector}}
             %div{:class => "spinner", "ng-show" => "sapi.loading"}
