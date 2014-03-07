@@ -1818,10 +1818,15 @@ div.dashboard {
       header {
         padding: 15px;
         p {
-          font-weight: 300;
+          font-weight: 500;
           display: inline;
           font-size: 0.85em;
           line-height: 1.25em;
+          span.infotext {
+            font-weight: 300;
+            color: #a4a4a4;
+            padding: 3px 0;
+          }
         }
         span.infotext{
           display: block;
