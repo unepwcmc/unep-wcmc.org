@@ -1823,6 +1823,10 @@ div.dashboard {
           font-size: 0.85em;
           line-height: 1.25em;
         }
+        span.infotext{
+          display: block;
+          text-transform: none;
+        }
         i.icon-info-sign {
           color: #ccc;
           font-size: 1em;
