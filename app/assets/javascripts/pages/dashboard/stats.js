@@ -133,7 +133,7 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
   $scope.sapi.trade_import = false;
   $scope.sapi.trade_title_export = 'Top CITES listed species exported';
   $scope.sapi.trade_title_import = 'Top CITES listed species imported';
-  $scope.sapi.trade_info = '(live, wild animals for commercial trade, 2007 - 2012)';
+  $scope.sapi.trade_info = 'Live, wild animals for commercial trade from 2007 to 2012';
   $scope.sapi.trade_title = $scope.sapi.trade_title_export;
   $scope.sapi.trade_selector_export = 'See exports';
   $scope.sapi.trade_selector_import = 'See imports';
@@ -143,7 +143,7 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
   $scope.sapi.species_cms = false;
   $scope.sapi.species_title_cites = 'Number of CITES-listed species by taxonomic group';
   $scope.sapi.species_title_cms = 'Number of CMS-listed species by taxonomic group';
-  $scope.sapi.species_info = "(Species that occur within your country)"
+  $scope.sapi.species_info = "Species that occur within your country"
   $scope.sapi.species_title = $scope.sapi.species_title_cites;
   $scope.sapi.species_selector_cites = 'See CITES';
   $scope.sapi.species_selector_cms = 'See CMS';
