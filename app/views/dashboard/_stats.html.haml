@@ -17,7 +17,7 @@
 
     %div{:class => "biodiversity"}
       %div{:class => "section-group"}
-        %section{:class => "group stats"}
+        %section{:class => "group stats left"}
           %div{:class => "stat"}
             %header
               %p
@@ -42,7 +42,7 @@
               %div.metric
                 %span{:class => "number protected-areas"} {{ppe.protected_areas_count | number}}
                 %span{:class => "small protected"} covering {{ppe.percentage_protected}}% of the country
-        %section{:class => "group stats"}
+        %section{:class => "group stats right"}
           %div{:class => "stat carbon", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "carbo"}
             %header
               %p
@@ -69,7 +69,7 @@
 
       %div{:class => "section-group", "ng-controller" => "SapiStatsCtrl", "ng-model" => "sapi"}
 
-        %section{:class => "group stats"}
+        %section{:class => "group stats left"}
           %div{:class => "stat sapi"}
             %header{}
               %p
@@ -104,7 +104,7 @@
                     %span {{t.count | number}}
                 
 
-        %section{:class => "group stats"}
+        %section{:class => "group stats right"}
           %div{:class => "stat sapi"}
             %header{}
               %p
