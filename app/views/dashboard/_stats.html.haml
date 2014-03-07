@@ -90,7 +90,7 @@
                     %p.species-count-small {{t.count | number}}
                   %td.species-count
                     %span {{t.count | number}}
-                %p{'ng-hide'=>"sapi.trade_exports_top_data.length", :class => "no-data"} No exported species.
+                
             %div{"ng-show" => "sapi.trade_import"}
               %table
                 %tr.species-container{'ng-repeat' => "t in sapi.trade_imports_top_data", "ng-show" => "sapi.loaded"}
@@ -102,7 +102,7 @@
                     %p.species-count-small {{t.count | number}}
                   %td.species-count
                     %span {{t.count | number}}
-                %p{'ng-hide'=>"sapi.trade_imports_top_data.length", :class => "no-data"} No imported species.
+                
 
         %section{:class => "group stats"}
           %div{:class => "stat sapi"}
@@ -134,4 +134,4 @@
                     %p.species-count-small {{group[1] | number}}
                   %td.species-count
                     %span {{group[1] | number}}
-                %p{'ng-hide'=>"sapi.species_cms_data.length", :class => "no-data"} No listed species.
+                
