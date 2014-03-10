@@ -1,3 +1,5 @@
+$blue: #4c9cda;
+
 section-group, section.group {
   margin: 0px !important; 
   padding: 0px !important; 
@@ -33,6 +35,10 @@ div.dashboard {
     }
     header {
       background-color: white;
+    }
+    .bar-container {
+      background: $blue;
+      filter: alpha(opacity=40);
     }
   }
 }
