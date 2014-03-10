@@ -25,7 +25,7 @@
                 %a{:href => "/dashboard#predicts"}
                   %i.icon-info-sign
             %div{:class => "metrics-container", "ng-controller" => "CartodbStatsCtrl", "ng-model" => "carbo"}
-              %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
+              %img.spinner{:src => "assets/loading.gif", :style => "max-height: 50px; max-width: 50px;", "ng-show" => "carbo.loading"}/
               %div.metric.percentage
                 %span{:class => "number"} {{carbo.biodiversity_loss}}
                 %span{:class => "small"}%
@@ -38,7 +38,7 @@
                 %a{:href => "/dashboard#protected-areas"}
                   %i.icon-info-sign
             %div{:class => "metrics-container", "ng-controller" => "PpeStatsCtrl", "ng-model" => "ppe"}
-              %div{:class => "spinner-small", "ng-show" => "ppe.loading"}
+              %img.spinner{:src => "assets/loading.gif", :style => "max-height: 50px; max-width: 50px;", "ng-show" => "ppe.loading"}/
               %div{:class => "metric", "ng-show" => "ppe.loaded"}
                 %span{:class => "number protected-areas"} {{ppe.protected_areas_count | number}}
                 %span{:class => "small protected"} covering {{ppe.percentage_protected}}% of the country
@@ -53,14 +53,14 @@
               %div.metric
                 %p{:class => "subheader"} Carbon stored in above and below ground biomass and soil
                 %div{:class => "submetric"}
-                  %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
+                  %img.spinner{:src => "assets/loading.gif", :style => "max-height: 50px; max-width: 50px;", "ng-show" => "carbo.loading"}/
                   %span{:class => "number", "ng-show" => "carbo.loaded"} {{carbo.carbon_sums | number}}
                   %span{:class => "small"} Mt
             %div{:class => "metrics-container carbon"}
               %div.metric
                 %p{:class => "subheader"} Carbon stored in protected areas
                 %div{:class => "submetric"}
-                  %div{:class => "spinner-small", "ng-show" => "carbo.loading"}
+                  %img.spinner{:src => "assets/loading.gif", :style => "max-height: 50px; max-width: 50px;", "ng-show" => "carbo.loading"}/
                   %div.metric.percentage
                     %span{:class => "number"} {{carbo.carbon_pas}}
                     %span{:class => "small"}%
@@ -81,7 +81,7 @@
                   {{sapi.trade_info}}
               %div.info-link-small
                 %span{:class => "option-selector", "ng-click" => "toggleTrade()"} {{sapi.trade_selector}}
-            %div{:class => "spinner", "ng-show" => "sapi.loading"}
+            %img.spinner{:src => "assets/loading.gif", :style => "max-height: 50px; max-width: 50px;", "ng-show" => "sapi.loading"}/
             %div{"ng-show" => "sapi.trade_export"}
               %p.no-results{"ng-show" => "!sapi.trade_exports_top_data.length"}
                 No results
@@ -123,7 +123,7 @@
                     {{sapi.species_info}}
               %div.info-link-small
                 %span{:class => "option-selector", "ng-click" => "toggleSpecies()"} {{sapi.species_selector}}
-            %div{:class => "spinner", "ng-show" => "sapi.loading"}
+            %img.spinner{:src => "assets/loading.gif", :style => "max-height: 50px; max-width: 50px;", "ng-show" => "sapi.loading"}/
             %div{"ng-show" => "sapi.species_cites"}
               %p.no-results{"ng-show" => "!sapi.trade_imports_top_data.length"}
                 No results            
