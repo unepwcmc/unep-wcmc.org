@@ -24,15 +24,18 @@ function ($rootScope, $scope, $resource, GEOIP_URL, countryService) {
   var GeoIp, geoIp;
   $scope.country = {};
   $scope.country.loaded = false;
-  GeoIp = $resource(GEOIP_URL);
-  geoIp = GeoIp.get( function(data) {
+
+  $.ajax({
+    url: GEOIP_URL
+  }).done(function(data) {
     var name = data.country_name,
-      iso2 = data.country_code2;
+        iso2 = data.country_code2;
     if (name && iso2) {
       $scope.country.name = data.country_name;
       $scope.country.iso2 = data.country_code2;
       $scope.country.loaded = true;
       countryService.setCountry($scope.country);
+      $scope.$apply();
     }
   });
   $scope.$watch(
@@ -76,12 +79,8 @@ function ($scope, $http, GEO_ENTITIES_URL, countryService, statsVisibilityServic
   $scope.selected = undefined;
 
   $scope.getCountry = function(val) {
-    return $http.get(GEO_ENTITIES_URL, {
-      params: {
-        gst: 2
-      }
-    }).then(function(res){
-      return _.filter(res.data.geo_entities, function(geo) {
+    return $.when($.getJSON(GEO_ENTITIES_URL)).then(function(data){
+      return _.filter(data.geo_entities, function(geo) {
         return geo.name.substr(0, val.length).toLowerCase() == val.toLowerCase();
       });
     });
@@ -98,7 +97,6 @@ function ($scope, $http, GEO_ENTITIES_URL, countryService, statsVisibilityServic
       statsVisibilityService.setVisibility(true);
     }
     $scope.selected = '';
-
   }, true);
 
 }]);
@@ -110,9 +108,11 @@ angular.module('stats').controller('SapiStatsCtrl', [
   'SAPI_API_URL',
   'SAPI_SPECIES_GROUPS',
   'countryService',
-function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService) {
+  'sapiHelpers',
+  'statsVisibilityService',
+function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, sapiHelpers, statsVisibilityService) {
 
-  var Sapi = $resource(SAPI_API_URL, {country:'@country'});
+  var va_selectors;
 
   $scope
     .$watch(function () { return countryService.getCountry(); }, 
@@ -131,8 +131,9 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService) 
   // Trade
   $scope.sapi.trade_export = true;
   $scope.sapi.trade_import = false;
-  $scope.sapi.trade_title_export = 'Top species by number of exports';
-  $scope.sapi.trade_title_import = 'Top species by number of imports';
+  $scope.sapi.trade_title_export = 'Top CITES listed species exported';
+  $scope.sapi.trade_title_import = 'Top CITES listed species imported';
+  $scope.sapi.trade_info = 'Live, wild animals for commercial trade from 2007 to 2012';
   $scope.sapi.trade_title = $scope.sapi.trade_title_export;
   $scope.sapi.trade_selector_export = 'See exports';
   $scope.sapi.trade_selector_import = 'See imports';
@@ -140,12 +141,13 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService) 
   // Species
   $scope.sapi.species_cites = true;
   $scope.sapi.species_cms = false;
-  $scope.sapi.species_title_cites = 'Number of CITES-listed species by group';
-  $scope.sapi.species_title_cms = 'Number of CMS-listed species in by group';
+  $scope.sapi.species_title_cites = 'Number of CITES-listed species by taxonomic group';
+  $scope.sapi.species_title_cms = 'Number of CMS-listed species by taxonomic group';
+  $scope.sapi.species_info = "Species that occur within your country"
   $scope.sapi.species_title = $scope.sapi.species_title_cites;
   $scope.sapi.species_selector_cites = 'See CITES';
   $scope.sapi.species_selector_cms = 'See CMS';
-  $scope.sapi.species_selector = $scope.sapi.species_selector_cms; 
+  $scope.sapi.species_selector = $scope.sapi.species_selector_cms;
 
   $scope.toggleTrade = function () {
     if ($scope.sapi.trade_export) {
@@ -159,6 +161,11 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService) 
       $scope.sapi.trade_title = $scope.sapi.trade_title_export;
       $scope.sapi.trade_selector = $scope.sapi.trade_selector_import;
     }
+    setTimeout(function(){
+      va_selectors = va_selectors || sapiHelpers.getStatSelections();
+      sapiHelpers.setVerticalAlignment(va_selectors);
+    },100);
+    
   }
 
   $scope.toggleSpecies = function () {
@@ -173,6 +180,10 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService) 
       $scope.sapi.species_title = $scope.sapi.species_title_cites;
       $scope.sapi.species_selector = $scope.sapi.species_selector_cms;  
     }
+    setTimeout(function(){
+      va_selectors = va_selectors || sapiHelpers.getStatSelections();
+      sapiHelpers.setVerticalAlignment(va_selectors);
+    },100);
   }
 
   // Aggregates the least numerous groups.
@@ -247,8 +258,22 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService) 
     return data;
   }
 
+  $scope.$watch(
+    function () { return statsVisibilityService.getVisibility(); }, 
+    function (newVal, oldVal) {
+      if (newVal && newVal !== oldVal) {
+        va_selectors = va_selectors || sapiHelpers.getStatSelections();
+        sapiHelpers.setVerticalAlignment(va_selectors);
+      }
+  }, true);
+
   function getData (iso2) {
-    return Sapi.get({country:iso2, kingdom:'Animalia', trade_limit:6}, function(data) {
+    var url = SAPI_API_URL.replace(':country', iso2);
+
+    return $.ajax({
+      url: url,
+      data: {kingdom:'Animalia', trade_limit:6} })
+    .done(function(data) {
       var data = groupSpeciesResults(data).dashboard_stats;
       $scope.sapi.species_cites_data = data.species.cites_eu;
       $scope.sapi.species_cms_data = data.species.cms;
@@ -256,6 +281,12 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService) 
       $scope.sapi.trade_imports_top_data = data.trade.imports.top_traded;
       $scope.sapi.loading = false;
       $scope.sapi.loaded = true;
+      $scope.$apply();
+      // Resize sapi stats containers!
+      va_selectors = va_selectors || sapiHelpers.getStatSelections();
+      sapiHelpers.setVerticalAlignment(va_selectors);
+      $( window ).resize( _.debounce( function () {
+        sapiHelpers.setVerticalAlignment(va_selectors) }, 500 ) );
     });
   }
 
@@ -267,11 +298,11 @@ angular.module('stats').controller('PpeStatsCtrl', [
   '$resource',
   'PPE_API_URL',
   'countryService',
-function ($scope, $resource, PPE_API_URL, countryService) {
+  'helpers',
+function ($scope, $resource, PPE_API_URL, countryService, helpers) {
 
-  var Ppe = $resource(PPE_API_URL, {country:'@country'}),
-    ppe_stored_carbon, 
-    stored_carbon;
+  var ppe_stored_carbon, 
+      stored_carbon;
 
   $scope
     .$watch(function () { return countryService.getCountry(); }, 
@@ -286,13 +317,22 @@ function ($scope, $resource, PPE_API_URL, countryService) {
   $scope.ppe.loaded = false;
 
   function getData (iso2) {
-    var ppe_stored_carbon = void 0;
-    return Ppe.get({iso:iso2}, function(data) {
+    var ppe_stored_carbon = void 0,
+        url = PPE_API_URL.replace(':country', iso2);
+    return $.when($.getJSON(url, {iso:iso2})).then(function(data){
       $scope.ppe.ppe_stored_carbon = data.carbon_kg_land / 1000;
       $scope.ppe.protected_areas_count = data.protected_areas_count;
-      $scope.ppe.percentage_protected = data.percentage_protected.toFixed(0);
-      $scope.ppe.loading = false;
-      $scope.ppe.loaded = true;
+      $scope.ppe.percentage_protected = helpers.formatNumber(
+        data.percentage_protected);
+      $scope.$apply(function() {
+        $scope.ppe.loading = false;
+        $scope.ppe.loaded = true;
+      });
+    }, function(e){
+      $scope.$apply(function() {
+        $scope.ppe.loading = true;
+        $scope.ppe.loaded = false;
+      });
     });
   }
 
@@ -304,9 +344,8 @@ angular.module('stats').controller('CartodbStatsCtrl', [
   '$resource',
   'CARTODB_URL',
   'countryService',
-function ($scope, $resource, CARTODB_URL, countryService) {
-
-  var Carbo = $resource(CARTODB_URL);
+  'helpers',
+function ($scope, $resource, CARTODB_URL, countryService, helpers) {
 
   $scope.carbo = {}
   $scope.carbo.loading = true;
@@ -323,15 +362,31 @@ function ($scope, $resource, CARTODB_URL, countryService) {
     var q = {
       q: "SELECT biodiversity_loss, carbon_sums, carbon_from_pas FROM wcmc_api_stats WHERE iso2 = '" + iso2 + "'"
     }
-    return Carbo.get(q, function(data) {
+    return $.ajax({
+      url: CARTODB_URL,
+      dataType: "jsonp",
+      data: q})
+    .done(function(data) {
       var data = data.rows[0];
-      if (data) {
-        $scope.carbo.biodiversity_loss = -data.biodiversity_loss.toFixed(0);
-        $scope.carbo.carbon_sums = data.carbon_sums;
-        $scope.carbo.carbon_pas = (data.carbon_from_pas / data.carbon_sums * 100).toFixed(0);
-      }
-      $scope.carbo.loading = false;
-      $scope.carbo.loaded = true;
+      
+        if (data) {
+          $scope.carbo.biodiversity_loss = -helpers.formatNumber(
+            data.biodiversity_loss );
+          $scope.carbo.carbon_sums = helpers.formatNumber(
+            (data.carbon_sums / 1000000) );
+          $scope.carbo.carbon_pas = helpers.formatNumber(
+            (data.carbon_from_pas / data.carbon_sums * 100) );
+        }
+        $scope.$apply(function() {
+          $scope.carbo.loading = false;
+          $scope.carbo.loaded = true;
+        });
+    })
+    .error(function(error){
+      $scope.$apply(function() {
+        $scope.carbo.loading = true;
+        $scope.carbo.loaded = false;
+      });
     });
   }
 
