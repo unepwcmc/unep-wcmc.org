@@ -1680,6 +1680,9 @@ div.dashboard-container {
 }
 
 div.dashboard {
+  p.no-results {
+    padding: 5px 0 5px 19px;
+  }
   margin: 30px auto;
   div.biodiversity {
     clear: both;

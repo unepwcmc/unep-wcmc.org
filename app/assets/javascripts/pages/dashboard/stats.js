@@ -298,7 +298,8 @@ angular.module('stats').controller('PpeStatsCtrl', [
   '$resource',
   'PPE_API_URL',
   'countryService',
-function ($scope, $resource, PPE_API_URL, countryService) {
+  'helpers',
+function ($scope, $resource, PPE_API_URL, countryService, helpers) {
 
   var ppe_stored_carbon, 
       stored_carbon;
@@ -321,9 +322,17 @@ function ($scope, $resource, PPE_API_URL, countryService) {
     return $.when($.getJSON(url, {iso:iso2})).then(function(data){
       $scope.ppe.ppe_stored_carbon = data.carbon_kg_land / 1000;
       $scope.ppe.protected_areas_count = data.protected_areas_count;
-      $scope.ppe.percentage_protected = data.percentage_protected.toFixed(0);
-      $scope.ppe.loading = false;
-      $scope.ppe.loaded = true;
+      $scope.ppe.percentage_protected = helpers.formatNumber(
+        data.percentage_protected);
+      $scope.$apply(function() {
+        $scope.ppe.loading = false;
+        $scope.ppe.loaded = true;
+      });
+    }, function(e){
+      $scope.$apply(function() {
+        $scope.ppe.loading = true;
+        $scope.ppe.loaded = false;
+      });
     });
   }
 
@@ -335,7 +344,8 @@ angular.module('stats').controller('CartodbStatsCtrl', [
   '$resource',
   'CARTODB_URL',
   'countryService',
-function ($scope, $resource, CARTODB_URL, countryService) {
+  'helpers',
+function ($scope, $resource, CARTODB_URL, countryService, helpers) {
 
   $scope.carbo = {}
   $scope.carbo.loading = true;
@@ -358,13 +368,25 @@ function ($scope, $resource, CARTODB_URL, countryService) {
       data: q})
     .done(function(data) {
       var data = data.rows[0];
-      if (data) {
-        $scope.carbo.biodiversity_loss = -data.biodiversity_loss.toFixed(0);
-        $scope.carbo.carbon_sums = (data.carbon_sums / 1000000000).toFixed(2);
-        $scope.carbo.carbon_pas = (data.carbon_from_pas / data.carbon_sums * 100).toFixed(0);
-      }
-      $scope.carbo.loading = false;
-      $scope.carbo.loaded = true;
+      
+        if (data) {
+          $scope.carbo.biodiversity_loss = -helpers.formatNumber(
+            data.biodiversity_loss );
+          $scope.carbo.carbon_sums = helpers.formatNumber(
+            (data.carbon_sums / 1000000) );
+          $scope.carbo.carbon_pas = helpers.formatNumber(
+            (data.carbon_from_pas / data.carbon_sums * 100) );
+        }
+        $scope.$apply(function() {
+          $scope.carbo.loading = false;
+          $scope.carbo.loaded = true;
+        });
+    })
+    .error(function(error){
+      $scope.$apply(function() {
+        $scope.carbo.loading = true;
+        $scope.carbo.loaded = false;
+      });
     });
   }
 
