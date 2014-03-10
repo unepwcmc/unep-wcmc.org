@@ -8,3 +8,15 @@ input[type="radio"], input[type="checkbox"] {
   margin-left: 1px;
   margin-right: 5px;
 }
+
+div.dashboard table {
+  width: 100%;
+}
+
+tr.species-container td {
+  padding: 20px;
+}
+
+tr.species-container td.species-count{
+  padding-right: 20px;
+}

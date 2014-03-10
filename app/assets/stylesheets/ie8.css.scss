@@ -1,0 +1,45 @@
+$blue: #4c9cda;
+
+section-group, section.group {
+  margin: 0px !important; 
+  padding: 0px !important; 
+  border: 0px !important;
+}
+
+/* Apply styles for column layout */
+section-group { 
+    width: 100%; 
+    overflow: auto
+}
+section.group.left {
+    width: 47%; 
+    float: left;
+    overflow-x: auto;
+}
+section.group.right { 
+    width: 47%; 
+    float: right;
+    overflow-x: auto;
+}
+
+div.dashboard {
+  div.section-group.controls {
+    section.group {
+      filter: alpha(opacity=0);
+    }
+  }
+  section.group.stats {
+    .stat {
+      background-color: rgb(225, 225, 225);
+      filter: alpha(opacity=80);
+    }
+    header {
+      background-color: white;
+    }
+    .bar-container {
+      background: $blue;
+      filter: alpha(opacity=40);
+    }
+  }
+}
+

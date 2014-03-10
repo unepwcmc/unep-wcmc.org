@@ -511,64 +511,64 @@ div.dashboard {
 
   div.section-group.controls {
 		position: relative;
-		width: 100%;
+		width: 99%;
 		z-index: 1000;
+    #view-button {
+      width: 20%;
+    }
     section.group {
       background-color: rgba(255, 255, 255, 0);
       margin-top: 0;
-      &#view-button {
-        width: 20%;
+    }
+    #search-field.full {
+      width: 100%;
+      -webkit-transition: width .65s ease;
+              transition: width .65s ease;
+    }
+    #search-field {
+      width: 75%;
+      border-bottom: 2px solid #fff;
+      position: relative;
+      input {
+        width: 95%;
+        padding: 5px 0 10px 0;
+        font-family: "museo-sans", Helvetica, Arial, sans-serif;
+        color: #fff;
+        background: none;
+        border: none;
+        font-size: 1.25em;
+        outline: none;
       }
-      &#search-field.full {
-        width: 98%;
-        -webkit-transition: width .65s ease;
-                transition: width .65s ease;
+      input::-webkit-input-placeholder {
+        color: rgba(255, 255, 255, 1);
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
       }
-      &#search-field {
-        width: 75%;
-        border-bottom: 2px solid #fff;
-        position: relative;
-        input {
-          width: 95%;
-          padding: 5px 0 10px 0;
-        	font-family: "museo-sans", Helvetica, Arial, sans-serif;
-        	color: #fff;
-        	background: none;
-        	border: none;
-        	font-size: 1.25em;
-        	outline: none;
-        }
-        input::-webkit-input-placeholder {
-        	color: rgba(255, 255, 255, 1);
-        	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-        }
-        input::-moz-placeholder {
-        	color: rgba(255, 255, 255, 1);
-        	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-        }
-        input:-moz-placeholder {   /* Older versions of Firefox */
-        	color: rgba(255, 255, 255, 1);
-        	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-        }
-        input:-ms-input-placeholder {
-        	color: rgba(255, 255, 255, 1);
-        	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-        }
-        i.icon-search {
-          width: 35px;
-        	color: #fff;
-        	background: rgba(255,255,255, 0.3);
-        	padding: 5px 25px 5px 5px;
-        	margin-bottom: 10px;
-        	border: 2px solid #fff;
-        	font-size: 1.25em;
-        	-webkit-border-radius: 3px;
-        	-moz-border-radius: 3px;
-        	border-radius: 3px;
-        	position: absolute;
-        	right: 0;
-        	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-        }
+      input::-moz-placeholder {
+        color: rgba(255, 255, 255, 1);
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+      }
+      input:-moz-placeholder {   /* Older versions of Firefox */
+        color: rgba(255, 255, 255, 1);
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+      }
+      input:-ms-input-placeholder {
+        color: rgba(255, 255, 255, 1);
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+      }
+      i.icon-search {
+        width: 35px;
+        color: #fff;
+        background: rgba(255,255,255, 0.3);
+        padding: 5px 25px 5px 5px;
+        margin-bottom: 10px;
+        border: 2px solid #fff;
+        font-size: 1.25em;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        position: absolute;
+        right: 0;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
       }
     }
     button {
