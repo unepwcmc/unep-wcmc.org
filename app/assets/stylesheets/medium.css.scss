@@ -511,7 +511,7 @@ div.dashboard {
 
   div.section-group.controls {
 		position: relative;
-		width: 100%;
+		width: 99%;
 		z-index: 1000;
     #view-button {
       width: 20%;
@@ -521,7 +521,7 @@ div.dashboard {
       margin-top: 0;
     }
     #search-field.full {
-      width: 98%;
+      width: 100%;
       -webkit-transition: width .65s ease;
               transition: width .65s ease;
     }
