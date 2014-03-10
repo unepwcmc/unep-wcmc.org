@@ -1690,21 +1690,7 @@ div.dashboard {
   }
 
   .spinner {
-    background-image: image-url('loading.gif');
-    background-size: 100%;
-    background-position: center;
-    width: 30px;
-    height: 30px;
-    margin: 20px auto 20px auto;
-  }
-
-  .spinner-small {
-    background-image: image-url('loading_small.gif');
-    background-size: 100%;
-    background-position: center;
-    width: 30px;
-    height: 30px;
-    margin: 20px auto 20px auto;
+    margin: auto;
   }
 
   header h1 {
