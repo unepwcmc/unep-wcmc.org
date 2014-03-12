@@ -141,8 +141,8 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
   // Species
   $scope.sapi.species_cites = true;
   $scope.sapi.species_cms = false;
-  $scope.sapi.species_title_cites = 'Number of CITES-listed species by taxonomic group';
-  $scope.sapi.species_title_cms = 'Number of CMS-listed species by taxonomic group';
+  $scope.sapi.species_title_cites = 'CITES-listed species by taxonomic group';
+  $scope.sapi.species_title_cms = 'CMS-listed species by taxonomic group';
   $scope.sapi.species_info = "Species that occur within your country"
   $scope.sapi.species_title = $scope.sapi.species_title_cites;
   $scope.sapi.species_selector_cites = 'See CITES';
