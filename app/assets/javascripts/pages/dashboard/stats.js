@@ -323,7 +323,7 @@ function ($scope, $resource, PPE_API_URL, countryService, helpers) {
       $scope.ppe.ppe_stored_carbon = data.carbon_kg_land / 1000;
       $scope.ppe.protected_areas_count = data.protected_areas_count;
       $scope.ppe.percentage_protected = helpers.formatNumber(
-        data.percentage_protected);
+        data.percentage_protected_land);
       $scope.$apply(function() {
         $scope.ppe.loading = false;
         $scope.ppe.loaded = true;
