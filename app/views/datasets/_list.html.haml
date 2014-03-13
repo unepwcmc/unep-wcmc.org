@@ -1,4 +1,4 @@
-.container{"ng-app" => "DatasetsResources", "ng-controller" => "DatasetsCtrl", "ng-init" => "init(#{render partial: "datasets/list", formats: :json})"}
+.container{"ng-app" => "DatasetsResources", "ng-controller" => "DatasetsCtrl", "ng-init" => "init(#{render partial: "datasets/list", formats: :json},  #{render partial: "datasets/dataset_url_fields", formats: :json}, #{render partial: "datasets/dataset_file_fields", formats: :json})"}
   #data-small.column-1-3
     .search_field_container
       %input.search_input{"ng-change" => "search()", "ng-model" => "query", :placeholder => "Search resources or datasets", :type => "text"}
@@ -63,8 +63,12 @@
         {{ dataset.title }}
       %h3
         {{ dataset.content_type }}
-        %span.separator= '|'
-        {{ dataset.publication_date | date: 'dd MMMM yyyy'}}
+        %span{"ng-if" => "dataset.publication_date_year != ''"}
+          %span.separator= '|'
+          {{ dataset.publication_date_year }}
+        %span{"ng-if" => "dataset.publication_date_year=='' && dataset.content_type != 'Online Tool'"}
+          %span.separator= '|'
+          {{ dataset.publication_date | date: 'MMMM yyyy' }}
       %h3.author{ "ng-if" => "dataset.author" }
         Author: {{ dataset.author }}
       %h3.isbn{ "ng-if" => "dataset.isbn" }
@@ -76,6 +80,15 @@
         %a{:href => "{{dataset.second_link}}"} {{dataset.second_link_label}}
       %p.link{ 'ng-show' => 'dataset.file_url' }
         %a{:href => "{{dataset.file_url}}" } Download
+
+      %p.link{ "ng-repeat" => "field in urlFieldsForDataset( dataset.id ) " }
+        %a{:href => "{{field.url}}"}
+          {{ field.label }}
+
+      %p.link{ "ng-repeat" => "file in fileFieldsForDataset( dataset.id ) " }
+        %a{:href => "{{file.url}}"}
+          {{ file.label }}
+    
     %h2.smaller{"ng-if" => "datasetsToBeDisplayed.length == 0"} No data found.
     #button-row{"ng-if" => "hiddenDatasets.length > 0"}
       #more_projects.button{"ng-click" => "showMore()"}
