@@ -1680,6 +1680,9 @@ div.dashboard-container {
 }
 
 div.dashboard {
+  p.no-results {
+    padding: 5px 0 5px 19px;
+  }
   margin: 30px auto;
   div.biodiversity {
     clear: both;
@@ -1687,21 +1690,7 @@ div.dashboard {
   }
 
   .spinner {
-    background-image: image-url('loading.gif');
-    background-size: 100%;
-    background-position: center;
-    width: 30px;
-    height: 30px;
-    margin: 20px auto 20px auto;
-  }
-
-  .spinner-small {
-    background-image: image-url('loading_small.gif');
-    background-size: 100%;
-    background-position: center;
-    width: 30px;
-    height: 30px;
-    margin: 20px auto 20px auto;
+    margin: auto;
   }
 
   header h1 {
@@ -1714,7 +1703,7 @@ div.dashboard {
 
   div.section-group.controls {
 		position: relative;
-		width: 100%;
+		width: 99%;
 		z-index: 1000;
 		overflow: visible;
 		min-height: 100px;

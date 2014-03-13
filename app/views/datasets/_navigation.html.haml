@@ -66,8 +66,12 @@
         {{ dataset.title }}
       %h3
         {{ dataset.content_type }}
-        %span.separator= '|'
-        {{ dataset.publication_date | date: 'dd MMMM yyyy'}}
+        %span{"ng-if" => "dataset.publication_date_year != ''"}
+          %span.separator= '|'
+          {{ dataset.publication_date_year }}
+        %span{"ng-if" => "dataset.publication_date_year=='' && dataset.content_type != 'Online Tool'"}
+          %span.separator= '|'
+          {{ dataset.publication_date | date: 'MMMM yyyy' }}
       %h3.author{ "ng-if" => "dataset.author" }
         Author: {{ dataset.author }}
       %h3.isbn{ "ng-if" => "dataset.isbn" }
@@ -83,4 +87,4 @@
     #button-row{"ng-if" => "hiddenDatasets.length > 0"}
       #more_projects.button{"ng-click" => "showMore()"}
         %p
-          %a{:href => ""} View more datasets
+          %a{:href => ""} View more

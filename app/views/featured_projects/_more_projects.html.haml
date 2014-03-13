@@ -1,3 +1,7 @@
+/ To bring back View more projects button add {{ cms:partial:featured_projects/more_projects }}
+/ to the end of featured-project-aggregator layout in cms admin panel and remove second listing 
+/ (with is_top_project set to false) from _list.html.haml file.
+
 - if @cms_page.children.published.where(is_top_project: false).count > 0
   #other_projects.container{"ng-app" => "ProjectsList", "ng-cloak" => "", "ng-controller" => "ProjectsCtrl", "ng-init" => "init(#{render partial: "featured_projects/projects", locals: {pages: @cms_page.children.published.where(is_top_project: false)}, formats: :json})"}
     %h2#featured_projects.large_subheading Other work you may want to see
