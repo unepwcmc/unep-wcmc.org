@@ -26,6 +26,7 @@ body {
 }
 
 .container {
+  margin: 50px auto;
   width: 90%;
   section {
     float: none;
@@ -55,14 +56,16 @@ h2{
 	&.smaller {
 	  font-size: 1.2em;
 	}
-	&.large_subheading {
-    font-size: 1.4em;
+	&.related-heading-big {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 1.5em;
     text-align: center;
     display: block;
     margin: auto;
-    width: 90%;
-    font-size: 1.6em;
-    padding: 30px 0 15px 0;
+    width: 80%;
+    padding: 50px 0 25px 0;
+    font-family: "museo-sans", Helvetica, Arial, sans-serif;
 	}
   &.programme {
   line-height: 1em;
@@ -136,24 +139,6 @@ h3{
 	}
 }
 
-h4{
-	width: 100%;
-	font-size: 0.75em;
-	font-weight: 400;
-	text-transform: uppercase;
-	color: $dark_grey;
-	padding: 1em 0;
-	line-height: 1.75em;
-}
-
-h5{
-	font-weight: 500;
-	font-size: 2em;
-	line-height: 1.3em;
-	color: $grey_text;
-	margin-bottom: 2%;
-}
-
 address, p {
 	font-size: 1em;
 	margin-bottom: 10px;
@@ -196,7 +181,11 @@ small {
 	text-transform: uppercase;
 	font-weight: 300;
 	letter-spacing: 0.1em;
-	margin-bottom: 30px;
+	margin-bottom: 1.25em;
+  &.news-item {
+    font-size: 0.85em;
+    margin-bottom: 10px;
+  }
 }
 
 ul {
@@ -268,33 +257,12 @@ div.hero{
   background-image: cover;
   background-position: center;
   background-repeat: no-repeat;
-	&#featured_projects{
-		background-image: url('../imgs/savanna-2.png');
-	}
-	&#data{
-		background-image: url('../imgs/polar-2.png');
-	}
-
-	&#about{
-		background-image: url('../imgs/lake-1.png');
-	}
-	&#areas_of_work{
-		background-image: url('../imgs/rain-forest-3.png');
-	}
-	&#project{
-		background-image: url('../imgs/project_10.jpg');
-	}
 }
 
-div.container#other_projects, div.container#other-news-small, div.container#job_related-small {
+div.container.related-small, div.container.related {
   border-top: 1px solid $grey;
-}
-
-div.container#other-news-small, div.container#job_related-small {
-  margin: 0 auto;
-  h2.large_subheading {
-    margin: 30px 0;
-    text-align: left;
+  div.button {
+    margin: 30px auto 0 auto;
   }
 }
 
@@ -303,14 +271,11 @@ div.heading{
   margin: auto;
   padding: 100px 0;
   text-align: center;
-	h1{
+	h1 {
 		margin-bottom: 0;
 		font-size: 1.4em;
 		line-height: 1.25em;
 		font-weight: bold;
-		&#featured {
-			font-size: 2em;
-		}
 		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 	}
 	h2 {
@@ -324,25 +289,25 @@ div.heading{
 		margin-top: 20px;
 		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 	}
-	h1,h2{
+	h1,h2 {
 		padding: 1% 0;
 		color: #fff;
 	}
   &.featured-project {
-  width: 60%;
-  margin-left: 5%;
-  text-align: left;
-  h1, h2 {
-    padding: 0;
+    width: 60%;
+    margin-left: 5%;
+    text-align: left;
+    h1, h2 {
+      padding: 0;
+    }
+    h2 {
+      margin: 25px 0;
+      padding: 5px 0;
+    }
+    div.button#featured_project {
+      margin: 0;
+    }
   }
-  h2 {
-    margin: 25px 0;
-    padding: 5px 0;
-  }
-  div.button#featured_project {
-    margin: 0;
-  }
-}
 }
 
 div.button, button {
@@ -387,7 +352,6 @@ div.button, button {
   &.data {
     text-align: left;
   }
-
 	&#featured_project, &#twitter {
 	  box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
   	border: 1px solid $medium_grey;
@@ -406,7 +370,6 @@ div.button, button {
 }
 
 .container {
-  margin: auto;
   img {
     max-width: 100%;
     display: block;
@@ -417,117 +380,37 @@ div.button, button {
     padding: 0 5% 60px 5%;
     margin-bottom: -60px;
   }
-  .column-2-3 {
 
-    ul.partners_logos {
-      list-style-type: none; 
-      overflow: hidden;
-      margin-top: 20px;
-      li {
-        display: inline-block;
-        margin: 10px 10px 10px 0;
-        float: left;
-      }
-    }
-  }
-  .column-1-3 {
-    &#job_related, &#job_related_small, &#news, section.actions {
-      h1 {
-      border-bottom: 1px solid $grey;
-      font-size: 1em;
-      color: $dark_grey;
-      text-transform: uppercase;
-      font-family: "museo-sans", Helvetica, Arial, sans-serif;
-      font-weight: 500;
-      color: $grey_text;
-      margin-top: 2em;
-      padding-bottom: 5px;
-      margin-bottom: 20px;
-      &:first-of-type {
-        margin-top: 4px;
-      }
-    }
-    h2 {
-      font-size: 1em;
-      text-transform: none;
-      font-weight: 400;
-      font-family: "museo-sans", Helvetica, Arial, sans-serif;
-    }
-    .button {
-      width: 100%;
-      margin-bottom: 30px;
-    }
-    section {
-      padding-bottom: 1px;
-    }
-  }
-    section.actions#search-button {
-      margin-bottom: 40px;
-      div.button {
-        margin-top: 5px;
-      }
-    }
-  }
-  section {
-    padding-bottom: 20px;
-    &:last-child {
-      padding-bottom: 0;
-    }
-    img {
-      padding-bottom: 0;
-    }
-  }
-  section {
-    &#twitter{
-  		background: $grey;
-  		padding: 25px;
-  		#top_twitter{
-  			width: 100%;
-  			padding: 2% 0 5% 0;
-  			img{
-  				display: block;
-  				max-width: 19%;
-  				opacity: 0.3;
-  				float: left;
-  			}
-  			div.button{
-  				width: 120px;
-  				float: right;
-  				margin-right: 1.75%;
-  				border: 1px solid rgba(0,0,0,0.2);
-  				p, a {
-  					color: $grey_text;
-  					text-decoration: none;
-  				}
-  				border: 2% 5%;
-  				box-shadow: none;
-  				&:hover {
-  					a{
-  						color: #fff;
-  					}
-  					border: 1px solid $blue;
-  					-webkit-transition: all 0.5s ease;
-  					-moz-transition: all 0.5s ease;
-  					-ms-transition: all 0.5s ease;
-  					-o-transition: all 0.5s ease;
-  					transition: all 0.5s ease;
-  				}
-  			}
+  section#twitter{
+  	background: $grey;
+  	padding: 25px;
+  	#top_twitter{
+  		width: 100%;
+  		padding: 2% 0 5% 0;
+  		img{
+  			display: block;
+  			max-width: 19%;
+  			opacity: 0.3;
+  			float: left;
   		}
-  		.tweet{
-  			padding: 3% 0;
-  			small{
-  				margin-bottom: 3%;
-  			}
-  			&:last-child {
-  			  padding-bottom: 0;
-  			  p {
-  			    margin-bottom: 0;
-  			  }
-  			}
+  	}
+  	.tweet{
+  		padding: 3% 0;
+  		small{
+  			margin-bottom: 3%;
+  		}
+  		&:last-child {
+  		  padding-bottom: 0;
+  		  p {
+  		    margin-bottom: 0;
+  		  }
   		}
   	}
   }
+}
+
+div.column-1-3 {
+  margin-bottom: 50px;
 }
 
 section.list {
@@ -622,16 +505,22 @@ ul.subnav, ul.subnav-small {
 
 ul.subnav {
   display: none;
-  margin-bottom: 50px;
-}
-
-ul.subnav-small {
-  margin-bottom: 40px;
 }
 
 ul.subnav.areas {
   display: block;
 }
+
+// ul.partners_logos {
+//   overflow: hidden;
+//   margin-top: 20px;
+//   margin-bottom: 40px;
+//   li {
+//     display: inline-block;
+//     margin-right: 5%;
+//     float: left;
+//   }
+// }
 
 select#sorting, select#sorting option, div.search_field_container {
   width: 100%;
@@ -757,14 +646,6 @@ ul#content, ul#content-small {
 	}
 }
 
-ul#fields.staff_filters {
-  li {
-    &.active, &:hover {
-      border-left: 5px solid $blue;
-    }
-  }
-}
-
 ul#sorting {
   border: 1px solid #eee;
   -webkit-border-radius: 5px;
@@ -783,38 +664,29 @@ ul#sorting {
 	}
 }
 
-div.data_policy, div.data_policy-small{
-  margin: 40px 0;
+div.info-message {
+  max-width: 300px;
   background: #f7f7f7;
+  padding: 15px;
   -webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	padding: 15px;
-  h3 {
-    color: $grey_text;
-    text-align: left;
-    margin-top: 0;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  p,a {
+    font-size: 0.85em;
+    font-weight: 300;
+  }
+  h1 {
+    font-size: 1em;
+    font-weight: 400;
+    font-family: "museo-sans", Helvetica, Arial, sans-serif;
     margin-bottom: 10px;
+    i {
+      padding-right: 5px;
+    }
   }
-  p {
-    font-size: 0.75em;
-    margin-bottom: 0;
+  strong {
+    font-weight: 400;
   }
-}
-
-div.data_policy {
-  display: none;
-}
-
-div.data_policy-small {
-  margin-top: 10px;
- h3 {
-   margin: 0;
-   text-align: center;
-   font-size: 1em;
-   font-weight: 300;
-   font-family: "museo-sans", Helvetica, Arial, sans-serif;
- }
 }
 
 
@@ -893,7 +765,6 @@ div#footer_container {
 	background: image-url('map_world_small.png') no-repeat center;
 	background-opacity: 0.2;
 	background-size: 100%;
-  margin-top: 60px;
   padding: 20px;
   a#unep {
     padding: 10px 0 0 0;
@@ -912,16 +783,13 @@ div#footer_container {
 	}
 }
 
-#footer {
-  width: 90%;
-  margin: auto;
-}
-
 ul.footer{
   list-style: none;
   overflow: hidden;
+  padding: 0;
 	li{
-	  padding-bottom: 10px;
+	  padding: 0 0 10px 0;
+    margin: 0;
 		a {
 			font-size: 1em;
 			font-weight: 300;
@@ -945,6 +813,7 @@ ul.footer{
 
 .section-group {
   overflow: hidden;
+  margin-top: -30px;
 }
 
 div#welcome-container {
@@ -966,25 +835,13 @@ div#welcome {
   }
 }
 
-div#featured_heading {
-  padding: 30px 0;
+div.wide_heading {
+  margin: 30px 0;
   h1 {
     line-height: 1.25em;
     text-align: center;
     margin-top: 0;
-  }
-}
-
-div#news-item {
-  h1 {
-    line-height: 1.25em;
-  }
-  small {
-    font-size: 0.85em;
-    margin-bottom: 10px;
-  }
-  img {
-    margin-bottom: 30px;
+    font-size: 2em;
   }
 }
 
@@ -1021,21 +878,10 @@ section.group.staff {
   }
 }
 
-div#news-archive {
-  h3 {
-    font-size: 0.75em;
-    word-spacing: 0.07em;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 300;
-    font-family: "museo-sans", Helvetica, Arial, sans-serif;
-  }
-}
-
 section.group {
   float: none;
   width: 100%;
-  margin-right: 0;
+  margin: 30px 0 0 0;
 }
 
 ul#large-menu {
@@ -1066,17 +912,15 @@ button#trigger-menu {
   text-transform: uppercase;
   color: $white_link;
   font-size: 0.85em;
-  float: right;
   border: none;
-  border-radius: 5px;
   padding: 0 5%;
-  clear: both;
   width: 100%;
   text-align: left;
   margin: 0;
   border-radius: 0;
   i {
     line-height: 30px;
+    float: left;
     &:after {
       display: inline-block;
       content: "Navigation";
@@ -1099,12 +943,11 @@ div.column-1-3#data {
   display: none;
 }
 
-div.column-1-3#job_related {
+div.column-1-3.related-small {
   display: none;
 }
 
-
-.container .column-1-3 section.actions, .container .column-2-3 section.actions {
+section.actions {
   margin-bottom: 20px;
   h1 {
     margin-bottom: 10px;
@@ -1115,43 +958,7 @@ div.column-1-3#job_related {
   	margin: 4px 0 10px 0;
   	padding-bottom: 5px;
   }
-  &#share {
-    font-weight: 300;
-    h1 {
-      border: none;
-      display: inline;
-      color: $medium_grey;
-      padding-right: 5px;
-      font-weight: 300;
-    }
-    span {
-      font-size: 0.85em;
-      a {
-        display: inline-block;
-        text-transform: none;
-        color: $medium_grey;
-        border-right: 1px solid #e8e8e8;
-        padding: 0 8px 0 0;
-        cursor: pointer;
-        &:last-of-type{
-         border: none;
-         padding: 0 0 0 4px;
-         i {
-           font-size: 1.25em;
-         }
-        }
-        &:hover, &:active {
-          text-decoration: none;
-          color: $blue;
-        }
-      }
-    }
-  }
-}
 
-.container .column-2-3 section.actions {
-  padding-bottom: 0;
-  margin-bottom: 30px;
 }
 
 div#team-details {
@@ -1169,6 +976,39 @@ div#team-details {
     }
     i {
       color: $grey;
+    }
+  }
+}
+
+section.share {
+  font-weight: 300;
+  h1 {
+    border: none;
+    display: inline;
+    color: $medium_grey;
+    padding-right: 5px;
+    font-weight: 300;
+  }
+  span {
+    font-size: 0.85em;
+    a {
+      display: inline-block;
+      text-transform: none;
+      color: $medium_grey;
+      border-right: 1px solid #e8e8e8;
+      padding: 0 8px 0 0;
+      cursor: pointer;
+      &:last-of-type{
+       border: none;
+       padding: 0 0 0 4px;
+       i {
+         font-size: 1.25em;
+       }
+      }
+      &:hover, &:active {
+        text-decoration: none;
+        color: $blue;
+      }
     }
   }
 }
