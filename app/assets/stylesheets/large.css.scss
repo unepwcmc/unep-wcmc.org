@@ -1,13 +1,16 @@
-$blue: #4c9cda;
-$dark_blue: #4295d5;
+$blue: #4295d5;
 $blue_news: #5175a3;
 $grey: #ddd;
 $light_grey: #f7f7f7;
+$medium_grey: #bbb;
+$number_grey: #999;
 $dark_grey: #333;
+$darkest_grey: #222;
 $grey_text: #5e5a5c;
-$green: #CCE283;
+$green: #B7CF65;
 $red: #EC8486;
 $yellow: #FFDB65;
+$white_link: rgba(255,255,255, 0.75);
 
 .container {
   width: 70%;
@@ -97,27 +100,18 @@ $yellow: #FFDB65;
     }
   }
   .column-1-3 {
-    width: 35%;
+    width: 24%;
     float: left;
-    padding-right: 9%;
-    margin-right: 0;
+    margin-right: 9%;
     &.right {
       float: right;
-      padding: 0 0 0 9%;
-      padding-top: 60px;
+      margin: 0 0 0 9%;
     }
     img.employee_pic {
       width: 100%;
-      margin-top: 60px;
-    }
-    img.partner_logo {
-      width: 70%;
-      margin-top: 30px;
     }
   }
   .column-2-3 {
-    margin-top: -50px;
-    padding-top: 110px;
     width: 65%;
     float: right;
     &.left {
@@ -296,9 +290,6 @@ ul.subnav {
   display: block;
   li.header {
     padding-left: 10px;
-    &:hover {
-      color: $grey_text;
-    }
   }
 }
 
@@ -393,32 +384,10 @@ div#welcome {
   }
 }
 
-//div.hero{
-//  &#featured_projects{
-//    background-position: 0 -80px;
-//  }
-//  &#data{
-//    background-position: bottom;
-//  }
-//  
-//  &#about{
-//    background-position: 0 -180px;
-//  }
-//  &#areas_of_work{
-//    background-position: 0 -200px;
-//  }
-//  background-size: 100%;
-//}
-
 div.hero#project div.heading {
   width: 70%;
   max-width: 980px;
   margin: auto;
-}
-
-
-div.container div.column-2-3#employee_work {
-  padding-top: 180px;
 }
 
 a.back_nav {
@@ -459,7 +428,6 @@ div.dashboard {
 
     .stat {
       margin: 0 0 40px 0;
-      background-color: rgba(225, 225, 225, 0.8);
       .number {
         font-size: 2em;
       }
@@ -490,6 +458,6 @@ div.dashboard {
     font-weight: 300;
     font-size: 1.25em;
     text-align: right;
-    color: #888;
+    color: $number_grey;
   }
 }
