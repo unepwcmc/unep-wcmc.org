@@ -15,7 +15,7 @@ $white_link: rgba(255,255,255, 0.75);
 .container {
   width: 70%;
   max-width: 980px;
-  margin: auto;
+  margin: 80px auto;
   overflow: hidden;
 	&.dashboard{
 	overflow: visible;
@@ -34,14 +34,8 @@ $white_link: rgba(255,255,255, 0.75);
 	
   img {
     max-width: 100%;
-    &.areas_work {
-      display: inline-block;
-      float: right;
-      max-width: 50%;
-      margin: 0 0 20px 20px;
-      padding: 0;
-    }
   }
+
   section.group {
     width: 30.3%;
     margin-right: 4.5%;
@@ -127,20 +121,6 @@ div.dashboard section.group {
 	 overflow: visible;
 }
 
-div.container.dashboard{
-
-}
-
-div.project-team {
-  overflow: hidden;
-  padding-top: 10px;
-  section {
-    width: 45%;
-    margin-right: 5%;
-    float: left;
-  }
-}
-
 div#nav{
 	width:70%;
 	margin: auto;
@@ -181,21 +161,6 @@ div.dashboard-container {
   margin: 0;
 }
 
-div.container#other_projects {
-  padding-bottom: 6em;
-  margin-bottom: -60px;
-}
-
-div.container#other_projects h2.large_subheading#featured_projects {
-  width: 70%;
-  margin: 60px auto;
-}
-
-div.container#other_projects {
-  width: 70%;
-  margin: 60px auto -60px auto;
-}
-
 div.heading{
   width: 70%;
   max-width: 980px;
@@ -208,31 +173,16 @@ div.heading{
 	h2 {
 		font-size: 1.25em;
 		line-height: 1.4em;
+    width: 65%;
 	}
-	h1.short, h2.short, h2.shorter {
+	h1 h2 {
     display: inline-block;
   }
-
-  h1.short {
-    width: 70%;
-  }
-
-  h2.short {
-    width: 87%;
-  }
-  
-  h2.shorter {
-    width: 64%;
-  }
-}
-div#featured_heading {
-  margin: 60px 0;
 }
 
 div#footer_container {
   width: 100%;
 	padding: 30px 0;
-	margin-top: 60px;
 }
 
 #footer {
@@ -244,10 +194,6 @@ div#footer_container {
 ul.footer{	
 	li{
 		float: left;
-	}
-	li#address{
-		text-align: right;
-		float: right;
 	}
 }
 
@@ -297,63 +243,10 @@ ul.subnav-small {
   display: none;
 }
 
-div.column-1-3#job_related_small {
-  display: none;
-}
-
-.container div.column-1-3#job_related {
-  display: block;
-  margin-bottom: 60px;
-  div.button {
-    margin-bottom: 40px;
-  }
-}
-
-div.button#contact {
-  width: 100%;
-  margin-bottom: 5px;
-}
-
-div.column-1-3#save-link {
-  display: block;
-}
-
-div.column-1-3#save-link-small {
-  display: none;
-}
-
-.container div.column-2-3.left#job_application, div.column-2-3.left#job_description {
-  float: left;
-  width: 63%;
-}
-
-div.column-1-3.right#application-related {
-  padding-left: 9%;
-}
-
-.container .column-1-3 section.actions {
-  max-width: 100%;
-}
-
-div#news-item {
-  h1 {
-    line-height: 1.25em;
-  }
-  section.actions#share {
-    font-size: 0.85em;
-    span {
-      font-size: 1em;
-    }
-  }
-}
-
 .container div.column-1-3#news {
   display: block;
 }
 
-.container div.column-2-3.left#news-item {
-  width: 63%;
-}
 
 div.container#other-news-small {
   display: none;
@@ -367,7 +260,7 @@ div.search-field i {
   font-size: 0.85em;
 }
 
-ul#fields, ul#content, ul#fields-small, ul#content-small, ul#programmes {
+ul#content {
 	li{
 		font-size: 1em;
 		&.header {
@@ -384,18 +277,10 @@ div#welcome {
   }
 }
 
-div.hero#project div.heading {
+div.heading.featured-project {
   width: 70%;
   max-width: 980px;
   margin: auto;
-}
-
-a.back_nav {
-  margin: 0 0 60px 0;
-}
-
-.container .column-1-3.right {
-  margin-top: 80px;
 }
 
 div.container#other-news-small, div.container#job_related-small {
