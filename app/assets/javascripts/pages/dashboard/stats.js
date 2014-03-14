@@ -141,8 +141,8 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
   // Species
   $scope.sapi.species_cites = true;
   $scope.sapi.species_cms = false;
-  $scope.sapi.species_title_cites = 'Number of CITES-listed species by taxonomic group';
-  $scope.sapi.species_title_cms = 'Number of CMS-listed species by taxonomic group';
+  $scope.sapi.species_title_cites = 'CITES-listed species by taxonomic group';
+  $scope.sapi.species_title_cms = 'CMS-listed species by taxonomic group';
   $scope.sapi.species_info = "Species that occur within your country"
   $scope.sapi.species_title = $scope.sapi.species_title_cites;
   $scope.sapi.species_selector_cites = 'See CITES';
@@ -344,12 +344,8 @@ angular.module('stats').controller('CartodbStatsCtrl', [
   '$resource',
   'CARTODB_URL',
   'countryService',
-<<<<<<< HEAD
-function ($scope, $resource, CARTODB_URL, countryService) {
-=======
   'helpers',
 function ($scope, $resource, CARTODB_URL, countryService, helpers) {
->>>>>>> 2133e7ca8f12dc676833e84fb450a45d6b4e11e7
 
   $scope.carbo = {}
   $scope.carbo.loading = true;
@@ -372,15 +368,6 @@ function ($scope, $resource, CARTODB_URL, countryService, helpers) {
       data: q})
     .done(function(data) {
       var data = data.rows[0];
-<<<<<<< HEAD
-      if (data) {
-        $scope.carbo.biodiversity_loss = -data.biodiversity_loss.toFixed(0);
-        $scope.carbo.carbon_sums = (data.carbon_sums / 1000000000).toFixed(2);
-        $scope.carbo.carbon_pas = (data.carbon_from_pas / data.carbon_sums * 100).toFixed(0);
-      }
-      $scope.carbo.loading = false;
-      $scope.carbo.loaded = true;
-=======
       
         if (data) {
           $scope.carbo.biodiversity_loss = -helpers.formatNumber(
@@ -400,7 +387,6 @@ function ($scope, $resource, CARTODB_URL, countryService, helpers) {
         $scope.carbo.loading = true;
         $scope.carbo.loaded = false;
       });
->>>>>>> 2133e7ca8f12dc676833e84fb450a45d6b4e11e7
     });
   }
 

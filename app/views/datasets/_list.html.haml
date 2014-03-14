@@ -5,7 +5,7 @@
       .icon_search
         %i.icon-search
     %select#sorting{"ng-change" => "sortDatesets()", "ng-model" => "sortOrder", "ng-options" => "order.value as order.name for order in sortOrders"}
-    %button#content-button
+    %button.data
       Type of content
       %i.icon-caret-down
     %ul#content-small
@@ -24,8 +24,7 @@
     %section.actions#search-button
       %h1 Biodiversity Heritage Library
       .button
-        %p
-          %a{:href => "http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles"} Search WCMC publications
+        %a{:href => "http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles"} Search WCMC publications
     
   #data.column-1-3
     .search-field
@@ -51,17 +50,16 @@
     %section.actions#search-button
       %h1 Biodiversity Heritage Library
       .button
-        %p
-          %a{:href => "http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles"} Search WCMC publications
+        %a{:href => "http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles"} Search WCMC publications
 
   #data.column-2-3
     %h1
       Resources &amp; data
-    %section{"ng-repeat" => "dataset in datasetsToBeDisplayed"}      
+    %section.list{"ng-repeat" => "dataset in datasetsToBeDisplayed"}      
 
       %h2.smaller{:id => "{{ dataset.slug }}" }
         {{ dataset.title }}
-      %h3
+      %h3.data
         {{ dataset.content_type }}
         %span{"ng-if" => "dataset.publication_date_year != ''"}
           %span.separator= '|'
