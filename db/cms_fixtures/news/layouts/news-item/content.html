@@ -1,46 +1,42 @@
 {{ cms:partial:news/hero }}
 <div class="container" id="vacancy-page">
+  {{ cms:partial:news/back_link }}
   <div id="news-item" class="column-2-3 left">
-    {{ cms:partial:news/back_link }}
 	<h1 id="first">
     {{ cms:page:news_header:string }}
 		
     </h1>
-    <small class="news-item">
-      {{ cms:field:time:datetime }} 
-      {{ cms:helper:formatted_time }}         
-    </small>
-    <section class="actions share">
-      <h1>
-        Share:
-      </h1>
-      <span>
-        {{ cms:field:twitter_share_text:string }}
-        {{ cms:field:email_share_subject:string }}
-        {{ cms:field:email_share_content:string }}
-        {{ cms:partial:shared/share_links }}
-      </span>
-    </section>
+    <div class="news-share-date">
+      <small class="news-item">
+        {{ cms:field:time:datetime }} 
+        {{ cms:helper:formatted_time }}         
+      </small>
+      <section class="actions share">
+        <h1>
+          Share:
+        </h1>
+        <span>
+          {{ cms:field:twitter_share_text:string }}
+          {{ cms:field:email_share_subject:string }}
+          {{ cms:field:email_share_content:string }}
+          {{ cms:partial:shared/share_links }}
+        </span>
+      </section>
+  </div>
     {{ cms:page_file:news_img:image }}
     {{ cms:page:content:rich_text }}
 			
   </div><!--column-2-3-->
   <div id="news" class="column-1-3 right">
-    <h1>
+    <section class="actions">
+      <h1>
       Useful links
-    </h1>
-    <section>
+      </h1>
+      <section>
       {{ cms:page:useful_links:rich_text }}
-    </section> 
+      </section> 
+    </section>
   </div><!--column-1-3-->
 </div><!--container-->
-<div class="container related-small">
-  <h2 class="large_subheading">
-      Useful links
-  </h2>
-  <section>
-    {{ cms:page:useful_links:rich_text }}
-  </section>
-</div>
 
 {{ cms:field:short_description:rich_text }}

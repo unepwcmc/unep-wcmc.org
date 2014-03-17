@@ -23,7 +23,6 @@ $white_link: rgba(255,255,255, 0.75);
   &#news-home {
     width: 100%;
     padding: 0 5% 60px 5%;
-    margin-bottom: -60px;
   }
   img {
     max-width: 100%;
@@ -83,11 +82,6 @@ $white_link: rgba(255,255,255, 0.75);
       width: 50%;
     }
     section.actions {
-      max-width: 280px;
-      padding-bottom: 10px;
-      &:last-of-type {
-        padding-bottom: 0;
-      }
       &:first-child {
         margin-top: 22px;
       }
@@ -122,8 +116,7 @@ h2{
 	  font-size: 1.2em;
 	}
 	&.related-heading-big {
-    font-size: 1.4em;
-    font-size: 1.75em;
+    font-size: 1.5em;
     text-align: center;
     padding: 80px 0 50px 0;
 	}
@@ -133,6 +126,7 @@ h3#news{
   margin-bottom: 60px;
   padding-top: 60px;
   font-size: 1em;
+  text-align: center;
 }
 
 #nav-container {
@@ -151,6 +145,7 @@ div#nav{
     position: absolute;
 		float: left;
 		width: 40%;
+    min-width: 280px;
 		padding: 10px 0;
 		background: none;
 		img {
@@ -217,11 +212,6 @@ div#welcome {
   p {
     font-size: 1.2em;
   }
-}
-
-div.button#contact {
-  width: 235px;
-  margin-bottom: 5px;
 }
 
 div.wide_heading {
@@ -390,6 +380,8 @@ div.dashboard {
       width: 75%;
       border-bottom: 2px solid #fff;
       position: relative;
+      float: right;
+      margin-top: 0;
       input {
         width: 95%;
         padding: 5px 0 10px 0;
@@ -432,6 +424,9 @@ div.dashboard {
         text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
       }
     }
+    #view-button {
+      float: left;
+    }
     button {
       color: #fff;
       background: none;
@@ -448,15 +443,6 @@ div.dashboard {
     }
   }
 
-  section.group {
-    margin-top: 40px;
-    &:last-child {
-      margin-top: 0;
-    }
-
-    //background-color: rgba(255, 255, 255, 0.8);
-  }
-
   section.group.stats {
     &:first-child {
       margin-top: 0;
@@ -466,7 +452,6 @@ div.dashboard {
     }
 
     .stat {
-      margin: 0 0 40px 0;
       background-color: rgba(225, 225, 225, 0.8);
       header {
         padding: 20px;
@@ -643,4 +628,9 @@ div.dashboard {
 
 
 
+}
+
+
+div.info-message {
+  margin-top: 30px;
 }
