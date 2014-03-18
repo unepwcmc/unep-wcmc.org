@@ -151,12 +151,12 @@ h3{
     text-transform: uppercase;
     color: $blue_news;
 	}
-	&#position {
+	&.vacancy-position {
 	  font-size: 1em;
     font-family: "museo-sans", Helvetica, Arial, sans-serif;
     font-weight: 300;
     color: $medium_grey;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     span#separator {
       display: inline-block;
       padding: 0 5px;
@@ -444,16 +444,16 @@ div.button, button {
 
 div.column-1-3 {
   margin-bottom: 50px;
+  section.actions, section.related-content {
+    max-width: 350px;
+  }
   &.wide  {
     max-width: 100%;
   }
   &.right {
     margin-top: 60px;
-    padding-top: 60px;
-    border-top: 1px solid $grey;
     max-width: 100%;
-    section.actions {
-      max-width: 50%;
+    section.actions, section.related-content {
       &:first-child {
       margin-top: 0;
       }
@@ -726,7 +726,7 @@ div.column-1-3#data-small {
     }
   }
 
-  section.actions {
+  section.actions, section.related-content {
     margin-top: 20px;
   }
 }
@@ -1012,7 +1012,7 @@ div.column-1-3#data {
   display: none;
 }
 
-section.actions {
+section.actions, section.related-content {
   margin-top: 30px;
   h1 {
     margin-bottom: 10px;
@@ -1032,7 +1032,7 @@ section.actions {
   }
 }
 
-div.news-share-date {
+div.news-vacancy-details {
   margin-bottom: 20px;
   section.actions {
     margin-top: 0

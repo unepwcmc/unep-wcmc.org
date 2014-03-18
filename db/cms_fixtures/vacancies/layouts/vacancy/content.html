@@ -6,14 +6,15 @@
 	<h1 id="first">
       {{ cms:page:position_title:string }}
     </h1>
-	<h3 id="position">
+    <div class="news-vacancy-details">
+      	<h3 class="vacancy-position">
       <a id="department">  
         {{ cms:collection:programme:programmes:programmes/programme:name:name }}
       </a><span id="separator">|</span>
       {{cms:collection:position_type_1:position_types:position_types/position_type_1:name:name}}
       {{ cms:collection:position_type_2:position_types:position_types/position_type_2:name:name }}
     </h3>
-	<p id="salary">
+	<p>
       {{ cms:page:salary:string }}      
     </p>
 	<section class="actions share">
@@ -27,6 +28,7 @@
         {{ cms:partial:shared/share_links }}
       </span>
     </section>
+    </div>
 	<p>
       {{ cms:page:position_excerpt:rich_text }}            
     </p>
@@ -37,7 +39,7 @@
   </div><!--column-2-3-->
   
   <div id="job_related" class="column-1-3 wide right">
-    <section class="actions">
+    <section class="related-content">
       <h1>
      	Working at WCMC 
       </h1>
@@ -45,7 +47,7 @@
       <p><a href="/about-us/working-with-us" alt="">Find out more</a></p>
      </section>
     
-    <section class="actions">
+    <section class="related-content">
       
         {{ cms:partial:vacancies/related_projects }}
       
