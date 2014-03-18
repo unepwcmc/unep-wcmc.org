@@ -584,15 +584,14 @@ select#sorting, select#sorting option, div.search-field {
 	margin: 30px 0 0 0;
 	outline: none;
 	line-height: 1.5em;
-	border: 1px solid $grey;
-  -webkit-appearance: none;
-  appearance: none;
+	border: 1px solid #eee;
   -webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 }
 
 select#sorting, select#sorting option {
+  font-weight: 300;
   padding: 10px;
 	font-size: 0.85em;
 	font-family: "museo-sans", Helvetica, Arial, sans-serif;
