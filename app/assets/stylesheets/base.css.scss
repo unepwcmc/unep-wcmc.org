@@ -287,6 +287,20 @@ div.hero{
   background-repeat: no-repeat;
 }
 
+figcaption {
+  position: absolute;
+  bottom: 0;
+  right:0;
+  display: inline-block;
+  background: rgba(0,0,0,0.6)
+  p {
+    font-size: 0.9em;
+    color: rgba(255,255,255,0.8);
+    padding: 3px 5px;
+    margin: 0;
+  }
+}
+
 div.container.related {
   border-top: 1px solid $grey;
   div.button {
