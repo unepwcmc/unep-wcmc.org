@@ -81,7 +81,7 @@ $white_link: rgba(255,255,255, 0.75);
     img.employee_pic {
       width: 50%;
     }
-    section.actions {
+    section.actions, section.related-content {
       &:first-child {
         margin-top: 22px;
       }
@@ -118,7 +118,7 @@ h2{
 	&.related-heading-big {
     font-size: 1.5em;
     text-align: center;
-    padding: 80px 0 50px 0;
+    padding: 60px 0 50px 0;
 	}
 }
 
