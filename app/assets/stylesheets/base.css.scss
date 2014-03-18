@@ -945,11 +945,13 @@ select#sorting, select#sorting option, div.search_field_container, div.search-fi
 	outline: none;
 	line-height: 1.5em;
 	border: 1px solid #eee;
-  -webkit-appearance: none;
-  appearance: none;
   -webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+}
+
+select#sorting, select#sorting option {
+  font-weight: 300;
 }
 
 select#sorting, select#sorting option, button#content-button {
@@ -1079,6 +1081,10 @@ ul#content, ul#content-small {
 			}
 		}
 	}
+}
+
+ul#content li.header {
+  margin-top: 0;
 }
 
 ul#fields.staff_filters {
