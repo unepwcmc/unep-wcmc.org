@@ -236,6 +236,8 @@ div.clear {
 div.hero{
   background-image: cover;
   background-position: center;
+  position: relative;
+  z-index: -9999;
 	&#featured_projects{
 		background-image: url('../imgs/savanna-2.png');
 		background-position: top;
@@ -274,6 +276,20 @@ div.hero{
 	}
 //  background-size: 200%;
   background-repeat: no-repeat;
+}
+
+figcaption {
+  position: absolute;
+  bottom: 0;
+  right:0;
+  display: inline-block;
+  background: rgba(0,0,0,0.6)
+  p {
+    font-size: 0.9em;
+    color: rgba(255,255,255,0.8);
+    padding: 3px 5px;
+    margin: 0;
+  }
 }
 
 div.container#other_projects, div.container#other-news-small, div.container#job_related-small {
