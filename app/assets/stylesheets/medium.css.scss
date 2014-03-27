@@ -347,7 +347,7 @@ div.dashboard section.group {
 }
 
 div.dashboard {
-  margin: 70px auto 20px auto;
+  margin: 100px auto 50px auto;
   div.biodiversity {
     margin-top: 0px;
   }
@@ -356,8 +356,15 @@ div.dashboard {
     font-size: 2.4em;
     color: #fff;
     margin: 0 0 30px 0;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
     text-align: center;
+    }
+
+    p {
+      font-size: 1.2em;
+      font-weight: 300;
+      width: 85%;
+      margin: 0 auto 50px auto;
+    }
   }
 
   div.section-group.controls {
@@ -384,7 +391,6 @@ div.dashboard {
       margin-top: 0;
       input {
         width: 95%;
-        padding: 5px 0 10px 0;
         font-family: "museo-sans", Helvetica, Arial, sans-serif;
         color: #fff;
         background: none;
@@ -409,37 +415,22 @@ div.dashboard {
         text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
       }
       i.icon-search {
-        width: 35px;
         color: #fff;
-        background: rgba(255,255,255, 0.3);
         padding: 5px 25px 5px 5px;
-        margin-bottom: 10px;
-        border: 2px solid #fff;
         font-size: 1.25em;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;
         position: absolute;
         right: 0;
-        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
       }
     }
     #view-button {
       float: left;
     }
     button {
-      color: #fff;
-      background: none;
-      border: 2px solid #fff;
       font-size: 1.25em;
-    	font-family: "museo-sans", Helvetica, Arial, sans-serif;
-    	font-weight: 400;
-      padding: 5px 15px;
-      cursor: pointer;
-      -webkit-border-radius: 3px;
-    	-moz-border-radius: 3px;
-    	border-radius: 3px;
-    	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+      font-weight: 500;
     }
   }
 

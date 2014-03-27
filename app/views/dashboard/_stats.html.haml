@@ -2,7 +2,9 @@
 
   %header{:class => "dashboard-title", "ng-controller" => "GeoIpCtrl", "ng-model" => "country"}
     %h1
-      Conservation dashboard for {{country.name}}
+      Conservation status in {{country.name}}
+    %p
+      Explore datasets maintained by UNEP-WCMC to learn about the conservation status of any country. This is a demonstration of the range of our work, in many cases the information is based on ‘live’ data pulled from one of our applications, and it changes over time.
 
   %div{:class => "section-group controls", "ng-controller" => "StatsBtnCtrl"}
     %div#view-button{:class => "group", "ng-show" => "visible"}
