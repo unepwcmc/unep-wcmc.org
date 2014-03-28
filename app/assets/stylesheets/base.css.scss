@@ -1207,7 +1207,7 @@ div.dashboard-background {
   position: fixed;
   top: 0;
   z-index: -9999;
-  background-image: image-url('dashboard_background.JPG');
+  background-image: image-url('dashboard_background.jpg');
   background-position: top;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -1241,6 +1241,10 @@ div.dashboard {
     margin: 0 0 30px 0;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     text-align: center;
+    span.kerning {
+      padding: 0;
+      margin: 0;
+    }
     }
     p {
       font-size: 1em;
@@ -1273,12 +1277,13 @@ div.dashboard {
       margin-top: 30px;
       input {
         width: 89%;
-        padding: 0 0 5px 0;
+        padding: 0;
         font-family: "museo-sans", Helvetica, Arial, sans-serif;
         color: #fff;
         background: none;
         border: none;
-        font-size: 1.1em;
+        font-size: 1em;
+        font-weight: 300;
         outline: none;
       }
       input::-webkit-input-placeholder {
@@ -1298,17 +1303,16 @@ div.dashboard {
         text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
       }
       i.icon-search {
-        width: 30px;
+        width: 26px;
         color: #fff;
         background: $blue;
-        padding: 5px 25px 5px 5px;
-        margin-bottom: 5px;
-        font-size: 1.1em;
+        padding: 5px;
+        font-size: 1em;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;
         position: absolute;
-        right: 0;
+        right: 3px;
         -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
       }

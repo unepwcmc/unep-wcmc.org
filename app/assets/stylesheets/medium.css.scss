@@ -385,7 +385,6 @@ div.dashboard {
     }
     #search-field {
       width: 75%;
-      border-bottom: 2px solid #fff;
       position: relative;
       float: right;
       margin-top: 0;
@@ -416,13 +415,6 @@ div.dashboard {
       }
       i.icon-search {
         color: #fff;
-        padding: 5px 25px 5px 5px;
-        font-size: 1.25em;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-        position: absolute;
-        right: 0;
       }
     }
     #view-button {
