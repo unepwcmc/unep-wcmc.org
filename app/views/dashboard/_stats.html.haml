@@ -2,11 +2,10 @@
 
   %header{:class => "dashboard-title", "ng-controller" => "GeoIpCtrl", "ng-model" => "country"}
     %h1
-      Conservation dashboard in {{country.name}}
-    %p
+      %span#kern Conservation dashboard for
+      {{country.name}}
+    %h2
       Explore key datasets maintained by UNEP-WCMC and find conservation statistics for any country.
-
-      Explore datasets maintained by UNEP-WCMC to learn about the conservation status of any country. This is a demonstration of the range of our work, in many cases the information is based on ‘live’ data pulled from one of our applications, and it changes over time.
 
   %div{:class => "section-group controls", "ng-controller" => "StatsBtnCtrl"}
     %div#view-button{:class => "group", "ng-show" => "visible"}
@@ -14,8 +13,9 @@
 
     %div#search-field{:class => "group", "ng-class"=>"{full: !visible}"}
       %div{:class => "geo_entities", "ng-controller" => "CountryPickerCtrl"}
-        %input{:type=>"text", "ng-model"=>"selected", 'placeholder'=>"Search for another country", "typeahead"=>"country as country.name for country in getCountry($viewValue)"}
         %i.icon-search
+        %input{:type=>"text", "ng-model"=>"selected", 'placeholder'=>"Search for another country", "typeahead"=>"country as country.name for country in getCountry($viewValue)"}
+        
 
   %div{:class => "stats", "ng-controller" => "StatsCtrl", "collapse"=>"isCollapsed" }
 
