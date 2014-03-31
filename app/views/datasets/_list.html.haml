@@ -30,7 +30,7 @@
         %span.badge{"ng-click" => "selectAll()", "ng-class" => "{active:allSelected()}"} All
       %li.content_type{"ng-show" => "contentType.count > 0", "ng-class" => "{active: contentType.selected && contentType.count > 0}", "ng-click" => "toggleContentType()", "ng-repeat" => "contentType in contentTypes"}
         %span.badge {{ contentType.count }}
-        %p{"ng-style" => "{color: contentType.selected ? '#5e5e5e' : '#aaa'}"} {{ contentType.plural }}
+        %p {{ contentType.plural }}
     .info-message
       %h1 Policies
       %p UNEP-WCMC does not assert any intellectual property rights in the data made available to it by data providers.
