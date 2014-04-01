@@ -59,7 +59,9 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
 
   $scope.sortDatesets = function () {
     if ($scope.sortOrder === 0) {
-      $scope.activeDatasets = _.sortBy($scope.activeDatasets, "publication_date").reverse();
+      $scope.activeDatasets = _.sortBy($scope.activeDatasets, function(dataset) {
+        return [dataset.publication_date_year, dataset.title].join("_");
+      }).reverse();
     } else if ($scope.sortOrder === 1) {
       $scope.activeDatasets = _.sortBy($scope.activeDatasets, "title");
     }
