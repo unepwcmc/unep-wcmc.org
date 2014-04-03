@@ -272,7 +272,7 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
 
     return $.ajax({
       url: url,
-      data: {kingdom:'Animalia', trade_limit:6} })
+      data: {kingdom:'Animalia', trade_limit:6, time_range_start:2007, time_range_end:2012} })
     .done(function(data) {
       var data = groupSpeciesResults(data).dashboard_stats;
       $scope.sapi.species_cites_data = data.species.cites_eu;
