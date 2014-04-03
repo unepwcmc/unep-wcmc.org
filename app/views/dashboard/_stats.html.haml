@@ -125,7 +125,7 @@
                 %span{:class => "option-selector", "ng-click" => "toggleSpecies()"} {{sapi.species_selector}}
             %img.spinner{:src => "assets/loading.gif", :style => "max-height: 50px; max-width: 50px;", "ng-show" => "sapi.loading"}/
             %div{"ng-show" => "sapi.species_cites"}
-              %p.no-results{"ng-show" => "!sapi.trade_imports_top_data.length"}
+              %p.no-results{"ng-show" => "!sapi.species_cites_data.length"}
                 No results            
               %table
                 %tr.species-container{'ng-repeat' => "group in sapi.species_cites_data", "ng-show" => "sapi.loaded"}
@@ -137,7 +137,7 @@
                   %td.species-count
                     %span {{group[1] | number}}
             %div{"ng-show" => "sapi.species_cms"}
-              %p.no-results{"ng-show" => "!sapi.trade_imports_top_data.length"}
+              %p.no-results{"ng-show" => "!sapi.species_cms_data.length"}
                 No results
               %table
                 %tr.species-container{'ng-repeat' => "group in sapi.species_cms_data", "ng-show" => "sapi.loaded"}
