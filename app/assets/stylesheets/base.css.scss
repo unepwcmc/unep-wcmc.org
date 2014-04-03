@@ -1389,7 +1389,7 @@ div.dashboard {
           line-height: 1.25em;
           span.infotext {
             font-weight: 300;
-            color: $medium_grey;
+            color: #888;
             padding: 3px 0;
           }
         }
@@ -1398,14 +1398,14 @@ div.dashboard {
           text-transform: none;
         }
         i.icon-info-sign {
-          color: #ccc;
+          color: $blue;
           font-size: 1em;
           line-height: 1em;
           padding-right: 0;
           padding-left: 5px;
           text-decoration: none;
           &:hover, &:active {
-            color: $blue;
+            color: $dark_blue;
             -webkit-transition: all 0.5s ease;
         		-moz-transition: all 0.5s ease;
         		-ms-transition: all 0.5s ease;
