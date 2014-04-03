@@ -18,3 +18,10 @@ An example of this is in config/max_mind.yml.example.
 
 The GeoIP.dat file can be found here:
 Dropbox/Informatics/MaxMind_IP/GeoIP/GeoIP.dat
+
+====== Caution if/when upgrading the CMS
+Comfortable Mexican Sofa are going to completely rebuild the part of
+cms which deals with accessing data from partials and they are goind to remove the method currently
+being used in this application, in their next release. When we want to
+update cms when the new version appears, it will be necessary to use different methods than
+cms_page_block_content and cms_page_file

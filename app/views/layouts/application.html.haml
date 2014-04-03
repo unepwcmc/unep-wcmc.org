@@ -17,6 +17,7 @@
     %link{ :href => 'http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', :rel => "stylesheet" }
     %script
       var my_url = "#{request.protocol}#{request.host}:#{request.port}";
+    %script{src: "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"}
     %script{ :type => "text/javascript", :src => "//use.typekit.net/tqb5win.js" }
     %script{ :type => "text/javascript" }
       try {Typekit.load();} catch(e){}
@@ -90,3 +91,8 @@
           %li= link_to "Contact", "/about-us/contact"
         %a#unep{ :href => "http://unep.org", :title => "UNEP" }
           = image_tag "unep_logo.png"
+  :javascript
+  $(document).ready(function() {
+    $("#kern").lettering();
+  });
+

@@ -3,8 +3,8 @@
 / (with is_top_project set to false) from _list.html.haml file.
 
 - if @cms_page.children.published.where(is_top_project: false).count > 0
-  #other_projects.container{"ng-app" => "ProjectsList", "ng-cloak" => "", "ng-controller" => "ProjectsCtrl", "ng-init" => "init(#{render partial: "featured_projects/projects", locals: {pages: @cms_page.children.published.where(is_top_project: false)}, formats: :json})"}
-    %h2#featured_projects.large_subheading Other work you may want to see
+  .container.related{"ng-app" => "ProjectsList", "ng-cloak" => "", "ng-controller" => "ProjectsCtrl", "ng-init" => "init(#{render partial: "featured_projects/projects", locals: {pages: @cms_page.children.published.where(is_top_project: false)}, formats: :json})"}
+    %h2#featured_projects.related-heading-big Other work you may want to see
     .section-group
       %section.group.featured-project{"ng-repeat" => "project in projects"}
         %a{:href => "{{project.project_url}}", "ng-if" => "project.thumbnail_url"}
@@ -14,5 +14,4 @@
         %p{"ng-bind-html" => "project.description"}
     #button-row{"ng-if" => "hiddenProjects.length > 0"}
       #more_projects.button{"ng-click" => "showMore()"}
-        %p
-          %a{:href => ""} View more projects
+        %a{:href => ""} View more projects

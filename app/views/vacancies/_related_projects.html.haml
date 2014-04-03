@@ -3,7 +3,7 @@
 - (1..2).each do |i|
   - if cms_page_content(:"related_project_#{i}_title").present?
     %section
-      %h2
+      %h2.related-project
         - if cms_page_content(:"related_project_#{i}_link").present?
           = link_to cms_page_content(:"related_project_#{i}_title"), cms_page_content(:"related_project_#{i}_link")
         - else

@@ -33,7 +33,7 @@ UnepWcmcOrg::Application.configure do
   config.assets.digest = true
 
   # Version of your assets, change this if you want to expire all your assets.
-  config.assets.version = '1.0'
+  config.assets.version = '1.1'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
@@ -59,13 +59,24 @@ UnepWcmcOrg::Application.configure do
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-  config.assets.precompile += %w( base.css medium.css large.css )
+  config.assets.precompile += %w( base.css medium.css large.css ie.css ie8.css)
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :smtp #for the mac apparently run::sudo postfix start
+  config.action_mailer.asset_host = "http://beta.unep-wcmc.org"
+  config.action_mailer.default_url_options = { :host => "beta.unep-wcmc.org" }
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => "pod51017.outlook.com",
+    :port => 587,
+    :domain => "unep-wcmc.org",
+    :authentication => :login,
+    :user_name => MAILER_CONFIG['user_name'],
+    :password => MAILER_CONFIG['password']
+  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).

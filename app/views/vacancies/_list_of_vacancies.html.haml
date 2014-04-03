@@ -1,5 +1,5 @@
 - Cms::Site.find_by_identifier('vacancies').pages.root.children.published.each do |page|
-  %section
+  %section.list
     %h2.smaller
       = link_to(page.url) do
         = cms_page_content(:position_title, page)

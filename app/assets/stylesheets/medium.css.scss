@@ -1,18 +1,23 @@
-$blue: #4c9cda;
-$dark_blue: #4295d5;
+$blue: #4295d5;
+$light-blue: #A8CDEE;
+$dark_blue: #3376BA;
 $blue_news: #5175a3;
 $grey: #ddd;
 $light_grey: #f7f7f7;
+$medium_grey: #bbb;
+$number_grey: #999;
 $dark_grey: #333;
+$darkest_grey: #222;
 $grey_text: #5e5a5c;
-$green: #CCE283;
+$green: #B7CF65;
 $red: #EC8486;
 $yellow: #FFDB65;
+$white_link: rgba(255,255,255, 0.75);
 
 
 .container {
+  margin: 50px auto;
   width: 90%;
-  margin: auto;
   overflow: hidden;
 	&.dashboard{
 	overflow: visible;
@@ -20,17 +25,9 @@ $yellow: #FFDB65;
   &#news-home {
     width: 100%;
     padding: 0 5% 60px 5%;
-    margin-bottom: -60px;
   }
   img {
     max-width: 100%;
-    &.areas_work {
-      display: inline-block;
-      float: right;
-      max-width: 50%;
-      margin: 0 0 20px 20px;
-      padding: 0;
-    }
   }
   section.group {
     width: 47.5%;
@@ -83,26 +80,10 @@ $yellow: #FFDB65;
     }
   }
   .column-1-3 {
-    padding-top: 60px;
-    &.right {
-      float: right;
-      padding: 0 0 0 9%;
-      margin-top: 60px;
-    }
     img.employee_pic {
       width: 50%;
-      margin-top: 60px;
     }
-    img.partner_logo {
-      width: 70%;
-      margin-top: 30px;
-    }
-    section.actions {
-      max-width: 280px;
-      padding-bottom: 10px;
-      &:last-of-type {
-        padding-bottom: 0;
-      }
+    section.actions, section.related-content {
       &:first-child {
         margin-top: 22px;
       }
@@ -114,48 +95,9 @@ $yellow: #FFDB65;
      margin-bottom: 60px;
     }
   }
-  .column-2-3 {
-    &.left {
-      float: left;
-    }
-    &#featured-project {
-      h2 {
-        font-size: 1.65em;
-      }
-    }
-  }
 }
 
-ul.partners_logos {
-  overflow: hidden;
-  margin-top: 20px;
-  margin-bottom: 40px;
-  li {
-    display: inline-block;
-    margin-right: 5%;
-    float: left;
-  }
-}
-ul.project_team {
-  overflow: hidden;
-  margin-top: 25px;
-  li {
-    float: left;
-    width: 30.3%;
-    margin-right: 4.5%;
-    h4 {
-      padding-bottom: 0;
-    }
-    &:last-child {
-      margin-right: 0;
-    }
-    h4, p {
-      text-align: center;
-    }
-  }
-}
-
-h1, h2, h3, h5 {
+h1, h2, h3 {
 	font-family: "museo-slab", Helvetica, Arial, sans-serif;
 }
 
@@ -175,11 +117,10 @@ h2{
 	&.smaller {
 	  font-size: 1.2em;
 	}
-	&.large_subheading {
-    font-size: 1.4em;
-    font-size: 2em;
-    padding: 60px 0 30px 0;
+	&.related-heading-big {
+    font-size: 1.5em;
     text-align: center;
+    padding: 60px 0 50px 0;
 	}
 }
 
@@ -187,30 +128,13 @@ h3#news{
   margin-bottom: 60px;
   padding-top: 60px;
   font-size: 1em;
-}
-
-h4{
-	width: 100%;
-	font-size: 0.75em;
-	font-weight: 400;
-	text-transform: uppercase;
-	color: #333;
-	padding: 1em 0;
-	line-height: 1.75em;
-}
-
-h5{
-	font-weight: 500;
-	font-size: 2em;
-	line-height: 1.3em;
-	color: $grey_text;
-	margin-bottom: 2%;
+  text-align: center;
 }
 
 #nav-container {
   margin-top: 0;
 	width:100%;
-	border-top: 10px solid $dark_blue;
+	border-top: 10px solid $blue;
 	background: #222;
 }
 
@@ -223,6 +147,7 @@ div#nav{
     position: absolute;
 		float: left;
 		width: 40%;
+    min-width: 280px;
 		padding: 10px 0;
 		background: none;
 		img {
@@ -272,16 +197,16 @@ div.heading{
 	  display: inline-block;
 		font-size: 1.25em;
 		line-height: 1.4em;
+    width: 65%;
 	}
+  &.featured-project {
+    width: 45%;
+    margin-left: 5%;
+    text-align: left;
+  }
 }
 
-div.hero#project div.heading {
-  width: 45%;
-  margin-left: 5%;
-  text-align: left;
-}
-
-div#welcome, div#featured_heading {
+div#welcome {
   h1 {
     font-size: 2.5em;
     line-height: 1.25em;
@@ -291,29 +216,17 @@ div#welcome, div#featured_heading {
   }
 }
 
-div.button#contact {
-  width: 235px;
-  margin-bottom: 5px;
-}
-
-div#featured_heading {
-  h2 {
-    font-size: 2em;
+div.wide_heading {
+  h1 {
+    font-size: 2.75em;
   }
-  margin-top: 60px;
+  margin: 60px auto;
   padding: 0;
+  width: 80%;
 }
 
 iframe {
   margin: 20px 0;
-}
-
-.call-action {
-  margin-top: 40px;
-  div.button#action {
-    padding: 10px 20px;
-    width: 280px;
-  }
 }
 
 button#trigger-menu {
@@ -325,6 +238,9 @@ button#trigger-menu {
   padding: 0;
   line-height: 38px;
   margin: 5px 0;
+  i {
+    float: right;
+  }
 }
 
 ul.subnav-small {
@@ -351,14 +267,6 @@ ul.subnav-small {
   }
 }
 
-ul.subnav#staff {
-  margin-bottom: 30px;
-}
-
-h1.page_header#featured{
-  padding-top: 60px;
-}
-
 div.data_policy {
   display: block;
   padding: 15px;
@@ -372,42 +280,12 @@ div.data_policy-small {
   display: none;
 }
 
-div#button-row {
-    margin-top: 1em;
-    div.button#more_projects {
-      margin: auto;
-      width: 290px;
-    }
-}
-
-div.column-1-3.right#save-link-small i {
-  right: -618px;
-}
-
-div.column-1-3.right#application-related {
-  padding-left: 0;
-}
-
-div.column-2-3.left#job_application div.button {
-  width: 250px;
-}
-
-.container div.column-2-3.left#job_application h1 span {
-  display: inline;
-  font-size: 0.45em;
-}
-
-div.container div.column-2-3#employee_work {
-  padding-top: 60px;
-}
-
 div#footer_container {
   overflow: hidden;
 	background: image-url('map_world.png') no-repeat center;
 	width:100%;
 	position: absolute;
 	background-size: 100%;
-	margin-top: 60px;
 	a#unep {
     padding: 0;
     float: right;
@@ -428,34 +306,9 @@ ul.footer{
 	}
 }
 
-div.data_policy, div.data_policy-small{
-  h3 {
-    color: $grey_text;
-    text-align: left;
-    margin-top: 0;
-  }
-  p {
-    font-size: 0.85em;
-    margin-bottom: 0;
-  }
-}
-
 div.search-field input, div.search-field i {
   font-size: 0.75em;
 }
-
-//div.hero{
-//  &#featured_projects{
-//    background-position: 0 -80px;
-//  }
-//  &#data{
-//    background-position: 0 -80px;
-//  }
-//  &#about{
-//    background-position: center;
-//  }
-//  background-size: 100%;
-//}
 
 form {
   section {
@@ -496,18 +349,24 @@ div.dashboard section.group {
 }
 
 div.dashboard {
-  margin: 70px auto 20px auto;
+  margin: 100px auto 50px auto;
   div.biodiversity {
     margin-top: 0px;
   }
 
-  header h1 {
+  header.dashboard-title {
+    h1 {
     font-size: 2.4em;
-    color: white;
-    margin: 0 0 30px 0;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    margin: 0 0 20px 0;
     text-align: center;
+    }
+    h2 {
+    font-size: 1.25em;
+    margin: 0 0 40px 0;
+    }
   }
+
 
   div.section-group.controls {
 		position: relative;
@@ -527,17 +386,11 @@ div.dashboard {
     }
     #search-field {
       width: 75%;
-      border-bottom: 2px solid #fff;
       position: relative;
+      float: right;
+      margin-top: 0;
       input {
-        width: 95%;
-        padding: 5px 0 10px 0;
-        font-family: "museo-sans", Helvetica, Arial, sans-serif;
-        color: #fff;
-        background: none;
-        border: none;
-        font-size: 1.25em;
-        outline: none;
+        width: 90%;
       }
       input::-webkit-input-placeholder {
         color: rgba(255, 255, 255, 1);
@@ -556,44 +409,16 @@ div.dashboard {
         text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
       }
       i.icon-search {
-        width: 35px;
         color: #fff;
-        background: rgba(255,255,255, 0.3);
-        padding: 5px 25px 5px 5px;
-        margin-bottom: 10px;
-        border: 2px solid #fff;
-        font-size: 1.25em;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-        position: absolute;
-        right: 0;
-        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
       }
     }
+    #view-button {
+      float: left;
+    }
     button {
-      color: #fff;
-      background: none;
-      border: 2px solid #fff;
       font-size: 1.25em;
-    	font-family: "museo-sans", Helvetica, Arial, sans-serif;
-    	font-weight: 400;
-      padding: 5px 15px;
-      cursor: pointer;
-      -webkit-border-radius: 3px;
-    	-moz-border-radius: 3px;
-    	border-radius: 3px;
-    	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+      font-weight: 500;
     }
-  }
-
-  section.group {
-    margin-top: 40px;
-    &:last-child {
-      margin-top: 0;
-    }
-
-    //background-color: rgba(255, 255, 255, 0.8);
   }
 
   section.group.stats {
@@ -605,7 +430,6 @@ div.dashboard {
     }
 
     .stat {
-      margin: 0 0 40px 0;
       background-color: rgba(225, 225, 225, 0.8);
       header {
         padding: 20px;
@@ -639,7 +463,7 @@ div.dashboard {
       .number {
         font-size: 1.7em;
         font-weight: bold;
-        color: $dark-grey;
+        color: $dark_grey;
         line-height: 0.75em;
       }
       .small {
@@ -657,8 +481,7 @@ div.dashboard {
       b {
         font-weight: bold;
       }
-    }
-
+    } 
     .stat.carbon > div {
       border-top: 1px solid $grey;
     }
@@ -684,6 +507,7 @@ div.dashboard {
     }
   }
 
+}
   .bar-percentage {
     float: left;
     color: $dark_grey;
@@ -762,7 +586,7 @@ div.dashboard {
   font-size: 1.25em;
   font-weight: 300;
   list-style: none;
-  background-color: #ffffff;
+  background-color: #fff;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   background-clip: padding-box;
@@ -770,16 +594,16 @@ div.dashboard {
 .dropdown-menu li a {
   display: block;
   padding: 3px 20px;
-  color: #333333;
+  color: $dark_grey;
   white-space: nowrap;
 }
 .dropdown-menu .active a, .dropdown-menu .active a:hover, .dropdown-menu .active a:focus {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
-  background-color: #428bca;
+  background-color: $blue;
   outline: 0;
 }
 
-
-
+div.info-message {
+  margin-top: 30px;
 }

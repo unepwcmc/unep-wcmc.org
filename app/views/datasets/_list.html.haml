@@ -1,31 +1,21 @@
 .container{"ng-app" => "DatasetsResources", "ng-controller" => "DatasetsCtrl", "ng-init" => "init(#{render partial: "datasets/list", formats: :json},  #{render partial: "datasets/dataset_url_fields", formats: :json}, #{render partial: "datasets/dataset_file_fields", formats: :json})"}
   #data-small.column-1-3
-    .search_field_container
+    .search-field
       %input.search_input{"ng-change" => "search()", "ng-model" => "query", :placeholder => "Search resources or datasets", :type => "text"}
       .icon_search
         %i.icon-search
     %select#sorting{"ng-change" => "sortDatesets()", "ng-model" => "sortOrder", "ng-options" => "order.value as order.name for order in sortOrders"}
-    %button#content-button
+    %button.data
       Type of content
       %i.icon-caret-down
     %ul#content-small
       %li.content_type{"ng-show" => "contentType.count > 0", "ng-class" => "{active: contentType.selected && contentType.count > 0}", "ng-click" => "toggleContentType()", "ng-repeat" => "contentType in contentTypes"}
         %span.badge {{ contentType.count }}
         %p {{ contentType.plural }}
-    .data_policy-small
-      %h3
-        %a{:href => "/policies"} Read our data policy
-    .data_policy
-      %h3 Policies
-      %p UNEP-WCMC does not assert any intellectual property rights in the data made available to it by data providers.
-      %p Access to UNEP-WCMC datasets is provided on the understanding that you read and consent to be bound by the Terms and Conditions set out in our policies.
-      %p
-        %a{:href => "/policies"} View our policies
-    %section.actions#search-button
-      %h1 Biodiversity Heritage Library
-      .button
-        %p
-          %a{:href => "http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles"} Search WCMC publications
+    .button.margin
+      %a{:href => "/policies"} View our policies
+    .button.margin
+      %a{:href => "http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles"} Search WCMC publications
     
   #data.column-1-3
     .search-field
@@ -36,32 +26,29 @@
     %ul#content
       %li.header
         Type of content
-        %span.badge{"ng-click" => "deselectAll()", "ng-style" => "{color: noneSelected() ? '#4c9cda' : '#ddd'}"} None
-        %span.badge= '|'
-        %span.badge{"ng-click" => "selectAll()", "ng-style" => "{color: allSelected() ? '#4c9cda' : '#ddd'}"} All
+        %span.badge{"ng-click" => "deselectAll()", "ng-class" => "{active:noneSelected()}"} None
+        %span.badge{"ng-click" => "selectAll()", "ng-class" => "{active:allSelected()}"} All
       %li.content_type{"ng-show" => "contentType.count > 0", "ng-class" => "{active: contentType.selected && contentType.count > 0}", "ng-click" => "toggleContentType()", "ng-repeat" => "contentType in contentTypes"}
         %span.badge {{ contentType.count }}
-        %p{"ng-style" => "{color: contentType.selected ? '#5e5e5e' : '#aaa'}"} {{ contentType.plural }}
-    .data_policy
-      %h3 Policies
+        %p {{ contentType.plural }}
+    .info-message
+      %h1 Policies
       %p UNEP-WCMC does not assert any intellectual property rights in the data made available to it by data providers.
       %p Access to UNEP-WCMC datasets is provided on the understanding that you read and consent to be bound by the Terms and Conditions set out in our policies.
-      %p
-        %a{:href => "/policies"} View our policies
+      %a{:href => "/policies"} View our policies
     %section.actions#search-button
       %h1 Biodiversity Heritage Library
       .button
-        %p
-          %a{:href => "http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles"} Search WCMC publications
+        %a{:href => "http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles"} Search WCMC publications
 
   #data.column-2-3
     %h1
       Resources &amp; data
-    %section{"ng-repeat" => "dataset in datasetsToBeDisplayed"}      
+    %section.list{"ng-repeat" => "dataset in datasetsToBeDisplayed"}      
 
       %h2.smaller{:id => "{{ dataset.slug }}" }
         {{ dataset.title }}
-      %h3
+      %h3.data
         {{ dataset.content_type }}
         %span{"ng-if" => "dataset.publication_date_year != ''"}
           %span.separator= '|'
