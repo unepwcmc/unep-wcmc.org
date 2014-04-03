@@ -3,9 +3,9 @@ $(document).ready(function(){
     $('ul#button-menu').slideToggle('slow');
   });
 
-  $('button#content-button').click(function() {
+  $('button.data').click(function() {
     $('ul#content-small').toggle('slow');
-    $('button#content-button').css({"background":"#4c9cda","color":"#fff", "border":"1px solid #4c9cda"});
+    $('button.data').css({"background":"#4c9cda","color":"#fff", "border":"1px solid #4c9cda"});
   });
 
   $('button#fields-button').click(function() {
