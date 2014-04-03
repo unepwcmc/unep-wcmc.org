@@ -8,6 +8,15 @@
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
               ga('create', 'UA-47308714-3', 'unep-wcmc.org');
                 ga('send', 'pageview');
+    :javascript
+      (function(){
+        var t,i,e,n=window,o=document,a=arguments,s="script",r=["config","track","identify","visit","push","call"],c=function(){var t,i=this;for(i._e=[],t=0;r.length>t;t++)(function(t){i[t]=function(){return i._e.push([t].concat(Array.prototype.slice.call(arguments,0))),i}})(r[t])};for(n._w=n._w||{},t=0;a.length>t;t++)n._w[a[t]]=n[a[t]]=n[a[t]]||new c;i=o.createElement(s),i.async=1,i.src="//static.woopra.com/js/w.js",e=o.getElementsByTagName(s)[0],e.parentNode.insertBefore(i,e)
+      })("woopra");
+      woopra.config({
+          domain: 'beta.unep-wcmc.org',
+          idle_timeout: 1800000
+      });
+      woopra.track();
     %meta{:"http-equiv" => "X-UA-Compatible", :content => "IE=edge"}
     %meta{ :charset => "utf-8" }
     %meta{ :name => "viewport", :content => "width=device-width,initial-scale=1.0" }
@@ -95,14 +104,6 @@
     $(document).ready(function() {
       $("#kern").lettering();
     });
-    (function(){
-      var t,i,e,n=window,o=document,a=arguments,s="script",r=["config","track","identify","visit","push","call"],c=function(){var t,i=this;for(i._e=[],t=0;r.length>t;t++)(function(t){i[t]=function(){return i._e.push([t].concat(Array.prototype.slice.call(arguments,0))),i}})(r[t])};for(n._w=n._w||{},t=0;a.length>t;t++)n._w[a[t]]=n[a[t]]=n[a[t]]||new c;i=o.createElement(s),i.async=1,i.src="//static.woopra.com/js/w.js",e=o.getElementsByTagName(s)[0],e.parentNode.insertBefore(i,e)
-    })("woopra");
-    woopra.config({
-        domain: 'beta.unep-wcmc.org',
-        idle_timeout: 1800000
-    });
-    woopra.track();
 
   :javascript
     (function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/nuOf4WNhxpl0tT0BfMvgkQ.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})()
