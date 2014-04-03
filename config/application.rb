@@ -25,6 +25,7 @@ module UnepWcmcOrg
     # config.i18n.default_locale = :de
 
     config.active_record.observers = :"cms/page_observer"
+    config.assets.paths << Rails.root.join("app", "assets", "webfonts")
 
   end
 end

@@ -63,7 +63,10 @@
 @font-face {
 	font-family: 'MuseoSans-700';
 	src: font-url('webfonts/2A8946_0_0.eot');
-	src: url('webfonts/2A8946_0_0.eot?#iefix') format('embedded-opentype');}
+	src: url('webfonts/2A8946_0_0.eot?#iefix') 
+	format('embedded-opentype');
+}
+
 
 @font-face {
 	font-family: 'MuseoSans-700';
