@@ -134,10 +134,10 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
   $scope.sapi.trade_title_export = 'Top CITES listed species exported';
   $scope.sapi.trade_title_import = 'Top CITES listed species imported';
   $scope.sapi.trade_info = 'Live, wild animals for commercial trade from 2007 to 2012';
-  $scope.sapi.trade_title = $scope.sapi.trade_title_export;
+  $scope.sapi.trade_title = $scope.sapi.trade_title_import;
   $scope.sapi.trade_selector_export = 'See exports';
   $scope.sapi.trade_selector_import = 'See imports';
-  $scope.sapi.trade_selector = $scope.sapi.trade_selector_import;
+  $scope.sapi.trade_selector = $scope.sapi.trade_selector_export;
   // Species
   $scope.sapi.species_cites = true;
   $scope.sapi.species_cms = false;
