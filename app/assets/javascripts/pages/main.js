@@ -86,7 +86,7 @@ angular.module('stats', ['ngAnimate', 'ngResource', 'ui.select2', 'ui.bootstrap'
   .service('helpers', function() {
     return {
       formatNumber: function (value) {
-        if (value < 1) {
+        if (value < 1 && value > -1) {
           return value.toFixed(2);
         } else {
           return value.toFixed(0);
