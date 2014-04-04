@@ -129,8 +129,8 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
   $scope.sapi.loading = true;
   $scope.sapi.loaded = false;
   // Trade
-  $scope.sapi.trade_export = false;
-  $scope.sapi.trade_import = true;
+  $scope.sapi.trade_export = true;
+  $scope.sapi.trade_import = false;
   $scope.sapi.trade_title_export = 'Top CITES listed species exported';
   $scope.sapi.trade_title_import = 'Top CITES listed species imported';
   $scope.sapi.trade_info = 'Live, wild animals for commercial trade from 2007 to 2012';
