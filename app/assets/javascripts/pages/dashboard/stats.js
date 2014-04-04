@@ -129,8 +129,8 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
   $scope.sapi.loading = true;
   $scope.sapi.loaded = false;
   // Trade
-  $scope.sapi.trade_export = true;
-  $scope.sapi.trade_import = false;
+  $scope.sapi.trade_export = false;
+  $scope.sapi.trade_import = true;
   $scope.sapi.trade_title_export = 'Top CITES listed species exported';
   $scope.sapi.trade_title_import = 'Top CITES listed species imported';
   $scope.sapi.trade_info = 'Live, wild animals for commercial trade from 2007 to 2012';
@@ -368,19 +368,18 @@ function ($scope, $resource, CARTODB_URL, countryService, helpers) {
       data: q})
     .done(function(data) {
       var data = data.rows[0];
-      
-        if (data) {
-          $scope.carbo.biodiversity_loss = -helpers.formatNumber(
-            data.biodiversity_loss );
-          $scope.carbo.carbon_sums = helpers.formatNumber(
-            (data.carbon_sums / 1000000) );
-          $scope.carbo.carbon_pas = helpers.formatNumber(
-            (data.carbon_from_pas / data.carbon_sums * 100) );
-        }
-        $scope.$apply(function() {
-          $scope.carbo.loading = false;
-          $scope.carbo.loaded = true;
-        });
+      if (data) {
+        $scope.carbo.biodiversity_loss = -helpers.formatNumber(
+          data.biodiversity_loss );
+        $scope.carbo.carbon_sums = helpers.formatNumber(
+          (data.carbon_sums / 1000000) );
+        $scope.carbo.carbon_pas = helpers.formatNumber(
+          (data.carbon_from_pas / data.carbon_sums * 100) );
+      }
+      $scope.$apply(function() {
+        $scope.carbo.loading = false;
+        $scope.carbo.loaded = true;
+      });
     })
     .error(function(error){
       $scope.$apply(function() {
