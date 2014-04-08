@@ -5,7 +5,7 @@
       %span#kern Conservation dashboard for
       {{country.name}}
     %h2
-      Explore key datasets maintained by UNEP-WCMC and find conservation statistics for any country.
+      Explore key datasets maintained by UNEP-WCMC and find conservation statistics for any country or region.
 
   %div{:class => "section-group controls", "ng-controller" => "StatsBtnCtrl"}
     %div#view-button{:class => "group", "ng-show" => "visible"}
@@ -14,8 +14,8 @@
     %div#search-field{:class => "group", "ng-class"=>"{full: !visible}"}
       %div{:class => "geo_entities", "ng-controller" => "CountryPickerCtrl"}
         %i.icon-search
-        %input{:type=>"text", "ng-model"=>"selected", 'placeholder'=>"Search for another country", "typeahead"=>"country as country.name for country in getCountry($viewValue)"}
-        
+        %input{:type=>"text", "ng-model"=>"selected", 'placeholder'=>"Search for another country or region", "typeahead"=>"country as country.name for country in getCountry($viewValue)"}
+
 
   %div{:class => "stats", "ng-controller" => "StatsCtrl", "collapse"=>"isCollapsed" }
 
@@ -80,7 +80,7 @@
                 %span {{sapi.trade_title}}
                 %a{:href => "/dashboard#species-trades"}
                   %i.icon-info-sign.toggle
-              %p  
+              %p
                 %span{:class => "infotext"}
                   {{sapi.trade_info}}
               %div.info-link-small
@@ -99,7 +99,7 @@
                     %p.species-count-small {{t.count | number}}
                   %td.species-count
                     %span {{t.count | number}}
-                
+
             %div{"ng-show" => "sapi.trade_import"}
               %p.no-results{"ng-show" => "!sapi.trade_imports_top_data.length"}
                 No results
@@ -122,7 +122,7 @@
                 %span {{sapi.species_title}}
                 %a{:href => "/dashboard#species-lists"}
                   %i.icon-info-sign.toggle
-                %p  
+                %p
                   %span{:class => "infotext"}
                     {{sapi.species_info}}
               %div.info-link-small
@@ -130,7 +130,7 @@
             = image_tag("loading.gif", :class => "spinner", :style => "max-height: 50px; max-width: 50px;", :"ng-show" => "sapi.loading")
             %div{"ng-show" => "sapi.species_cites"}
               %p.no-results{"ng-show" => "!sapi.species_cites_data.length"}
-                No results            
+                No results
               %table
                 %tr.species-container{'ng-repeat' => "group in sapi.species_cites_data", "ng-show" => "sapi.loaded"}
                   %td.counter-container
