@@ -52,4 +52,5 @@ gem 'capistrano', '~> 2.15.0', group: :development
 gem 'rvm-capistrano'
 
 gem "geoip", "~> 1.3.5"
+gem "yajl-ruby", "1.2.0"
 
