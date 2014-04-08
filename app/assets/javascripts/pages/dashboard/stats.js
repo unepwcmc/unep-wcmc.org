@@ -5,7 +5,7 @@ function ($scope, statsVisibilityService) {
   $scope.visible = false;
   $scope.isCollapsed = true;
   $scope.$watch(
-    function () { return statsVisibilityService.getVisibility(); }, 
+    function () { return statsVisibilityService.getVisibility(); },
     function (newVal, oldVal) {
       if (newVal && newVal !== oldVal) {
         $scope.isCollapsed = !newVal;
@@ -46,7 +46,7 @@ function ($location, $rootScope, $scope, $resource, GEOIP_URL, countryService, s
     }
   });
   $scope.$watch(
-    function () { return countryService.getCountry(); }, 
+    function () { return countryService.getCountry(); },
     function (newCountry, oldCountry) {
       if (oldCountry.iso2 && newCountry.iso2 && newCountry.iso2 !== oldCountry.iso2) {
         $scope.country.name = newCountry.name;
@@ -67,7 +67,7 @@ function ($location, $scope, statsVisibilityService) {
     statsVisibilityService.setVisibility(true);
   }
   $scope.$watch(
-    function () { return statsVisibilityService.getVisibility(); }, 
+    function () { return statsVisibilityService.getVisibility(); },
     function (newVal, oldVal) {
       if (newVal && newVal !== oldVal) {
         $scope.visible = !newVal;
@@ -95,12 +95,12 @@ function ($location, $scope, $http, GEO_ENTITIES_URL, countryService, statsVisib
       });
     });
   };
-  
+
   $scope.$watch('selected', function (newVal, oldVal) {
     if (oldVal === newVal || newVal === '' || !newVal.name) return;
 
     countryService.setCountry({
-      iso2: newVal.iso_code2, 
+      iso2: newVal.iso_code2,
       name: newVal.name
     });
     if (statsVisibilityService.getVisibility() === false) {
@@ -127,7 +127,7 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
   var va_selectors;
 
   $scope
-    .$watch(function () { return countryService.getCountry(); }, 
+    .$watch(function () { return countryService.getCountry(); },
       function (newCountry, oldCountry) {
         if (newCountry.iso2 && newCountry.iso2 !== oldCountry.iso2) {
           $scope.sapi.loading = true;
@@ -155,7 +155,7 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
   $scope.sapi.species_cms = false;
   $scope.sapi.species_title_cites = 'CITES-listed species by taxonomic group';
   $scope.sapi.species_title_cms = 'CMS-listed species by taxonomic group';
-  $scope.sapi.species_info = "Species that occur within your country"
+  $scope.sapi.species_info = "Species that occur within your country or region"
   $scope.sapi.species_title = $scope.sapi.species_title_cites;
   $scope.sapi.species_selector_cites = 'See CITES';
   $scope.sapi.species_selector_cms = 'See CMS';
@@ -177,7 +177,7 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
       va_selectors = va_selectors || sapiHelpers.getStatSelections();
       sapiHelpers.setVerticalAlignment(va_selectors);
     },100);
-    
+
   }
 
   $scope.toggleSpecies = function () {
@@ -190,7 +190,7 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
       $scope.sapi.species_cites = true;
       $scope.sapi.species_cms = false;
       $scope.sapi.species_title = $scope.sapi.species_title_cites;
-      $scope.sapi.species_selector = $scope.sapi.species_selector_cms;  
+      $scope.sapi.species_selector = $scope.sapi.species_selector_cms;
     }
     setTimeout(function(){
       va_selectors = va_selectors || sapiHelpers.getStatSelections();
@@ -227,7 +227,7 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
   function getTopSpeciesResults (data, top, other) {
     var species = data.dashboard_stats.species;
     angular.forEach(species, function(results, taxonomy) {
-      var other_result, other_results, sorted_results, filtered_results, 
+      var other_result, other_results, sorted_results, filtered_results,
         top_results;
       sorted_results = results.sort( function( a, b) {
         return a.count - b.count;
@@ -249,29 +249,29 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
   function groupSpeciesResults (data) {
     var species = data.dashboard_stats.species,
         groups = _.object(
-          _.keys(SAPI_SPECIES_GROUPS), 
+          _.keys(SAPI_SPECIES_GROUPS),
           _.map(SAPI_SPECIES_GROUPS, function() {return 0;})
         );
     angular.forEach(species, function(taxonomy_classes, taxonomy) {
       var g = _.clone(groups);
       angular.forEach(taxonomy_classes, function(result, index) {
         angular.forEach(SAPI_SPECIES_GROUPS, function(classes, group) {
-          var match = _.find(classes, function(class_name){ 
-            return result.name == class_name; 
+          var match = _.find(classes, function(class_name){
+            return result.name == class_name;
           });
           if (match) {
             g[group] += result.count;
           }
         });
       });
-      species[taxonomy] = _.sortBy( _.pairs(g), 
+      species[taxonomy] = _.sortBy( _.pairs(g),
         function(el) { return el[1]; } ).reverse();
     });
     return data;
   }
 
   $scope.$watch(
-    function () { return statsVisibilityService.getVisibility(); }, 
+    function () { return statsVisibilityService.getVisibility(); },
     function (newVal, oldVal) {
       if (newVal && newVal !== oldVal) {
         va_selectors = va_selectors || sapiHelpers.getStatSelections();
@@ -284,7 +284,7 @@ function ($scope, $resource, SAPI_API_URL, SAPI_SPECIES_GROUPS, countryService, 
 
     return $.ajax({
       url: url,
-      data: {kingdom:'Animalia', trade_limit:6} })
+      data: {kingdom:'Animalia', trade_limit:6, time_range_start:2007, time_range_end:2012} })
     .done(function(data) {
       var data = groupSpeciesResults(data).dashboard_stats;
       $scope.sapi.species_cites_data = data.species.cites_eu;
@@ -313,11 +313,11 @@ angular.module('stats').controller('PpeStatsCtrl', [
   'helpers',
 function ($scope, $resource, PPE_API_URL, countryService, helpers) {
 
-  var ppe_stored_carbon, 
+  var ppe_stored_carbon,
       stored_carbon;
 
   $scope
-    .$watch(function () { return countryService.getCountry(); }, 
+    .$watch(function () { return countryService.getCountry(); },
       function (newCountry, oldCountry) {
         if (newCountry.iso2 && newCountry.iso2 !== oldCountry.iso2) {
           getData(newCountry.iso2);
@@ -363,7 +363,7 @@ function ($scope, $resource, CARTODB_URL, countryService, helpers) {
   $scope.carbo.loading = true;
   $scope.carbo.loaded = false;
   $scope.$watch(
-    function () { return countryService.getCountry(); }, 
+    function () { return countryService.getCountry(); },
     function (newCountry, oldCountry) {
       if (newCountry.iso2 && newCountry.iso2 !== oldCountry.iso2) {
         getData(newCountry.iso2);
