@@ -1,6 +1,6 @@
 namespace :import do
   desc "Import countries table"
-  task :countries do
+  task :countries => :environment do
   	filename = Rails.root.join('lib','tasks','csv','countries_used.csv')
 	  data = CSV.read(filename)
       data.each do |row|
