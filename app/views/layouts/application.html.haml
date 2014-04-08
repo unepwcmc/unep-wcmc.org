@@ -8,16 +8,38 @@
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
               ga('create', 'UA-47308714-3', 'unep-wcmc.org');
                 ga('send', 'pageview');
+    :javascript
+      (function(){
+        var t,i,e,n=window,o=document,a=arguments,s="script",r=["config","track","identify","visit","push","call"],c=function(){var t,i=this;for(i._e=[],t=0;r.length>t;t++)(function(t){i[t]=function(){return i._e.push([t].concat(Array.prototype.slice.call(arguments,0))),i}})(r[t])};for(n._w=n._w||{},t=0;a.length>t;t++)n._w[a[t]]=n[a[t]]=n[a[t]]||new c;i=o.createElement(s),i.async=1,i.src="//static.woopra.com/js/w.js",e=o.getElementsByTagName(s)[0],e.parentNode.insertBefore(i,e)
+      })("woopra");
+      woopra.config({
+          domain: 'beta.unep-wcmc.org',
+          idle_timeout: 1800000
+      });
+      woopra.track();
+      //CrazyEgg
+      setTimeout(function(){var a=document.createElement("script");
+      var b=document.getElementsByTagName("script")[0];
+      a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0022/2843.js?"+Math.floor(new Date().getTime()/3600000);
+      a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+
     %meta{:"http-equiv" => "X-UA-Compatible", :content => "IE=edge"}
     %meta{ :charset => "utf-8" }
     %meta{ :name => "viewport", :content => "width=device-width,initial-scale=1.0" }
-    %title Welcome to UNEP-WCMC
+    %title
+      - if content_for(:title)
+        = yield(:title)
+      - elsif @cms_page
+        #{@cms_page.label.titleize} - UNEP-WCMC
+      - else
+        UNEP-WCMC
     %link{ :href => 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700', :rel => 'stylesheet', :type => 'text/css' }
     %link{ :href => 'http://fonts.googleapis.com/css?family=Lato:300,400,700', :rel => 'stylesheet', :type => 'text/css' }
     %link{ :href => 'http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', :rel => "stylesheet" }
     %script
       var my_url = "#{request.protocol}#{request.host}:#{request.port}";
     %script{src: "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"}
+    %script{ :type => "text/javascript", :src => "//use.typekit.net/tqb5win.js" }
     %script{ :type => "text/javascript" }
       try {Typekit.load();} catch(e){}
     = javascript_include_tag "pages/application.js"
@@ -94,11 +116,20 @@
     $(document).ready(function() {
       $("#kern").lettering();
     });
-    (function(){
-      var t,i,e,n=window,o=document,a=arguments,s="script",r=["config","track","identify","visit","push","call"],c=function(){var t,i=this;for(i._e=[],t=0;r.length>t;t++)(function(t){i[t]=function(){return i._e.push([t].concat(Array.prototype.slice.call(arguments,0))),i}})(r[t])};for(n._w=n._w||{},t=0;a.length>t;t++)n._w[a[t]]=n[a[t]]=n[a[t]]||new c;i=o.createElement(s),i.async=1,i.src="//static.woopra.com/js/w.js",e=o.getElementsByTagName(s)[0],e.parentNode.insertBefore(i,e)
-    })("woopra");
-    woopra.config({
-        domain: 'beta.unep-wcmc.org',
-        idle_timeout: 1800000
-    });
-    woopra.track();
+
+  :javascript
+    (function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/nuOf4WNhxpl0tT0BfMvgkQ.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})()
+
+  :javascript
+    UserVoice = window.UserVoice || [];
+    UserVoice.push(['showTab', 'classic_widget', {
+      mode: 'support',
+      primary_color: '#cc6d00',
+      link_color: '#007dbf',
+      forum_id: 247214,
+      tab_label: 'Feedback',
+      support_tab_name:'Feedback',
+      tab_color: '#008bcc',
+      tab_position: 'middle-right',
+      tab_inverted: false
+    }]);
