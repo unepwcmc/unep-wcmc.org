@@ -15,18 +15,22 @@ function ($scope, statsVisibilityService) {
 
 
 angular.module('stats').controller('GeoIpCtrl', [
+  '$location',
   '$rootScope',
   '$scope',
   '$resource',
   'GEOIP_URL',
   'countryService',
-function ($rootScope, $scope, $resource, GEOIP_URL, countryService) {
+  'statsVisibilityService',
+function ($location, $rootScope, $scope, $resource, GEOIP_URL, countryService, statsVisibilityService) {
   var GeoIp, geoIp;
   $scope.country = {};
   $scope.country.loaded = false;
+  url_params = $location.search()
 
   $.ajax({
-    url: GEOIP_URL
+    url: GEOIP_URL,
+    data: {country: url_params.country}
   }).done(function(data) {
     var name = data.country_name,
         iso2 = data.country_code2;
@@ -35,6 +39,9 @@ function ($rootScope, $scope, $resource, GEOIP_URL, countryService) {
       $scope.country.iso2 = data.country_code2;
       $scope.country.loaded = true;
       countryService.setCountry($scope.country);
+      if (url_params.dashboard == 'show') {
+        statsVisibilityService.setVisibility(true);
+      }
       $scope.$apply();
     }
   });
@@ -50,9 +57,10 @@ function ($rootScope, $scope, $resource, GEOIP_URL, countryService) {
 
 
 angular.module('stats').controller('StatsBtnCtrl', [
+  '$location',
   '$scope',
   'statsVisibilityService',
-function ($scope, statsVisibilityService) {
+function ($location, $scope, statsVisibilityService) {
   $scope.visible = true;
   $scope.showStats = function () {
     $scope.visible = false;
@@ -63,18 +71,20 @@ function ($scope, statsVisibilityService) {
     function (newVal, oldVal) {
       if (newVal && newVal !== oldVal) {
         $scope.visible = !newVal;
+        $location.search('dashboard', 'show')
       }
   }, true);
 }]);
 
 
 angular.module('stats').controller('CountryPickerCtrl', [
+  '$location',
   '$scope',
   '$http',
   'GEO_ENTITIES_URL',
   'countryService',
   'statsVisibilityService',
-function ($scope, $http, GEO_ENTITIES_URL, countryService, statsVisibilityService) {
+function ($location, $scope, $http, GEO_ENTITIES_URL, countryService, statsVisibilityService) {
 
   $scope.selected = undefined;
 
@@ -97,6 +107,8 @@ function ($scope, $http, GEO_ENTITIES_URL, countryService, statsVisibilityServic
       statsVisibilityService.setVisibility(true);
     }
     $scope.selected = '';
+    $location.search('country', newVal.iso_code2)
+    $location.search('dashboard', 'show')
   }, true);
 
 }]);
