@@ -90,7 +90,7 @@ function ($location, $scope, $http, GEO_ENTITIES_URL, countryService, statsVisib
 
   $scope.getCountry = function(val) {
     return $.when($.getJSON(GEO_ENTITIES_URL)).then(function(data){
-      return _.filter(data.geo_entities, function(geo) {
+      return _.filter(data, function(geo) {
         return geo.name.substr(0, val.length).toLowerCase() == val.toLowerCase();
       });
     });
@@ -100,7 +100,7 @@ function ($location, $scope, $http, GEO_ENTITIES_URL, countryService, statsVisib
     if (oldVal === newVal || newVal === '' || !newVal.name) return;
 
     countryService.setCountry({
-      iso2: newVal.iso_code2,
+      iso2: newVal.iso2,
       name: newVal.name
     });
     if (statsVisibilityService.getVisibility() === false) {
