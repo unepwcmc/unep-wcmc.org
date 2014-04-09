@@ -4,7 +4,7 @@ class Api::CountriesController < ApplicationController
   end
 
   def index
-    @country =  Api::Country.select(:iso2, :name)
+    @country =  Api::Country.select("id, iso2, name")
     render :json => @country
   end
 end
