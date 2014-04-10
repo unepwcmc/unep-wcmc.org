@@ -372,7 +372,7 @@ function ($scope, $resource, CARTODB_URL, countryService, helpers) {
 
   function getData (iso2) {
     var q = {
-      q: "SELECT biodiversity_loss, carbon_sums, carbon_from_pas FROM wcmc_api_stats WHERE iso2 = '" + iso2 + "'"
+      q: "SELECT biodiversity_loss, carbon_sums, carbon_from_pas, percentage FROM wcmc_api_stats WHERE iso2 = '" + iso2 + "'"
     }
     return $.ajax({
       url: CARTODB_URL,
@@ -385,8 +385,7 @@ function ($scope, $resource, CARTODB_URL, countryService, helpers) {
           data.biodiversity_loss );
         $scope.carbo.carbon_sums = helpers.formatNumber(
           (data.carbon_sums / 1000000) );
-        $scope.carbo.carbon_pas = helpers.formatNumber(
-          (data.carbon_from_pas / data.carbon_sums * 100) );
+        $scope.carbo.carbon_pas = helpers.formatNumber( data.percentage );
       }
       $scope.$apply(function() {
         $scope.carbo.loading = false;
