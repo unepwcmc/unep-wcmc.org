@@ -98,7 +98,6 @@ function ($location, $scope, $http, GEO_ENTITIES_URL, countryService, statsVisib
 
   $scope.$watch('selected', function (newVal, oldVal) {
     if (oldVal === newVal || newVal === '' || !newVal.name) return;
-
     countryService.setCountry({
       iso2: newVal.iso2,
       name: newVal.name
@@ -107,7 +106,7 @@ function ($location, $scope, $http, GEO_ENTITIES_URL, countryService, statsVisib
       statsVisibilityService.setVisibility(true);
     }
     $scope.selected = '';
-    $location.search('country', newVal.iso_code2)
+    $location.search('country', newVal.iso2)
     $location.search('dashboard', 'show')
   }, true);
 
