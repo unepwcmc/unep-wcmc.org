@@ -3,6 +3,7 @@
 .DS_Store
 tmp/**
 log/**
+public/system
 config/mailer_config.yml
 config/database.yml
 
