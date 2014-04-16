@@ -98,7 +98,7 @@ $white_link: rgba(255,255,255, 0.75);
 }
 
 h1, h2, h3 {
-	font-family: "museo-slab", Helvetica, Arial, sans-serif;
+	font-family: "MuseoSlab-500", Helvetica, Arial, sans-serif;
 }
 
 h1{
@@ -114,9 +114,6 @@ h2{
 	line-height: 1.3em;
 	margin: 0.75em 0;
 	color: $grey_text;
-	&.smaller {
-	  font-size: 1.2em;
-	}
 	&.related-heading-big {
     font-size: 1.5em;
     text-align: center;
@@ -568,7 +565,7 @@ div.dashboard {
     background: $blue;
     font-weight: 300;
     font-size: 1.75em;
-    font-family: "museo-sans", Helvetica, Arial, sans-serif;
+    font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
     text-align: center;
   }
 
