@@ -151,7 +151,7 @@ h3{
     word-spacing: 0.07em;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: $blue_news;
+    color: $grey_text;
 	}
 	&.vacancy-position {
 	  font-size: 1em;
@@ -423,11 +423,20 @@ div.button, button {
     max-width: 100%;
     display: block;
   }
-  &#news-home {
+  &#news-projects-home {
     background-color: #fff;
     width: 100%;
     padding: 0 5% 60px 5%;
     margin: 0;
+    div#projects-home-content {
+      border-bottom: 1px solid $light_grey;
+      padding-bottom: 60px;
+      div.button {
+        margin: 60px auto 0 auto;
+        background: $blue;
+        color: #fff;
+      }
+    }
   }
 
   section#twitter{
