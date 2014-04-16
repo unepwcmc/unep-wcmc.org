@@ -429,12 +429,24 @@ div.button, button {
     padding: 0 5% 60px 5%;
     margin: 0;
     div#projects-home-content {
-      border-bottom: 1px solid $light_grey;
+      border-bottom: 1px solid $grey;
       padding-bottom: 60px;
       div.button {
         margin: 60px auto 0 auto;
         background: $blue;
-        color: #fff;
+        cursor: pointer;
+        border: none;
+        a {
+          color: #fff;
+        }
+        &:hover, &:active {
+        background: $dark_blue;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        }
       }
     }
   }
