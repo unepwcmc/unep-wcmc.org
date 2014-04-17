@@ -7,6 +7,6 @@
             = image_tag cms_page_content(:photo, employment.employee).file
         = link_to employment.employee.url do
           %h4= cms_page_block_content(:name, employment.employee)
-        %p= employment.role
+        %p.role= employment.role
 
 
