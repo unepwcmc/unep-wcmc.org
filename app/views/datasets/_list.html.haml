@@ -4,7 +4,6 @@
       %input.search_input{"ng-change" => "search()", "ng-model" => "query", :placeholder => "Search resources or datasets", :type => "text"}
       .icon_search
         %i.icon-search
-    %select#sorting{"ng-change" => "sortDatesets()", "ng-model" => "sortOrder", "ng-options" => "order.value as order.name for order in sortOrders"}
     %button.data
       Type of content
       %i.icon-caret-down
@@ -12,6 +11,7 @@
       %li.content_type{"ng-show" => "contentType.count > 0", "ng-class" => "{active: contentType.selected && contentType.count > 0}", "ng-click" => "toggleContentType()", "ng-repeat" => "contentType in contentTypes"}
         %span.badge {{ contentType.count }}
         %p {{ contentType.plural }}
+    %select#sorting{"ng-change" => "sortDatesets()", "ng-model" => "sortOrder", "ng-options" => "order.value as order.name for order in sortOrders"}
     .button.margin
       %a{:href => "/policies"} View our policies
     .button.margin
@@ -22,15 +22,13 @@
       %input.short{"ng-change" => "search()", "ng-model" => "query", :placeholder => "Search resources or datasets", :type => "text"}
       .icon_search
         %i.icon-search
-    %select#sorting{"ng-change" => "sortDatesets()", "ng-model" => "sortOrder", "ng-options" => "order.value as order.name for order in sortOrders"}
     %ul#content
       %li.header
         Type of content
-        %span.badge{"ng-click" => "deselectAll()", "ng-class" => "{active:noneSelected()}"} None
-        %span.badge{"ng-click" => "selectAll()", "ng-class" => "{active:allSelected()}"} All
       %li.content_type{"ng-show" => "contentType.count > 0", "ng-class" => "{active: contentType.selected && contentType.count > 0}", "ng-click" => "toggleContentType()", "ng-repeat" => "contentType in contentTypes"}
         %span.badge {{ contentType.count }}
         %p {{ contentType.plural }}
+    %select#sorting{"ng-change" => "sortDatesets()", "ng-model" => "sortOrder", "ng-options" => "order.value as order.name for order in sortOrders"}
     .info-message
       %h1 Policies
       %p UNEP-WCMC does not assert any intellectual property rights in the data made available to it by data providers.
@@ -44,6 +42,21 @@
   #data.column-2-3
     %h1
       Resources &amp; data
+    %div.filters
+      %p 
+        Searching for
+        %span.active-filter 
+          %i.icon-remove
+          Grasslands report 2013
+      %p 
+        Displaying
+        %span.active-filter 
+          %i.icon-remove
+          Reports
+        %span.active-filter 
+          %i.icon-remove
+          Journals
+
     %section.list{"ng-repeat" => "dataset in datasetsToBeDisplayed"}      
 
       %h2.smaller{:id => "{{ dataset.slug }}" }
