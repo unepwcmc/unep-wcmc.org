@@ -1,11 +1,4 @@
 module ApplicationHelper
-  def html_page_content(identifier, page)
-    return '' unless block = page.blocks.find {
-      |block| block.identifier == identifier.to_s
-    }
-    render :inline => ComfortableMexicanSofa::Tag.process_content(page, block.content)
-  end
-
   def block_content(identifier, page)
     return '' unless block = page.blocks.find {
       |block| block.identifier == identifier.to_s
