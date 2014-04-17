@@ -248,6 +248,7 @@ ul {
   a#home_link {
     position: relative;
     top: 0;
+    z-index: 9999;
     display: block;
     width: 100%;
     float: left;
