@@ -168,6 +168,13 @@ h3{
       text-transform: uppercase;
     }
 	}
+  &.subprogramme {
+    font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+    color: $grey_text;
+    text-transform: uppercase;
+    margin: 0 0 10px 0;
+    font-size: 0.85em;
+  }
 }
 
 address, p {
