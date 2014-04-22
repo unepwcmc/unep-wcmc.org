@@ -23,8 +23,8 @@ $white_link: rgba(255,255,255, 0.75);
 }
 
 body {
-	font-size: 100%;
-	font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
 }
 
 .container {
@@ -36,30 +36,30 @@ body {
 }
 
 h1, h2, h3, h5 {
-	font-family: "MuseoSlab-500", Helvetica, Arial, sans-serif;
-	em {
-	  font-style: italic;
-	}
+  font-family: "MuseoSlab-500", Helvetica, Arial, sans-serif;
+  em {
+    font-style: italic;
+  }
 }
 
 h1{
-	font-size: 1.75em;
-	line-height: 1em;
-	margin: 0 0 0.75em 0;
-	color: $grey_text;
+  font-size: 1.75em;
+  line-height: 1em;
+  margin: 0 0 0.75em 0;
+  color: $grey_text;
 }
 
 h2{
-	font-weight: 700;
-	font-size: 1.3em;
-	line-height: 1.3em;
-	margin: 0.75em 0;
-	color: $grey_text;
-	&.smaller {
-	  font-size: 1.2em;
+  font-weight: 700;
+  font-size: 1.3em;
+  line-height: 1.3em;
+  margin: 0.75em 0;
+  color: $grey_text;
+  &.smaller {
+    font-size: 1.2em;
     letter-spacing: -0.025em;
-	}
-	&.related-heading-big {
+  }
+  &.related-heading-big {
     text-transform: uppercase;
     font-weight: 300;
     font-size: 1.5em;
@@ -69,7 +69,7 @@ h2{
     width: 80%;
     padding: 50px 0 25px 0;
     font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
-	}
+  }
   &.programme {
   line-height: 1em;
   margin: 30px 0 25px 0;
@@ -77,7 +77,7 @@ h2{
   border-bottom: 2px solid #eee;
   &:first-of-type {
     margin-top: 50px;
-    } 
+    }
   }
   &.related-project {
     font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
@@ -99,11 +99,11 @@ h2{
 }
 
 h3{
-	font-weight: 700;
-	font-size: 1em;
-	line-height: 1.4em;
-	margin: 1em 0 0.5em 0;
-	color: $medium_grey;
+  font-weight: 700;
+  font-size: 1em;
+  line-height: 1.4em;
+  margin: 1em 0 0.5em 0;
+  color: $medium_grey;
   &.position {
     text-transform: uppercase;
     font-size: 0.85em;
@@ -139,13 +139,13 @@ h3{
   &.isbn {
     margin-top: 0;
   }
-	&#news {
-	  width: 100%;
-	  margin: auto;
-	  font-size: 0.8em;
-	  margin-bottom: 30px;
-	  padding-top: 60px;
-	  display: inline-block;
+  &#news {
+    width: 100%;
+    margin: auto;
+    font-size: 0.8em;
+    margin-bottom: 30px;
+    padding-top: 60px;
+    display: inline-block;
     text-align: left;
     font-weight: 400;
     font-family: "MuseoSans-500", Helvetica, Arial, sans-serif;
@@ -153,9 +153,9 @@ h3{
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: $grey_text;
-	}
-	&.vacancy-position {
-	  font-size: 1em;
+  }
+  &.vacancy-position {
+    font-size: 1em;
     font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
     font-weight: 300;
     color: $medium_grey;
@@ -167,7 +167,7 @@ h3{
     a#department {
       text-transform: uppercase;
     }
-	}
+  }
   &.subprogramme {
     font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
     color: $grey_text;
@@ -179,16 +179,16 @@ h3{
 }
 
 address, p {
-	font-size: 1em;
-	margin-bottom: 10px;
-	line-height: 1.5em;
-	font-weight: 300;
-	color: $grey_text;
-	i {
-	  display: inline-block;
-	  font-size: 0.85em;
-	  padding-right: 5px;
-	}
+  font-size: 1em;
+  margin-bottom: 10px;
+  line-height: 1.5em;
+  font-weight: 300;
+  color: $grey_text;
+  i {
+    display: inline-block;
+    font-size: 0.85em;
+    padding-right: 5px;
+  }
 }
 
 p strong {
@@ -209,22 +209,22 @@ a {
   &:hover {
     color: $blue;
     -webkit-transition: all 0.5s ease;
-		-moz-transition: all 0.5s ease;
-		-ms-transition: all 0.5s ease;
-		-o-transition: all 0.5s ease;
-		transition: all 0.5s ease;
-		text-decoration: underline;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    text-decoration: underline;
   }
 }
 
 small {
-	display: block;
-	font-size: 0.75em;
-	color: $medium_grey;
-	text-transform: uppercase;
-	font-weight: 300;
-	letter-spacing: 0.1em;
-	margin-bottom: 1.25em;
+  display: block;
+  font-size: 0.75em;
+  color: $medium_grey;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.25em;
   &.news-item {
     font-size: 0.85em;
     margin-bottom: 10px;
@@ -244,7 +244,7 @@ ul {
 }
 
 #nav{
-	background-color: $darkest_grey;
+  background-color: $darkest_grey;
   overflow: hidden;
   a#home_link {
     position: relative;
@@ -255,45 +255,45 @@ ul {
     float: left;
     padding: 0;
     background: $blue;
-		img {
-		  max-width: 100%;
-		  max-height: 52px;
-			display: block;
-			background: $blue;
-			padding: 2% 5%;
-		}
+    img {
+      max-width: 100%;
+      max-height: 52px;
+      display: block;
+      background: $blue;
+      padding: 2% 5%;
+    }
   }
-	ul{
-		margin: auto;
-	  list-style: none;
-	  overflow: hidden;
-	  float: right;
+  ul{
+    margin: auto;
+    list-style: none;
+    overflow: hidden;
+    float: right;
     list-style-type: none;
-		li{
+    li{
       line-height: 1em;
       padding: 0;
       margin: 0;
-			a {
-				font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
-				font-size: 0.8em;
+      a {
+        font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+        font-size: 0.8em;
         font-weight: 300;
-				text-decoration: none;
-				color: $white_link;
-				text-transform: uppercase;
-				&:hover{
-					color: #fff;
-					-webkit-transition: all 0.5s ease;
-					-moz-transition: all 0.5s ease;
-					-ms-transition: all 0.5s ease;
-					-o-transition: all 0.5s ease;
-					transition: all 0.5s ease;
-				}
-				&.active {
-					color: #fff;
-				}
-			}
-		}
-	}
+        text-decoration: none;
+        color: $white_link;
+        text-transform: uppercase;
+        &:hover{
+          color: #fff;
+          -webkit-transition: all 0.5s ease;
+          -moz-transition: all 0.5s ease;
+          -ms-transition: all 0.5s ease;
+          -o-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+        }
+        &.active {
+          color: #fff;
+        }
+      }
+    }
+  }
 }
 
 
@@ -329,28 +329,28 @@ div.heading{
   margin: auto;
   padding: 100px 0;
   text-align: center;
-	h1 {
-		margin-bottom: 0;
-		font-size: 1.4em;
-		line-height: 1.25em;
-		font-weight: bold;
-		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-	}
-	h2 {
-		font-weight: 300;
-		margin: 0.5em 0;
-		font-size: 0.85em;
-		line-height: 1.4em;
-		font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
-		border-top: 1px solid rgba(255,255,255, 0.9);
-		border-bottom: 1px solid rgba(255,255,255, 0.9);
-		margin-top: 20px;
-		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
-	}
-	h1,h2 {
-		padding: 1% 0;
-		color: #fff;
-	}
+  h1 {
+    margin-bottom: 0;
+    font-size: 1.4em;
+    line-height: 1.25em;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+  h2 {
+    font-weight: 300;
+    margin: 0.5em 0;
+    font-size: 0.85em;
+    line-height: 1.4em;
+    font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+    border-top: 1px solid rgba(255,255,255, 0.9);
+    border-bottom: 1px solid rgba(255,255,255, 0.9);
+    margin-top: 20px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+  }
+  h1,h2 {
+    padding: 1% 0;
+    color: #fff;
+  }
   &.featured-project {
     width: 60%;
     margin-left: 5%;
@@ -372,15 +372,15 @@ div.button, button {
   width: 100%;
   padding: 10px;
   text-align: center;
-	display: block;
+  display: block;
   -webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
   -webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-ms-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
-	transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   border: 1px solid $blue;
   background: none;
   box-shadow: none;
@@ -413,20 +413,20 @@ div.button, button {
     text-align: left;
   }
   &.banner, &#twitter {
-	  box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-  	border: 1px solid $medium_grey;
-  	background-color: rgba(0,0,0,0.05);
-  	a {
-  	  color: #fff;
-  	}
-  	&:hover, &:active {
-  		border: 1px solid $blue;
-  		background-color: $blue;
-  		a{
-  			color: #fff;
-  		}
-  	}
-	}
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    border: 1px solid $medium_grey;
+    background-color: rgba(0,0,0,0.05);
+    a {
+      color: #fff;
+    }
+    &:hover, &:active {
+      border: 1px solid $blue;
+      background-color: $blue;
+      a{
+        color: #fff;
+      }
+    }
+  }
   &.banner {
     border: 1px solid #fff;
   }
@@ -466,30 +466,30 @@ div.button, button {
   }
 
   section#twitter{
-  	background: $grey;
-  	padding: 25px;
-  	#top_twitter{
-  		width: 100%;
-  		padding: 2% 0 5% 0;
-  		img{
-  			display: block;
-  			max-width: 19%;
-  			opacity: 0.3;
-  			float: left;
-  		}
-  	}
-  	.tweet{
-  		padding: 3% 0;
-  		small{
-  			margin-bottom: 3%;
-  		}
-  		&:last-child {
-  		  padding-bottom: 0;
-  		  p {
-  		    margin-bottom: 0;
-  		  }
-  		}
-  	}
+    background: $grey;
+    padding: 25px;
+    #top_twitter{
+      width: 100%;
+      padding: 2% 0 5% 0;
+      img{
+        display: block;
+        max-width: 19%;
+        opacity: 0.3;
+        float: left;
+      }
+    }
+    .tweet{
+      padding: 3% 0;
+      small{
+        margin-bottom: 3%;
+      }
+      &:last-child {
+        padding-bottom: 0;
+        p {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }
 
@@ -566,10 +566,10 @@ ul.subnav, ul.subnav-small {
         color: #fff;
       }
       -webkit-transition: all 0.5s ease;
-			-moz-transition: all 0.5s ease;
-			-ms-transition: all 0.5s ease;
-			-o-transition: all 0.5s ease;
-			transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
     }
     &.header {
       color: $grey_text;
@@ -582,11 +582,11 @@ ul.subnav, ul.subnav-small {
         background-color: none;
         color: $blue;
         -webkit-transition: all 0.5s ease;
-  			-moz-transition: all 0.5s ease;
-  			-ms-transition: all 0.5s ease;
-  			-o-transition: all 0.5s ease;
-  			transition: all 0.5s ease;
-  			background: none;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        background: none;
       }
     }
   }
@@ -635,22 +635,22 @@ select#sorting, select#sorting option, div.search-field {
   width: 100%;
   cursor: pointer;
   background: #fff;
-	margin: 30px 0 0 0;
-	outline: none;
-	line-height: 1.5em;
-	border: 1px solid $grey;
+  margin: 30px 0 0 0;
+  outline: none;
+  line-height: 1.5em;
+  border: 1px solid $grey;
   -webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
 select#sorting, select#sorting option {
   font-weight: 300;
   padding: 10px;
-	font-size: 0.85em;
-	font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
-	line-height: 1.5em;
-	color: $grey_text;
+  font-size: 0.85em;
+  font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+  line-height: 1.5em;
+  color: $grey_text;
   font-weight: 300;
 }
 
@@ -663,19 +663,19 @@ div.search-field {
     box-shadow: none;
     background: none;
     font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
-  	line-height: 1.5em;
-  	font-size: 0.85em;
-  	font-weight: 300;
-  	border: none;
-  	width: 86%;
-  	outline: none;
-  	float: left;
+    line-height: 1.5em;
+    font-size: 0.85em;
+    font-weight: 300;
+    border: none;
+    width: 86%;
+    outline: none;
+    float: left;
   }
   i {
     color: $grey_text;
     font-size: 0.85em;
     display: block;
-   	padding: 10px 10px 10px 0;
+    padding: 10px 10px 10px 0;
     float: right;
     line-height: 1.5em;
     margin-top: 1px;
@@ -684,23 +684,23 @@ div.search-field {
 
 
 ul#content, ul#content-small {
-	margin: 30px 0 0 0;
-	font-size: 0.85em;
+  margin: 30px 0 0 0;
+  font-size: 0.85em;
   list-style-type: none;
   padding: 0;
-	li{
-	  cursor: pointer;
-		color: $grey_text;
-		font-weight: 300;
-		padding: 0 0 0 15px;
-		margin: 20px 0;
-		line-height: 1.7em;
-		border-left: 5px solid #fff;
+  li{
+    cursor: pointer;
+    color: $grey_text;
+    font-weight: 300;
+    padding: 0 0 0 15px;
+    margin: 20px 0;
+    line-height: 1.7em;
+    border-left: 5px solid #fff;
 
-		&.header {
-		  cursor: default;
-			font-family: "MuseoSans-500", Helvetica, Arial, sans-serif;
-			border-bottom: 1px solid #eee;
+    &.header {
+      cursor: default;
+      font-family: "MuseoSans-500", Helvetica, Arial, sans-serif;
+      border-bottom: 1px solid #eee;
       padding: 0 0 10px 0;
       border-left: none;
       margin-bottom: 10px;
@@ -727,7 +727,7 @@ ul#content, ul#content-small {
           color: #fff;
         }
       }
-		}
+    }
     &.content_type {
       border-left: 5px solid $grey;
       padding-left: 3%;
@@ -737,14 +737,14 @@ ul#content, ul#content-small {
       }
     }
 
-		&.active {
+    &.active {
       &.content_type {
         border-left: 5px solid $blue;
         p, span.badge {
           color: #999;
         }
       }
-		}
+    }
 
     &:hover {
       &.content_type {
@@ -754,16 +754,16 @@ ul#content, ul#content-small {
       }
     }
 
-		span.badge {
-			margin-left: 20px;
-			float: right;
-			font-weight: 300;
-			color: $grey;
-			i.icon-caret-down {
-				font-size: 1.5em;
-			}
-		}
-	}
+    span.badge {
+      margin-left: 20px;
+      float: right;
+      font-weight: 300;
+      color: $grey;
+      i.icon-caret-down {
+        font-size: 1.5em;
+      }
+    }
+  }
 }
 
 div.filters {
@@ -930,8 +930,8 @@ form {
     border: 1px solid $blue;
     border: none;
     -webkit-border-radius: 5px;
-  	-moz-border-radius: 5px;
-  	border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     padding: 10px 0;
     color: #fff;
     font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
@@ -949,77 +949,79 @@ form {
         background: $blue;
         color: #fff;
         -webkit-transition: all 0.5s ease;
-    		-moz-transition: all 0.5s ease;
-    		-ms-transition: all 0.5s ease;
-    		-o-transition: all 0.5s ease;
-    		transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
       }
     }
   }
 }
 
 div#footer_container {
-	width:100%;
-	position: absolute;
-	background-color: $dark_grey;
-	background: image-url('map_world_small.png') no-repeat center;
-	background-opacity: 0.2;
-	background-size: 100%;
+  width:100%;
+  position: absolute;
+  background-color: $dark_grey;
+  background: image-url('map_world_small.png') no-repeat center;
+  background-opacity: 0.2;
+  background-size: 100%;
   padding: 20px;
   a#unep {
     padding: 10px 0 0 0;
     img {
-		  width: 15%;
-		  opacity: 0.6;
-		  &:hover, &:active {
-  		  opacity: 1;
-  		  -webkit-transition: all 0.5s ease;
-				-moz-transition: all 0.5s ease;
-				-ms-transition: all 0.5s ease;
-				-o-transition: all 0.5s ease;
-				transition: all 0.5s ease;
-  		}
-		}
-	}
+      width: 15%;
+      opacity: 0.6;
+      &:hover, &:active {
+        opacity: 1;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+      }
+    }
+  }
 }
 
 ul.footer{
   list-style: none;
   overflow: hidden;
   padding: 0;
-	li{
-	  padding: 0 0 10px 0;
+  li{
+    padding: 0 0 10px 0;
     margin: 0;
-		a {
-			font-size: 1em;
-			font-weight: 300;
-			font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
-			text-decoration: none;
-			color: $medium_grey;
-			&:hover{
-				color: $blue;
-				-webkit-transition: all 0.5s ease;
-				-moz-transition: all 0.5s ease;
-				-ms-transition: all 0.5s ease;
-				-o-transition: all 0.5s ease;
-				transition: all 0.5s ease;
-			}
-			&.active {
-			  color: $blue;
-			}
-		}
-	}
+    a {
+      font-size: 1em;
+      font-weight: 300;
+      font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+      text-decoration: none;
+      color: $medium_grey;
+      &:hover{
+        color: $blue;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+      }
+      &.active {
+        color: $blue;
+      }
+    }
+  }
 }
 
 .section-group {
   overflow: hidden;
   margin-top: -30px;
+  & + h3.subprogramme {
+    margin-top: 15px;
+  }
 }
 
 div#welcome-container {
   width: 100%;
   background: $light_grey;
-
 }
 
 div#welcome {
@@ -1134,10 +1136,10 @@ button#trigger-menu {
   &:hover {
     color: #fff;
     -webkit-transition: all 0.5s ease;
-		-moz-transition: all 0.5s ease;
-		-ms-transition: all 0.5s ease;
-		-o-transition: all 0.5s ease;
-		transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
   }
 }
 
@@ -1276,13 +1278,13 @@ div.error-message {
     font-weight: 400;
     font-size: 1em;
     font-family: "MuseoSans-500", Helvetica, Arial, sans-serif;
-  	border-bottom: 1px solid $grey;
-  	margin: 4px 0 10px 0;
-  	padding-bottom: 5px;
-  	i {
-  	  color: $red;
-  	  padding-right: 5px;
-  	}
+    border-bottom: 1px solid $grey;
+    margin: 4px 0 10px 0;
+    padding-bottom: 5px;
+    i {
+      color: $red;
+      padding-right: 5px;
+    }
   }
   ul {
     list-style-type: none;
@@ -1358,11 +1360,11 @@ div.dashboard {
   }
 
   div.section-group.controls {
-		position: relative;
-		width: 99%;
-		z-index: 1000;
-		overflow: visible;
-		min-height: 100px;
+    position: relative;
+    width: 99%;
+    z-index: 1000;
+    overflow: visible;
+    min-height: 100px;
     #view-button {
       width: 100%;
     }
@@ -1490,10 +1492,10 @@ div.dashboard {
           &:hover, &:active {
             color: $dark_blue;
             -webkit-transition: all 0.5s ease;
-        		-moz-transition: all 0.5s ease;
-        		-ms-transition: all 0.5s ease;
-        		-o-transition: all 0.5s ease;
-        		transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -ms-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
           }
         }
       }
@@ -1641,7 +1643,7 @@ div.dashboard {
       border-top: none;
     }
   }
-  
+
   tr.species-container {
     overflow: hidden;
     td {
@@ -1677,7 +1679,7 @@ div.dashboard {
 
   tr.species-container td.counter-container {
   }
-  
+
   tr.species-container td.counter-container div.counter {
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
@@ -1693,25 +1695,25 @@ div.dashboard {
   }
 
   tr.species-container td.counter.list-0 {
-    background: #4295D5;        
-  }                             
-                                
+    background: #4295D5;
+  }
+
   tr.species-container td.counter.list-1 {
-    background: #4B92D5;        
-  }                             
-                                
+    background: #4B92D5;
+  }
+
   tr.species-container td.counter.list-2 {
-    background: #66A4DD;        
-  }                             
-                                
+    background: #66A4DD;
+  }
+
   tr.species-container td.counter.list-3 {
-    background: #85B7E4;        
-  }                             
-                                
+    background: #85B7E4;
+  }
+
   tr.species-container td.counter.list-4 {
-    background: #AFD1ED;        
-  }                             
-                                
+    background: #AFD1ED;
+  }
+
   tr.species-container td.counter.list-5 {
     background: #c7dced;
   }
