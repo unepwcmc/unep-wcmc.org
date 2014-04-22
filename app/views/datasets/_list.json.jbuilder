@@ -1,19 +1,19 @@
-json.datasets Cms::Site.find_by_identifier('resources-and-data').pages.root.children.published.each do |dataset|
-  json.title cms_page_block_content(:title, dataset)
-  json.content cms_page_block_content(:content, dataset)
+json.datasets Cms::Site.find_by_identifier('resources-and-data').pages.root.children.published.includes(blocks: [:files]).each do |dataset|
+  json.title block_content(:title, dataset)
+  json.content block_content(:content, dataset)
   json.id dataset.id
   json.slug dataset.slug
-  json.publication_date cms_page_block_content(:publication_date, dataset)
-  json.publication_date_year cms_page_block_content(:publication_date_display_only_year, dataset)
-  json.content_type cms_page_block_content(:content_type, dataset)
-  json.first_link cms_page_block_content(:first_url, dataset)
-  json.first_link_label cms_page_block_content(:first_url_label, dataset)
-  json.second_link cms_page_block_content(:second_url, dataset)
-  json.second_link_label cms_page_block_content(:second_url_label, dataset)
-  json.author cms_page_block_content(:author, dataset)
-  json.isbn cms_page_block_content(:isbn, dataset)
-  if !cms_page_files(:file, dataset).empty?
-    json.file_url cms_page_content(:file, dataset).file.url
+  json.publication_date block_content(:publication_date, dataset)
+  json.publication_date_year block_content(:publication_date_display_only_year, dataset)
+  json.content_type block_content(:content_type, dataset)
+  json.first_link block_content(:first_url, dataset)
+  json.first_link_label block_content(:first_url_label, dataset)
+  json.second_link block_content(:second_url, dataset)
+  json.second_link_label block_content(:second_url_label, dataset)
+  json.author block_content(:author, dataset)
+  json.isbn block_content(:isbn, dataset)
+  if !page_files(:file, dataset).empty?
+    json.file_url page_files(:file, dataset)[0].file.url
   end
 end
 json.content_types ContentType.all do |content_type|
