@@ -12,5 +12,9 @@
       %span
         %i.icon-envelope-alt
         %a{:href => "mailto:#{programme.email}"}= programme.email
-    %h3.subprogramme Science, Economics, Policy and Partnerships
     = render partial: "programmes/employees_list", locals: {programme: programme}
+    - if programme.subprogrammes.present?
+      - programme.subprogrammes.order('name').each do |subprogramme|
+        - if subprogramme.employees.present?
+          %h3.subprogramme= subprogramme.name
+          = render partial: "programmes/employees_list", locals: {programme: subprogramme}
