@@ -90,7 +90,7 @@ function ($location, $scope, $http, GEO_ENTITIES_URL, countryService, statsVisib
 
   $scope.getCountry = function(val) {
     return $.when($.getJSON(GEO_ENTITIES_URL)).then(function(data){
-      return _.filter(data.geo_entities, function(geo) {
+      return _.filter(data, function(geo) {
         return geo.name.substr(0, val.length).toLowerCase() == val.toLowerCase();
       });
     });
@@ -98,16 +98,15 @@ function ($location, $scope, $http, GEO_ENTITIES_URL, countryService, statsVisib
 
   $scope.$watch('selected', function (newVal, oldVal) {
     if (oldVal === newVal || newVal === '' || !newVal.name) return;
-
     countryService.setCountry({
-      iso2: newVal.iso_code2,
+      iso2: newVal.iso2,
       name: newVal.name
     });
     if (statsVisibilityService.getVisibility() === false) {
       statsVisibilityService.setVisibility(true);
     }
     $scope.selected = '';
-    $location.search('country', newVal.iso_code2)
+    $location.search('country', newVal.iso2)
     $location.search('dashboard', 'show')
   }, true);
 
@@ -372,7 +371,7 @@ function ($scope, $resource, CARTODB_URL, countryService, helpers) {
 
   function getData (iso2) {
     var q = {
-      q: "SELECT biodiversity_loss, carbon_sums, carbon_from_pas FROM wcmc_api_stats WHERE iso2 = '" + iso2 + "'"
+      q: "SELECT biodiversity_loss, carbon_sums, carbon_from_pas, percentage FROM wcmc_api_stats WHERE iso2 = '" + iso2 + "'"
     }
     return $.ajax({
       url: CARTODB_URL,
@@ -385,8 +384,7 @@ function ($scope, $resource, CARTODB_URL, countryService, helpers) {
           data.biodiversity_loss );
         $scope.carbo.carbon_sums = helpers.formatNumber(
           (data.carbon_sums / 1000000) );
-        $scope.carbo.carbon_pas = helpers.formatNumber(
-          (data.carbon_from_pas / data.carbon_sums * 100) );
+        $scope.carbo.carbon_pas = helpers.formatNumber( data.percentage );
       }
       $scope.$apply(function() {
         $scope.carbo.loading = false;

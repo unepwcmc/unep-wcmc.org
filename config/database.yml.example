@@ -1,0 +1,21 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: unep_wcmc_development
+  pool: 5
+  user:
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: unep_wcmc_test
+  pool: 5
+  user:
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: unep_wcmc_production
+  pool: 5
