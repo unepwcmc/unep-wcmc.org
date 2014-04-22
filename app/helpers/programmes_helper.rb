@@ -1,5 +1,5 @@
 module ProgrammesHelper
   def programmes
-    ::Programme.includes(employees: [blocks: [:files]])
+    ::Programme.where(parent_programme_id: nil).includes(employees: [blocks: [:files]])
   end
 end
