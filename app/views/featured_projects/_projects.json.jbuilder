@@ -1,3 +1,6 @@
+# Uses slow helper methods. If we want to use this again,
+# we need to use our own (see ApplicationHelper).
+
 json.array! pages do |page|
   if cms_page_content(:thumbnail, page)
     json.thumbnail_url cms_page_content(:thumbnail, page).file.url

@@ -5,7 +5,7 @@ angular.module('stats', ['ngAnimate', 'ngResource', 'ui.select2', 'ui.bootstrap'
   .constant('GEOIP_URL', my_url + '/api/geoip')
   .constant('PPE_API_URL', 'http://www.protectedplanet.net/api2/countries/')
   .constant('SAPI_API_URL', 'http://www.speciesplus.net/api/v1/dashboard_stats/:country')
-  .constant('GEO_ENTITIES_URL', 'http://www.speciesplus.net/api/v1/geo_entities/')
+  .constant('GEO_ENTITIES_URL', my_url + '/api/countries')
   .constant('CARTODB_URL', 'https://carbon-tool.cartodb.com/api/v2/sql')
   .constant('SAPI_SPECIES_GROUPS', {
     'Mammals': ['Mammalia'],
