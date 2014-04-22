@@ -1,17 +1,26 @@
-unep-wcmc.org
-=============
+== unep-wcmc.org
 
-mockups of the unep-wcmc.org website
+The new unep-wcmc.org website - currently in development.
 
-QUICK SETUP GUIDE:
+http://beta.unep-wcmc.org
+
+==== Quick setup guide
+  bundle install
   rake db:migrate
   rake db:seed
   HOSTNAME="localhost:3000" rake unepwcmc:setup
+  mv config/database.yml.example config/database.yml
   
-(amend HOSTNAME as required)
+Amend HOSTNAME as required and provide your database settings in database.yml.
 
+Note that most of the images are uploaded via Comfortable Mexican Sofa, which at it's current
+version doesn't support exporting and importing files.
+If you need the images, acquire an archive of the public folder from the beta and copy the files
+into your local app.
 
-MaxMind
+You will need to have PostgreSQL and ImageMagick installed.
+
+==== MaxMind
 
 You will need to setup a config/max_mind.yml file with the locations of your MaxMind DB. 
 An example of this is in config/max_mind.yml.example.

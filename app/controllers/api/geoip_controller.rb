@@ -7,7 +7,7 @@ class Api::GeoipController < ApplicationController
   def index
     iso2 = request.query_parameters['country']
     if iso2
-      country = Country.find_by!(:iso2 => iso2)
+      country = Api::Country.find_by!(:iso2 => iso2)
       render :json => {
         :country_code2=>country.iso2, :country_name=>country.name}
     else
