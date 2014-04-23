@@ -3,19 +3,20 @@
     %input.short{ :type => "text", :placeholder => "Search for a member of staff", 'ng-model' => 'query' }
     %i.icon-search
   - programmes.order('name').each do |programme|
-    %a{ :id => programme.id }
-    %h2.programme= programme.name
-    #team-details
-      %span
-        %i.icon-phone
-        = programme.phone_number
-      %span
-        %i.icon-envelope-alt
-        %a{:href => "mailto:#{programme.email}"}= programme.email
-    - if programme.employees.present?
-      = render partial: "programmes/employees_list", locals: {programme: programme}
-    - if programme.subprogrammes.present?
-      - programme.subprogrammes.includes(employees: [blocks: [:files]]).order('name').each do |subprogramme|
-        - if subprogramme.employees.present?
-          %h3.subprogramme= subprogramme.name
-          = render partial: "programmes/employees_list", locals: {programme: subprogramme}
+    - if programme.has_employees?
+      %a{ :id => programme.id }
+      %h2.programme= programme.name
+      #team-details
+        %span
+          %i.icon-phone
+          = programme.phone_number
+        %span
+          %i.icon-envelope-alt
+          %a{:href => "mailto:#{programme.email}"}= programme.email
+      - if programme.employees.present?
+        = render partial: "programmes/employees_list", locals: {programme: programme}
+      - if programme.subprogrammes.present?
+        - programme.subprogrammes.includes(employees: [blocks: [:files]]).order('name').each do |subprogramme|
+          - if subprogramme.employees.present?
+            %h3.subprogramme= subprogramme.name
+            = render partial: "programmes/employees_list", locals: {programme: subprogramme}

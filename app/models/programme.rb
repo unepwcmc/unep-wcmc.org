@@ -6,6 +6,10 @@ class Programme < ActiveRecord::Base
 
   validate :parent_programme_cant_be_a_subprogramme
 
+  def has_employees?
+    employees.present? || subprogrammes.any? { |s| s.has_employees? }
+  end
+
   private
 
   def parent_programme_cant_be_a_subprogramme
