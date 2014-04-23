@@ -12,7 +12,8 @@
       %span
         %i.icon-envelope-alt
         %a{:href => "mailto:#{programme.email}"}= programme.email
-    = render partial: "programmes/employees_list", locals: {programme: programme}
+    - if programme.employees.present?
+      = render partial: "programmes/employees_list", locals: {programme: programme}
     - if programme.subprogrammes.present?
       - programme.subprogrammes.order('name').each do |subprogramme|
         - if subprogramme.employees.present?
