@@ -1,6 +1,8 @@
 = form.text_field :name
 = form.text_field :phone_number
 = form.text_field :email
+.control-group
+  = form.select :parent_programme_id, options_from_collection_for_select(programmes, "id", "name", @programme.parent_programme_id), include_blank: true
 
 .form-actions
   = form.submit :class => 'btn btn-primary'

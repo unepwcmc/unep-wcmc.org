@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe CountriesController do
+describe Api::CountriesController do
 
 end

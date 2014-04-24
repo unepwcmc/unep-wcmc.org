@@ -38,8 +38,12 @@ class Admin::ProgrammesController < Admin::Cms::BaseController
   end
 
   def destroy
-    @programme.destroy
-    flash[:success] = 'Programme deleted'
+    if @programme.has_employees?
+      flash[:error] = 'Programme cannot be deleted because it has employees'
+    else
+      @programme.destroy
+      flash[:success] = 'Programme deleted'
+    end
     redirect_to :action => :index
   end
 
@@ -57,6 +61,6 @@ protected
   end
 
   def programme_params
-    params.fetch(:programme, {}).permit(:name, :phone_number, :email)
+    params.fetch(:programme, {}).permit(:name, :phone_number, :email, :parent_programme_id)
   end
 end
