@@ -38,8 +38,12 @@ class Admin::ProgrammesController < Admin::Cms::BaseController
   end
 
   def destroy
-    @programme.destroy
-    flash[:success] = 'Programme deleted'
+    if @programme.has_employees?
+      flash[:error] = 'Programme cannot be deleted because it has employees'
+    else
+      @programme.destroy
+      flash[:success] = 'Programme deleted'
+    end
     redirect_to :action => :index
   end
 
