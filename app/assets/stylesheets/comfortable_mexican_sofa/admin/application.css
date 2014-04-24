@@ -9,3 +9,7 @@
 body#comfy .CodeMirror {
   height: 200px;
 }
+
+body#comfy select {
+  height: 34px;
+}
