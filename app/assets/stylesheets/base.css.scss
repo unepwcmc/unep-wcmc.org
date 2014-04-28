@@ -412,6 +412,7 @@ div.button, button {
   &.data {
     text-align: left;
   }
+
   &.banner, &#twitter {
     box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
     border: 1px solid $medium_grey;
@@ -429,6 +430,14 @@ div.button, button {
   }
   &.banner {
     border: 1px solid #fff;
+  }
+
+  &.bhl, &.policies {
+    max-width: 290px;
+    font-size: 0.85em;
+    a {
+      line-height: 1.25em;
+    }
   }
 }
 
