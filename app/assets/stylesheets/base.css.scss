@@ -442,11 +442,11 @@ div.button, button {
     width: 100%;
     padding: 0 5% 60px 5%;
     margin: 0;
-    div#projects-home-content {
+    div#projects-home-content, div#news-home-content {
       border-bottom: 1px solid $grey;
       padding-bottom: 60px;
       div.button {
-        margin: 60px auto 0 auto;
+        margin: 40px auto 0 auto;
         background: $blue;
         cursor: pointer;
         border: none;
@@ -462,6 +462,10 @@ div.button, button {
         transition: all 0.5s ease;
         }
       }
+    }
+    div#news-home-content {
+      border-bottom: 0;
+      padding-bottom: 0;
     }
   }
 
