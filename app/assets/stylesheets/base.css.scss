@@ -10,6 +10,7 @@ $medium_grey: #bbb;
 $number_grey: #999;
 $dark_grey: #333;
 $darkest_grey: #222;
+$h2: #777;
 $grey_text: #5e5a5c;
 $green: #B7CF65;
 $red: #EC8486;
@@ -47,6 +48,7 @@ h1{
   line-height: 1em;
   margin: 0 0 0.75em 0;
   color: $grey_text;
+  font-weight: 700;
 }
 
 h2{
@@ -54,7 +56,7 @@ h2{
   font-size: 1.3em;
   line-height: 1.3em;
   margin: 0.75em 0;
-  color: $grey_text;
+  color: $h2;
   &.smaller {
     font-size: 1.2em;
     letter-spacing: -0.025em;
