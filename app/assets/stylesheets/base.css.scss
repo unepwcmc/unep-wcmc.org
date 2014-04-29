@@ -627,6 +627,10 @@ ul.subnav, ul.subnav-small {
   }
 }
 
+ul.subnav li.header:hover {
+  color: $grey_text;
+}
+
 ul.subnav {
   display: none;
 }
@@ -1012,7 +1016,7 @@ ul.footer{
       text-decoration: none;
       color: $medium_grey;
       &:hover{
-        color: $blue;
+        color: #fff;
         -webkit-transition: all 0.5s ease;
         -moz-transition: all 0.5s ease;
         -ms-transition: all 0.5s ease;
@@ -1020,7 +1024,7 @@ ul.footer{
         transition: all 0.5s ease;
       }
       &.active {
-        color: $blue;
+        color: #fff;
       }
     }
   }
