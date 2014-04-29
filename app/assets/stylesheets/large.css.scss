@@ -120,6 +120,10 @@ $white_link: rgba(255,255,255, 0.75);
     margin-top: -80px;
     width: 65%;
     float: right;
+    &#data_policy {
+      padding-top: 160px;
+      margin-top: -80px; 
+    }
     &.left {
       float: left;
     }

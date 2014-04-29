@@ -1067,6 +1067,9 @@ a.back_nav {
   display: inline-block;
   clear: both;
   width: 100%;
+  &#policies {
+    margin-top: 0;
+  }
 }
 
 div.section-group#staff {
