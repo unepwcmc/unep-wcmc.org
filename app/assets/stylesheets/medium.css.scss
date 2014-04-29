@@ -100,6 +100,10 @@ $white_link: rgba(255,255,255, 0.75);
   .column-2-3 {
     padding-top: 100px;
     margin-top: -50px;
+    &#data_policy {
+      margin: 0;
+      padding: 0;
+    }
   }
 }
 
