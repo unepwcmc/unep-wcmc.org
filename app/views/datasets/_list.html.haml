@@ -74,9 +74,9 @@
       %h3.isbn{ "ng-if" => "dataset.isbn" }
         ISBN: {{ dataset.isbn }}
       %p{"ng-bind-html" => "dataset.content"}
-      %p.link
+      %p.link{'ng-if' => 'dataset.first_link'}
         %a{:href => "{{dataset.first_link}}"} {{dataset.first_link_label}}
-      %p.link
+      %p.link{'ng-if' => 'dataset.second_link'}
         %a{:href => "{{dataset.second_link}}"} {{dataset.second_link_label}}
       %p.link{ 'ng-show' => 'dataset.file_url' }
         %a{:href => "{{dataset.file_url}}" } Download
