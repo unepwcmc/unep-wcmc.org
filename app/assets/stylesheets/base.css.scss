@@ -13,6 +13,8 @@ $darkest_grey: #222;
 $h2: #777;
 $grey_text: #5e5a5c;
 $green: #B7CF65;
+$green-carbon: #8ac229;
+$orange: #EE9635;
 $red: #EC8486;
 $yellow: #FFDB65;
 $white_link: rgba(255,255,255, 0.75);
@@ -1616,7 +1618,7 @@ div.dashboard {
     -moz-border-radius: 10px;
     border-radius: 10px;
     height: 12px;
-    background: rgba($blue, 0.4);
+    background: rgba(255, 255, 255, 0.4);
     width: 100%;
     overflow: hidden;
     bottom: 20px;
@@ -1626,7 +1628,7 @@ div.dashboard {
 
   .bar {
     float: left;
-    background: $blue;
+    background: $orange;
     height: 100%;
     -webkit-border-radius: 10px 0px 0px 10px;
     -moz-border-radius: 10px 0px 0px 10px;
@@ -1636,6 +1638,9 @@ div.dashboard {
     -moz-opacity: 1;
     -khtml-opacity: 1;
     opacity: 1;
+    &.carbon {
+      background: $green-carbon;
+    }
   }
 
   .geo_entities {
@@ -1679,7 +1684,7 @@ div.dashboard {
       line-height: 1.35em;
     }
     p.common-name {
-      font-weight: 500;
+      font-family: "MuseoSans-500", Helvetica, Arial, sans-serif;
       color: $dark_grey;
     }
     p.scientific-name {
@@ -1706,13 +1711,12 @@ div.dashboard {
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
     box-sizing:border-box;
-    border-radius: 4px;
-    padding: 5px 12px;
-    color:#fff;
-    background: $blue;
+    padding: 5px 12px 5px 12px;
+    color: #4295D5;
+    border-right: 2px solid #4295D5;
     font-weight: 300;
-    font-size: 1.75em;
-    font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+    font-size: 1.25em;
+    font-family: "MuseoSans-500", Helvetica, Arial, sans-serif;
     text-align: center;
   }
 
@@ -1721,23 +1725,23 @@ div.dashboard {
   }
 
   tr.species-container td.counter.list-1 {
-    background: #4B92D5;
+    background: #428BD3;
   }
 
   tr.species-container td.counter.list-2 {
-    background: #66A4DD;
+    background: #5497D7;
   }
 
   tr.species-container td.counter.list-3 {
-    background: #85B7E4;
+    background: #66A4DD;
   }
 
   tr.species-container td.counter.list-4 {
-    background: #AFD1ED;
+    background: #7BB0E2;
   }
 
   tr.species-container td.counter.list-5 {
-    background: #c7dced;
+    background: #8EBDE6;
   }
 
   table{
