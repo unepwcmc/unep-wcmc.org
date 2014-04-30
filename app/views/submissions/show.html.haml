@@ -14,7 +14,11 @@
       %p= @submission.phone
     %section
       %h2 Ability to work in the UK
-      %p= @submission.content.uk_working_ability ? 'Confirmed' : 'Not confirmed'
+      %p= @submission.content.uk_working_ability == "true" ? 'Confirmed' : 'Not confirmed'
+      - if @submission.content.uk_working_ability == "false"
+        %p
+          %strong Details
+        %p= @submission.content.uk_working_ability_details
     %section
       %h2 CV and cover letter
       %h3 CV
