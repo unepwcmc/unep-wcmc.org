@@ -3,7 +3,8 @@
 
 class Submission < ActiveRecord::Base
 
-  ALLOWED_CONTENT_FIELDS = [:uk_working_ability, :last_salary, :benefits, :interview_availability, :notice_period, :reference, :reference_details]
+  MANDATORY_CONTENT_FIELDS = [:uk_working_ability, :last_salary, :benefits, :interview_availability, :notice_period]
+  ALLOWED_CONTENT_FIELDS = MANDATORY_CONTENT_FIELDS + [:reference, :reference_details]
 
   REFERENCE_SOURCES = [
     {value: "UNEP-WCMC website", details: false},
@@ -29,6 +30,8 @@ class Submission < ActiveRecord::Base
   validates :phone, presence: true, if: :is_submitted
   validates :cv, presence: true, if: :is_submitted
   validates :cover_letter, presence: true, if: :is_submitted
+
+  validate :content_presence
 
   before_create :set_slug
 
@@ -61,6 +64,12 @@ class Submission < ActiveRecord::Base
 
   def slug_valid?(s)
     s && !self.class.find_by_slug(s)
+  end
+
+  def content_presence
+    MANDATORY_CONTENT_FIELDS.each do |field|
+      errors.add(field, "can't be blank") unless content.send(field).present?
+    end
   end
 
 end
