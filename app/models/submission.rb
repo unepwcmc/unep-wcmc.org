@@ -4,7 +4,7 @@
 class Submission < ActiveRecord::Base
 
   MANDATORY_CONTENT_FIELDS = [:uk_working_ability, :last_salary, :benefits, :interview_availability, :notice_period]
-  ALLOWED_CONTENT_FIELDS = MANDATORY_CONTENT_FIELDS + [:reference, :reference_details]
+  ALLOWED_CONTENT_FIELDS = MANDATORY_CONTENT_FIELDS + [:uk_working_ability_details, :reference, :reference_details]
 
   REFERENCE_SOURCES = [
     {value: "UNEP-WCMC website", details: false},
