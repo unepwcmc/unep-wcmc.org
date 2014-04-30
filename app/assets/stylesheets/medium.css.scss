@@ -96,7 +96,7 @@ $white_link: rgba(255,255,255, 0.75);
     &#data-small {
      margin-bottom: 60px;
     }
-    &#news {
+    &#news, &#job_related {
       padding-top: 0;
     }
   }
@@ -107,7 +107,7 @@ $white_link: rgba(255,255,255, 0.75);
       margin: 0;
       padding: 0;
     }
-    &#news-item {
+    &#news-item, &#job_description {
       margin-top: 0;
       padding-top: 0;
     }
