@@ -3,7 +3,8 @@
 
 class Submission < ActiveRecord::Base
 
-  ALLOWED_CONTENT_FIELDS = [:uk_working_ability, :last_salary, :benefits, :interview_availability, :notice_period, :reference, :reference_details]
+  ALLOWED_CONTENT_FIELDS = [:uk_working_ability, :uk_working_ability_details,
+    :last_salary, :benefits, :interview_availability, :notice_period, :reference, :reference_details]
 
   REFERENCE_SOURCES = [
     {value: "UNEP-WCMC website", details: false},
