@@ -7,16 +7,17 @@
       {{ cms:page:position_title:string }}
     </h1>
     <div class="news-vacancy-details">
-      	<h3 class="vacancy-position">
+      <h3 class="vacancy-position">
       <a id="department">  
         {{ cms:collection:programme:programmes:programmes/programme:name:name }}
       </a><span id="separator">|</span>
-      {{cms:collection:position_type_1:position_types:position_types/position_type_1:name:name}}
-      {{ cms:collection:position_type_2:position_types:position_types/position_type_2:name:name }}
+          {{cms:collection:position_type_1:position_types:position_types/position_type_1:name:name:false}}
+        {{cms:collection:position_type_2:position_types:position_types/position_type_2:name:name:true}} 
     </h3>
 	<p>
       {{ cms:page:salary:string }}      
     </p>
+      <p>Closing date: {{cms:field:closing_date:datetime}}</p>
 	<section class="actions share">
       <h1>
         Share:
@@ -41,7 +42,7 @@
   <div id="job_related" class="column-1-3 wide right">
     <section class="related-content">
       <h1>
-     	Working at WCMC 
+     	Working at UNEP-WCMC 
       </h1>
       <p>We provide a stimulating and supportive work environment and 93% of our team agree that we provide exposure to interesting people and new ideas.</p>
       <p><a href="/about-us/working-with-us" alt="">Find out more</a></p>
