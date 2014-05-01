@@ -181,6 +181,13 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     });
   }
 
+  $scope.resetQuery = function () {
+    if ($scope.query !== undefined) {
+      $scope.query = '';
+      $scope.search();
+    }
+  }
+
 //  $scope.$watch('activeDatasets', function (current, prev) {
 //    console.log(current, prev);
 //  });
