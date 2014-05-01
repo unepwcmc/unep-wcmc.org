@@ -1,4 +1,4 @@
-<div class="hero" id="areas_of_work" style="background: url({{ cms:page_file:expertise_background:url}}) no-repeat bottom; background-size: cover">
+<div class="hero" id="areas_of_work" style="background: url({{ cms:page_file:expertise_background:url}}) no-repeat bottom; background-size: cover; position: relative">
   <div class="heading">
     <h1 class="short">
       {{ cms:page:heading:string }} 
@@ -7,11 +7,16 @@
       {{ cms:page:heading_tagline:string }}
     </h2>
   </div>
+  <figcaption style="position: absolute; bottom: 0; right:0; display: inline-block; background: rgba(0,0,0,0.2)">
+    <p style="font-size: 0.7em; color: rgba(255,255,255,0.8); padding: 3px 5px; margin: 0">
+  		{{ cms:page:background_image_caption:string }}
+  	</p>
+  </figcaption>
 </div>
 <div class="container">
   {{ cms:partial:expertise/navigation }}
   <div class="column-2-3" id="content">
-    <h1 id="first">
+    <h1 class="expertise">
       {{ cms:page:title:string }}
     </h1>
     {{ cms:page:content:rich_text }}  

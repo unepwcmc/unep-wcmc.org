@@ -39,9 +39,6 @@
     %script
       var my_url = "#{request.protocol}#{request.host}:#{request.port}";
     %script{src: "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"}
-    %script{ :type => "text/javascript", :src => "//use.typekit.net/tqb5win.js" }
-    %script{ :type => "text/javascript" }
-      try {Typekit.load();} catch(e){}
     = javascript_include_tag "pages/application.js"
     = stylesheet_link_tag "base", media: "screen"
     = stylesheet_link_tag "application", media: "all"
@@ -110,7 +107,10 @@
           %li= link_to "Vacancies", "/vacancies"
           %li= link_to "The Team", "/employees"
           %li= link_to "Contact", "/about-us/contact"
-        %a#unep{ :href => "http://unep.org", :title => "UNEP" }
+          %li= link_to "Terms & Conditions", "http://unep.org/About/CopyrightPrivacyTermsandConditions/tabid/133027/Default.aspx"
+
+        %a{ :href => "http://unep.org", :title => "UNEP" }
+        %a#unep{ :href => "http://unep.org/About/CopyrightPrivacyTermsandConditions/tabid/133027/Default.aspx", :title => "Terms & Conditions" }
           = image_tag "unep_logo.png"
   :javascript
     $(document).ready(function() {

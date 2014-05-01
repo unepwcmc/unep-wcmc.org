@@ -9,3 +9,10 @@ window.CMS.timepicker = function () {
 $(function () {
   $('input[value="twitter_share_text"]').parent().find("input[type=text]").attr({maxlength: 140});
 });
+
+$(function() {
+  $('a[disabled=disabled]').click(function(event){
+    return false;
+    // Prevent disabled links from working & stop alerts (such as confirm messages)
+  });
+});
