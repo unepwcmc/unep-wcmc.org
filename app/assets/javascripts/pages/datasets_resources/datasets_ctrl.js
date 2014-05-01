@@ -15,6 +15,27 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     });
   }
 
+  function updateActiveContentTypesFromNames (names) {
+    $scope.activeContentTypes = [];
+    _.each(names, function (name) {
+      $scope.activeContentTypes.push(
+        _.findWhere($scope.contentTypes, {singular: name})
+      ); 
+    });
+  }
+
+  function updateActiveContentTypes (contentType) {
+    if (contentType.selected) {
+      $scope.activeContentTypes.push(contentType);
+    } else {
+      $scope.activeContentTypes.splice(
+        _.findIndex($scope.activeContentTypes, function(o) {
+          return contentType.$$hashKey == o.$$hashKey;
+        }), 1
+      );
+    }
+  }
+
   $scope.selectAll = function () {
     _.each($scope.contentTypes, function (contentType) {
       contentType.selected = true;
@@ -46,6 +67,7 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
   }
 
   var applyFilters = function () {
+    var activeContentTypeNames;
     $scope.activeDatasets = [];
     _.each($scope.foundDatasets, function (dataset) {
       var contentType = _.findWhere($scope.contentTypes, {singular: dataset.content_type});
@@ -53,6 +75,10 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
         $scope.activeDatasets.push(dataset);
       }
     });
+    activeContentTypeNames = _.uniq(
+      _.map($scope.activeDatasets, function(o) {return o.content_type})
+    );
+    updateActiveContentTypesFromNames(activeContentTypeNames);
     $scope.sortDatesets();
     $scope.setHiddenDatasets();
   }
@@ -104,6 +130,9 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     $scope.search();
     $scope.fileFields = file_fields;
     $scope.urlFields = url_fields;
+    $scope.activeContentTypes = _.filter(data.content_types, function(o) {
+      return o.count > 0;
+    });
   }
 
   $scope.setInitialDatasets = function () {
@@ -134,7 +163,9 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
   }
 
   $scope.toggleContentType = function () {
-    this.contentType.selected = !this.contentType.selected;
+    var contentType = this.contentType;
+    contentType.selected = !contentType.selected;
+    updateActiveContentTypes(contentType);
     applyFilters();
   }
 
@@ -149,5 +180,14 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
       return type.selected || type.count === 0;
     });
   }
+
+//  $scope.$watch('activeDatasets', function (current, prev) {
+//    console.log(current, prev);
+//  });
+
+//  $scope.$watch('datasetsToBeDisplayed', function (current, prev) {
+//
+//    console.log($scope.activeContentTypes, prev, current);
+//  });
 
 }]);

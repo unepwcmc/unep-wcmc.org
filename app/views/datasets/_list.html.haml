@@ -45,17 +45,14 @@
     %div.filters
       %p
         Searching for
-        %span.active-filter
+        %span.active-filter{ 'ng-show' => 'query' }
           %i.icon-remove
-          Grasslands report 2013
+          {{query}}
       %p
         Displaying
-        %span.active-filter
+        %span.active-filter{"ng-click" => "toggleContentType()", "ng-repeat" => "contentType in activeContentTypes"}
           %i.icon-remove
-          Reports
-        %span.active-filter
-          %i.icon-remove
-          Journals
+          {{ contentType.plural }}
 
     %section.list{"ng-repeat" => "dataset in datasetsToBeDisplayed"}
 
