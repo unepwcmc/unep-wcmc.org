@@ -10,12 +10,19 @@
     = f.text_field :email, :placeholder => "Email"
     = f.text_field :phone, :placeholder => "Phone number"
   %section
-    %h2 Ability to work in the UK
+    %h2 Are you able to work in the UK?
     = f.fields_for :content, @submission.content do |ff|
       %p
         %label
-          = ff.check_box :uk_working_ability
-          I confirm I am entitled to work in the UK
+          = ff.radio_button :uk_working_ability, true
+          Yes
+      %p
+        %label
+          = ff.radio_button :uk_working_ability, false
+          No
+      %p
+        %strong If no, please provide details:
+        = ff.text_area :uk_working_ability_details
   %section
     %h2 CV and cover letter
     %p
