@@ -72,6 +72,7 @@ class SubmissionsController < ApplicationController
   def send_confirmation_email
     if params[:submit]
       SubmissionMailer.submit_confirmation(@submission, @form)
+      SubmissionMailer.inform_recruitment(@submission, @form)
     else
       SubmissionMailer.save_confirmation(@submission, @form)
     end
