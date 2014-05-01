@@ -1,0 +1,54 @@
+%p
+  A job application has been received for the vacancy #{link_to @vacancy.label, "/vacancies/#{@vacancy.slug}"}.
+  %br
+  You can review the application through #{link_to 'this link', form_submission_url(@form, @submission)}.
+
+%p Here are the details of the application:
+
+%p
+  %strong Personal Details
+
+%p
+  Full name:
+  = @submission.name
+  %br
+  Email:
+  = @submission.email
+  %br
+  Phone number
+  = @submission.phone
+
+
+%strong Ability to work in the UK
+%p
+= @submission.content.uk_working_ability == "true" ? 'Confirmed' : 'Not confirmed'
+
+%p
+  Details
+  %br
+  - if @submission.content.uk_working_ability == "false"
+    = @submission.content.uk_working_ability_details
+
+%p
+  %strong CV and cover letter
+%p CV
+- if @submission.cv.present?
+  = link_to(@submission.cv_file_name, @submission.cv.url)
+%p Cover letter
+- if @submission.cover_letter.present?
+  = link_to(@submission.cover_letter_file_name, @submission.cover_letter.url)
+
+%p
+  %strong Employment Conditions
+%p Current or last salary
+%p= @submission.content.last_salary
+%p Current benefits
+%p= @submission.content.benefits
+%p Availability for an interview
+%p= @submission.content.interview_availability
+%p Notice period
+%p= @submission.content.notice_period
+
+%p
+  %strong How did you hear about us?
+%p= @submission.content.reference.to_s + (@submission.content.reference_details ? " - #{@submission.content.reference_details}" : "")
