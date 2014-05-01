@@ -86,10 +86,21 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
   $scope.sortDatesets = function () {
     if ($scope.sortOrder === 0) {
       $scope.activeDatasets = _.sortBy($scope.activeDatasets, function(dataset) {
-        return [dataset.publication_date_year, dataset.title].join("_");
+        return [dataset.publication_date, dataset.title].join("_");
       }).reverse();
     } else if ($scope.sortOrder === 1) {
       $scope.activeDatasets = _.sortBy($scope.activeDatasets, "title");
+    }
+  }
+
+  $scope.sortDatesetsToBeDisplayed = function () {
+    if ($scope.sortOrder === 0) {
+      $scope.datasetsToBeDisplayed = _.sortBy(
+        $scope.datasetsToBeDisplayed, function(dataset) {
+          return [dataset.publication_date, dataset.title].join("_");
+      }).reverse();
+    } else if ($scope.sortOrder === 1) {
+      $scope.datasetsToBeDisplayed = _.sortBy($scope.datasetsToBeDisplayed, "title");
     }
   }
 
@@ -114,7 +125,7 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
   $scope.setHiddenDatasets = function () {
     $scope.hiddenDatasets = [];
     $scope.datasetsToBeDisplayed = [];
-    $scope.hiddenDatasets = $scope.activeDatasets;
+    $scope.hiddenDatasets = _.clone($scope.activeDatasets);
     $scope.setInitialDatasets();
   }
 
@@ -187,14 +198,5 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
       $scope.search();
     }
   }
-
-//  $scope.$watch('activeDatasets', function (current, prev) {
-//    console.log(current, prev);
-//  });
-
-//  $scope.$watch('datasetsToBeDisplayed', function (current, prev) {
-//
-//    console.log($scope.activeContentTypes, prev, current);
-//  });
 
 }]);
