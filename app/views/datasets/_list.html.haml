@@ -45,7 +45,7 @@
     %div.filters
       %p
         Searching for
-        %span.active-filter{ 'ng-show' => 'query' }
+        %span.active-filter{"ng-click" => "resetQuery()", 'ng-show' => 'query' }
           %i.icon-remove
           {{query}}
       %p
