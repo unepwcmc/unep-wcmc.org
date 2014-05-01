@@ -17,6 +17,7 @@ class SubmissionMailer < ActionMailer::Base
     @submission = submission
     @form = form
     @vacancy = @form.vacancy
+    @host = default_url_options[:host]
     mail(
       from: 'no-reply@unep-wcmc.org',
       to: 'recruitment@unep-wcmc.org',
