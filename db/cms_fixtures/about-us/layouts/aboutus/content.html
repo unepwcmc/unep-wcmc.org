@@ -1,4 +1,4 @@
-<div class="hero" id="about" style="background: url({{ cms:page_file:about_us_background:url}}) no-repeat center; background-size: cover">
+<div class="hero" id="about" style="background: url({{ cms:page_file:about_us_background:url}}) no-repeat center; background-size: cover; position: relative">
   <div class="heading">
     <h1>
       {{ cms:page:heading:string }}
@@ -7,6 +7,11 @@
       {{ cms:page:heading_tagline:string }}
     </h2>
   </div><!--heading-->
+  <figcaption style="position: absolute; bottom: 0; right:0; display: inline-block; background: rgba(0,0,0,0.2)">
+    <p style="font-size: 0.7em; color: rgba(255,255,255,0.8); padding: 3px 5px; margin: 0">
+  		{{ cms:page:background_image_caption:string }}
+  	</p>
+  </figcaption>
 </div><!--hero-->
 
 <div class="container">

@@ -6,4 +6,4 @@
           - if !page_files(:photo, employment.employee).empty?
             = image_tag page_file(:photo, employment.employee).file
           %h4= block_content(:name, employment.employee)
-        %p= employment.role
+        %p.role= employment.role

@@ -69,7 +69,7 @@
                     %span{:class => "number"} {{carbo.carbon_pas}}
                     %span{:class => "small"}%
                   %div{:class => "bar-container"}
-                    %div{:class => "bar", "ng-style"=>"{ width: carbo.carbon_pas + '%' }"}
+                    %div{:class => "bar carbon", "ng-style"=>"{ width: carbo.carbon_pas + '%' }"}
 
       %div{:class => "section-group", "ng-controller" => "SapiStatsCtrl", "ng-model" => "sapi"}
 
@@ -152,3 +152,7 @@
                     %p.species-count-small {{group[1] | number}}
                   %td.species-count
                     %span {{group[1] | number}}
+    %button.dashboard-collapse
+      %p
+        %i.icon-chevron-up
+        Hide dashboard

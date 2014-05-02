@@ -10,10 +10,21 @@
   	<p>Our team of biodiversity scientists and informatics specialists has unrivalled expertise in collating, analysing and interpreting information about biodiversity, and sharing this in engaging, innovative and useful ways such as the dashboard above. To see how we achieve this, and view our other featured projects, click <a href="">here</a>.</p>
   </div>
 </div><!--welcome container-->
-<div class="container" id="news-home">
+<div class="container" id="news-projects-home">
+  <div id="projects-home-content">
+    <h3 id="news">Featured projects by UNEP-WCMC</h3>
+    {{ cms:page:content:text }}
+    {{ cms:partial:news/news_list }}
+    <div class="button">
+      <a>View more projects</a>
+    </div>
+  </div>
   <div id="news-home-content">
     <h3 id="news">What is happening at UNEP-WCMC</h3>
     {{ cms:page:content:text }}
     {{ cms:partial:news/news_list }}
+    <div class="button">
+      <a href="/news">View more news</a>
+    </div>
   </div>
 </div><!--container-->
