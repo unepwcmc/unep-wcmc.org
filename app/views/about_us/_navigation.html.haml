@@ -1,30 +1,30 @@
 .column-1-3.wide
   %ul.subnav
     %li
-      %a{href:"/about-us/partners#partners-page", title:"Our partners"} Our partners
+      %a{href:"/about-us/partners#partners-page", title:"Our partners", :class => if @cms_site.identifier == 'about-us' && @cms_page.slug == 'partners' then 'active' end} Our partners
     %li
-      %a{href:"/about-us/working-with-us#working-with-us-page", title:"Working with us"} Working at UNEP-WCMC
+      %a{href:"/about-us/working-with-us#working-with-us-page", title:"Working with us", :class => if @cms_site.identifier == 'about-us' && @cms_page.slug == 'working-with-us' then 'active' end} Working at UNEP-WCMC
     %li
-      %a{href:"/vacancies#vacancies-page", title:"Vacancies"} Vacancies
+      %a{href:"/vacancies#vacancies-page", title:"Vacancies", :class => if @cms_site.identifier == 'vacancies' && @cms_page.slug == 'index' then 'active' end} Vacancies
     %li
-      %a{href:"/employees#staff-page", title:"The Team"} The Team
+      %a{href:"/employees#staff-page", title:"The Team", :class => if @cms_site.identifier == 'employees' && @cms_page.slug == 'staff' then 'active' end} The Team
     %li
-      %a{href:"/about-us/news-archive#news-archive", title:"Contact"} News archive
+      %a{href:"/about-us/news-archive#news-archive", title:"News Archive", :class => if @cms_site.identifier == 'about-us' && @cms_page.slug == 'news-archive' then 'active' end} News archive
     %li
-      %a{href:"/about-us/contact#contact-page", title:"Contact"} Contact
+      %a{href:"/about-us/contact#contact-page", title:"Contact", :class => if @cms_site.identifier == 'about-us' && @cms_page.slug == 'contact' then 'active' end} Contact
 
   %ul.subnav-small
     %li
-      %a{href:"/about-us/partners#partners-page", title:"Our partners"} Our partners
+      %a{href:"/about-us/partners#partners-page", title:"Our partners", :class => if @cms_site.identifier == 'about-us' && @cms_page.slug == 'partners' then 'active' end} Our partners
     %li
-      %a{href:"/about-us/working-with-us#working-with-us-page", title:"Working with us"} Working at UNEP-WCMC
+      %a{href:"/about-us/working-with-us#working-with-us-page", title:"Working with us", :class => if @cms_site.identifier == 'about-us' && @cms_page.slug == 'working-with-us' then 'active' end} Working at UNEP-WCMC
     %li
-      %a{href:"/vacancies#vacancies-page", title:"Vacancies"} Vacancies
+      %a{href:"/vacancies#vacancies-page", title:"Vacancies", :class => if @cms_site.identifier == 'vacancies' && @cms_page.slug == 'index' then 'active' end} Vacancies
     %li
-      %a{href:"/about-us/staff#staff-page", title:"The Team"} The Team
+      %a{href:"/about-us/staff#staff-page", title:"The Team", :class => if @cms_site.identifier == 'employees' && @cms_page.slug == 'staff' then 'active' end} The Team
     %li
-      %a{href:"/about-us/news-archive#news-archive", title:"Contact"} News archive
+      %a{href:"/about-us/news-archive#news-archive", title:"Contact", :class => if @cms_site.identifier == 'about-us' && @cms_page.slug == 'news-archive' then 'active' end} News archive
     %li
-      %a{href:"/about-us/contact#contact-page", title:"Contact"} Contact
+      %a{href:"/about-us/contact#contact-page", title:"Contact", :class => if @cms_site.identifier == 'about-us' && @cms_page.slug == 'contact' then 'active' end} Contact
 
   = render "about_us/partners_data_policy"
