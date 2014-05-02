@@ -20,7 +20,7 @@
 //= require ui-bootstrap-custom-tpls-0.10.0
 //= require select2
 //= require ui-select2
-//= require underscore
+//= require lodash.compat
 //= require augment
 //= require lunr
 //= require pages/main

@@ -11,7 +11,7 @@
       %li.content_type{"ng-show" => "contentType.count > 0", "ng-class" => "{active: contentType.selected && contentType.count > 0}", "ng-click" => "toggleContentType()", "ng-repeat" => "contentType in contentTypes"}
         %span.badge {{ contentType.count }}
         %p {{ contentType.plural }}
-    %select#sorting{"ng-change" => "sortDatesets()", "ng-model" => "sortOrder", "ng-options" => "order.value as order.name for order in sortOrders"}
+    %select#sorting{"ng-change" => "sortDatesetsToBeDisplayed()", "ng-model" => "sortOrder", "ng-options" => "order.value as order.name for order in sortOrders"}
     .button.margin.policies
       %a{:href => "/policies"} View our policies
     .button.margin.bhl
@@ -28,7 +28,7 @@
       %li.content_type{"ng-show" => "contentType.count > 0", "ng-class" => "{active: contentType.selected && contentType.count > 0}", "ng-click" => "toggleContentType()", "ng-repeat" => "contentType in contentTypes"}
         %span.badge {{ contentType.count }}
         %p {{ contentType.plural }}
-    %select#sorting{"ng-change" => "sortDatesets()", "ng-model" => "sortOrder", "ng-options" => "order.value as order.name for order in sortOrders"}
+    %select#sorting{"ng-change" => "sortDatesetsToBeDisplayed()", "ng-model" => "sortOrder", "ng-options" => "order.value as order.name for order in sortOrders"}
     .info-message
       %h1 Policies
       %p UNEP-WCMC does not assert any intellectual property rights in the data made available to it by data providers.
@@ -45,17 +45,14 @@
     %div.filters
       %p
         Searching for
-        %span.active-filter
+        %span.active-filter{"ng-click" => "resetQuery()", 'ng-show' => 'query' }
           %i.icon-remove
-          Grasslands report 2013
+          {{query}}
       %p
         Displaying
-        %span.active-filter
+        %span.active-filter{"ng-click" => "toggleContentType()", "ng-repeat" => "contentType in activeContentTypes"}
           %i.icon-remove
-          Reports
-        %span.active-filter
-          %i.icon-remove
-          Journals
+          {{ contentType.plural }}
 
     %section.list{"ng-repeat" => "dataset in datasetsToBeDisplayed"}
 
