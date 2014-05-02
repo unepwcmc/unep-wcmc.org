@@ -15,6 +15,27 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     });
   }
 
+  function updateActiveContentTypesFromNames (names) {
+    $scope.activeContentTypes = [];
+    _.each(names, function (name) {
+      $scope.activeContentTypes.push(
+        _.findWhere($scope.contentTypes, {singular: name})
+      ); 
+    });
+  }
+
+  function updateActiveContentTypes (contentType) {
+    if (contentType.selected) {
+      $scope.activeContentTypes.push(contentType);
+    } else {
+      $scope.activeContentTypes.splice(
+        _.findIndex($scope.activeContentTypes, function(o) {
+          return contentType.$$hashKey == o.$$hashKey;
+        }), 1
+      );
+    }
+  }
+
   $scope.selectAll = function () {
     _.each($scope.contentTypes, function (contentType) {
       contentType.selected = true;
@@ -46,6 +67,7 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
   }
 
   var applyFilters = function () {
+    var activeContentTypeNames;
     $scope.activeDatasets = [];
     _.each($scope.foundDatasets, function (dataset) {
       var contentType = _.findWhere($scope.contentTypes, {singular: dataset.content_type});
@@ -53,6 +75,10 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
         $scope.activeDatasets.push(dataset);
       }
     });
+    activeContentTypeNames = _.uniq(
+      _.map($scope.activeDatasets, function(o) {return o.content_type})
+    );
+    updateActiveContentTypesFromNames(activeContentTypeNames);
     $scope.sortDatesets();
     $scope.setHiddenDatasets();
   }
@@ -60,10 +86,21 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
   $scope.sortDatesets = function () {
     if ($scope.sortOrder === 0) {
       $scope.activeDatasets = _.sortBy($scope.activeDatasets, function(dataset) {
-        return [dataset.publication_date_year, dataset.title].join("_");
+        return [dataset.publication_date, dataset.title].join("_");
       }).reverse();
     } else if ($scope.sortOrder === 1) {
       $scope.activeDatasets = _.sortBy($scope.activeDatasets, "title");
+    }
+  }
+
+  $scope.sortDatesetsToBeDisplayed = function () {
+    if ($scope.sortOrder === 0) {
+      $scope.datasetsToBeDisplayed = _.sortBy(
+        $scope.datasetsToBeDisplayed, function(dataset) {
+          return [dataset.publication_date, dataset.title].join("_");
+      }).reverse();
+    } else if ($scope.sortOrder === 1) {
+      $scope.datasetsToBeDisplayed = _.sortBy($scope.datasetsToBeDisplayed, "title");
     }
   }
 
@@ -88,7 +125,7 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
   $scope.setHiddenDatasets = function () {
     $scope.hiddenDatasets = [];
     $scope.datasetsToBeDisplayed = [];
-    $scope.hiddenDatasets = $scope.activeDatasets;
+    $scope.hiddenDatasets = _.clone($scope.activeDatasets);
     $scope.setInitialDatasets();
   }
 
@@ -104,6 +141,9 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     $scope.search();
     $scope.fileFields = file_fields;
     $scope.urlFields = url_fields;
+    $scope.activeContentTypes = _.filter(data.content_types, function(o) {
+      return o.count > 0;
+    });
   }
 
   $scope.setInitialDatasets = function () {
@@ -134,7 +174,9 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
   }
 
   $scope.toggleContentType = function () {
-    this.contentType.selected = !this.contentType.selected;
+    var contentType = this.contentType;
+    contentType.selected = !contentType.selected;
+    updateActiveContentTypes(contentType);
     applyFilters();
   }
 
@@ -148,6 +190,13 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     return _.every($scope.contentTypes, function (type) {
       return type.selected || type.count === 0;
     });
+  }
+
+  $scope.resetQuery = function () {
+    if ($scope.query !== undefined) {
+      $scope.query = '';
+      $scope.search();
+    }
   }
 
 }]);
