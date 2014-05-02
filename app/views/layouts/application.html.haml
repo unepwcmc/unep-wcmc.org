@@ -62,17 +62,17 @@
         %a#home_link{ :href => "/", :title => "Home" }
           = image_tag "logo_white_transparent.png"
         %ul#large-menu
-          %li= link_to "About us", "/about-us"
-          %li= link_to "Resources & Data", "/resources-and-data"
-          %li= link_to "Featured work", "/featured-projects"
-          %li= link_to "Our expertise", "/expertise"
+          %li{ :class => 'about-us' == @cms_site.identifier ? 'active' : false }= link_to "About us", "/about-us"
+          %li{ :class => 'resources-and-data' == @cms_site.identifier ? 'active' : false }= link_to "Resources & Data", "/resources-and-data"
+          %li{ :class => 'featured-projects' == @cms_site.identifier ? 'active' : false }= link_to "Featured work", "/featured-projects"
+          %li{ :class => 'expertise' == @cms_site.identifier ? 'active' : false }= link_to "Our expertise", "/expertise"
         %button#trigger-menu
           %i.icon-align-justify
         %ul#button-menu
-          %li= link_to "Our expertise", "/expertise"
-          %li= link_to "Featured work", "/featured-projects"
-          %li= link_to "Resources & Data", "/resources-and-data"
-          %li= link_to "About us", "/about-us"
+          %li{ :class => 'expertise' == @cms_site.identifier ? 'active' : false }= link_to "Our expertise", "/expertise"
+          %li{ :class => 'featured-projects' == @cms_site.identifier ? 'active' : false }= link_to "Featured work", "/featured-projects"
+          %li{ :class => 'resources-and-data' == @cms_site.identifier ? 'active' : false }= link_to "Resources & Data", "/resources-and-data"
+          %li{ :class => 'about-us' == @cms_site.identifier ? 'active' : false }= link_to "About us", "/about-us"
 
     - if flash[:success]
       .status#ok
@@ -103,10 +103,10 @@
     #footer_container
       #footer
         %ul.footer
-          %li= link_to "Partners", "/about-us/partners"
-          %li= link_to "Vacancies", "/vacancies"
-          %li= link_to "The Team", "/employees"
-          %li= link_to "Contact", "/about-us/contact"
+          %li{:class => if @cms_site.identifier == 'about-us' && @cms_page.slug == 'partners' then 'active' end}= link_to "Partners", "/about-us/partners"
+          %li{:class => if @cms_site.identifier == 'vacancies' && @cms_page.slug == 'index' then 'active' end}= link_to "Vacancies", "/vacancies"
+          %li{:class => if @cms_site.identifier == 'employees' then 'active' end}= link_to "The Team", "/employees"
+          %li{:class => if @cms_site.identifier == 'about-us' && @cms_page.slug == 'contact' then 'active' end}= link_to "Contact", "/about-us/contact"
           %li= link_to "Terms & Conditions", "http://unep.org/About/CopyrightPrivacyTermsandConditions/tabid/133027/Default.aspx"
 
         %a{ :href => "http://unep.org", :title => "UNEP" }
