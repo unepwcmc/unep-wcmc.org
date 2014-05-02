@@ -10,12 +10,14 @@
 %table.table.table-hover.table-bordered
   %tr
     %th.main Name
+    %th Parent Programme
     %th Phone Number
     %th Email
     %th
   - @programmes.each do |programme|
     %tr
       %td.main= programme.name
+      %td= if programme.parent_programme_id then Programme.find(programme.parent_programme_id).name end
       %td= programme.phone_number
       %td= programme.email
       %td
