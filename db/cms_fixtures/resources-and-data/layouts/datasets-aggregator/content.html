@@ -1,8 +1,13 @@
-<div class="hero" id="data" style="background: url({{ cms:page_file:background }}) no-repeat center; background-size: cover">
+<div class="hero" id="data" style="background: url({{ cms:page_file:background }}) no-repeat center; background-size: cover; position: relative">
   <div class="heading">
     <h1>{{ cms:page:header:string }}</h1>
     <h2 class="shorter">{{ cms:page:subheader:string }}</h2>
   </div>
+  <figcaption style="position: absolute; bottom: 0; right:0; display: inline-block; background: rgba(0,0,0,0.2)">
+    <p style="font-size: 0.7em; color: rgba(255,255,255,0.8); padding: 3px 5px; margin: 0">
+  		{{ cms:page:background_image_caption:string }}
+  	</p>
+  </figcaption>
 </div>
 {{ cms:partial:datasets/list }}
 

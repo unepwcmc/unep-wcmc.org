@@ -17,12 +17,12 @@ $white_link: rgba(255,255,255, 0.75);
 .container {
   width: 70%;
   max-width: 980px;
-  margin: 80px auto;
+  margin: 0 auto 80px auto;
   overflow: hidden;
 	&.dashboard{
 	overflow: visible;
 	}
-  &#news-home {
+  &#news-projects-home {
     width: 100%;
     padding: 0 15% 60px 15%;
     max-width: 100%;
@@ -99,6 +99,8 @@ $white_link: rgba(255,255,255, 0.75);
     width: 28.5%;
     float: left;
     margin-right: 6.5%;
+    padding-top: 160px;
+    margin-top: -80px;
     &.right {
       float: right;
       margin: 0 0 0 6.5%;
@@ -114,8 +116,18 @@ $white_link: rgba(255,255,255, 0.75);
     }
   }
   .column-2-3 {
+    padding-top: 160px;
+    margin-top: -80px;
     width: 65%;
     float: right;
+    &#data_policy {
+      padding-top: 160px;
+      margin-top: -80px; 
+    }
+    &#news-item, &#job_description {
+      margin-top: 0;
+      padding-top: 0;
+    }
     &.left {
       float: left;
     }
