@@ -1631,7 +1631,8 @@ div.dashboard {
 
   .bar {
     float: left;
-    background: $orange;
+    background: $blue;
+    /* background: $orange; */
     height: 100%;
     -webkit-border-radius: 10px 0px 0px 10px;
     -moz-border-radius: 10px 0px 0px 10px;
@@ -1641,9 +1642,6 @@ div.dashboard {
     -moz-opacity: 1;
     -khtml-opacity: 1;
     opacity: 1;
-    &.carbon {
-      background: $green-carbon;
-    }
   }
 
   .geo_entities {
