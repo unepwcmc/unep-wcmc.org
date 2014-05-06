@@ -5,7 +5,7 @@ class Admin::DatasetsController < Admin::PageResourcesController
 
   def save_resources
     if @page.save
-      url_fields.save 
+      url_fields.save
       file_fields.save
     end
   end
