@@ -86,7 +86,7 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
   $scope.sortDatesets = function () {
     if ($scope.sortOrder === 0) {
       $scope.activeDatasets = _.sortBy($scope.activeDatasets, function(dataset) {
-        return [dataset.publication_date, dataset.title].join("_");
+        return dataset.publication_date_year_epoch;
       }).reverse();
     } else if ($scope.sortOrder === 1) {
       $scope.activeDatasets = _.sortBy($scope.activeDatasets, "title");
@@ -97,7 +97,7 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     if ($scope.sortOrder === 0) {
       $scope.datasetsToBeDisplayed = _.sortBy(
         $scope.datasetsToBeDisplayed, function(dataset) {
-          return [dataset.publication_date, dataset.title].join("_");
+          return dataset.publication_date_year_epoch;
       }).reverse();
     } else if ($scope.sortOrder === 1) {
       $scope.datasetsToBeDisplayed = _.sortBy($scope.datasetsToBeDisplayed, "title");
@@ -106,7 +106,13 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
 
   var initDatasets = function () {
     _.each($scope.datasets, function (dataset) {
-      dataset.publication_date = Date.parse(dataset.publication_date);
+      if (dataset.publication_date_year !== '') {
+        dataset.publication_date_year_epoch = Date.parse(dataset.publication_date_year);
+      } else if (dataset.publication_date !== '') {
+        dataset.publication_date_year_epoch = Date.parse(new Date(dataset.publication_date).getFullYear());
+      } else {
+        dataset.publication_date_year_epoch = 1;
+      }
       dataset.content = $sce.trustAsHtml(dataset.content);
     });
     for (var i=0; i<$scope.datasets.length; i++) {
@@ -119,6 +125,7 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     for (var i=0; i < 10 && $scope.hiddenDatasets.length > 0; i++) {
       var datasetItem = $scope.hiddenDatasets.shift();
       $scope.datasetsToBeDisplayed.push(datasetItem);
+      $scope.sortDatesetsToBeDisplayed();
     }
   }
 
