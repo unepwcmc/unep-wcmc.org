@@ -1,13 +1,14 @@
 class Admin::VacanciesController < Admin::PageResourcesController
   before_action :set_form, only: [:edit, :update]
   before_action :build_form, only: [:create]
+  before_action :set_vacancy_fields, only: [:edit, :create]
 
   private
 
   def save_resources
-    saved = @page.save
-    if saved
+    if @page.save
       @form.update(form_params.merge(vacancy_id: @page.id))
+      vacancy_fields.save
     else
       false
     end
@@ -33,4 +34,16 @@ class Admin::VacanciesController < Admin::PageResourcesController
     params[:form].try(:permit, fields_attributes: [:_destroy, :name, :id, :type], attachments_attributes: [:_destroy, :name, :id, :file]) || {}
   end
 
+  def set_vacancy_fields
+    @vacancy_fields ||= VacancyField.for_vacancy(@page)
+  end
+
+  def vacancy_fields_params
+    params[:vacancyFieldForms].try(:values) || []
+  end
+
+  def vacancy_fields
+    VacancyFieldsBuilder.new(fields_params: vacancy_fields_params,
+      vacancy: @page)
+  end
 end
