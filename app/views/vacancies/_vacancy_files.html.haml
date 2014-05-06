@@ -1,0 +1,5 @@
+- file_fields = VacancyField.for_vacancy(@cms_page)
+- file_fields.each do |file|
+  %p.link
+    = link_to(file.file.url) do
+      = file.label

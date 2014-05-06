@@ -1,5 +1,5 @@
 angular.module("DatasetFieldForm", []).controller("DatasetFieldCtrl", ["$scope", function ($scope) {
-  
+
   $scope.removeUrlFieldForm = function (form_index) {
     $scope.urlFieldForms[form_index].removed = true;
   }
