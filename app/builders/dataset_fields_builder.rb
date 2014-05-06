@@ -30,14 +30,14 @@ class DatasetFieldsBuilder
     if params[:removed]
       if params[:type] == "DatasetUrlField"
         DatasetUrlField.find(params[:id]).destroy
-      else 
+      else
         DatasetFileField.find(params[:id]).destroy
-      end   
-    else 
+      end
+    else
       unless params[:file]
         params.delete(:file)
       end
-      params.delete(:custom_label)    
+      params.delete(:custom_label)
       DatasetField.find(params[:id]).update(params)
     end
   end
