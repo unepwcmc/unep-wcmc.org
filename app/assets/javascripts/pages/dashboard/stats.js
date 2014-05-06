@@ -76,7 +76,7 @@ function ($location, $scope, statsVisibilityService) {
       if (newVal !== undefined && newVal !== oldVal) {
         $scope.visible = !newVal;
         $location.search('dashboard', newVal ? 'show' : "");
-        window.scrollTo(0, 0);
+        $('html, body').animate({scrollTop:0}, 'slow');
       }
   }, true);
 }]);
