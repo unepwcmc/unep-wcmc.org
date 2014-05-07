@@ -12,6 +12,8 @@
       %a{href:"/about-us/news-archive#news-archive", title:"News Archive"} News archive
     %li{:class => if @cms_site.identifier == 'about-us' && @cms_page.slug == 'contact' then 'active' end}
       %a{href:"/about-us/contact#contact-page", title:"Contact"} Contact
+    %li{:class => if @cms_site.identifier == 'annual-reports' && @cms_page.slug == 'annual-reports' then 'active' end}
+      %a{href:"/about-us/annual-reports", title:"Annual Reports"} Annual Reports
 
   %ul.subnav-small
     %li{:class => if @cms_site.identifier == 'about-us' && @cms_page.slug == 'partners' then 'active' end}
@@ -26,5 +28,7 @@
       %a{href:"/about-us/news-archive#news-archive", title:"News Archive"} News archive
     %li{:class => if @cms_site.identifier == 'about-us' && @cms_page.slug == 'contact' then 'active' end}
       %a{href:"/about-us/contact#contact-page", title:"Contact"} Contact
+    %li{:class => if @cms_site.identifier == 'annual-reports' && @cms_page.slug == 'annual-reports' then 'active' end}
+      %a{href:"/about-us/annual-reports", title:"Annual Reports"} Annual Reports
 
   = render "about_us/partners_data_policy"
