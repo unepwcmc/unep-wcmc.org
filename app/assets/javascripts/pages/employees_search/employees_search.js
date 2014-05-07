@@ -15,7 +15,7 @@ angular.module('EmployeesSearch', []).controller('SearchCtrl', ['$scope', functi
 
   $scope.query = "";
   $scope.matchName = function (name) {
-    return name.indexOf($scope.query) >= 0;
+    return name.indexOf($scope.query.toLowerCase()) >= 0;
   }
 
 }]);
