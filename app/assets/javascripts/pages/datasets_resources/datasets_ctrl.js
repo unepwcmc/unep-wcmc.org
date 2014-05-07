@@ -1,4 +1,7 @@
-angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce", function ($scope, $sce) {
+angular.module("DatasetsResources").controller("DatasetsCtrl", [
+  "$scope", 
+  "$sce", 
+function ($scope, $sce) {
 
   lunr.stopWordFilter = function (word) { return word == "" ? undefined : word; }
   lunr.Pipeline.registerFunction(lunr.stopWordFilter, 'stopWordFilter')
@@ -136,10 +139,21 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     $scope.setInitialDatasets();
   }
 
+  $scope.setQueryFromUrlParams = function (slug) {
+    var dataset = _.find($scope.datasets, { 'slug': slug }),
+        search_title = dataset.title;
+    $scope.query = search_title;
+  }
+
   $scope.init = function (data, url_fields, file_fields) {
     $scope.sortOrder = $scope.sortOrders[0].value;
-    $scope.query = "";
     $scope.datasets = data.datasets;
+    var q = data.query_slug.slug;
+    if (q !== 'index') {
+      $scope.setQueryFromUrlParams(q);
+    } else {
+      $scope.query = "";
+    }
     $scope.hiddenDatasets = [];
     $scope.datasetsToBeDisplayed = [];
     $scope.contentTypes = data.content_types;
