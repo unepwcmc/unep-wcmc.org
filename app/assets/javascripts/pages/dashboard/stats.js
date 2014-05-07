@@ -7,7 +7,7 @@ function ($scope, statsVisibilityService) {
   $scope.$watch(
     function () { return statsVisibilityService.getVisibility(); },
     function (newVal, oldVal) {
-      if (newVal && newVal !== oldVal) {
+      if (newVal !== undefined && newVal !== oldVal) {
         $scope.isCollapsed = !newVal;
       }
   }, true);
@@ -66,12 +66,17 @@ function ($location, $scope, statsVisibilityService) {
     $scope.visible = false;
     statsVisibilityService.setVisibility(true);
   }
+  $scope.hideStats = function () {
+    $scope.visible = true;
+    statsVisibilityService.setVisibility(false);
+  }
   $scope.$watch(
     function () { return statsVisibilityService.getVisibility(); },
     function (newVal, oldVal) {
-      if (newVal && newVal !== oldVal) {
+      if (newVal !== undefined && newVal !== oldVal) {
         $scope.visible = !newVal;
-        $location.search('dashboard', 'show')
+        $location.search('dashboard', newVal ? 'show' : "");
+        $('html, body').animate({scrollTop:0}, 'slow');
       }
   }, true);
 }]);
