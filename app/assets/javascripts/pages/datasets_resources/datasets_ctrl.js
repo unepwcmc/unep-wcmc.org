@@ -87,7 +87,13 @@ function ($scope, $sce) {
   }
 
   $scope.sortDatesets = function () {
-    if ($scope.sortOrder === 0) {
+    if ($scope.dataset_from_url && $scope.activeDatasets.length > 0 &&
+      $scope.activeDatasets.length > 1) {
+      var from = _.findIndex($scope.activeDatasets, { 'slug': $scope.q });
+      if (from !== 0) {
+        $scope.activeDatasets.splice(0, 0, $scope.activeDatasets.splice(from, 1)[0]);
+      }
+    } else if ($scope.sortOrder === 0) {
       $scope.activeDatasets = _.sortBy($scope.activeDatasets, function(dataset) {
         return dataset.publication_date_year_epoch;
       }).reverse();
@@ -142,15 +148,16 @@ function ($scope, $sce) {
   $scope.setQueryFromUrlParams = function (slug) {
     var dataset = _.find($scope.datasets, { 'slug': slug }),
         search_title = dataset.title;
+    $scope.dataset_from_url = dataset;
     $scope.query = search_title;
   }
 
   $scope.init = function (data, url_fields, file_fields) {
     $scope.sortOrder = $scope.sortOrders[0].value;
     $scope.datasets = data.datasets;
-    var q = data.query_slug.slug;
-    if (q !== 'index') {
-      $scope.setQueryFromUrlParams(q);
+    $scope.q = data.query_slug.slug;
+    if ($scope.q !== 'index') {
+      $scope.setQueryFromUrlParams($scope.q);
     } else {
       $scope.query = "";
     }
