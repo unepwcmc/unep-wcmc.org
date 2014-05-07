@@ -152,7 +152,7 @@
                     %p.species-count-small {{group[1] | number}}
                   %td.species-count
                     %span {{group[1] | number}}
-    %button.dashboard-collapse
+    %button.dashboard-collapse{"ng-controller" => "StatsBtnCtrl", "ng-click" => "hideStats()"}
       %p
         %i.icon-chevron-up
         Hide dashboard
