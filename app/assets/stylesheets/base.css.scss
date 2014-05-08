@@ -33,6 +33,11 @@ body {
 .container {
   margin: 50px auto;
   width: 90%;
+  &.1-column {
+    width: 90%;
+    padding: 5%;
+    background-color: rgba(255,255,255,0.9);
+  }
   section {
     float: none;
   }
