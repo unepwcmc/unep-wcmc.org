@@ -1,0 +1,9 @@
+- (Time.now.year-5..Time.now.year-1).to_a.reverse.each do |year|
+  - page = Cms::Site.find_by_identifier('resources-and-data').pages.root.children.find_by_slug("unep-wcmc-annual-report-#{year}")
+  - if page
+    %section.group.staff
+      - if page_file(:thumbnail, page)
+        %img{:src => page_file(:thumbnail, page).file.url}
+      %h4
+        %a{:href => '/resources-and-data' + page.full_path}
+          = page.label
