@@ -247,6 +247,18 @@ ul {
   }
 }
 
+ol {
+  list-style-type: decimal;
+  padding: 1em 0 1em 1.25em;
+  li {
+    font-size: 1em;
+    margin-bottom: 0.75em;
+    line-height: 1.5em;
+    font-weight: 300;
+    color: $grey_text;
+  }
+}
+
 #nav{
   background-color: $darkest_grey;
   overflow: hidden;
