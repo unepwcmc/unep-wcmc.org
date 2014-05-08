@@ -2,6 +2,7 @@
   #data-small.column-1-3
     .search-field
       %input.search_input{"ng-change" => "search()", "ng-model" => "query", :placeholder => "Search resources or datasets", :type => "text"}
+      {{query}}
       .icon_search
         %i.icon-search
     %button.data

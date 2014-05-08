@@ -1,4 +1,7 @@
-angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce", function ($scope, $sce) {
+angular.module("DatasetsResources").controller("DatasetsCtrl", [
+  "$scope", 
+  "$sce", 
+function ($scope, $sce) {
 
   lunr.stopWordFilter = function (word) { return word == "" ? undefined : word; }
   lunr.Pipeline.registerFunction(lunr.stopWordFilter, 'stopWordFilter')
@@ -84,7 +87,12 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
   }
 
   $scope.sortDatesets = function () {
-    if ($scope.sortOrder === 0) {
+    if ($scope.dataset_from_url && $scope.activeDatasets.length > 1) {
+      var from = _.findIndex($scope.activeDatasets, { 'slug': $scope.q });
+      if (from !== 0) {
+        $scope.activeDatasets.splice(0, 0, $scope.activeDatasets.splice(from, 1)[0]);
+      }
+    } else if ($scope.sortOrder === 0) {
       $scope.activeDatasets = _.sortBy($scope.activeDatasets, function(dataset) {
         return dataset.publication_date_year_epoch;
       }).reverse();
@@ -136,10 +144,22 @@ angular.module("DatasetsResources").controller("DatasetsCtrl", ["$scope", "$sce"
     $scope.setInitialDatasets();
   }
 
+  $scope.setQueryFromUrlParams = function (slug) {
+    var dataset = _.find($scope.datasets, { 'slug': slug }),
+        search_title = dataset.title;
+    $scope.dataset_from_url = dataset;
+    $scope.query = search_title;
+  }
+
   $scope.init = function (data, url_fields, file_fields) {
     $scope.sortOrder = $scope.sortOrders[0].value;
-    $scope.query = "";
     $scope.datasets = data.datasets;
+    $scope.q = data.query_slug.slug;
+    if ($scope.q !== 'index') {
+      $scope.setQueryFromUrlParams($scope.q);
+    } else {
+      $scope.query = "";
+    }
     $scope.hiddenDatasets = [];
     $scope.datasetsToBeDisplayed = [];
     $scope.contentTypes = data.content_types;
