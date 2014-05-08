@@ -19,6 +19,10 @@ $white_link: rgba(255,255,255, 0.75);
   margin: 0 auto 50px auto;
   width: 90%;
   overflow: hidden;
+  &.1-column {
+    width: 80%;
+    padding: 5%;
+  }
 	&.dashboard{
 	overflow: visible;
 	}
