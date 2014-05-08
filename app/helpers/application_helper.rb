@@ -14,6 +14,7 @@ module ApplicationHelper
   end
 
   def page_file(identifier, page)
-    page_files(identifier, page)[0]
+    p = page_files(identifier, page)
+    p ? p[0] : nil
   end
 end
