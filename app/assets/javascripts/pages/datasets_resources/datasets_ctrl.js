@@ -87,8 +87,7 @@ function ($scope, $sce) {
   }
 
   $scope.sortDatesets = function () {
-    if ($scope.dataset_from_url && $scope.activeDatasets.length > 0 &&
-      $scope.activeDatasets.length > 1) {
+    if ($scope.dataset_from_url && $scope.activeDatasets.length > 1) {
       var from = _.findIndex($scope.activeDatasets, { 'slug': $scope.q });
       if (from !== 0) {
         $scope.activeDatasets.splice(0, 0, $scope.activeDatasets.splice(from, 1)[0]);
