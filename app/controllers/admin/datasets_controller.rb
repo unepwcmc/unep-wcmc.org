@@ -25,7 +25,6 @@ class Admin::DatasetsController < Admin::PageResourcesController
 
   def dataset_url_fields_params
     params[:urlFieldForms].try(:values) || []
-
   end
 
   def dataset_file_fields_params

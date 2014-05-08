@@ -26,7 +26,7 @@ function ($location, $rootScope, $scope, $resource, GEOIP_URL, countryService, s
   var GeoIp, geoIp;
   $scope.country = {};
   $scope.country.loaded = false;
-  url_params = $location.search()
+  url_params = $location.search();
 
   $.ajax({
     url: GEOIP_URL,
