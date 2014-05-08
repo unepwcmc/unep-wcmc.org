@@ -20,3 +20,4 @@ json.content_types ContentType.all do |content_type|
   json.plural content_type.plural
   json.singular content_type.singular
 end
+json.query_slug @cms_page
