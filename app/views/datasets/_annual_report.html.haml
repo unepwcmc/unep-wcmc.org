@@ -1,6 +1,10 @@
-- (Time.now.year-5..Time.now.year-1).to_a.reverse.each do |year|
+- year = Time.now.year
+- reports = 0
+- until reports > 4 || year < 2000
   - page = Cms::Site.find_by_identifier('resources-and-data').pages.root.children.find_by_slug("unep-wcmc-annual-report-#{year}")
+  - year -= 1
   - if page
+    - reports += 1
     %section.group.staff
       - if page_file(:thumbnail, page)
         %img{:src => page_file(:thumbnail, page).file.url}
