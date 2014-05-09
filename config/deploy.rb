@@ -7,7 +7,7 @@ set :application, "unepwcmc"
 set :repository, "git@github.com:unepwcmc/unep-wcmc.org"
 set :deploy_via, :remote_cache
 set :scm, :git
-set :branch, "ec2"
+set :branch, "master"
 set :scm_username, "unepwcmc-read"
 
 ssh_options[:forward_agent] = true
