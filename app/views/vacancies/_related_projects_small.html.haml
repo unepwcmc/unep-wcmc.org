@@ -1,4 +1,5 @@
-%h2.large_subheading= "Work by #{cms_page_content(:programme)}"
+- programme = Programme.where(id: cms_page_content(:programme)).first
+%h2.large_subheading= "Work by #{programme.try(:name)}"
 .section-group
   - (1..2).each do |i|
     - if cms_page_content(:"related_project_#{i}_title").present?
