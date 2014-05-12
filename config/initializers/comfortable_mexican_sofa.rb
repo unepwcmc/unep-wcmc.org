@@ -96,7 +96,8 @@ ComfortableMexicanSofa.configure do |config|
   # production env with dev/testing envs.
   # e.g. config.hostname_aliases = {'host.com' => 'host.inv', 'host_a.com' => ['host.lvh.me', 'host.dev']}
   # Default is nil (not used)
-  
+  config.hostname_aliases = { 'www.unep-wcmc.org' => ['unep-wcmc.org', 'beta.unep-wcmc.org'] }
+
   # Reveal partials that can be overwritten in the admin area.
   # Default is false.
   #   config.reveal_cms_partials = false
