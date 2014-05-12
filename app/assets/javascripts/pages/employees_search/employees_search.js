@@ -1,8 +1,10 @@
 angular.module('EmployeesSearch', []).controller('SearchCtrl', ['$scope', function ($scope) {
   
-  // caching the sections selector
-  var sections = $('section.programme-wrapper');
-  $('.search-field > input').keyup( function () {
+  // caching the sections selectors
+  var sections = $('section.programme-wrapper'),
+      subsections = $('section.subprogramme-wrapper');
+
+  function showHideSections (sections) {
     sections.each( function() {
       var section = $(this);
       if (section.find('section.group.staff').length === 0) {
@@ -11,6 +13,11 @@ angular.module('EmployeesSearch', []).controller('SearchCtrl', ['$scope', functi
         section.show();
       }
     });
+  }
+
+  $('.search-field > input').keyup( function () {
+    showHideSections(sections);
+    showHideSections(subsections);
   });
 
   $scope.query = "";
