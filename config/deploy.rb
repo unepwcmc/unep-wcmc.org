@@ -93,3 +93,32 @@ namespace :mailer do
 end
 after "deploy:setup", 'db:setup'
 after "deploy:setup", 'mailer:setup'
+
+######################## CAPISTRANO / SLACK INTEGRATION #######################################
+require 'capistrano/slack'
+#required
+require 'yaml'
+set :secrets, YAML.load(File.open('config/secrets.yml'))
+
+set :slack_token, secrets["development"]["capistrano_slack"] # comes from inbound webhook integration
+set :slack_room, "#unep-wcmc-website" # the room to send the message to
+set :slack_subdomain, "wcmc" # if your subdomain is example.slack.com
+
+# optional
+set :slack_application, "UNEP-WCMC Website" # override Capistrano `application`
+deployment_animals = [
+  ["Loxodonta deployana", ":elephant:"],
+  ["Canis deployus", ":wolf:"],
+  ["Panthera capistranis", ":tiger:"],
+  ["Bison deployon", ":ox:"],
+  ["Ursus capistranus", ":bear:"],
+  ["Crotalus rattledeploy", ":snake:"],
+  ["Caiman assetocompilatus", ":crocodile:"]
+]
+
+set :shuffle_deployer, deployment_animals.shuffle.first
+
+set :slack_username, shuffle_deployer[0] # displayed as name of message sender
+set :slack_emoji, shuffle_deployer[1] # will be used as the avatar for the message
+
+######################## /EO CAPISTRANO / SLACK INTEGRATION #######################################

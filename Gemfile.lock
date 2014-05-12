@@ -6,6 +6,14 @@ GIT
       railties (>= 3.0)
       sass (>= 3.2)
 
+GIT
+  remote: https://github.com/nextupdate/capistrano-slack.git
+  revision: 7e18c4b164866ad7b5f4a2f360eeec1f1c5ccc36
+  specs:
+    capistrano-slack (1.2.0)
+      capistrano (< 3.0.0)
+      capistrano-log_with_awesome (~> 0.0.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -52,6 +60,8 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    capistrano-log_with_awesome (0.0.2)
+      capistrano (>= 2.5.14)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     chunky_png (1.2.9)
@@ -306,6 +316,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   capistrano (~> 2.15.0)
+  capistrano-slack!
   coffee-rails (~> 4.0.0)
   comfortable_mexican_sofa (~> 1.11.0)
   compass-rails (~> 1.1.3)

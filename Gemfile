@@ -40,6 +40,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'debugger'
   gem 'git_pretty_accept'
+  gem 'capistrano-slack', :git => 'https://github.com/nextupdate/capistrano-slack.git'
 end
 
 group :doc do

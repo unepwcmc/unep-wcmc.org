@@ -9,4 +9,4 @@ config/database.yml
 
 # App specific Max Mind config
 config/max_mind.yml
-
+config/secrets.yml
