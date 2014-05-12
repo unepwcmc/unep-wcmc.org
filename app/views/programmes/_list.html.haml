@@ -19,5 +19,6 @@
         - if programme.subprogrammes.present?
           - programme.subprogrammes.includes(employees: [blocks: [:files]]).order('name').each do   |subprogramme|
             - if subprogramme.employees.present?
-              %h3.subprogramme= subprogramme.name
-              = render partial: "programmes/employees_list", locals: {programme: subprogramme}
+              %section.subprogramme-wrapper
+                %h3.subprogramme= subprogramme.name
+                = render partial: "programmes/employees_list", locals: {programme: subprogramme}
