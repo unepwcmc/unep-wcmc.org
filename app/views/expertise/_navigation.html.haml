@@ -1,9 +1,10 @@
-- first_page = @cms_site.pages.root.children.first
-- second_page = @cms_site.pages.root.children.offset(1).first
+- expertise_root = @cms_page.slug == "expertise" ? @cms_page : Cms::Page.find_by_slug("expertise")
+- first_page = expertise_root.children.first
+- second_page = expertise_root.children.offset(1).first
 
 .column-1-3.wide
   %ul.subnav
-    - @cms_site.pages.root.children.each do |page|
+    - expertise_root.children.each do |page|
       %li.header= cms_page_content(:title, page)
       %ul.expertise
         - page.children.each do |subpage|
