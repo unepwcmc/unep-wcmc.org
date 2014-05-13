@@ -66,5 +66,5 @@ UnepWcmcOrg::Application.routes.draw do
   end
 
   comfy_route :cms_admin, :path => '/admin'
-  comfy_route :cms, :path => '/', :sitemap => false
+  comfy_route :cms, :path => '/', :sitemap => true
 end
