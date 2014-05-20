@@ -39,7 +39,7 @@
     %meta{ :property => "og:description", :content => "UNEP-WCMC delivers analysis and interpretation of data and information about biodiversity, in engaging and accessible ways." }
     %meta{ :property => "og:title", :content => "#{@cms_page.label.titleize} - UNEP-WCMC" }
     %meta{ :property => "og:url", :content => "http://www.unep-wcmc.org#{@cms_page.full_path}" }
-    %meta{ :property => "og:site_name", :content => "UNEP-WCMC's official website" }
+    %meta{ :property => "og:site_name", :content => "UNEP-WCMC's official website - #{@cms_page.label.titleize}" }
     %title
       - if content_for(:title)
         = yield(:title)
