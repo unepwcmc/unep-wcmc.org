@@ -29,17 +29,18 @@
     %meta{ :name => "description", :content => "UNEP-WCMC delivers analysis and interpretation of data and information about biodiversity, in engaging and accessible ways." }
     <!-- Schema.org markup for Google+ -->
     %meta{ :itemprop => "description", :content => "UNEP-WCMC delivers analysis and interpretation of data and information about biodiversity, in engaging and accessible ways." }
-    %meta{ :itemprop => "name", :content => "#{@cms_page.label.titleize} - UNEP-WCMC" }
     <!-- Twitter Card Data -->
     %meta{ :name => "twitter:description", :content => "UNEP-WCMC delivers analysis and interpretation of data and information about biodiversity, in engaging and accessible ways." }
-    %meta{ :name => "twitter:title", :content => "#{@cms_page.label.titleize} - UNEP-WCMC" }
     %meta{ :name => "twitter:creator", :content => "@unepwcmc" }
     %meta{ :name => "twitter:site", :content => "@unepwcmc" }
     <!-- Open Graph meta-data -->
     %meta{ :property => "og:description", :content => "UNEP-WCMC delivers analysis and interpretation of data and information about biodiversity, in engaging and accessible ways." }
-    %meta{ :property => "og:title", :content => "#{@cms_page.label.titleize} - UNEP-WCMC" }
-    %meta{ :property => "og:url", :content => "http://www.unep-wcmc.org#{@cms_page.full_path}" }
-    %meta{ :property => "og:site_name", :content => "UNEP-WCMC's official website - #{@cms_page.label.titleize}" }
+    - if @cms_page
+      %meta{ :name => "twitter:title", :content => "#{@cms_page.label.titleize} - UNEP-WCMC" }
+      %meta{ :itemprop => "name", :content => "#{@cms_page.label.titleize} - UNEP-WCMC" }
+      %meta{ :property => "og:title", :content => "#{@cms_page.label.titleize} - UNEP-WCMC" }
+      %meta{ :property => "og:url", :content => "http://www.unep-wcmc.org#{@cms_page.full_path}" }
+      %meta{ :property => "og:site_name", :content => "UNEP-WCMC's official website - #{@cms_page.label.titleize}" }
     %title
       - if content_for(:title)
         = yield(:title)
