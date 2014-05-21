@@ -434,6 +434,10 @@ div.button, button {
     text-align: left;
   }
 
+  &#researcher {
+    margin-top: 25px;
+  }
+
   &.banner, &#twitter {
     box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
     border: 1px solid $medium_grey;
