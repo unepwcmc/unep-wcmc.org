@@ -29,6 +29,7 @@ angular.module("PracticalQuestionForm", []).controller("FormCtrl", ["$scope", fu
     $scope.attachmentForms = attachments;
     $scope.vacancyFieldForms = vacancyFields;
     $scope.vacancyFieldSelectDefaultOptions = [
+      "Application form",
       "Job description",
       "Person specification"
     ];
