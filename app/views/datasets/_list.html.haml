@@ -8,7 +8,7 @@
     %button.data
       Type of content
       %i.icon-caret-down
-    %ul#content-small
+    %ul#content-small.filters{"ng-class" => "{active: contentType.filters}"}
       %li.content_type{"ng-show" => "contentType.count > 0", "ng-class" => "{active: contentType.selected && contentType.count > 0}", "ng-click" => "toggleContentType()", "ng-repeat" => "contentType in contentTypes"}
         %span.badge {{ contentType.count }}
         %p {{ contentType.plural }}
@@ -23,7 +23,7 @@
       %input.short{"ng-change" => "search()", "ng-model" => "query", :placeholder => "Search resources or datasets", :type => "text"}
       .icon_search
         %i.icon-search
-    %ul#content
+    %ul#content.filters{"ng-class" => "{active: filters}"}
       %li.header
         Type of content
       %li.content_type{"ng-show" => "contentType.count > 0", "ng-class" => "{active: contentType.selected && contentType.count > 0}", "ng-click" => "toggleContentType()", "ng-repeat" => "contentType in contentTypes"}
@@ -43,8 +43,8 @@
   #data.column-2-3
     %h1
       Resources &amp; data
-    %div.filters
-      %p
+    %div.filters{"ng-show" => "filters"}
+      %p{'ng-show' => 'query && query !== ""' }
         Searching for
         %span.active-filter{"ng-click" => "resetQuery()", 'ng-show' => 'query' }
           %i.icon-remove

@@ -735,6 +735,18 @@ ul#content, ul#content-small {
   font-size: 0.85em;
   list-style-type: none;
   padding: 0;
+  &.active {
+    li {
+      &.active {
+        &.content_type {
+          border-left: 5px solid $blue;
+          p, span.badge {
+            color: #999;
+          }
+        }
+      }
+    }
+  }
   li{
     cursor: pointer;
     color: $grey_text;
@@ -781,15 +793,6 @@ ul#content, ul#content-small {
       p, span.badge {
         color: #bbb;
         font-weight: 500;
-      }
-    }
-
-    &.active {
-      &.content_type {
-        border-left: 5px solid $blue;
-        p, span.badge {
-          color: #999;
-        }
       }
     }
 

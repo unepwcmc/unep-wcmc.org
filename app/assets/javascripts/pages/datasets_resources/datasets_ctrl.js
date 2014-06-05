@@ -62,6 +62,10 @@ function ($scope, $sce) {
     if ($scope.query == "") {
       $scope.foundDatasets = _.map($scope.datasets, function (dataset) {return dataset;});
     } else {
+      if (!$scope.filters) {
+        $scope.selectAll();
+        $scope.filters = true;
+      }
       var results = index.search($scope.query);
       $scope.foundDatasets = _.map(results, function (res) { return $scope.datasets[parseInt(res.ref, 10)]; });
     }
@@ -152,6 +156,7 @@ function ($scope, $sce) {
   }
 
   $scope.init = function (data, url_fields, file_fields) {
+    $scope.filters = false;
     $scope.sortOrder = $scope.sortOrders[0].value;
     $scope.datasets = data.datasets;
     $scope.q = data.query_slug.slug;
@@ -202,6 +207,10 @@ function ($scope, $sce) {
 
   $scope.toggleContentType = function () {
     var contentType = this.contentType;
+    if (!$scope.filters) {
+      $scope.deselectAll();
+      $scope.filters = true;
+    }
     contentType.selected = !contentType.selected;
     updateActiveContentTypes(contentType);
     applyFilters();
