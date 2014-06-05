@@ -3,6 +3,10 @@ class Cms::PageObserver < ActiveRecord::Observer
     destroy_employments_for(page)
   end
 
+  def before_save(page)
+    replaceHashtags(page)
+  end
+
   private
 
   def destroy_employments_for(page)
@@ -19,5 +23,12 @@ class Cms::PageObserver < ActiveRecord::Observer
 
   def featured_project?(page)
     page.site.identifier == 'featured-projects'
+  end
+
+  def replaceHashtags(page)
+    i = page.blocks_attributes.index {|b| b[:identifier] == 'twitter_share_text' }
+    if i 
+      page.blocks_attributes[i][:content].gsub! '#', '%23'
+    end
   end
 end
