@@ -24,6 +24,7 @@ gem 'letter_opener'
 gem 'email_validator'
 
 gem 'devise'
+gem 'whenever', :require => false
 
 group :development, :test do
   gem 'rspec-rails'

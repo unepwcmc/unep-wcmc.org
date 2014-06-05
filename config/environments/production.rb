@@ -1,3 +1,6 @@
+set :whenever_environment, defer { stage }
+require 'whenever/capistrano'
+
 UnepWcmcOrg::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
