@@ -19,6 +19,7 @@ class Submission < ActiveRecord::Base
 
   has_attached_file :cv
   has_attached_file :cover_letter
+  has_attached_file :application_form
 
   accepts_nested_attributes_for :field_submissions
 
@@ -30,6 +31,7 @@ class Submission < ActiveRecord::Base
   validates :phone, presence: true, if: :is_submitted
   validates :cv, presence: true, if: :is_submitted
   validates :cover_letter, presence: true, if: :is_submitted
+  validates :application_form, presence: true, if: :is_submitted
 
   validate :content_presence
 

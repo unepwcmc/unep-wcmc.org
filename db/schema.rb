@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506100829) do
+ActiveRecord::Schema.define(version: 20140606105033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -228,8 +228,8 @@ ActiveRecord::Schema.define(version: 20140506100829) do
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                                     null: false
-    t.boolean  "is_submitted",              default: false
+    t.string   "email",                                         null: false
+    t.boolean  "is_submitted",                  default: false
     t.string   "name"
     t.string   "phone"
     t.text     "content"
@@ -241,6 +241,10 @@ ActiveRecord::Schema.define(version: 20140506100829) do
     t.string   "cover_letter_content_type"
     t.integer  "cover_letter_file_size"
     t.datetime "cover_letter_updated_at"
+    t.string   "application_form_file_name"
+    t.string   "application_form_content_type"
+    t.integer  "application_form_file_size"
+    t.datetime "application_form_updated_at"
   end
 
   add_index "submissions", ["slug"], name: "index_submissions_on_slug", unique: true, using: :btree
