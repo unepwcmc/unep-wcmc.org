@@ -434,6 +434,10 @@ div.button, button {
     text-align: left;
   }
 
+  &#researcher {
+    margin-top: 25px;
+  }
+
   &.banner, &#twitter {
     box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
     border: 1px solid $medium_grey;
@@ -467,6 +471,11 @@ div.button, button {
     max-width: 100%;
     display: block;
   }
+
+  &#not-found {
+    height:470px;
+  }
+
   &#news-projects-home {
     background-color: #fff;
     width: 100%;
@@ -1350,19 +1359,31 @@ div.error-message {
   }
 }
 
-div.dashboard-background {
+div.not-found-text {
+  background: rgba(255,255,255,0.9);
+  padding: 30px;
+}
+
+div.dashboard-background, div.not-found-background {
   position: fixed;
   height: 100%;
   width: 100%;
   position: fixed;
   top: 0;
   z-index: -9999;
-  background-image: image-url('dashboard_background_small.jpg');
   background-position: top;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+div.dashboard-background {
+  background-image: image-url('dashboard_background_small.jpg');
+}
+
+div.not-found-background {
+  background-image: image-url('404_background.jpg');
 }
 
 div.dashboard-container {
