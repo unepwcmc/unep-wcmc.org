@@ -83,7 +83,7 @@ class SubmissionsController < ApplicationController
   end
 
   def submission_params
-    params.require(:submission).permit(:cv, :cover_letter, :name, :phone, :email, field_submissions_attributes: [:id, :content, :field_id, :type, :file], content: Submission::ALLOWED_CONTENT_FIELDS)
+    params.require(:submission).permit(:cv, :cover_letter, :application_form, :name, :phone, :email, field_submissions_attributes: [:id, :content, :field_id, :type, :file], content: Submission::ALLOWED_CONTENT_FIELDS)
   end
 
   def build_reference_details
