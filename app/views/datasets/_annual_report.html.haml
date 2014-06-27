@@ -1,6 +1,6 @@
 - year = Time.now.year
 - reports = 0
-- until reports > 4 || year < 2000
+- until reports > 3 || year < 2000
   - page = Cms::Site.find_by_identifier('resources-and-data').pages.root.children.find_by_slug("unep-wcmc-annual-report-#{year}")
   - year -= 1
   - if page
