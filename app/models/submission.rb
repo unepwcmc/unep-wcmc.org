@@ -59,8 +59,9 @@ class Submission < ActiveRecord::Base
   end
 
   def vacancy_has_application_form?
-    VacancyField.for_vacancy(self.form.vacancy)
-      map(&:label).include?("Job Application")
+    file_fields = VacancyField.for_vacancy(self.form.vacancy)
+    return false if !file_fields || file_fields.empty?
+    file_fields.map(&:label).include?("Application form")
   end
 
   private
