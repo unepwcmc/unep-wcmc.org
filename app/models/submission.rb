@@ -31,7 +31,8 @@ class Submission < ActiveRecord::Base
   validates :phone, presence: true, if: :is_submitted
   validates :cv, presence: true, if: :is_submitted
   validates :cover_letter, presence: true, if: :is_submitted
-  validates :application_form, presence: true, if: :is_submitted
+  validates :application_form, presence: true,
+    if: Proc.new{|a| a.is_submitted? && a.vacancy_has_application_form? }
 
   validate :content_presence
 
@@ -55,6 +56,11 @@ class Submission < ActiveRecord::Base
 
   def to_param
     slug
+  end
+
+  def vacancy_has_application_form?
+    VacancyField.for_vacancy(self.form.vacancy)
+      map(&:label).include?("Job Application")
   end
 
   private
