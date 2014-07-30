@@ -16,7 +16,6 @@ class Admin::PageResourcesController < Admin::Cms::PagesController
 
   def index
     super
-    @page = @site.pages.root
     @pages = @page.children
   end
 
@@ -52,7 +51,7 @@ class Admin::PageResourcesController < Admin::Cms::PagesController
   private
 
   def set_editions
-    @editions = ::Edition.where("resource_id IN (?)", @site.pages.map(&:id)).order("created_at DESC").load
+    @editions = ::Edition.where("resource_id IN (?)", @page.children.map(&:id)).order("created_at DESC").load
   end
 
   def create_edition
@@ -80,6 +79,11 @@ class Admin::PageResourcesController < Admin::Cms::PagesController
   end
 
   def set_site
-    @site = ::Cms::Site.find_by_identifier(site_identifier)
+    @page = ::Cms::Page.find_by_slug(site_identifier)
+    @site = @page.site
+  end
+
+  def set_locale
+    "en"
   end
 end

@@ -1,4 +1,4 @@
-- Cms::Site.find_by_identifier('vacancies').pages.root.children.published.each do |page|
+- Cms::Page.find_by_slug('vacancies').children.published.each do |page|
   %section.list
     %h2.smaller
       = link_to(page.url) do

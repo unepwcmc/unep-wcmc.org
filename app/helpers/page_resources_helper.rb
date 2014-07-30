@@ -5,23 +5,23 @@ module PageResourcesHelper
   end
 
   def about_us_page
-    @about_us_page ||= Cms::Site.find_by_identifier('about-us').pages.root
+    @about_us_page ||= Cms::Page.find_by_slug('about-us')
   end
 
   def news_page
-    @news_page ||= Cms::Site.find_by_identifier('news').pages.root
+    @news_page ||= Cms::Page.find_by_slug('news')
   end
 
   def datasets_page
-    @datasets_page ||= Cms::Site.find_by_identifier('resources-and-data').pages.root
+    @datasets_page ||= Cms::Page.find_by_slug('resources-and-data')
   end
 
   def employees_page
-    @employees_page ||= Cms::Site.find_by_identifier('employees').pages.root
+    @employees_page ||= Cms::Page.find_by_slug('employees')
   end
   
   def expertise_page
-    @expertise_page ||= Cms::Site.find_by_identifier('expertise').pages.root
+    @expertise_page ||= Cms::Page.find_by_slug('expertise')
   end
 
 end
