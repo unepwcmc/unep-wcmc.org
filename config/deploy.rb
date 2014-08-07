@@ -26,6 +26,7 @@ set :keep_releases, 2
 
 after "deploy:update_code", "db:symlink"
 before "deploy:assets:precompile", "db:symlink"
+after "deploy:restart", "deploy:cleanup"
 
 namespace :db do
   desc "Make symlink for database yaml"
