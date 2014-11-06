@@ -63,6 +63,7 @@ UnepWcmcOrg::Application.routes.draw do
   namespace :api do
     resources :geoip, only: [:index]
     resources :countries, only: [:index]
+    resources :employees, only: [:index]
   end
 
   comfy_route :cms_admin, :path => '/admin'
