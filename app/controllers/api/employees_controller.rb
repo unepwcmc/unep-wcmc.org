@@ -1,4 +1,4 @@
-class Api::AllEmployeesController < ApplicationController
+class Api::EmployeesController < ApplicationController
 
   def after_update_path_for(resource)
     api_path
