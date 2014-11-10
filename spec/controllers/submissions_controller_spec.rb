@@ -26,6 +26,13 @@ describe SubmissionsController do
       create(:field, form_id: @form.id, type: "FileField")
       @submission = Submission.build_for_form(@form)
       @submission.email = "some@example.com"
+      @submission.content = OpenStruct.new(
+        uk_working_ability: true,
+        last_salary: 0,
+        benefits: 'n/a',
+        interview_availability: 'yes',
+        notice_period: '1 month'
+      )
       @submission.save
     end
 
