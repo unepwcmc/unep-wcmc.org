@@ -9,7 +9,7 @@ before_script:
   - cp config/database.yml.example config/database.yml
   - cp config/secrets.yml.example config/secrets.yml
   - cp config/max_mind.yml.example config/max_mind.yml
-  - cp config/mailer_config.yml/sample config/mailer_config.yml
+  - cp config/mailer_config.yml.sample config/mailer_config.yml
   - RAILS_ENV=test bundle exec rake db:migrate
 notifications:
   slack: wcmc:g3eTH5tO8AusrAVOxP5gDEMM
