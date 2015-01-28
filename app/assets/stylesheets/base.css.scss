@@ -1049,6 +1049,11 @@ ul.footer{
   }
 }
 
+p.footer {
+  display: inline-block;
+  color: $medium_grey;
+}
+
 .section-group {
   overflow: hidden;
   margin-top: -30px;

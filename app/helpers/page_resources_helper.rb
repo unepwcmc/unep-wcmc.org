@@ -24,4 +24,8 @@ module PageResourcesHelper
     @expertise_page ||= Cms::Site.find_by_identifier('expertise').pages.root
   end
 
+  def wcmc_page
+    @wcmc_page ||= Cms::Site.find_by_identifier('wcmc').pages.root
+  end
+
 end
