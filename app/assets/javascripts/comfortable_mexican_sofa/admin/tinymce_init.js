@@ -1,8 +1,8 @@
 window.CMS.wysiwyg = function () {
   tinymce.init({
     extended_valid_elements: "iframe[src|width|height|name|align]",
-    plugins: "autolink link image autoresize media paste",
-    toolbar: "undo redo | bold italic underline | styleselect | blockquote | link image | bullist numlist",
+    plugins: "autolink link image autoresize media paste anchor",
+    toolbar: "undo redo | bold italic underline | styleselect | blockquote | link anchor image | bullist numlist",
     paste_as_text: true,
     style_formats: [
       {title: "Paragraph", block: "p"},
