@@ -77,7 +77,11 @@
         %a#home_link{ :href => "/wcmc", :title => "Home" }
           = image_tag "wcmc-logo.png", :id => "wcmc-logo"
         %ul#large-menu
-          %li= link_to "UNEP-WCMC", "/"
+          %li= link_to "UNEP-WCMC", "/", :class => @cms_site
+        %button#trigger-menu
+          %i.icon-align-justify
+        %ul#button-menu
+          %li= link_to "UNEP-WCMC", "/", :class => @cms_site
 
     - if flash[:success]
       .status#ok

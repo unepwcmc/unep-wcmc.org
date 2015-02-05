@@ -162,8 +162,10 @@ div#nav{
 				display: block;
 				background: #4295d5;
 			}
-      img#wcmc-logo{
-        width: 22%;
+     #wcmc-logo{
+        max-width: 100%;
+        width: 30%;
+        height: auto;
       }
   }
 	ul#large-menu{
