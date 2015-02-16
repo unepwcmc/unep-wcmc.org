@@ -14,28 +14,28 @@
     %meta{:"http-equiv" => "X-UA-Compatible", :content => "IE=edge"}
     %meta{ :charset => "utf-8" }
     %meta{ :name => "viewport", :content => "width=device-width,initial-scale=1.0" }
-    %meta{ :name => "description", :content => "UNEP-WCMC delivers analysis and interpretation of data and information about biodiversity, in engaging and accessible ways." }
+    %meta{ :name => "description", :content => "WCMC collaborates with the United Nations Environment Programme to promote the conservation, protection and enhancement of nature." }
     <!-- Schema.org markup for Google+ -->
-    %meta{ :itemprop => "description", :content => "UNEP-WCMC delivers analysis and interpretation of data and information about biodiversity, in engaging and accessible ways." }
+    %meta{ :itemprop => "description", :content => "WCMC collaborates with the United Nations Environment Programme to promote the conservation, protection and enhancement of nature." }
     <!-- Twitter Card Data -->
     %meta{ :name => "twitter:description", :content => "UNEP-WCMC delivers analysis and interpretation of data and information about biodiversity, in engaging and accessible ways." }
     %meta{ :name => "twitter:creator", :content => "@unepwcmc" }
     %meta{ :name => "twitter:site", :content => "@unepwcmc" }
     <!-- Open Graph meta-data -->
-    %meta{ :property => "og:description", :content => "UNEP-WCMC delivers analysis and interpretation of data and information about biodiversity, in engaging and accessible ways." }
+    %meta{ :property => "og:description", :content => "WCMC collaborates with the United Nations Environment Programme to promote the conservation, protection and enhancement of nature." }
     - if @cms_page
-      %meta{ :name => "twitter:title", :content => "#{@cms_page.label.titleize} - UNEP-WCMC" }
-      %meta{ :itemprop => "name", :content => "#{@cms_page.label.titleize} - UNEP-WCMC" }
-      %meta{ :property => "og:title", :content => "#{@cms_page.label.titleize} - UNEP-WCMC" }
-      %meta{ :property => "og:url", :content => "http://www.unep-wcmc.org#{@cms_page.full_path}" }
-      %meta{ :property => "og:site_name", :content => "UNEP-WCMC's official website - #{@cms_page.label.titleize}" }
+      %meta{ :name => "twitter:title", :content => "#{@cms_page.label.titleize} - WCMC" }
+      %meta{ :itemprop => "name", :content => "#{@cms_page.label.titleize} - WCMC" }
+      %meta{ :property => "og:title", :content => "#{@cms_page.label.titleize} - WCMC" }
+      %meta{ :property => "og:url", :content => "http://www.wcmc.org.uk#{@cms_page.full_path}" }
+      %meta{ :property => "og:site_name", :content => "WCMC's official website - #{@cms_page.label.titleize}" }
     %title
       - if content_for(:title)
         = yield(:title)
       - elsif @cms_page
-        #{@cms_page.label.titleize} - UNEP-WCMC
+        #{@cms_page.label.titleize} - WCMC
       - else
-        UNEP-WCMC
+        WCMC
     %link{ :href => 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700', :rel => 'stylesheet', :type => 'text/css' }
     %link{ :href => 'http://fonts.googleapis.com/css?family=Lato:300,400,700', :rel => 'stylesheet', :type => 'text/css' }
     %link{ :href => 'http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', :rel => "stylesheet" }
