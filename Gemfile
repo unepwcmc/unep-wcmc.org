@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+
 gem 'rails', '4.0.11'
 gem 'sprockets', '2.11.3' # to reconcile CVE-2014-7819 and a breaking change in sprockets 2.12
 gem 'pg'
@@ -27,6 +28,8 @@ gem 'email_validator'
 gem 'devise'
 
 group :development, :test do
+  gem 'capistrano', '~> 3.0', require: false, group: :development
+  gem 'capistrano-rvm',   '~> 0.1', require: false, group: :development
   gem 'rspec-rails'
   gem 'guard'
   gem 'guard-livereload'
@@ -37,11 +40,13 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capistrano-rails',   '~> 1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'debugger'
   gem 'git_pretty_accept'
-  gem 'capistrano-slack', :git => 'https://github.com/nextupdate/capistrano-slack.git'
+#  gem 'capistrano-slack', :git => 'https://github.com/nextupdate/capistrano-slack.git'
 end
 
 group :doc do
@@ -50,8 +55,6 @@ end
 
 gem 'comfortable_mexican_sofa', '~> 1.11.0'
 gem 'unicorn'
-gem 'capistrano', '~> 2.15.0', group: :development
-gem 'rvm-capistrano'
 
 gem "geoip", "~> 1.3.5"
 gem "yajl-ruby", "1.2.0"
