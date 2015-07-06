@@ -8,7 +8,7 @@
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
 set :stage, :production
-set :branch, "master"
+set :branch, "capistrano3"
 
 
 server "178.79.184.157", :app, :web, :db, :primary => true
