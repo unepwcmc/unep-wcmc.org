@@ -43,7 +43,7 @@ set :pty, true
 #set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
 
-set :linked_files, %w{config/database.yml config/mailer_config.yml}
+set :linked_files, %w{config/database.yml config/mailer_config.yml config/max_mind.yml}
 
 
 
