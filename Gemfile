@@ -28,8 +28,6 @@ gem 'email_validator'
 gem 'devise'
 
 group :development, :test do
-  gem 'capistrano', '~> 3.0', require: false, group: :development
-  gem 'capistrano-rvm',   '~> 0.1', require: false, group: :development
   gem 'rspec-rails'
   gem 'guard'
   gem 'guard-livereload'
@@ -40,8 +38,11 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capistrano', '~> 3.0', require: false, group: :development
+  gem 'capistrano-rvm',   '~> 0.1', require: false, group: :development
   gem 'capistrano-rails',   '~> 1.1', require: false
   gem 'capistrano-bundler', '~> 1.1', require: false
+  gem 'capistrano-passenger'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'debugger'

@@ -42,55 +42,8 @@ set :pty, true
 # Default value for :linked_files is []
 #set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
-set :linked_files, %w{config/database.yml config/mailer_config.yml config/max_mind.yml}
 
-
-
-namespace :db do
-  task :setup do
-    the_host = Capistrano::CLI.ui.ask("Database IP address: ")
-    database_name = Capistrano::CLI.ui.ask("Database name: ")
-    database_user = Capistrano::CLI.ui.ask("Database username: ")
-    pg_password = Capistrano::CLI.password_prompt("Database user password: ")
-
-    require 'yaml'
-
-    spec = {
-      "#{rails_env}" => {
-        "adapter" => "postgresql",
-        "database" => database_name,
-        "username" => database_user,
-        "host" => the_host,
-        "password" => pg_password
-      }
-    }
-
-    run "mkdir -p #{shared_path}/config"
-    put(spec.to_yaml, "#{shared_path}/config/database.yml")
-  end
-end
-
-namespace :mailer do
-  task :setup do
-    smtp_user = Capistrano::CLI.ui.ask("SMTP username: ")
-    smtp_password = Capistrano::CLI.password_prompt("SMTP password: ")
-
-    require 'yaml'
-
-    spec = {
-      "user_name" => smtp_user,
-      "password" => smtp_password
-    }
-
-    run "mkdir -p #{shared_path}/config"
-    put(spec.to_yaml, "#{shared_path}/config/mailer_config.yml")
-  end
-end
-
-after "deploy:setup", 'db:setup'
-after "deploy:setup", 'mailer:setup'
-
-
+set :linked_files, %w{config/database.yml config/mailer_config.yml}
 
 
 
@@ -107,7 +60,7 @@ namespace :deploy do
 
 
   desc "Restart app"
-  task: restart do
+  task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       execute :touch, release_path.join("tmp/restart.txt")
     end
