@@ -86,8 +86,8 @@ end
 namespace :config do
 task :setup do
   ask(:s3_access_key_id, 's3_access_key_id')
-  ask(:my_secret_access_key, 's3_secret_access_key')
-  ask(:s3_bucket, 's3_.bucket')
+  ask(:s3_secret_access_key, 's3_secret_access_key')
+  ask(:s3_bucket, 's3_bucket')
   ask(:mail_server, 'mail_server')
   backup_config_db = <<-EOF
 # encoding: utf-8
@@ -181,10 +181,6 @@ end
 
 namespace :config do
 task :setup do
-  ask(:s3_access_key_id, 's3_access_key_id')
-  ask(:my_secret_access_key, 'my_secret_access_key')
-  ask(:s3_bucket, 's3_bucket')
-  ask(:mail_server, 'mail_server')
   backup_config_files = <<-EOF
 # encoding: utf-8
 
@@ -206,7 +202,7 @@ Model.new(:wcmc_files, 'wcmc_files') do
   store_with S3 do |s3|
     # AWS Credentials
     s3.access_key_id     = "#{fetch(:s3_access_key_id)}"
-    s3.secret_access_key = "#{fetch(:my_secret_access_key)}"
+    s3.secret_access_key = "#{fetch(:s3_secret_access_key)}"
     # Or, to use a IAM Profile:
     # s3.use_iam_profile = true
 
@@ -264,7 +260,7 @@ end
 
 namespace :config do
 task :setup do
- backup_schdule = <<-EOF
+ backup_schedule = <<-EOF
 every 1.day, :at => '11:30 pm' do
   command "backup perform -t wcmc_files"
   command "backup perform -t wcmc_website_db"
@@ -274,7 +270,7 @@ EOF
 on roles(:db) do
 execute "mkdir -p #{fetch(:backup_path)}/config"
 upload! StringIO.new(backup_schedule), "#{fetch(:backup_path)}/config/schedule.rb"
-
+end
 
 
 
@@ -289,9 +285,8 @@ desc "Upload cron schedule file."
 
       within "#{fetch(:backup_path)}" do
         # capistrano was unable to find the executable for whenever
-          puts capture :whenever
-          puts capture :whenever, '--update-crontab'
-        end
+       execute "cd #{latest_release} && bundle exec whenever --update-crontab #{application}"
+         end
  end
 end
 end
@@ -302,5 +297,3 @@ end
 end
 end
 end
-end
-
