@@ -57,6 +57,6 @@ end
 gem 'comfortable_mexican_sofa', '~> 1.11.0'
 gem 'unicorn'
 
-gem "geoip", "~> 1.3.5"
+gem "geoip", "~> 1.6.1"
 gem "yajl-ruby", "1.2.0"
 
