@@ -262,6 +262,21 @@ end
 
 
 
+namespace :config do
+task :setup do
+ backup_schdule = <<-EOF
+every 1.day, :at => '11:30 pm' do
+  command "backup perform -t wcmc_files"
+  command "backup perform -t wcmc_website_db"
+end
+EOF
+
+on roles(:db) do
+execute "mkdir -p #{fetch(:backup_path)}/config"
+upload! StringIO.new(backup_schedule), "#{fetch(:backup_path)}/config/schedule.rb"
+
+
+
 
 namespace :config do
 task :setup do
