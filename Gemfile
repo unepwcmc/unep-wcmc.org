@@ -24,6 +24,10 @@ gem 'rails-observers'
 gem 'tinymce-rails'
 gem 'letter_opener'
 gem 'email_validator'
+gem 'backup', :require => false
+gem 'whenever', :require => false
+
+
 
 gem 'devise'
 

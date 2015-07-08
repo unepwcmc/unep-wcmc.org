@@ -11,6 +11,10 @@ set :repo_url, 'git@github.com:unepwcmc/unep-wcmc.org'
 set :deploy_user, 'wcmc'
 
 
+set :backup_path, "/home/#{fetch(:deploy_user)}/Backup"
+
+
+
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/#{fetch(:deploy_user)}/#{fetch(:application)}"
 
