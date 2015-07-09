@@ -11,10 +11,10 @@ set :stage, :production
 set :branch, "capistrano3"
 
 
-server "178.79.184.157", roles: %w{app web db}
+server "#{fetch(:web_server)}", roles: %w{app web db}
 
-set :application, "unepwcmc-cap3"
-set :server_name, "unepwcmc.178.79.184.157"
+set :application, "#{fetch(:application)}"
+set :server_name, "#{fetch(:application)}.#{fetch(:web_server)}"
 set :sudo_user, "wcmc"
 set :app_port, "80"
 
