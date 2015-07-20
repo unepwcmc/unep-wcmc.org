@@ -139,6 +139,28 @@ Model.new(:wcmc_website_db, 'wcmc_website_db') do
   #
   compress_with Bzip2
  ##
+  # Mail [Notifier]
+  #
+  # The default delivery method for Mail Notifiers is 'SMTP'.
+  # See the Wiki for other delivery options.
+  # https://github.com/meskyanichi/backup/wiki/Notifiers
+  #
+  notify_by Mail do |mail|
+    mail.on_success           = true
+    mail.on_warning           = true
+    mail.on_failure           = true
+    mail.from                 = "#{fetch(:smtp_user)}"
+    mail.to                   = "stuart.watson@unep-wcmc.org"
+    mail.address              = "#{fetch(:mail_server)}"
+    mail.port                 = 587
+#    mail.domain               = "your.host.name"
+    mail.user_name            = "#{fetch(:smtp_user)}"
+    mail.password             = "#{fetch(:smtp_password)}"
+    mail.authentication       = "login"
+    mail.encryption           = :starttls
+  end
+end
+end
 EOF
 
 on roles(:db) do
@@ -182,6 +204,27 @@ Model.new(:wcmc_files, 'wcmc_files') do
   #
   compress_with Bzip2
  ##
+  # Mail [Notifier]
+  #
+  # The default delivery method for Mail Notifiers is 'SMTP'.
+  # See the Wiki for other delivery options.
+  # https://github.com/meskyanichi/backup/wiki/Notifiers
+  #
+  notify_by Mail do |mail|
+    mail.on_success           = true
+    mail.on_warning           = true
+    mail.on_failure           = true
+    mail.from                 = "#{fetch(:smtp_user)}"
+    mail.to                   = "stuart.watson@unep-wcmc.org"
+    mail.address              = "#{fetch(:mail_server)}"
+    mail.port                 = 587
+#    mail.domain               = "your.host.name"
+    mail.user_name            = "#{fetch(:smtp_user)}"
+    mail.password             = "#{fetch(:smtp_password)}"
+    mail.authentication       = "login"
+    mail.encryption           = :starttls
+  end
+end
 EOF
 
 on roles(:app) do
