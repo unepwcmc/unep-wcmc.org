@@ -256,10 +256,11 @@ every 1.day, :at => '11:30 pm' do
 end
 EOF
 
-
 on roles(:db) do
 execute "mkdir -p #{fetch(:backup_path)}/config"
 upload! StringIO.new(backup_schedule), "#{fetch(:backup_path)}/config/schedule.rb"
+  end
+ end
 end
 
 
@@ -281,6 +282,8 @@ namespace :config do
   task :setup do
    on roles(:app, :db) do
     execute "cd '#{fetch(:backup_path)}' && /bin/bash -l -c '/home/#{fetch(:deploy_user)}/.rvm/gems/ruby-2.1.3/bin/whenever --update-crontab'"
+   end
   end
- end
 end
+
+
