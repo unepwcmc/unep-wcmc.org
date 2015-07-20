@@ -6,8 +6,6 @@ namespace :config do
     ask(:db_pass, 'db_pass')
     ask(:db_name, 'db_name')
     ask(:db_host, 'db_host')
-    ask(:application, 'application')
-    ask(:web_server, 'web_server')
     setup_config = <<-EOF
 #{fetch(:rails_env)}:
   adapter: postgresql
