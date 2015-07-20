@@ -24,8 +24,9 @@ gem 'rails-observers'
 gem 'tinymce-rails'
 gem 'letter_opener'
 gem 'email_validator'
-
-
+gem 'whenever', '~> 0.9.0'
+gem 'backup'
+gem 'bundle'
 
 
 gem 'devise'
