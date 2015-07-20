@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, '#{fetch(:application)}'
+set :application, 'unepwcmc-cap3'
 set :repo_url, 'git@github.com:unepwcmc/unep-wcmc.org'
 
 # Default branch is :master
@@ -53,6 +53,8 @@ set :linked_files, %w{config/database.yml config/mailer_config.yml config/max_mi
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
+set :linked_dirs, %w{log public/system}
+
 
 
 
@@ -76,5 +78,4 @@ namespace :deploy do
   after :finishing, "deploy:cleanup"
 
 end
-
 
