@@ -42,12 +42,12 @@ task :setup do
  vhost_config = <<-EOF
   server {
     listen 80;
-   server_name #{fetch(:application)}.178.79.184.157;
+   server_name #{fetch(:application)}.#{fetch(:server)};
     passenger_enabled on;
    root #{deploy_to}/current/public;
    rails_env #{fetch(:rails_env)};
     client_max_body_size 20M;
-   passenger_ruby /home/wcmc/.rvm/gems/ruby-2.0.0-p451/wrappers/ruby;
+   passenger_ruby #{fetch(:rvm_ruby_version)}/wrappers/ruby;
    gzip on;
    location ~ ^/assets/ {
    root #{deploy_to}/current/public;
