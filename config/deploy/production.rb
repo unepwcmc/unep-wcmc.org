@@ -13,8 +13,8 @@ set :branch, "capistrano3"
 
 server "178.79.184.157", roles: %w{app web db}
 
-set :application, "unepwcmc.org-cap3"
-set :server_name, "#{fetch(:application)}.#{fetch(:server)}"
+set :application, "unepwcmc-cap4"
+set :server_name, "unepwcmc.178.79.184.157"
 set :sudo_user, "wcmc"
 set :app_port, "80"
 
