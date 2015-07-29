@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, 'unepwcmc-cap4'
+set :application, 'unepwcmc'
 set :repo_url, 'git@github.com:unepwcmc/unep-wcmc.org'
 
 # Default branch is :master
