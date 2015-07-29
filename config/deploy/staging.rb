@@ -7,6 +7,52 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
+set :stage, :staging
+set :branch, "capistrano3"
+
+
+server "139.162.219.78", roles: %w{app web db}
+
+set :application, "unep-wcmc"
+set :server_name, "unepwcmc.139.162.219.78"
+set :sudo_user, "wcmc"
+set :app_port, "80"
+
+
+
+#desc "Configure VHost"
+#task :config_vhost do
+#  vhost_config =<<-EOF
+#    server {
+#      listen 80;
+#      client_max_body_size 20M;
+#      server_name #{application}.178.79.184.157;
+#      keepalive_timeout 5;
+#      root #{deploy_to}/current/public;
+#      passenger_enabled on;
+#      rails_env production;
+#      passenger_ruby /home/wcmc/.rvm/gems/ruby-2.0.0-p451/wrappers/ruby;
+      
+#      gzip on;
+#      location ~ ^/assets/ {
+#      root /home/wcmc/unepwcmc/current/public;
+#      expires max;
+#      add_header Cache-Control public;
+#      add_header ETag "";
+#      break;
+# }
+#    }
+#  EOF
+#
+#  put vhost_config, "/tmp/vhost_config"
+#  sudo "mv /tmp/vhost_config /etc/nginx/sites-available/#{application}"
+#  sudo "ln -s /etc/nginx/sites-available/#{application} /etc/nginx/sites-enabled/#{application}"
+#end
+
+#after "deploy:setup", :config_vhost
+
+
+
 
 
 # role-based syntax
@@ -59,3 +105,4 @@
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+
