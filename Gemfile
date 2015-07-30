@@ -52,6 +52,7 @@ group :development do
   gem 'debugger'
   gem 'git_pretty_accept'
 #  gem 'capistrano-slack', :git => 'https://github.com/nextupdate/capistrano-slack.git'
+  gem 'capistrano-maintenance', '~> 1.0'
 end
 
 group :doc do
