@@ -322,7 +322,7 @@ DEPENDENCIES
   capistrano (~> 3.0)
   capistrano-bundler (~> 1.1)
   capistrano-maintenance (~> 1.0)
-  capistrano-passenger
+  capistrano-passenger (~> 0.1.1)
   capistrano-rails (~> 1.1)
   capistrano-rvm (~> 0.1)
   coffee-rails (~> 4.0.0)
