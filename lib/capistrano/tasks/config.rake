@@ -57,6 +57,23 @@ server {
    add_header ETag "";
    break;
  }
+
+error_page 503 @503;
+# Return a 503 error if the maintenance page exists.
+if (-f #{deploy_to}shared/public/system/maintenance.html) {
+  return 503;
+}
+location @503 {
+  # Serve static assets if found.
+  if (-f $request_filename) {
+    break;
+  }
+  # Set root to the shared directory.
+  root #{deploy_to}/shared/public;
+  rewrite ^(.*)$ /system/maintenance.html break;
+}
+  
+  
 }
 EOF
 
