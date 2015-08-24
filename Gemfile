@@ -39,6 +39,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'terminal-notifier-guard'
   gem 'pry-remote'
+  gem 'test-unit', '~> 3.1'
 end
 
 group :development do

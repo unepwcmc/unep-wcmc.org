@@ -206,6 +206,7 @@ GEM
     pg (0.17.0)
     placeholder-gem (3.0.0.0)
       railties (>= 3.1)
+    power_assert (0.2.4)
     pry (0.9.12.4)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -278,6 +279,8 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     terminal-notifier-guard (1.5.3)
+    test-unit (3.1.3)
+      power_assert
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
@@ -341,6 +344,7 @@ DEPENDENCIES
   select2-rails
   sprockets (= 2.11.3)
   terminal-notifier-guard
+  test-unit (~> 3.1)
   tinymce-rails
   turbolinks
   uglifier (>= 1.3.0)
