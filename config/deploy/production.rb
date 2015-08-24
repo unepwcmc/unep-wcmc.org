@@ -31,7 +31,7 @@ set :app_port, "80"
 #      root #{deploy_to}/current/public;
 #      passenger_enabled on;
 #      rails_env production;
-#      passenger_ruby /home/wcmc/.rvm/gems/ruby-2.0.0-p451/wrappers/ruby;
+#      passenger_ruby /home/wcmc/.rvm/gems/ruby-2.2.2/wrappers/ruby;
       
 #      gzip on;
 #      location ~ ^/assets/ {

@@ -49,10 +49,10 @@ group :development do
   gem 'capistrano-passenger', '~> 0.1.1', require: false
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'debugger'
+  gem 'byebug'
   gem 'git_pretty_accept'
 #  gem 'capistrano-slack', :git => 'https://github.com/nextupdate/capistrano-slack.git'
-  gem 'capistrano-maintenance', '~> 1.0'
+  gem 'capistrano-maintenance', '~> 1.0', require: false
 end
 
 group :doc do
@@ -60,7 +60,6 @@ group :doc do
 end
 
 gem 'comfortable_mexican_sofa', '~> 1.11.0'
-gem 'unicorn'
 
 gem "geoip", "~> 1.6.1"
 gem "yajl-ruby", "1.2.0"
