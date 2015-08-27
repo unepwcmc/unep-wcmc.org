@@ -11,10 +11,10 @@ set :stage, :staging
 set :branch, "capistrano3"
 
 
-server "139.162.219.78", roles: %w{app web db}
+server "unep-wcmc-staging.linode.unep-wcmc.org", roles: %w{app web db}
 
 set :application, "unep-wcmc"
-set :server_name, "unepwcmc.139.162.219.78"
+set :server_name, "unepwcmc.unep-wcmc-staging.linode.unep-wcmc.org"
 set :sudo_user, "wcmc"
 set :app_port, "80"
 
