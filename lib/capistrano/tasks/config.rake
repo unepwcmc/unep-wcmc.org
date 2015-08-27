@@ -19,24 +19,39 @@ EOF
   end
 end
 
-
-
 namespace :config do
   task :setup do
-   ask(:smtp_user, 'smtp_user')
-   ask(:smtp_password, 'smtp_password')
-setup_config = <<-EOF
-user_name: #{fetch(:smtp_user)}
-password: #{fetch(:smtp_password)}
+    ask(:secret_key_base, 'secret_key_base')
+    ask(:exception_notification_email, 'exception_notification_email')
+    ask(:exception_notification_slack_webhook, 'exception_notification_slack_webhook')
+    ask(:mailer_address, 'mailer_address')
+    ask(:mailer_port, 'mailer_port')
+    ask(:mailer_domain, 'mailer_domain')
+    ask(:mailer_username, 'mailer_username')
+    ask(:mailer_password, 'mailer_password')
+    ask(:mailer_asset_host, 'mailer_asset_host')
+    ask(:mailer_host, 'mailer_host')
+    ask(:redis_url, 'redis_url')
+env_config = <<-EOF
+SECRET_KEY_BASE=#{fetch(:secret_key_base)}
+EXCEPTION_NOTIFICATION_EMAIL=#{fetch(:exception_notification_email)}
+EXCEPTION_NOTIFICATION_SLACK_WEBHOOK=#{fetch(:exception_notification_slack_webhook)}
+MAILER_ADDRESS_KEY=#{fetch(:mailer_address)}
+MAILER_PORT_KEY=#{fetch(:mailer_port)}
+MAILER_DOMAIN_KEY=#{fetch(:mailer_domain)}
+MAILER_USERNAME_KEY=#{fetch(:mailer_username)}
+MAILER_PASSWORD_KEY=#{fetch(:mailer_password)}
+MAILER_ASSET_HOST_KEY=#{fetch(:mailer_asset_host)}
+MAILER_HOST_KEY=#{fetch(:mailer_host)}
+REDIS_NAMESPACE=ORS
+REDIS_URL=#{fetch(:redis_url)}
 EOF
-  on roles(:app) do
-     execute "mkdir -p #{shared_path}/config"
-     upload! StringIO.new(setup_config), "#{shared_path}/config/mailer_config.yml"
+    on roles(:app) do
+      execute "mkdir -p #{shared_path}"
+      upload! StringIO.new(env_config), "#{shared_path}/.env"
     end
   end
 end
-
-
 
 namespace :config do
 task :setup do

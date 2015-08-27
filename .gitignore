@@ -4,7 +4,6 @@
 tmp/**
 log/**
 public/system
-config/mailer_config.yml
 config/database.yml
 config/cartodb_config.yml
 

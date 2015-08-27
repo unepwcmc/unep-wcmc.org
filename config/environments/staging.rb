@@ -1,3 +1,4 @@
+secrets = Rails.application.secrets.mailer
 UnepWcmcOrg::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -69,16 +70,16 @@ UnepWcmcOrg::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.delivery_method = :smtp #for the mac apparently run::sudo postfix start
-  config.action_mailer.asset_host = "http://beta.unep-wcmc.org"
-  config.action_mailer.default_url_options = { :host => "beta.unep-wcmc.org" }
+  config.action_mailer.asset_host = secrets['asset_host']
+  config.action_mailer.default_url_options = { :host => secrets['host'] }
   config.action_mailer.smtp_settings = {
     :enable_starttls_auto => true,
-    :address => "pod51017.outlook.com",
-    :port => 587,
-    :domain => "unep-wcmc.org",
+    :address => secrets['address'],
+    :port => secrets['port'],
+    :domain => secrets['domain'],
     :authentication => :login,
-    :user_name => MAILER_CONFIG['user_name'],
-    :password => MAILER_CONFIG['password']
+    :user_name => secrets['username'],
+    :password => secrets['password']
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

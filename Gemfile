@@ -27,8 +27,8 @@ gem 'email_validator'
 gem 'whenever', '~> 0.9.0'
 gem 'backup'
 gem 'bundle'
-
-
+gem 'rails-secrets' # should be obsolete after rails upgrade
+gem 'dotenv-rails'
 gem 'devise'
 
 group :development, :test do
