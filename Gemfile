@@ -30,6 +30,8 @@ gem 'bundle'
 gem 'rails-secrets' # should be obsolete after rails upgrade
 gem 'dotenv-rails'
 gem 'devise'
+gem 'test-unit', '~> 3.1' # annoyingly, rails console won't start without it in staging / production
+
 
 group :production, :staging do
   gem 'exception_notification', :git => 'https://github.com/smartinez87/exception_notification.git'
@@ -44,7 +46,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'terminal-notifier-guard'
   gem 'pry-remote'
-  gem 'test-unit', '~> 3.1'
 end
 
 group :development do
