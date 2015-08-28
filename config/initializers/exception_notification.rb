@@ -1,6 +1,5 @@
 if Rails.env.staging? || Rails.env.production?
   require 'exception_notification/rails'
-  require 'exception_notification/sidekiq'
   require 'yaml'
 
   ExceptionNotification.configure do |config|
