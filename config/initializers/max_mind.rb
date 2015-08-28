@@ -1,3 +1,2 @@
 # Load config for maxMind
-
-GEO_IP_CONFIG = YAML.load_file("#{Rails.root}/config/max_mind.yml")
+GEO_IP_CONFIG = Rails.application.secrets.max_mind

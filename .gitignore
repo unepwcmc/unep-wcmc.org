@@ -5,8 +5,4 @@ tmp/**
 log/**
 public/system
 config/database.yml
-config/cartodb_config.yml
-
-# App specific Max Mind config
-config/max_mind.yml
 config/secrets.yml

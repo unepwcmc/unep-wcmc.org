@@ -8,7 +8,6 @@ before_script:
   - psql -c 'create database unep_wcmc_test' -U postgres
   - cp config/database.yml.example config/database.yml
   - cp config/secrets.yml.example config/secrets.yml
-  - cp config/max_mind.yml.example config/max_mind.yml
   - RAILS_ENV=test bundle exec rake db:migrate
 notifications:
   slack: wcmc:g3eTH5tO8AusrAVOxP5gDEMM

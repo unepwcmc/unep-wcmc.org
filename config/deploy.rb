@@ -46,7 +46,7 @@ set :pty, true
 #set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
 
-set :linked_files, %w{config/database.yml config/max_mind.yml .env}
+set :linked_files, %w{config/database.yml .env}
 
 
 

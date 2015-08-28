@@ -1,9 +1,3 @@
-== unep-wcmc.org
-
-The new unep-wcmc.org website - currently in development.
-
-http://beta.unep-wcmc.org
-
 ==== Quick setup guide
   bundle install
   rake db:migrate
@@ -20,10 +14,17 @@ into your local app.
 
 You will need to have PostgreSQL and ImageMagick installed.
 
-==== MaxMind
+==== Configuration: secrets.yml & .env
 
-You will need to setup a config/max_mind.yml file with the locations of your MaxMind DB. 
-An example of this is in config/max_mind.yml.example.
+We use the secrets.yml file to store configuration. Any sensitive information (particularly in staging & production environments) should not be included directly in that file, but via a reference to an environment variable defined on the target machine. We use .env files (via the dotenv gem) to store the environment variable.
+
+===== Email
+
+You will need to provide mailer connection details in the secrets.yml / .env file.
+
+===== MaxMind
+
+You will need to provide locations of the MaxMind DB in the secrets.yml / .env file.
 
 The GeoIP.dat file can be found here:
 Dropbox/Informatics/MaxMind_IP/GeoIP/GeoIP.dat

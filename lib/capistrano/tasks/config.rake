@@ -45,6 +45,7 @@ MAILER_ASSET_HOST_KEY=#{fetch(:mailer_asset_host)}
 MAILER_HOST_KEY=#{fetch(:mailer_host)}
 REDIS_NAMESPACE=ORS
 REDIS_URL=#{fetch(:redis_url)}
+MAX_MIND_COUNTRY_DB=/usr/share/GeoIP/GeoIP.dat
 EOF
     on roles(:app) do
       execute "mkdir -p #{shared_path}"
@@ -100,18 +101,6 @@ EOF
     end
   end
 end
-
-  
-
-namespace :config do
-task :setup do
-  on roles(:app) do
-   execute "echo 'country_db : '/usr/share/GeoIP/GeoIP.dat'' >> #{shared_path}/config/max_mind.yml"
-  end
- end
-end
-
-
 
 namespace :config do
 task :setup do
