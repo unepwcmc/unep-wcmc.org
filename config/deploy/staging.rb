@@ -11,7 +11,7 @@ set :stage, :staging
 set :branch, "capistrano3"
 
 
-server "unep-wcmc-staging.linode.unep-wcmc.org", roles: %w{app web db}
+server "unep-wcmc-staging.linode.unep-wcmc.org", user: 'wcmc', roles: %w{app web db}
 
 set :application, "unep-wcmc"
 set :server_name, "unepwcmc.unep-wcmc-staging.linode.unep-wcmc.org"
