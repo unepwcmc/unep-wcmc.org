@@ -110,7 +110,7 @@
           %li= link_to "Vacancies", "/vacancies", :class => if @cms_site && @cms_site.identifier == 'vacancies' && @cms_page.slug == 'index' then 'active' end
           %li= link_to "The Team", "/employees", :class => if @cms_site && @cms_site.identifier == 'employees' then 'active' end
           %li= link_to "Contact", "/about-us/contact", :class => if @cms_site && @cms_site.identifier == 'about-us' && @cms_page.slug == 'contact' then 'active' end
-          %li= link_to "Terms & Conditions", "http://beta.unep-wcmc.org/terms-and-conditions"
+          %li= link_to "Terms & Conditions", "/terms-and-conditions"
 
         %a{ :href => "http://unep.org", :title => "UNEP" }
         %a#unep{ :href => "http://www.unep.org", :title => "UNEP website" }
