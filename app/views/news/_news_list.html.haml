@@ -6,7 +6,7 @@
         - if page_file(:news_img, page).present?
           %img{:src => page_file(:news_img, page).file.url, :width => "", :height => ""}
       %h2.smaller
-        %a.heading{:href => page.full_path}
+        %a.heading{:href => page.url}
           = block_content(:news_header,page)
       %p
         = raw block_content(:short_description, page)
