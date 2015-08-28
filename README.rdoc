@@ -26,6 +26,10 @@ You will need to provide mailer connection details in the secrets.yml / .env fil
 
 You will need to provide locations of the MaxMind DB in the secrets.yml / .env file.
 
+===== Exception notifications
+
+You will need to configure email / slack notifications in the secrets.yml / .env file.
+
 The GeoIP.dat file can be found here:
 Dropbox/Informatics/MaxMind_IP/GeoIP/GeoIP.dat
 

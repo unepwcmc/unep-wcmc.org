@@ -31,6 +31,11 @@ gem 'rails-secrets' # should be obsolete after rails upgrade
 gem 'dotenv-rails'
 gem 'devise'
 
+group :production, :staging do
+  gem 'exception_notification', :git => 'https://github.com/smartinez87/exception_notification.git'
+  gem 'slack-notifier', '~> 1.0'
+end
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'guard'
