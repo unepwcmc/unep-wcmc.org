@@ -101,17 +101,6 @@ function ($scope, $sce) {
     $scope.setHiddenDatasets();
   }
 
-  $scope.sortDatesetsToBeDisplayed = function () {
-    if ($scope.sortOrder === 0) {
-      $scope.datasetsToBeDisplayed = _.sortBy(
-        $scope.datasetsToBeDisplayed, function(dataset) {
-          return dataset.publication_date_year_epoch;
-      }).reverse();
-    } else if ($scope.sortOrder === 1) {
-      $scope.datasetsToBeDisplayed = _.sortBy($scope.datasetsToBeDisplayed, "title");
-    }
-  }
-
   var initDatasets = function () {
     _.each($scope.datasets, function (dataset) {
       if (dataset.publication_date_year !== '') {
