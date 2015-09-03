@@ -83,7 +83,6 @@ function ($scope, $sce) {
     );
     updateActiveContentTypesFromNames(activeContentTypeNames);
     $scope.sortDatesets();
-    $scope.setHiddenDatasets();
   }
 
   $scope.sortDatesets = function () {
@@ -99,6 +98,7 @@ function ($scope, $sce) {
     } else if ($scope.sortOrder === 1) {
       $scope.activeDatasets = _.sortBy($scope.activeDatasets, "title");
     }
+    $scope.setHiddenDatasets();
   }
 
   $scope.sortDatesetsToBeDisplayed = function () {
@@ -133,7 +133,6 @@ function ($scope, $sce) {
     for (var i=0; i < 10 && $scope.hiddenDatasets.length > 0; i++) {
       var datasetItem = $scope.hiddenDatasets.shift();
       $scope.datasetsToBeDisplayed.push(datasetItem);
-      $scope.sortDatesetsToBeDisplayed();
     }
   }
 
