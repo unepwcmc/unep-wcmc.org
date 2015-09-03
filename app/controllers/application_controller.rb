@@ -6,4 +6,10 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     admin_cms_path
   end
+
+  # this end-point to be used to test exception notifier
+  def test_exception_notifier
+    raise 'This is a test. This is only a test.'
+  end
+
 end

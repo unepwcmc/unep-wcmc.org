@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.11'
+
+gem 'rails', '4.0.13'
 gem 'sprockets', '2.11.3' # to reconcile CVE-2014-7819 and a breaking change in sprockets 2.12
 gem 'pg'
 gem 'sass-rails', '~> 4.0.0'
@@ -23,8 +24,19 @@ gem 'rails-observers'
 gem 'tinymce-rails'
 gem 'letter_opener'
 gem 'email_validator'
-
+gem 'whenever', '~> 0.9.0'
+gem 'backup'
+gem 'bundle'
+gem 'rails-secrets' # should be obsolete after rails upgrade
+gem 'dotenv-rails'
 gem 'devise'
+gem 'test-unit', '~> 3.1' # annoyingly, rails console won't start without it in staging / production
+
+
+group :production, :staging do
+  gem 'exception_notification', :git => 'https://github.com/smartinez87/exception_notification.git'
+  gem 'slack-notifier', '~> 1.0'
+end
 
 group :development, :test do
   gem 'rspec-rails'
@@ -37,11 +49,17 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capistrano', '~> 3.0', require: false
+  gem 'capistrano-rvm',   '~> 0.1', require: false
+  gem 'capistrano-rails',   '~> 1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
+  gem 'capistrano-passenger', '~> 0.1.1', require: false
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'debugger'
+  gem 'byebug'
   gem 'git_pretty_accept'
-  gem 'capistrano-slack', :git => 'https://github.com/nextupdate/capistrano-slack.git'
+#  gem 'capistrano-slack', :git => 'https://github.com/nextupdate/capistrano-slack.git'
+  gem 'capistrano-maintenance', '~> 1.0', require: false
 end
 
 group :doc do
@@ -49,10 +67,7 @@ group :doc do
 end
 
 gem 'comfortable_mexican_sofa', '~> 1.11.0'
-gem 'unicorn'
-gem 'capistrano', '~> 2.15.0', group: :development
-gem 'rvm-capistrano'
 
-gem "geoip", "~> 1.3.5"
+gem "geoip", "~> 1.6.1"
 gem "yajl-ruby", "1.2.0"
 

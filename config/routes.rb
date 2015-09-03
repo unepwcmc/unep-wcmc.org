@@ -66,6 +66,8 @@ UnepWcmcOrg::Application.routes.draw do
     resources :employees, only: [:index]
   end
 
+  get 'test_exception_notifier', controller: :application, action: :test_exception_notifier
+
   comfy_route :cms_admin, :path => '/admin'
   comfy_route :cms, :path => '/', :sitemap => true
 end
