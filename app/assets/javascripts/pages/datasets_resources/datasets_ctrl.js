@@ -117,7 +117,7 @@ function ($scope, $sce) {
       if (dataset.publication_date_year !== '') {
         dataset.publication_date_year_epoch = Date.parse(dataset.publication_date_year);
       } else if (dataset.publication_date !== '') {
-        dataset.publication_date_year_epoch = Date.parse(new Date(dataset.publication_date).getFullYear());
+        dataset.publication_date_year_epoch = Date.parse(new Date(dataset.publication_date));
       } else {
         dataset.publication_date_year_epoch = 1;
       }
