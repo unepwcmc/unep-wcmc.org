@@ -8,7 +8,7 @@
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
 set :stage, :production
-set :branch, "capistrano3"
+set :branch, "master"
 
 
 server "unep-wcmc-production.linode.unep-wcmc.org", user: 'wcmc', roles: %w{app web db}
