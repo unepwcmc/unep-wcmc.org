@@ -92,14 +92,9 @@ function ($scope, $sce) {
         $scope.activeDatasets.splice(0, 0, $scope.activeDatasets.splice(from, 1)[0]);
       }
     } else if ($scope.sortOrder === 0) {
-      $scope.activeDatasets = _($scope.activeDatasets).chain()
-      .sortBy(function(dataset) {
-        return dataset.title;
-      })
-      .reverse()
-      .sortBy(function(dataset) {
+      $scope.activeDatasets = _.sortBy($scope.activeDatasets, function(dataset) {
         return dataset.publication_date_year_epoch;
-      }).reverse().value();
+      }).reverse();
     } else if ($scope.sortOrder === 1) {
       $scope.activeDatasets = _.sortBy($scope.activeDatasets, "title");
     }
