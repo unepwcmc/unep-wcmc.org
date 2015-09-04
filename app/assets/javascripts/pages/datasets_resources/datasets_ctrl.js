@@ -83,7 +83,6 @@ function ($scope, $sce) {
     );
     updateActiveContentTypesFromNames(activeContentTypeNames);
     $scope.sortDatesets();
-    $scope.setHiddenDatasets();
   }
 
   $scope.sortDatesets = function () {
@@ -99,17 +98,7 @@ function ($scope, $sce) {
     } else if ($scope.sortOrder === 1) {
       $scope.activeDatasets = _.sortBy($scope.activeDatasets, "title");
     }
-  }
-
-  $scope.sortDatesetsToBeDisplayed = function () {
-    if ($scope.sortOrder === 0) {
-      $scope.datasetsToBeDisplayed = _.sortBy(
-        $scope.datasetsToBeDisplayed, function(dataset) {
-          return dataset.publication_date_year_epoch;
-      }).reverse();
-    } else if ($scope.sortOrder === 1) {
-      $scope.datasetsToBeDisplayed = _.sortBy($scope.datasetsToBeDisplayed, "title");
-    }
+    $scope.setHiddenDatasets();
   }
 
   var initDatasets = function () {
@@ -117,7 +106,7 @@ function ($scope, $sce) {
       if (dataset.publication_date_year !== '') {
         dataset.publication_date_year_epoch = Date.parse(dataset.publication_date_year);
       } else if (dataset.publication_date !== '') {
-        dataset.publication_date_year_epoch = Date.parse(new Date(dataset.publication_date).getFullYear());
+        dataset.publication_date_year_epoch = Date.parse(new Date(dataset.publication_date));
       } else {
         dataset.publication_date_year_epoch = 1;
       }
@@ -133,7 +122,6 @@ function ($scope, $sce) {
     for (var i=0; i < 10 && $scope.hiddenDatasets.length > 0; i++) {
       var datasetItem = $scope.hiddenDatasets.shift();
       $scope.datasetsToBeDisplayed.push(datasetItem);
-      $scope.sortDatesetsToBeDisplayed();
     }
   }
 
