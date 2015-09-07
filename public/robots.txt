@@ -1,0 +1,12 @@
+User-Agent: *
+Disallow: /
+Allow: /about-us
+Allow: /featured-projects
+Allow: /resources-and-data
+Allow: /expertise
+Allow: /employees
+Allow: /vacancies
+Allow: /news
+Allow: /policies
+Allow: /wcmc
+Allow: /terms-and-conditions
