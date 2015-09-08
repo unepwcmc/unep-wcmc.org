@@ -8,6 +8,7 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '~>4'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'compass-rails', '~> 1.1.3'
@@ -71,7 +72,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'comfortable_mexican_sofa', '~> 1.11.0'
+gem 'comfortable_mexican_sofa', '~> 1.11.2'
 
 gem "geoip", "~> 1.6.1"
 gem "yajl-ruby", "1.2.0"
