@@ -4,7 +4,7 @@ sudo: false
 rvm:
   - 2.2.2
 addons:
-  postgresql: 9.3
+  postgresql: 9.4
   code_climate:
     repo_token: 18150ec1de29b6278ac619e038b49a2e12ad556813b4827950c9737cbb9776e0
 before_script:
