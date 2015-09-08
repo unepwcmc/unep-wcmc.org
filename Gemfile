@@ -48,6 +48,11 @@ group :development, :test do
   gem 'pry-remote'
 end
 
+group :test do
+  gem 'codeclimate-test-reporter', require: nil
+  gem 'simplecov', '>=0.9', require: false
+end
+
 group :development do
   gem 'capistrano', '~> 3.0', require: false
   gem 'capistrano-rvm',   '~> 0.1', require: false
