@@ -2,7 +2,7 @@
   #form-save.box
     %label.checkbox.inline
       %input{:type => 'checkbox'}
-      = ::Cms::Page.human_attribute_name(:is_published)
+      = ::Comfy::Cms::Page.human_attribute_name(:is_published)
     %button.btn.btn-small.btn-primary.pull-right
   = render :partial => 'admin/cms/files/index'
 
@@ -15,7 +15,7 @@
   - unless @page.new_record?
     = form.text_field :full_path, :id => 'full-path', :disabled => true
 
-- if (options = ::Cms::Page.options_for_select(@site, @page)).present? && @site.identifier == 'expertise'
+- if (options = ::Comfy::Cms::Page.options_for_select(@site, @page)).present? && @site.identifier == 'expertise'
   = form.select :parent_id, options
 
 = render 'admin/cms/partials/page_form_inner', :object => form

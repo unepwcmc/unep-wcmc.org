@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/anjlab/bootstrap-rails.git
-  revision: 99d4f2a5cb5423a6f1ac4e10ba96bfe497dcaebe
-  specs:
-    anjlab-bootstrap-rails (3.0.3.0)
-      railties (>= 3.0)
-      sass (>= 3.2)
-
-GIT
   remote: https://github.com/smartinez87/exception_notification.git
   revision: b0d222b11b185b20fddabb0ba553cb4d5f6d95b9
   specs:
@@ -55,6 +47,9 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.1.1.1)
+      sass (~> 3.2)
+    bootstrap_form (2.1.1)
     builder (3.1.4)
     bundle (0.0.1)
       bundler
@@ -97,11 +92,12 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     colorize (0.7.7)
-    comfortable_mexican_sofa (1.11.2)
+    comfortable_mexican_sofa (1.12.0)
       active_link_to (>= 1.0.0)
+      bootstrap-sass (~> 3.1.0)
+      bootstrap_form (~> 2.1.1)
       codemirror-rails (>= 3.0.0)
       coffee-rails (>= 3.1.0)
-      formatted_form (>= 2.1.0)
       haml-rails (>= 0.3.0)
       jquery-rails (>= 3.0.0)
       jquery-ui-rails (>= 4.0.0)
@@ -110,7 +106,8 @@ GEM
       paperclip (>= 3.4.0)
       rails (~> 4.0)
       rails-i18n (~> 4.0.0)
-      sass-rails (>= 3.1.0)
+      sass-rails (>= 4.0.3)
+      tinymce-rails (>= 4.0.0)
     compass (0.12.2)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
@@ -146,8 +143,6 @@ GEM
     font-awesome-rails (4.0.3.0)
       railties (>= 3.2, < 5.0)
     formatador (0.2.4)
-    formatted_form (2.1.2)
-      rails (>= 3.1)
     fssm (0.2.10)
     geoip (1.6.1)
     git (1.2.6)
@@ -325,7 +320,7 @@ GEM
     thread_safe (0.3.5)
     tilt (1.4.1)
     timers (1.1.0)
-    tinymce-rails (4.0.12)
+    tinymce-rails (4.2.5)
       railties (>= 3.1.1)
     turbolinks (1.3.1)
       coffee-rails
@@ -345,7 +340,6 @@ PLATFORMS
 
 DEPENDENCIES
   angularjs-rails
-  anjlab-bootstrap-rails!
   backup
   better_errors
   binding_of_caller
@@ -359,7 +353,7 @@ DEPENDENCIES
   capistrano-rvm (~> 0.1)
   codeclimate-test-reporter
   coffee-rails (~> 4.0.0)
-  comfortable_mexican_sofa (~> 1.11.2)
+  comfortable_mexican_sofa (= 1.12.0)
   compass-rails (~> 1.1.3)
   devise
   dotenv-rails

@@ -1,3 +1,3 @@
 - @cms_site.pages.root.children.published.each do |page|
   %li{ :class => (@cms_page == page ? 'active' : '') }
-    = link_to cms_page_content(:name, page), page.url + '#data_policy'
+    = link_to cms_block_content(:name, page), page.url + '#data_policy'

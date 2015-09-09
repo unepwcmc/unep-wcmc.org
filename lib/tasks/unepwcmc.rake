@@ -14,7 +14,7 @@ namespace :unepwcmc do
       {label: "policies", path: "policies"}
     ]
     sites.each do |site|
-      Cms::Site.create(label: site[:label], identifier: site[:label], path: site[:path], hostname: hostname)
+      Comfy::Cms::Site.create(label: site[:label], identifier: site[:label], path: site[:path], hostname: hostname)
       ENV['FROM'] = site[:label]
       ENV['TO'] = site[:label]
       Rake::Task["comfortable_mexican_sofa:fixtures:import"].execute

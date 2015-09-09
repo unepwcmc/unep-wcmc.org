@@ -1,4 +1,4 @@
-class Admin::ProgrammesController < Admin::Cms::BaseController
+class Admin::ProgrammesController < Comfy::Admin::Cms::BaseController
 
   before_action :build_programme,  :only => [:new, :create]
   before_action :load_programme,   :only => [:edit, :update, :destroy]

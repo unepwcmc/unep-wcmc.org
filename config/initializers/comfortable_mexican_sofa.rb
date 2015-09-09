@@ -102,7 +102,8 @@ ComfortableMexicanSofa.configure do |config|
       'beta.unep-wcmc.org',
       'www2.unep-wcmc.org',
       'unep-wcmc-production.linode.unep-wcmc.org',
-      'unep-wcmc-staging.linode.unep-wcmc.org'
+      'unep-wcmc-staging.linode.unep-wcmc.org',
+      'localhost:3000'
     ]
   }
 

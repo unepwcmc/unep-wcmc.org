@@ -13,8 +13,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'compass-rails', '~> 1.1.3'
 gem 'font-awesome-rails'
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-                              :github => 'anjlab/bootstrap-rails'
+# gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+#                               :github => 'anjlab/bootstrap-rails'
 gem 'select2-rails'
 gem 'modernizr-rails'
 gem 'placeholder-gem'
@@ -72,7 +72,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'comfortable_mexican_sofa', '~> 1.11.2'
+gem 'comfortable_mexican_sofa', '1.12.0'
 
 gem "geoip", "~> 1.6.1"
 gem "yajl-ruby", "1.2.0"

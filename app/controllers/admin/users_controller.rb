@@ -1,4 +1,4 @@
-class Admin::UsersController < Admin::Cms::BaseController
+class Admin::UsersController < Comfy::Admin::Cms::BaseController
 
   before_action :authorize_superadmin!
   before_action :build_user,  :only => [:new, :create]

@@ -17,7 +17,7 @@ class Admin::NewsItemsController < Admin::PageResourcesController
   end
 
   def set_news_list
-    @news_list = Cms::Site.find_by_identifier('news').pages.root.children.published
+    @news_list = Comfy::Cms::Site.find_by_identifier('news').pages.root.children.published
   end
 
 end

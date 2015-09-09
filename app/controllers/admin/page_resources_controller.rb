@@ -5,7 +5,7 @@
 # defining CMS site name, name of the CMS layout to be used as default for new resources
 # and method for saving custom resources.
 
-class Admin::PageResourcesController < Admin::Cms::PagesController
+class Admin::PageResourcesController < Comfy::Admin::Cms::PagesController
   skip_before_filter :load_admin_site
   prepend_before_action :set_site
   before_action :set_editions
@@ -80,6 +80,6 @@ class Admin::PageResourcesController < Admin::Cms::PagesController
   end
 
   def set_site
-    @site = ::Cms::Site.find_by_identifier(site_identifier)
+    @site = ::Comfy::Cms::Site.find_by_identifier(site_identifier)
   end
 end

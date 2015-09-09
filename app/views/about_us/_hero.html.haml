@@ -1,4 +1,4 @@
-.hero#about{ :style => "background: url(#{cms_page_content(:about_us_background, about_us_page).try(:file).try(:url)}) no-repeat center; background-size: cover" }
+.hero#about{ :style => "background: url(#{cms_block_content(:about_us_background, about_us_page).try(:file).try(:url)}) no-repeat center; background-size: cover" }
   .heading
-    %h1= cms_page_content(:heading, about_us_page)
-    %h2.shorter= cms_page_content(:heading_tagline, about_us_page)
+    %h1= cms_block_content(:heading, about_us_page)
+    %h2.shorter= cms_block_content(:heading_tagline, about_us_page)

@@ -1,9 +1,9 @@
-- Cms::Site.find_by_identifier('vacancies').pages.root.children.published.each do |page|
+- Comfy::Cms::Site.find_by_identifier('vacancies').pages.root.children.published.each do |page|
   %section.list
     %h2.smaller
       = link_to(page.url) do
-        = cms_page_content(:position_title, page)
+        = cms_block_content(:position_title, page)
     %p
-      = cms_page_content(:position_excerpt, page)
+      = cms_block_content_render(:position_excerpt, page)
     %p.link
       = link_to "Apply", new_form_submission_path(Form.find_by_vacancy_id(page.id))

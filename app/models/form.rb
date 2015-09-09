@@ -5,7 +5,7 @@
 # and FileFieldSubmissions is built, with the shape of a corresponding Form.
 
 class Form < ActiveRecord::Base
-  belongs_to :vacancy, class_name: "Cms::Page"
+  belongs_to :vacancy, class_name: "Comfy::Cms::Page"
   has_many :submissions, dependent: :destroy
   has_many :fields, dependent: :destroy, inverse_of: :form
   has_many :attachments, dependent: :destroy, inverse_of: :form

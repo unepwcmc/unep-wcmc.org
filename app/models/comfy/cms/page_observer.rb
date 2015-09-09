@@ -1,4 +1,4 @@
-class Cms::PageObserver < ActiveRecord::Observer
+class Comfy::Cms::PageObserver < ActiveRecord::Observer
   def before_destroy(page)
     destroy_employments_for(page)
   end

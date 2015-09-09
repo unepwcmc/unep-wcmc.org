@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Cms::PageObserver do
+describe Comfy::Cms::PageObserver do
   before do
     @project = create(:featured_project)
     @employee = create(:employee)
