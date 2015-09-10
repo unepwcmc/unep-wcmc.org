@@ -72,7 +72,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'comfortable_mexican_sofa', '1.12.0'
+gem 'comfortable_mexican_sofa', '1.12.1'
 
 gem "geoip", "~> 1.6.1"
 gem "yajl-ruby", "1.2.0"
