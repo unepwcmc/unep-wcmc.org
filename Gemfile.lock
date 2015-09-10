@@ -98,7 +98,7 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     colorize (0.7.7)
-    comfortable_mexican_sofa (1.12.3)
+    comfortable_mexican_sofa (1.12.4)
       active_link_to (>= 1.0.0)
       bootstrap-sass (>= 3.2.0)
       bootstrap_form (>= 2.2.0)
@@ -107,7 +107,6 @@ GEM
       haml-rails (>= 0.3.0)
       jquery-rails (>= 3.0.0)
       jquery-ui-rails (>= 5.0.0)
-      kaminari (>= 0.14.0)
       kramdown (>= 1.0.0)
       paperclip (>= 4.0.0)
       plupload-rails (>= 1.2.1)
@@ -363,7 +362,7 @@ DEPENDENCIES
   capistrano-rvm (~> 0.1)
   codeclimate-test-reporter
   coffee-rails (~> 4.0.0)
-  comfortable_mexican_sofa (= 1.12.3)
+  comfortable_mexican_sofa (= 1.12.4)
   compass-rails (~> 1.1.3)
   devise
   dotenv-rails
@@ -378,6 +377,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 1.2)
   jquery-rails
+  kaminari
   letter_opener
   modernizr-rails
   pg
