@@ -70,7 +70,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'comfortable_mexican_sofa', '1.12.4'
+gem 'comfortable_mexican_sofa', '1.12.6'
 gem 'kaminari'
 
 gem "geoip", "~> 1.6.1"
