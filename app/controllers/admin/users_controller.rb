@@ -63,7 +63,7 @@ protected
 
   def authorize_superadmin!
     unless current_user.is_superadmin
-      redirect_to admin_cms_path
+      redirect_to comfy_admin_cms_path
     end
   end
 end

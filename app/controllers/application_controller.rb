@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(resource)
-    admin_cms_path
+    comfy_admin_cms_path
   end
 
   # this end-point to be used to test exception notifier
