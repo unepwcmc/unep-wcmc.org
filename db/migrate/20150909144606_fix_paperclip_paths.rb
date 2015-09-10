@@ -6,7 +6,10 @@ class FixPaperclipPaths < ActiveRecord::Migration
       FileUtils.mv(src_dir, target_dir)
     end
     Comfy::Cms::Block.where("content LIKE '%system/cms%'").each do |b|
-      b.update_attribute(:content, b.content.gsub(/system\/cms/, 'system/comfy/cms'))
+      b.update_attribute(:content, b.content.gsub('system/cms', 'system/comfy/cms'))
+    end
+    Comfy::Cms::Block.where("content LIKE '%../../../system%'").each do |b|
+      b.update_attribute(:content, b.content.gsub('../../../system', '/system'))
     end
     execute "UPDATE comfy_cms_pages SET content_cache = NULL"
   end
