@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.0.13'
+gem 'rails', '4.1.13'
 gem 'sprockets', '2.11.3' # to reconcile CVE-2014-7819 and a breaking change in sprockets 2.12
 gem 'pg'
 gem 'sass-rails', '~> 4.0.0'
@@ -27,7 +27,6 @@ gem 'email_validator'
 gem 'whenever', '~> 0.9.0'
 gem 'backup'
 gem 'bundle'
-gem 'rails-secrets' # should be obsolete after rails upgrade
 gem 'dotenv-rails'
 gem 'devise'
 gem 'test-unit', '~> 3.1' # annoyingly, rails console won't start without it in staging / production
