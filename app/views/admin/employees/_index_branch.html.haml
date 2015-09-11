@@ -3,14 +3,15 @@
 %li{:id => dom_id(page), "ng-controller" => "ListCtrl", "ng-show" => "matchSearch()", "ng-init" => "init('#{page.label.downcase}')"}
   .item
     .icon{:class => page.is_published?? 'published' : 'draft'}
+      .dragger{ "ng-if" => "!pattern" }
 
     .btn-group
-      = link_to t('.edit'), edit_admin_dataset_path(page), :class => 'btn btn-small'
-      = link_to t('.delete'), admin_dataset_path(page), :method => :delete, :data => {:confirm => "Are you sure?"}, :class => 'btn btn-small btn-danger'
+      = link_to t('.edit'), edit_admin_employee_path(page), :class => 'btn btn-sm btn-default'
+      = link_to t('.delete'), admin_employee_path(page), :method => :delete, :data => {:confirm => "Are you sure?"}, :class => 'btn btn-sm btn-danger'
 
     .item-content
       .item-title
-        = link_to page.label, edit_admin_dataset_path(page), :class => 'item-label'
+        = link_to page.label, edit_admin_employee_path(page), :class => 'item-label'
       .item-meta
         = link_to page.url, page.url, :target => '_blank'
         = render partial: "editions", locals: {page: page}

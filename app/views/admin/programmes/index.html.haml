@@ -1,5 +1,5 @@
 .page-header
-  = link_to 'New Programme', new_admin_programme_path, :class => 'btn pull-right'
+  = link_to 'New Programme', new_admin_programme_path, :class => 'btn btn-default pull-right'
   %h2= 'Programmes'
 
 %p Please note that you can't delete programmes that have employees. If you want to delete a programme, delete it's employees first or move them to another programme.
@@ -22,7 +22,7 @@
       %td= programme.email
       %td
         .btn-group
-          = link_to 'Edit', edit_admin_programme_path(programme), class: 'btn btn-small'
-          = link_to 'Delete', admin_programme_path(programme), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small btn-danger', disabled: programme.has_employees?
+          = link_to 'Edit', edit_admin_programme_path(programme), class: 'btn btn-sm btn-default'
+          = link_to 'Delete', admin_programme_path(programme), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger', disabled: programme.has_employees?
 
 = paginate @programmes

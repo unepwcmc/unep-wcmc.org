@@ -1,14 +1,14 @@
 .page-header
-  = link_to "Add dataset", new_admin_dataset_path, :class => 'btn pull-right'
+  = link_to "Add dataset", new_admin_dataset_path, :class => 'btn btn-default pull-right'
   %h2 Datasets
 
 = comfy_form_for @page, :as => :page, url: admin_dataset_path(@page), :html => {:multipart => true} do |form|
   = render form
 
-= render 'admin/cms/partials/pages_before'
+= render 'comfy/admin/cms/partials/pages_before'
 
 %ul.list{"ng-app" => "SearchableList"}
   %input{:type => "text", "ng-model" => "pattern", :placeholder => "Search Datasets"}
   = render :partial => 'index_branch', :collection => @pages, :editions => @editions
 
-= render 'admin/cms/partials/pages_after'
+= render 'comfy/admin/cms/partials/pages_after'

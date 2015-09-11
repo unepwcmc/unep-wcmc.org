@@ -1,8 +1,8 @@
 .page-header
-  = link_to "Add featured project", new_admin_featured_project_path, :class => 'btn pull-right'
+  = link_to "Add featured project", new_admin_featured_project_path, :class => 'btn btn-default pull-right'
   %h2 Featured projects
 
-= render 'admin/cms/partials/pages_before'
+= render 'comfy/admin/cms/partials/pages_before'
 
 = comfy_form_for @page, :as => :page, url: admin_featured_project_path(@page), :html => {:multipart => true} do |form|
   = render form
@@ -15,4 +15,4 @@
 %ul.list.sortable
   = render :partial => 'index_branch', :collection => @pages.where(is_top_project: false)
 
-= render 'admin/cms/partials/pages_after'
+= render 'comfy/admin/cms/partials/pages_after'

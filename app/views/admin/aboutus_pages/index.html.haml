@@ -4,9 +4,9 @@
 = comfy_form_for @page, :as => :page, url: admin_aboutus_page_path(@page), :html => {:multipart => true} do |form|
   = render form
 
-= render 'admin/cms/partials/pages_before'
+= render 'comfy/admin/cms/partials/pages_before'
 
 %ul.list.sortble
   = render :partial => 'index_branch', :collection => @pages, :editions => @editions
 
-= render 'admin/cms/partials/pages_after'
+= render 'comfy/admin/cms/partials/pages_after'

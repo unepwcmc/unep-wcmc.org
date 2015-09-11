@@ -1,13 +1,13 @@
 .page-header
-  = link_to "Add policy", new_admin_policy_path, :class => 'btn pull-right'
+  = link_to "Add policy", new_admin_policy_path, :class => 'btn btn-default pull-right'
   %h2 Policies
 
 = comfy_form_for @page, :as => :page, url: admin_policy_path(@page), :html => {:multipart => true} do |form|
   = render form
 
-= render 'admin/cms/partials/pages_before'
+= render 'comfy/admin/cms/partials/pages_before'
 
 %ul.list
   = render :partial => 'index_branch', :collection => @pages, :editions => @editions
 
-= render 'admin/cms/partials/pages_after'
+= render 'comfy/admin/cms/partials/pages_after'

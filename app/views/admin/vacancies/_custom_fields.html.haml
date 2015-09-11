@@ -22,7 +22,7 @@
 
   .control-group
     .controls
-      %input.btn{:type => "button", :value => "Add a field", "ng-click" => "addField()"}
+      %input.btn.btn-default{:type => "button", :value => "Add a field", "ng-click" => "addField()"}
 
   %label.control-label Practical Question Attachments
   .control-group{ "ng-repeat" => "form in attachmentForms", "ng-show" => "!form.removed" }
@@ -45,7 +45,7 @@
 
   .control-group
     .controls
-      %input.btn{:type => "button", :value => "Add an attachment", "ng-click" => "addAttachment()"}
+      %input.btn.btn-default{:type => "button", :value => "Add an attachment", "ng-click" => "addAttachment()"}
 
   %hr
   %label.control-label Attach files to the vacancy (eg: Person specification)
@@ -76,4 +76,4 @@
 
   .control-group
     .controls
-      %input.btn{:type => "button", :value => "Add a file", "ng-click" => "addVacancyField()" }
+      %input.btn.btn-default{:type => "button", :value => "Add a file", "ng-click" => "addVacancyField()" }

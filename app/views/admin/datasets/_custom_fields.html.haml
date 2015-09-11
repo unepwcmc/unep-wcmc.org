@@ -26,7 +26,7 @@
 
   .control-group
     .controls
-      %input.btn{:type => "button", :value => "Add a link", "ng-click" => "addUrlField()"}
+      %input.btn.btn-default{:type => "button", :value => "Add a link", "ng-click" => "addUrlField()"}
 
 
   .control-group{ "ng-repeat" => "form in fileFieldForms", "ng-show" => "!form.removed" }
@@ -58,4 +58,4 @@
 
   .control-group
     .controls
-      %input.btn{:type => "button", :value => "Add a file", "ng-click" => "addFileField()" }
+      %input.btn.btn-default{:type => "button", :value => "Add a file", "ng-click" => "addFileField()" }
