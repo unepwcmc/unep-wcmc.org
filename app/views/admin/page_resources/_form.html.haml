@@ -32,7 +32,8 @@
 = form.form_group :class => 'form-actions' do
   - if edition_for(@page)
     %p= "Updated by #{edition_for(@page).user.name} on #{edition_for(@page).created_at.to_formatted_s(:long)}"
-  = form.check_box :is_published, :label => "Published", class: "left"
+  %p
+    = form.check_box :is_published, :label => "Published", class: "left"
   = form.submit "Preview", :name => 'preview', :id => nil, :class => 'btn btn-default'
   = form.submit "Update", :class => 'btn btn-primary'
   = link_to "Cancel changes", url_for(params), class: "btn btn-danger pull-right", data: {confirm: "Do you really want to cancel all changes?"}

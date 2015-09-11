@@ -1,9 +1,9 @@
-.control-group
-  %label.control-label Programme
-  .controls
-    = select_tag "programme[id]", options_from_collection_for_select(@programmes, :id, :name, @employment.try(:programme_id))
+.form-group
+  %label.control-label.col-sm-2 Programme
+  .col-sm-10
+    = select_tag "programme[id]", options_from_collection_for_select(@programmes, :id, :name, @employment.try(:programme_id)), class: 'form-control'
 
-.control-group
-  %label.control-label Position
-  .controls
-    = text_field_tag "programme[role]", @employment.try(:role)
+.form-group
+  %label.control-label.col-sm-2 Position
+  .col-sm-10
+    = text_field_tag "programme[role]", @employment.try(:role), class: 'form-control'
