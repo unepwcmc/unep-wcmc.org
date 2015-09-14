@@ -18,7 +18,7 @@ gem 'select2-rails'
 gem 'modernizr-rails'
 gem 'placeholder-gem'
 
-gem 'angularjs-rails', '~> 1.4.4'
+gem 'angularjs-rails', '~> 1.2.3'
 gem 'underscore-rails', '~> 1.8.3'
 gem 'rails-observers'
 gem 'tinymce-rails'
