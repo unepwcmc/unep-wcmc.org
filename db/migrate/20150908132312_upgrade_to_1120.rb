@@ -18,9 +18,9 @@ class UpgradeTo1120 < ActiveRecord::Migration
     rename_table :cms_snippets,         :comfy_cms_snippets
     rename_table :cms_files,            :comfy_cms_files
 
-    if index_exists?(:cms_revisions, nil, name: 'index_cms_revisions_on_record_type_and_record_id_and_created_at')
+    if index_exists?(:cms_revisions, [:record_type, :record_id, :created_at], name: 'index_cms_revisions_on_record_type_and_record_id_and_created_at')
       remove_index(:cms_revisions, name: 'index_cms_revisions_on_record_type_and_record_id_and_created_at')
-    elsif index_exists?(:cms_revisions, nil, name: 'index_cms_revisions_on_rtype_and_rid_and_created_at')
+    elsif index_exists?(:cms_revisions, [:record_type, :record_id, :created_at], name: 'index_cms_revisions_on_rtype_and_rid_and_created_at')
       remove_index(:cms_revisions, name: 'index_cms_revisions_on_rtype_and_rid_and_created_at')
     end
     rename_table :cms_revisions,        :comfy_cms_revisions

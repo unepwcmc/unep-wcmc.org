@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150909144606) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attachments", force: true do |t|
+  create_table "attachments", force: :cascade do |t|
     t.integer  "form_id"
     t.string   "name"
     t.string   "file_file_name"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150909144606) do
     t.datetime "file_updated_at"
   end
 
-  create_table "comfy_cms_blocks", force: true do |t|
+  create_table "comfy_cms_blocks", force: :cascade do |t|
     t.integer  "blockable_id",   null: false
     t.string   "identifier",     null: false
     t.text     "content"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20150909144606) do
   add_index "comfy_cms_blocks", ["blockable_id", "identifier"], name: "index_comfy_cms_blocks_on_blockable_id_and_identifier", using: :btree
   add_index "comfy_cms_blocks", ["blockable_type"], name: "index_comfy_cms_blocks_on_blockable_type", using: :btree
 
-  create_table "comfy_cms_categories", force: true do |t|
+  create_table "comfy_cms_categories", force: :cascade do |t|
     t.integer "site_id",          null: false
     t.string  "label",            null: false
     t.string  "categorized_type", null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20150909144606) do
 
   add_index "comfy_cms_categories", ["site_id", "categorized_type", "label"], name: "index_cms_categories_on_site_id_and_cat_type_and_label", unique: true, using: :btree
 
-  create_table "comfy_cms_categorizations", force: true do |t|
+  create_table "comfy_cms_categorizations", force: :cascade do |t|
     t.integer "category_id",      null: false
     t.string  "categorized_type", null: false
     t.integer "categorized_id",   null: false
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20150909144606) do
 
   add_index "comfy_cms_categorizations", ["category_id", "categorized_type", "categorized_id"], name: "index_cms_categorizations_on_cat_id_and_catd_type_and_catd_id", unique: true, using: :btree
 
-  create_table "comfy_cms_files", force: true do |t|
+  create_table "comfy_cms_files", force: :cascade do |t|
     t.integer  "site_id",                                    null: false
     t.integer  "block_id"
     t.string   "label",                                      null: false
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20150909144606) do
   add_index "comfy_cms_files", ["site_id", "label"], name: "index_comfy_cms_files_on_site_id_and_label", using: :btree
   add_index "comfy_cms_files", ["site_id", "position"], name: "index_comfy_cms_files_on_site_id_and_position", using: :btree
 
-  create_table "comfy_cms_layouts", force: true do |t|
+  create_table "comfy_cms_layouts", force: :cascade do |t|
     t.integer  "site_id",                    null: false
     t.integer  "parent_id"
     t.string   "app_layout"
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20150909144606) do
   add_index "comfy_cms_layouts", ["parent_id", "position"], name: "index_comfy_cms_layouts_on_parent_id_and_position", using: :btree
   add_index "comfy_cms_layouts", ["site_id", "identifier"], name: "index_comfy_cms_layouts_on_site_id_and_identifier", unique: true, using: :btree
 
-  create_table "comfy_cms_pages", force: true do |t|
+  create_table "comfy_cms_pages", force: :cascade do |t|
     t.integer  "site_id",                        null: false
     t.integer  "layout_id"
     t.integer  "parent_id"
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 20150909144606) do
   add_index "comfy_cms_pages", ["parent_id", "position"], name: "index_comfy_cms_pages_on_parent_id_and_position", using: :btree
   add_index "comfy_cms_pages", ["site_id", "full_path"], name: "index_comfy_cms_pages_on_site_id_and_full_path", using: :btree
 
-  create_table "comfy_cms_revisions", force: true do |t|
+  create_table "comfy_cms_revisions", force: :cascade do |t|
     t.string   "record_type", null: false
     t.integer  "record_id",   null: false
     t.text     "data"
@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 20150909144606) do
 
   add_index "comfy_cms_revisions", ["record_type", "record_id", "created_at"], name: "index_cms_revisions_on_rtype_and_rid_and_created_at", using: :btree
 
-  create_table "comfy_cms_sites", force: true do |t|
+  create_table "comfy_cms_sites", force: :cascade do |t|
     t.string  "label",                       null: false
     t.string  "identifier",                  null: false
     t.string  "hostname",                    null: false
@@ -131,7 +131,7 @@ ActiveRecord::Schema.define(version: 20150909144606) do
   add_index "comfy_cms_sites", ["hostname"], name: "index_comfy_cms_sites_on_hostname", using: :btree
   add_index "comfy_cms_sites", ["is_mirrored"], name: "index_comfy_cms_sites_on_is_mirrored", using: :btree
 
-  create_table "comfy_cms_snippets", force: true do |t|
+  create_table "comfy_cms_snippets", force: :cascade do |t|
     t.integer  "site_id",                    null: false
     t.string   "label",                      null: false
     t.string   "identifier",                 null: false
@@ -145,19 +145,19 @@ ActiveRecord::Schema.define(version: 20150909144606) do
   add_index "comfy_cms_snippets", ["site_id", "identifier"], name: "index_comfy_cms_snippets_on_site_id_and_identifier", unique: true, using: :btree
   add_index "comfy_cms_snippets", ["site_id", "position"], name: "index_comfy_cms_snippets_on_site_id_and_position", using: :btree
 
-  create_table "content_types", force: true do |t|
+  create_table "content_types", force: :cascade do |t|
     t.string "singular"
     t.string "plural"
   end
 
-  create_table "countries", force: true do |t|
+  create_table "countries", force: :cascade do |t|
     t.string   "iso2"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "dataset_fields", force: true do |t|
+  create_table "dataset_fields", force: :cascade do |t|
     t.integer  "dataset_id"
     t.string   "label"
     t.string   "url"
@@ -168,14 +168,14 @@ ActiveRecord::Schema.define(version: 20150909144606) do
     t.string   "type"
   end
 
-  create_table "editions", force: true do |t|
+  create_table "editions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "resource_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "employments", force: true do |t|
+  create_table "employments", force: :cascade do |t|
     t.integer  "employee_id"
     t.integer  "project_id"
     t.string   "role"
@@ -184,7 +184,7 @@ ActiveRecord::Schema.define(version: 20150909144606) do
     t.integer  "programme_id"
   end
 
-  create_table "field_submissions", force: true do |t|
+  create_table "field_submissions", force: :cascade do |t|
     t.integer  "field_id"
     t.integer  "submission_id"
     t.string   "type"
@@ -197,7 +197,7 @@ ActiveRecord::Schema.define(version: 20150909144606) do
     t.datetime "file_updated_at"
   end
 
-  create_table "fields", force: true do |t|
+  create_table "fields", force: :cascade do |t|
     t.integer  "form_id"
     t.string   "type"
     t.string   "name"
@@ -205,18 +205,18 @@ ActiveRecord::Schema.define(version: 20150909144606) do
     t.datetime "updated_at"
   end
 
-  create_table "forms", force: true do |t|
+  create_table "forms", force: :cascade do |t|
     t.integer  "vacancy_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "position_types", force: true do |t|
+  create_table "position_types", force: :cascade do |t|
     t.string  "name"
     t.boolean "is_grade"
   end
 
-  create_table "programmes", force: true do |t|
+  create_table "programmes", force: :cascade do |t|
     t.string   "name"
     t.string   "phone_number"
     t.string   "email"
@@ -225,7 +225,7 @@ ActiveRecord::Schema.define(version: 20150909144606) do
     t.integer  "parent_programme_id"
   end
 
-  create_table "submissions", force: true do |t|
+  create_table "submissions", force: :cascade do |t|
     t.integer  "form_id"
     t.string   "slug"
     t.datetime "created_at"
@@ -251,7 +251,7 @@ ActiveRecord::Schema.define(version: 20150909144606) do
 
   add_index "submissions", ["slug"], name: "index_submissions_on_slug", unique: true, using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -275,7 +275,7 @@ ActiveRecord::Schema.define(version: 20150909144606) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "vacancy_fields", force: true do |t|
+  create_table "vacancy_fields", force: :cascade do |t|
     t.integer  "vacancy_id"
     t.string   "label"
     t.string   "url"
