@@ -332,7 +332,7 @@ GEM
     simplecov-html (0.9.0)
     slack-notifier (1.2.1)
     slop (3.4.7)
-    sprockets (2.11.3)
+    sprockets (2.12.4)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -415,7 +415,7 @@ DEPENDENCIES
   select2-rails
   simplecov (>= 0.9)
   slack-notifier (~> 1.0)
-  sprockets (= 2.11.3)
+  sprockets
   terminal-notifier-guard
   test-unit (~> 3.1)
   tinymce-rails
