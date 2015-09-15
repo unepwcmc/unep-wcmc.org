@@ -256,7 +256,7 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     pg (0.18.3)
-    placeholder-gem (3.0.0.0)
+    placeholder-gem (3.0.2)
       railties (>= 3.1)
     plupload-rails (1.2.1)
       rails (>= 3.1)
