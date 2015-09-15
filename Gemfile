@@ -1,23 +1,25 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.1.13'
 gem 'sprockets', '2.11.3' # to reconcile CVE-2014-7819 and a breaking change in sprockets 2.12
 gem 'pg'
-gem 'sass-rails', '~> 5.0.4'
+gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
-gem 'jquery-rails', '~> 4.0.5'
-gem 'turbolinks', '~> 2.5.3'
-gem 'jbuilder', '~> 2.3.1'
-gem 'compass-rails', '~> 2.0.5'
-gem 'font-awesome-rails', '~> 4.4.0.0'
-gem 'select2-rails', '~> 3.5.2'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'jquery-rails'
+gem 'turbolinks'
+gem 'jbuilder', '~> 1.2'
+gem 'compass-rails', '~> 1.1.3'
+gem 'font-awesome-rails'
+# gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+#                               :github => 'anjlab/bootstrap-rails'
+gem 'select2-rails'
 gem 'modernizr-rails'
 gem 'placeholder-gem'
 
-gem 'angularjs-rails', '~> 1.4.4'
-gem 'underscore-rails', '~> 1.8.3'
+gem 'angularjs-rails'
+gem 'underscore-rails'
 gem 'rails-observers'
 gem 'tinymce-rails'
 gem 'letter_opener'
@@ -36,7 +38,7 @@ group :production, :staging do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.14.2'
+  gem 'rspec-rails'
   gem 'guard'
   gem 'guard-livereload'
   gem 'guard-rspec'
