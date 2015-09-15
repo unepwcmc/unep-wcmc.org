@@ -113,18 +113,24 @@ ComfortableMexicanSofa.configure do |config|
 
 end
 
-Comfy::Cms::Page.class_eval do
+module PageScopes
+  extend ActiveSupport::Concern
 
-  scope :visible, -> { joins(<<-SQL
-  JOIN (
-    SELECT comfy_cms_pages.id
-    FROM comfy_cms_pages
-    LEFT OUTER JOIN "comfy_cms_blocks" ON "comfy_cms_blocks"."blockable_id" = "comfy_cms_pages"."id"
-      AND "comfy_cms_blocks"."blockable_type" = 'Comfy::Cms::Page'
-    WHERE "comfy_cms_blocks"."identifier" = 'time'
-    AND "comfy_cms_blocks"."content" <= '#{Date.today}'
-  ) visible_sites ON #{table_name}.id = visible_sites.id
-  SQL
-  )}
-
+  def self.included(klass)
+    klass.instance_eval do
+      scope :visible, -> { joins(<<-SQL
+      JOIN (
+        SELECT comfy_cms_pages.id
+        FROM comfy_cms_pages
+        LEFT OUTER JOIN "comfy_cms_blocks" ON "comfy_cms_blocks"."blockable_id" = "comfy_cms_pages"."id"
+          AND "comfy_cms_blocks"."blockable_type" = 'Comfy::Cms::Page'
+        WHERE "comfy_cms_blocks"."identifier" = 'time'
+        AND "comfy_cms_blocks"."content" <= '#{Date.today}'
+      ) visible_sites ON #{table_name}.id = visible_sites.id
+      SQL
+      )}
+    end
+  end
 end
+
+Comfy::Cms::Page.send :include, PageScopes
