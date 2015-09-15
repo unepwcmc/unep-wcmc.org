@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 gem 'rails', '4.2.4'
-gem 'sprockets'
+gem 'sprockets', '2.11.3' # to reconcile CVE-2014-7819 and a breaking change in sprockets 2.12
 gem 'pg'
 gem 'sass-rails', '~> 5.0.4'
 gem 'uglifier', '>= 1.3.0'
