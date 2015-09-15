@@ -1,6 +1,7 @@
 module PageResourcesHelper
   def formatted_time(time_string=nil)
     time_string ||= cms_block_content(:time)
+    return '(empty)' if time_string.blank?
     Time.parse(time_string).strftime("%d %B %Y")
   end
 
