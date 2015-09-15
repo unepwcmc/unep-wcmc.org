@@ -390,7 +390,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
-  select2-rails (~> 3.5.2)
+  select2-rails
   simplecov (>= 0.9)
   slack-notifier (~> 1.0)
   sprockets (= 2.11.3)
