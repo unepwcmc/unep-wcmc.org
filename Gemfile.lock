@@ -254,7 +254,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
-    pg (0.17.0)
+    pg (0.18.3)
     placeholder-gem (3.0.0.0)
       railties (>= 3.1)
     plupload-rails (1.2.1)
