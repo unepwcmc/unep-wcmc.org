@@ -1,6 +1,4 @@
-/* Overwrite this file in your application /app/assets/stylesheets/comfy/admin/css/application.css
- *= require select2
- */
+@import "select2";
 
 .form-actions .controls {
   margin-left: 0;
