@@ -12,9 +12,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'compass-rails', '~> 2.0.5'
 gem 'font-awesome-rails'
-# gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-#                               :github => 'anjlab/bootstrap-rails'
-gem 'select2-rails'
+gem 'select2-rails', '~> 3.5.9.3'
 gem 'modernizr-rails'
 gem 'placeholder-gem'
 
