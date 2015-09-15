@@ -23,9 +23,9 @@ class Admin::PageResourcesController < Comfy::Admin::Cms::PagesController
   def update
     if save
       create_edition
-      flash[:success] = I18n.t("cms.pages.updated")
+      flash[:success] = I18n.t('comfy:admin:cms.pages.updated')
     else
-      flash[:error] = I18n.t("cms.pages.update_failure")
+      flash[:error] = I18n.t('comfy:admin:cms.pages.update_failure')
     end
     redirect_to action: :edit
   end
@@ -33,10 +33,10 @@ class Admin::PageResourcesController < Comfy::Admin::Cms::PagesController
   def create
     if save
       create_edition
-      flash[:success] = I18n.t('cms.pages.created')
+      flash[:success] = I18n.t('comfy:admin:cms.pages.created')
       redirect_to :action => :edit, :id => @page
     else
-      flash.now[:error] = I18n.t('cms.pages.creation_failure')
+      flash.now[:error] = I18n.t('comfy:admin:cms.pages.creation_failure')
       render :action => :new
     end
   end
