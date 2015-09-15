@@ -1,5 +1,5 @@
 .section-group
-  - Comfy::Cms::Site.find_by_identifier('news').pages.root.children.published.includes(blocks: [:files]).reverse.take(6).each do |page|
+  - Comfy::Cms::Site.find_by_identifier('news').pages.root.children.published.visible.includes(blocks: [:files]).reverse.take(6).each do |page|
     %section.group
       %small= formatted_time(block_content(:time, page))
       = link_to '/news' + page.full_path do

@@ -1,4 +1,4 @@
-- Comfy::Cms::Site.find_by_identifier('news').pages.root.children.published.includes(blocks: [:files]).reverse.each do |page|
+- Comfy::Cms::Site.find_by_identifier('news').pages.root.children.published.visible.includes(blocks: [:files]).reverse.each do |page|
   %section.list
     %h2.smaller
       %a{:href => '/news' + page.full_path}

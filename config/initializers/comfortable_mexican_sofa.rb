@@ -112,3 +112,19 @@ ComfortableMexicanSofa.configure do |config|
   #   config.reveal_cms_partials = false
 
 end
+
+Comfy::Cms::Page.class_eval do
+
+  scope :visible, -> { joins(<<-SQL
+  JOIN (
+    SELECT comfy_cms_pages.id
+    FROM comfy_cms_pages
+    LEFT OUTER JOIN "comfy_cms_blocks" ON "comfy_cms_blocks"."blockable_id" = "comfy_cms_pages"."id"
+      AND "comfy_cms_blocks"."blockable_type" = 'Comfy::Cms::Page'
+    WHERE "comfy_cms_blocks"."identifier" = 'time'
+    AND "comfy_cms_blocks"."content" <= '#{Date.today}'
+  ) visible_sites ON #{table_name}.id = visible_sites.id
+  SQL
+  )}
+
+end
