@@ -1,4 +1,4 @@
-class Admin::UsersController < Admin::Cms::BaseController
+class Admin::UsersController < Comfy::Admin::Cms::BaseController
 
   before_action :authorize_superadmin!
   before_action :build_user,  :only => [:new, :create]
@@ -63,7 +63,7 @@ protected
 
   def authorize_superadmin!
     unless current_user.is_superadmin
-      redirect_to admin_cms_path
+      redirect_to comfy_admin_cms_path
     end
   end
 end

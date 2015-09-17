@@ -1,13 +1,13 @@
 .page-header
-  = link_to "Add a news item", new_admin_news_item_path, :class => 'btn pull-right'
+  = link_to "Add a news item", new_admin_news_item_path, :class => 'btn btn-default pull-right'
   %h2 News
 
 = comfy_form_for @page, :as => :page, url: admin_news_items_path(@page), :html => {:multipart => true} do |form|
   = render form
 
-= render 'admin/cms/partials/pages_before'
+= render 'comfy/admin/cms/partials/pages_before'
 
 %ul.list.sortable
   = render :partial => 'index_branch', :collection => @pages
 
-= render 'admin/cms/partials/pages_after'
+= render 'comfy/admin/cms/partials/pages_after'

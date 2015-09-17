@@ -1,6 +1,6 @@
-%a{ :href => "mailto:?subject=#{cms_page_content(:email_share_subject)}&body=#{cms_page_content(:email_share_content)}"}
+%a{ :href => "mailto:?subject=#{cms_block_content(:email_share_subject)}&body=#{cms_block_content(:email_share_content)}"}
   %i.icon-envelope
   Email
-%a{ :href => "https://twitter.com/share?text=#{cms_page_content(:twitter_share_text)}", :target => "_blank" }
+%a{ :href => "https://twitter.com/share?text=#{cms_block_content(:twitter_share_text)}", :target => "_blank" }
   %i.icon-twitter
   Twitter

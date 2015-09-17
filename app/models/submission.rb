@@ -36,6 +36,10 @@ class Submission < ActiveRecord::Base
 
   validate :content_presence
 
+  do_not_validate_attachment_file_type :cv
+  do_not_validate_attachment_file_type :cover_letter
+  do_not_validate_attachment_file_type :application_form
+
   before_create :set_slug
 
   def content=(params)

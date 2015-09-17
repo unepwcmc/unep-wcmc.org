@@ -26,7 +26,7 @@ class Admin::FeaturedProjectsController < Admin::PageResourcesController
   end
 
   def set_employees
-    @employees = ::Cms::Site.find_by_identifier("employees").pages.root.children
+    @employees = ::Comfy::Cms::Site.find_by_identifier("employees").pages.root.children
   end
 
   def build_employments

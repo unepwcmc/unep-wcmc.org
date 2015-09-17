@@ -4,8 +4,8 @@
   - employments.each do |employment|
     %section.group.staff
       = link_to employment.employee.url do
-        - if !cms_page_files(:photo, employment.employee).empty?
-          = image_tag cms_page_content(:photo, employment.employee).file.url
+        - if cms_block_content(:photo, employment.employee)
+          = image_tag cms_block_content(:photo, employment.employee).file.url
       = link_to employment.employee.url do
-        %h4= cms_page_content(:name, employment.employee)
+        %h4= cms_block_content(:name, employment.employee)
       %p= employment.role

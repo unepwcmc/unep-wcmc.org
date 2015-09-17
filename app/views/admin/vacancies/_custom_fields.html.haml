@@ -1,79 +1,79 @@
-.control-group{ "ng-app" => "PracticalQuestionForm", "ng-controller" => "FormCtrl", "ng-init" => "init(#{render partial: "fields", formats: :json}, #{render partial: "attachments", formats: :json}, #{render partial: "vacancy_fields", formats: :json})"}
-  %label.control-label Practical Question Fields
-  .control-group{ "ng-repeat" => "form in fieldForms", "ng-show" => "!form.removed" }
-    .controls
-      .control-group
-        %label.control-label{:for => "form[fields_attributes][{{ fieldFormIndex() }}][name]"} Label
-        .controls
+.form-group{ "ng-app" => "PracticalQuestionForm", "ng-controller" => "FormCtrl", "ng-init" => "init(#{render partial: "fields", formats: :json}, #{render partial: "attachments", formats: :json}, #{render partial: "vacancy_fields", formats: :json})"}
+  %label.control-label.col-sm-2 Practical Question Fields
+  .col-sm-10.col-sm-offset-2
+    .form-group{ "ng-repeat" => "form in fieldForms", "ng-show" => "!form.removed" }
+      .form-group
+        %label.control-label.col-sm-2{:for => "form[fields_attributes][{{ fieldFormIndex() }}][name]"} Label
+        .col-sm-8
           %input{ :type => "text", "ng-model" => "form.label", :name => "form[fields_attributes][{{ fieldFormIndex() }}][name]" }
           %input{ :type => "hidden", "ng-model" => "form.id", :name => "form[fields_attributes][{{ fieldFormIndex() }}][id]", "ng-if" => "form.id", "value" => "{{ form.id }}"}
           %input{ :type => "hidden", :name => "form[fields_attributes][{{ fieldFormIndex() }}][_destroy]", "ng-if" => "form.removed", :value => '1' }
-      .control-group
-        %label.control-label{:form => "form[fields_attributes][{{ fieldFormIndex() }}][type]"} Type
-        .controls
+      .form-group
+        %label.control-label.col-sm-2{:form => "form[fields_attributes][{{ fieldFormIndex() }}][type]"} Type
+        .col-sm-8
           %select{ "ng-model" => "form.type", "name" => "form[fields_attributes][{{ fieldFormIndex() }}][type]"}
             %option{ :value => "FileField", "ng-selected" => "form.type == 'FileField'" }
               File field
             %option{ :value => "TextField", "ng-selected" => "form.type == 'TextField'" }
               Text field
-      .control-group
-        .controls
+      .form-group
+        .col-sm-8.col-sm-offset-2
           %input.btn.btn-danger{:type => "button", :value => "Remove", "ng-click" => "removeFieldForm()"}
 
-  .control-group
-    .controls
-      %input.btn{:type => "button", :value => "Add a field", "ng-click" => "addField()"}
+  .form-group
+    .col-sm-10.col-sm-offset-2
+      %input.btn.btn-default{:type => "button", :value => "Add a field", "ng-click" => "addField()"}
 
-  %label.control-label Practical Question Attachments
-  .control-group{ "ng-repeat" => "form in attachmentForms", "ng-show" => "!form.removed" }
-    .controls
-      .control-group
-        %label.control-label{:for => "form[attachments_attributes][{{ attachmentFormIndex() }}][name]"} Name
-        .controls
+  %label.control-label.col-sm-2 Practical Question Attachments
+  .col-sm-10.col-sm-offset-2
+    .form-group{ "ng-repeat" => "form in attachmentForms", "ng-show" => "!form.removed" }
+      .form-group
+        %label.control-label.col-sm-2{:for => "form[attachments_attributes][{{ attachmentFormIndex() }}][name]"} Name
+        .col-sm-8
           %input{ :type => "text", "ng-model" => "form.name", :name => "form[attachments_attributes][{{ attachmentFormIndex() }}][name]" }
           %input{ :type => "hidden", "ng-model" => "form.id", :name => "form[attachments_attributes][{{ attachmentFormIndex() }}][id]", "ng-if" => "form.id", "value" => "{{ form.id }}"}
           %input{ :type => "hidden", :name => "form[attachments_attributes][{{ attachmentFormIndex() }}][_destroy]", "ng-if" => "form.removed", :value => '1' }
-      .control-group
-        %label.control-label{:for => "form[attachments_attributes][{{ fieldFormIndex() }}][type]"} File
-        .controls
+      .form-group
+        %label.control-label.col-sm-2{:for => "form[attachments_attributes][{{ fieldFormIndex() }}][type]"} File
+        .col-sm-8
           %input{ :type => "file", :name => "form[attachments_attributes][{{ attachmentFormIndex() }}][file]" }
           %a{ :href => "{{ form.url }}", "ng-if" => "form.url"}
             %p {{ form.filename }}
-      .control-group
-        .controls
+      .form-group
+        .col-sm-8.col-sm-offset-2
           %input.btn.btn-danger{:type => "button", :value => "Remove", "ng-click" => "removeAttachmentForm()"}
 
-  .control-group
-    .controls
-      %input.btn{:type => "button", :value => "Add an attachment", "ng-click" => "addAttachment()"}
+  .form-group
+    .col-sm-10.col-sm-offset-2
+      %input.btn.btn-default{:type => "button", :value => "Add an attachment", "ng-click" => "addAttachment()"}
 
   %hr
-  %label.control-label Attach files to the vacancy (eg: Person specification)
-  .control-group{ "ng-repeat" => "form in vacancyFieldForms", "ng-show" => "!form.removed" }
-    .controls
-      .control-group
-        %label.control-label{:for => "vacancyFieldForms[{{ vacancyFieldFormIndex() }}][label]"} Label
-        .controls
+  %label.control-label.col-sm-2 Attach files to the vacancy (eg: Person specification)
+  .col-sm-10.col-sm-offset-2
+    .form-group{ "ng-repeat" => "form in vacancyFieldForms", "ng-show" => "!form.removed" }
+      .form-group
+        %label.control-label.col-sm-2{:for => "vacancyFieldForms[{{ vacancyFieldFormIndex() }}][label]"} Label
+        .col-sm-8
           %select{ "ui-select2" => true, "ng-model" => "form.label", "name" => "vacancyFieldForms[{{ vacancyFieldFormIndex() }}][label]", "ng-change" => "clearCustomLabel(vacancyFieldFormIndex())" }
             %option{"ng-repeat" => "option in vacancyFieldSelectDefaultOptions", :value => "{{ option }}", "ng-selected" => "form.label == '{{ option }}' "}
               {{ option }}
             %option{:value => "Custom label", "ng-selected" => "form.label == 'Custom label'" }
               Custom label
-        .controls
+        .col-sm-10.col-sm-offset-2
           %input{ :type => "text", "ng-model" => "form.custom_label", :name => "vacancyFieldForms[{{ vacancyFieldFormIndex() }}][custom_label]", "ng-show" => "showLabelInput(form)"}
           %input{ :type => "hidden", "ng-model" => "form.id", :name => "vacancyFieldForms[{{ vacancyFieldFormIndex() }}][id]", "ng-if" => "form.id", "value" => "{{ form.id }}"}
           %input{ :type => "hidden", "ng-model" => "form.removed", :name => "vacancyFieldForms[{{ vacancyFieldFormIndex() }}][removed]", "ng-if" => "form.removed", "value" => "{{ form.removed }}"}
 
-      .control-group
-        %label.control-label{:for => "vacancyFieldForms[{{ vacancyFieldFormIndex() }}][file]"} File
-        .controls
+      .form-group
+        %label.control-label.col-sm-2{:for => "vacancyFieldForms[{{ vacancyFieldFormIndex() }}][file]"} File
+        .col-sm-8
           %input{ :type => "file", "ng-model" => "form.file", :name => "vacancyFieldForms[{{ vacancyFieldFormIndex() }}][file]" }
           %a{ :href => "{{ form.url }}", "ng-if" => "form.url"}
             %p {{ form.filename }}
-      .control-group
-        .controls
+      .form-group
+        .col-sm-10.col-sm-offset-2
           %input.btn.btn-danger{:type => "button", :value => "Remove", "ng-click" => "removeVacancyFieldForm(vacancyFieldFormIndex())" }
 
-  .control-group
-    .controls
-      %input.btn{:type => "button", :value => "Add a file", "ng-click" => "addVacancyField()" }
+  .form-group
+    .col-sm-10.col-sm-offset-2
+      %input.btn.btn-default{:type => "button", :value => "Add a file", "ng-click" => "addVacancyField()" }

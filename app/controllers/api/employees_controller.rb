@@ -5,7 +5,7 @@ class Api::EmployeesController < ApplicationController
   end
 
   def index
-    employees = Cms::Page.joins(:site).
+    employees = Comfy::Cms::Page.joins(:site).
       where('cms_sites.identifier' => 'employees').
       order('cms_pages.label ASC').map{|e| e["label"]}
   	render :json => employees

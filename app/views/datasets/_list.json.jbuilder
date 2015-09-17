@@ -1,4 +1,4 @@
-json.datasets Cms::Site.find_by_identifier('resources-and-data').pages.root.children.published.includes(blocks: [:files]).each do |dataset|
+json.datasets Comfy::Cms::Site.find_by_identifier('resources-and-data').pages.root.children.published.includes(blocks: [:files]).each do |dataset|
   json.title block_content(:title, dataset)
   json.content block_content(:content, dataset)
   json.id dataset.id

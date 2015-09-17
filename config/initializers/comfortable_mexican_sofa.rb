@@ -102,7 +102,8 @@ ComfortableMexicanSofa.configure do |config|
       'beta.unep-wcmc.org',
       'www2.unep-wcmc.org',
       'unep-wcmc-production.linode.unep-wcmc.org',
-      'unep-wcmc-staging.linode.unep-wcmc.org'
+      'unep-wcmc-staging.linode.unep-wcmc.org',
+      'localhost:3000'
     ]
   }
 
@@ -111,3 +112,25 @@ ComfortableMexicanSofa.configure do |config|
   #   config.reveal_cms_partials = false
 
 end
+
+module PageScopes
+  extend ActiveSupport::Concern
+
+  def self.included(klass)
+    klass.instance_eval do
+      scope :visible, -> { joins(<<-SQL
+      JOIN (
+        SELECT comfy_cms_pages.id
+        FROM comfy_cms_pages
+        LEFT OUTER JOIN "comfy_cms_blocks" ON "comfy_cms_blocks"."blockable_id" = "comfy_cms_pages"."id"
+          AND "comfy_cms_blocks"."blockable_type" = 'Comfy::Cms::Page'
+        WHERE "comfy_cms_blocks"."identifier" = 'time'
+        AND "comfy_cms_blocks"."content" <= '#{Date.today}'
+      ) visible_sites ON #{table_name}.id = visible_sites.id
+      SQL
+      )}
+    end
+  end
+end
+
+Comfy::Cms::Page.send :include, PageScopes

@@ -1,5 +1,5 @@
-class Cms::FileObserver < ActiveRecord::Observer
-  observe 'Cms::File'
+class Comfy::Cms::FileObserver < ActiveRecord::Observer
+  observe 'Comfy::Cms::File'
 
   def after_save(file)
     optimize_image(file)

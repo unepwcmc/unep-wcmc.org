@@ -43,11 +43,11 @@
     = f.file_field :application_form
     - if @submission.application_form.present?
       = link_to(@submission.application_form_file_name, @submission.application_form.url)
-  - practical_question = cms_page_content(:practical_question_explanation, @form.vacancy)
+  - practical_question = cms_block_content(:practical_question_explanation, @form.vacancy)
   - if practical_question.present?
     %section
       %h2 Practical Question
-      %p= cms_page_content(:practical_question_explanation, @form.vacancy)
+      %p= cms_block_content(:practical_question_explanation, @form.vacancy)
       - if @form.attachments.count > 0
         %h3 Attachments
         - @form.attachments.each do |attachment|

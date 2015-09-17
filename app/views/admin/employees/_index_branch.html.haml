@@ -6,8 +6,8 @@
       .dragger{ "ng-if" => "!pattern" }
 
     .btn-group
-      = link_to t('.edit'), edit_admin_employee_path(page), :class => 'btn btn-small'
-      = link_to t('.delete'), admin_employee_path(page), :method => :delete, :data => {:confirm => "Are you sure?"}, :class => 'btn btn-small btn-danger'
+      = link_to t('.edit'), edit_admin_employee_path(page), :class => 'btn btn-sm btn-default'
+      = link_to t('.delete'), admin_employee_path(page), :method => :delete, :data => {:confirm => "Are you sure?"}, :class => 'btn btn-sm btn-danger'
 
     .item-content
       .item-title

@@ -1,13 +1,13 @@
-- programme = Programme.where(id: cms_page_content(:programme)).first
+- programme = Programme.where(id: cms_block_content(:programme)).first
 %h2.large_subheading= "Work by #{programme.try(:name)}"
 .section-group
   - (1..2).each do |i|
-    - if cms_page_content(:"related_project_#{i}_title").present?
+    - if cms_block_content(:"related_project_#{i}_title").present?
       %section.group
         %h2.smaller
-          - if cms_page_content(:"related_project_#{i}_link").present?
-            = link_to cms_page_content(:"related_project_#{i}_title"), cms_page_content(:"related_project_#{i}_link")
+          - if cms_block_content(:"related_project_#{i}_link").present?
+            = link_to cms_block_content(:"related_project_#{i}_title"), cms_block_content(:"related_project_#{i}_link")
           - else
             %a
-              = cms_page_content(:"related_project_#{i}_title")
-        %p= cms_page_content(:"related_project_#{i}_content")
+              = cms_block_content(:"related_project_#{i}_title")
+        %p= cms_block_content_render(:"related_project_#{i}_content")

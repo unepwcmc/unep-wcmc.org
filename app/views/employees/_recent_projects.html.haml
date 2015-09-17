@@ -1,12 +1,12 @@
 - (1..3).each do |i|
-  - if cms_page_content(:"recent_project_#{i}_title").present?
+  - if cms_block_content(:"recent_project_#{i}_title").present?
     %section.list
       %h2.project
-        - if cms_page_content(:"recent_project_#{i}_link").present?
-          = link_to cms_page_content(:"recent_project_#{i}_title"), cms_page_content(:"recent_project_#{i}_link")
+        - if cms_block_content(:"recent_project_#{i}_link").present?
+          = link_to cms_block_content(:"recent_project_#{i}_title"), cms_block_content(:"recent_project_#{i}_link")
         - else
-          = cms_page_content(:"recent_project_#{i}_title")
+          = cms_block_content(:"recent_project_#{i}_title")
         %span.separator= '|'
         %span.project_role
-          = cms_page_content(:"recent_project_#{i}_role")
-      %p= cms_page_content(:"recent_project_#{i}_content")
+          = cms_block_content(:"recent_project_#{i}_role")
+      %p= cms_block_content_render(:"recent_project_#{i}_content")

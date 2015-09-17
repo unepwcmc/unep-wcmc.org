@@ -5,7 +5,7 @@
 # defining CMS site name, name of the CMS layout to be used as default for new resources
 # and method for saving custom resources.
 
-class Admin::PageResourcesController < Admin::Cms::PagesController
+class Admin::PageResourcesController < Comfy::Admin::Cms::PagesController
   skip_before_filter :load_admin_site
   prepend_before_action :set_site
   before_action :set_editions
@@ -23,9 +23,9 @@ class Admin::PageResourcesController < Admin::Cms::PagesController
   def update
     if save
       create_edition
-      flash[:success] = I18n.t("cms.pages.updated")
+      flash[:success] = I18n.t('comfy.admin.cms.pages.updated')
     else
-      flash[:error] = I18n.t("cms.pages.update_failure")
+      flash[:error] = I18n.t('comfy.admin.cms.pages.update_failure')
     end
     redirect_to action: :edit
   end
@@ -33,10 +33,10 @@ class Admin::PageResourcesController < Admin::Cms::PagesController
   def create
     if save
       create_edition
-      flash[:success] = I18n.t('cms.pages.created')
+      flash[:success] = I18n.t('comfy.admin.cms.pages.created')
       redirect_to :action => :edit, :id => @page
     else
-      flash.now[:error] = I18n.t('cms.pages.creation_failure')
+      flash.now[:error] = I18n.t('comfy.admin.cms.pages.creation_failure')
       render :action => :new
     end
   end
@@ -80,6 +80,6 @@ class Admin::PageResourcesController < Admin::Cms::PagesController
   end
 
   def set_site
-    @site = ::Cms::Site.find_by_identifier(site_identifier)
+    @site = ::Comfy::Cms::Site.find_by_identifier(site_identifier)
   end
 end

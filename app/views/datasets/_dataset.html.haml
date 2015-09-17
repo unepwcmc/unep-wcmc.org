@@ -14,7 +14,7 @@
       ISBN:
       = cms_page_block_content(:isbn, @page)
   %p
-    = cms_page_content(:content, @page)
+    = cms_block_content(:content, @page)
   - if !cms_page_block_content(:first_url, @page).empty?
     %p.link
       = link_to(cms_page_block_content(:first_url, @page)) do
@@ -23,9 +23,9 @@
     %p.link
       = link_to(cms_page_block_content(:second_url, @page)) do
         = cms_page_block_content(:second_url_label, @page)
-  - if cms_page_content(:file, @page)
+  - if cms_block_content(:file, @page)
     %p.link
-      %a{:href => cms_page_content(:file, @page)}
+      %a{:href => cms_block_content(:file, @page)}
         Download
   - url_fields = DatasetUrlField.for_dataset(@cms_page)
   - url_fields.each do |url|

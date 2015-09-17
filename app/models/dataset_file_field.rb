@@ -1,5 +1,6 @@
 class DatasetFileField < DatasetField
   has_attached_file :file
+  do_not_validate_attachment_file_type :file
 
   def self.for_dataset(dataset)
     where(dataset_id: dataset.id)
