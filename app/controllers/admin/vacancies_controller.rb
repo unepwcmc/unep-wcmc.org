@@ -3,12 +3,6 @@ class Admin::VacanciesController < Admin::PageResourcesController
   before_action :build_form, only: [:create]
   before_action :set_vacancy_fields, only: [:edit, :create]
 
-  def destroy
-    @form = Form.find_by_vacancy_id(params[:id])
-    @form.destroy
-    super
-  end
-
   private
 
   def save_resources
