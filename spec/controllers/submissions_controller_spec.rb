@@ -17,6 +17,11 @@ describe SubmissionsController do
       get :new, form_id: @form.id
       assigns(:submission).field_submissions.size.should == 2
     end
+
+    it "should render 404 when form not found" do
+      get :new, form_id: 'nonsense'
+      expect(response.status).to eq(404)
+    end
   end
 
   describe "#edit" do
