@@ -82,7 +82,7 @@ class SubmissionsController < ApplicationController
     begin
       @form = Form.find(params[:form_id])
     rescue ActiveRecord::RecordNotFound
-      not_found
+      render :cms_page => '/404', status: 404 and return
     end
   end
 
