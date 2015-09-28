@@ -79,7 +79,11 @@ class SubmissionsController < ApplicationController
   end
 
   def find_form
-    @form = Form.find(params[:form_id])
+    begin
+      @form = Form.find(params[:form_id])
+    rescue ActiveRecord::RecordNotFound
+      not_found
+    end
   end
 
   def submission_params

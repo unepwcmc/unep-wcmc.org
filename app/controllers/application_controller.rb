@@ -19,4 +19,10 @@ class ApplicationController < ActionController::Base
     raise 'This is a test. This is only a test.'
   end
 
+  def not_found
+    respond_to do |format|
+      format.html { render :file => "#{Rails.root}/public/404", :layout => false, :status => :not_found }
+    end
+  end
+
 end
