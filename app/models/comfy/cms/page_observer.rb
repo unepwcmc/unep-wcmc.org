@@ -3,6 +3,10 @@ class Comfy::Cms::PageObserver < ActiveRecord::Observer
     destroy_employments_for(page)
   end
 
+  def after_destroy(page)
+    destroy_forms_for(page)
+  end
+
   private
 
   def destroy_employments_for(page)
@@ -19,5 +23,9 @@ class Comfy::Cms::PageObserver < ActiveRecord::Observer
 
   def featured_project?(page)
     page.site.identifier == 'featured-projects'
+  end
+
+  def destroy_forms_for(page)
+    Form.where(vacancy_id: page.id).destroy_all
   end
 end

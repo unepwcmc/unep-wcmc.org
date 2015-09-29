@@ -20,4 +20,26 @@ FactoryGirl.define do
     label "label"
     slug "slug"
   end
+
+  factory :homepage, class: Comfy::Cms::Page do
+    before(:create) do |page|
+      site = FactoryGirl.create(:homepage_site)
+      layout = FactoryGirl.create(:cms_layout, site_id: site.id)
+      page.layout_id = layout.id
+      page.site_id = site.id
+    end
+    label "homepage"
+    slug "index"
+  end
+
+  factory "404", class: Comfy::Cms::Page do
+    before(:create) do |page|
+      parent = FactoryGirl.create(:homepage)
+      page.layout_id = parent.layout_id
+      page.site_id = parent.site_id
+      page.parent_id = parent.id
+    end
+    label "404"
+    slug "404"
+  end
 end
