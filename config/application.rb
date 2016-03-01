@@ -21,5 +21,7 @@ module UnepWcmcOrg
     # config.i18n.default_locale = :de
 
     config.active_record.observers = :"comfy/cms/page_observer", :"comfy/cms/file_observer"
+
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end

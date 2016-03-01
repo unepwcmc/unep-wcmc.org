@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5.2'
 gem 'sprockets'
 gem 'pg'
 gem 'sass-rails', '~> 5.0.4'
@@ -26,7 +26,7 @@ gem 'whenever', '~> 0.9.0'
 gem 'backup'
 gem 'bundle'
 gem 'dotenv-rails'
-gem 'devise', '~> 3.5.0'
+gem 'devise', '~> 3.5.6'
 gem 'test-unit', '~> 3.1' # annoyingly, rails console won't start without it in staging / production
 
 
