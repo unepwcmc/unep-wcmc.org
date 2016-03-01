@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5.2'
 gem 'sprockets'
 gem 'pg'
 gem 'sass-rails', '~> 5.0.4'
