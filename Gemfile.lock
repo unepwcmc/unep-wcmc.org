@@ -48,6 +48,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     angularjs-rails (1.2.26)
+    appsignal (0.12.rc.8)
+      rack
+      thread_safe
     arel (6.0.3)
     autoprefixer-rails (6.0.2)
       execjs
@@ -387,6 +390,7 @@ PLATFORMS
 
 DEPENDENCIES
   angularjs-rails (~> 1.2.3)
+  appsignal
   backup
   better_errors
   binding_of_caller
