@@ -27,6 +27,7 @@ gem 'backup'
 gem 'bundle'
 gem 'dotenv-rails'
 gem 'devise', '~> 3.5.6'
+gem 'appsignal'
 gem 'test-unit', '~> 3.1' # annoyingly, rails console won't start without it in staging / production
 
 
