@@ -61,6 +61,6 @@ protected
   end
 
   def programme_params
-    params.fetch(:programme, {}).permit(:name, :phone_number, :email, :parent_programme_id)
+    params.fetch(:programme, {}).permit(:name, :phone_number, :email, :parent_programme_id, :position)
   end
 end
