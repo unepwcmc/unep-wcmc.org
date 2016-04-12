@@ -2,7 +2,7 @@
   .search-field#staff
     %input.short{ :type => "text", :placeholder => "Search for a member of staff", 'ng-model' => 'query' }
     %i.icon-search
-  - programmes.order('name').each do |programme|
+  - programmes.order('position ASC').each do |programme|
     - if programme.has_employees?
       %section.programme-wrapper
         %a{ :id => programme.id }
@@ -17,7 +17,7 @@
         - if programme.employees.present?
           = render partial: "programmes/employees_list", locals: {programme: programme}
         - if programme.subprogrammes.present?
-          - programme.subprogrammes.includes(employees: [blocks: [:files]]).order('name').each do   |subprogramme|
+          - programme.subprogrammes.includes(employees: [blocks: [:files]]).order('position').each do   |subprogramme|
             - if subprogramme.employees.present?
               %section.subprogramme-wrapper
                 %h3.subprogramme= subprogramme.name
