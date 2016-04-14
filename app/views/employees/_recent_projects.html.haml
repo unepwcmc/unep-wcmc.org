@@ -1,5 +1,7 @@
-- if cms_block_content(:"recent_project_1_title").present?
-  %h2 Recent work by #{cms_block_content(:name)}
+- (1..3).each do |i|
+  - if cms_block_content(:"recent_project_#{i}_title").present?
+    %h2 Recent work by #{cms_block_content(:name)}
+    - break
 
 - (1..3).each do |i|
   - if cms_block_content(:"recent_project_#{i}_title").present?
