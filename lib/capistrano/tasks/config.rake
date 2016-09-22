@@ -22,6 +22,7 @@ end
 namespace :config do
   task :setup do
     ask(:secret_key_base, 'secret_key_base')
+    ask(:appsignal_push_api_key, 'appsignal_push_api_key')
     ask(:mailer_address, 'mailer_address')
     ask(:mailer_port, 'mailer_port')
     ask(:mailer_domain, 'mailer_domain')
@@ -32,6 +33,7 @@ namespace :config do
     ask(:redis_url, 'redis_url')
 env_config = <<-EOF
 SECRET_KEY_BASE=#{fetch(:secret_key_base)}
+APPSIGNAL_PUSH_API_KEY=#{fetch(:appsignal_push_api_key)}
 MAILER_ADDRESS_KEY=#{fetch(:mailer_address)}
 MAILER_PORT_KEY=#{fetch(:mailer_port)}
 MAILER_DOMAIN_KEY=#{fetch(:mailer_domain)}
