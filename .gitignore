@@ -6,3 +6,4 @@ tmp/**
 log/**
 public/system
 config/database.yml
+.env

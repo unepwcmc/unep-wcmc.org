@@ -30,12 +30,6 @@ gem 'devise', '~> 3.5.6'
 gem 'appsignal'
 gem 'test-unit', '~> 3.1' # annoyingly, rails console won't start without it in staging / production
 
-
-group :production, :staging do
-  gem 'exception_notification', :git => 'https://github.com/smartinez87/exception_notification.git'
-  gem 'slack-notifier', '~> 1.0'
-end
-
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.2'
   gem 'guard'
