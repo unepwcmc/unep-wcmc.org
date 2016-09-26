@@ -1,6 +1,6 @@
 class Admin::EmployeesController < Admin::PageResourcesController
-  before_action :set_programmes,   :only => [:edit, :new]
-  before_action :set_employment,   :only => [:edit, :new]
+  before_action :set_programmes,   :only => [:edit, :new, :create, :update]
+  before_action :set_employment,   :only => [:edit, :new, :create, :update]
 
   private
 
