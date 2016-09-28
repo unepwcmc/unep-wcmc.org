@@ -41,6 +41,9 @@
     %link{ :href => 'https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', :rel => "stylesheet" }
     %script
       var my_url = "#{request.protocol}#{request.host}:#{request.port}";
+      var speciesplus_dashboard_url = "#{Rails.application.secrets.speciesplus_dashboard_url}";
+      var protectedplanet_dashboard_url = "#{Rails.application.secrets.protectedplanet_dashboard_url}";
+      var carbon_dashboard_url = "#{Rails.application.secrets.carbon_dashboard_url}";
     %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"}
     = javascript_include_tag "pages/application.js"
     = stylesheet_link_tag "base", media: "screen"
