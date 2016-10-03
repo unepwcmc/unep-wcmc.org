@@ -4,6 +4,7 @@ angular.module('DatasetsResources', []);
 angular.module('stats', ['ngAnimate', 'ngResource', 'ui.select2', 'ui.bootstrap'])
   .constant('GEOIP_URL', my_url + '/api/geoip')
   .constant('PPE_API_URL', protectedplanet_dashboard_url)
+  .constant('PPE_API_TOKEN', protectedplanet_dashboard_token)
   .constant('SAPI_API_URL', speciesplus_dashboard_url)
   .constant('GEO_ENTITIES_URL', my_url + '/api/countries')
   .constant('CARTODB_URL', carbon_dashboard_url)
@@ -81,7 +82,7 @@ angular.module('stats', ['ngAnimate', 'ngResource', 'ui.select2', 'ui.bootstrap'
           $(s.$tables_r).find('tr:visible').height(tr_l_height);
         }
       }
-    }
+    };
   })
   .service('helpers', function() {
     return {
@@ -92,5 +93,5 @@ angular.module('stats', ['ngAnimate', 'ngResource', 'ui.select2', 'ui.bootstrap'
           return value.toFixed(0);
         }
       }
-    }
+    };
   });

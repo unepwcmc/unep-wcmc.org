@@ -313,33 +313,30 @@ angular.module('stats').controller('PpeStatsCtrl', [
   '$scope',
   '$resource',
   'PPE_API_URL',
+  'PPE_API_TOKEN',
   'countryService',
   'helpers',
-function ($scope, $resource, PPE_API_URL, countryService, helpers) {
-
-  var ppe_stored_carbon,
-      stored_carbon;
-
-  $scope
-    .$watch(function () { return countryService.getCountry(); },
-      function (newCountry, oldCountry) {
-        if (newCountry.iso2 && newCountry.iso2 !== oldCountry.iso2) {
-          getData(newCountry.iso2);
-        }
-    }, true);
+function ($scope, $resource, PPE_API_URL, PPE_API_TOKEN, countryService, helpers) {
+  $scope.$watch(
+    function () { return countryService.getCountry(); },
+    function (newCountry, oldCountry) {
+      if (newCountry.iso2 && newCountry.iso2 !== oldCountry.iso2) {
+        getData(newCountry.iso2);
+      }
+    },
+    true
+  );
 
   $scope.ppe = {};
   $scope.ppe.loading = true;
   $scope.ppe.loaded = false;
 
   function getData (iso2) {
-    var ppe_stored_carbon = void 0,
-        url = PPE_API_URL.replace(':country', iso2);
-    return $.when($.getJSON(url, {iso:iso2})).then(function(data){
-      $scope.ppe.ppe_stored_carbon = data.carbon_kg_land / 1000;
-      $scope.ppe.protected_areas_count = data.protected_areas_count;
-      $scope.ppe.percentage_protected = helpers.formatNumber(
-        data.percentage_protected_land);
+    var url = PPE_API_URL.replace(':country', iso2);
+
+    return $.when($.getJSON(url, {token: PPE_API_TOKEN})).then(function(data) {
+      $scope.ppe.protected_areas_count = (data.polygons_count || 0) + (data.points_count || 0);
+      $scope.ppe.percentage_protected = helpers.formatNumber(data.percentage_pa_land_cover);
       $scope.$apply(function() {
         $scope.ppe.loading = false;
         $scope.ppe.loaded = true;
@@ -351,7 +348,6 @@ function ($scope, $resource, PPE_API_URL, countryService, helpers) {
       });
     });
   }
-
 }]);
 
 
