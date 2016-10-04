@@ -27,7 +27,7 @@
       %meta{ :name => "twitter:title", :content => "#{@cms_page.label.titleize} - UNEP-WCMC" }
       %meta{ :itemprop => "name", :content => "#{@cms_page.label.titleize} - UNEP-WCMC" }
       %meta{ :property => "og:title", :content => "#{@cms_page.label.titleize} - UNEP-WCMC" }
-      %meta{ :property => "og:url", :content => "http://www.unep-wcmc.org#{@cms_page.full_path}" }
+      %meta{ :property => "og:url", :content => "https://www.unep-wcmc.org#{@cms_page.full_path}" }
       %meta{ :property => "og:site_name", :content => "UNEP-WCMC's official website - #{@cms_page.label.titleize}" }
     %title
       - if content_for(:title)
@@ -36,12 +36,15 @@
         #{@cms_page.label.titleize} - UNEP-WCMC
       - else
         UNEP-WCMC
-    %link{ :href => 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700', :rel => 'stylesheet', :type => 'text/css' }
-    %link{ :href => 'http://fonts.googleapis.com/css?family=Lato:300,400,700', :rel => 'stylesheet', :type => 'text/css' }
-    %link{ :href => 'http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', :rel => "stylesheet" }
+    %link{ :href => 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700', :rel => 'stylesheet', :type => 'text/css' }
+    %link{ :href => 'https://fonts.googleapis.com/css?family=Lato:300,400,700', :rel => 'stylesheet', :type => 'text/css' }
+    %link{ :href => 'https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', :rel => "stylesheet" }
     %script
       var my_url = "#{request.protocol}#{request.host}:#{request.port}";
-    %script{src: "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"}
+      var speciesplus_dashboard_url = "#{Rails.application.secrets.speciesplus_dashboard_url}";
+      var protectedplanet_dashboard_url = "#{Rails.application.secrets.protectedplanet_dashboard_url}";
+      var carbon_dashboard_url = "#{Rails.application.secrets.carbon_dashboard_url}";
+    %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"}
     = javascript_include_tag "pages/application.js"
     = stylesheet_link_tag "base", media: "screen"
     = stylesheet_link_tag "application", media: "all"

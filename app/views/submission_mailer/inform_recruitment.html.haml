@@ -1,5 +1,5 @@
 %p
-  A job application has been received for the vacancy #{link_to @vacancy.label, "http://#{@host}/vacancies/#{@vacancy.slug}"}.
+  A job application has been received for the vacancy #{link_to @vacancy.label, "https://#{@host}/vacancies/#{@vacancy.slug}"}.
   %br
   You can review the application through #{link_to 'this link', form_submission_url(@form, @submission)}.
 
@@ -33,13 +33,13 @@
   %strong CV and cover letter
 %p CV
 - if @submission.cv.present?
-  = link_to(@submission.cv_file_name, "http://#{@host}#{@submission.cv.url}")
+  = link_to(@submission.cv_file_name, "https://#{@host}#{@submission.cv.url}")
 %p Cover letter
 - if @submission.cover_letter.present?
-  = link_to(@submission.cover_letter_file_name, "http://#{@host}#{@submission.cover_letter.url}")
+  = link_to(@submission.cover_letter_file_name, "https://#{@host}#{@submission.cover_letter.url}")
 %p Application form
 - if @submission.application_form.present?
-  = link_to(@submission.application_form_file_name, "http://#{@host}#{@submission.application_form.url}")
+  = link_to(@submission.application_form_file_name, "https://#{@host}#{@submission.application_form.url}")
 
 %p
   %strong Employment Conditions

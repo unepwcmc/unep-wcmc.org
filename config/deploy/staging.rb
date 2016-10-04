@@ -8,7 +8,7 @@
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
 set :stage, :staging
-set :branch, :master
+set :branch, :changes_for_ssl_version
 
 
 server "unep-wcmc-staging.linode.unep-wcmc.org", user: 'wcmc', roles: %w{app web db}
