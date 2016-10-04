@@ -335,8 +335,10 @@ function ($scope, $resource, PPE_API_URL, PPE_API_TOKEN, countryService, helpers
     var url = PPE_API_URL.replace(':country', iso2);
 
     return $.when($.getJSON(url, {token: PPE_API_TOKEN})).then(function(data) {
-      $scope.ppe.protected_areas_count = (data.polygons_count || 0) + (data.points_count || 0);
-      $scope.ppe.percentage_protected = helpers.formatNumber(data.percentage_pa_land_cover);
+      var stats = data.statistics;
+      $scope.ppe.protected_areas_count = (stats.polygons_count || 0) + (stats.points_count || 0);
+      $scope.ppe.percentage_protected = helpers.formatNumber(stats.percentage_pa_land_cover);
+
       $scope.$apply(function() {
         $scope.ppe.loading = false;
         $scope.ppe.loaded = true;
@@ -373,7 +375,7 @@ function ($scope, $resource, CARTODB_URL, countryService, helpers) {
   function getData (iso2) {
     var q = {
       q: "SELECT biodiversity_loss, carbon_sums, carbon_from_pas, percentage FROM wcmc_api_stats WHERE iso2 = '" + iso2 + "'"
-    }
+    };
     return $.ajax({
       url: CARTODB_URL,
       dataType: "jsonp",
