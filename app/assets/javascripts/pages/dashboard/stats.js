@@ -335,7 +335,7 @@ function ($scope, $resource, PPE_API_URL, PPE_API_TOKEN, countryService, helpers
     var url = PPE_API_URL.replace(':country', iso2);
 
     return $.when($.getJSON(url, {token: PPE_API_TOKEN})).then(function(data) {
-      var stats = data.statistics;
+      var stats = data.country.statistics;
       $scope.ppe.protected_areas_count = (stats.polygons_count || 0) + (stats.points_count || 0);
       $scope.ppe.percentage_protected = helpers.formatNumber(stats.percentage_pa_land_cover);
 
