@@ -17,4 +17,9 @@ module ApplicationHelper
     p = page_files(identifier, page)
     p ? p[0] : nil
   end
+
+  def active_link_to(name, path)
+    active_class = "active" if current_page?(path)
+    link_to(name, path, class: "#{active}")
+  end
 end

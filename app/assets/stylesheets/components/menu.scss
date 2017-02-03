@@ -1,0 +1,21 @@
+@import 'utilities/colors';
+@import 'utilities/breakpoints';
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.menu__item {
+  list-style: none;
+  padding: 1em;
+
+  a {
+    color: $black;
+
+    &:hover {
+    }
+  }
+}
+

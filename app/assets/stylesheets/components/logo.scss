@@ -1,0 +1,37 @@
+@import 'utilities/colors';
+@import 'utilities/breakpoints';
+
+.logo {
+  border: 2px solid $dark-grey;
+  width: 450px;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: $phone){
+    border: none;
+    width: 100%;
+  }
+}
+
+.logo__image-container {
+  border-right: 2px solid $dark-grey;
+  min-height: 100%;
+  padding: 0.8em;
+
+  @media (max-width: $phone){
+    border: none;
+  }
+}
+
+.logo__image-container__image {
+  width: 80px;
+}
+
+.logo__text {
+  text-align: left;
+  padding: 1.2em 0.8em;
+
+  @media (max-width: $phone){
+    display: none;
+  }
+}
