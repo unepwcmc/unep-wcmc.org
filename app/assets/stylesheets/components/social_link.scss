@@ -1,0 +1,11 @@
+@import 'utilities/breakpoints';
+
+.social-link {
+  margin: 0 1em;
+}
+
+.social-link__text {
+  @media (max-width: $phone){
+    display: none;
+  }
+}
