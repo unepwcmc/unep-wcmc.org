@@ -6,10 +6,11 @@
 }
 
 .social-link {
-  margin: 0 1em;
+  margin: 0 0.75em;
 }
 
 .social-link__text {
+  margin-left: 0.25em;
   @media (max-width: $phone){
     display: none;
   }
