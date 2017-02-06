@@ -1,4 +1,9 @@
+@import 'utilities/colors';
 @import 'utilities/breakpoints';
+
+.social-group {
+  display: flex;
+}
 
 .social-link {
   margin: 0 1em;
@@ -9,3 +14,7 @@
     display: none;
   }
 }
+
+.fa-facebook { background-color: $facebook; }
+.fa-twitter  { background-color: $twitter; }
+.fa-linkedin { background-color: $linkedin; }
