@@ -7,31 +7,18 @@ footer.footer {
   width: 100%;
 }
 
-.footer-logo {
+.footer-logo, .footer-menu, .footer-social {
   padding: 3.5em;
   border-top: 1px solid $light-grey;
   border-bottom: 1px solid $light-grey;
   display: flex;
   justify-content: center;
+
+  @media (max-width: $phone){
+    padding: 1em;
+  }
 }
 
 .footer-menu {
   padding: 2em;
-  border-top: 1px solid $light-grey;
-  border-bottom: 1px solid $light-grey;
-  display: flex;
-  justify-content: center;
-}
-
-.footer-social {
-  padding: 3.5em;
-  border-top: 1px solid $light-grey;
-  border-bottom: 1px solid $light-grey;
-  display: flex;
-  justify-content: center;
-}
-
-.footer-image {
-  background-image:
-
 }

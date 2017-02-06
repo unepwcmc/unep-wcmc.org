@@ -3,7 +3,6 @@
 
 .logo {
   border: 2px solid $dark-grey;
-  width: 450px;
   display: flex;
   justify-content: center;
 
@@ -17,6 +16,7 @@
   border-right: 2px solid $dark-grey;
   min-height: 100%;
   padding: 0.8em;
+  margin: auto;
 
   @media (max-width: $phone){
     border: none;
@@ -29,7 +29,7 @@
 
 .logo__text {
   text-align: left;
-  padding: 1.2em 0.8em;
+  padding: 1.2em 1em;
 
   @media (max-width: $phone){
     display: none;
