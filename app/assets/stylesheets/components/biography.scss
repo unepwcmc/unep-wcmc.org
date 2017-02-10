@@ -5,6 +5,14 @@
   background: $white;
   display: flex;
   padding: 2em;
+  width: 70%;
+  max-width: 980px;
+  margin: 0 auto;
+
+  @media (max-width: $phone){
+    width: 100%;
+    flex-direction: column;
+  }
 }
 
 .biography__photo {
