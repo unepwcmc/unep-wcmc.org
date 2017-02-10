@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   @media (max-width: $phone){
     flex-direction: column;
   }
@@ -16,8 +17,32 @@
 
   a {
     color: $black;
-
     &:hover {
+      background: $light-grey;
+    }
+  }
+  @media (max-width: $phone) {
+  }
+}
+
+.menu__toggle {
+  display: none;
+  @media (max-width: $phone){
+    display: flex;
+    align-self: flex-end;
+
+  }
+}
+
+.menu--collapsable {
+  @media (max-width: $phone){
+    li.menu__item {
+      display: none;
+    }
+  }
+  @media (min-width: $phone){
+    li.menu__item {
+      display: block;
     }
   }
 }

@@ -3,15 +3,15 @@
     <div class="social-group">
       <div class="social-link">
         <%= fa_stacked_icon "facebook inverse", base: "square", class: "fa-1x" %>
-        <span class="social-link__text">Facebook</span>
+        <span class="social-link__text">Like us</span>
       </div>
       <div class="social-link">
         <%= fa_stacked_icon "twitter inverse", base: "square", class: "fa-1x" %>
-        <span class="social-link__text">Twitter</span>
+        <span class="social-link__text">Follow us</span>
       </div>
       <div class="social-link">
         <%= fa_stacked_icon "linkedin inverse", base: "square", class: "fa-1x" %>
-        <span class="social-link__text">LinkedIn</span>
+        <span class="social-link__text">Connect with us</span>
       </div>
     </div>
   </div>
@@ -26,5 +26,25 @@
         World Conservation Monitoring Centre
       </div>
     </div>
+    <ul class="menu menu--collapsable">
+      <li class="menu__toggle">
+        <%= fa_icon 'bars 2x' %>
+      </li>
+      <li class="menu__item">
+        <%= active_link_to "Partners", "/about-us/partners" %>
+      </li>
+      <li class="menu__item">
+        <%= active_link_to "Vacancies", "/vacancies" %>
+      </li>
+      <li class="menu__item">
+        <%= active_link_to "The Team", "/employees" %>
+      </li>
+      <li class="menu__item">
+        <%= active_link_to "Contact", "/about-us/contact" %>
+      </li>
+      <li class="menu__item">
+        <%= active_link_to "Terms & Conditions", "/terms-and-conditions" %>
+      </li>
+    </ul>
   </nav>
 </header>
