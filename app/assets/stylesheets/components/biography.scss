@@ -1,0 +1,20 @@
+@import 'utilities/colors';
+@import 'utilities/breakpoints';
+
+.biography {
+  background: $white;
+  display: flex;
+  padding: 2em;
+}
+
+.biography__photo {
+  img { width: 100%; }
+}
+
+.biography__name {}
+
+.biography__team-name {}
+
+.biography__text {}
+
+.biography__read-more {}
