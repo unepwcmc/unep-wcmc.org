@@ -1,0 +1,28 @@
+@import 'utilities/colors';
+
+.cards-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+}
+
+.card--third {
+  width: 30%;
+}
+
+.card__image {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.card__title {
+  padding: 0.5em 0;
+  font-size: 1.5rem;
+  color: $dark-blue;
+}
+
+.card__text {
+}
+
