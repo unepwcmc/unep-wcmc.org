@@ -65,7 +65,6 @@
 
   %body
     = render 'layouts/header'
-    = render 'layouts/hero'
 
     -##nav-container
       -##nav
@@ -110,10 +109,10 @@
 
     = yield
 
-    = render 'layouts/section_header'
-
+    = render partial: 'layouts/section_header', locals: { title: "News" }
     = render 'layouts/latest_news'
 
+    = render partial: 'layouts/section_header', locals: { title: "Meet our experts" }
     = render 'layouts/biography'
 
     = render 'layouts/footer'

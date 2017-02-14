@@ -18,7 +18,7 @@ module ApplicationHelper
     p ? p[0] : nil
   end
 
-  def active_link_to(name, path)
+  def active_class_link_to(name, path)
     active_class = "active" if current_page?(path)
     link_to(name, path, class: "#{active_class}")
   end

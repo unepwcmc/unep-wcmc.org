@@ -1,0 +1,13 @@
+@import 'utilities/breakpoints';
+
+.hidden-phone-down {
+  @media (max-width: $phone){
+    display: none !important;
+  }
+}
+
+.hidden-tablet-down {
+  @media (max-width: $tablet){
+    display: none !important;
+  }
+}
