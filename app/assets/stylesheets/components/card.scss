@@ -1,8 +1,12 @@
 @import 'utilities/colors';
+@import 'utilities/breakpoints';
 
 .cards-row {
   display: flex;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
+  @media (max-width: $phone){
+    flex-direction: column;
+  }
 }
 
 .card {
@@ -10,11 +14,21 @@
 
 .card--third {
   width: 30%;
+  @media (max-width: $tablet){
+    width: 50%;
+  }
+
+  @media (max-width: $phone){
+    width: 100%;
+  }
 }
 
 .card__image {
   width: 100%;
   margin-bottom: 1em;
+  @media (max-width: $phone){
+    display: none !important;
+  }
 }
 
 .card__title {

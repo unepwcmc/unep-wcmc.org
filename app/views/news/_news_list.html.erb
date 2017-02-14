@@ -1,0 +1,30 @@
+<div class="cards-row">
+  <% Comfy::Cms::Site.find_by_identifier('news').pages.root.children.published.includes(blocks: [:files]).reverse.take(6).each do |page| %>
+
+    <div class="card card--third">
+      <%= image_tag 'https://placeholdit.imgix.net/~text?txtsize=47&txt=500%C3%97500&w=500&h=500', class: 'card__image' %>
+      <h1 class="card__title"><%= block_content(:news_header, page) %></h1>
+      <p class="card__text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor risus sodales elit finibus sagittis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse potenti. Nunc ac nibh sit amet quam tincidunt ultrices in vitae dolor. Proin blandit quis purus et condimentum. Duis id sem velit. Suspendisse potenti. Proin molestie felis convallis, scelerisque tortor quis, sollicitudin neque.</p>
+      <div class="tags">
+        <a href="#" class="tags__tag">report</a>
+        <a href="#" class="tags__tag">database</a>
+      </div>
+    </div>
+
+  <% end %>
+</div>
+
+<%#.section-group%>
+  <%#// Add visible back in after .published.visible.inclues...%>
+  <%#- Comfy::Cms::Site.find_by_identifier('news').pages.root.children.published.includes(blocks: [:files]).reverse.take(6).each do |page|%>
+    <%#%section.group%>
+      <%#%small= formatted_time(block_content(:time, page))%>
+      <%#= link_to '/news' + page.full_path do%>
+        <%#- if page_file(:news_img, page).present?%>
+          <%#%img{:src => page_file(:news_img, page).file.url, :width => "", :height => ""}%>
+      <%#%h2.smaller%>
+        <%#%a.heading{:href => page.url}%>
+          <%#= block_content(:news_header,page)%>
+      <%#%p%>
+        <%#= raw block_content(:short_description, page)%>
