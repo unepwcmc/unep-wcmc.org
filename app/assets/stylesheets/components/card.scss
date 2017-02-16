@@ -2,18 +2,22 @@
 @import 'utilities/breakpoints';
 
 .cards-row {
-  display: flex;
+  /*display: flex;*/
   /*justify-content: space-between;*/
-  @media (max-width: $phone){
-    flex-direction: column;
-  }
+  /*@media (max-width: $phone){*/
+    /*flex-direction: column;*/
+  /*}*/
+  overflow: auto;
 }
 
 .card {
+  float: left;
+  padding: 1em;
+  height: 600px;
 }
 
 .card--third {
-  width: 30%;
+  width: 33.333%;
   @media (max-width: $tablet){
     width: 50%;
   }

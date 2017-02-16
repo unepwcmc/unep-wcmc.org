@@ -7,6 +7,12 @@
 
 .social-link {
   margin: 0 0.75em;
+  color: $dark-grey;
+
+  &:hover {
+    color: $black;
+    text-decoration: none;
+  }
 }
 
 .social-link__text {

@@ -1,8 +1,10 @@
 @import "compass/reset";
+@import "utilities/colors";
 
 $blue: #4295d5;
 $light-blue: #A8CDEE;
-$dark_blue: #3376BA;
+/*$dark_blue: #3376BA;*/
+$dark_blue: $dark-blue;
 $blue_news: #5175a3;
 $grey: #ddd;
 $light_grey: #f7f7f7;
@@ -394,9 +396,9 @@ div.button, button {
   padding: 10px;
   text-align: center;
   display: block;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+  /*-webkit-border-radius: 3px;*/
+  /*-moz-border-radius: 3px;*/
+  /*border-radius: 3px;*/
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
@@ -477,7 +479,7 @@ div.button, button {
       padding-bottom: 60px;
       div.button {
         margin: 40px auto 0 auto;
-        background: $blue;
+        background: $dark-blue;
         cursor: pointer;
         border: none;
         a {
