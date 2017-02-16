@@ -14,6 +14,7 @@
   float: left;
   padding: 1em;
   height: 600px;
+  overflow: hidden;
 }
 
 .card--third {
@@ -27,6 +28,10 @@
   }
 }
 
+.card--resource, .card--news {
+  height: 380px;
+}
+
 .card__image {
   width: 100%;
   margin-bottom: 1em;
@@ -36,11 +41,14 @@
 }
 
 .card__title {
-  padding: 0.5em 0;
   font-size: 1.5rem;
   color: $dark-blue;
 }
 
 .card__text {
+}
+
+.card__timestamp {
+  padding: 1em 0;
 }
 

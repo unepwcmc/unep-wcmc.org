@@ -1,0 +1,16 @@
+@import 'utilities/colors';
+
+a {
+  color: $dark-blue;
+
+  &:hover {
+    color: $dark-blue;
+  }
+}
+
+p.lead {
+  color: $dark-grey;
+  font-size: 1.2em;
+  width: 50%;
+  margin: auto;
+}

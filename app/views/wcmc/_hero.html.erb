@@ -1,4 +1,4 @@
-<header class="hero" style="background: url(<%= cms_block_content(:wcmc_background, wcmc_page).try(:file).try(:url) %>) no-repeat center; background-size: cover;">
+<div class="hero" style="background: url(<%= cms_block_content(:wcmc_background, wcmc_page).try(:file).try(:url) %>) no-repeat center; background-size: cover;">
   <div class="hero__card">
     <div class="hero__title">
       <h1> <%= cms_block_content(:heading, wcmc_page) %> </h1>
@@ -6,5 +6,5 @@
       <p> <%= cms_block_content(:heading_tagline, wcmc_page) %> </p>
     </div>
   </div>
-</header>
+</div>
 
