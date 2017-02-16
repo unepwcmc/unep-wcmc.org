@@ -35,5 +35,4 @@ $(document).ready(function(){
   $(".menu--collapsable").find(".menu__toggle").click(function(){
     $(".menu--collapsable").find(".menu__item").slideToggle('fast')
   });
-
 });

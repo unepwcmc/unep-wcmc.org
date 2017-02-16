@@ -36,10 +36,12 @@
 
 .menu--collapsable {
   @media (max-width: $phone){
+    flex-grow: 1;
     li.menu__item {
       display: none;
     }
   }
+
   @media (min-width: $phone){
     li.menu__item {
       display: block;
