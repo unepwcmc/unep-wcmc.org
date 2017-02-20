@@ -2,30 +2,25 @@
 @import 'utilities/breakpoints';
 
 .logo {
-  border: 2px solid $dark-grey;
   display: flex;
   justify-content: center;
   align-items: center;
 
   @media (max-width: $phone){
-    border: none;
     width: 100%;
   }
 }
 
 .logo__image-container {
-  border-right: 2px solid $dark-grey;
   min-height: 100%;
-  padding: 0.8em;
   margin: auto;
 
   @media (max-width: $phone){
-    border: none;
   }
 }
 
 .logo__image-container__image {
-  width: 80px;
+  width: 180px;
 }
 
 .logo__text {
