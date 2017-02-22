@@ -8,6 +8,7 @@
 
   @media (max-width: $phone){
     flex-direction: column;
+    width: 100%;
   }
 }
 
@@ -25,26 +26,36 @@
   }
 }
 
-.menu__toggle {
+.menu__toggle, .menu__logo {
   display: none;
   @media (max-width: $phone){
     display: flex;
-    align-self: flex-end;
-
   }
+}
+
+.menu__logo {
+  @media (max-width: $phone){
+    align-self: flex-start;
+  }
+
+  img {
+    width: 100px;
+  }
+}
+
+.menu__top-bar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .menu--collapsable {
   @media (max-width: $phone){
-    flex-grow: 1;
     li.menu__item {
       display: none;
     }
-  }
-
-  @media (min-width: $phone){
-    li.menu__item {
-      display: block;
+    li.menu__item.menu-responsive-show {
+      display: flex;
     }
   }
 }

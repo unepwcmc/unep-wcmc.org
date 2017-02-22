@@ -23,9 +23,14 @@
       </div>
     </div>
     <ul class="menu menu--collapsable">
-      <li class="menu__toggle">
-        <%= fa_icon 'bars 2x' %>
-      </li>
+      <div class="menu__top-bar">
+        <li class="menu__logo">
+          <%= image_tag 'unepwcmc_new.png' %>
+        </li>
+        <li class="menu__toggle">
+          <%= fa_icon 'bars 2x' %>
+        </li>
+      </div>
       <li class="menu__item">
         <%= active_class_link_to "Partners", "/about-us/partners" %>
       </li>
