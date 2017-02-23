@@ -14,6 +14,22 @@
   }
 }
 
+.header-social-bar__container {
+  width: 70%;
+  max-width: 980px;
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+
+  @media (max-width: $phone){
+    width: 100%;
+  }
+  @media (max-width: $tablet){
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 .header-menu {
   background-color: $white;
   padding: 1em;
@@ -26,4 +42,17 @@
     /*align-items: stretch;*/
   }
 }
+
+.header-menu__container {
+  width: 70%;
+  max-width: 980px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: $phone){
+    width: 100%;
+  }
+}
+
 

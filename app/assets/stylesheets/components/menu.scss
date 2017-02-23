@@ -1,12 +1,14 @@
 @import 'utilities/colors';
 @import 'utilities/breakpoints';
 
+$menu_breakpoint: $tablet;
+
 .menu {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  @media (max-width: $phone){
+  @media (max-width: $menu_breakpoint){
     flex-direction: column;
     width: 100%;
   }
@@ -15,6 +17,12 @@
 .menu__item {
   list-style: none;
   padding: 1em;
+  &:first-child {
+    padding-left: 0;
+  }
+  &:last-child {
+    padding-right: 0;
+  }
 
   a {
     color: $black;
@@ -22,19 +30,19 @@
       background: $light-grey;
     }
   }
-  @media (max-width: $phone) {
+  @media (max-width: $menu_breakpoint) {
   }
 }
 
 .menu__toggle, .menu__logo {
   display: none;
-  @media (max-width: $phone){
+  @media (max-width: $menu_breakpoint){
     display: flex;
   }
 }
 
 .menu__logo {
-  @media (max-width: $phone){
+  @media (max-width: $menu_breakpoint){
     align-self: flex-start;
   }
 
@@ -50,7 +58,7 @@
 }
 
 .menu--collapsable {
-  @media (max-width: $phone){
+  @media (max-width: $menu_breakpoint){
     li.menu__item {
       display: none;
     }

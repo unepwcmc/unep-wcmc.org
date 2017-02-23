@@ -1,12 +1,14 @@
 @import 'utilities/colors';
 @import 'utilities/breakpoints';
 
+$logo_breakpoint: $tablet;
+
 .logo {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  @media (max-width: $phone){
+  @media (max-width: $logo_breakpoint){
     width: 100%;
   }
 }
@@ -15,7 +17,7 @@
   min-height: 100%;
   margin: auto;
 
-  @media (max-width: $phone){
+  @media (max-width: $logo_breakpoint){
   }
 }
 
@@ -27,7 +29,7 @@
   text-align: left;
   padding: 1.2em 1em;
 
-  @media (max-width: $phone){
+  @media (max-width: $logo_breakpoint){
     display: none;
   }
 }

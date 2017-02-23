@@ -2,11 +2,15 @@
 @import 'utilities/breakpoints';
 
 .hero {
-  padding: 100px;
+  width: 70%;
+  max-width: 980px;
+  margin: auto;
+  padding: 100px 0;
   display: flex;
   justify-content: center;
 
   @media (max-width: $phone){
+    width: 100%;
     padding: 1em;
   }
 }
@@ -14,8 +18,6 @@
 .hero__card {
   border: 4px solid $white;
   display: flex;
-  width: 70%;
-  max-width: 980px;
 
   @media (max-width: $tablet){
     width: 100%;
