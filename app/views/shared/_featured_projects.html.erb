@@ -1,9 +1,11 @@
 <section class="row">
   <div class="container cards-row">
     <% Comfy::Cms::Site.find_by_identifier('featured-projects').pages.root.children.published.where(is_top_project: true).includes(blocks: [:files]).take(6).each do |page| %>
-      <div class="card card--third card--resource">
+      <div class="card card--third card--featured-project">
         <% if page_file(:thumbnail, page).present? %>
           <%= image_tag page_file(:thumbnail, page).file.url, class: 'card__image' %>
+        <% else %>
+          <%= image_tag 'http://lorempixel.com/400/200/nature', class: 'card__image' %>
         <% end %>
 
         <h1 class="card__title"><a href="<%= page.url(:relative) %>"><%= truncate(block_content(:project_name, page), escape: false, length: 70, omission: "...") %></a></h1>
