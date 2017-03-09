@@ -59,6 +59,11 @@
 .header-menu__right {
   .menu {
     justify-content: flex-end;
+    .menu__item {
+      &:last-child {
+        padding-right: 0;
+      }
+    }
   }
 }
 
