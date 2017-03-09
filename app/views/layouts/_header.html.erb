@@ -21,7 +21,7 @@
           <%= image_tag 'unepwcmc_new.png' %>
         </div>
       </div>
-      <div class="header-menu__right">
+      <div class="header-menu__right hidden-tablet-down">
         <ul class="menu menu--skinny">
           <li class="menu__item">
             <%= active_class_link_to "Partners", "/about-us/partners" %>
@@ -53,4 +53,42 @@
       </div>
     </div>
   </nav>
+
+  <nav class="header-menu header-menu--mobile">
+    <div class="header-menu__container">
+      <a href="" class="button js-menu--trigger">Menu</a>
+    </div>
+  </nav>
+  <nav class="header-menu header-menu--mobile js-menu--target">
+    <ul class="menu menu--skinny">
+      <li class="menu__item">
+        <%= active_class_link_to "Partners", "/about-us/partners" %>
+      </li>
+      <li class="menu__item">
+        <%= active_class_link_to "Vacancies", "/vacancies" %>
+      </li>
+      <li class="menu__item">
+        <%= active_class_link_to "The Team", "/employees" %>
+      </li>
+      <li class="menu__item">
+        <%= active_class_link_to "Contact", "/about-us/contact" %>
+      </li>
+    </ul>
+    <hr class="grey">
+    <ul class="menu menu--bold">
+      <li class="menu__item">
+        <%= active_class_link_to "Our expertise", "/expertise" %>
+      </li>
+      <li class="menu__item">
+        <%= active_class_link_to "Featured work", "/featured-projects" %>
+      </li>
+      <li class="menu__item">
+        <%= active_class_link_to "Resources & Data", "/resources-and-data" %>
+      </li>
+      <li class="menu__item">
+        <%= active_class_link_to "About us", "/about-us" %>
+      </li>
+    </ul>
+  </nav>
+
 </header>

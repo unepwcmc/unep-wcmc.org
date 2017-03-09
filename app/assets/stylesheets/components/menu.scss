@@ -83,3 +83,11 @@ ul.menu--skinny {
     font-weight: 700;
   }
 }
+
+.js-menu--target {
+  // Initial state
+  display: none;
+}
+.js-menu--visible {
+  display: flex;
+}
