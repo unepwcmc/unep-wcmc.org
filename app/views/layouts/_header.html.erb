@@ -2,10 +2,6 @@
   <div class="header-social-bar">
     <div class="header-social-bar__container">
       <div class="social-group">
-        <a class="social-link" href="https://www.facebook.com/pages/World-Conservation-Monitoring-Centre/106003852764508" target="_blank">
-          <%= fa_stacked_icon "facebook inverse", base: "square", class: "fa-1x" %>
-          <span class="social-link__text">Like us</span>
-        </a>
         <a class="social-link" href="http://twitter.com/unepwcmc" target="_blank">
           <%= fa_stacked_icon "twitter inverse", base: "square", class: "fa-1x" %>
           <span class="social-link__text">Follow us</span>
@@ -20,36 +16,41 @@
 
   <nav class="header-menu">
     <div class="header-menu__container">
-      <div class="logo hidden-tablet-down">
-        <div class="logo__image-container">
-          <%= image_tag 'unepwcmc_new.png', class: 'logo__image-container__image' %>
+      <div class="header-menu__left">
+        <div class="header__logo">
+          <%= image_tag 'unepwcmc_new.png' %>
         </div>
       </div>
-      <ul class="menu menu--collapsable">
-        <div class="menu__top-bar">
-          <li class="menu__logo">
-            <%= image_tag 'unepwcmc_new.png' %>
+      <div class="header-menu__right">
+        <ul class="menu menu--skinny">
+          <li class="menu__item">
+            <%= active_class_link_to "Partners", "/about-us/partners" %>
           </li>
-          <li class="menu__toggle">
-            <%= fa_icon 'bars 2x' %>
+          <li class="menu__item">
+            <%= active_class_link_to "Vacancies", "/vacancies" %>
           </li>
-        </div>
-        <li class="menu__item">
-          <%= active_class_link_to "Partners", "/about-us/partners" %>
-        </li>
-        <li class="menu__item">
-          <%= active_class_link_to "Vacancies", "/vacancies" %>
-        </li>
-        <li class="menu__item">
-          <%= active_class_link_to "The Team", "/employees" %>
-        </li>
-        <li class="menu__item">
-          <%= active_class_link_to "Contact", "/about-us/contact" %>
-        </li>
-        <li class="menu__item">
-          <%= active_class_link_to "Terms & Conditions", "/terms-and-conditions" %>
-        </li>
-      </ul>
+          <li class="menu__item">
+            <%= active_class_link_to "The Team", "/employees" %>
+          </li>
+          <li class="menu__item">
+            <%= active_class_link_to "Contact", "/about-us/contact" %>
+          </li>
+        </ul>
+        <ul class="menu menu--skinny menu--bold">
+          <li class="menu__item">
+            <%= active_class_link_to "Our expertise", "/expertise" %>
+          </li>
+          <li class="menu__item">
+            <%= active_class_link_to "Featured work", "/featured-projects" %>
+          </li>
+          <li class="menu__item">
+            <%= active_class_link_to "Resources & Data", "/resources-and-data" %>
+          </li>
+          <li class="menu__item">
+            <%= active_class_link_to "About us", "/about-us" %>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 </header>

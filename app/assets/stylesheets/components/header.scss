@@ -49,10 +49,22 @@
   margin: auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   @media (max-width: $phone){
     width: 100%;
   }
 }
 
+.header-menu__right {
+  .menu {
+    justify-content: flex-end;
+  }
+}
+
+.header__logo {
+  img {
+    width: 200px;
+  }
+}
 

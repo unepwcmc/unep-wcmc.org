@@ -72,3 +72,14 @@ $menu_breakpoint: $tablet;
   }
 }
 
+ul.menu--skinny {
+  li.menu__item {
+    padding: 0.5em 1em;
+  }
+}
+
+.menu--bold {
+  li.menu__item {
+    font-weight: 700;
+  }
+}
