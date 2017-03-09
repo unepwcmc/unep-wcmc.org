@@ -23,6 +23,7 @@
   }
 
   img {
+    border-radius: 10em;
     width: 80%;
     @media (max-width: $tablet){
       max-width: 250px;
