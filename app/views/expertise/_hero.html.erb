@@ -1,9 +1,9 @@
-<header class="hero" style="background: url(#{cms_block_content(:expertise_background, expertise_page).try(:file).try(:url)}) no-repeat center; background-size: cover" >
+<header class="hero" style="background: url(<%= cms_block_content(:expertise_background, expertise_pages).try(:file).try(:url) %>) no-repeat center; background-size: cover" >
   <div class="hero__card">
     <div class="hero__title">
-      <h1><%= cms_block_content(:heading, expertise_page) %></h1>
+      <h1><%= cms_block_content(:heading, expertise_pages) %></h1>
       <br>
-      <p><%= cms_block_content(:heading_tagline, expertise_page) %></p>
+      <p><%= cms_block_content(:heading_tagline, expertise_pages) %></p>
     </div>
   </div>
 </header>
