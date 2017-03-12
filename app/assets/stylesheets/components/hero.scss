@@ -2,8 +2,6 @@
 @import 'utilities/breakpoints';
 
 .hero {
-  width: 70%;
-  max-width: 980px;
   margin: auto;
   padding: 100px 0;
   display: flex;
@@ -16,6 +14,8 @@
 }
 
 .hero__card {
+  width: 70%;
+  max-width: 980px;
   border: 4px solid $white;
   display: flex;
 
