@@ -1,7 +1,0 @@
-.hero#data{ :style => "background: url(#{cms_block_content(:background, datasets_page).try(:file).try(:url)}) no-repeat center; background-size: cover; position: relative" }
-  .heading
-    %h1= cms_block_content(:header, datasets_page)
-    %h2.shorter= cms_block_content(:subheader, datasets_page)
-  %figcaption{ :style => "position: absolute; bottom: 0; right:0; display: inline-block; background: rgba(0,0,0,0.2)"}
-    %p{ :style => "font-size: 0.7em; color: rgba(255,255,255,0.8); padding: 3px 5px; margin: 0"}= cms_block_content(:background_image_caption, datasets_page)
-
