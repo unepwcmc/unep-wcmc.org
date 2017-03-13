@@ -29,7 +29,7 @@ $white_link: rgba(255,255,255, 0.75);
 
 body {
   font-size: 100%;
-  font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 
 .container {
@@ -46,7 +46,7 @@ body {
 }
 
 h1, h2, h3, h5 {
-  font-family: "MuseoSlab-500", Helvetica, Arial, sans-serif;
+  font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
   em {
     font-style: italic;
   }
@@ -79,7 +79,7 @@ h2{
     margin: auto;
     width: 80%;
     padding: 50px 0 25px 0;
-    font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
   }
   &.programme {
   line-height: 1em;
@@ -91,7 +91,7 @@ h2{
     }
   }
   &.related-project {
-    font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     font-size: 1em;
     margin: 20px 0 10px 0;
   }
@@ -102,7 +102,7 @@ h2{
     color: #5e5a5c;
     word-spacing: 0;
     letter-spacing: 0;
-    font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     .separator {
       color: $grey;
     }
@@ -120,7 +120,7 @@ h3{
     font-size: 0.85em;
     margin-bottom: 20px;
     font-weight: 300;
-    font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     color: $grey_text;
     .separator {
       color: $grey;
@@ -132,11 +132,11 @@ h3{
     text-transform: uppercase;
     font-size: 0.75em;
     font-weight: 300;
-    font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     margin: 1em 0;
   }
   &.author, &.isbn {
-    font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     word-spacing: 0;
     letter-spacing: 0;
     text-transform: none;
@@ -167,7 +167,7 @@ h3{
   }
   &.vacancy-position {
     font-size: 1em;
-    font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     font-weight: 300;
     color: $medium_grey;
     margin-bottom: 10px;
@@ -180,7 +180,7 @@ h3{
     }
   }
   &.subprogramme {
-    font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     color: $grey_text;
     text-transform: uppercase;
     margin: 0 0 10px 0;
@@ -297,7 +297,7 @@ ol {
       padding: 0;
       margin: 0;
       a {
-        font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+        font-family: "Roboto", Helvetica, Arial, sans-serif;
         font-size: 0.8em;
         font-weight: 300;
         text-decoration: none;
@@ -364,7 +364,7 @@ div.heading{
     margin: 0.5em 0;
     font-size: 0.85em;
     line-height: 1.4em;
-    font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     border-top: 1px solid rgba(255,255,255, 0.9);
     border-bottom: 1px solid rgba(255,255,255, 0.9);
     margin-top: 20px;
@@ -408,7 +408,7 @@ div.button, button {
   background: none;
   box-shadow: none;
   font-weight: 300;
-  font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: 1em;
   color: $blue;
   outline: none;
@@ -688,7 +688,7 @@ select#sorting, select#sorting option {
   font-weight: 300;
   padding: 10px;
   font-size: 0.85em;
-  font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   line-height: 1.5em;
   color: $grey_text;
   font-weight: 300;
@@ -702,7 +702,7 @@ div.search-field {
     padding: 10px;
     box-shadow: none;
     background: none;
-    font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     line-height: 1.5em;
     font-size: 0.85em;
     font-weight: 300;
@@ -939,7 +939,7 @@ form {
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
       border-radius: 3px;
-      font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+      font-family: "Roboto", Helvetica, Arial, sans-serif;
       font-size: 1em;
       font-weight: 300;
       color: $grey_text;
@@ -974,7 +974,7 @@ form {
     border-radius: 5px;
     padding: 10px 0;
     color: #fff;
-    font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     font-size: 1em;
     font-weight: 300;
     display: inline-block;
@@ -1033,7 +1033,7 @@ ul.footer{
     a {
       font-size: 1em;
       font-weight: 300;
-      font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+      font-family: "Roboto", Helvetica, Arial, sans-serif;
       text-decoration: none;
       color: $medium_grey;
       &:hover{
@@ -1169,7 +1169,7 @@ ul#button-menu {
 
 button#trigger-menu {
   background: #222;
-  font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   color: $white_link;
   font-size: 0.85em;
@@ -1185,7 +1185,7 @@ button#trigger-menu {
     &:after {
       display: inline-block;
       content: "Navigation";
-      font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+      font-family: "Roboto", Helvetica, Arial, sans-serif;
       padding-left: 5px;
     }
   }
@@ -1209,7 +1209,7 @@ section.actions, section.related-content {
   h1 {
     margin-bottom: 10px;
     font-size: 1em;
-    font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 300;
     border-bottom: 1px solid $grey;
@@ -1407,7 +1407,7 @@ div.dashboard {
       font-size: 1em;
       line-height: 1.4em;
       font-weight: 300;
-      font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+      font-family: "Roboto", Helvetica, Arial, sans-serif;
       margin: 0 0 20px 0;
     }
   }
@@ -1442,7 +1442,7 @@ div.dashboard {
       input {
         width: 90%;
         padding: 0;
-        font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+        font-family: "Roboto", Helvetica, Arial, sans-serif;
         color: #fff;
         background: none;
         border: none;

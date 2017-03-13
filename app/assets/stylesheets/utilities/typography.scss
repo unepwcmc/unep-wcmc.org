@@ -1,4 +1,13 @@
 @import 'utilities/colors';
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300');
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Slab', serif;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
 
 a {
   color: $dark-blue;
