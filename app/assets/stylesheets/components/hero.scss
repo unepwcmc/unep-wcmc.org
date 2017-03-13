@@ -20,7 +20,7 @@
   display: flex;
 
   @media (max-width: $tablet){
-    width: 100%;
+    width: 90%;
     flex-direction: column;
     justify-content: center;
   }
