@@ -4,8 +4,7 @@
 .biography {
   background: $white;
   display: flex;
-  padding: 2em;
-  width: 70%;
+  padding: 2em 0;
   max-width: 980px;
   margin: 0 auto;
 
@@ -16,15 +15,17 @@
 }
 
 .biography__photo {
-  margin: 1em;
+  width: 30%;
+  margin: auto;
   @media (max-width: $tablet){
+    width: 100%;
     display: flex;
     justify-content: center;
   }
 
   img {
     border-radius: 10em;
-    width: 70%;
+    width: 100%;
     @media (max-width: $tablet){
       max-width: 250px;
     }
