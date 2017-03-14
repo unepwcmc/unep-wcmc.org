@@ -84,7 +84,7 @@ $header-breakpoint: $tablet;
     }
   }
 
-  @media (min-width: $header-breakpoint){
+  @media (min-width: $header-breakpoint + 1px){
     display: none;
   }
 }
