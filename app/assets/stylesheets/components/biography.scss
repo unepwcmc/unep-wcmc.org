@@ -3,7 +3,7 @@
 @import 'utilities/flexbox';
 
 .biography {
-  @extend %flexbox;
+  @include flexbox;
   background: $white;
   padding: 2em 0;
   max-width: 980px;
@@ -16,10 +16,10 @@
 }
 
 .biography__photo {
-  width: 300px;
+  min-width: 300px;
   margin: auto;
   @media (max-width: $tablet){
-    width: 100%;
+    min-width: 200px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-flex;
