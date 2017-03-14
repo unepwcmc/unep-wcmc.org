@@ -1,5 +1,6 @@
 @import 'utilities/colors';
 @import 'utilities/breakpoints';
+@import 'utilities/flexbox';
 
 footer.footer {
   background-color: $white;
@@ -11,8 +12,8 @@ footer.footer {
   padding: 3.5em;
   border-top: 1px solid $light-grey;
   border-bottom: 1px solid $light-grey;
-  display: flex;
-  justify-content: center;
+  @extend %flexbox;
+  @include justify-content(center);
 
   @media (max-width: $phone){
     padding: 1em;

@@ -1,7 +1,8 @@
 @import 'utilities/colors';
+@import 'utilities/flexbox';
 
 .tags {
-  display: flex;
+  @extend %flexbox;
   padding: 1em 0;
 }
 

@@ -1,12 +1,13 @@
 @import 'utilities/colors';
 @import 'utilities/breakpoints';
+@import 'utilities/flexbox';
 
 $logo_breakpoint: $tablet;
 
 .logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend %flexbox;
+  @include justify-content(center);
+  @include align-items(center);
 
   @media (max-width: $logo_breakpoint){
     width: 100%;

@@ -1,16 +1,17 @@
 @import 'utilities/colors';
 @import 'utilities/breakpoints';
+@import 'utilities/flexbox';
 
 .biography {
+  @extend %flexbox;
   background: $white;
-  display: flex;
   padding: 2em 0;
   max-width: 980px;
   margin: 0 auto;
 
   @media (max-width: $tablet){
     width: 100%;
-    flex-direction: column;
+    @include flex-direction(column);
   }
 }
 
@@ -19,8 +20,8 @@
   margin: auto;
   @media (max-width: $tablet){
     width: 100%;
-    display: flex;
-    justify-content: center;
+    @extend %flexbox;
+    @include justify-content(center);
   }
 
   img {

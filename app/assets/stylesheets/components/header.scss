@@ -1,18 +1,19 @@
 @import 'utilities/colors';
 @import 'utilities/breakpoints';
+@import 'utilities/flexbox';
 
 $header-breakpoint: $tablet;
 
 .header-social-bar {
   background-color: $light-grey;
-  display: flex;
-  justify-content: flex-end;
+  @extend %flexbox;
+  @include justify-content(flex-end);
   padding: 1em;
   color: $dark-grey;
 
   @media (max-width: $phone){
-    justify-content: center;
-    align-items: center;
+    @include justify-content(center);
+    @include align-items(center);
   }
 }
 
@@ -20,42 +21,42 @@ $header-breakpoint: $tablet;
   width: 70%;
   max-width: 980px;
   margin: auto;
-  display: flex;
-  justify-content: flex-end;
+  @extend %flexbox;
+  @include justify-content(flex-end);
 
   @media (max-width: $phone){
     width: 100%;
   }
   @media (max-width: $tablet){
     width: 100%;
-    justify-content: center;
+    @include justify-content(center);
   }
 }
 
 .header-menu {
   background-color: $white;
   padding: 1em;
-  display: flex;
-  justify-content: space-between;
+  @extend %flexbox;
+  @include justify-content(space-between);
 }
 
 .header-menu__container {
   width: 70%;
   max-width: 980px;
   margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @extend %flexbox;
+  @include justify-content(space-between);
+  @include align-items(center);
 
   @media (max-width: $header-breakpoint){
     width: 100%;
-    flex-direction: column;
+    @include flex-direction(column);
   }
 }
 
 .header-menu__right {
   .menu {
-    justify-content: flex-end;
+    @include justify-content(flex-end);
     .menu__item {
       &:last-child {
         padding-right: 0;
@@ -72,12 +73,12 @@ $header-breakpoint: $tablet;
 
 .header-menu--mobile {
   border-top: 2px solid $light-grey;
-  display: flex;
-  flex-direction: column;
+  @extend %flexbox;
+  @include flex-direction(column);
 
   ul.menu {
-    justify-content: normal;
-    align-items: normal;
+    @include justify-content(normal);
+    @include align-items(normal);
     li.menu__item {
       padding: 1em;
     }

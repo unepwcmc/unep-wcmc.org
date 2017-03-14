@@ -1,10 +1,11 @@
 @import 'utilities/colors';
 @import 'utilities/breakpoints';
+@import 'utilities/flexbox';
 
 .section-header {
   padding: 4em;
-  display: flex;
-  justify-content: center;
+  @extend %flexbox;
+  @include justify-content(center);
 }
 
 .section-header__box {

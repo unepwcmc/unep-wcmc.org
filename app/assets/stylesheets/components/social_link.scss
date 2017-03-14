@@ -1,8 +1,9 @@
 @import 'utilities/colors';
 @import 'utilities/breakpoints';
+@import 'utilities/flexbox';
 
 .social-group {
-  display: flex;
+  @extend %flexbox;
 }
 
 .social-link {

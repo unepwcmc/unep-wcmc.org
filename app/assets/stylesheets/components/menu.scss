@@ -1,15 +1,16 @@
 @import 'utilities/colors';
 @import 'utilities/breakpoints';
+@import 'utilities/flexbox';
 
 $menu_breakpoint: $tablet;
 
 .menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend %flexbox;
+  @include justify-content(center);
+  @include align-items(center);
 
   @media (max-width: $menu_breakpoint){
-    flex-direction: column;
+    @include flex-direction(column);
     width: 100%;
   }
 }
@@ -37,13 +38,13 @@ $menu_breakpoint: $tablet;
 .menu__toggle, .menu__logo {
   display: none;
   @media (max-width: $menu_breakpoint){
-    display: flex;
+    @extend %flexbox;
   }
 }
 
 .menu__logo {
   @media (max-width: $menu_breakpoint){
-    align-self: flex-start;
+    @include align-self(flex-start);
   }
 
   img {
@@ -55,9 +56,9 @@ $menu_breakpoint: $tablet;
   display: none;
 
   @media (max-width: $menu_breakpoint){
-    display: flex;
+    @extend %flexbox;
     width: 100%;
-    justify-content: space-between;
+    @include justify-content(space-between);
   }
 }
 
@@ -67,7 +68,7 @@ $menu_breakpoint: $tablet;
       display: none;
     }
     li.menu__item.menu-responsive-show {
-      display: flex;
+      @extend %flexbox;
     }
   }
 }
@@ -89,5 +90,5 @@ ul.menu--skinny {
   display: none;
 }
 .js-menu--visible {
-  display: flex;
+  @extend %flexbox;
 }
