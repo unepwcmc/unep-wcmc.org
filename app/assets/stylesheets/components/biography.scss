@@ -20,7 +20,11 @@
   margin: auto;
   @media (max-width: $tablet){
     width: 100%;
-    @extend %flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
     @include justify-content(center);
   }
 
