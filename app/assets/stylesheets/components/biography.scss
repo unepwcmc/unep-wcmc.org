@@ -6,17 +6,19 @@
   @include flexbox;
   background: $white;
   padding: 2em 0;
+  width: 70%;
   max-width: 980px;
   margin: 0 auto;
 
   @media (max-width: $tablet){
-    width: 100%;
+    width: 90%;
     @include flex-direction(column);
   }
 }
 
 .biography__photo {
   min-width: 300px;
+  width: 35%;
   margin: auto;
   @media (max-width: $tablet){
     min-width: 200px;
