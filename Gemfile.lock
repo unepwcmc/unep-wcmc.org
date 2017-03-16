@@ -62,8 +62,6 @@ GEM
       sass (>= 3.2.19)
     bootstrap_form (2.3.0)
     builder (3.2.2)
-    bundle (0.0.1)
-      bundler
     byebug (6.0.2)
     capistrano (3.4.0)
       i18n
@@ -385,7 +383,7 @@ DEPENDENCIES
   backup
   better_errors
   binding_of_caller
-  bundle
+  bundler
   byebug
   capistrano (~> 3.0)
   capistrano-bundler (~> 1.1)
