@@ -17,7 +17,7 @@ $white_link: rgba(255,255,255, 0.75);
 .container {
   width: 70%;
   max-width: 980px;
-  margin: 0 auto 80px auto;
+  margin: 0 auto;
   overflow: hidden;
   &.column-1 {
     width: 60%;
@@ -37,7 +37,7 @@ $white_link: rgba(255,255,255, 0.75);
     }
   }
 
-	
+
   img {
     max-width: 100%;
   }
@@ -45,13 +45,13 @@ $white_link: rgba(255,255,255, 0.75);
   section.group {
     width: 30.3%;
     margin-right: 4.5%;
-    &:nth-child(2n) {  
+    &:nth-child(2n) {
       margin-right: 4.5%;
     }
-    &:nth-child(2n+3) {  
+    &:nth-child(2n+3) {
       clear: none;
     }
-    &:nth-child(3n) {  
+    &:nth-child(3n) {
       margin-right: 0;
     }
     &:nth-child(3n+4) {
@@ -80,21 +80,21 @@ $white_link: rgba(255,255,255, 0.75);
     &.staff {
       width: 22%;
       margin-right: 4%;
-      
-      &:nth-child(2n) {  
+
+      &:nth-child(2n) {
         margin-right: 4%;
       }
-    
-      &:nth-child(3n) {  
+
+      &:nth-child(3n) {
         margin-right: 4%;
       }
-      &:nth-child(3n+4) {  
+      &:nth-child(3n+4) {
         clear: none;
       }
-      &:nth-child(4n) {  
+      &:nth-child(4n) {
         margin-right: 0;
       }
-      &:nth-child(4n+5) {  
+      &:nth-child(4n+5) {
         clear: left;
       }
     }
@@ -126,7 +126,7 @@ $white_link: rgba(255,255,255, 0.75);
     float: right;
     &#data_policy {
       padding-top: 160px;
-      margin-top: -80px; 
+      margin-top: -80px;
     }
     &#news-item, &#job_description {
       margin-top: 0;
@@ -191,7 +191,7 @@ div.dashboard-container {
 }
 
 div.dashboard-background {
-  background-image: image-url('dashboard_background.jpg');
+  background-image: image-url('marine_background.jpg');
 }
 
 div.heading{
@@ -223,7 +223,7 @@ div#footer_container {
   margin: auto;
 }
 
-ul.footer{	
+ul.footer{
 	li{
 		float: left;
 	}
@@ -238,7 +238,7 @@ ul.footer{
 	.js #menu {
 		display:none;
 	}
-	
+
 	.js .slicknav_menu {
 		display:block;
 	}

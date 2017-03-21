@@ -1,0 +1,29 @@
+@import 'utilities/colors';
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300');
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Slab', serif;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  color: $dark-blue;
+
+  &:hover {
+    color: $dark-blue;
+  }
+}
+
+p.lead {
+  color: $dark-grey;
+  font-size: 1.2em;
+  width: 50%;
+  margin: auto;
+}
+
+ul li {
+  padding: 0.5em 0;
+}

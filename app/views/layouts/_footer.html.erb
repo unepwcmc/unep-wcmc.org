@@ -1,0 +1,40 @@
+<footer class="footer">
+  <div class="footer-logo">
+    <div class="logo">
+      <div class="logo__image-container">
+        <%= image_tag 'unepwcmc_new.png', class: 'logo__image-container__image' %>
+      </div>
+    </div>
+  </div>
+  <div class="footer-menu">
+    <ul class="menu">
+      <li class="menu__item">
+        <%= active_class_link_to "Partners", "/about-us/partners" %>
+      </li>
+      <li class="menu__item">
+        <%= active_class_link_to "Vacancies", "/vacancies" %>
+      </li>
+      <li class="menu__item">
+        <%= active_class_link_to "The Team", "/employees" %>
+      </li>
+      <li class="menu__item">
+        <%= active_class_link_to "Contact", "/about-us/contact" %>
+      </li>
+      <li class="menu__item">
+        <%= active_class_link_to "Terms & Conditions", "/terms-and-conditions" %>
+      </li>
+    </ul>
+  </div>
+  <div class="footer-social">
+    <a class="social-link" href="http://twitter.com/unepwcmc" target="_blank">
+      <%= fa_stacked_icon "twitter inverse", base: "square", class: "fa-1x" %>
+      <span class="social-link__text">Follow us</span>
+    </a>
+    <a class="social-link" href="https://www.linkedin.com/company/unep-wcmc" target="_blank">
+      <%= fa_stacked_icon "linkedin inverse", base: "square", class: "fa-1x" %>
+      <span class="social-link__text">Connect with us</span>
+    </a>
+  </div>
+  <div class="footer-image">
+  </div>
+</footer>

@@ -11,23 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909144606) do
+ActiveRecord::Schema.define(version: 20160411112159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "form_id"
-    t.string   "name"
-    t.string   "file_file_name"
-    t.string   "file_content_type"
+    t.string   "name",              limit: 255
+    t.string   "file_file_name",    limit: 255
+    t.string   "file_content_type", limit: 255
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
   end
 
   create_table "comfy_cms_blocks", force: :cascade do |t|
-    t.integer  "blockable_id",   null: false
-    t.string   "identifier",     null: false
+    t.integer  "blockable_id",               null: false
+    t.string   "identifier",     limit: 255, null: false
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -38,17 +38,17 @@ ActiveRecord::Schema.define(version: 20150909144606) do
   add_index "comfy_cms_blocks", ["blockable_type"], name: "index_comfy_cms_blocks_on_blockable_type", using: :btree
 
   create_table "comfy_cms_categories", force: :cascade do |t|
-    t.integer "site_id",          null: false
-    t.string  "label",            null: false
-    t.string  "categorized_type", null: false
+    t.integer "site_id",                      null: false
+    t.string  "label",            limit: 255, null: false
+    t.string  "categorized_type", limit: 255, null: false
   end
 
   add_index "comfy_cms_categories", ["site_id", "categorized_type", "label"], name: "index_cms_categories_on_site_id_and_cat_type_and_label", unique: true, using: :btree
 
   create_table "comfy_cms_categorizations", force: :cascade do |t|
-    t.integer "category_id",      null: false
-    t.string  "categorized_type", null: false
-    t.integer "categorized_id",   null: false
+    t.integer "category_id",                  null: false
+    t.string  "categorized_type", limit: 255, null: false
+    t.integer "categorized_id",               null: false
   end
 
   add_index "comfy_cms_categorizations", ["category_id", "categorized_type", "categorized_id"], name: "index_cms_categorizations_on_cat_id_and_catd_type_and_catd_id", unique: true, using: :btree
@@ -56,9 +56,9 @@ ActiveRecord::Schema.define(version: 20150909144606) do
   create_table "comfy_cms_files", force: :cascade do |t|
     t.integer  "site_id",                                    null: false
     t.integer  "block_id"
-    t.string   "label",                                      null: false
-    t.string   "file_file_name",                             null: false
-    t.string   "file_content_type",                          null: false
+    t.string   "label",             limit: 255,              null: false
+    t.string   "file_file_name",    limit: 255,              null: false
+    t.string   "file_content_type", limit: 255,              null: false
     t.integer  "file_file_size",                             null: false
     t.string   "description",       limit: 2048
     t.integer  "position",                       default: 0, null: false
@@ -72,16 +72,16 @@ ActiveRecord::Schema.define(version: 20150909144606) do
   add_index "comfy_cms_files", ["site_id", "position"], name: "index_comfy_cms_files_on_site_id_and_position", using: :btree
 
   create_table "comfy_cms_layouts", force: :cascade do |t|
-    t.integer  "site_id",                    null: false
+    t.integer  "site_id",                                null: false
     t.integer  "parent_id"
-    t.string   "app_layout"
-    t.string   "label",                      null: false
-    t.string   "identifier",                 null: false
+    t.string   "app_layout", limit: 255
+    t.string   "label",      limit: 255,                 null: false
+    t.string   "identifier", limit: 255,                 null: false
     t.text     "content"
     t.text     "css"
     t.text     "js"
-    t.integer  "position",   default: 0,     null: false
-    t.boolean  "is_shared",  default: false, null: false
+    t.integer  "position",               default: 0,     null: false
+    t.boolean  "is_shared",              default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -90,29 +90,29 @@ ActiveRecord::Schema.define(version: 20150909144606) do
   add_index "comfy_cms_layouts", ["site_id", "identifier"], name: "index_comfy_cms_layouts_on_site_id_and_identifier", unique: true, using: :btree
 
   create_table "comfy_cms_pages", force: :cascade do |t|
-    t.integer  "site_id",                        null: false
+    t.integer  "site_id",                                    null: false
     t.integer  "layout_id"
     t.integer  "parent_id"
     t.integer  "target_page_id"
-    t.string   "label",                          null: false
-    t.string   "slug"
-    t.string   "full_path",                      null: false
+    t.string   "label",          limit: 255,                 null: false
+    t.string   "slug",           limit: 255
+    t.string   "full_path",      limit: 255,                 null: false
     t.text     "content_cache"
-    t.integer  "position",       default: 0,     null: false
-    t.integer  "children_count", default: 0,     null: false
-    t.boolean  "is_published",   default: true,  null: false
-    t.boolean  "is_shared",      default: false, null: false
+    t.integer  "position",                   default: 0,     null: false
+    t.integer  "children_count",             default: 0,     null: false
+    t.boolean  "is_published",               default: true,  null: false
+    t.boolean  "is_shared",                  default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_top_project", default: false
+    t.boolean  "is_top_project",             default: false
   end
 
   add_index "comfy_cms_pages", ["parent_id", "position"], name: "index_comfy_cms_pages_on_parent_id_and_position", using: :btree
   add_index "comfy_cms_pages", ["site_id", "full_path"], name: "index_comfy_cms_pages_on_site_id_and_full_path", using: :btree
 
   create_table "comfy_cms_revisions", force: :cascade do |t|
-    t.string   "record_type", null: false
-    t.integer  "record_id",   null: false
+    t.string   "record_type", limit: 255, null: false
+    t.integer  "record_id",               null: false
     t.text     "data"
     t.datetime "created_at"
   end
@@ -120,24 +120,24 @@ ActiveRecord::Schema.define(version: 20150909144606) do
   add_index "comfy_cms_revisions", ["record_type", "record_id", "created_at"], name: "index_cms_revisions_on_rtype_and_rid_and_created_at", using: :btree
 
   create_table "comfy_cms_sites", force: :cascade do |t|
-    t.string  "label",                       null: false
-    t.string  "identifier",                  null: false
-    t.string  "hostname",                    null: false
-    t.string  "path"
-    t.string  "locale",      default: "en",  null: false
-    t.boolean "is_mirrored", default: false, null: false
+    t.string  "label",       limit: 255,                 null: false
+    t.string  "identifier",  limit: 255,                 null: false
+    t.string  "hostname",    limit: 255,                 null: false
+    t.string  "path",        limit: 255
+    t.string  "locale",      limit: 255, default: "en",  null: false
+    t.boolean "is_mirrored",             default: false, null: false
   end
 
   add_index "comfy_cms_sites", ["hostname"], name: "index_comfy_cms_sites_on_hostname", using: :btree
   add_index "comfy_cms_sites", ["is_mirrored"], name: "index_comfy_cms_sites_on_is_mirrored", using: :btree
 
   create_table "comfy_cms_snippets", force: :cascade do |t|
-    t.integer  "site_id",                    null: false
-    t.string   "label",                      null: false
-    t.string   "identifier",                 null: false
+    t.integer  "site_id",                                null: false
+    t.string   "label",      limit: 255,                 null: false
+    t.string   "identifier", limit: 255,                 null: false
     t.text     "content"
-    t.integer  "position",   default: 0,     null: false
-    t.boolean  "is_shared",  default: false, null: false
+    t.integer  "position",               default: 0,     null: false
+    t.boolean  "is_shared",              default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -146,26 +146,26 @@ ActiveRecord::Schema.define(version: 20150909144606) do
   add_index "comfy_cms_snippets", ["site_id", "position"], name: "index_comfy_cms_snippets_on_site_id_and_position", using: :btree
 
   create_table "content_types", force: :cascade do |t|
-    t.string "singular"
-    t.string "plural"
+    t.string "singular", limit: 255
+    t.string "plural",   limit: 255
   end
 
   create_table "countries", force: :cascade do |t|
-    t.string   "iso2"
-    t.string   "name"
+    t.string   "iso2",       limit: 255
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "dataset_fields", force: :cascade do |t|
     t.integer  "dataset_id"
-    t.string   "label"
-    t.string   "url"
-    t.string   "file_file_name"
-    t.string   "file_content_type"
+    t.string   "label",             limit: 255
+    t.string   "url",               limit: 255
+    t.string   "file_file_name",    limit: 255
+    t.string   "file_content_type", limit: 255
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
-    t.string   "type"
+    t.string   "type",              limit: 255
   end
 
   create_table "editions", force: :cascade do |t|
@@ -178,7 +178,7 @@ ActiveRecord::Schema.define(version: 20150909144606) do
   create_table "employments", force: :cascade do |t|
     t.integer  "employee_id"
     t.integer  "project_id"
-    t.string   "role"
+    t.string   "role",         limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "programme_id"
@@ -187,20 +187,20 @@ ActiveRecord::Schema.define(version: 20150909144606) do
   create_table "field_submissions", force: :cascade do |t|
     t.integer  "field_id"
     t.integer  "submission_id"
-    t.string   "type"
+    t.string   "type",              limit: 255
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "file_file_name"
-    t.string   "file_content_type"
+    t.string   "file_file_name",    limit: 255
+    t.string   "file_content_type", limit: 255
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
   end
 
   create_table "fields", force: :cascade do |t|
     t.integer  "form_id"
-    t.string   "type"
-    t.string   "name"
+    t.string   "type",       limit: 255
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -212,39 +212,40 @@ ActiveRecord::Schema.define(version: 20150909144606) do
   end
 
   create_table "position_types", force: :cascade do |t|
-    t.string  "name"
+    t.string  "name",     limit: 255
     t.boolean "is_grade"
   end
 
   create_table "programmes", force: :cascade do |t|
-    t.string   "name"
-    t.string   "phone_number"
-    t.string   "email"
+    t.string   "name",                limit: 255
+    t.string   "phone_number",        limit: 255
+    t.string   "email",               limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_programme_id"
+    t.integer  "position"
   end
 
   create_table "submissions", force: :cascade do |t|
     t.integer  "form_id"
-    t.string   "slug"
+    t.string   "slug",                          limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                                         null: false
-    t.boolean  "is_submitted",                  default: false
-    t.string   "name"
-    t.string   "phone"
+    t.string   "email",                         limit: 255,                 null: false
+    t.boolean  "is_submitted",                              default: false
+    t.string   "name",                          limit: 255
+    t.string   "phone",                         limit: 255
     t.text     "content"
-    t.string   "cv_file_name"
-    t.string   "cv_content_type"
+    t.string   "cv_file_name",                  limit: 255
+    t.string   "cv_content_type",               limit: 255
     t.integer  "cv_file_size"
     t.datetime "cv_updated_at"
-    t.string   "cover_letter_file_name"
-    t.string   "cover_letter_content_type"
+    t.string   "cover_letter_file_name",        limit: 255
+    t.string   "cover_letter_content_type",     limit: 255
     t.integer  "cover_letter_file_size"
     t.datetime "cover_letter_updated_at"
-    t.string   "application_form_file_name"
-    t.string   "application_form_content_type"
+    t.string   "application_form_file_name",    limit: 255
+    t.string   "application_form_content_type", limit: 255
     t.integer  "application_form_file_size"
     t.datetime "application_form_updated_at"
   end
@@ -252,21 +253,21 @@ ActiveRecord::Schema.define(version: 20150909144606) do
   add_index "submissions", ["slug"], name: "index_submissions_on_slug", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
+    t.string   "name",                   limit: 255
     t.boolean  "is_superadmin"
-    t.string   "confirmation_token"
+    t.string   "confirmation_token",     limit: 255
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
   end
@@ -277,10 +278,10 @@ ActiveRecord::Schema.define(version: 20150909144606) do
 
   create_table "vacancy_fields", force: :cascade do |t|
     t.integer  "vacancy_id"
-    t.string   "label"
-    t.string   "url"
-    t.string   "file_file_name"
-    t.string   "file_content_type"
+    t.string   "label",             limit: 255
+    t.string   "url",               limit: 255
+    t.string   "file_file_name",    limit: 255
+    t.string   "file_content_type", limit: 255
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
     t.datetime "created_at"

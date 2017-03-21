@@ -32,4 +32,8 @@ $(document).ready(function(){
     $('ul.expertise-small#specialise').slideToggle('normal');
   });
 
+  $(".js-menu--trigger").click(function(e){
+    e.preventDefault();
+    $(".js-menu--target").toggleClass("js-menu--visible")
+  });
 });

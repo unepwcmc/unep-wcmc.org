@@ -1,0 +1,10 @@
+<header class="hero" style="background: url(<%= cms_block_content(:background, datasets_page).try(:file).try(:url) %>) no-repeat center; background-size: cover; position: relative;" >
+  <div class="hero__card">
+    <div class="hero__title">
+      <h1><%= cms_block_content(:header, datasets_page) %></h1>
+      <br>
+      <p><%= cms_block_content(:subheader, datasets_page) %></p>
+    </div>
+  </div>
+</header>
+

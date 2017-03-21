@@ -16,3 +16,4 @@ $(function() {
     // Prevent disabled links from working & stop alerts (such as confirm messages)
   });
 });
+

@@ -1,0 +1,15 @@
+@import 'utilities/colors';
+@import 'utilities/flexbox';
+
+.row {
+  width: 100%;
+  background-color: $white;
+  padding: 2em 0;
+}
+
+.container-flex {
+  @extend %flexbox;
+  width: 70%;
+  max-width: 980px;
+  margin: auto;
+}

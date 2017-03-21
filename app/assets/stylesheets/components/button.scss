@@ -1,0 +1,13 @@
+@import 'utilities/colors';
+
+.button {
+  background-color: $dark-blue;
+  color: $white;
+  padding: 10px;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+

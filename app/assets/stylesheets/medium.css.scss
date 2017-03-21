@@ -16,7 +16,7 @@ $white_link: rgba(255,255,255, 0.75);
 
 
 .container {
-  margin: 0 auto 50px auto;
+  margin: 0 auto;
   width: 90%;
   overflow: hidden;
   &.column-1 {
@@ -119,13 +119,13 @@ $white_link: rgba(255,255,255, 0.75);
 }
 
 h1, h2, h3 {
-	font-family: "MuseoSlab-500", Helvetica, Arial, sans-serif;
+	font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
 }
 
 h1{
 	font-size: 2.25em;
 	line-height: 1.2em;
-	margin: 0 0 30px 0;
+	/*margin: 0 0 30px 0;*/
 	color: $grey_text;
 }
 
@@ -208,7 +208,7 @@ a.back_nav.news-vacancy {
 }
 
 div.dashboard-background {
-  background-image: image-url('dashboard_background_medium.jpg');
+  background-image: image-url('marine_background.jpg');
 }
 
 div.dashboard-container {
@@ -510,7 +510,7 @@ div.dashboard {
       b {
         font-weight: bold;
       }
-    } 
+    }
     .stat.carbon > div {
       border-top: 1px solid $grey;
     }
@@ -597,7 +597,7 @@ div.dashboard {
     background: $blue;
     font-weight: 300;
     font-size: 1.75em;
-    font-family: "MuseoSans-300", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     text-align: center;
   }
 

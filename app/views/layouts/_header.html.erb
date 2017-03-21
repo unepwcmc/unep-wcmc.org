@@ -1,0 +1,96 @@
+<header>
+  <div class="header-social-bar">
+    <div class="header-social-bar__container">
+      <div class="social-group">
+        <a class="social-link" href="http://twitter.com/unepwcmc" target="_blank">
+          <%= fa_stacked_icon "twitter inverse", base: "square", class: "fa-1x" %>
+          <span class="social-link__text">Follow us</span>
+        </a>
+        <a class="social-link" href="https://www.linkedin.com/company/unep-wcmc" target="_blank">
+          <%= fa_stacked_icon "linkedin inverse", base: "square", class: "fa-1x" %>
+          <span class="social-link__text">Connect with us</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="header-menu">
+    <div class="header-menu__container">
+      <div class="header-menu__left">
+        <div class="header__logo">
+          <a href="/">
+            <%= image_tag 'unepwcmc_new.png' %>
+          </a>
+        </div>
+      </div>
+      <div class="header-menu__right hidden-tablet-down">
+        <ul class="menu menu--skinny">
+          <li class="menu__item">
+            <%= active_class_link_to "Partners", "/about-us/partners" %>
+          </li>
+          <li class="menu__item">
+            <%= active_class_link_to "Vacancies", "/vacancies" %>
+          </li>
+          <li class="menu__item">
+            <%= active_class_link_to "The Team", "/employees" %>
+          </li>
+          <li class="menu__item">
+            <%= active_class_link_to "Contact", "/about-us/contact" %>
+          </li>
+        </ul>
+        <ul class="menu menu--skinny menu--bold">
+          <li class="menu__item">
+            <%= active_class_link_to "Our expertise", "/expertise" %>
+          </li>
+          <li class="menu__item">
+            <%= active_class_link_to "Featured work", "/featured-projects" %>
+          </li>
+          <li class="menu__item">
+            <%= active_class_link_to "Resources & Data", "/resources-and-data" %>
+          </li>
+          <li class="menu__item">
+            <%= active_class_link_to "About us", "/about-us" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="header-menu header-menu--mobile">
+    <div class="header-menu__container">
+      <a href="" class="button js-menu--trigger">Menu</a>
+    </div>
+  </nav>
+  <nav class="header-menu header-menu--mobile js-menu--target">
+    <ul class="menu menu--skinny">
+      <li class="menu__item">
+        <%= active_class_link_to "Partners", "/about-us/partners" %>
+      </li>
+      <li class="menu__item">
+        <%= active_class_link_to "Vacancies", "/vacancies" %>
+      </li>
+      <li class="menu__item">
+        <%= active_class_link_to "The Team", "/employees" %>
+      </li>
+      <li class="menu__item">
+        <%= active_class_link_to "Contact", "/about-us/contact" %>
+      </li>
+    </ul>
+    <hr class="grey">
+    <ul class="menu menu--bold">
+      <li class="menu__item">
+        <%= active_class_link_to "Our expertise", "/expertise" %>
+      </li>
+      <li class="menu__item">
+        <%= active_class_link_to "Featured work", "/featured-projects" %>
+      </li>
+      <li class="menu__item">
+        <%= active_class_link_to "Resources & Data", "/resources-and-data" %>
+      </li>
+      <li class="menu__item">
+        <%= active_class_link_to "About us", "/about-us" %>
+      </li>
+    </ul>
+  </nav>
+
+</header>

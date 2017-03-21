@@ -1,0 +1,25 @@
+@import 'utilities/colors';
+@import 'utilities/breakpoints';
+@import 'utilities/flexbox';
+
+footer.footer {
+  background-color: $white;
+  border-top: 1px solid $light-grey;
+  width: 100%;
+}
+
+.footer-logo, .footer-menu, .footer-social {
+  padding: 3.5em;
+  border-top: 1px solid $light-grey;
+  border-bottom: 1px solid $light-grey;
+  @include flexbox;
+  @include justify-content(center);
+
+  @media (max-width: $phone){
+    padding: 1em;
+  }
+}
+
+.footer-menu {
+  padding: 2em;
+}

@@ -1,0 +1,35 @@
+@import 'utilities/breakpoints';
+@import 'utilities/flexbox';
+
+.hidden-phone-down {
+  @media (max-width: $phone){
+    display: none !important;
+  }
+}
+
+.hidden-tablet-down {
+  @media (max-width: $tablet){
+    display: none !important;
+  }
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.u-width-100 {
+  width: 100%;
+}
+
+.u-align-center {
+  margin: auto;
+}
+
+.u-flex-container {
+  width: 70%;
+  max-width: 980px;
+  margin: auto;
+  @extend %flexbox;
+  @include align-items(flex-end);
+}
+

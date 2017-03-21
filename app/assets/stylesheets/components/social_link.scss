@@ -1,0 +1,44 @@
+@import 'utilities/colors';
+@import 'utilities/breakpoints';
+@import 'utilities/flexbox';
+
+.social-group {
+  @extend %flexbox;
+}
+
+.social-link {
+  margin: 0 0.75em;
+  color: $dark-grey;
+
+  &:hover {
+    color: $black;
+    text-decoration: none;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.social-link__text {
+  margin-left: 0.25em;
+  @media (max-width: $phone){
+    display: none;
+  }
+}
+
+.fa-stack {
+  width: 1.7em !important;
+  height: 1.7em !important;
+  line-height: 1.7em !important;
+}
+.fa-stack-2x {
+  font-size: 1.7em !important;
+}
+
+.fa-facebook { background-color: $facebook; }
+.fa-twitter  { background-color: $twitter; }
+.fa-linkedin { background-color: $linkedin; }

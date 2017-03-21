@@ -1,0 +1,36 @@
+@import 'utilities/colors';
+@import 'utilities/breakpoints';
+@import 'utilities/flexbox';
+
+$logo_breakpoint: $tablet;
+
+.logo {
+  @include flexbox;
+  @include justify-content(center);
+  @include align-items(center);
+
+  @media (max-width: $logo_breakpoint){
+    width: 100%;
+  }
+}
+
+.logo__image-container {
+  min-height: 100%;
+  margin: auto;
+
+  @media (max-width: $logo_breakpoint){
+  }
+}
+
+.logo__image-container__image {
+  width: 180px;
+}
+
+.logo__text {
+  text-align: left;
+  padding: 1.2em 1em;
+
+  @media (max-width: $logo_breakpoint){
+    display: none;
+  }
+}

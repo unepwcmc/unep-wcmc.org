@@ -1,0 +1,13 @@
+<header class="hero" style="background: url(<%= cms_block_content(:hero_background).try(:file).try(:url) %>) no-repeat center; background-size: cover" >
+  <div class="hero__card">
+    <div class="hero__title">
+      <h1><%= cms_block_content(:project_name, @cms_page) %></h1>
+      <br>
+      <p><%= cms_block_content(:heading_tagline, @cms_page) %></p>
+      <a href="<%= cms_block_content(:project_url, @cms_page) %>" class="button">
+        <%= cms_block_content(:text_for_action_button, @cms_page) %>
+      </a>
+    </div>
+  </div>
+</header>
+

@@ -1,0 +1,21 @@
+@import 'utilities/colors';
+@import 'utilities/breakpoints';
+@import 'utilities/flexbox';
+
+.section-header {
+  padding: 4em;
+  @extend %flexbox;
+  @include justify-content(center);
+}
+
+.section-header__box {
+  border: 2px solid $white;
+  padding: 1.25em;
+  color: $white;
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: $white;
+  }
+}

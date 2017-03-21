@@ -64,22 +64,24 @@
     = csrf_meta_tags
 
   %body
-    #nav-container
-      #nav
-        %a#home_link{ :href => "/", :title => "Home" }
-          = image_tag "logo_white_transparent.png"
-        %ul#large-menu
-          %li= link_to "About us", "/about-us", :class => @cms_site && 'about-us' == @cms_site.identifier ? 'active' : false
-          %li= link_to "Resources & Data", "/resources-and-data", :class => @cms_site && 'resources-and-data' == @cms_site.identifier ? 'active' : false
-          %li= link_to "Featured work", "/featured-projects", :class => @cms_site && 'featured-projects' == @cms_site.identifier ? 'active' : false
-          %li= link_to "Our expertise", "/expertise", :class => @cms_site && 'expertise' == @cms_site.identifier ? 'active' : false
-        %button#trigger-menu
-          %i.icon-align-justify
-        %ul#button-menu
-          %li= link_to "Our expertise", "/expertise", :class => @cms_site && 'expertise' == @cms_site.identifier ? 'active' : false
-          %li= link_to "Featured work", "/featured-projects", :class => @cms_site && 'featured-projects' == @cms_site.identifier ? 'active' : false
-          %li= link_to "Resources & Data", "/resources-and-data", :class => @cms_site && 'resources-and-data' == @cms_site.identifier ? 'active' : false
-          %li= link_to "About us", "/about-us", :class => @cms_site && 'about-us' == @cms_site.identifier ? 'active' : false
+    = render 'layouts/header'
+
+    -##nav-container
+      -##nav
+        -#%a#home_link{ :href => "/", :title => "Home" }
+          -#= image_tag "logo_white_transparent.png"
+        -#%ul#large-menu
+          -#%li= link_to "About us", "/about-us", :class => @cms_site && 'about-us' == @cms_site.identifier ? 'active' : false
+          -#%li= link_to "Resources & Data", "/resources-and-data", :class => @cms_site && 'resources-and-data' == @cms_site.identifier ? 'active' : false
+          -#%li= link_to "Featured work", "/featured-projects", :class => @cms_site && 'featured-projects' == @cms_site.identifier ? 'active' : false
+          -#%li= link_to "Our expertise", "/expertise", :class => @cms_site && 'expertise' == @cms_site.identifier ? 'active' : false
+        -#%button#trigger-menu
+          -#%i.icon-align-justify
+        -#%ul#button-menu
+          -#%li= link_to "Our expertise", "/expertise", :class => @cms_site && 'expertise' == @cms_site.identifier ? 'active' : false
+          -#%li= link_to "Featured work", "/featured-projects", :class => @cms_site && 'featured-projects' == @cms_site.identifier ? 'active' : false
+          -#%li= link_to "Resources & Data", "/resources-and-data", :class => @cms_site && 'resources-and-data' == @cms_site.identifier ? 'active' : false
+          -#%li= link_to "About us", "/about-us", :class => @cms_site && 'about-us' == @cms_site.identifier ? 'active' : false
 
     - if flash[:success]
       .status#ok
@@ -107,18 +109,8 @@
 
     = yield
 
-    #footer_container
-      #footer
-        %ul.footer
-          %li= link_to "Partners", "/about-us/partners", :class => if @cms_site && @cms_site.identifier == 'about-us' && @cms_page.slug == 'partners' then 'active' end
-          %li= link_to "Vacancies", "/vacancies", :class => if @cms_site && @cms_site.identifier == 'vacancies' && @cms_page.slug == 'index' then 'active' end
-          %li= link_to "The Team", "/employees", :class => if @cms_site && @cms_site.identifier == 'employees' then 'active' end
-          %li= link_to "Contact", "/about-us/contact", :class => if @cms_site && @cms_site.identifier == 'about-us' && @cms_page.slug == 'contact' then 'active' end
-          %li= link_to "Terms & Conditions", "/terms-and-conditions"
+    = render 'layouts/footer'
 
-        %a{ :href => "http://unep.org", :title => "UNEP" }
-        %a#unep{ :href => "http://www.unep.org", :title => "UNEP website" }
-          = image_tag "unep_logo.png"
   :javascript
     $(document).ready(function() {
       $("#kern").lettering();

@@ -1,0 +1,25 @@
+<section class="row">
+  <div class="row text-center">
+    <p class="lead">Our 100-strong international team are recognised leaders in their field and have unrivalled understanding of the institutional landscape surrounding biodiversity policy and ecosystem management.</p>
+  </div>
+
+  <% ids = Comfy::Cms::Block.where(identifier: "show_in_homepage").where(content: "1").map(&:blockable_id) %>
+  <% @employees = Comfy::Cms::Page.where(id: ids) %>
+  <% @employees.sample(3).each do |employee| %>
+    <div class="biography">
+      <div class="biography__photo">
+        <%= image_tag cms_block_content(:photo, employee).try(:file).try(:url) %>
+      </div>
+      <div class="biography__text">
+        <h1 class="biography__name"> <%= cms_block_content(:name, employee) %> </h1>
+        <p class="biography__team-name"> <%= Employment.find_by_employee_id(employee.id).try(:programme).try(:name) %> </p>
+        <%= raw cms_block_content(:role_at_unep, employee) %>
+        <a href="/employees<%= employee.full_path %>" class="biography__read-more"> Discover more about <%= cms_block_content(:name, employee) %> > </a>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row text-center">
+    <a href="/employees" class="button">Meet the rest of our team</a>
+  </div>
+</section>
