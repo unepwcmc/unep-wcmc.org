@@ -31,18 +31,12 @@ $menu_breakpoint: $tablet;
       background: $light-grey;
     }
   }
-  @media (max-width: $menu_breakpoint) {
-  }
 }
 
 .menu__toggle, .menu__logo {
   display: none;
   @media (max-width: $menu_breakpoint){
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
+    @include flexbox;
   }
 }
 

@@ -22,11 +22,7 @@
   margin: auto;
   @media (max-width: $tablet){
     min-width: 200px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
+    @include flexbox;
     @include justify-content(center);
   }
 
@@ -59,7 +55,4 @@
   color: $dark-blue;
   font-weight: 700;
   border-bottom: 5px solid $light-blue;
-
-  &:hover {
-  }
 }

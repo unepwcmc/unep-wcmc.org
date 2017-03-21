@@ -6,7 +6,7 @@ $header-breakpoint: $tablet;
 
 .header-social-bar {
   background-color: $light-grey;
-  @extend %flexbox;
+  @include flexbox;
   @include justify-content(flex-end);
   padding: 1em;
   color: $dark-grey;
@@ -21,7 +21,7 @@ $header-breakpoint: $tablet;
   width: 70%;
   max-width: 980px;
   margin: auto;
-  @extend %flexbox;
+  @include flexbox;
   @include justify-content(flex-end);
 
   @media (max-width: $phone){
@@ -36,7 +36,7 @@ $header-breakpoint: $tablet;
 .header-menu {
   background-color: $white;
   padding: 1em;
-  @extend %flexbox;
+  @include flexbox;
   @include justify-content(space-between);
 }
 
@@ -44,7 +44,7 @@ $header-breakpoint: $tablet;
   width: 70%;
   max-width: 980px;
   margin: auto;
-  @extend %flexbox;
+  @include flexbox;
   @include justify-content(space-between);
   @include align-items(center);
 
@@ -73,7 +73,7 @@ $header-breakpoint: $tablet;
 
 .header-menu--mobile {
   border-top: 2px solid $light-grey;
-  @extend %flexbox;
+  @include flexbox;
   @include flex-direction(column);
 
   ul.menu {

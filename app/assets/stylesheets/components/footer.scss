@@ -12,7 +12,7 @@ footer.footer {
   padding: 3.5em;
   border-top: 1px solid $light-grey;
   border-bottom: 1px solid $light-grey;
-  @extend %flexbox;
+  @include flexbox;
   @include justify-content(center);
 
   @media (max-width: $phone){

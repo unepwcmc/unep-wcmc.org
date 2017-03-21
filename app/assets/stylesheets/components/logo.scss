@@ -5,7 +5,7 @@
 $logo_breakpoint: $tablet;
 
 .logo {
-  @extend %flexbox;
+  @include flexbox;
   @include justify-content(center);
   @include align-items(center);
 
