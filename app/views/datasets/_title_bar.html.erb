@@ -1,0 +1,137 @@
+<div class="container">
+  <div ng-app="DatasetsResources" ng-controller="DatasetsCtrl" ng-init="init(<%= render partial: "datasets/list", formats: :json %>,  <%= render partial: "datasets/dataset_url_fields", formats: :json %>, <%= render partial: "datasets/dataset_file_fields", formats: :json %>)">
+		
+		<div class="dataset__title-bar">
+			<div class="title-bar__title">
+				<h1>Resources &amp; data</h1>
+			</div>
+
+			<div class="title-bar__search" id="data-small">
+				<div class="search-field">
+			    <input class="search_input" ng-change="search()" ng-model="query" placeholder="Search resources or datasets" type="text"></input>
+			    {{query}}
+			  </div>
+			  <div class="icon_search">
+		      <i class="icon-search"></i>
+		    </div>
+			</div>
+		</div>
+		
+		<div class="dataset__content">
+			<div class="dataset__sidebar">
+				
+				<button class="data">
+		      Type of content
+		      <i class="icon-caret-down"></i>
+		    </button>
+				
+				<ul id="content-small">
+		      <li class="content_type" ng-class="{active: contentType.selected && contentType.count > 0 %>" ng-click="toggleContentType()" ng-repeat="contentType in contentTypes" ng-show="contentType.count > 0">
+		        <span class="badge">{{ contentType.count }}</span>
+		        <p>{{ contentType.plural }}</p>
+		      </li>
+		    </ul>
+
+		    <div class="info-message">
+		      <h3>Policies</h3>
+		      <p>UN Environment World Conservation Monitoring Centre does not assert any intellectual property rights in the data made available to it by data providers.</p>
+		      <p>Access to UN Environment World Conservation Monitoring Centre datasets is provided on the understanding that you read and consent to be bound by the Terms and Conditions set out in our policies.</p>
+		      <a href="/policies">View our policies</a>
+		    </div>
+
+		    <div class="button margin policies">
+	      	<a href="/policies">View our policies</a>
+	    	</div>
+
+				<section class="actions" id="search-button">
+	      	<h1>Biodiversity Heritage Library</h1>
+	      	<div class="button bhl">
+	        <a href="http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles">Search WCMC's historical publications</a>
+	      	</div>
+	    	</section>
+
+		    <div class="button margin bhl">
+		      <a href="http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles">Search WCMC's historical publications</a>
+		    </div>
+
+			</div>
+
+			<div class="dataset__main">
+				<select id="sorting" ng-change="sortDatesetsToBeDisplayed()" ng-model="sortOrder" ng-options="order.value as order.name for order in sortOrders"></select>
+
+				<select id="sorting" ng-change="sortDatesets()" ng-model="sortOrder" ng-options="order.value as order.name for order in sortOrders"></select>
+
+				<div class="filters">
+		      <p>
+		        Searching for
+		        <span class="active-filter" ng-click="resetQuery()" ng-show="query">
+		          <i class="icon-remove"></i>
+		          {{query}}
+		        </span>
+		      </p>
+		      <p>
+		        Displaying
+		        <span class="active-filter" ng-click="toggleContentType()" ng-repeat="contentType in activeContentTypes">
+		          <i class="icon-remove"></i>
+		          {{ contentType.plural }}
+		        </span>
+		      </p>
+		    </div>
+		    <section class="list" ng-repeat="dataset in datasetsToBeDisplayed">
+		      <h2 class="smaller" id="{{ dataset.slug  %> %>">
+		        {{ dataset.title }}
+		      </h2>
+		      <h3 class="data">
+		        {{ dataset.content_type }}
+		        <span ng-if="dataset.publication_date_year != ''">
+		          <span class="separator">
+		            <%= '|' %>
+		          </span>
+		          {{ dataset.publication_date_year }}
+		        </span>
+		        <span ng-if="dataset.publication_date_year=='' && dataset.content_type != 'Online Tool'">
+		          <span class="separator">
+		            <%= '|' %>
+		          </span>
+		          {{ dataset.publication_date | date: 'MMMM yyyy' }}
+		        </span>
+		      </h3>
+		      <h3 class="author" ng-if="dataset.author">
+		        Author: {{ dataset.author }}
+		      </h3>
+		      <h3 class="isbn" ng-if="dataset.isbn">
+		        ISBN: {{ dataset.isbn }}
+		      </h3>
+		      <p ng-bind-html="dataset.content"></p>
+		      <p class="link" ng-if="dataset.first_link">
+		        <a href="{{dataset.first_link %> %>">{{dataset.first_link_label}}</a>
+		      </p>
+		      <p class="link" ng-if="dataset.second_link">
+		        <a href="{{dataset.second_link %> %>">{{dataset.second_link_label}}</a>
+		      </p>
+		      <p class="link" ng-show="dataset.file_url">
+		        <a href="{{dataset.file_url %> %>">Download</a>
+		      </p>
+		      <p class="link" ng-repeat="field in urlFieldsForDataset( dataset.id ) ">
+		        <a href="{{field.url %> %>">
+		          {{ field.label }}
+		        </a>
+		      </p>
+		      <p class="link" ng-repeat="file in fileFieldsForDataset( dataset.id ) ">
+		        <a href="{{file.url %> %>">
+		          {{ file.label }}
+		        </a>
+		      </p>
+		    </section>
+		    <h2 class="smaller" ng-if="datasetsToBeDisplayed.length == 0">No data found.</h2>
+		    <div id="button-row" ng-if="hiddenDatasets.length > 0">
+		      <div class="button" id="more_projects" ng-click="showMore()">
+		        <a>View more resources</a>
+		      </div>
+		    </div>
+
+			</div>
+		</div>
+		
+	</div>
+</div>
