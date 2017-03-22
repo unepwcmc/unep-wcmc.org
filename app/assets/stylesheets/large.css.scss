@@ -1,3 +1,6 @@
+@import 'utilities/settings';
+@import 'utilities/breakpoints';
+
 $blue: #4295d5;
 $light-blue: #A8CDEE;
 $dark_blue: #3376BA;
@@ -15,10 +18,15 @@ $yellow: #FFDB65;
 $white_link: rgba(255,255,255, 0.75);
 
 .container {
-  width: 70%;
+  width: 90%;
   max-width: 980px;
   margin: 0 auto;
   overflow: hidden;
+
+  @media(min-width: $desktop){
+    width: $site-width;
+  }
+
   &.column-1 {
     width: 60%;
     padding: 5%;

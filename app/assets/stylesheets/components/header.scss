@@ -1,60 +1,62 @@
+@import 'utilities/settings';
 @import 'utilities/colors';
 @import 'utilities/breakpoints';
 @import 'utilities/flexbox';
 
-$header-breakpoint: $tablet;
-
 .header-social-bar {
   background-color: $light-grey;
   @include flexbox;
-  @include justify-content(flex-end);
-  padding: 1em;
+  @include justify-content(center);
+  padding: 1em 0;
   color: $dark-grey;
-
-  @media (max-width: $phone){
-    @include justify-content(center);
-    @include align-items(center);
-  }
 }
 
-.header-social-bar__container {
-  width: 70%;
-  max-width: 980px;
-  margin: auto;
-  @include flexbox;
-  @include justify-content(flex-end);
 
-  @media (max-width: $phone){
-    width: 100%;
+.header-social-bar__container {
+  @include flexbox;
+  @include justify-content(center);
+  width: 100%;
+
+  @media (min-width: $phone){
+    width: 90%;
   }
-  @media (max-width: $tablet){
-    width: 100%;
-    @include justify-content(center);
+
+  @media (min-width: $tablet){
+    @include justify-content(flex-end);
+  }
+
+  @media (min-width: $desktop){
+    flex: 0 1 auto;
+    width: $site-width;
   }
 }
 
 .header-menu {
   background-color: $white;
-  padding: 1em;
-  @include flexbox;
-  @include justify-content(space-between);
+  padding: 1em 0;
 }
 
 .header-menu__container {
-  width: 70%;
-  max-width: 980px;
-  margin: auto;
+  margin: 0 auto;
   @include flexbox;
   @include justify-content(space-between);
   @include align-items(center);
 
-  @media (max-width: $header-breakpoint){
-    width: 100%;
-    @include flex-direction(column);
+  width: 100%;
+
+  @media (min-width: $phone){
+    @include flex-direction(row);
+    width: 90%;
+  }
+
+  @media (min-width: $desktop){
+    width: $site-width;
   }
 }
 
 .header-menu__right {
+  flex: 1 1 auto;
+
   .menu {
     @include justify-content(flex-end);
     .menu__item {
@@ -65,7 +67,17 @@ $header-breakpoint: $tablet;
   }
 }
 
+.header-menu__left {
+  flex: 1 1 auto;
+}
+
 .header__logo {
+  text-align: center;
+  
+  @media (min-width: $tablet){
+    text-align: left;
+  }
+
   img {
     width: 200px;
   }
@@ -84,8 +96,11 @@ $header-breakpoint: $tablet;
     }
   }
 
-  @media (min-width: $header-breakpoint + 1px){
+  @media (min-width: $tablet + 1px){
     display: none;
   }
 }
 
+.header-menu__button {
+  margin: 0 auto;
+}
