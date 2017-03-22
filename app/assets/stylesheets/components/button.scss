@@ -1,13 +1,17 @@
+@import 'utilities/breakpoints';
 @import 'utilities/colors';
 
 .button {
   background-color: $dark-blue;
   color: $white;
+  margin-bottom: 1.25rem;
   padding: 10px;
+
+  @media (min-width: $tablet){
+    margin-bottom: 1.875rem;
+  }
 
   &:hover {
     color: $white;
   }
 }
-
-
