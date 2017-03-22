@@ -1,8 +1,25 @@
+@import 'utilities/breakpoints';
 @import 'utilities/colors';
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300');
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto Slab', serif;
+}
+
+h1 {
+  margin-bottom: 0.875rem;
+
+  @media(min-width: $tablet){
+    margin-bottom: 1.5rem;
+  }
+}
+
+h2 {
+  margin-bottom: 0.375rem;
+
+  @media(min-width: $tablet){
+    margin-bottom: 0.5rem;
+  }
 }
 
 body {
