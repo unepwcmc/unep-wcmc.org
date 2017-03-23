@@ -9,6 +9,8 @@ $menu_breakpoint: $tablet;
   @include justify-content(center);
   @include align-items(center);
 
+  margin: 0;
+
   @media (max-width: $menu_breakpoint){
     @include flex-direction(column);
     width: 100%;
@@ -86,7 +88,7 @@ ul.menu--skinny {
 }
 
 .menu--bold {
-  li.menu__item {
+  .menu__item a {
     font-weight: 700;
   }
 }
