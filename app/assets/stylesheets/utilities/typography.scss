@@ -1,6 +1,7 @@
+@import 'utilities/settings';
 @import 'utilities/breakpoints';
 @import 'utilities/colors';
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400');
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto Slab', serif;
@@ -24,6 +25,7 @@ h2 {
 
 body {
   font-family: 'Roboto', sans-serif;
+  font-weight: $body-font-weight;
 }
 
 a {

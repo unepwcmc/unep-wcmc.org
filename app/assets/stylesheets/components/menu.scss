@@ -1,3 +1,4 @@
+@import 'utilities/settings';
 @import 'utilities/colors';
 @import 'utilities/breakpoints';
 @import 'utilities/flexbox';
@@ -89,7 +90,7 @@ ul.menu--skinny {
 
 .menu--bold {
   .menu__item a {
-    font-weight: 700;
+    font-weight: $body-font-bold;
   }
 }
 
