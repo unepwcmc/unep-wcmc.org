@@ -21,6 +21,7 @@ $menu_breakpoint: $tablet;
 .menu__item {
   list-style: none;
   padding: 1em;
+
   &:first-child {
     padding-left: 0;
   }
@@ -30,6 +31,11 @@ $menu_breakpoint: $tablet;
 
   a {
     color: $black;
+    
+    .footer-menu & {
+      font-size: 18px;
+    }
+
     &:hover {
       background: $light-grey;
     }
