@@ -1,3 +1,4 @@
+@import 'utilities/settings';
 @import 'utilities/colors';
 @import 'utilities/breakpoints';
 @import 'utilities/flexbox';
@@ -8,6 +9,8 @@ $menu_breakpoint: $tablet;
   @extend %flexbox;
   @include justify-content(center);
   @include align-items(center);
+
+  margin: 0;
 
   @media (max-width: $menu_breakpoint){
     @include flex-direction(column);
@@ -86,8 +89,8 @@ ul.menu--skinny {
 }
 
 .menu--bold {
-  li.menu__item {
-    font-weight: 700;
+  .menu__item a {
+    font-weight: $body-font-bold;
   }
 }
 
