@@ -1,0 +1,36 @@
+<% first_page = @cms_site.pages.root.children.first %>
+<% second_page = @cms_site.pages.root.children.offset(1).first %>
+<div class="column-1-3 wide">
+  <ul class="subnav">
+    <% @cms_site.pages.root.children.each do |page| %>
+      <li class="header">
+        <%= cms_block_content(:title, page) %>
+      </li>
+      <ul class="expertise">
+        <% page.children.each do |subpage| %>
+          <%= render partial: "expertise/nav_link", locals: {page: subpage} %>
+        <% end %>
+      </ul>
+    <% end %>
+  </ul>
+  <ul class="subnav-small" id="areas">
+    <li class="subnav__header header" id="strengthen-button">
+      <%= cms_block_content(:title, first_page) %>
+      <i class="icon-chevron-down"></i>
+    </li>
+    <ul class="expertise-small" id="strengthen">
+      <% first_page.children.each do |subpage| %>
+        <%= render partial: "expertise/nav_link", locals: {page: subpage} %>
+      <% end %>
+    </ul>
+    <li class="subnav__header header" id="specialise-button">
+      <%= cms_block_content(:title, second_page) %>
+      <i class="icon-chevron-down"></i>
+    </li>
+    <ul class="expertise-small" id="specialise">
+      <% second_page.children.each do |subpage| %>
+        <%= render partial: "expertise/nav_link", locals: {page: subpage} %>
+      <% end %>
+    </ul>
+  </ul>
+</div>

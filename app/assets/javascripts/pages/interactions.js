@@ -24,11 +24,11 @@ $(document).ready(function(){
     $('div.status#warning').slideUp('normal');
   });
 
-  $('ul.subnav-small li.header#strengthen-button i').click(function() {
+  $('ul.subnav-small li.header#strengthen-button').click(function() {
     $('ul.expertise-small#strengthen').slideToggle('normal');
   });
 
-  $('ul.subnav-small li.header#specialise-button i').click(function() {
+  $('ul.subnav-small li.header#specialise-button').click(function() {
     $('ul.expertise-small#specialise').slideToggle('normal');
   });
 

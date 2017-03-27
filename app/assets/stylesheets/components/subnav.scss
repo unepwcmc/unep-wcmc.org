@@ -1,0 +1,11 @@
+//please see legacy base file for older subnav scss
+
+.subnav {
+  &__header {
+    cursor: pointer;
+
+    @media(min-width: $desktop){
+      cursor: default;
+    }
+  }
+}
