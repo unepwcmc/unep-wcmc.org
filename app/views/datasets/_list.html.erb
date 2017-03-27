@@ -1,4 +1,22 @@
 <div class="container" ng-app="DatasetsResources" ng-controller="DatasetsCtrl" ng-init="init(<%= render partial: 'datasets/list', formats: :json %>,  <%= render partial: 'datasets/dataset_url_fields', formats: :json %>, <%= render partial: 'datasets/dataset_file_fields', formats: :json %>)">
+
+
+  <div class="title-bar">
+    <div class="title-bar__left">
+      <h1>Resources & data</h1>
+    </div>
+
+    <div class="title-bar__right" id="data-small">
+      <div class="search-field">
+        <input class="search_input" ng-change="search()" ng-model="query" placeholder="Search resources or datasets" type="text"></input>
+        <div class="icon_search">
+          <i class="icon-search"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <div class="column-1-3" id="data-small">
     <div class="search-field">
       <input class="search_input" ng-change="search()" ng-model="query" placeholder="Search resources or datasets" type="text"></input>

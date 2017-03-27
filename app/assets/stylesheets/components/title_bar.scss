@@ -1,34 +1,54 @@
 @import 'utilities/colors';
 @import 'utilities/flexbox';
 @import 'utilities/layout';
+@import 'utilities/breakpoints';
 
-.dataset {
-	@extend %flexbox;
+.title-bar {
+	@include flexbox;
+  @include flex-direction(column);
+  padding-bottom: 1em;
+  border-bottom: solid 3px $light-grey;
+  @include justify-content(space-between);
+
+  @media (min-width: $tablet){
+    @include flex-direction(row);
+  }
+
+  h1 {
+    color: $dark-blue;
+  }
+
+  &__left, &__right {
+    padding-bottom: 0em;
+
+    @media (max-width: $tablet){
+      padding-bottom: 1em;
+    }
+  }
 }
 
-	.dataset__title-bar {
-		@extend %flexbox;
-		border-bottom: solid 1px $light-grey;
+/*.dataset__title-bar {*/
+  /*@include flexbox;*/
 
-		&__title {
-			flex: 3 1 auto
-			
-		}
+  /*&__title {*/
+    /*@include flex(3 1 auto);*/
 
-		&__search {
-			flex: 1 1 auto
-		}
-	}
+  /*}*/
 
-	.dataset__content {
-		@extend %flexbox;
-	}
+  /*&__search {*/
+    /*@include flex(1 1 auto);*/
+  /*}*/
+/*}*/
 
-		.dataset__sidebar {
-			flex: 1 1 33%;
-		}
+/*.dataset__content {*/
+  /*@include flexbox;*/
+/*}*/
 
-		.dataset__main {
-			flex: 2 1 66%;
-		}
+  /*.dataset__sidebar {*/
+    /*@include flex(1 1 33%);*/
+  /*}*/
+
+  /*.dataset__main {*/
+    /*@include flex(2 1 66%);*/
+  /*}*/
 

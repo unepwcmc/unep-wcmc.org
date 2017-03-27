@@ -1,6 +1,6 @@
 angular.module("DatasetsResources").controller("DatasetsCtrl", [
-  "$scope", 
-  "$sce", 
+  "$scope",
+  "$sce",
 function ($scope, $sce) {
 
   lunr.stopWordFilter = function (word) { return word == "" ? undefined : word; }
@@ -23,7 +23,7 @@ function ($scope, $sce) {
     _.each(names, function (name) {
       $scope.activeContentTypes.push(
         _.findWhere($scope.contentTypes, {singular: name})
-      ); 
+      );
     });
   }
 
