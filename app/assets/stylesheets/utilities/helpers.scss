@@ -1,6 +1,3 @@
-@import 'utilities/breakpoints';
-@import 'utilities/flexbox';
-
 .hidden-phone-down {
   @media (max-width: $phone){
     display: none !important;

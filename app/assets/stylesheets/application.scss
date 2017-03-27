@@ -1,0 +1,59 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require font-awesome
+ *= require select2
+ */
+
+ //import all stylesheets here so that mixins and variables can be used across scss files.
+
+@import 'settings';
+
+//fonts
+@import 'fonts/webfonts';
+
+//utilities
+@import 'utilities/colors';
+@import 'utilities/breakpoints';
+
+@import 'legacy/base'; //this legacy file needs inserting here because it has been edited during the redesign, so it uses some variables above but is overwritten by someof the utility files below
+
+//utilities continued
+@import 'utilities/base';
+@import 'utilities/flexbox';
+@import 'utilities/helpers';
+@import 'utilities/layout';
+@import 'utilities/rem-calc';
+@import 'utilities/typography';
+
+//legacy
+@import 'legacy/featured_projects';
+//@import 'legacy/ie'; do not import, this is referenced in separately
+//@import 'legacy/ie8'; do not import, this is referenced in separately
+//@import 'legacy/large'; do not import, this is referenced in separately
+//@import 'legacy/medium'; do not import, this is referenced in separately
+//@import 'legacy/print';
+//@import 'legacy/screen';
+
+//components
+@import 'components/background';
+@import 'components/biography';
+@import 'components/button';
+@import 'components/card';
+@import 'components/footer';
+@import 'components/header';
+@import 'components/hero';
+@import 'components/hr';
+@import 'components/logo';
+@import 'components/menu';
+@import 'components/section_header';
+@import 'components/social_link';
+@import 'components/tags';

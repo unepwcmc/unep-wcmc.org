@@ -1,8 +1,3 @@
-@import 'utilities/settings';
-@import 'utilities/colors';
-@import 'utilities/breakpoints';
-@import 'utilities/flexbox';
-
 .header-social-bar {
   background-color: $light-grey;
   @include flexbox;

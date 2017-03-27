@@ -1,7 +1,3 @@
-@import 'utilities/colors';
-@import 'utilities/breakpoints';
-@import 'utilities/flexbox';
-
 .social-group {
   @extend %flexbox;
 }
