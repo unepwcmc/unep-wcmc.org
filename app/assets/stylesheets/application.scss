@@ -24,7 +24,7 @@
 @import 'utilities/colors';
 @import 'utilities/breakpoints';
 
-@import 'legacy/base'; //this legacy file needs inserting here because it has been edited during the redesign, so it uses some variables above but is overwritten by someof the utility files below
+@import 'legacy/base'; //this legacy file needs inserting here because it has been edited during the redesign, so it uses some variables above but is overwritten by some of the utility files below
 
 //utilities continued
 @import 'utilities/base';
@@ -36,12 +36,8 @@
 
 //legacy
 @import 'legacy/featured_projects';
-//@import 'legacy/ie'; do not import, this is referenced in separately
-//@import 'legacy/ie8'; do not import, this is referenced in separately
-//@import 'legacy/large'; do not import, this is referenced in separately
-//@import 'legacy/medium'; do not import, this is referenced in separately
-//@import 'legacy/print';
-//@import 'legacy/screen';
+@import 'legacy/large';
+@import 'legacy/medium';
 
 //components
 @import 'components/*';
