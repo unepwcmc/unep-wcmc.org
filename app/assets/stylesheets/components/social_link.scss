@@ -1,7 +1,3 @@
-@import 'utilities/colors';
-@import 'utilities/breakpoints';
-@import 'utilities/flexbox';
-
 .social-group {
   @extend %flexbox;
 }
@@ -24,11 +20,18 @@
 }
 
 .social-link__text {
+  font-size: 14px;
   margin-left: 0.25em;
+
   @media (max-width: $phone){
     display: none;
   }
+
+  .footer-social & {
+    font-size: 18px;
+  }
 }
+
 
 .fa-stack {
   width: 1.7em !important;
