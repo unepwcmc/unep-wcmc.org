@@ -18,13 +18,6 @@
 
 
   <div class="column-1-3" id="data-small">
-    <div class="search-field">
-      <input class="search_input" ng-change="search()" ng-model="query" placeholder="Search resources or datasets" type="text"></input>
-      {{query}}
-      <div class="icon_search">
-        <i class="icon-search"></i>
-      </div>
-    </div>
     <button class="data">
       Type of content
       <i class="icon-caret-down"></i>
@@ -43,6 +36,7 @@
       <a href="http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles">Search WCMC's historical publications</a>
     </div>
   </div>
+
   <div class="column-1-3" id="data">
     <div class="search-field">
       <input class="short" ng-change="search()" ng-model="query" placeholder="Search resources or datasets" type="text"></input>
@@ -62,21 +56,20 @@
     <select id="sorting" ng-change="sortDatesets()" ng-model="sortOrder" ng-options="order.value as order.name for order in sortOrders"></select>
     <div class="info-message">
       <h1>Policies</h1>
-      <p>UN Environment World Conservation Monitoring Centre does not assert any intellectual property rights in the data made available to it by data providers.</p>
-      <p>Access to UN Environment World Conservation Monitoring Centre datasets is provided on the understanding that you read and consent to be bound by the Terms and Conditions set out in our policies.</p>
-      <a href="/policies">View our policies</a>
+      <p>un environment world conservation monitoring centre does not assert any intellectual property rights in the data made available to it by data providers.</p>
+      <p>access to un environment world conservation monitoring centre datasets is provided on the understanding that you read and consent to be bound by the terms and conditions set out in our policies.</p>
+      <a href="/policies">View our policies <i class="fa fa-external-link"></i></a>
     </div>
-    <section class="actions" id="search-button">
+
+    <div class="info-message">
       <h1>Biodiversity Heritage Library</h1>
-      <div class="button bhl">
-        <a href="http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles">Search WCMC's historical publications</a>
-      </div>
-    </section>
+      <a href="http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles">Search WCMC's historical publications <i class="fa fa-external-link"></i></a>
+    </div>
   </div>
+
+
+
   <div class="column-2-3" id="data">
-    <h1>
-      Resources &amp; data
-    </h1>
     <div class="filters">
       <p>
         Searching for
@@ -93,21 +86,38 @@
         </span>
       </p>
     </div>
+
     <section class="list" ng-repeat="dataset in datasetsToBeDisplayed">
-      <h2 class="smaller" id="{{ dataset.slug  %> %>">
+
+      <div class="dataset">
+        <div class="dataset__title">
+          <h2><a href="/resources-and-data/{{ dataset.slug }}">{{ dataset.title }}</a></h2>
+        </div>
+
+        <div class="tags">
+          <div class="tags__tag">{{ dataset.content_type }}</div>
+          <div class="tags__tag">{{ dataset.publication_date_year }}</div>
+        </div>
+
+        <div class="dataset__text">
+          <p ng-bind-html="dataset.content"></p>
+        </div>
+      </div>
+
+      <!--h2 class="smaller" id="{{ dataset.slug }}">
         {{ dataset.title }}
       </h2>
       <h3 class="data">
         {{ dataset.content_type }}
         <span ng-if="dataset.publication_date_year != ''">
           <span class="separator">
-            <%= '|' %>
+            <%#= '|' %>
           </span>
           {{ dataset.publication_date_year }}
         </span>
         <span ng-if="dataset.publication_date_year=='' && dataset.content_type != 'Online Tool'">
           <span class="separator">
-            <%= '|' %>
+            <%#= '|' %>
           </span>
           {{ dataset.publication_date | date: 'MMMM yyyy' }}
         </span>
@@ -137,9 +147,11 @@
         <a href="{{file.url %> %>">
           {{ file.label }}
         </a>
-      </p>
+      </p-->
     </section>
-    <h2 class="smaller" ng-if="datasetsToBeDisplayed.length == 0">No data found.</h2>
+
+    <h2 class="smaller" ng-if="datasetsToBeDisplayed.length == 0">No data found</h2>
+
     <div id="button-row" ng-if="hiddenDatasets.length > 0">
       <div class="button" id="more_projects" ng-click="showMore()">
         <a>View more resources</a>
