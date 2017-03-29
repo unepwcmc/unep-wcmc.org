@@ -7,10 +7,10 @@
     </div>
 
     <div class="title-bar__right" id="data-small">
-      <div class="search-field">
-        <input class="search_input" ng-change="search()" ng-model="query" placeholder="Search resources or datasets" type="text"></input>
-        <div class="icon_search">
-          <i class="icon-search"></i>
+      <div class="search">
+        <input class="search__input" ng-change="search()" ng-model="query" placeholder="Search resources or datasets" type="text"></input>
+        <div class="search__icon">
+          <%= fa_icon 'search inverse' %>
         </div>
       </div>
     </div>
@@ -56,8 +56,8 @@
     <select id="sorting" ng-change="sortDatesets()" ng-model="sortOrder" ng-options="order.value as order.name for order in sortOrders"></select>
     <div class="info-message">
       <h1>Policies</h1>
-      <p>un environment world conservation monitoring centre does not assert any intellectual property rights in the data made available to it by data providers.</p>
-      <p>access to un environment world conservation monitoring centre datasets is provided on the understanding that you read and consent to be bound by the terms and conditions set out in our policies.</p>
+      <p>UN Environment World Conservation Monitoring Centre does not assert any intellectual property rights in the data made available to it by data providers.</p>
+      <p>access to UN Environment World Conservation Monitoring Centre datasets is provided on the understanding that you read and consent to be bound by the terms and conditions set out in our policies.</p>
       <a href="/policies">View our policies <i class="fa fa-external-link"></i></a>
     </div>
 
