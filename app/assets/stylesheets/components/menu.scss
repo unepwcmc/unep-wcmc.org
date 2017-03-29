@@ -18,10 +18,14 @@ $menu_breakpoint: $tablet;
   padding: 1em;
 
   &:first-child {
-    padding-left: 0;
+    @media (min-width: $tablet){
+      padding-left: 0;
+    }
   }
   &:last-child {
-    padding-right: 0;
+    @media (min-width: $tablet){
+      padding-right: 0;
+    }
   }
 
   a {
