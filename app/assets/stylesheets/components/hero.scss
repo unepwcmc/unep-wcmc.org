@@ -34,7 +34,7 @@
   text-transform: uppercase;
   color: $white;
   padding: 2em;
-  //@include flex(1);
+
 
   h1, h2, h3, h4, h5, p {
     color: $white;
@@ -50,7 +50,6 @@
   background-color: $white;
   padding: 2em;
   color: $black;
-  //@include flex(1);
 }
 
 .hero__button {
