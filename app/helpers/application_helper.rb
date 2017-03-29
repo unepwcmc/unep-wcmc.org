@@ -18,8 +18,15 @@ module ApplicationHelper
     p ? p[0] : nil
   end
 
-  def active_class_link_to(name, path)
-    active_class = "active" if current_page?(path)
-    link_to(name, path, class: "#{active_class}")
+  def active_class_link_to(name, path, classes = nil)
+    classArray = [];
+
+    classArray.push(classes) if classes != nil
+
+    classArray.push("active") if current_page?(path)
+    
+    classString = classArray.join(" ")
+
+    link_to(name, path, class: classString)
   end
 end

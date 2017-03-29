@@ -14,16 +14,45 @@
     </div>
   </div>
 
-  <nav class="header-menu">
-    <div class="header-menu__container">
-      <div class="header-menu__left">
-        <div class="header__logo">
-          <a href="/">
-            <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UN-Environment-WCMC+logo+2017.svg', alt: 'UN Environment WCMC Logo' %>
-          </a>
-        </div>
-      </div>
-      <div class="header-menu__right hidden-tablet-down">
+  <div class="header__menu-bar">
+    <a href="/" class="header__logo">
+      <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UN-Environment-WCMC+logo+2017.svg', alt: 'UN Environment WCMC Logo' %>
+    </a>
+
+    <a href="" class="header__nav-button button js-menu--trigger">Menu</a>
+    
+    <nav class="header__menus js-menu--targett">
+      <ul class="menu menu--primary menu--bold">
+        <li class="menu__item">
+          <%= active_class_link_to "Our expertise", "/expertise", "menu__item-link" %>
+        </li>
+        <li class="menu__item">
+          <%= active_class_link_to "Featured work", "/featured-projects", "menu__item-link" %>
+        </li>
+        <li class="menu__item">
+          <%= active_class_link_to "Resources & Data", "/resources-and-data", "menu__item-link" %>
+        </li>
+        <li class="menu__item">
+          <%= active_class_link_to "About us", "/about-us", "menu__item-link" %>
+        </li>
+      </ul>
+      <ul class="menu menu--secondary">
+        <li class="menu__item">
+          <%= active_class_link_to "Partners", "/about-us/partners", "menu__item-link" %>
+        </li>
+        <li class="menu__item">
+          <%= active_class_link_to "Vacancies", "/vacancies", "menu__item-link" %>
+        </li>
+        <li class="menu__item">
+          <%= active_class_link_to "The Team", "/employees", "menu__item-link" %>
+        </li>
+        <li class="menu__item">
+          <%= active_class_link_to "Contact", "/about-us/contact", "menu__item-link" %>
+        </li>
+      </ul>
+    </nav>
+
+      <!-- <div class="header-menu__right hidden-tablet-down">
         <ul class="menu menu--skinny">
           <li class="menu__item">
             <%= active_class_link_to "Partners", "/about-us/partners" %>
@@ -52,45 +81,8 @@
             <%= active_class_link_to "About us", "/about-us" %>
           </li>
         </ul>
-      </div>
-    </div>
-  </nav>
-
-  <nav class="header-menu header-menu--mobile">
-    <div class="header-menu__container">
-      <a href="" class="header-menu__button button js-menu--trigger">Menu</a>
-    </div>
-  </nav>
-  <nav class="header-menu header-menu--mobile js-menu--target">
-    <ul class="menu menu--skinny">
-      <li class="menu__item">
-        <%= active_class_link_to "Partners", "/about-us/partners" %>
-      </li>
-      <li class="menu__item">
-        <%= active_class_link_to "Vacancies", "/vacancies" %>
-      </li>
-      <li class="menu__item">
-        <%= active_class_link_to "The Team", "/employees" %>
-      </li>
-      <li class="menu__item">
-        <%= active_class_link_to "Contact", "/about-us/contact" %>
-      </li>
-    </ul>
-    <hr class="grey">
-    <ul class="menu menu--bold">
-      <li class="menu__item">
-        <%= active_class_link_to "Our expertise", "/expertise" %>
-      </li>
-      <li class="menu__item">
-        <%= active_class_link_to "Featured work", "/featured-projects" %>
-      </li>
-      <li class="menu__item">
-        <%= active_class_link_to "Resources & Data", "/resources-and-data" %>
-      </li>
-      <li class="menu__item">
-        <%= active_class_link_to "About us", "/about-us" %>
-      </li>
-    </ul>
-  </nav>
+      </div> -->
+  </div>
+  
 
 </header>
