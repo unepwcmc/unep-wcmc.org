@@ -1,13 +1,11 @@
-@import 'utilities/colors';
-@import 'utilities/breakpoints';
-@import 'utilities/flexbox';
-
 $menu_breakpoint: $tablet;
 
 .menu {
   @extend %flexbox;
   @include justify-content(center);
   @include align-items(center);
+
+  margin: 0;
 
   @media (max-width: $menu_breakpoint){
     @include flex-direction(column);
@@ -18,6 +16,7 @@ $menu_breakpoint: $tablet;
 .menu__item {
   list-style: none;
   padding: 1em;
+
   &:first-child {
     padding-left: 0;
   }
@@ -27,8 +26,15 @@ $menu_breakpoint: $tablet;
 
   a {
     color: $black;
+    padding: rem-calc(8 10);
+    
+    .footer-menu & {
+      font-size: 18px;
+    }
+
     &:hover {
       background: $light-grey;
+      text-decoration: none;
     }
   }
 }
@@ -81,13 +87,13 @@ $menu_breakpoint: $tablet;
 
 ul.menu--skinny {
   li.menu__item {
-    padding: 0.5em;
+    padding: rem-calc(8 4);
   }
 }
 
 .menu--bold {
-  li.menu__item {
-    font-weight: 700;
+  .menu__item a {
+    font-weight: $body-font-bold;
   }
 }
 

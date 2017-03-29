@@ -1,7 +1,3 @@
-@import 'utilities/colors';
-@import 'utilities/breakpoints';
-@import 'utilities/flexbox';
-
 .section-header {
   padding: 4em;
   @extend %flexbox;
@@ -17,5 +13,6 @@
     text-transform: uppercase;
     font-size: 1.5rem;
     color: $white;
+    margin-bottom: 0;
   }
 }

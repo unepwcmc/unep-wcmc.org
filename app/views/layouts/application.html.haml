@@ -47,19 +47,18 @@
       var carbon_dashboard_url = "#{Rails.application.secrets.carbon_dashboard_url}";
     %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"}
     = javascript_include_tag "pages/application.js"
-    = stylesheet_link_tag "base", media: "screen"
     = stylesheet_link_tag "application", media: "all"
     :erb
       <!--[if !(IE 8)]><!-->
-        <%= stylesheet_link_tag "medium", :media => "only screen and (min-width: 600px)" %>
-        <%= stylesheet_link_tag "large", :media => "screen and (min-width: 1000px)" %>
+        <%= stylesheet_link_tag "legacy/medium", :media => "only screen and (min-width: 600px)" %>
+        <%= stylesheet_link_tag "legacy/large", :media => "screen and (min-width: 1000px)" %>
       <!--<![endif]-->
     /[if lt IE 9]
-      = stylesheet_link_tag "medium", media: "all"
-      = stylesheet_link_tag "large", media: "all"
-      = stylesheet_link_tag "ie8", media: "all"
+      = stylesheet_link_tag "legacy/medium", media: "all"
+      = stylesheet_link_tag "legacy/large", media: "all"
+      = stylesheet_link_tag "legacy/ie8", media: "all"
     /[if IE]
-      = stylesheet_link_tag "ie", media: "all"
+      = stylesheet_link_tag "legacy/ie", media: "all"
     = javascript_include_tag "modernizr.js"
     = csrf_meta_tags
 

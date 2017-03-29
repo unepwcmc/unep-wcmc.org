@@ -1,5 +1,5 @@
+//legacy base stylesheet
 @import "compass/reset";
-@import "utilities/colors";
 
 $blue: #4295d5;
 $light-blue: #A8CDEE;
@@ -35,6 +35,12 @@ body {
 .container {
   margin: 50px auto;
   width: 90%;
+
+  @media(min-width: $tablet){
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+
   &.column-1 {
     width: 90%;
     padding: 5%;
@@ -576,7 +582,6 @@ section.list {
 
 ul.subnav, ul.subnav-small {
   list-style-type: none;
-  text-transform: uppercase;
   font-weight: 300;
   padding: 0;
   margin: 0;
@@ -605,6 +610,7 @@ ul.subnav, ul.subnav-small {
       color: $grey_text;
       border-bottom: 1px solid #4c9cda;
       padding-left: 0;
+      font-weight: $body-font-bold;
       i {
         color: $blue;
       }
