@@ -1,4 +1,4 @@
-<header>
+<header class="header">
   <div class="header-social-bar">
     <div class="header-social-bar__container">
       <div class="social-group">
@@ -24,30 +24,30 @@
     <nav class="header__menus js-menu--target js-menu--hide">
       <ul class="menu menu--primary menu--bold">
         <li class="menu__item">
-          <%= active_class_link_to "Our expertise", "/expertise", "menu__item-link" %>
+          <%= active_class_link_to "Our expertise", "/expertise", { class: "menu__item-link" } %>
         </li>
         <li class="menu__item">
-          <%= active_class_link_to "Featured work", "/featured-projects", "menu__item-link" %>
+          <%= active_class_link_to "Featured work", "/featured-projects", { class: "menu__item-link" } %>
         </li>
         <li class="menu__item">
-          <%= active_class_link_to "Resources & Data", "/resources-and-data", "menu__item-link" %>
+          <%= active_class_link_to "Resources & Data", "/resources-and-data", { class: "menu__item-link" } %>
         </li>
         <li class="menu__item">
-          <%= active_class_link_to "About us", "/about-us", "menu__item-link" %>
+          <%= active_class_link_to "About us", "/about-us", { class: "menu__item-link" } %>
         </li>
       </ul>
       <ul class="menu menu--secondary">
         <li class="menu__item">
-          <%= active_class_link_to "Partners", "/about-us/partners", "menu__item-link" %>
+          <%= active_class_link_to "Partners", "/about-us/partners", { class: "menu__item-link" } %>
         </li>
         <li class="menu__item">
-          <%= active_class_link_to "Vacancies", "/vacancies", "menu__item-link" %>
+          <%= active_class_link_to "Vacancies", "/vacancies", { class: "menu__item-link" } %>
         </li>
         <li class="menu__item">
-          <%= active_class_link_to "The Team", "/employees", "menu__item-link" %>
+          <%= active_class_link_to "The Team", "/employees", { class: "menu__item-link" } %>
         </li>
         <li class="menu__item">
-          <%= active_class_link_to "Contact", "/about-us/contact", "menu__item-link" %>
+          <%= active_class_link_to "Contact", "/about-us/contact", { class: "menu__item-link" } %>
         </li>
       </ul>
     </nav>

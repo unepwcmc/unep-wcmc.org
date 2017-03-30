@@ -6,26 +6,28 @@
   color: $dark-grey;
 }
 
-  .header-social-bar__container {
-    @include flexbox;
-    @include justify-content(center);
-    width: 100%;
+.header-social-bar__container {
+  @include flexbox;
+  @include justify-content(center);
+  width: 100%;
 
-    @media (min-width: $phone){
-      width: 90%;
-    }
-
-    @media (min-width: $tablet){
-      @include justify-content(flex-end);
-    }
-
-    @media (min-width: $desktop){
-      flex: 0 1 auto;
-      width: $site-width;
-    }
+  @media (min-width: $phone){
+    width: 90%;
   }
 
+  @media (min-width: $tablet){
+    @include justify-content(flex-end);
+  }
+
+  @media (min-width: $desktop){
+    flex: 0 1 auto;
+    width: $site-width;
+  }
+}
+
 .header {
+  background-color: $white;
+
   &__menu-bar {
     @include flexbox;
     @include flex-direction(column);
@@ -43,39 +45,39 @@
     }
   }
 
-    &__logo {
-      border-bottom: solid rem-calc(2) $light-grey;
-      padding: rem-calc(16 0);
-      text-align: center;
+  &__logo {
+    border-bottom: solid rem-calc(2) $light-grey;
+    padding: rem-calc(16 0);
+    text-align: center;
 
-      @media (min-width: $tablet){
-        border-bottom: none;
-        text-align: left;
-      }
+    @media (min-width: $tablet){
+      border-bottom: none;
+      text-align: left;
     }
+  }
   
-      &__logo-img {
-        width: rem-calc(200); height: rem-calc(65); //height needed for ie
-      }
+  &__logo-img {
+    width: rem-calc(200); height: rem-calc(65); //height needed for ie
+  }
 
-    &__nav-button {
-      @include align-self(center);
-      margin: rem-calc(16 0);
+  &__nav-button {
+    @include align-self(center);
+    margin: rem-calc(16 0);
 
-      @media (min-width: $tablet){
-        display: none;
-      }
+    @media (min-width: $tablet){
+      display: none;
     }
+  }
 
-    &__menus {
-      @include flexbox;
-      @include flex-direction(column);
-      border-top: solid rem-calc(2) $light-grey;
+  &__menus {
+    @include flexbox;
+    @include flex-direction(column);
+    border-top: solid rem-calc(2) $light-grey;
 
-      @media(min-width: $tablet){
-        @include flex-direction(column-reverse);
-        @include justify-content(center);
-        border: 0;
-      }
+    @media(min-width: $tablet){
+      @include flex-direction(column-reverse);
+      @include justify-content(center);
+      border: 0;
     }
+  }
 }
