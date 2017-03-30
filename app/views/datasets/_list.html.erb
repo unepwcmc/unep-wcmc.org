@@ -1,11 +1,9 @@
 <div class="container" ng-app="DatasetsResources" ng-controller="DatasetsCtrl" ng-init="init(<%= render partial: 'datasets/list', formats: :json %>,  <%= render partial: 'datasets/dataset_url_fields', formats: :json %>, <%= render partial: 'datasets/dataset_file_fields', formats: :json %>)">
 
-
   <div class="title-bar">
     <div class="title-bar__left">
       <h1>Resources & data</h1>
     </div>
-
     <div class="title-bar__right" id="data-small">
       <div class="search">
         <input class="search__input" ng-change="search()" ng-model="query" placeholder="Search resources or datasets" type="text"></input>
@@ -16,9 +14,9 @@
     </div>
   </div>
 
-
+  <!-- Filtering on mobile -->
   <div class="column-1-3" id="data-small">
-    <button class="data">
+    <button class="data button">
       Type of content
       <i class="icon-caret-down"></i>
     </button>
@@ -28,32 +26,29 @@
         <p>{{ contentType.plural }}</p>
       </li>
     </ul>
-    <select id="sorting" ng-change="sortDatesetsToBeDisplayed()" ng-model="sortOrder" ng-options="order.value as order.name for order in sortOrders"></select>
     <div class="button margin policies">
       <a href="/policies">View our policies</a>
     </div>
+
     <div class="button margin bhl">
       <a href="http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles">Search WCMC's historical publications</a>
     </div>
   </div>
+  <!-- end filtering on mobile -->
 
   <div class="column-1-3" id="data">
-    <div class="search-field">
-      <input class="short" ng-change="search()" ng-model="query" placeholder="Search resources or datasets" type="text"></input>
-      <div class="icon_search">
-        <i class="icon-search"></i>
-      </div>
-    </div>
     <ul id="content">
       <li class="header">
         Type of content
       </li>
+
       <li class="content_type" ng-class="{active: contentType.selected && contentType.count > 0 %>" ng-click="toggleContentType()" ng-repeat="contentType in contentTypes" ng-show="contentType.count > 0">
-        <span class="badge">{{ contentType.count }}</span>
-        <p>{{ contentType.plural }}</p>
+        <p>{{ contentType.plural }} ({{ contentType.count }})</p>
       </li>
+
     </ul>
-    <select id="sorting" ng-change="sortDatesets()" ng-model="sortOrder" ng-options="order.value as order.name for order in sortOrders"></select>
+
+
     <div class="info-message">
       <h1>Policies</h1>
       <p>UN Environment World Conservation Monitoring Centre does not assert any intellectual property rights in the data made available to it by data providers.</p>
@@ -70,21 +65,10 @@
 
 
   <div class="column-2-3" id="data">
-    <div class="filters">
-      <p>
-        Searching for
-        <span class="active-filter" ng-click="resetQuery()" ng-show="query">
-          <i class="icon-remove"></i>
-          {{query}}
-        </span>
-      </p>
-      <p>
-        Displaying
-        <span class="active-filter" ng-click="toggleContentType()" ng-repeat="contentType in activeContentTypes">
-          <i class="icon-remove"></i>
-          {{ contentType.plural }}
-        </span>
-      </p>
+    <div class="filter__sort">
+      <div class="filter__sort__select">
+        <select ng-change="sortDatesets()" ng-model="sortOrder" ng-options="order.value as order.name for order in sortOrders"></select>
+      </div>
     </div>
 
     <section class="list" ng-repeat="dataset in datasetsToBeDisplayed">
@@ -95,59 +79,25 @@
         </div>
 
         <div class="tags">
-          <div class="tags__tag">{{ dataset.content_type }}</div>
-          <div class="tags__tag">{{ dataset.publication_date_year }}</div>
+          <div class="tags__tag" ng-if="dataset.content_type">{{ dataset.content_type }}</div>
+          <div class="tags__tag" ng-if="dataset.publication_date_year">{{ dataset.publication_date_year }}</div>
         </div>
 
         <div class="dataset__text">
           <p ng-bind-html="dataset.content"></p>
         </div>
-      </div>
 
-      <!--h2 class="smaller" id="{{ dataset.slug }}">
-        {{ dataset.title }}
-      </h2>
-      <h3 class="data">
-        {{ dataset.content_type }}
-        <span ng-if="dataset.publication_date_year != ''">
-          <span class="separator">
-            <%#= '|' %>
-          </span>
-          {{ dataset.publication_date_year }}
-        </span>
-        <span ng-if="dataset.publication_date_year=='' && dataset.content_type != 'Online Tool'">
-          <span class="separator">
-            <%#= '|' %>
-          </span>
-          {{ dataset.publication_date | date: 'MMMM yyyy' }}
-        </span>
-      </h3>
-      <h3 class="author" ng-if="dataset.author">
-        Author: {{ dataset.author }}
-      </h3>
-      <h3 class="isbn" ng-if="dataset.isbn">
-        ISBN: {{ dataset.isbn }}
-      </h3>
-      <p ng-bind-html="dataset.content"></p>
-      <p class="link" ng-if="dataset.first_link">
-        <a href="{{dataset.first_link %> %>">{{dataset.first_link_label}}</a>
-      </p>
-      <p class="link" ng-if="dataset.second_link">
-        <a href="{{dataset.second_link %> %>">{{dataset.second_link_label}}</a>
-      </p>
-      <p class="link" ng-show="dataset.file_url">
-        <a href="{{dataset.file_url %> %>">Download</a>
-      </p>
-      <p class="link" ng-repeat="field in urlFieldsForDataset( dataset.id ) ">
-        <a href="{{field.url %> %>">
-          {{ field.label }}
-        </a>
-      </p>
-      <p class="link" ng-repeat="file in fileFieldsForDataset( dataset.id ) ">
-        <a href="{{file.url %> %>">
-          {{ file.label }}
-        </a>
-      </p-->
+        <small class="" ng-if="dataset.author">Author(s): {{ dataset.author }}</small>
+        <small class="" ng-if="dataset.isbn">ISBN: {{ dataset.isbn }}</small>
+
+        <div class="tags">
+          <div class="tags__tag" ng-if="dataset.first_link"><a href="{{ dataset.first_link }}">{{dataset.first_link_label}}</a></div>
+          <div class="tags__tag" ng-if="dataset.second_link"> <a href="{{ dataset.second_link }}">{{dataset.second_link_label}}</a></div>
+          <div class="tags__tag" ng-show="dataset.file_url"> <a href="{{ dataset.file_url }}">Download</a> </div>
+          <div class="tags__tag" ng-repeat="field in urlFieldsForDataset( dataset.id ) "><a href="{{ field.url }}">{{ field.label }}</a></div>
+          <div class="tags__tag" ng-repeat="file in fileFieldsForDataset( dataset.id ) "><a href="{{ file.url }}">{{ file.label }}</div>
+        </div>
+      </div>
     </section>
 
     <h2 class="smaller" ng-if="datasetsToBeDisplayed.length == 0">No data found</h2>

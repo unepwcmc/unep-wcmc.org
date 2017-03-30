@@ -1,0 +1,18 @@
+.filter__sort {
+  @include flexbox;
+  @include justify-content(flex-end);
+}
+
+.filter__sort__select {
+  select {
+    padding: 0 1em;
+    border: 1px solid $dark-grey;
+    color: $dark-grey;
+
+    option {
+      padding: 1em;
+    }
+  }
+}
+
+
