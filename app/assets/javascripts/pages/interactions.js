@@ -32,8 +32,20 @@ $(document).ready(function(){
     $('ul.expertise-small#specialise').slideToggle('normal');
   });
 
-  $(".js-menu--trigger").click(function(e){
+  //event listener for the main menu on mobile
+  $(".js-menu--trigger").click('click', function(e){
     e.preventDefault();
-    $(".js-menu--target").toggleClass("js-menu--visible")
+    var $button = $(this),
+        menuClass = 'js-menu--hide',
+        $menu = $('.js-menu--target');
+    var isOpen = $menu.hasClass(menuClass) ? true : false;
+
+    if(isOpen){
+      $button.text('Close');
+    } else {
+      $button.text('Menu');
+    }
+
+    $menu.toggleClass(menuClass);
   });
 });

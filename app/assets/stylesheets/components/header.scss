@@ -46,11 +46,17 @@
     &__logo {
       border-bottom: solid rem-calc(2) $light-grey;
       padding: rem-calc(16 0);
+      text-align: center;
 
       @media (min-width: $tablet){
         border-bottom: none;
+        text-align: left;
       }
     }
+
+      &__logo-img {
+        width: rem-calc(200); height: rem-calc(65); //height needed for ie
+      }
 
     &__nav-button {
       @include align-self(center);
@@ -73,51 +79,3 @@
       }
     }
 }
-
-
-  .header-menu__container {
-    margin: 0 auto;
-    @include flexbox;
-    @include justify-content(space-between);
-    @include align-items(center);
-
-    width: 100%;
-
-    @media (min-width: $phone){
-      @include flex-direction(row);
-      width: 90%;
-    }
-
-    @media (min-width: $desktop){
-      width: $site-width;
-    }
-  }
-
-    .header-menu__right {
-      flex: 1 1 auto;
-
-      .menu {
-        @include justify-content(flex-end);
-        .menu__item {
-          &:last-child {
-            padding-right: 0;
-          }
-        }
-      }
-    }
-
-    .header-menu__left {
-      flex: 1 1 auto;
-    }
-
-      .header__logo {
-        text-align: center;
-        
-        @media (min-width: $tablet){
-          text-align: left;
-        }
-
-        img {
-          width: rem-calc(200); height: rem-calc(65); //height needed for ie
-        }
-      }
