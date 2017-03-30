@@ -46,13 +46,14 @@
 .card__title {
   font-size: 1.2rem;
   color: $dark-blue;
+  margin-bottom: rem-calc(12);
 }
 
 .card__text {
-  font-size: 0.9em;
+  font-size: rem-calc(15);
 }
 
 .card__timestamp {
-  padding: 1em 0;
+  margin-bottom: rem-calc(11);
 }
 
