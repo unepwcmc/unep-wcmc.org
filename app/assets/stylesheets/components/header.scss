@@ -2,7 +2,7 @@
   background-color: $light-grey;
   @include flexbox;
   @include justify-content(center);
-  padding: 1em 0;
+  padding: rem-calc(10 0);
   color: $dark-grey;
 }
 
@@ -53,7 +53,7 @@
         text-align: left;
       }
     }
-
+  
       &__logo-img {
         width: rem-calc(200); height: rem-calc(65); //height needed for ie
       }

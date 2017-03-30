@@ -1,11 +1,11 @@
 .button {
   background-color: $dark-blue;
   color: $white;
-  margin-bottom: 1.25rem;
-  padding: 10px;
+  margin-bottom: rem-calc(20);
+  padding: rem-calc(14 34);
 
   @media (min-width: $tablet){
-    margin-bottom: 1.875rem;
+    margin-bottom: rem-calc(30);
   }
 
   &:hover {
