@@ -7,9 +7,9 @@
       <% end %>
       <h1 class="card__title"><%= block_content(:news_header, page) %></h1>
       <small class="card__timestamp"><%= formatted_time(block_content(:time, page)) %></small>
-      <p class="card__text">
+      <div class="card__text">
         <%= truncate(block_content(:short_description, page), length: 200, omission: "..." ) %>
-      </p>
+      </div>
       <div class="tags">
         <a href="#" class="tags__tag">report</a>
         <a href="#" class="tags__tag">database</a>

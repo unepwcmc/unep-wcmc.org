@@ -35,6 +35,9 @@
   color: $white;
   padding: 2em;
 
+  h1 {
+    font-family: $font-mueso-bold;
+  }
 
   h1, h2, h3, h4, h5, p {
     color: $white;
@@ -48,9 +51,14 @@
 
 .hero__text {
   background-color: $white;
-  padding: 2em;
   color: $black;
-}
+  padding: rem-calc(28 32);
 
-.hero__button {
+  @media(min-width: $tablet){
+    font-size: rem-calc(18);
+  }
+
+  p {
+    margin-bottom: rem-calc(16);
+  }
 }

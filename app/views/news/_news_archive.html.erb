@@ -1,0 +1,17 @@
+<% Comfy::Cms::Site.find_by_identifier('news').pages.root.children.published.includes(blocks: [:files]).reverse.each do |page| %>
+
+  <section class="list">
+    <h2 class="smaller card__title">
+      <%= link_to '/news' + page.full_path do %>
+        <%= block_content(:news_header, page) %>
+      <% end %>
+    </h2>
+    <small class="card__timestamp">
+      <%= formatted_time(block_content(:time, page)) %>
+    </small>
+    <p>
+      <%= raw block_content(:short_description, page) %>
+    </p>
+  </section>
+
+<% end %>
