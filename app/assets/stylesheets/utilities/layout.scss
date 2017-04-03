@@ -4,6 +4,10 @@
   padding: 2em 0;
 }
 
+.row--flexbox {
+  @include flexbox;
+}
+
 .container-flex {
   @extend %flexbox;
   width: 70%;

@@ -1,3 +1,15 @@
+//--------------------------------------------------------------------------------
+// cards
+//--------------------------------------------------------------------------------
+// - default
+// - custom
+//   - third
+//   - featured project
+//   - featured project (home page)
+//   - news and resource
+//--------------------------------------------------------------------------------
+// default card styles
+//--------------------------------------------------------------------------------
 .cards-row {
   overflow: auto;
 }
@@ -10,49 +22,113 @@
   @media (max-width: $phone){
     &:nth-child(even) {background: $light-grey;}
   }
+
+  &__image {
+    width: 100%;
+    max-height: 200px;
+    margin-bottom: 1em;
+    @media (max-width: $phone){
+      display: none !important;
+    }
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    color: $dark-blue;
+    margin-bottom: rem-calc(12);
+  }
+
+  &__text {
+    font-size: rem-calc(15);
+  }
+
+  &__timestamp {
+    margin-bottom: rem-calc(11);
+  }
 }
 
+//--------------------------------------------------------------------------------
+// card third
+//--------------------------------------------------------------------------------
 .card--third {
-  width: 33.333%;
-  @media (max-width: $tablet){
+  margin: rem-calc(8 0);
+  padding: rem-calc(16);
+  width: 100%; height: 100%;
+
+  @media (min-width: $tablet){
     width: 50%;
   }
 
-  @media (max-width: $phone){
-    width: 100%;
-    height: 100% !important;
-    margin: 0.5em 0 !important;
-    padding: 1em !important;
+  @media (min-width: $desktop){
+    width: 33.333%; height: 600px;
+
   }
 }
 
-.card--resource, .card--news {
-  height: 380px;
+//--------------------------------------------------------------------------------
+// featured projects
+//--------------------------------------------------------------------------------
+.card-wrapper--featured-project {
+  @include flex-flow(row wrap);
+  @include justify-content(space-between);
 }
 
 .card--featured-project {
-  height: 450px;
+  flex: 0 0 auto;
+  padding-right: 0;
+  padding-left: 0;
+  width: 47.5%;
 }
 
-.card__image {
-  width: 100%;
-  max-height: 200px;
-  margin-bottom: 1em;
-  @media (max-width: $phone){
-    display: none !important;
+//--------------------------------------------------------------------------------
+// featured projects (home page)
+//--------------------------------------------------------------------------------
+.card--featured-project-home {
+  padding: rem-calc(16 0);
+
+  @media(min-width: $tablet){
+    padding: rem-calc(16);
+    height: 450px;
+  }
+
+  //remove the outer padding from the edge cards so that they sit inline with the hero above.
+  &:first-child, //first
+  &:nth-child(2n + 1){ //every 3rd
+    @media(min-width: $tablet) and (max-width: $desktop){
+      padding-left: 0;
+    }
+  }
+
+  &:nth-child(2n){ //every 2nd
+    @media(min-width: $tablet) and (max-width: $desktop){
+      padding-right: 0;
+    }
+  }  
+
+  &:first-child, //first
+  &:nth-child(3n + 1){ //every 4th
+    @media(min-width: $desktop){
+      padding-left: 0;
+    }
+  }
+
+  &:nth-child(3n){ //every 3rd
+    @media(min-width: $desktop){
+      padding-right: 0;
+    }
   }
 }
 
-.card__title {
-  font-size: 1.2rem;
-  color: $dark-blue;
-}
+//--------------------------------------------------------------------------------
+// news and resource
+//--------------------------------------------------------------------------------
+.card--resource, 
+.card--news {
+  @media(min-width: $tablet){
+    height: 300px;
+  }
 
-.card__text {
-  font-size: 0.9em;
+  @media(min-width: $tablet){
+    height: 300px;
+  }
 }
-
-.card__timestamp {
-  padding: 1em 0;
-}
-
