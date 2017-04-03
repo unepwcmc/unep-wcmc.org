@@ -1,7 +1,7 @@
 <section class="row">
   <div class="container cards-row">
     <% Comfy::Cms::Site.find_by_identifier('resources-and-data').pages.root.children.published.reverse.take(6).each do |page| %>
-      <div class="card card--third card--resource">
+      <div class="card card--resource">
         <h1 class="card__title"><a href="<%= page.url(:relative) %>"><%= truncate(block_content(:title, page), escape: false, length: 70, omission: "...") %></a></h1>
         <p class="card__text">
         <%= truncate(block_content(:content, page), escape: false, length: 200, omission: "..." ) %></p>

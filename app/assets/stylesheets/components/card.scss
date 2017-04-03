@@ -1,99 +1,43 @@
+//--------------------------------------------------------------------------------
+// card default styles
+//--------------------------------------------------------------------------------
 .cards-row {
   overflow: auto;
 }
 
 .card {
-  float: left;
-  padding: 1em;
-  height: 600px;
-  overflow: hidden;
-  @media (max-width: $phone){
-    &:nth-child(even) {background: $light-grey;}
+  &__title {
+    font-size: rem-calc(20);
+    color: $dark-blue;
+    margin-bottom: rem-calc(12);
+  }
+
+  &__image {
+    max-height: rem-calc(200);
+    margin-bottom: rem-calc(16);
+    width: 100%;
+
+    display: none;
+
+    @media (min-width: $tablet){
+      display: block;
+    }
+  }
+
+  &__text {
+    font-size: rem-calc(15);
+  }
+
+  &__timestamp {
+    margin-bottom: rem-calc(11);
   }
 }
 
-.card--third {
-  margin: rem-calc(8 0);
-  padding: rem-calc(16);
-  width: 100%; height: 100%;
-
-  @media (min-width: $tablet){
-    width: 50%;
-  }
-
-  @media (min-width: $desktop){
-    width: 33.333%; height: 600px;
-
-  }
-}
-
-.card--resource, 
-.card--news {
+//--------------------------------------------------------------------------------
+// news cards on the home page
+//--------------------------------------------------------------------------------
+.cards--news-home {
   @media(min-width: $tablet){
-    height: 300px;
-  }
-
-  @media(min-width: $tablet){
-    height: 300px;
+    margin-top: rem-calc(38);
   }
 }
-
-.card--featured-project {
-  padding: rem-calc(16 0);
-
-  @media(min-width: $tablet){
-    padding: rem-calc(16);
-    height: 450px;
-  }
-
-  //remove the outer padding from the edge cards so that they sit inline with the hero above.
-  &:first-child, //first
-  &:nth-child(2n + 1){ //every 3rd
-    @media(min-width: $tablet) and (max-width: $desktop){
-      padding-left: 0;
-    }
-  }
-
-  &:nth-child(2n){ //every 2nd
-    @media(min-width: $tablet) and (max-width: $desktop){
-      padding-right: 0;
-    }
-  }  
-
-  &:first-child, //first
-  &:nth-child(3n + 1){ //every 4th
-    @media(min-width: $desktop){
-      padding-left: 0;
-    }
-  }
-
-  &:nth-child(3n){ //every 3rd
-    @media(min-width: $desktop){
-      padding-right: 0;
-    }
-  }
-}
-
-.card__image {
-  width: 100%;
-  max-height: 200px;
-  margin-bottom: 1em;
-  @media (max-width: $phone){
-    display: none !important;
-  }
-}
-
-.card__title {
-  font-size: 1.2rem;
-  color: $dark-blue;
-  margin-bottom: rem-calc(12);
-}
-
-.card__text {
-  font-size: rem-calc(15);
-}
-
-.card__timestamp {
-  margin-bottom: rem-calc(11);
-}
-

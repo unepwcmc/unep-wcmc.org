@@ -1,7 +1,7 @@
 <section class="row">
-  <div class="container cards-row">
+  <div class="container flex--3-cols cards--news-home">
     <% Comfy::Cms::Site.find_by_identifier('news').pages.root.children.published.includes(blocks: [:files]).reverse.take(6).each do |page| %>
-      <div class="card card--third card--news">
+      <div class="card flex__child">
         <h1 class="card__title"><a href="<%= page.url(:relative) %>"><%= truncate(block_content(:news_header, page), escape: false, length: 70, omission: "...") %></a></h1>
         <small class="card__timestamp"><%= formatted_time(block_content(:time, page)) %></small>
         <div class="card__text">

@@ -1,7 +1,7 @@
 <div class="cards-row">
   <% Comfy::Cms::Site.find_by_identifier('news').pages.root.children.published.includes(blocks: [:files]).reverse.take(6).each do |page| %>
 
-    <div class="card card--third">
+    <div class="card">
       <% if page_file(:news_img, page).present? %>
         <%= image_tag page_file(:news_img, page).file.url, class: 'card__image' %>
       <% end %>
