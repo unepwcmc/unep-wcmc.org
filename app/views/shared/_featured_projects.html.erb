@@ -1,7 +1,7 @@
 <section class="row">
   <div class="container cards-row">
     <% Comfy::Cms::Site.find_by_identifier('featured-projects').pages.root.children.published.where(is_top_project: true).includes(blocks: [:files]).take(6).each do |page| %>
-      <div class="card card--third card--featured-project-home">
+      <div class="card card--third card--featured-project">
         <% if page_file(:thumbnail, page).present? %>
           <%= image_tag page_file(:thumbnail, page).file.url, class: 'card__image' %>
         <% else %>
