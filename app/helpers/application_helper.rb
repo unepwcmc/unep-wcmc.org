@@ -22,4 +22,20 @@ module ApplicationHelper
     active_class = "active" if current_page?(path)
     link_to(name, path, class: "#{active_class}")
   end
+
+  def active_subnav_link_to(text, path, identifier, slug, opts={})
+    opts[:title] = text
+    opts[:class] ||= ""
+    opts[:class] << " active" if @cms_site.identifier == identifier && @cms_page.slug == slug
+
+    link_to(text, path, opts)
+  end
+
+  def active_cms_page_link_to(text, path, page, opts={})
+    opts[:title] = text
+    opts[:class] ||= ""
+    opts[:class] << " active" if page == @cms_page
+
+    link_to(text, path, opts)
+  end
 end

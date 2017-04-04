@@ -1,0 +1,40 @@
+.accordion {
+  &__header {
+    border-bottom: rem-calc(1) solid $blue;
+    cursor: pointer;
+    color: $body-font-color;
+    font-size: rem-calc(16);
+    font-weight: normal;
+    padding: rem-calc(10 10 10 0);
+
+    @media(min-width: $tablet){
+      cursor: default;
+      padding-left: rem-calc(10);
+    }
+
+    &:hover {
+      color: $blue;
+
+      @media(min-width: $tablet){
+        color: $body-font-color;
+      }
+    }
+  }
+
+  &__content {
+    overflow: hidden;
+    max-height: rem-calc(500); //only needs to be approximate
+
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+    
+    &--hidden {
+      max-height: 0;
+
+      @media(min-width: $tablet){
+        max-height: none;
+      }
+    }
+  }
+}
