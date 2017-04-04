@@ -21,8 +21,7 @@
       <%#<i class="icon-caret-down"></i>%>
     <%#</button>%>
     <%#<ul id="content-small">%>
-    <%#<li class="content_type" ng-class="{active: contentType.selected && contentType.count > 0 " ng-click="toggleContentType()" ng-repeat="contentType in contentTypes" ng-show="contentType.count > 0">%>
-
+      <%#<li class="content_type" ng-class="{active: contentType.selected && contentType.count > 0 }" ng-click="toggleContentType()" ng-repeat="contentType in contentTypes" ng-show="contentType.count > 0">%>
         <%#<span class="badge">{{ contentType.count }}</span>%>
         <%#<p>{{ contentType.plural }}</p>%>
       <%#</li>%>
@@ -98,22 +97,21 @@
     <h2 class="smaller" ng-if="datasetsToBeDisplayed.length == 0">No data found</h2>
 
     <div id="button-row u-width-100" ng-if="hiddenDatasets.length > 0">
-      <%#<div class="button u-width-100" id="more_projects" ng-click="showMore()">%>
-        <%#View more resources%>
-      <%#</div>%>
       <button ng-click="showMore()" class="button u-align-center">View more resources</button>
     </div>
 
-    <div class="info-message">
-      <h1>Policies</h1>
-      <p>UN Environment World Conservation Monitoring Centre does not assert any intellectual property rights in the data made available to it by data providers.</p>
-      <p>access to UN Environment World Conservation Monitoring Centre datasets is provided on the understanding that you read and consent to be bound by the terms and conditions set out in our policies.</p>
-      <a href="/policies">View our policies <i class="fa fa-external-link"></i></a>
-    </div>
+    <div class="dataset__infoboxes--mobile">
+      <div class="info-message">
+        <h1>Policies</h1>
+        <p>UN Environment World Conservation Monitoring Centre does not assert any intellectual property rights in the data made available to it by data providers.</p>
+        <p>access to UN Environment World Conservation Monitoring Centre datasets is provided on the understanding that you read and consent to be bound by the terms and conditions set out in our policies.</p>
+        <a href="/policies">View our policies <i class="fa fa-external-link"></i></a>
+      </div>
 
-    <div class="info-message">
-      <h1>Biodiversity Heritage Library</h1>
-      <a href="http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles">Search WCMC's historical publications <i class="fa fa-external-link"></i></a>
+      <div class="info-message">
+        <h1>Biodiversity Heritage Library</h1>
+        <a href="http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles">Search WCMC's historical publications <i class="fa fa-external-link"></i></a>
+      </div>
     </div>
 
   </div>
