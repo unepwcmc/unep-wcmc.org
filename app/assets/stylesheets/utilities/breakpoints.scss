@@ -1,3 +1,7 @@
 $phone:   499px;
 $tablet:  768px;
 $desktop:  1080px;
+
+// When to break to one column on resources and datasets page
+// This is hardcoded so beginning to move it here but you may find it in legacy stylesheets
+$datasets-breakpoint: 1000px;

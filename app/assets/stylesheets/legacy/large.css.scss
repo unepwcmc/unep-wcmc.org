@@ -110,8 +110,8 @@ $white_link: rgba(255,255,255, 0.75);
     width: 28.5%;
     float: left;
     margin-right: 6.5%;
-    padding-top: 160px;
-    margin-top: -80px;
+    /*padding-top: 160px;*/
+    /*margin-top: -80px;*/
     &.right {
       float: right;
       margin: 0 0 0 6.5%;
@@ -127,13 +127,13 @@ $white_link: rgba(255,255,255, 0.75);
     }
   }
   .column-2-3 {
-    padding-top: 160px;
-    margin-top: -80px;
+    /*padding-top: 160px;*/
+    /*margin-top: -80px;*/
     width: 65%;
     float: right;
     &#data_policy {
-      padding-top: 160px;
-      margin-top: -80px;
+      /*padding-top: 160px;*/
+      /*margin-top: -80px;*/
     }
     &#news-item, &#job_description {
       margin-top: 0;

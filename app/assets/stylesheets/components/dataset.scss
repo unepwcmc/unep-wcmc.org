@@ -15,4 +15,23 @@
   }
 }
 
+.filter__category {
+  padding: 0.5em;
 
+  input {
+    float: left;
+    margin-right: 1em;
+  }
+}
+
+.dataset__infoboxes {
+  @media (max-width: $datasets-breakpoint){
+    display: none;
+  }
+}
+
+.dataset__infoboxes--mobile {
+  @media (min-width: $datasets-breakpoint){
+    display: none;
+  }
+}
