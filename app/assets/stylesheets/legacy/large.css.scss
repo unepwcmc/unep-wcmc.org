@@ -1,4 +1,4 @@
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1080px) {
 
   $blue: #4295d5;
   $light-blue: #A8CDEE;
@@ -263,17 +263,6 @@
   }
 
   div.data_policy-small {
-    display: none;
-  }
-
-  ul.subnav {
-    display: block;
-    li.header {
-      padding-left: 10px;
-    }
-  }
-
-  ul.subnav-small {
     display: none;
   }
 

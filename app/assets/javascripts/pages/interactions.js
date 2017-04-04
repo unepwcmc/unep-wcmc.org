@@ -24,16 +24,8 @@ $(document).ready(function(){
     $('div.status#warning').slideUp('normal');
   });
 
-  $('ul.subnav-small li.header#strengthen-button').click(function() {
-    $('ul.expertise-small#strengthen').slideToggle('normal');
-  });
-
-  $('ul.subnav-small li.header#specialise-button').click(function() {
-    $('ul.expertise-small#specialise').slideToggle('normal');
-  });
-
-  //event listener for the main menu on mobile
-  $(".js-menu--trigger").click('click', function(e){
+  //burger menu
+  $(".js-menu--trigger").click(function(e){
     e.preventDefault();
     var $button = $(this),
         menuClass = 'js-menu--hide',
@@ -48,4 +40,27 @@ $(document).ready(function(){
 
     $menu.toggleClass(menuClass);
   });
+
+  //accordion
+  if($('.js-accordion').length > 0){
+
+    //open and close accordion targets when the trigger is clicked
+    $('.js-acc-trigger').on('click', function(){
+
+      //only run if screen is on phone breakpoint
+      if(breakpoint.currentSize == 'phone'){
+        var accordionItem = $(this).parent('.js-acc-item');
+
+        if(accordionItem){
+          var accordionTarget = accordionItem.find('.js-acc-target');
+          
+          if(accordionTarget){
+            accordionTarget.toggleClass('accordion__content--hidden');
+          }
+        }
+      }
+
+      return false;
+    });
+  }
 });
