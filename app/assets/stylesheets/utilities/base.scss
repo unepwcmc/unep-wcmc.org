@@ -1,9 +1,11 @@
 // default styling for html elements
-ul {
+ul,
+ol {
   margin-left: rem-calc(34);
   margin-bottom: rem-calc(10);
 
   li {
+    line-height: 1.5;
     margin: 0;
     padding: rem-calc(8 0);
   }
