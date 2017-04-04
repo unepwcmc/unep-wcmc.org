@@ -49,5 +49,25 @@
   margin: 1em 0;
   color: $dark-blue;
   font-weight: 700;
-  border-bottom: 5px solid $light-blue;
+  padding-top: rem-calc(5);
+
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+
+  &:hover {
+    background-color: $light-blue;
+    text-decoration: none;
+  }
+
+  &:after {
+    background-color: $light-blue;
+    content: '';
+    width: 100%; height: rem-calc(5);
+
+    display: block;
+    position: absolute;
+    bottom: rem-calc(-3);
+    z-index: -1;
+  }
 }

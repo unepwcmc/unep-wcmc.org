@@ -27,7 +27,18 @@ $(document).ready(function(){
   //burger menu
   $(".js-menu--trigger").click(function(e){
     e.preventDefault();
-    $(".js-menu--target").toggleClass("js-menu--visible")
+    var $button = $(this),
+        menuClass = 'js-menu--hide',
+        $menu = $('.js-menu--target');
+    var isOpen = $menu.hasClass(menuClass) ? true : false;
+
+    if(isOpen){
+      $button.text('Close');
+    } else {
+      $button.text('Menu');
+    }
+
+    $menu.toggleClass(menuClass);
   });
 
   //accordion

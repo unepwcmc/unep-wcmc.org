@@ -33,14 +33,6 @@ body {
 }
 
 .container {
-  margin: 50px auto;
-  width: 90%;
-
-  @media(min-width: $tablet){
-    margin-top: 0;
-    margin-bottom: 2rem;
-  }
-
   &.column-1 {
     width: 90%;
     padding: 5%;

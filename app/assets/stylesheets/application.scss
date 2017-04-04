@@ -15,11 +15,14 @@
 
  //import all stylesheets here so that mixins and variables can be used across scss files.
 
-@import 'utilities/rem-calc';
-@import 'settings';
-
 //fonts
 @import 'fonts/webfonts';
+
+//functions
+@import 'utilities/rem-calc';
+
+//settings
+@import 'settings';
 
 //utilities
 @import 'utilities/colors';

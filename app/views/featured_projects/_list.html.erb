@@ -1,0 +1,8 @@
+<div class="flex--2-cols">
+  <% @cms_page.children.published.where(is_top_project: true).includes(blocks: [:files]).each do |page| %>
+    <%= render partial: "featured_projects/project", locals: {page: page} %>
+  <% end %>
+  <% @cms_page.children.published.where(is_top_project: false).includes(blocks: [:files]).each do |page| %>
+    <%= render partial: "featured_projects/project", locals: {page: page} %>
+  <% end %>
+</div>

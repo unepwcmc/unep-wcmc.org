@@ -6,7 +6,6 @@
   color: $dark-grey;
 }
 
-
 .header-social-bar__container {
   @include flexbox;
   @include justify-content(center);
@@ -26,76 +25,59 @@
   }
 }
 
-.header-menu {
+.header {
   background-color: $white;
-  padding: 1em 0;
-}
 
-.header-menu__container {
-  margin: 0 auto;
-  @include flexbox;
-  @include justify-content(space-between);
-  @include align-items(center);
+  &__menu-bar {
+    @include flexbox;
+    @include flex-direction(column);
+    @include justify-content(space-between);
+    background-color: $white;
+    margin: 0 auto;
 
-  width: 100%;
+    @media(min-width: $tablet){
+      @include flex-direction(row);
+      width: 90%;
+    }
 
-  @media (min-width: $phone){
-    @include flex-direction(row);
-    width: 90%;
-  }
-
-  @media (min-width: $desktop){
-    width: $site-width;
-  }
-}
-
-.header-menu__right {
-  flex: 1 1 auto;
-
-  .menu {
-    @include justify-content(flex-end);
-    .menu__item {
-      &:last-child {
-        padding-right: 0;
-      }
+    @media(min-width: $desktop){
+      width: $site-width;
     }
   }
-}
 
-.header-menu__left {
-  flex: 1 1 auto;
-}
+  &__logo {
+    border-bottom: solid rem-calc(2) $light-grey;
+    padding: rem-calc(16 0);
+    text-align: center;
 
-.header__logo {
-  text-align: center;
-  
-  @media (min-width: $tablet){
-    text-align: left;
+    @media (min-width: $tablet){
+      border-bottom: none;
+      text-align: left;
+    }
   }
-
-  img {
+  
+  &__logo-img {
     width: rem-calc(200); height: rem-calc(65); //height needed for ie
   }
-}
 
-.header-menu--mobile {
-  border-top: 2px solid $light-grey;
-  @include flexbox;
-  @include flex-direction(column);
+  &__nav-button {
+    @include align-self(center);
+    margin: rem-calc(16 0);
 
-  ul.menu {
-    @include justify-content(normal);
-    @include align-items(normal);
-    li.menu__item {
-      padding: 1em;
+    @media (min-width: $tablet){
+      display: none;
     }
   }
 
-  @media (min-width: $tablet + 1px){
-    display: none;
-  }
-}
+  &__menus {
+    @include flexbox;
+    @include flex-direction(column);
+    border-top: solid rem-calc(2) $light-grey;
 
-.header-menu__button {
-  margin: 0 auto;
+    @media(min-width: $tablet){
+      @include flex-direction(column-reverse);
+      @include justify-content(center);
+      border: 0;
+    }
+  }
 }
