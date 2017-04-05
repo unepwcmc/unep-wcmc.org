@@ -14,10 +14,10 @@
   }
 
   &__left, &__right {
-    padding-bottom: 0em;
+    padding-bottom: 1em;
 
-    @media (max-width: $tablet){
-      padding-bottom: 1em;
+    @media (min-width: $tablet){
+      padding-bottom: 0em;
     }
   }
 }
