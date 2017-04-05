@@ -4,9 +4,88 @@
   padding: 2em 0;
 }
 
+.row--flexbox {
+  @include flexbox;
+}
+
 .container-flex {
   @extend %flexbox;
   width: 70%;
   max-width: 980px;
   margin: auto;
+}
+
+.container {
+  margin: rem-calc(14) auto;
+
+  width: 90%;
+
+  @media(min-width: $tablet){
+    margin-top: 0;
+    margin-bottom: rem-calc(32);
+  }
+
+  @media(min-width: $desktop){
+    width: $site-width;
+  }
+}
+
+//--------------------------------------------------------------------------------
+// flexbox grid
+//--------------------------------------------------------------------------------
+%flex--cols {
+  @include flexbox;
+  @include flex-flow(row wrap);
+  @include justify-content(space-between);
+}
+
+%flex__child {
+  flex: 0 0 auto;
+  margin-bottom: rem-calc(20);
+  width: 100%;
+}
+
+//--------------------------------------------------------------------------------
+// flexbox 2 columns
+// - mobile 1
+// - tablet 2
+// - desktop 2
+//--------------------------------------------------------------------------------
+.flex--2-cols {
+  @extend %flex--cols;
+
+  &__child {
+    @extend %flex__child;
+
+    @media (min-width: $tablet){
+      width: 47.5%;
+    }
+
+    @media (min-width: $desktop){
+      margin-bottom: rem-calc(30);
+    }
+  }
+}
+
+//--------------------------------------------------------------------------------
+// flexbox 3 columns
+// - mobile 1
+// - tablet 2
+// - desktop 3
+//--------------------------------------------------------------------------------
+.flex--3-cols {
+  @extend %flex--cols;
+
+  &__child {
+    @extend %flex__child;
+
+    @media (min-width: $tablet){
+      width: 47.5%;
+    }
+
+    @media (min-width: $desktop){
+      margin-bottom: rem-calc(30);
+      width: 31%;
+    }
+  }
 }

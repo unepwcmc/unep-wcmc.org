@@ -24,16 +24,43 @@ $(document).ready(function(){
     $('div.status#warning').slideUp('normal');
   });
 
-  $('ul.subnav-small li.header#strengthen-button i').click(function() {
-    $('ul.expertise-small#strengthen').slideToggle('normal');
-  });
-
-  $('ul.subnav-small li.header#specialise-button i').click(function() {
-    $('ul.expertise-small#specialise').slideToggle('normal');
-  });
-
+  //burger menu
   $(".js-menu--trigger").click(function(e){
     e.preventDefault();
-    $(".js-menu--target").toggleClass("js-menu--visible")
+    var $button = $(this),
+        menuClass = 'js-menu--hide',
+        $menu = $('.js-menu--target');
+    var isOpen = $menu.hasClass(menuClass) ? true : false;
+
+    if(isOpen){
+      $button.text('Close');
+    } else {
+      $button.text('Menu');
+    }
+
+    $menu.toggleClass(menuClass);
   });
+
+  //accordion
+  if($('.js-accordion').length > 0){
+
+    //open and close accordion targets when the trigger is clicked
+    $('.js-acc-trigger').on('click', function(){
+
+      //only run if screen is on phone breakpoint
+      if(breakpoint.currentSize == 'phone'){
+        var accordionItem = $(this).parent('.js-acc-item');
+
+        if(accordionItem){
+          var accordionTarget = accordionItem.find('.js-acc-target');
+          
+          if(accordionTarget){
+            accordionTarget.toggleClass('accordion__content--hidden');
+          }
+        }
+      }
+
+      return false;
+    });
+  }
 });

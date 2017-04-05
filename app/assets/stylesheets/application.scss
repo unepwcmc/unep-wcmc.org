@@ -1,22 +1,24 @@
-//import all stylesheets here so that mixins and variables can be used across scss files.
-@import 'settings';
-
 //fonts
 @import 'fonts/webfonts';
 @import 'font-awesome';
+
+//functions
+@import 'utilities/rem-calc';
+
+//settings
+@import 'settings';
 
 //utilities
 @import 'utilities/colors';
 @import 'utilities/breakpoints';
 
-@import 'legacy/base'; //this legacy file needs inserting here because it has been edited during the redesign, so it uses some variables above but is overwritten by someof the utility files below
+@import 'legacy/base'; //this legacy file needs inserting here because it has been edited during the redesign, so it uses some variables above but is overwritten by some of the utility files below
 
 //utilities continued
 @import 'utilities/base';
 @import 'utilities/flexbox';
 @import 'utilities/helpers';
 @import 'utilities/layout';
-@import 'utilities/rem-calc';
 @import 'utilities/typography';
 
 // Libraries
@@ -24,6 +26,11 @@
 
 //legacy
 @import 'legacy/featured_projects';
+<<<<<<< HEAD
+=======
+@import 'legacy/large';
+@import 'legacy/medium';
+>>>>>>> master
 
 //components
 @import 'components/*';

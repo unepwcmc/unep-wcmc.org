@@ -33,14 +33,6 @@ body {
 }
 
 .container {
-  margin: 50px auto;
-  width: 90%;
-
-  @media(min-width: $tablet){
-    margin-top: 0;
-    margin-bottom: 2rem;
-  }
-
   &.column-1 {
     width: 90%;
     padding: 5%;
@@ -257,7 +249,7 @@ ul {
 
 ol {
   list-style-type: decimal;
-  padding: 1em 0 1em 1.25em;
+  
   li {
     font-size: 1em;
     margin-bottom: 0.75em;
@@ -576,87 +568,6 @@ section.list {
   &#expertise, &#intro {
     border: none;
   }
-}
-
-
-ul.subnav, ul.subnav-small {
-  list-style-type: none;
-  font-weight: 300;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-    li{
-    line-height: 1em;
-    margin: 0;
-    padding: 10px;
-    border-bottom: 1px solid $blue;
-    a {
-      text-decoration: none;
-      line-height: 1.25em;
-    }
-    &:hover, &:active, &.active {
-      background: $blue;
-      a {
-        color: #fff;
-      }
-      -webkit-transition: all 0.5s ease;
-      -moz-transition: all 0.5s ease;
-      -ms-transition: all 0.5s ease;
-      -o-transition: all 0.5s ease;
-      transition: all 0.5s ease;
-    }
-    &.header {
-      color: $grey_text;
-      border-bottom: 1px solid #4c9cda;
-      padding-left: 0;
-      font-weight: $body-font-bold;
-      i {
-        color: $blue;
-      }
-      &:hover {
-        background-color: none;
-        color: $blue;
-        -webkit-transition: all 0.5s ease;
-        -moz-transition: all 0.5s ease;
-        -ms-transition: all 0.5s ease;
-        -o-transition: all 0.5s ease;
-        transition: all 0.5s ease;
-        background: none;
-      }
-    }
-  }
-  ul.expertise-small, ul.expertise {
-    text-transform: none;
-    padding-left: 0;
-    font-size: 0.85em;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    li {
-      line-height: 1.25em;
-    }
-    &:first-of-type {
-      margin-bottom: 15px;
-    }
-    &#specialise li:last-of-type {
-      margin-bottom: 0;
-    }
-  }
-  ul.expertise-small {
-    display: none;
-  }
-}
-
-ul.subnav li.header:hover {
-  color: $grey_text;
-}
-
-ul.subnav {
-  display: none;
-}
-
-ul.subnav.areas {
-  display: block;
 }
 
 // ul.partners_logos {

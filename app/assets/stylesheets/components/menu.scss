@@ -1,27 +1,95 @@
-$menu_breakpoint: $tablet;
-
+//--------------------------------------------------------------------------------
+// menu
+//--------------------------------------------------------------------------------
+// - default
+// - custom
+//   - primary
+//   - footer
+//   - bold
+//   - skinny
+// - js hooks
+//--------------------------------------------------------------------------------
+// default menu styles
+//--------------------------------------------------------------------------------
 .menu {
-  @extend %flexbox;
-  @include justify-content(center);
-  @include align-items(center);
+  @include flexbox;
+  @include justify-content(normal);
+  @include align-items(normal);
+  @include flex-direction(column);
+  margin: rem-calc(0 30);
+  padding: rem-calc(10 0);
 
-  margin: 0;
+  @media (min-width: $tablet){
+    @include justify-content(flex-end);
+    @include flex-direction(row);
+    margin: 0;
+    padding: 0;
+  }
 
-  @media (max-width: $menu_breakpoint){
-    @include flex-direction(column);
-    width: 100%;
+  &__item {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item-link {
+    color: $black;
+    padding: rem-calc(14 0);
+
+    display: block;
+
+    @media(min-width: $tablet){
+      padding: rem-calc(8 14)
+    }
+
+    &:hover {
+      @media(min-width: $tablet){
+        background: $light-grey;
+        text-decoration: none;
+      }
+    }
   }
 }
 
-.menu__item {
+//--------------------------------------------------------------------------------
+// custom menu styles
+//--------------------------------------------------------------------------------
+.menu--primary {
+  border-bottom: solid rem-calc(2) $light-grey;
+
+  @media(min-width: $tablet){
+    border-bottom: none;
+  }
+}
+
+.menu--bold {
+  .menu__item-link {
+    font-weight: $body-font-bold;
+  }
+}
+
+.menu--footer {
+  @include align-items(center);
+  margin: 0;
+}
+
+.menu__item-footer {
   list-style: none;
-  padding: 1em;
+  text-align: center;
+
+  @media(min-width: $tablet){
+    padding: rem-calc(16);
+  }
 
   &:first-child {
-    padding-left: 0;
+    @media (min-width: $tablet){
+      padding-left: 0;
+    }
   }
+  
   &:last-child {
-    padding-right: 0;
+    @media (min-width: $tablet){
+      padding-right: 0;
+    }
   }
 
   a {
@@ -31,80 +99,22 @@ $menu_breakpoint: $tablet;
     .footer-menu & {
       font-size: 18px;
     }
-
-    &:hover {
-      background: $light-grey;
-      text-decoration: none;
-    }
   }
 }
 
-.menu__toggle, .menu__logo {
-  display: none;
-  @media (max-width: $menu_breakpoint){
-    @include flexbox;
-  }
-}
-
-.menu__logo {
-  @media (max-width: $menu_breakpoint){
-    @include align-self(flex-start);
-  }
-
-  img {
-    width: 100px;
-  }
-}
-
-.menu__top-bar {
-  display: none;
-
-  @media (max-width: $menu_breakpoint){
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-    @include justify-content(space-between);
-  }
-}
-
-.menu--collapsable {
-  @media (max-width: $menu_breakpoint){
-    li.menu__item {
-      display: none;
-    }
-    li.menu__item.menu-responsive-show {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
-    }
-  }
-}
-
-ul.menu--skinny {
-  li.menu__item {
+.menu--skinny {
+  .menu__item {
     padding: rem-calc(8 4);
   }
 }
 
-.menu--bold {
-  .menu__item a {
-    font-weight: $body-font-bold;
-  }
-}
-
-.js-menu--target {
-  // Initial state
+//--------------------------------------------------------------------------------
+// js hooks
+//--------------------------------------------------------------------------------
+.js-menu--hide {
   display: none;
-}
-.js-menu--visible {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
+
+  @media(min-width: $tablet){
+    display: flex;
+  }
 }

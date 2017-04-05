@@ -1,9 +1,0 @@
-%section.group
-  - if page_file(:thumbnail, page)
-    %a{:href => @cms_site.path + page.full_path}
-      %img{:src => page_file(:thumbnail, page).file.url}
-  %h2.smaller
-    %a.heading{:href => @cms_site.path + page.full_path}
-      = block_content(:project_name, page)
-  %p
-    = raw block_content(:short_description, page)

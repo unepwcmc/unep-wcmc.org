@@ -39,6 +39,9 @@
     %link{ :href => 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700', :rel => 'stylesheet', :type => 'text/css' }
     %link{ :href => 'https://fonts.googleapis.com/css?family=Lato:300,400,700', :rel => 'stylesheet', :type => 'text/css' }
     %link{ :href => 'https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', :rel => "stylesheet" }
+
+    = render 'layouts/favicon'
+
     %script
       var my_url = "#{request.protocol}#{request.host}:#{request.port}";
       var speciesplus_dashboard_url = "#{Rails.application.secrets.speciesplus_dashboard_url}";
@@ -48,17 +51,6 @@
     %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"}
     = javascript_include_tag "pages/application.js"
     = stylesheet_link_tag "application", media: "all"
-    :erb
-      <!--[if !(IE 8)]><!-->
-        <%= stylesheet_link_tag "legacy/medium", :media => "only screen and (min-width: 600px)" %>
-        <%= stylesheet_link_tag "legacy/large", :media => "screen and (min-width: 1000px)" %>
-      <!--<![endif]-->
-    /[if lt IE 9]
-      = stylesheet_link_tag "legacy/medium", media: "all"
-      = stylesheet_link_tag "legacy/large", media: "all"
-      = stylesheet_link_tag "legacy/ie8", media: "all"
-    /[if IE]
-      = stylesheet_link_tag "legacy/ie", media: "all"
     = javascript_include_tag "modernizr.js"
     = csrf_meta_tags
 

@@ -1,0 +1,30 @@
+<% first_page = @cms_site.pages.root.children.first %>
+<% second_page = @cms_site.pages.root.children.offset(1).first %>
+
+<div class="column-1-3 wide flex--2-cols subnav-wrapper accordion js-accordion">
+
+  <div class="accordion__item flex--2-cols__child js-acc-item">
+    <div class="accordion__header js-acc-trigger">
+      <%= cms_block_content(:title, first_page) %>
+      <i class="subnav__icon icon-chevron-down"></i>
+    </div>
+    <ul class="subnav accordion__content accordion__content--hidden js-acc-target">
+      
+      <% first_page.children.each do |subpage| %>
+        <%= render partial: "expertise/nav_link", locals: {page: subpage} %>
+      <% end %>
+    </ul>
+  </div>
+  
+  <div class="accordion__item flex--2-cols__child js-acc-item">
+    <div class="accordion__header js-acc-trigger">
+      <%= cms_block_content(:title, second_page) %>
+      <i class="subnav__icon icon-chevron-down"></i>
+    </div>
+    <ul class="subnav accordion__content accordion__content--hidden js-acc-target">
+      <% second_page.children.each do |subpage| %>
+        <%= render partial: "expertise/nav_link", locals: {page: subpage} %>
+      <% end %>
+    </ul>
+  </div>
+</div>
