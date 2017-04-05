@@ -1,5 +1,5 @@
 .title-bar {
-	@include flexbox;
+  @include flexbox;
   @include flex-direction(column);
   padding-bottom: 1em;
   border-bottom: solid 3px $light-grey;
