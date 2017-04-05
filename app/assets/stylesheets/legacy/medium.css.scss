@@ -83,8 +83,8 @@ $white_link: rgba(255,255,255, 0.75);
     }
   }
   .column-1-3 {
-    /*padding-top: 100px;*/
-    /*margin-top: -50px;*/
+    padding-top: 100px;
+    margin-top: -50px;
     img.employee_pic {
       width: 50%;
     }
@@ -96,16 +96,13 @@ $white_link: rgba(255,255,255, 0.75);
         font-size: 1em;
       }
     }
-    &#data-small {
-     /*margin-bottom: 60px;*/
-    }
     &#news, &#job_related {
       padding-top: 0;
     }
   }
   .column-2-3 {
-    /*padding-top: 100px;*/
-    /*margin-top: -50px;*/
+    padding-top: 100px;
+    margin-top: -50px;
     &#data_policy {
       margin: 0;
       padding: 0;
@@ -124,7 +121,6 @@ h1, h2, h3 {
 h1{
 	font-size: 2.25em;
 	line-height: 1.2em;
-	/*margin: 0 0 30px 0;*/
 	color: $grey_text;
 }
 

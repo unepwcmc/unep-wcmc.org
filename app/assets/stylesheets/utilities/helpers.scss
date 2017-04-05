@@ -30,3 +30,9 @@
   @include align-items(flex-end);
 }
 
+// Hacky fix for resources and datasets columns, remove this when replacing the grid
+.u-column-no-top {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
