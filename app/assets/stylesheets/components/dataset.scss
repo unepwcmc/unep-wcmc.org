@@ -5,14 +5,14 @@
 }
 
 .filter__sort__select {
-  @media (max-width: $datasets-breakpoint){
+  @media (max-width: $desktop){
     width: 100%;
   }
   select {
     padding: 0 1em;
     border: 1px solid $medium-grey;
     color: $dark-grey;
-    @media (max-width: $datasets-breakpoint){
+    @media (max-width: $desktop){
       width: 100%;
     }
 
@@ -32,13 +32,13 @@
 }
 
 .dataset__infoboxes {
-  @media (max-width: $datasets-breakpoint){
+  @media (max-width: $desktop){
     display: none;
   }
 }
 
 .dataset__infoboxes--mobile {
-  @media (min-width: $datasets-breakpoint){
+  @media (min-width: $desktop){
     display: none;
   }
 }
