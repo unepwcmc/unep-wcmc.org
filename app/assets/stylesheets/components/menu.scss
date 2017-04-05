@@ -61,19 +61,24 @@
   }
 }
 
-.menu--footer {
-  @include align-items(center);
-}
-
 .menu--bold {
   .menu__item-link {
     font-weight: $body-font-bold;
   }
 }
 
+.menu--footer {
+  @include align-items(center);
+  margin: 0;
+}
+
 .menu__item-footer {
   list-style: none;
-  padding: 1em;
+  text-align: center;
+
+  @media(min-width: $tablet){
+    padding: rem-calc(16);
+  }
 
   &:first-child {
     @media (min-width: $tablet){
