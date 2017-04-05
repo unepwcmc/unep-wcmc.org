@@ -58,8 +58,11 @@
   z-index: 1;
 
   &:hover {
-    background-color: $light-blue;
     text-decoration: none;
+
+    &:after {
+      height: 100%;
+    }
   }
 
   &:after {
@@ -71,5 +74,10 @@
     position: absolute;
     bottom: rem-calc(-3);
     z-index: -1;
+
+    -webkit-transition: height .1s linear;
+    -moz-transition: height .1s linear;
+    -o-transition: height .1s linear;
+    transition: height .1s linear;
   }
 }
