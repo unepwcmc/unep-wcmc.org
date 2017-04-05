@@ -1,19 +1,16 @@
 .search {
-  @media (min-width: $tablet){
-  }
-
   @include flexbox;
   @include justify-content(space-between);
   @include align-items(stretch);
 
   &__input {
-    padding: rem-calc(10px);
-    line-height: 1.5em;
+    padding: rem-calc(10);
+    line-height: 1.5;
     width: 100%;
   }
 
   &__icon {
-    margin-left: rem-calc(10px);
+    margin-left: rem-calc(10);
     background: $dark-blue;
     color: $dark-blue;
 

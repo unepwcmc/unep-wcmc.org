@@ -1,14 +1,11 @@
 .search {
-  @media (min-width: $tablet){
-  }
-
   @include flexbox;
   @include justify-content(space-between);
   @include align-items(stretch);
 
   &__input {
     padding: rem-calc(10px);
-    line-height: 1.5em;
+    line-height: 1.5;
     width: 100%;
     border: 1px solid $medium-grey;
   }
@@ -17,6 +14,6 @@
     margin-left: rem-calc(10px);
     background: $dark-blue;
     line-height: 1.5em;
-    padding: rem-calc(10px 14px);
+    padding: rem-calc(10 14);
   }
 }
