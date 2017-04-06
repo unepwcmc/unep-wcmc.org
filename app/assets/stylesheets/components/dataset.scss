@@ -1,7 +1,22 @@
+.filter {
+  &__header {
+    //!import used here because ids have been used in the legacy sheets and this is the only way to override!
+    font-size: rem-calc(20) !important;
+  }
+
+  &__button {
+    margin-top: rem-calc(20);
+  }
+}
+
 .filter__sort {
   @include flexbox;
   @include justify-content(flex-end);
   padding: 1em 0em;
+
+  @media(min-width: $desktop){
+    padding-top: rem-calc(32);
+  }
 }
 
 .filter__sort__select {
@@ -9,11 +24,16 @@
     width: 100%;
   }
   select {
-    padding: 0 1em;
+    background-color: $white;
     border: 1px solid $medium-grey;
+    border-radius: 0;
     color: $dark-grey;
-    @media (max-width: $desktop){
-      width: 100%;
+    font-size: rem-calc(15);
+    padding-left: rem-calc(10);
+    width: 100%; height: rem-calc(36);
+
+    @media(min-width: $tablet){
+      width: rem-calc(160);
     }
 
     option {
@@ -23,11 +43,18 @@
 }
 
 .filter__category {
-  padding: 0.5em;
+  padding: rem-calc(12 0);;
 
   input {
+    font-size: rem-calc(16);
+    margin-right: rem-calc(12);
+
     float: left;
-    margin-right: 1em;
+  }
+
+  p {
+    font-size: rem-calc(15);
+    margin-bottom: 0;
   }
 }
 
