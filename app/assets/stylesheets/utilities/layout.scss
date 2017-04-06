@@ -47,16 +47,16 @@
 
 //--------------------------------------------------------------------------------
 // flexbox 2 columns
-// - mobile 1 
-// - tablet 2 
-// - desktop 2 
+// - mobile 1
+// - tablet 2
+// - desktop 2
 //--------------------------------------------------------------------------------
 .flex--2-cols {
   @extend %flex--cols;
 
   &__child {
     @extend %flex__child;
-    
+
     @media (min-width: $tablet){
       width: 47.5%;
     }
@@ -69,16 +69,16 @@
 
 //--------------------------------------------------------------------------------
 // flexbox 3 columns
-// - mobile 1 
-// - tablet 2 
-// - desktop 3 
+// - mobile 1
+// - tablet 2
+// - desktop 3
 //--------------------------------------------------------------------------------
 .flex--3-cols {
   @extend %flex--cols;
-  
+
   &__child {
     @extend %flex__child;
-    
+
     @media (min-width: $tablet){
       width: 47.5%;
     }

@@ -17,6 +17,19 @@
   &:last-child {
     margin-right: 0;
   }
+
+  .fa-stack {
+    width: 1.7em !important;
+    height: 1.7em !important;
+    line-height: 1.7em !important;
+  }
+  .fa-stack-2x {
+    font-size: 1.7em !important;
+  }
+
+  .fa-facebook { background-color: $facebook; }
+  .fa-twitter  { background-color: $twitter; }
+  .fa-linkedin { background-color: $linkedin; }
 }
 
 .social-link__text {
@@ -32,16 +45,3 @@
   }
 }
 
-
-.fa-stack {
-  width: 1.7em !important;
-  height: 1.7em !important;
-  line-height: 1.7em !important;
-}
-.fa-stack-2x {
-  font-size: 1.7em !important;
-}
-
-.fa-facebook { background-color: $facebook; }
-.fa-twitter  { background-color: $twitter; }
-.fa-linkedin { background-color: $linkedin; }

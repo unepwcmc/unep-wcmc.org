@@ -25,9 +25,9 @@
       width: 60%;
       padding: 5%;
     }
-  	&.dashboard{
-  	overflow: visible;
-  	}
+    &.dashboard{
+      overflow: visible;
+    }
     &#news-projects-home {
       width: 100%;
       padding: 0 15% 60px 15%;
@@ -61,21 +61,21 @@
       }
       &#twitter{
         padding: 1.5%;
-    		#top_twitter{
-    			width: 100%;
-    			padding: 2% 0 5% 0;
-    			div.button{
-    				width: 120px;
-    				margin-right: 1.75%;
-    			}
-    		}
-    		.tweet{
-    			padding: 3% 0;
-    			small{
-    				margin-bottom: 3%;
-    			}
-    		}
-    	}
+        #top_twitter{
+          width: 100%;
+          padding: 2% 0 5% 0;
+          div.button{
+            width: 120px;
+            margin-right: 1.75%;
+          }
+        }
+        .tweet{
+          padding: 3% 0;
+          small{
+            margin-bottom: 3%;
+          }
+        }
+      }
       &:last-child {
         margin-right: 0;
       }
@@ -144,13 +144,13 @@
   div.dashboard section.group {
     width: 47%;
     margin-right: 4.5%;
-  	 overflow: visible;
+    overflow: visible;
   }
 
   div#nav{
-  	width:70%;
-  	margin: auto;
-  	max-width: 980px;
+    width:70%;
+    margin: auto;
+    max-width: 980px;
     overflow: hidden;
     a#home_link {
       position: absolute;
@@ -158,34 +158,34 @@
       display: block;
       width: 26%;
       float: left;
-  			img {
-  			  width: 100%;
-  			  max-height: 100%;
-  				display: block;
-  				background: #4295d5;
-  			}
-       #wcmc-logo{
-          max-width: 100%;
-          width: 23%;
-          height: auto;
-        }
+      img {
+        width: 100%;
+        max-height: 100%;
+        display: block;
+        background: #4295d5;
+      }
+      #wcmc-logo{
+        max-width: 100%;
+        width: 23%;
+        height: auto;
+      }
     }
-  	ul#large-menu{
-  	  width: 65%;
-  		padding: 0 5px ;
-  		margin: 0;
-  	  overflow: hidden;
-  	  float: right;
-  		li{
-  		  padding: 0 0 0 2%;
-  			line-height: 37px;
-  		}
-  		&#button-menu {
+    ul#large-menu{
+      width: 65%;
+      padding: 0 5px ;
+      margin: 0;
+      overflow: hidden;
+      float: right;
+      li{
+        padding: 0 0 0 2%;
+        line-height: 37px;
+      }
+      &#button-menu {
         li {
           font-size: 0.85em;
         }
       }
-  	}
+    }
   }
 
   div.dashboard-container {
@@ -199,24 +199,24 @@
   div.heading{
     width: 70%;
     max-width: 980px;
-  	h1{
-  		font-size: 2.75em;
-  		line-height: 1.25em;
-  		display: inline-block;
-  		width: 80%;
-  	}
-  	h2 {
-  		font-size: 1.25em;
-  		line-height: 1.4em;
-  	}
-  	h1 h2 {
+    h1{
+      font-size: 2.75em;
+      line-height: 1.25em;
+      display: inline-block;
+      width: 80%;
+    }
+    h2 {
+      font-size: 1.25em;
+      line-height: 1.4em;
+    }
+    h1 h2 {
       display: inline-block;
     }
   }
 
   div#footer_container {
     width: 100%;
-  	padding: 30px 0;
+    padding: 30px 0;
   }
 
   #footer {
@@ -226,24 +226,24 @@
   }
 
   ul.footer{
-  	li{
-  		float: left;
-  	}
+    li{
+      float: left;
+    }
   }
 
   .slicknav_menu {
-  	display:none;
+    display:none;
   }
 
   @media screen and (max-width: 40em) {
-  	/* #menu is the original menu */
-  	.js #menu {
-  		display:none;
-  	}
+    /* #menu is the original menu */
+    .js #menu {
+      display:none;
+    }
 
-  	.js .slicknav_menu {
-  		display:block;
-  	}
+    .js .slicknav_menu {
+      display:block;
+    }
   }
 
   ul#large-menu {
@@ -267,7 +267,7 @@
   }
 
   select#sorting, div.search-field input {
-  	font-size: 0.85em;
+    font-size: 0.85em;
   }
 
   div.search-field i {
@@ -275,15 +275,15 @@
   }
 
   ul#content {
-  	li{
-  		font-size: 1em;
-  		&.header {
-  			font-size: 1.25em;
+    li{
+      font-size: 1em;
+      &.header {
+        font-size: 1.25em;
         span.badge {
           margin-top: 2px;
         }
-  		}
-  	}
+      }
+    }
   }
 
   div#welcome {

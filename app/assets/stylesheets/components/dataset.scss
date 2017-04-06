@@ -1,0 +1,44 @@
+.filter__sort {
+  @include flexbox;
+  @include justify-content(flex-end);
+  padding: 1em 0em;
+}
+
+.filter__sort__select {
+  @media (max-width: $desktop){
+    width: 100%;
+  }
+  select {
+    padding: 0 1em;
+    border: 1px solid $medium-grey;
+    color: $dark-grey;
+    @media (max-width: $desktop){
+      width: 100%;
+    }
+
+    option {
+      padding: 1em;
+    }
+  }
+}
+
+.filter__category {
+  padding: 0.5em;
+
+  input {
+    float: left;
+    margin-right: 1em;
+  }
+}
+
+.dataset__infoboxes {
+  @media (max-width: $desktop){
+    display: none;
+  }
+}
+
+.dataset__infoboxes--mobile {
+  @media (min-width: $desktop){
+    display: none;
+  }
+}

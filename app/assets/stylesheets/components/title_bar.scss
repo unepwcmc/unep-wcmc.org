@@ -1,0 +1,23 @@
+.title-bar {
+  @include flexbox;
+  @include flex-direction(column);
+  padding-bottom: 1em;
+  border-bottom: solid 3px $light-grey;
+  @include justify-content(space-between);
+
+  @media (min-width: $tablet){
+    @include flex-direction(row);
+  }
+
+  h1 {
+    color: $dark-blue;
+  }
+
+  &__left, &__right {
+    padding-bottom: 1em;
+
+    @media (min-width: $tablet){
+      padding-bottom: 0em;
+    }
+  }
+}

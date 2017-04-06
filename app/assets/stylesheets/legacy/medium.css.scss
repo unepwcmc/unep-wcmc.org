@@ -24,9 +24,9 @@
       width: 80%;
       padding: 5%;
     }
-  	&.dashboard{
-  	overflow: visible;
-  	}
+    &.dashboard{
+      overflow: visible;
+    }
     &#news-projects-home {
       width: 100%;
       padding: 0 5% 60px 5%;
@@ -62,24 +62,24 @@
       }
       &#twitter{
         padding: 25px;
-    		#top_twitter{
-    			width: 100%;
-    			padding: 2% 0 5% 0;
-    			div.button{
-    				width: 120px;
-    				margin-right: 1.75%;
-    			}
-    		}
-    		.tweet{
-    			padding: 3% 0;
-    			&:last-child {
-    			  padding-bottom: 0;
-    			}
-    			small{
-    				margin-bottom: 3%;
-    			}
-    		}
-    	}
+        #top_twitter{
+          width: 100%;
+          padding: 2% 0 5% 0;
+          div.button{
+            width: 120px;
+            margin-right: 1.75%;
+          }
+        }
+        .tweet{
+          padding: 3% 0;
+          &:last-child {
+            padding-bottom: 0;
+          }
+          small{
+            margin-bottom: 3%;
+          }
+        }
+      }
       &:last-child {
         margin-right: 0;
       }
@@ -99,16 +99,103 @@
         }
       }
       &#data-small {
-       margin-bottom: 60px;
+        margin-bottom: 60px;
       }
       &#news, &#job_related {
         padding-top: 0;
       }
     }
-    .column-2-3 {
-      padding-top: 100px;
-      margin-top: -50px;
-      &#data_policy {
+    &#news, &#job_related {
+      padding-top: 0;
+    }
+  }
+  .column-2-3 {
+    padding-top: 100px;
+    margin-top: -50px;
+    &#data_policy {
+      margin: 0;
+      padding: 0;
+    }
+    &#news-item, &#job_description {
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+}
+
+h1, h2, h3 {
+  font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
+}
+
+h1{
+  font-size: 2.25em;
+  line-height: 1.2em;
+  color: $grey_text;
+}
+
+h2{
+  font-weight: 700;
+  font-size: 1.65em;
+  line-height: 1.3em;
+
+  &.related-heading-big {
+    font-size: 1.5em;
+    text-align: center;
+    padding: 60px 0 50px 0;
+  }
+}
+
+h3#news{
+  margin-bottom: 60px;
+  padding-top: 60px;
+  font-size: 1em;
+  text-align: center;
+}
+
+#nav-container {
+  margin-top: 0;
+  width:100%;
+  border-top: 10px solid $blue;
+  background: #222;
+}
+
+
+div#nav{
+  overflow: hidden;
+  width: 90%;
+  margin: auto;
+  a#home_link {
+    position: absolute;
+    float: left;
+    width: 40%;
+    min-width: 280px;
+    padding: 10px 0;
+    background: none;
+    img {
+      width: 100%;
+      max-height: 100%;
+      padding: 10px 20px 15px 20px;
+      -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+    }
+    img#wcmc-logo{
+      width: 23%;
+    }
+  }
+  ul{
+    margin: auto;
+    overflow: hidden;
+    li{
+      padding: 3.25% 0 0 2%;
+      float: right;
+    }
+    &#button-menu {
+      display: none;
+      clear: both;
+      padding: 0 0 20px 0;
+      li {
+        padding: 0 0 3px 0;
         margin: 0;
         padding: 0;
       }
@@ -120,26 +207,26 @@
   }
 
   h1, h2, h3 {
-  	font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
+    font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
   }
 
   h1{
-  	font-size: 2.25em;
-  	line-height: 1.2em;
-  	/*margin: 0 0 30px 0;*/
-  	color: $grey_text;
+    font-size: 2.25em;
+    line-height: 1.2em;
+    /*margin: 0 0 30px 0;*/
+    color: $grey_text;
   }
 
   h2{
-  	font-weight: 700;
-  	font-size: 1.65em;
-  	line-height: 1.3em;
-  	
-  	&.related-heading-big {
+    font-weight: 700;
+    font-size: 1.65em;
+    line-height: 1.3em;
+
+    &.related-heading-big {
       font-size: 1.5em;
       text-align: center;
       padding: 60px 0 50px 0;
-  	}
+    }
   }
 
   h3#news{
@@ -151,9 +238,9 @@
 
   #nav-container {
     margin-top: 0;
-  	width:100%;
-  	border-top: 10px solid $blue;
-  	background: #222;
+    width:100%;
+    border-top: 10px solid $blue;
+    background: #222;
   }
 
 
@@ -161,33 +248,33 @@
     overflow: hidden;
     width: 90%;
     margin: auto;
-      a#home_link {
+    a#home_link {
       position: absolute;
-  		float: left;
-  		width: 40%;
+      float: left;
+      width: 40%;
       min-width: 280px;
-  		padding: 10px 0;
-  		background: none;
-  		img {
-  		  width: 100%;
-  		  max-height: 100%;
-  			padding: 10px 20px 15px 20px;
-  			-webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+      background: none;
+      img {
+        width: 100%;
+        max-height: 100%;
+        padding: 10px 20px 15px 20px;
+        -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
         -moz-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
         box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
-  		}
+      }
       img#wcmc-logo{
         width: 23%;
       }
-  	}
-  	ul{
-  		margin: auto;
-  	  overflow: hidden;
-  		li{
-  			padding: 3.25% 0 0 2%;
-  			float: right;
-  		}
-  		&#button-menu {
+    }
+    ul{
+      margin: auto;
+      overflow: hidden;
+      li{
+        padding: 3.25% 0 0 2%;
+        float: right;
+      }
+      &#button-menu {
         display: none;
         clear: both;
         padding: 0 0 20px 0;
@@ -201,7 +288,7 @@
           }
         }
       }
-  	}
+    }
   }
 
   a.back_nav.news-vacancy {
@@ -217,17 +304,17 @@
   }
 
   div.heading{
-  	h1{
-  		font-size: 2.25em;
-  		line-height: 1.25em;
-  		display: inline-block;
-  	}
-  	h2 {
-  	  display: inline-block;
-  		font-size: 1.25em;
-  		line-height: 1.4em;
+    h1{
+      font-size: 2.25em;
+      line-height: 1.25em;
+      display: inline-block;
+    }
+    h2 {
+      display: inline-block;
+      font-size: 1.25em;
+      line-height: 1.4em;
       width: 65%;
-  	}
+    }
     &.featured-project {
       width: 45%;
       margin-left: 5%;
@@ -288,28 +375,28 @@
 
   div#footer_container {
     overflow: hidden;
-  	background: image-url('map_world.png') no-repeat center;
-  	width:100%;
-  	position: absolute;
-  	background-size: 100%;
-  	a#unep {
+    background: image-url('map_world.png') no-repeat center;
+    width:100%;
+    position: absolute;
+    background-size: 100%;
+    a#unep {
       padding: 0;
       float: right;
       img {
-  		  width: 15%;
-  		  float: right;
-  		}
-  	}
+        width: 15%;
+        float: right;
+      }
+    }
   }
 
   ul.footer{
     overflow: hidden;
     float: left;
-  	li{
-  	  float: left;
-  	  padding-right: 15px;
-  	  padding-bottom: 0;
-  	}
+    li{
+      float: left;
+      padding-right: 15px;
+      padding-bottom: 0;
+    }
   }
 
   div.search-field input, div.search-field i {
@@ -362,22 +449,22 @@
 
     header.dashboard-title {
       h1 {
-      font-size: 2.4em;
-      color: #fff;
-      margin: 0 0 20px 0;
-      text-align: center;
+        font-size: 2.4em;
+        color: #fff;
+        margin: 0 0 20px 0;
+        text-align: center;
       }
       h2 {
-      font-size: 1.25em;
-      margin: 0 0 40px 0;
+        font-size: 1.25em;
+        margin: 0 0 40px 0;
       }
     }
 
 
     div.section-group.controls {
-  		position: relative;
-  		width: 99%;
-  		z-index: 1000;
+      position: relative;
+      width: 99%;
+      z-index: 1000;
       #view-button {
         width: 20%;
       }
@@ -388,7 +475,7 @@
       #search-field.full {
         width: 100%;
         -webkit-transition: width .65s ease;
-                transition: width .65s ease;
+        transition: width .65s ease;
       }
       #search-field {
         width: 75%;
@@ -514,69 +601,69 @@
     }
 
   }
-    .bar-percentage {
-      float: left;
-      color: $dark_grey;
-      padding: 0;
-    }
+  .bar-percentage {
+    float: left;
+    color: $dark_grey;
+    padding: 0;
+  }
 
-    .bar-container {
-      float: right;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      border-radius: 10px;
-      height: 12px;
-      background: rgba($blue, 0.4);
+  .bar-container {
+    float: right;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    height: 12px;
+    background: rgba($blue, 0.4);
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .bar {
+    background: $blue;
+    height: 100%;
+    -webkit-border-radius: 10px 0px 0px 10px;
+    -moz-border-radius: 10px 0px 0px 10px;
+    border-radius: 10px 0px 0px 10px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    opacity: 1;
+  }
+
+  .geo_entities {
+    .select2-container {
       width: 100%;
-      overflow: hidden;
     }
+    .select2-chosen {
+      padding: 10px 0;
+    }
+  }
 
-    .bar {
-      background: $blue;
-      height: 100%;
-      -webkit-border-radius: 10px 0px 0px 10px;
-      -moz-border-radius: 10px 0px 0px 10px;
-      border-radius: 10px 0px 0px 10px;
-      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-      filter: alpha(opacity=100);
-      -moz-opacity: 1;
-      -khtml-opacity: 1;
-      opacity: 1;
-    }
-
-    .geo_entities {
-      .select2-container {
-        width: 100%;
-      }
-      .select2-chosen {
-        padding: 10px 0;
-      }
-    }
-
-    table {
-      counter-reset:li; /* Initiate a counter */
-      margin-left:0; /* Remove the default left margin */
-      padding-left:0; /* Remove the default left padding */
-    }
+  table {
+    counter-reset:li; /* Initiate a counter */
+    margin-left:0; /* Remove the default left margin */
+    padding-left:0; /* Remove the default left padding */
+  }
 
 
-    tr.species-container {
-      padding: 20px;
-    }
+  tr.species-container {
+    padding: 20px;
+  }
 
-    tr.species-container td.counter {
-      -moz-box-sizing:border-box;
-      -webkit-box-sizing:border-box;
-      box-sizing:border-box;
-      border-radius: 4px;
-      padding: 5px 12px;
-      color:#fff;
-      background: $blue;
-      font-weight: 300;
-      font-size: 1.75em;
-      font-family: "Roboto", Helvetica, Arial, sans-serif;
-      text-align: center;
-    }
+  tr.species-container td.counter {
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    border-radius: 4px;
+    padding: 5px 12px;
+    color:#fff;
+    background: $blue;
+    font-weight: 300;
+    font-size: 1.75em;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    text-align: center;
+  }
 
 
   .dropdown-menu {
