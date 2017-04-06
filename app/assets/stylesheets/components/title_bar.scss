@@ -1,7 +1,7 @@
 .title-bar {
   @include flexbox;
   @include flex-direction(column);
-  padding-bottom: 1em;
+  padding-top: 2em;
   border-bottom: solid 3px $light-grey;
   @include justify-content(space-between);
 
