@@ -5,6 +5,12 @@
     font-size: rem-calc(20) !important;
   }
 
+  &__label {
+    cursor: pointer;
+    font-size: rem-calc(15);
+    line-height: 1.4;
+  }
+
   &__button {
     margin-top: rem-calc(20);
   }
@@ -62,11 +68,6 @@
     margin-right: rem-calc(12);
 
     float: left;
-  }
-
-  p {
-    font-size: rem-calc(15);
-    margin-bottom: 0;
   }
 }
 
