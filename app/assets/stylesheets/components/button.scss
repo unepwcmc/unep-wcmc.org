@@ -1,6 +1,7 @@
 .button {
   background-color: $dark-blue;
   color: $white;
+  cursor: pointer;
   margin-bottom: rem-calc(20);
   padding: rem-calc(14 34);
 
@@ -10,5 +11,21 @@
 
   &:hover {
     color: $white;
+  }
+
+  &--white {
+    background-color: $white;
+    border: solid rem-calc(2) $dark-blue;
+    color: $dark-blue;
+    font-style: italic;
+    font-weight: bold;
+    padding: rem-calc(7 16);
+    text-transform: uppercase;
+    width: auto;
+
+    &:hover {
+      background-color: $dark-blue;
+      border: solid rem-calc(2) $dark-blue;
+    }
   }
 }

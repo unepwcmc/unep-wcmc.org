@@ -1,4 +1,4 @@
-<div class="container" ng-app="DatasetsResources" ng-controller="DatasetsCtrl" ng-init="init(<%= render partial: 'datasets/list', formats: :json %>,  <%= render partial: 'datasets/dataset_url_fields', formats: :json %>, <%= render partial: 'datasets/dataset_file_fields', formats: :json %>)">
+<div class="container" ng-app="DatasetsResources" ng-controller="DatasetsCtrl" ng-init="init(<%= render partial: 'datasets/list', formats: :json, locals: {truncated: true} %>,  <%= render partial: 'datasets/dataset_url_fields', formats: :json %>, <%= render partial: 'datasets/dataset_file_fields', formats: :json %>)">
 
   <div class="title-bar">
     <div class="title-bar__left">
@@ -40,7 +40,7 @@
         <p>{{ contentType.plural }} ({{ contentType.count }})</p>
       </div>
     </ul>
-    <button ng-click="deselectAll()" class="button filter__button">Uncheck all</button>
+    <button ng-click="deselectAll()" class="button filter__button button--white">Uncheck all</button>
 
     <div class="dataset__infoboxes">
       <div class="info-message dataset__info-message">
@@ -56,8 +56,6 @@
       </div>
     </div>
   </div>
-
-
 
   <div class="column-2-3 u-column-no-top" id="data">
     <div class="filter__sort">
@@ -80,15 +78,6 @@
         <div class="dataset__text">
           <p ng-bind-html="dataset.content"></p>
         </div>
-
-        <small class="" ng-if="dataset.author">Author(s): {{ dataset.author }}</small>
-        <small class="" ng-if="dataset.isbn">ISBN: {{ dataset.isbn }}</small>
-
-        <div ng-if="dataset.first_link"><a class="a--blue" href="{{ dataset.first_link }}">{{dataset.first_link_label}}</a></div>
-        <div ng-if="dataset.second_link"> <a class="a--blue" href="{{ dataset.second_link }}">{{dataset.second_link_label}}</a></div>
-        <div ng-show="dataset.file_url"> <a class="a--blue" href="{{ dataset.file_url }}">Download</a> </div>
-        <div ng-repeat="field in urlFieldsForDataset( dataset.id ) "><a class="a--blue" href="{{ field.url }}">{{ field.label }}</a></div>
-        <div ng-repeat="file in fileFieldsForDataset( dataset.id ) "><a class="a--blue" href="{{ file.url }}">{{ file.label }}</a></div>
       </div>
     </section>
 
