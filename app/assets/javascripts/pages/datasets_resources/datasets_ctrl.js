@@ -82,10 +82,10 @@ function ($scope, $sce) {
       _.map($scope.activeDatasets, function(o) {return o.content_type})
     );
     updateActiveContentTypesFromNames(activeContentTypeNames);
-    $scope.sortDatesets();
+    $scope.sortDatasets();
   }
 
-  $scope.sortDatesets = function () {
+  $scope.sortDatasets = function () {
     if ($scope.dataset_from_url && $scope.activeDatasets.length > 1) {
       var from = _.findIndex($scope.activeDatasets, { 'slug': $scope.q });
       if (from !== 0) {
