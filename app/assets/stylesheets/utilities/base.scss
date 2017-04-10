@@ -1,4 +1,41 @@
 // default styling for html elements
+.a {
+  &--blue {
+    color: $dark-blue;
+    font-weight: 700;
+    margin: rem-calc(8 0);
+    padding-top: rem-calc(5);
+
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+
+    &:hover {
+      text-decoration: none;
+
+      &:after {
+        height: 100%;
+      }
+    }
+
+    &:after {
+      background-color: $light-blue;
+      content: '';
+      width: 100%; height: rem-calc(5);
+
+      display: block;
+      position: absolute;
+      bottom: rem-calc(-3);
+      z-index: -1;
+
+      -webkit-transition: height .1s linear;
+      -moz-transition: height .1s linear;
+      -o-transition: height .1s linear;
+      transition: height .1s linear; 
+    }
+  }
+}
+
 ul,
 ol {
   margin-left: rem-calc(34);

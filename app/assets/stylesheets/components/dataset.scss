@@ -1,11 +1,23 @@
 .filter {
   &__header {
     //!import used here because ids have been used in the legacy sheets and this is the only way to override!
+    font-family: $font-roboto !important;
     font-size: rem-calc(20) !important;
   }
 
   &__button {
     margin-top: rem-calc(20);
+  }
+
+  &__view-more {
+    margin: rem-calc(30 0);
+    text-align: center;
+
+    @media(min-width: $desktop){
+      text-align: left;
+    }
+
+    .button { display: inline-block; }
   }
 }
 
@@ -58,14 +70,31 @@
   }
 }
 
-.dataset__infoboxes {
-  @media (max-width: $desktop){
-    display: none;
-  }
-}
+.dataset {
+  &__infoboxes {
+    @media (max-width: $desktop){
+      display: none;
+    }
 
-.dataset__infoboxes--mobile {
-  @media (min-width: $desktop){
-    display: none;
+    h3 {
+      color: $body-font-color;
+      font-size: rem-calc(20);
+      margin-top: 0;
+    }
   }
+
+  &__infoboxes--mobile {
+    @media (min-width: $desktop){
+      display: none;
+    }
+  }
+
+    &__info-message {
+      padding: rem-calc(26 24);
+    }
+
+      &__title {
+        h2 {
+        font-size: rem-calc(20);
+      }
 }

@@ -43,15 +43,15 @@
     <button ng-click="deselectAll()" class="button filter__button">Uncheck all</button>
 
     <div class="dataset__infoboxes">
-      <div class="info-message">
-        <h1>Policies</h1>
+      <div class="info-message dataset__info-message">
+        <h3>Policies</h3>
         <p>UN Environment World Conservation Monitoring Centre does not assert any intellectual property rights in the data made available to it by data providers.</p>
         <p>access to UN Environment World Conservation Monitoring Centre datasets is provided on the understanding that you read and consent to be bound by the terms and conditions set out in our policies.</p>
         <a href="/policies">View our policies <i class="fa fa-external-link"></i></a>
       </div>
 
-      <div class="info-message">
-        <h1>Biodiversity Heritage Library</h1>
+      <div class="info-message dataset__info-message">
+        <h3>Biodiversity Heritage Library</h3>
         <a href="http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles">Search WCMC's historical publications <i class="fa fa-external-link"></i></a>
       </div>
     </div>
@@ -84,31 +84,29 @@
         <small class="" ng-if="dataset.author">Author(s): {{ dataset.author }}</small>
         <small class="" ng-if="dataset.isbn">ISBN: {{ dataset.isbn }}</small>
 
-        <div class="tags">
-          <div class="tags__tag" ng-if="dataset.first_link"><a href="{{ dataset.first_link }}">{{dataset.first_link_label}}</a></div>
-          <div class="tags__tag" ng-if="dataset.second_link"> <a href="{{ dataset.second_link }}">{{dataset.second_link_label}}</a></div>
-          <div class="tags__tag" ng-show="dataset.file_url"> <a href="{{ dataset.file_url }}">Download</a> </div>
-          <div class="tags__tag" ng-repeat="field in urlFieldsForDataset( dataset.id ) "><a href="{{ field.url }}">{{ field.label }}</a></div>
-          <div class="tags__tag" ng-repeat="file in fileFieldsForDataset( dataset.id ) "><a href="{{ file.url }}">{{ file.label }}</div>
-        </div>
+        <div ng-if="dataset.first_link"><a class="a--blue" href="{{ dataset.first_link }}">{{dataset.first_link_label}}</a></div>
+        <div ng-if="dataset.second_link"> <a class="a--blue" href="{{ dataset.second_link }}">{{dataset.second_link_label}}</a></div>
+        <div ng-show="dataset.file_url"> <a class="a--blue" href="{{ dataset.file_url }}">Download</a> </div>
+        <div ng-repeat="field in urlFieldsForDataset( dataset.id ) "><a class="a--blue" href="{{ field.url }}">{{ field.label }}</a></div>
+        <div ng-repeat="file in fileFieldsForDataset( dataset.id ) "><a class="a--blue" href="{{ file.url }}">{{ file.label }}</a></div>
       </div>
     </section>
 
     <h2 class="smaller" ng-if="datasetsToBeDisplayed.length == 0">No data found</h2>
 
-    <div id="button-row u-width-100" ng-if="hiddenDatasets.length > 0">
-      <button ng-click="showMore()" class="button u-align-center">View more resources</button>
+    <div id="button-row u-width-100" class="filter__view-more" ng-if="hiddenDatasets.length > 0">
+      <button ng-click="showMore()" class="button">View more resources</button>
     </div>
 
     <div class="dataset__infoboxes--mobile">
-      <div class="info-message">
+      <div class="info-message dataset__info-message">
         <h1>Policies</h1>
         <p>UN Environment World Conservation Monitoring Centre does not assert any intellectual property rights in the data made available to it by data providers.</p>
         <p>access to UN Environment World Conservation Monitoring Centre datasets is provided on the understanding that you read and consent to be bound by the terms and conditions set out in our policies.</p>
         <a href="/policies">View our policies <i class="fa fa-external-link"></i></a>
       </div>
 
-      <div class="info-message">
+      <div class="info-message dataset__info-message">
         <h1>Biodiversity Heritage Library</h1>
         <a href="http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles">Search WCMC's historical publications <i class="fa fa-external-link"></i></a>
       </div>
