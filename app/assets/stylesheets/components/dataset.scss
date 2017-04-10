@@ -69,3 +69,12 @@
     display: none;
   }
 }
+
+.dataset__title {
+  color: $dark-blue;
+  margin: rem-calc(12) 0;
+
+  h2 {
+    margin: 0;
+  }
+}
