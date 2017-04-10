@@ -94,7 +94,12 @@
     }
 
       &__title {
+        color: $dark-blue;
+        margin: rem-calc(12) 0;
+        
         h2 {
-        font-size: rem-calc(20);
+          font-size: rem-calc(20);
+          margin: 0;
+        }
       }
 }

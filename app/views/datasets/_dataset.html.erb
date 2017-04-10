@@ -1,0 +1,65 @@
+<div class="container" ng-app="DatasetsResources" ng-controller="DatasetsCtrl" ng-init="init(<%= render partial: 'datasets/list', formats: :json %>,  <%= render partial: 'datasets/dataset_url_fields', formats: :json %>, <%= render partial: 'datasets/dataset_file_fields', formats: :json %>)">
+
+  <div class="column-1-3 u-column-no-top">
+    <div class="dataset__infoboxes">
+      <div class="info-message">
+        <h1>Policies</h1>
+        <p>UN Environment World Conservation Monitoring Centre does not assert any intellectual property rights in the data made available to it by data providers.</p>
+        <p>access to UN Environment World Conservation Monitoring Centre datasets is provided on the understanding that you read and consent to be bound by the terms and conditions set out in our policies.</p>
+        <a href="/policies">View our policies <i class="fa fa-external-link"></i></a>
+      </div>
+
+      <div class="info-message">
+        <h1>Biodiversity Heritage Library</h1>
+        <a href="http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles">Search WCMC's historical publications <i class="fa fa-external-link"></i></a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="column-2-3 u-column-no-top" id="data">
+    <section class="list" ng-repeat="dataset in datasetsToBeDisplayed">
+      <div class="dataset">
+        <h1 class="dataset__title">{{ dataset.title }}</h1>
+
+        <div class="tags">
+          <div class="tags__tag" ng-if="dataset.content_type">{{ dataset.content_type }}</div>
+          <div class="tags__tag" ng-if="dataset.publication_date_year">{{ dataset.publication_date_year }}</div>
+        </div>
+
+        <div class="dataset__text">
+          <p ng-bind-html="dataset.content"></p>
+        </div>
+
+        <small class="" ng-if="dataset.author">Author(s): {{ dataset.author }}</small>
+        <small class="" ng-if="dataset.isbn">ISBN: {{ dataset.isbn }}</small>
+
+        <div class="tags">
+          <div class="tags__tag" ng-if="dataset.first_link"><a href="{{ dataset.first_link }}">{{dataset.first_link_label}}</a></div>
+          <div class="tags__tag" ng-if="dataset.second_link"> <a href="{{ dataset.second_link }}">{{dataset.second_link_label}}</a></div>
+          <div class="tags__tag" ng-show="dataset.file_url"> <a href="{{ dataset.file_url }}">Download</a> </div>
+          <div class="tags__tag" ng-repeat="field in urlFieldsForDataset( dataset.id ) "><a href="{{ field.url }}">{{ field.label }}</a></div>
+          <div class="tags__tag" ng-repeat="file in fileFieldsForDataset( dataset.id ) "><a href="{{ file.url }}">{{ file.label }}</div>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="smaller" ng-if="datasetsToBeDisplayed.length == 0">No data found</h2>
+
+    <div id="button-row u-width-100" ng-if="hiddenDatasets.length > 0">
+      <button ng-click="showMore()" class="button u-align-center">View more resources</button>
+    </div>
+
+    <div class="dataset__infoboxes--mobile">
+      <div class="info-message">
+        <h1>Policies</h1>
+        <p>UN Environment World Conservation Monitoring Centre does not assert any intellectual property rights in the data made available to it by data providers.</p>
+        <p>access to UN Environment World Conservation Monitoring Centre datasets is provided on the understanding that you read and consent to be bound by the terms and conditions set out in our policies.</p>
+        <a href="/policies">View our policies <i class="fa fa-external-link"></i></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
