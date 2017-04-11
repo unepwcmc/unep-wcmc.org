@@ -5,10 +5,38 @@
     font-size: rem-calc(20) !important;
   }
 
-  &__label {
+  &__category {
     cursor: pointer;
     font-size: rem-calc(15);
-    line-height: 1.4;
+    line-height: 1.2;
+    margin: 0;
+    padding: rem-calc(12 0 12 30);
+
+    position: relative;
+
+    &:before {
+      border: solid rem-calc(1) $grey;
+      content: "";
+      width: rem-calc(18); height: rem-calc(18);
+
+      display: block;
+      position: absolute;
+      left: 0;
+    }
+
+    &.active:before {
+      content: "\f00c";
+      color: $dark-blue;
+      font-family: fontAwesome;
+      padding-left: rem-calc(1);
+    }
+
+    input {
+      font-size: rem-calc(16);
+      margin-right: rem-calc(12);
+
+      float: left;
+    }
   }
 
   &__button {
@@ -57,17 +85,6 @@
     option {
       padding: 1em;
     }
-  }
-}
-
-.filter__category {
-  padding: rem-calc(12 0);;
-
-  input {
-    font-size: rem-calc(16);
-    margin-right: rem-calc(12);
-
-    float: left;
   }
 }
 

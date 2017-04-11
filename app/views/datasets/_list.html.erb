@@ -35,10 +35,9 @@
         Type of content
       </li>
 
-      <div class="filter__category" ng-class="{active: contentType.selected && contentType.count > 0}"  ng-repeat="contentType in contentTypes" ng-show="contentType.count > 0">
-        <input id="content-type-{{contentType.count}}" type="checkbox" ng-checked="contentType.selected && contentType.count > 0" ng-click="toggleContentType()">
-        <label for="content-type-{{contentType.count}}" class="filter__label">{{ contentType.plural }} ({{ contentType.count }})</label>
-      </div>
+      <p class="filter__category" ng-class="{active: contentType.selected && contentType.count > 0}"  ng-repeat="contentType in contentTypes" ng-show="contentType.count > 0" ng-click="toggleContentType()">
+        {{ contentType.plural }} ({{ contentType.count }})
+      </p>
     </ul>
     <button ng-click="deselectAll()" class="button filter__button button--white">Uncheck all</button>
 
