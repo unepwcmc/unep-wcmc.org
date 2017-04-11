@@ -14,7 +14,7 @@
         <h1 class="biography__name"> <%= cms_block_content(:name, employee) %> </h1>
         <p class="biography__team-name"> <%= Employment.find_by_employee_id(employee.id).try(:programme).try(:name) %> </p>
         <%= raw cms_block_content(:role_at_unep, employee) %>
-        <a href="/employees<%= employee.full_path %>" class="biography__read-more"> Discover more about <%= cms_block_content(:name, employee) %> > </a>
+        <a href="/employees<%= employee.full_path %>" class="a--blue"> Discover more about <%= cms_block_content(:name, employee) %> > </a>
       </div>
     </div>
   <% end %>

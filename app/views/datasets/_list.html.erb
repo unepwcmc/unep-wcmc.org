@@ -1,4 +1,4 @@
-<div class="container" ng-app="DatasetsResources" ng-controller="DatasetsCtrl" ng-init="init(<%= render partial: 'datasets/list', formats: :json %>,  <%= render partial: 'datasets/dataset_url_fields', formats: :json %>, <%= render partial: 'datasets/dataset_file_fields', formats: :json %>)">
+<div class="container" ng-app="DatasetsResources" ng-controller="DatasetsCtrl" ng-init="init(<%= render partial: 'datasets/list', formats: :json, locals: {truncated: true} %>,  <%= render partial: 'datasets/dataset_url_fields', formats: :json %>, <%= render partial: 'datasets/dataset_file_fields', formats: :json %>)">
 
   <div class="title-bar">
     <div class="title-bar__left">
@@ -35,29 +35,26 @@
         Type of content
       </li>
 
-      <div class="filter__category" ng-class="{active: contentType.selected && contentType.count > 0}"  ng-repeat="contentType in contentTypes" ng-show="contentType.count > 0">
-        <input type="checkbox" ng-checked="contentType.selected && contentType.count > 0" ng-click="toggleContentType()">
-        <p>{{ contentType.plural }} ({{ contentType.count }})</p>
-      </div>
+      <p class="filter__category" ng-class="{active: contentType.selected && contentType.count > 0}"  ng-repeat="contentType in contentTypes" ng-show="contentType.count > 0" ng-click="toggleContentType()">
+        {{ contentType.plural }} ({{ contentType.count }})
+      </p>
     </ul>
-    <button ng-click="deselectAll()" class="button filter__button">Uncheck all</button>
+    <button ng-click="deselectAll()" class="button filter__button button--white">Uncheck all</button>
 
     <div class="dataset__infoboxes">
-      <div class="info-message">
-        <h1>Policies</h1>
+      <div class="info-message dataset__info-message">
+        <h3>Policies</h3>
         <p>UN Environment World Conservation Monitoring Centre does not assert any intellectual property rights in the data made available to it by data providers.</p>
         <p>access to UN Environment World Conservation Monitoring Centre datasets is provided on the understanding that you read and consent to be bound by the terms and conditions set out in our policies.</p>
         <a href="/policies">View our policies <i class="fa fa-external-link"></i></a>
       </div>
 
-      <div class="info-message">
-        <h1>Biodiversity Heritage Library</h1>
+      <div class="info-message dataset__info-message">
+        <h3>Biodiversity Heritage Library</h3>
         <a href="http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles">Search WCMC's historical publications <i class="fa fa-external-link"></i></a>
       </div>
     </div>
   </div>
-
-
 
   <div class="column-2-3 u-column-no-top" id="data">
     <div class="filter__sort">
@@ -80,23 +77,12 @@
         <div class="dataset__text">
           <p ng-bind-html="dataset.content"></p>
         </div>
-
-        <small class="" ng-if="dataset.author">Author(s): {{ dataset.author }}</small>
-        <small class="" ng-if="dataset.isbn">ISBN: {{ dataset.isbn }}</small>
-
-        <div class="tags">
-          <div class="tags__tag" ng-if="dataset.first_link"><a href="{{ dataset.first_link }}">{{dataset.first_link_label}}</a></div>
-          <div class="tags__tag" ng-if="dataset.second_link"> <a href="{{ dataset.second_link }}">{{dataset.second_link_label}}</a></div>
-          <div class="tags__tag" ng-show="dataset.file_url"> <a href="{{ dataset.file_url }}">Download</a> </div>
-          <div class="tags__tag" ng-repeat="field in urlFieldsForDataset( dataset.id ) "><a href="{{ field.url }}">{{ field.label }}</a></div>
-          <div class="tags__tag" ng-repeat="file in fileFieldsForDataset( dataset.id ) "><a href="{{ file.url }}">{{ file.label }}</div>
-        </div>
       </div>
     </section>
 
     <h2 class="smaller" ng-if="datasetsToBeDisplayed.length == 0">No data found</h2>
 
-    <div id="button-row u-width-100" ng-if="totalPages > 1">
+    <div id="button-row u-width-100" class="filter__view-more" ng-if="totalPages > 1">
       <a href="#" ng-click="toPage(0)" ng-if="pageIndex > 0">|&lt; First</a>
       <a href="#" ng-click="toPage(pageIndex-1)" ng-if="pageIndex > 0">&lt; Previous</a>
       <span>Page {{ pageIndex+1 }} of {{ totalPages }}</span>
@@ -105,14 +91,14 @@
     </div>
 
     <div class="dataset__infoboxes--mobile">
-      <div class="info-message">
+      <div class="info-message dataset__info-message">
         <h1>Policies</h1>
         <p>UN Environment World Conservation Monitoring Centre does not assert any intellectual property rights in the data made available to it by data providers.</p>
         <p>access to UN Environment World Conservation Monitoring Centre datasets is provided on the understanding that you read and consent to be bound by the terms and conditions set out in our policies.</p>
         <a href="/policies">View our policies <i class="fa fa-external-link"></i></a>
       </div>
 
-      <div class="info-message">
+      <div class="info-message dataset__info-message">
         <h1>Biodiversity Heritage Library</h1>
         <a href="http://www.biodiversitylibrary.org/search?searchTerm=WCMC#/titles">Search WCMC's historical publications <i class="fa fa-external-link"></i></a>
       </div>

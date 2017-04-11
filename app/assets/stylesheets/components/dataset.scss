@@ -1,11 +1,57 @@
 .filter {
   &__header {
     //!import used here because ids have been used in the legacy sheets and this is the only way to override!
+    font-family: $font-roboto !important;
     font-size: rem-calc(20) !important;
+  }
+
+  &__category {
+    cursor: pointer;
+    font-size: rem-calc(15);
+    line-height: 1.2;
+    margin: 0;
+    padding: rem-calc(12 0 12 30);
+
+    position: relative;
+
+    &:before {
+      border: solid rem-calc(1) $grey;
+      content: "";
+      width: rem-calc(18); height: rem-calc(18);
+
+      display: block;
+      position: absolute;
+      left: 0;
+    }
+
+    &.active:before {
+      content: "\f00c";
+      color: $dark-blue;
+      font-family: fontAwesome;
+      padding-left: rem-calc(1);
+    }
+
+    input {
+      font-size: rem-calc(16);
+      margin-right: rem-calc(12);
+
+      float: left;
+    }
   }
 
   &__button {
     margin-top: rem-calc(20);
+  }
+
+  &__view-more {
+    margin: rem-calc(30 0);
+    text-align: center;
+
+    @media(min-width: $desktop){
+      text-align: left;
+    }
+
+    .button { display: inline-block; }
   }
 }
 
@@ -42,39 +88,36 @@
   }
 }
 
-.filter__category {
-  padding: rem-calc(12 0);;
+.dataset {
+  &__infoboxes {
+    @media (max-width: $desktop){
+      display: none;
+    }
 
-  input {
-    font-size: rem-calc(16);
-    margin-right: rem-calc(12);
-
-    float: left;
+    h3 {
+      color: $body-font-color;
+      font-size: rem-calc(20);
+      margin-top: 0;
+    }
   }
 
-  p {
-    font-size: rem-calc(15);
-    margin-bottom: 0;
+  &__infoboxes--mobile {
+    @media (min-width: $desktop){
+      display: none;
+    }
   }
-}
 
-.dataset__infoboxes {
-  @media (max-width: $desktop){
-    display: none;
-  }
-}
+    &__info-message {
+      padding: rem-calc(26 24);
+    }
 
-.dataset__infoboxes--mobile {
-  @media (min-width: $desktop){
-    display: none;
-  }
-}
-
-.dataset__title {
-  color: $dark-blue;
-  margin: rem-calc(12) 0;
-
-  h2 {
-    margin: 0;
-  }
+      &__title {
+        color: $dark-blue;
+        margin: rem-calc(12) 0;
+        
+        h2 {
+          font-size: rem-calc(20);
+          margin: 0;
+        }
+      }
 }
