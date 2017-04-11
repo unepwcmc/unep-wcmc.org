@@ -96,8 +96,12 @@
 
     <h2 class="smaller" ng-if="datasetsToBeDisplayed.length == 0">No data found</h2>
 
-    <div id="button-row u-width-100" ng-if="hiddenDatasets.length > 0">
-      <button ng-click="showMore()" class="button u-align-center">View more resources</button>
+    <div id="button-row u-width-100" ng-if="totalPages > 1">
+      <a href="#" ng-click="toPage(0)" ng-if="pageIndex > 0">|&lt; First</a>
+      <a href="#" ng-click="toPage(pageIndex-1)" ng-if="pageIndex > 0">&lt; Previous</a>
+      <span>Page {{ pageIndex+1 }} of {{ totalPages }}</span>
+      <a href="#" ng-click="toPage(pageIndex+1)" ng-if="pageIndex < totalPages - 1">&gt; Next</a>
+      <a href="#" ng-click="toPage(totalPages-1)" ng-if="pageIndex < totalPages - 1">&gt;| Last</a>
     </div>
 
     <div class="dataset__infoboxes--mobile">
