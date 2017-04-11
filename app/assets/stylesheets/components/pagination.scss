@@ -1,0 +1,26 @@
+.pagination {
+  font-size: rem-calc(15);
+  margin: rem-calc(30 0 40 0);
+  text-align: center;
+
+  &__link {
+    margin: rem-calc(0 10);
+  }
+
+  &__pages {
+    margin: rem-calc(0 22);
+
+    display: inline-block;
+  }
+
+    &__current-page {
+      background-color: $dark-blue;
+      border-radius: 100%;
+      color: white;
+      line-height: 2;
+      margin: rem-calc(0 4);
+      width: rem-calc(30); height: rem-calc(30);
+
+      display: inline-block;
+    }
+}

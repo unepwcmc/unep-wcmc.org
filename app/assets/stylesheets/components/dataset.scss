@@ -42,17 +42,6 @@
   &__button {
     margin-top: rem-calc(20);
   }
-
-  &__view-more {
-    margin: rem-calc(30 0);
-    text-align: center;
-
-    @media(min-width: $desktop){
-      text-align: left;
-    }
-
-    .button { display: inline-block; }
-  }
 }
 
 .filter__sort {
