@@ -1,6 +1,10 @@
 json.datasets Comfy::Cms::Site.find_by_identifier('resources-and-data').pages.root.children.published.includes(blocks: [:files]).each do |dataset|
   json.title block_content(:title, dataset)
-  json.content block_content(:content, dataset)
+  if truncated
+    json.content block_content(:content, dataset).truncate(250)
+  else 
+    json.content block_content(:content, dataset)
+  end
   json.id dataset.id
   json.slug dataset.slug
   json.publication_date block_content(:publication_date, dataset)

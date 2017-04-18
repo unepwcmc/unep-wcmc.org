@@ -82,10 +82,11 @@ function ($scope, $sce) {
       _.map($scope.activeDatasets, function(o) {return o.content_type})
     );
     updateActiveContentTypesFromNames(activeContentTypeNames);
-    $scope.sortDatesets();
+    $scope.sortDatasets();
+    $scope.loadPagination();
   }
 
-  $scope.sortDatesets = function () {
+  $scope.sortDatasets = function () {
     if ($scope.dataset_from_url && $scope.activeDatasets.length > 1) {
       var from = _.findIndex($scope.activeDatasets, { 'slug': $scope.q });
       if (from !== 0) {
@@ -98,7 +99,6 @@ function ($scope, $sce) {
     } else if ($scope.sortOrder === 1) {
       $scope.activeDatasets = _.sortBy($scope.activeDatasets, "title");
     }
-    $scope.setHiddenDatasets();
   }
 
   var initDatasets = function () {
@@ -118,19 +118,18 @@ function ($scope, $sce) {
     }
   }
 
-  $scope.showMore = function () {
-    for (var i=0; i < 10 && $scope.hiddenDatasets.length > 0; i++) {
-      var datasetItem = $scope.hiddenDatasets.shift();
-      $scope.datasetsToBeDisplayed.push(datasetItem);
-    }
-  }
+  $scope.loadPagination = function () {
+    $scope.pageIndex = 0;
+    $scope.totalPages = Math.ceil($scope.activeDatasets.length / 10);
 
-  $scope.setHiddenDatasets = function () {
-    $scope.hiddenDatasets = [];
-    $scope.datasetsToBeDisplayed = [];
-    $scope.hiddenDatasets = _.clone($scope.activeDatasets);
-    $scope.setInitialDatasets();
-  }
+    $scope.toPage($scope.pageIndex);
+  };
+
+  $scope.toPage = function (page) {
+    $scope.pageIndex = page;
+    $scope.datasetsToBeDisplayed = $scope.activeDatasets.slice(page*10, ((page+1)*10));
+  };
+
 
   $scope.setQueryFromUrlParams = function (slug) {
     var dataset = _.find($scope.datasets, { 'slug': slug }),
@@ -148,24 +147,21 @@ function ($scope, $sce) {
     } else {
       $scope.query = "";
     }
-    $scope.hiddenDatasets = [];
     $scope.datasetsToBeDisplayed = [];
+
+
     $scope.contentTypes = data.content_types;
     initDatasets();
     $scope.selectAll();
     $scope.search();
+    $scope.loadPagination();
+
+
     $scope.fileFields = file_fields;
     $scope.urlFields = url_fields;
     $scope.activeContentTypes = _.filter(data.content_types, function(o) {
       return o.count > 0;
     });
-  }
-
-  $scope.setInitialDatasets = function () {
-    for (var i=0; i < 10 && $scope.hiddenDatasets.length > 0; i++) {
-      var datasetItem = $scope.hiddenDatasets.shift();
-      $scope.datasetsToBeDisplayed.push(datasetItem);
-    }
   }
 
   $scope.urlFieldsForDataset = function (datasetId) {

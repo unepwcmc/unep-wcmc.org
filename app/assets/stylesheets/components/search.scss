@@ -4,9 +4,14 @@
   @include align-items(stretch);
 
   &__input {
-    padding: rem-calc(10);
+    font-size: rem-calc(15);
     line-height: 1.5;
+    padding: rem-calc(10);
     width: 100%;
+
+    @media(min-width: $desktop){
+      width: rem-calc(286);
+    }
   }
 
   &__icon {

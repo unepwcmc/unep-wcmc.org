@@ -1,7 +1,57 @@
+.filter {
+  &__header {
+    //!import used here because ids have been used in the legacy sheets and this is the only way to override!
+    font-family: $font-roboto !important;
+    font-size: rem-calc(20) !important;
+  }
+
+  &__category {
+    cursor: pointer;
+    font-size: rem-calc(15);
+    line-height: 1.2;
+    margin: 0;
+    padding: rem-calc(12 0 12 30);
+
+    position: relative;
+
+    &:before {
+      border: solid rem-calc(1) $grey;
+      content: "";
+      width: rem-calc(18); height: rem-calc(18);
+
+      display: block;
+      position: absolute;
+      left: 0;
+    }
+
+    &.active:before {
+      content: "\f00c";
+      color: $dark-blue;
+      font-family: fontAwesome;
+      padding-left: rem-calc(1);
+    }
+
+    input {
+      font-size: rem-calc(16);
+      margin-right: rem-calc(12);
+
+      float: left;
+    }
+  }
+
+  &__button {
+    margin-top: rem-calc(20);
+  }
+}
+
 .filter__sort {
   @include flexbox;
   @include justify-content(flex-end);
   padding: 1em 0em;
+
+  @media(min-width: $desktop){
+    padding-top: rem-calc(32);
+  }
 }
 
 .filter__sort__select {
@@ -9,11 +59,16 @@
     width: 100%;
   }
   select {
-    padding: 0 1em;
+    background-color: $white;
     border: 1px solid $medium-grey;
+    border-radius: 0;
     color: $dark-grey;
-    @media (max-width: $desktop){
-      width: 100%;
+    font-size: rem-calc(15);
+    padding-left: rem-calc(10);
+    width: 100%; height: rem-calc(36);
+
+    @media(min-width: $tablet){
+      width: rem-calc(160);
     }
 
     option {
@@ -22,23 +77,36 @@
   }
 }
 
-.filter__category {
-  padding: 0.5em;
+.dataset {
+  &__infoboxes {
+    @media (max-width: $desktop){
+      display: none;
+    }
 
-  input {
-    float: left;
-    margin-right: 1em;
+    h3 {
+      color: $body-font-color;
+      font-size: rem-calc(20);
+      margin-top: 0;
+    }
   }
-}
 
-.dataset__infoboxes {
-  @media (max-width: $desktop){
-    display: none;
+  &__infoboxes--mobile {
+    @media (min-width: $desktop){
+      display: none;
+    }
   }
-}
 
-.dataset__infoboxes--mobile {
-  @media (min-width: $desktop){
-    display: none;
-  }
+    &__info-message {
+      padding: rem-calc(26 24);
+    }
+
+      &__title {
+        color: $dark-blue;
+        margin: rem-calc(12) 0;
+        
+        h2 {
+          font-size: rem-calc(20);
+          margin: 0;
+        }
+      }
 }
