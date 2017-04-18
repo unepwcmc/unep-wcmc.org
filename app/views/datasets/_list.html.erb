@@ -83,11 +83,11 @@
     <h2 class="smaller" ng-if="datasetsToBeDisplayed.length == 0">No data found</h2>
 
     <div id="button-row u-width-100" class="pagination" ng-if="totalPages > 1">
-      <a class="pagination__link" href="#" ng-click="toPage(0)" ng-if="pageIndex > 0">|&lt;<span class="hidden-phone-down"> First</span></a>
-      <a class="pagination__link" href="#" ng-click="toPage(pageIndex-1)" ng-if="pageIndex > 0">&lt;&lt;<span class="hidden-phone-down"> Previous</span></a>
+      <a class="pagination__link" ng-click="toPage(0)" ng-if="pageIndex > 0">|&lt;<span class="hidden-phone-down"> First</span></a>
+      <a class="pagination__link" ng-click="toPage(pageIndex-1)" ng-if="pageIndex > 0">&lt;&lt;<span class="hidden-phone-down"> Previous</span></a>
       <p class="pagination__pages"><span class="hidden-phone-down">Page </span><span class="pagination__current-page">{{ pageIndex+1 }}</span> of {{ totalPages }}</p>
-      <a class="pagination__link" href="#" ng-click="toPage(pageIndex+1)" ng-if="pageIndex < totalPages - 1"><span class="hidden-phone-down">Next </span>&gt;&gt;</a>
-      <a class="pagination__link" href="#" ng-click="toPage(totalPages-1)" ng-if="pageIndex < totalPages - 1"><span class="hidden-phone-down">Last </span>&gt;|</a>
+      <a class="pagination__link" ng-click="toPage(pageIndex+1)" ng-if="pageIndex < totalPages - 1"><span class="hidden-phone-down">Next </span>&gt;&gt;</a>
+      <a class="pagination__link" ng-click="toPage(totalPages-1)" ng-if="pageIndex < totalPages - 1"><span class="hidden-phone-down">Last </span>&gt;|</a>
     </div>
 
     <div class="dataset__infoboxes--mobile">
