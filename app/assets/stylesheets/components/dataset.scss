@@ -78,6 +78,14 @@
 }
 
 .dataset {
+  &__page {
+    margin-top: rem-calc(18);
+
+    @media(min-width: $tablet){
+      margin-top: rem-calc(30);    
+    }
+  }
+
   &__infoboxes {
     @media (max-width: $desktop){
       display: none;
