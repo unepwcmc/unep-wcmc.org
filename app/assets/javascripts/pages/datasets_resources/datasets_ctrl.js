@@ -126,7 +126,6 @@ function ($scope, $sce) {
   };
 
   $scope.toPage = function (page) {
-    //page.preventDefault;
     $scope.pageIndex = page;
     $scope.datasetsToBeDisplayed = $scope.activeDatasets.slice(page*10, ((page+1)*10));
   };
