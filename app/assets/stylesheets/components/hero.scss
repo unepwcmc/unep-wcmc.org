@@ -16,7 +16,7 @@
   @include justify-content(center);
   border: 4px solid $white;
   width: 100%;
-  
+
   @media(min-width: $phone){
     width: 90%;
   }

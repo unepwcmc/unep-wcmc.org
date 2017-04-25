@@ -1323,6 +1323,7 @@ div.dashboard {
   }
 
   div.section-group.controls {
+    margin: 2em 0;
     position: relative;
     width: 99%;
     z-index: 1000;
@@ -1338,7 +1339,6 @@ div.dashboard {
     #search-field {
       float: right;
       width: 100%;
-      border: 1px solid #fff;
       position: relative;
       padding: 3px 10px;
       -webkit-border-radius: 3px;
@@ -1347,35 +1347,32 @@ div.dashboard {
       height: 36px;
       input {
         width: 90%;
-        padding: 0;
+        padding: 1em;
         font-family: "Roboto", Helvetica, Arial, sans-serif;
-        color: #fff;
-        background: none;
         border: none;
-        font-size: 1.1em;
+        border-bottom: 1px solid $medium-grey;
+        color: $grey-text;
+        background: none;
+        font-size: 1.5em;
         font-weight: 300;
         outline: none;
       }
       input::-webkit-input-placeholder {
-        color: rgba(255, 255, 255, 1);
-        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+        color: $grey-text;
       }
       input::-moz-placeholder {
-        color: rgba(255, 255, 255, 1);
-        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+        color: $grey-text;
       }
       input:-moz-placeholder {   /* Older versions of Firefox */
-        color: rgba(255, 255, 255, 1);
-        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+        color: $grey-text;
       }
       input:-ms-input-placeholder {
-        color: rgba(255, 255, 255, 1);
-        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+        color: $grey-text;
       }
       i.icon-search {
-        color: #fff;
+        color: $grey-text;
         background: none;
-        font-size: 1em;
+        font-size: 2em;
         padding-right: 5px;
       }
     }
