@@ -1,0 +1,240 @@
+<div class="container dashboard" ng-app="stats">
+
+  <header class="hero dashboard-title" ng-controller="GeoIpCtrl" ng-model="country">
+    <div class="hero__card">
+      <div class="hero__title">
+        <h1><span id="kern">Conservation dashboard for</span> {{country.name}}</h1>
+        <br>
+        <p> Explore key datasets maintained by UN Environment World Conservation Monitoring Centre and find conservation statistics for any country or region.  </p>
+
+      <div class="section-group controls" ng-controller="StatsBtnCtrl">
+        <div class="group" id="view-button" ng-show="visible">
+          <button class="transparent" ng-click="showStats()" ng-show="visible">View Now</button>
+        </div>
+        <div class="group" id="search-field" ng-class="{full: !visible}">
+          <div class="geo_entities" ng-controller="CountryPickerCtrl">
+            <i class="icon-search"></i>
+            <input ng-model="selected" placeholder="Search for another country or region" type="text" typeahead="country as country.name for country in getCountry($viewValue)"></input>
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+    </div>
+  </header>
+
+
+
+  <div class="stats" collapse="isCollapsed" ng-controller="StatsCtrl">
+    <div class="biodiversity">
+      <div class="section-group">
+        <section class="group stats left">
+          <div class="stat">
+            <header>
+              <p>
+                <span>Estimated biodiversity loss</span>
+                <a href="/dashboard#predicts">
+                  <i class="icon-info-sign"></i>
+                </a>
+              </p>
+            </header>
+            <div class="metrics-container" ng-controller="CartodbStatsCtrl" ng-model="carbo">
+              <%= image_tag("loading.gif", :class => "spinner", :style => "max-height: 50px; max-width: 50px;", :"ng-show" => "carbo.loading") %>
+              <div class="metric percentage">
+                <span class="number">{{carbo.biodiversity_loss}}</span>
+                <span class="small">%</span>
+              </div>
+              <div class="bar-container">
+              <div class="bar" ng-style="{ width: carbo.biodiversity_loss + '%'  }"></div>
+              </div>
+            </div>
+          </div>
+          <div class="stat">
+            <header>
+              <p>
+                <span>Number of protected areas</span>
+                <a href="/dashboard#protected-areas">
+                  <i class="icon-info-sign"></i>
+                </a>
+              </p>
+            </header>
+            <div class="metrics-container" ng-controller="PpeStatsCtrl" ng-model="ppe">
+              <%= image_tag("loading.gif", :class => "spinner", :style => "max-height: 50px; max-width: 50px;", :"ng-show" => "ppe.loading") %>
+              <div class="metric" ng-show="ppe.loaded">
+                <span class="number protected-areas">{{ppe.protected_areas_count | number}}</span>
+                <span class="small protected">covering {{ppe.percentage_protected}}% of the country</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="group stats right">
+          <div class="stat carbon" ng-controller="CartodbStatsCtrl" ng-model="carbo">
+            <header>
+              <p>
+                <span>Carbon storage</span>
+                <a href="/dashboard#carbon-storage">
+                  <i class="icon-info-sign"></i>
+                </a>
+              </p>
+            </header>
+            <div class="metrics-container carbon">
+              <div class="metric">
+                <p class="subheader">Carbon stored in above and below ground biomass and soil</p>
+                <div class="submetric">
+                  <%= image_tag("loading.gif", :class => "spinner", :style => "max-height: 50px; max-width: 50px;", :"ng-show" => "carbo.loading") %>
+                  <span class="number" ng-show="carbo.loaded">{{carbo.carbon_sums | number}}</span>
+                  <span class="small">Mt</span>
+                </div>
+              </div>
+            </div>
+            <div class="metrics-container carbon">
+              <div class="metric">
+                <p class="subheader">Carbon stored in protected areas</p>
+                <div class="submetric">
+                  <%= image_tag("loading.gif", :class => "spinner", :style => "max-height: 50px; max-width: 50px;", :"ng-show" => "carbo.loading") %>
+                  <div class="metric percentage">
+                    <span class="number">{{carbo.carbon_pas}}</span>
+                    <span class="small">%</span>
+                  </div>
+                  <div class="bar-container">
+                  <div class="bar carbon" ng-style="{ width: carbo.carbon_pas + '%'  }"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="section-group" ng-controller="SapiStatsCtrl" ng-model="sapi">
+        <section class="group stats left">
+          <div class="stat sapi">
+            <header>
+              <p>
+                <span>{{sapi.trade_title}}</span>
+                <a href="/dashboard#species-trades">
+                  <i class="icon-info-sign toggle"></i>
+                </a>
+              </p>
+              <p>
+                <span class="infotext">
+                  {{sapi.trade_info}}
+                </span>
+              </p>
+              <div class="info-link-small">
+                <span class="option-selector" ng-click="toggleTrade()">{{sapi.trade_selector}}</span>
+              </div>
+            </header>
+            <%= image_tag("loading.gif", :class => "spinner", :style => "max-height: 50px; max-width: 50px;", :"ng-show" => "sapi.loading") %>
+            <div ng-show="sapi.trade_export">
+              <p class="no-results" ng-show="!sapi.trade_exports_top_data.length">
+                No results
+              </p>
+              <table>
+                <tr class="species-container" ng-repeat="t in sapi.trade_exports_top_data" ng-show="sapi.loaded">
+                  <td class="counter-container">
+                  <div class="counter list-{{$index}}">{{$index + 1}}</div>
+                  </td>
+                  <td class="ranking">
+                    <p class="common-name">{{t.common_name_en || t.name}}</p>
+                    <p class="scientific-name">{{t.name}}</p>
+                    <p class="species-count-small">{{t.count | number}}</p>
+                  </td>
+                  <td class="species-count">
+                    <span>{{t.count | number}}</span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div ng-show="sapi.trade_import">
+              <p class="no-results" ng-show="!sapi.trade_imports_top_data.length">
+                No results
+              </p>
+              <table>
+                <tr class="species-container" ng-repeat="t in sapi.trade_imports_top_data" ng-show="sapi.loaded">
+                  <td class="counter-container">
+                    <div class="counter list-{{$index}}">{{$index + 1}}</div>
+                  </td>
+                  <td class="ranking">
+                    <p class="common-name">{{t.common_name_en || t.name}}</p>
+                    <p class="scientific-name">{{t.name}}</p>
+                    <p class="species-count-small">{{t.count | number}}</p>
+                  </td>
+                  <td class="species-count">
+                    <span>{{t.count | number}}</span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </section>
+        <section class="group stats right">
+          <div class="stat sapi">
+            <header>
+              <p>
+                <span>{{sapi.species_title}}</span>
+                <a href="/dashboard#species-lists">
+                  <i class="icon-info-sign toggle"></i>
+                </a>
+                <p>
+                  <span class="infotext">
+                    {{sapi.species_info}}
+                  </span>
+                </p>
+              </p>
+              <div class="info-link-small">
+                <span class="option-selector" ng-click="toggleSpecies()">{{sapi.species_selector}}</span>
+              </div>
+            </header>
+            <%= image_tag("loading.gif", :class => "spinner", :style => "max-height: 50px; max-width: 50px;", :"ng-show" => "sapi.loading") %>
+            <div ng-show="sapi.species_cites">
+              <p class="no-results" ng-show="!sapi.species_cites_data.length">
+                No results
+              </p>
+              <table>
+                <tr class="species-container" ng-repeat="group in sapi.species_cites_data" ng-show="sapi.loaded">
+                  <td class="counter-container">
+                    <div class="counter list-{{$index}}">{{$index + 1}}</div>
+                  </td>
+                  <td class="ranking cites-cms">
+                    <p class="common-name">{{group[0]}}</p>
+                    <p class="species-count-small">{{group[1] | number}}</p>
+                  </td>
+                  <td class="species-count">
+                    <span>{{group[1] | number}}</span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div ng-show="sapi.species_cms">
+              <p class="no-results" ng-show="!sapi.species_cms_data.length">
+                No results
+              </p>
+              <table>
+                <tr class="species-container" ng-repeat="group in sapi.species_cms_data" ng-show="sapi.loaded">
+                  <td class="counter-container">
+                    <div class="counter list-{{$index}}">{{$index + 1}}</div>
+                  </td>
+                  <td class="ranking cites-cms">
+                    <p class="common-name">{{group[0]}}</p>
+                    <p class="species-count-small">{{group[1] | number}}</p>
+                  </td>
+                  <td class="species-count">
+                    <span>{{group[1] | number}}</span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <button class="dashboard-collapse" ng-click="hideStats()" ng-controller="StatsBtnCtrl">
+      <p>
+        <i class="icon-chevron-up"></i>
+        Hide dashboard
+      </p>
+    </button>
+  </div>
+</div>
+
