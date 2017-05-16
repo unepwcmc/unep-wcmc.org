@@ -1,7 +1,7 @@
 .filter {
   &__header {
     //!import used here because ids have been used in the legacy sheets and this is the only way to override!
-    font-family: $font-roboto !important;
+    font-family: $font-roboto-slab !important;
     font-size: rem-calc(20) !important;
   }
 

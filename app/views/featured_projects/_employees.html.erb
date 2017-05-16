@@ -1,0 +1,21 @@
+<% employments = Employment.with_employees_for_project(@cms_page) %>
+
+<div class="section-group" id="staff">
+  <% employments.each do |employment| %>
+    <section class="group staff">
+      <%= link_to employment.employee.url do %>
+        <% if cms_block_content(:photo, employment.employee).file.present? %>
+          <%= image_tag cms_block_content(:photo, employment.employee).file.url(:profile) %>
+        <% end %>
+      <% end %>
+      <%= link_to employment.employee.url do %>
+        <h4>
+          <%= cms_block_content(:name, employment.employee) %>
+        </h4>
+      <% end %>
+      <p>
+        <%= employment.role %>
+      </p>
+    </section>
+  <% end %>
+</div>

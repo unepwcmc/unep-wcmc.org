@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400');
-
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto Slab', serif;
+  font-family: $font-roboto-slab;
 }
 
 h1 {
@@ -21,7 +19,7 @@ h2 {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: $font-roboto;
   font-weight: $body-font-weight;
 }
 

@@ -1,16 +1,6 @@
 !!! 5
 %html#ng-app
   %head
-    :javascript
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-              // cross-domain tracking
-              ga('create', 'UA-47308714-3', 'auto', {'allowLinker': true});
-                ga('require', 'linker');
-                ga('linker:autoLink', ['wcmc.org.uk'] );
-                ga('send', 'pageview');;
     %meta{:"http-equiv" => "X-UA-Compatible", :content => "IE=edge"}
     %meta{ :charset => "utf-8" }
     %meta{ :name => "viewport", :content => "width=device-width,initial-scale=1.0" }
@@ -36,44 +26,17 @@
         #{@cms_page.label.titleize} - UNEP-WCMC
       - else
         UNEP-WCMC
-    %link{ :href => 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700', :rel => 'stylesheet', :type => 'text/css' }
-    %link{ :href => 'https://fonts.googleapis.com/css?family=Lato:300,400,700', :rel => 'stylesheet', :type => 'text/css' }
-    %link{ :href => 'https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', :rel => "stylesheet" }
+    %link{ :href => 'https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400', :rel => 'stylesheet', :type => 'text/css' }
+    %link{ :href => 'https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css', :rel => "stylesheet" }
+    %link{ :href => 'https://hello.myfonts.net/count/2a8946', :rel => "stylesheet" }
+
+    = stylesheet_link_tag "application", media: "all"
+    = csrf_meta_tags
 
     = render 'layouts/favicon'
-    = render 'layouts/hotjar'
-
-    %script
-      var my_url = "#{request.protocol}#{request.host}:#{request.port}";
-      var speciesplus_dashboard_url = "#{Rails.application.secrets.speciesplus_dashboard_url}";
-      var protectedplanet_dashboard_url = "#{Rails.application.secrets.protectedplanet_dashboard_url}";
-      var protectedplanet_dashboard_token = "#{Rails.application.secrets.protectedplanet_dashboard_token}";
-      var carbon_dashboard_url = "#{Rails.application.secrets.carbon_dashboard_url}";
-    %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"}
-    = javascript_include_tag "pages/application.js"
-    = stylesheet_link_tag "application", media: "all"
-    = javascript_include_tag "modernizr.js"
-    = csrf_meta_tags
 
   %body
     = render 'layouts/header'
-
-    -##nav-container
-      -##nav
-        -#%a#home_link{ :href => "/", :title => "Home" }
-          -#= image_tag "logo_white_transparent.png"
-        -#%ul#large-menu
-          -#%li= link_to "About us", "/about-us", :class => @cms_site && 'about-us' == @cms_site.identifier ? 'active' : false
-          -#%li= link_to "Resources & Data", "/resources-and-data", :class => @cms_site && 'resources-and-data' == @cms_site.identifier ? 'active' : false
-          -#%li= link_to "Featured work", "/featured-projects", :class => @cms_site && 'featured-projects' == @cms_site.identifier ? 'active' : false
-          -#%li= link_to "Our expertise", "/expertise", :class => @cms_site && 'expertise' == @cms_site.identifier ? 'active' : false
-        -#%button#trigger-menu
-          -#%i.icon-align-justify
-        -#%ul#button-menu
-          -#%li= link_to "Our expertise", "/expertise", :class => @cms_site && 'expertise' == @cms_site.identifier ? 'active' : false
-          -#%li= link_to "Featured work", "/featured-projects", :class => @cms_site && 'featured-projects' == @cms_site.identifier ? 'active' : false
-          -#%li= link_to "Resources & Data", "/resources-and-data", :class => @cms_site && 'resources-and-data' == @cms_site.identifier ? 'active' : false
-          -#%li= link_to "About us", "/about-us", :class => @cms_site && 'about-us' == @cms_site.identifier ? 'active' : false
 
     - if flash[:success]
       .status#ok
@@ -103,7 +66,30 @@
 
     = render 'layouts/footer'
 
+    %script
+      var my_url = "#{request.protocol}#{request.host}:#{request.port}";
+      var speciesplus_dashboard_url = "#{Rails.application.secrets.speciesplus_dashboard_url}";
+      var protectedplanet_dashboard_url = "#{Rails.application.secrets.protectedplanet_dashboard_url}";
+      var protectedplanet_dashboard_token = "#{Rails.application.secrets.protectedplanet_dashboard_token}";
+      var carbon_dashboard_url = "#{Rails.application.secrets.carbon_dashboard_url}";
+    %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"}
+    = javascript_include_tag "pages/application.js"
+    = javascript_include_tag "modernizr.js"
+
+    = render 'layouts/hotjar'
+
   :javascript
     $(document).ready(function() {
       $("#kern").lettering();
     });
+  
+  :javascript
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+              // cross-domain tracking
+              ga('create', 'UA-47308714-3', 'auto', {'allowLinker': true});
+                ga('require', 'linker');
+                ga('linker:autoLink', ['wcmc.org.uk'] );
+                ga('send', 'pageview');;
