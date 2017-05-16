@@ -40,40 +40,13 @@
     %link{ :href => 'https://fonts.googleapis.com/css?family=Lato:300,400,700', :rel => 'stylesheet', :type => 'text/css' }
     %link{ :href => 'https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', :rel => "stylesheet" }
 
-    = render 'layouts/favicon'
-    = render 'layouts/hotjar'
-
-    %script
-      var my_url = "#{request.protocol}#{request.host}:#{request.port}";
-      var speciesplus_dashboard_url = "#{Rails.application.secrets.speciesplus_dashboard_url}";
-      var protectedplanet_dashboard_url = "#{Rails.application.secrets.protectedplanet_dashboard_url}";
-      var protectedplanet_dashboard_token = "#{Rails.application.secrets.protectedplanet_dashboard_token}";
-      var carbon_dashboard_url = "#{Rails.application.secrets.carbon_dashboard_url}";
-    %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"}
-    = javascript_include_tag "pages/application.js"
     = stylesheet_link_tag "application", media: "all"
-    = javascript_include_tag "modernizr.js"
     = csrf_meta_tags
+
+    = render 'layouts/favicon'
 
   %body
     = render 'layouts/header'
-
-    -##nav-container
-      -##nav
-        -#%a#home_link{ :href => "/", :title => "Home" }
-          -#= image_tag "logo_white_transparent.png"
-        -#%ul#large-menu
-          -#%li= link_to "About us", "/about-us", :class => @cms_site && 'about-us' == @cms_site.identifier ? 'active' : false
-          -#%li= link_to "Resources & Data", "/resources-and-data", :class => @cms_site && 'resources-and-data' == @cms_site.identifier ? 'active' : false
-          -#%li= link_to "Featured work", "/featured-projects", :class => @cms_site && 'featured-projects' == @cms_site.identifier ? 'active' : false
-          -#%li= link_to "Our expertise", "/expertise", :class => @cms_site && 'expertise' == @cms_site.identifier ? 'active' : false
-        -#%button#trigger-menu
-          -#%i.icon-align-justify
-        -#%ul#button-menu
-          -#%li= link_to "Our expertise", "/expertise", :class => @cms_site && 'expertise' == @cms_site.identifier ? 'active' : false
-          -#%li= link_to "Featured work", "/featured-projects", :class => @cms_site && 'featured-projects' == @cms_site.identifier ? 'active' : false
-          -#%li= link_to "Resources & Data", "/resources-and-data", :class => @cms_site && 'resources-and-data' == @cms_site.identifier ? 'active' : false
-          -#%li= link_to "About us", "/about-us", :class => @cms_site && 'about-us' == @cms_site.identifier ? 'active' : false
 
     - if flash[:success]
       .status#ok
@@ -102,6 +75,18 @@
     = yield
 
     = render 'layouts/footer'
+
+    %script
+      var my_url = "#{request.protocol}#{request.host}:#{request.port}";
+      var speciesplus_dashboard_url = "#{Rails.application.secrets.speciesplus_dashboard_url}";
+      var protectedplanet_dashboard_url = "#{Rails.application.secrets.protectedplanet_dashboard_url}";
+      var protectedplanet_dashboard_token = "#{Rails.application.secrets.protectedplanet_dashboard_token}";
+      var carbon_dashboard_url = "#{Rails.application.secrets.carbon_dashboard_url}";
+    %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"}
+    = javascript_include_tag "pages/application.js"
+    = javascript_include_tag "modernizr.js"
+
+    = render 'layouts/hotjar'
 
   :javascript
     $(document).ready(function() {

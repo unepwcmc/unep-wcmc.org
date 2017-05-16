@@ -1,23 +1,23 @@
-#UNEP WCMC - Company website
+# UNEP WCMC - Company website
 
-##Notes
+## Notes
 
-###Intro
+### Intro
 
 A brochure website for UNEP WCMC that is built on Comfy Mexican Sofa.
 
-###History
+### History
 
 Early 2017 -  The new design has been built on top of the old site so the repo contains both new and legacy code.
 March 2017 - Updated the functionality of the filters on the Resources and Data page. Each resource now has its own page.
 
-###Team
+### Team
 
 - UX/Design - Michel
 - Developer - Spencer
 - Supporting developers - Stacy, Andrea
 
-###Tech
+### Tech
 
 - SCSS
 - No front end framework
@@ -25,13 +25,13 @@ March 2017 - Updated the functionality of the filters on the Resources and Data 
 - Ruby 2.2.2
 - Rails 4.2.5.2
 
-###Browser support
+### Browser support
 
 - Lastest Chrome, Firefox, Safari
 - IE11 upwards
 - Samsung Galaxy A3
 
-##Local development
+## Local development
 
   bundle install (see troubleshooting if you have issues)
   rake db:migrate
@@ -67,16 +67,16 @@ Dropbox/Informatics/MaxMind_IP/GeoIP/GeoIP.dat
 
 You will need to configure email / slack notifications in the secrets.yml / .env file.
 
-##Remote sites
+## Remote sites
 
-##Staging
+## Staging
 
 - Staging URL [https://unep-wcmc-staging.linode.unep-wcmc.org](https://unep-wcmc-staging.linode.unep-wcmc.org)
 
-##Live 
+## Live 
 
 - Live URL [https://unep-wcmc.org](https://unep-wcmc.org)
 
-##Troubleshooting
+## Troubleshooting
 
 1. open ssl issues when installing eventmachine `brew install openssl` then `gem install eventmachine -v 1.0.8 -- --with-cppflags=-I/usr/local/opt/openssl/include`
