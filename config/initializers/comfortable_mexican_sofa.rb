@@ -111,6 +111,10 @@ ComfortableMexicanSofa.configure do |config|
   # Default is false.
   #   config.reveal_cms_partials = false
 
+  # Create thumbnails of all images uploaded to the CMS
+  # - dimensions for :thumbnail were calculated when the image is at its largest (top end of the small breakpoint)
+  # - dimensions for :profile were calculated when the image is at its largest (top end of the medium breakpoint)
+  config.upload_file_options[:styles] = { thumbnail: '690x428#', large: '1440x810', profile: '291x291#'}
 end
 
 module PageScopes

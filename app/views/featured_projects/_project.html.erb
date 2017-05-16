@@ -1,7 +1,7 @@
 <section class="flex--2-cols__child">
-  <% if page_file(:thumbnail, page) %>
+  <% if cms_block_content(:thumbnail, page).file.present? %>
     <%= link_to @cms_site.path + page.full_path do %>
-      <%= image_tag page_file(:thumbnail, page).file.url %>
+      <%= image_tag cms_block_content(:thumbnail, page).file.url(:thumbnail) %>
     <% end %>
   <% end %>
   <h2 class="smaller">

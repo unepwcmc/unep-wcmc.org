@@ -8,7 +8,9 @@
   <% @employees.sample(3).each do |employee| %>
     <div class="biography">
       <div class="biography__photo">
-        <%= image_tag cms_block_content(:photo, employee).try(:file).try(:url) %>
+        <% if cms_block_content(:photo, employee).file.present? %>
+          <%= image_tag cms_block_content(:photo, employee).file.url(:profile) %>
+        <% end %>
       </div>
       <div class="biography__text">
         <h1 class="biography__name"> <%= cms_block_content(:name, employee) %> </h1>
