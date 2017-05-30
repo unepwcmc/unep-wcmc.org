@@ -28,4 +28,31 @@
       border: solid rem-calc(2) $dark-blue;
     }
   }
+  
+  &--back {
+    margin: rem-calc(24 0 14 0);
+    width: 100%;
+
+    @media (min-width: $tablet){
+      margin: rem-calc(32 0 24 0);
+    }
+    
+    clear: both;
+    display: inline-block;
+
+    &:before {
+      content: '\f053';
+      font-family: fontAwesome;
+      margin-right: rem-calc(6);
+    }
+    
+    &:hover {
+      text-decoration: none;
+      color: darken($dark-blue, 15%);
+    }
+
+    &#policies {
+      margin-top: 0;
+    }
+  }
 }

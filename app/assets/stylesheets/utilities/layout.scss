@@ -28,6 +28,14 @@
   @media(min-width: $desktop){
     width: $site-width;
   }
+
+  &-margin {
+    margin-top: rem-calc(24);
+
+    @media (min-width: $tablet){
+      margin-top: rem-calc(32);
+    }
+  }
 }
 
 //--------------------------------------------------------------------------------

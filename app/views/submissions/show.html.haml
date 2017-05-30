@@ -1,6 +1,6 @@
 .container#application-page
   #job-application.column-2-3.left
-    %a.back_nav{ :href => @form.vacancy.url }
+    %a.button--back{ href: @form.vacancy.url }
       %i.icon-chevron-left
       Back to Vacancy
     %h1#first= @form.vacancy.label
