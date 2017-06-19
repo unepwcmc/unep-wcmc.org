@@ -21,3 +21,12 @@ footer.footer {
 .footer-menu {
   padding: 2em;
 }
+
+.footer-transparent {
+  background-color: transparent;
+  height: rem-calc(60);
+
+  @media (min-width: $tablet){
+    height: rem-calc(140);
+  } 
+}
