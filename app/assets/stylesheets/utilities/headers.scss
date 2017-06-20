@@ -1,0 +1,14 @@
+.header {
+  &--section-plain {
+    border-bottom: solid rem-calc(2) $medium-grey;
+    color: $body-font-color;
+    font-family: $font-mueso;
+    font-size: rem-calc(22);
+    margin-top: rem-calc(36);
+    margin-bottom: 0;
+    padding-bottom: rem-calc(12);
+    text-transform: uppercase;
+
+    @media (min-width: $tablet){ font-size: rem-calc(36); }
+  }
+}
