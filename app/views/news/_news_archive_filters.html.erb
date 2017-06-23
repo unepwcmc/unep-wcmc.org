@@ -1,0 +1,47 @@
+<div class="container" ng-app="NewsFilters" ng-controller="NewsFiltersCtrl" ng-init="init(<%= render partial: 'news/news_archive_filters', formats: :json, locals: {truncated: true} %>)">
+
+  <div class="title-bar">
+    <div class="title-bar__left">
+      <h1>News</h1>
+    </div>
+  </div>
+
+  <div class="column-1-3 u-column-no-top">
+
+    <ul id="content">
+      <li class="filter__header header">
+        Filter by year
+      </li>
+      <li ng-repeat="filter in filters | orderBy: '-title'" class="no-padding no-margin">
+          <p 
+            class="filter__category" 
+            ng-class="{ active: filter.active && filter.count > 0 }" 
+            ng-click="toggleFilter()">
+
+            {{ filter.title }} ({{ filter.count }})
+          </p>
+      </li>
+    </ul>
+
+    <button ng-click="toggleButton()" ng-bind="button.text" class="button filter__button button--white"></button>
+  
+  </div>
+
+  <div class="column-2-3 u-column-no-top" id="data">
+    <section class="list" ng-repeat="article in articles | orderBy: '-date'" ng-show="article.active">
+      <div class="article">
+        <div class="article__title">
+          <h2 class="card__title"><a href="/resources-and-data/{{ article.slug }}">{{ article.title }}</a></h2>
+        </div>
+
+        <small class="card__timestamp">{{ article.formattedDate }}</small>
+
+        <div class="article__text">
+          <p ng-bind-html="article.introduction"></p>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="smaller" ng-if="articles.length == 0">No news articles available</h2>
+  </div>
+</div>
