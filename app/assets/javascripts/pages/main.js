@@ -1,5 +1,6 @@
 angular.module('ProjectsList', ['ngAnimate']);
 angular.module('DatasetsResources', []);
+angular.module('NewsFilters', []);
 
 angular.module('stats', ['ngAnimate', 'ngResource', 'ui.select2', 'ui.bootstrap'])
   .constant('GEOIP_URL', my_url + '/api/geoip')

@@ -1,0 +1,10 @@
+<div class="news-ticker-container">
+  <ul class="news-ticker container ul--plain">
+    <% Comfy::Cms::Site.find_by_identifier('news').pages.root.children.published.includes(blocks: [:files]).reverse.take(3).each do |page| %>
+      <li class="li--plain news-ticker__item">
+        <span class="news-ticker__date"><%= formatted_time(block_content(:time, page)) %></span>
+        <h3 class="news-ticker__title"><a href="<%= page.url(:relative) %>"><%= truncate(block_content(:news_header, page), escape: false, length: 70, omission: "...") %> &gt;</a></h3>
+      </li>
+    <% end %>  
+  </ul>
+</div>

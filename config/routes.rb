@@ -8,8 +8,6 @@ UnepWcmcOrg::Application.routes.draw do
 
   devise_for :users, :controllers => { :confirmations => "confirmations" }, skip: [:registrations]
 
-  get "/news" => redirect("/about-us/news-archive")
-
   namespace :admin do
     resources :employees do
       collection do

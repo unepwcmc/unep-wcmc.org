@@ -38,6 +38,10 @@
   }
 }
 
+.column-top-margin {
+  margin-top: rem-calc(19);
+}
+
 //--------------------------------------------------------------------------------
 // flexbox grid
 //--------------------------------------------------------------------------------
@@ -95,5 +99,15 @@
       margin-bottom: rem-calc(30);
       width: 31%;
     }
+
+    &-1-3 {
+      @extend %flex__child;
+      @media (min-width: $tablet){ width: 31%; }
+    }
+    
+    &-2-3 {
+      @extend %flex__child;
+      @media (min-width: $tablet){ width: 64%; }
+    }   
   }
 }
