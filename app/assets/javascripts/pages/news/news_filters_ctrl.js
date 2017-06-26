@@ -60,7 +60,6 @@ angular.module("NewsFilters").controller("NewsFiltersCtrl", [
     }
 
     $scope.toggleFilter = function(){
-      console.log(this);
       var filter = this.filter;
       filter.active = !filter.active;
 
