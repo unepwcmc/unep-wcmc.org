@@ -1,6 +1,6 @@
 .header {
   &--section-plain {
-    border-bottom: solid rem-calc(2) $medium-grey;
+    border-bottom: solid rem-calc(2) darken($light-grey, 5%);
     color: $body-font-color;
     font-family: $font-mueso;
     font-size: rem-calc(22);
