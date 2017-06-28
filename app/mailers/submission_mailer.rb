@@ -15,9 +15,22 @@ class SubmissionMailer < ActionMailer::Base
 
   def inform_recruitment(submission, form)
     @submission = submission
-    @form = form
-    @vacancy = @form.vacancy
-    @host = default_url_options[:host]
+    @form       = form
+    @vacancy    = @form.vacancy
+    @host       = default_url_options[:host]
+
+    if @submission.cv.present?
+      attachments[@submission.cv_file_name] = File.read(@submission.cv.path)
+    end
+
+    if @submission.cover_letter.present?
+      attachments[@submission.cover_letter_file_name] = File.read(@submission.cover_letter.path)
+    end
+
+    if @submission.application_form.present?
+      attachments[@submission.application_form_file_name] = File.read(@submission.application_form.path)
+    end
+
     mail(
       from: 'no-reply@unep-wcmc.org',
       to: 'recruitment@unep-wcmc.org',
