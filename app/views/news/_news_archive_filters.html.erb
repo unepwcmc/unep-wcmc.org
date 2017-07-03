@@ -32,7 +32,7 @@
       <section class="list" ng-repeat="article in articles | orderBy: '-date'" ng-show="article.active">
         <div class="article">
           <div class="article__title">
-            <h2 class="card__title"><a href="/resources-and-data/{{ article.slug }}">{{ article.title }}</a></h2>
+            <h2 class="card__title"><a href="/news/{{ article.slug }}">{{ article.title }}</a></h2>
           </div>
 
           <small class="card__timestamp">{{ article.formattedDate }}</small>
