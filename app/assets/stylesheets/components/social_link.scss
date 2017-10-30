@@ -30,11 +30,13 @@
   .fa-facebook { background-color: $facebook; }
   .fa-twitter  { background-color: $twitter; }
   .fa-linkedin { background-color: $linkedin; }
+  .fa-youtube { background-color: $youtube; }
 }
 
 .social-link__text {
   font-size: 14px;
   margin-left: 0.25em;
+  align-self: center;
 
   @media (max-width: $phone){
     display: none;
