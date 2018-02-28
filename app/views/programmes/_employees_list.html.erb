@@ -1,7 +1,8 @@
 <div class="section-group">
   <% programme.employments.sort { |a, b| a.employee.position <=> b.employee.position }.each do |employment| %>
     <% if employment.employee.is_published %>
-      <section class="group staff" ng-if="matchName('<%= block_content(:name, employment.employee).downcase %>')">
+
+      <section class="group staff" ng-if='matchName("<%= block_content(:name, employment.employee).downcase %>")'>
         <%= link_to '/' + @cms_site.path + employment.employee.full_path do %>
           <% if cms_block_content(:photo, employment.employee) && cms_block_content(:photo, employment.employee).file.present? %>
             <%= image_tag cms_block_content(:photo, employment.employee).file.url(:profile) %>
