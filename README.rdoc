@@ -39,7 +39,8 @@ March 2017 - Updated the functionality of the filters on the Resources and Data 
   rake db:migrate
   rake db:seed
   HOSTNAME="localhost:3000" rake unepwcmc:setup
-
+  rails generate comfy:cms
+  rake db:migrate
 
 Amend HOSTNAME as required and provide your database settings in database.yml.
 
