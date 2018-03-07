@@ -34,11 +34,13 @@ March 2017 - Updated the functionality of the filters on the Resources and Data 
 ## Local development
 
   bundle install (see troubleshooting if you have issues)
+  mv config/database.yml.example config/database.yml
+  rake db:create
   rake db:migrate
   rake db:seed
   HOSTNAME="localhost:3000" rake unepwcmc:setup
-  mv config/database.yml.example config/database.yml
-  
+
+
 Amend HOSTNAME as required and provide your database settings in database.yml.
 
 Note that most of the images are uploaded via Comfortable Mexican Sofa, which at it's current
@@ -73,7 +75,7 @@ You will need to configure email / slack notifications in the secrets.yml / .env
 
 - Staging URL [https://unep-wcmc-staging.linode.unep-wcmc.org](https://unep-wcmc-staging.linode.unep-wcmc.org)
 
-## Live 
+## Live
 
 - Live URL [https://unep-wcmc.org](https://unep-wcmc.org)
 
