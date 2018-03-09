@@ -4,7 +4,7 @@ class Download::GenerateZip
     puts "initialize generate zip with the path of the zip path"
   end
 
-  def add_file_to_zip(file_path)
+  def add_file_to_zip(file_path, zipped_file_path)
     puts "adds file to zip (updates it if present) and creates zip if not already present"
   end
 
