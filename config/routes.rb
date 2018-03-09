@@ -60,6 +60,8 @@ UnepWcmcOrg::Application.routes.draw do
     resources :submissions, path: "applications", except: [:index]
   end
 
+  resources :applications, only: [:index, :show]
+
   namespace :api do
     resources :geoip, only: [:index]
     resources :countries, only: [:index]
