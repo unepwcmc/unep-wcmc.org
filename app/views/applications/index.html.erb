@@ -15,8 +15,12 @@
     <h1>Listing job applications</h1>
   </div>
   <ul>
-    <% @forms.each do |form| %>
-      <li><h3><%= link_to form.vacancy.label, application_path(form) %></h3></li>
-    <% end %>
+  <% @forms.each do |form| %>
+    <li>
+      <h3>
+        <%= link_to form.vacancy.label, application_path(form) %>
+      </h3>
+    </li>
+  <% end %>
   </ul>
 </div>

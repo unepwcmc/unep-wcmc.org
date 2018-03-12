@@ -18,8 +18,8 @@ class ApplicationsController < ApplicationController
   end
 
   def download_application_zip
-    submission = Submission.find(params[:id])
-    filename = "job_application_submission-#{submission.name.parameterize.underscore}-#{Date.today}.zip"
+    submission = Submission.find_by(slug: params[:id])
+    filename = "job_application_submission-#{submission.name.parameterize.underscore}-#{submission.id}-#{Date.today}.zip"
     zip = Download::GenerateZip.new(filename)
     zip.application_generate_zip(submission.id)
     send_file filename, type: 'application/zip', disposition: 'attachment', filename: filename

@@ -15,12 +15,15 @@
     <h1>Listing job applications</h1>
   </div>
 
-  <h2><%= @form.vacancy.label %></h2>
+  <h2>
+    <%= @form.vacancy.label %>
+    <%= link_to 'Zip', download_all_applications_zip_path(@form), class: "download__zip" %>
+  </h2>
   <ul>
     <% @form.submissions.order(created_at: :desc).each do |submission| %>
       <li>
         <%= submission.name %>
-        <%= link_to 'Zip', "TODO", class: "download__zip" %>
+        <%= link_to "Zip", download_application_zip_path(submission) %>
       </li>
     <% end %>
   </ul>
