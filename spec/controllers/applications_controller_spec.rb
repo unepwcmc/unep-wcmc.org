@@ -20,4 +20,19 @@ describe ApplicationsController do
       response.should render_template :index
     end
   end
+
+  describe "GET #show" do
+    it "assigns the requested form to @form" do
+      sign_in @user
+      form = create(:form)
+      get :show, id: form
+      assigns(:form).should eq(form)
+    end
+
+    it "renders the #show view" do
+      sign_in @user
+      get :show, id: create(:form)
+      response.should render_template :show
+    end
+  end
 end
