@@ -9,6 +9,22 @@ class ApplicationsController < ApplicationController
   def show
   end
 
+  def download_all_applications_zip
+    form = Form.find(params[:id])
+    filename = "job_application_form-#{form.vacancy.label.parameterize.underscore}-#{Date.today}.zip"
+    zip = Download::GenerateZip.new(filename)
+    zip.all_applications_generate_zip(form.id)
+    send_file filename, type: 'application/zip', disposition: 'attachment', filename: filename
+  end
+
+  def download_application_zip
+    submission = Submission.find(params[:id])
+    filename = "job_application_submission-#{submission.name.parameterize.underscore}-#{Date.today}.zip"
+    zip = Download::GenerateZip.new(filename)
+    zip.application_generate_zip(submission.id)
+    send_file filename, type: 'application/zip', disposition: 'attachment', filename: filename
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_form

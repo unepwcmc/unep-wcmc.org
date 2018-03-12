@@ -62,6 +62,9 @@ UnepWcmcOrg::Application.routes.draw do
 
   resources :applications, only: [:index, :show]
 
+  get '/download_all_applications_zip/:id', controller: :applications, action: :download_all_applications_zip
+  get '/download_application_zip/:id', controller: :applications, action: :download_application_zip
+
   namespace :api do
     resources :geoip, only: [:index]
     resources :countries, only: [:index]
