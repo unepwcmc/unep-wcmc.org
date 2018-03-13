@@ -1,6 +1,6 @@
 class JobApplicationsController < ApplicationController
   before_action :authenticate
-  before_action :set_form, only: [:show]
+  before_action :set_form, only: [:show, :destroy]
 
   def index
     @forms = Form.order(created_at: :desc)
@@ -18,7 +18,7 @@ class JobApplicationsController < ApplicationController
     unless zip.zip_exists?
       zip.all_applications_generate_zip(form.id)
     end
-    
+
     send_file path + filename, type: 'application/zip', disposition: 'attachment', filename: filename
   end
 
@@ -33,6 +33,13 @@ class JobApplicationsController < ApplicationController
     end
 
     send_file path + filename, type: 'application/zip', disposition: 'attachment', filename: filename
+  end
+
+  def destroy
+    @form.submissions.each do |submission|
+      submission.destroy
+    end
+    redirect_to job_applications_path, notice: 'Job applications were successfully destroyed.'
   end
 
   private
