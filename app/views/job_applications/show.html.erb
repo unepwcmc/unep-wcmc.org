@@ -1,0 +1,22 @@
+<%= render 'hero' %>
+
+<div class="container">
+  <div class="title-bar">
+    <h1>Listing job applications</h1>
+  </div>
+
+  <h2>
+    <%= @form.vacancy.label %>
+    <%= link_to 'Zip', download_all_applications_zip_path(@form), class: "download__zip" %>
+  </h2>
+  <ul>
+    <% @form.submissions.where(is_submitted: true).order(created_at: :desc).each do |submission| %>
+      <li>
+        <%= submission.name %>
+        <% if @form.submissions.pluck(:is_submitted).uniq.include? true %>
+          <%= link_to "Zip", download_application_zip_path(submission) %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
