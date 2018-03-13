@@ -8,8 +8,10 @@
 
   <h2>
     <%= @form.vacancy.label %>
-    <%= link_to 'Zip', download_all_applications_zip_path(@form) %>
-    <%= link_to 'Destroy all', job_application_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% unless @form.submissions.empty? %>
+      <%= link_to 'Zip', download_all_applications_zip_path(@form) %>
+      <%= link_to 'Destroy all', job_application_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
   </h2>
   <ul>
     <% @form.submissions.where(is_submitted: true).order(created_at: :desc).each do |submission| %>
