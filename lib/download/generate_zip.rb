@@ -6,12 +6,10 @@ class Download::GenerateZip
   end
 
   def add_single_application_to_zip resource_path
-    system("cd #{@path}")
     system("zip -jru #{@zip_path} '#{resource_path}'", chdir: @path)
   end
 
   def add_many_applications_to_zip resource_path
-    system("cd #{@path}")
     system("zip -ru #{@zip_path} '#{resource_path}'", chdir: @path)
   end
 
