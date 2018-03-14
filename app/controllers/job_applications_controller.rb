@@ -19,7 +19,11 @@ class JobApplicationsController < ApplicationController
       zip.all_applications_generate_zip(form.id)
     end
 
-    send_file path + filename, type: 'application/zip', disposition: 'attachment', filename: filename
+    if zip.zip_exists?
+      send_file path + filename, type: 'application/zip', disposition: 'attachment', filename: filename
+    else
+      redirect_to job_application_path(form), notice: 'Cannot find zip file'
+    end
   end
 
   def download_application_zip
@@ -32,7 +36,11 @@ class JobApplicationsController < ApplicationController
       zip.application_generate_zip(submission.id)
     end
 
-    send_file path + filename, type: 'application/zip', disposition: 'attachment', filename: filename
+    if zip.zip_exists?
+      send_file path + filename, type: 'application/zip', disposition: 'attachment', filename: filename
+    else
+      redirect_to job_application_path(submission.form), notice: 'Cannot find zip file'
+    end
   end
 
   def destroy
