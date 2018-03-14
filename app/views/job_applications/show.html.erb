@@ -17,10 +17,8 @@
     <% @form.submissions.where(is_submitted: true).order(created_at: :desc).each do |submission| %>
       <li>
         <%= submission.name %>
-        <% if @form.submissions.pluck(:is_submitted).uniq.include? true %>
-          <%= link_to "Zip", download_application_zip_path(submission) %>
-          <%= link_to 'Destroy', [@form, submission], method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
+        <%= link_to "Zip", download_application_zip_path(submission) %>
+        <%= link_to 'Destroy', [@form, submission], method: :delete, data: { confirm: 'Are you sure?' } %>
       </li>
     <% end %>
   </ul>
