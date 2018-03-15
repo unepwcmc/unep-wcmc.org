@@ -31,15 +31,8 @@
 
 %p
   %strong CV and cover letter
-%p CV
-- if @submission.cv.present?
-  = link_to(@submission.cv_file_name, "https://#{@host}#{@submission.cv.url}")
-%p Cover letter
-- if @submission.cover_letter.present?
-  = link_to(@submission.cover_letter_file_name, "https://#{@host}#{@submission.cover_letter.url}")
-%p Application form
-- if @submission.application_form.present?
-  = link_to(@submission.application_form_file_name, "https://#{@host}#{@submission.application_form.url}")
+%p Download Zip
+= link_to(@submission.name, "https://#{@host}#{download_application_zip_path(@submission)}")
 
 %p
   %strong Employment Conditions

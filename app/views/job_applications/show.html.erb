@@ -1,0 +1,25 @@
+<%= render 'hero' %>
+
+<div class="container">
+  <%= link_to "Back to job applications", job_applications_path, class: "button--back" %>
+  <div class="title-bar">
+    <h1>Listing job applications</h1>
+  </div>
+
+  <h2>
+    <%= @form.vacancy.label %>
+    <% unless @form.submissions.empty? %>
+      <%= link_to fa_icon("download"), download_all_applications_zip_path(@form) %>
+      <%= link_to fa_icon("remove"), job_application_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </h2>
+  <ul>
+    <% @form.submissions.where(is_submitted: true).order(created_at: :desc).each do |submission| %>
+      <li>
+        <%= submission.name %>
+        <%= link_to fa_icon("download"), download_application_zip_path(submission) %>
+        <%= link_to fa_icon("remove"), [@form, submission], method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+  </ul>
+</div>
