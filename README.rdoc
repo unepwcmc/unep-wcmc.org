@@ -38,7 +38,7 @@ March 2017 - Updated the functionality of the filters on the Resources and Data 
   rake db:seed
   HOSTNAME="localhost:3000" rake unepwcmc:setup
   mv config/database.yml.example config/database.yml
-  
+
 Amend HOSTNAME as required and provide your database settings in database.yml.
 
 Note that most of the images are uploaded via Comfortable Mexican Sofa, which at it's current
@@ -51,6 +51,12 @@ You will need to have PostgreSQL and ImageMagick installed.
 ==== Configuration: secrets.yml & .env
 
 We use the secrets.yml file to store configuration. Any sensitive information (particularly in staging & production environments) should not be included directly in that file, but via a reference to an environment variable defined on the target machine. We use .env files (via the dotenv gem) to store the environment variable.
+
+You will need to obtain the One Drive details which are necessary for integration with Microsoft's services. You must use the Microsoft Graph Explorer and make sure you are logged in, as by default it uses a test account. Within the Microsoft Graph Explorer you need to visit `https://graph.microsoft.com/v1.0/me?$select=mySite` which will return your `mySite` address.
+
+This needs to be put into your environment variable with the following appended `_api/v2.0` as: `ONEDRIVE_MYSITE`.
+The rest of the One Drive credentials must be populated and can be achieved by registering a Web Application through Microsoft's developer portal.
+
 
 ===== Email
 
@@ -73,7 +79,7 @@ You will need to configure email / slack notifications in the secrets.yml / .env
 
 - Staging URL [https://unep-wcmc-staging.linode.unep-wcmc.org](https://unep-wcmc-staging.linode.unep-wcmc.org)
 
-## Live 
+## Live
 
 - Live URL [https://unep-wcmc.org](https://unep-wcmc.org)
 

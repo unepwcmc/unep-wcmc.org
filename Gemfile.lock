@@ -198,6 +198,9 @@ GEM
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
     http_parser.rb (0.5.3)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -235,6 +238,7 @@ GEM
     minitest (5.8.4)
     modernizr-rails (2.7.1)
     multi_json (1.11.2)
+    multi_xml (0.6.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
@@ -405,6 +409,7 @@ DEPENDENCIES
   guard
   guard-livereload
   guard-rspec
+  httparty (~> 0.13.7)
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
@@ -431,4 +436,4 @@ DEPENDENCIES
   yajl-ruby (~> 1.2.1)
 
 BUNDLED WITH
-   1.10.6
+   1.16.1
