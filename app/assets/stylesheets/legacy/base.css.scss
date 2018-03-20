@@ -1764,8 +1764,6 @@ button.dashboard-collapse {
   padding-left: 15px;
 }
 
-.job-application-list {
-  li, ul {
-    list-style-type: none;
-  }
+ul, li .job-application-list {
+  list-style-type: none;
 }
