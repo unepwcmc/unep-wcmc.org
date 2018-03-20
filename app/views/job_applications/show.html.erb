@@ -11,7 +11,7 @@
       <%= @form.vacancy.label %>
     <% else %>
       <%= link_to fa_icon("download"), download_all_applications_zip_path(@form) %>
-      <%= link_to  @form.vacancy.label, download_all_applications_zip_path(@form) %>
+      <%= link_to @form.vacancy.label, download_all_applications_zip_path(@form) %>
       <%= link_to fa_icon("remove", class: "remove"), job_application_path, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
   </h2>
