@@ -7,18 +7,20 @@
   </div>
 
   <h2>
-    <%= @form.vacancy.label %>
-    <% unless @form.submissions.empty? %>
+    <% if @form.submissions.empty? %>
+      <%= @form.vacancy.label %>
+    <% else %>
       <%= link_to fa_icon("download"), download_all_applications_zip_path(@form) %>
-      <%= link_to fa_icon("remove"), job_application_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to  @form.vacancy.label, download_all_applications_zip_path(@form) %>
+      <%= link_to fa_icon("remove", class: "remove"), job_application_path, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
   </h2>
   <ul>
     <% @form.submissions.where(is_submitted: true).order(created_at: :desc).each do |submission| %>
       <li>
-        <%= submission.name %>
         <%= link_to fa_icon("download"), download_application_zip_path(submission) %>
-        <%= link_to fa_icon("remove"), [@form, submission], method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to submission.name, download_application_zip_path(submission) %>
+        <%= link_to fa_icon("remove", class: "remove"), [@form, submission], method: :delete, data: { confirm: 'Are you sure?' } %>
       </li>
     <% end %>
   </ul>
