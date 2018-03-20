@@ -245,6 +245,10 @@ ul {
     font-weight: 300;
     color: $grey_text;
   }
+
+  .job-application-list {
+    list-style-type: none;
+  }
 }
 
 ol {
@@ -256,6 +260,10 @@ ol {
     line-height: 1.5em;
     font-weight: 300;
     color: $grey_text;
+
+    .job-application-list {
+      list-style-type: none;
+    }
   }
 }
 

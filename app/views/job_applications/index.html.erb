@@ -6,7 +6,7 @@
   </div>
   <ul>
   <% @forms.each do |form| %>
-    <li>
+    <li class="job-application-list">
       <h3>
         <%= link_to form.vacancy.label, job_application_path(form) %>
       </h3>
