@@ -15,9 +15,9 @@
       <%= link_to fa_icon("remove", class: "remove"), job_application_path, method: :delete, data: { confirm: 'Are you sure you want to delete these job applications?' } %>
     <% end %>
   </h2>
-  <ul>
+  <ul class="job-application-list">
     <% @form.submissions.where(is_submitted: true).order(created_at: :desc).each do |submission| %>
-      <li class="job-application-list">
+      <li>
         <%= link_to fa_icon("download"), download_application_zip_path(submission) %>
         <%= link_to submission.name, download_application_zip_path(submission) %>
         <%= link_to fa_icon("remove", class: "remove"), [@form, submission], method: :delete, data: { confirm: 'Are you sure you want to delete this job application?' } %>
