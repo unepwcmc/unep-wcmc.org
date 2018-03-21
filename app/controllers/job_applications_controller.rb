@@ -22,7 +22,7 @@ class JobApplicationsController < ApplicationController
     if zip.zip_exists?
       send_file path + filename, type: 'application/zip', disposition: 'attachment', filename: filename
     else
-      redirect_to job_application_path(form), notice: 'Cannot find zip file'
+      redirect_to job_application_path(form), flash: { error: 'Cannot find zip file' }
     end
   end
 
@@ -39,7 +39,7 @@ class JobApplicationsController < ApplicationController
     if zip.zip_exists?
       send_file path + filename, type: 'application/zip', disposition: 'attachment', filename: filename
     else
-      redirect_to job_application_path(submission.form), notice: 'Cannot find zip file'
+      redirect_to job_application_path(submission.form), flash: { error: 'Cannot find zip file' }
     end
   end
 
