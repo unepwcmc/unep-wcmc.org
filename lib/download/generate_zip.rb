@@ -22,17 +22,25 @@ class Download::GenerateZip
 
   def all_applications_generate_zip form_id
     form = Form.find_by(id: form_id)
-    system("mkdir 'form-#{form.vacancy.label}'", chdir: @path)
+    zipped_files_path = "form-#{form.vacancy.label}".parameterize.underscore
+    system("mkdir #{zipped_files_path}", chdir: @path)
 
-    form.submissions.each do |submission|
-      system("mkdir 'form-#{form.vacancy.label}/#{submission.name}'", chdir: @path)
-      system("cp #{submission.cv.path} 'form-#{form.vacancy.label}/#{submission.name}'", chdir: @path)
-      system("cp #{submission.application_form.path} 'form-#{form.vacancy.label}/#{submission.name}'", chdir: @path)
-      system("cp #{submission.cover_letter.path} 'form-#{form.vacancy.label}/#{submission.name}'", chdir: @path)
+    form.submissions.where(is_submitted: true).each do |submission|
+      candidate_path = "#{submission.name}".parameterize.underscore
+      all_submissions_path = "all_submissions"
+
+      system("mkdir #{zipped_files_path}/#{candidate_path}", chdir: @path)
+
+      system("cp #{submission.cv.path} #{zipped_files_path}/#{candidate_path}/#{submission.name.parameterize.underscore}_#{submission.cv_file_name}", chdir: @path)
+      system("cp #{submission.application_form.path} #{zipped_files_path}/#{candidate_path}/#{submission.name.parameterize.underscore}_#{submission.application_form_file_name}", chdir: @path)
+      system("cp #{submission.cover_letter.path} #{zipped_files_path}/#{candidate_path}/#{submission.name.parameterize.underscore}_#{submission.cover_letter_file_name}", chdir: @path)
+
+      system("mkdir #{zipped_files_path}/#{all_submissions_path}", chdir: @path)
+      system("cp #{zipped_files_path}/#{candidate_path}/* #{zipped_files_path}/#{all_submissions_path}", chdir: @path)
     end
 
-    add_many_applications_to_zip("form-#{form.vacancy.label}")
-    system("rm -rf 'form-#{form.vacancy.label}'", chdir: @path)
+    add_many_applications_to_zip(zipped_files_path)
+    system("rm -rf #{zipped_files_path}", chdir: @path)
   end
 
   def zip_exists?
@@ -40,7 +48,7 @@ class Download::GenerateZip
   end
 
   def delete_zip
-    system("rm -rf '#{@zip_path}'", chdir: @path)
+    system("rm -rf #{@zip_path}", chdir: @path)
   end
 
 end
