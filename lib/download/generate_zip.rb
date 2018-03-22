@@ -31,14 +31,9 @@ class Download::GenerateZip
 
       system("mkdir #{zipped_files_path}/#{candidate_path}", chdir: @path)
 
-      system("cp #{submission.cv.path} #{zipped_files_path}/#{candidate_path}", chdir: @path)
-      system("mv #{submission.cv_file_name} #{submission.name.parameterize.underscore}_#{submission.cv_file_name}", chdir: "#{@path}/#{zipped_files_path}/#{candidate_path}")
-
-      system("cp #{submission.application_form.path} #{zipped_files_path}/#{candidate_path}", chdir: @path)
-      system("mv #{submission.application_form_file_name} #{submission.name.parameterize.underscore}_#{submission.application_form_file_name}", chdir: "#{@path}/#{zipped_files_path}/#{candidate_path}")
-
-      system("cp #{submission.cover_letter.path} #{zipped_files_path}/#{candidate_path}", chdir: @path)
-      system("mv #{submission.cover_letter_file_name} #{submission.name.parameterize.underscore}_#{submission.cover_letter_file_name}", chdir: "#{@path}/#{zipped_files_path}/#{candidate_path}")
+      system("cp #{submission.cv.path} #{zipped_files_path}/#{candidate_path}/#{submission.name.parameterize.underscore}_#{submission.cv_file_name}", chdir: @path)
+      system("cp #{submission.application_form.path} #{zipped_files_path}/#{candidate_path}/#{submission.name.parameterize.underscore}_#{submission.application_form_file_name}", chdir: @path)
+      system("cp #{submission.cover_letter.path} #{zipped_files_path}/#{candidate_path}/#{submission.name.parameterize.underscore}_#{submission.cover_letter_file_name}", chdir: @path)
 
       system("mkdir #{zipped_files_path}/#{all_submissions_path}", chdir: @path)
       system("cp #{zipped_files_path}/#{candidate_path}/* #{zipped_files_path}/#{all_submissions_path}", chdir: @path)
