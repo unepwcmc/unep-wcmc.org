@@ -1,0 +1,16 @@
+<%= render 'hero' %>
+
+<div class="container">
+  <div class="title-bar">
+    <h1>Listing job applications</h1>
+  </div>
+  <ul class="job-application-list">
+  <% @forms.each do |form| %>
+    <li>
+      <h3>
+        <%= link_to form.vacancy.label, job_application_path(form) %>
+      </h3>
+    </li>
+  <% end %>
+  </ul>
+</div>

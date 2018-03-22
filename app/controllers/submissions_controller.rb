@@ -35,6 +35,12 @@ class SubmissionsController < ApplicationController
     end
   end
 
+  def destroy
+    @submission = @form.submissions.find_by_slug!(params[:id])
+    @submission.destroy
+    redirect_to job_application_path(@form), notice: 'Job application was successfully destroyed.'
+  end
+
   private
 
   def success_redirect
