@@ -29,7 +29,8 @@ class JobApplicationsController < ApplicationController
   def download_application_zip
     submission = Submission.find_by(slug: params[:id])
     path = Rails.root.join('private', 'zip', 'job_applications')
-    filename = "job_application_submission-#{submission.name.parameterize.underscore}-#{submission.id}-#{Date.today.to_s.parameterize.underscore}.zip"
+    vacancy_label = submission.form.vacancy.label.scan(/\(([^)]+)\)/).first.first
+    filename = "job_application_submission-#{submission.name.parameterize.underscore}-#{vacancy_label}-#{Date.today.to_s.parameterize.underscore}.zip"
     zip = Download::GenerateZip.new(path, filename)
 
     unless zip.zip_exists?
