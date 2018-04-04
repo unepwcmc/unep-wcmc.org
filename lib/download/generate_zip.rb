@@ -11,19 +11,20 @@ class Download::GenerateZip
 
   def application_generate_zip submission_id
     submission = Submission.find_by(id: submission_id)
+    return unless submission_valid?(submission)
     candidate_path = "#{submission.name}".parameterize.underscore
     vacancy_label = submission.form.vacancy.label.scan(/\((.*)\)/).first.first
     zipped_files_path = "form-#{vacancy_label}-#{candidate_path}".parameterize.underscore
     document_path = "#{zipped_files_path}/#{vacancy_label}_#{candidate_path}"
-    cv_extension = submission.cv_file_name ? File.extname(submission.cv_file_name) : nil
-    application_form_extension = submission.application_form_file_name ? File.extname(submission.application_form_file_name) : nil
-    cover_letter_extension = submission.cover_letter_file_name ? File.extname(submission.cover_letter_file_name) : nil
+    cv_extension = File.extname(submission.cv_file_name)
+    application_form_extension = File.extname(submission.application_form_file_name)
+    cover_letter_extension = File.extname(submission.cover_letter_file_name)
 
     system("mkdir #{zipped_files_path}", chdir: @path)
 
-    system("cp #{submission.cv.path} #{document_path}_CV#{cv_extension}", chdir: @path) if cv_extension
-    system("cp #{submission.application_form.path} #{document_path}_Application#{application_form_extension}", chdir: @path) if application_form_extension
-    system("cp #{submission.cover_letter.path} #{document_path}_Cover_letter#{cover_letter_extension}", chdir: @path) if cover_letter_extension
+    system("cp #{submission.cv.path} #{document_path}_CV#{cv_extension}", chdir: @path)
+    system("cp #{submission.application_form.path} #{document_path}_Application#{application_form_extension}", chdir: @path)
+    system("cp #{submission.cover_letter.path} #{document_path}_Cover_letter#{cover_letter_extension}", chdir: @path)
 
     add_documents_to_zip(zipped_files_path)
 
@@ -36,19 +37,20 @@ class Download::GenerateZip
     system("mkdir #{zipped_files_path}", chdir: @path)
 
     form.submissions.where(is_submitted: true).each do |submission|
+      next unless submission_valid?(submission)
       candidate_path = "#{submission.name}".parameterize.underscore
       all_submissions_path = "all_submissions"
       vacancy_label = form.vacancy.label.scan(/\((.*)\)/).first.first
       documents_path = "#{zipped_files_path}/#{candidate_path}/#{vacancy_label}_#{candidate_path}"
-      cv_extension = submission.cv_file_name ? File.extname(submission.cv_file_name) : nil
-      application_form_extension = submission.application_form_file_name ? File.extname(submission.application_form_file_name) : nil
-      cover_letter_extension = submission.cover_letter_file_name ? File.extname(submission.cover_letter_file_name) : nil
+      cv_extension = File.extname(submission.cv_file_name)
+      application_form_extension = File.extname(submission.application_form_file_name)
+      cover_letter_extension = File.extname(submission.cover_letter_file_name)
 
       system("mkdir #{zipped_files_path}/#{candidate_path}", chdir: @path)
 
-      system("cp #{submission.cv.path} #{documents_path}_CV#{cv_extension}", chdir: @path) if cv_extension
-      system("cp #{submission.application_form.path} #{documents_path}_Application#{application_form_extension}", chdir: @path) if application_form_extension
-      system("cp #{submission.cover_letter.path} #{documents_path}_Cover_letter#{cover_letter_extension}", chdir: @path) if cover_letter_extension
+      system("cp #{submission.cv.path} #{documents_path}_CV#{cv_extension}", chdir: @path)
+      system("cp #{submission.application_form.path} #{documents_path}_Application#{application_form_extension}", chdir: @path)
+      system("cp #{submission.cover_letter.path} #{documents_path}_Cover_letter#{cover_letter_extension}", chdir: @path)
 
       system("mkdir #{zipped_files_path}/#{all_submissions_path}", chdir: @path)
       system("cp #{zipped_files_path}/#{candidate_path}/* #{zipped_files_path}/#{all_submissions_path}", chdir: @path)
@@ -60,6 +62,10 @@ class Download::GenerateZip
 
   def zip_exists?
     system("ls #{@path}/#{@zip_path}")
+  end
+
+  def submission_valid? submission
+    submission.application_form_file_name.present? && submission.cover_letter_file_name.present? && submission.cv_file_name.present?
   end
 
   def delete_zip
