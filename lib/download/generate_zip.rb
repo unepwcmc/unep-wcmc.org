@@ -12,14 +12,15 @@ class Download::GenerateZip
   def application_generate_zip submission_id
     submission = Submission.find_by(id: submission_id)
     candidate_path = "#{submission.name}".parameterize.underscore
-    vacancy_label = submission.form.vacancy.label.scan(/\(([^)]+)\)/).first.first
+    vacancy_label = submission.form.vacancy.label.scan(/\((.*)\)/).first.first
     zipped_files_path = "form-#{vacancy_label}-#{candidate_path}".parameterize.underscore
+    document_path = "#{zipped_files_path}/#{vacancy_label}_#{candidate_path}"
 
     system("mkdir #{zipped_files_path}", chdir: @path)
 
-    system("cp #{submission.cv.path} #{zipped_files_path}/#{vacancy_label}_#{candidate_path}_CV#{File.extname(submission.cv_file_name)}", chdir: @path)
-    system("cp #{submission.application_form.path} #{zipped_files_path}/#{vacancy_label}_#{candidate_path}_Application#{File.extname(submission.application_form_file_name)}", chdir: @path)
-    system("cp #{submission.cover_letter.path} #{zipped_files_path}/#{vacancy_label}_#{candidate_path}_Cover_letter#{File.extname(submission.cover_letter_file_name)}", chdir: @path)
+    system("cp #{submission.cv.path} #{document_path}_CV#{File.extname(submission.cv_file_name)}", chdir: @path)
+    system("cp #{submission.application_form.path} #{document_path}_Application#{File.extname(submission.application_form_file_name)}", chdir: @path)
+    system("cp #{submission.cover_letter.path} #{document_path}_Cover_letter#{File.extname(submission.cover_letter_file_name)}", chdir: @path)
 
     add_documents_to_zip(zipped_files_path)
 
@@ -34,13 +35,14 @@ class Download::GenerateZip
     form.submissions.where(is_submitted: true).each do |submission|
       candidate_path = "#{submission.name}".parameterize.underscore
       all_submissions_path = "all_submissions"
-      vacancy_label = form.vacancy.label.scan(/\(([^)]+)\)/).first.first
+      vacancy_label = form.vacancy.label.scan(/\((.*)\)/).first.first
+      documents_path = "#{zipped_files_path}/#{candidate_path}/#{vacancy_label}_#{candidate_path}"
 
       system("mkdir #{zipped_files_path}/#{candidate_path}", chdir: @path)
 
-      system("cp #{submission.cv.path} #{zipped_files_path}/#{candidate_path}/#{vacancy_label}_#{candidate_path}_CV#{File.extname(submission.cv_file_name)}", chdir: @path)
-      system("cp #{submission.application_form.path} #{zipped_files_path}/#{candidate_path}/#{vacancy_label}_#{candidate_path}_Application#{File.extname(submission.application_form_file_name)}", chdir: @path)
-      system("cp #{submission.cover_letter.path} #{zipped_files_path}/#{candidate_path}/#{vacancy_label}_#{candidate_path}_Cover_letter#{File.extname(submission.cover_letter_file_name)}", chdir: @path)
+      system("cp #{submission.cv.path} #{documents_path}_CV#{File.extname(submission.cv_file_name)}", chdir: @path)
+      system("cp #{submission.application_form.path} #{documents_path}_Application#{File.extname(submission.application_form_file_name)}", chdir: @path)
+      system("cp #{submission.cover_letter.path} #{documents_path}_Cover_letter#{File.extname(submission.cover_letter_file_name)}", chdir: @path)
 
       system("mkdir #{zipped_files_path}/#{all_submissions_path}", chdir: @path)
       system("cp #{zipped_files_path}/#{candidate_path}/* #{zipped_files_path}/#{all_submissions_path}", chdir: @path)
