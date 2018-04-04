@@ -11,6 +11,7 @@ class Download::GenerateZip
 
   def application_generate_zip submission_id
     submission = Submission.find_by(id: submission_id)
+    return unless submission.attachments_valid?
     candidate_path = "#{submission.name}".parameterize.underscore
     vacancy_label = submission.form.vacancy.label.scan(/\((.*)\)/).first.first
     zipped_files_path = "form-#{vacancy_label}-#{candidate_path}".parameterize.underscore
@@ -36,6 +37,7 @@ class Download::GenerateZip
     system("mkdir #{zipped_files_path}", chdir: @path)
 
     form.submissions.where(is_submitted: true).each do |submission|
+      next unless submission.attachments_valid?
       candidate_path = "#{submission.name}".parameterize.underscore
       all_submissions_path = "all_submissions"
       vacancy_label = form.vacancy.label.scan(/\((.*)\)/).first.first

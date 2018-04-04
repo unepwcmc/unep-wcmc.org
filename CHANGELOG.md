@@ -5,6 +5,7 @@
 * Fixed the length of job application document filenames for the `download_all_applications_zip` path.
 * Fixed the consistency of the filenames across downloads.
 * Reduced the length of the zip filenames.
+* Bug fix for a bug which appears on staging within `application_generate_zip`.
 
 
 ### 0.1.0
