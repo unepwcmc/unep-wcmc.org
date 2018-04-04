@@ -15,15 +15,15 @@ class Download::GenerateZip
     vacancy_label = submission.form.vacancy.label.scan(/\((.*)\)/).first.first
     zipped_files_path = "form-#{vacancy_label}-#{candidate_path}".parameterize.underscore
     document_path = "#{zipped_files_path}/#{vacancy_label}_#{candidate_path}"
-    cv_extension = File.extname(submission.cv_file_name)
-    application_form_extension = File.extname(submission.application_form_file_name)
-    cover_letter_extension = File.extname(submission.cover_letter_file_name)
+    cv_extension = submission.cv_file_name ? File.extname(submission.cv_file_name) : nil
+    application_form_extension = submission.application_form_file_name ? File.extname(submission.application_form_file_name) : nil
+    cover_letter_extension = submission.cover_letter_file_name ? File.extname(submission.cover_letter_file_name) : nil
 
     system("mkdir #{zipped_files_path}", chdir: @path)
 
-    system("cp #{submission.cv.path} #{document_path}_CV#{cv_extension}", chdir: @path)
-    system("cp #{submission.application_form.path} #{document_path}_Application#{application_form_extension}", chdir: @path)
-    system("cp #{submission.cover_letter.path} #{document_path}_Cover_letter#{cover_letter_extension}", chdir: @path)
+    system("cp #{submission.cv.path} #{document_path}_CV#{cv_extension}", chdir: @path) if cv_extension
+    system("cp #{submission.application_form.path} #{document_path}_Application#{application_form_extension}", chdir: @path) if application_form_extension
+    system("cp #{submission.cover_letter.path} #{document_path}_Cover_letter#{cover_letter_extension}", chdir: @path) if cover_letter_extension
 
     add_documents_to_zip(zipped_files_path)
 
@@ -40,15 +40,15 @@ class Download::GenerateZip
       all_submissions_path = "all_submissions"
       vacancy_label = form.vacancy.label.scan(/\((.*)\)/).first.first
       documents_path = "#{zipped_files_path}/#{candidate_path}/#{vacancy_label}_#{candidate_path}"
-      cv_extension = File.extname(submission.cv_file_name)
-      application_form_extension = File.extname(submission.application_form_file_name)
-      cover_letter_extension = File.extname(submission.cover_letter_file_name)
+      cv_extension = submission.cv_file_name ? File.extname(submission.cv_file_name) : nil
+      application_form_extension = submission.application_form_file_name ? File.extname(submission.application_form_file_name) : nil
+      cover_letter_extension = submission.cover_letter_file_name ? File.extname(submission.cover_letter_file_name) : nil
 
       system("mkdir #{zipped_files_path}/#{candidate_path}", chdir: @path)
 
-      system("cp #{submission.cv.path} #{documents_path}_CV#{cv_extension}", chdir: @path)
-      system("cp #{submission.application_form.path} #{documents_path}_Application#{application_form_extension}", chdir: @path)
-      system("cp #{submission.cover_letter.path} #{documents_path}_Cover_letter#{cover_letter_extension}", chdir: @path)
+      system("cp #{submission.cv.path} #{documents_path}_CV#{cv_extension}", chdir: @path) if cv_extension
+      system("cp #{submission.application_form.path} #{documents_path}_Application#{application_form_extension}", chdir: @path) if application_form_extension
+      system("cp #{submission.cover_letter.path} #{documents_path}_Cover_letter#{cover_letter_extension}", chdir: @path) if cover_letter_extension
 
       system("mkdir #{zipped_files_path}/#{all_submissions_path}", chdir: @path)
       system("cp #{zipped_files_path}/#{candidate_path}/* #{zipped_files_path}/#{all_submissions_path}", chdir: @path)
