@@ -64,6 +64,14 @@ class Download::GenerateZip
     system("ls #{@path}/#{@zip_path}")
   end
 
+  def zip_needs_regenerating? last_uploaded_application_time
+    zip_file_exists = system("ls #{@path}/#{@zip_path}")
+    return true if zip_file_exists == false
+
+    zip_file_modification_time = File.mtime(@path + @zip_path)
+    zip_file_modification_time < last_uploaded_application_time
+  end
+
   def delete_zip
     system("rm -rf #{@zip_path}", chdir: @path)
   end

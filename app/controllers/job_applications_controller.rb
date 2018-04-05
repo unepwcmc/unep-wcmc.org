@@ -16,7 +16,7 @@ class JobApplicationsController < ApplicationController
     filename = "#{vacancy_label}.zip"
     zip = Download::GenerateZip.new(path, filename)
 
-    unless zip.zip_exists?
+    if zip.zip_needs_regenerating? form.submissions.pluck(:updated_at).sort.last
       zip.all_applications_generate_zip(form.id)
     end
 
@@ -34,7 +34,7 @@ class JobApplicationsController < ApplicationController
     filename = "#{vacancy_label}-#{submission.name.parameterize.underscore}.zip"
     zip = Download::GenerateZip.new(path, filename)
 
-    unless zip.zip_exists?
+    if zip.zip_needs_regenerating? submission.updated_at
       zip.application_generate_zip(submission.id)
     end
 
