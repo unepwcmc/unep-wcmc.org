@@ -6,6 +6,7 @@
 * Fixed the consistency of the filenames across downloads.
 * Reduced the length of the zip filenames.
 * Bug fix for a bug which appears on staging within `application_generate_zip`.
+* Bug fix for a bug which appears on staging when job application codes contain a space.
 
 
 ### 0.1.0
