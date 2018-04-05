@@ -12,7 +12,7 @@ class JobApplicationsController < ApplicationController
   def download_all_applications_zip
     form = Form.find(params[:id])
     path = Rails.root.join('private', 'zip', 'all_job_applications')
-    vacancy_label = form.vacancy.label.scan(/\((.*)\)/).first.first
+    vacancy_label = form.vacancy.label.scan(/\((.*)\)/).first.first.parameterize.underscore
     filename = "#{vacancy_label}.zip"
     zip = Download::GenerateZip.new(path, filename)
 
@@ -30,7 +30,7 @@ class JobApplicationsController < ApplicationController
   def download_application_zip
     submission = Submission.find_by(slug: params[:id])
     path = Rails.root.join('private', 'zip', 'job_applications')
-    vacancy_label = submission.form.vacancy.label.scan(/\((.*)\)/).first.first
+    vacancy_label = submission.form.vacancy.label.scan(/\((.*)\)/).first.first.parameterize.underscore
     filename = "#{vacancy_label}-#{submission.name.parameterize.underscore}.zip"
     zip = Download::GenerateZip.new(path, filename)
 
