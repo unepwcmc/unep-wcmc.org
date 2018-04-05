@@ -13,7 +13,7 @@ class Download::GenerateZip
     submission = Submission.find_by(id: submission_id)
     return unless submission.attachments_valid?
     candidate_path = "#{submission.name}".parameterize.underscore
-    vacancy_label = submission.form.vacancy.label.scan(/\((.*)\)/).first.first
+    vacancy_label = submission.form.vacancy.formatted_label
     zipped_files_path = "form-#{vacancy_label}-#{candidate_path}".parameterize.underscore
     document_path = "#{zipped_files_path}/#{vacancy_label}_#{candidate_path}"
     cv_extension = File.extname(submission.cv_file_name)
@@ -40,7 +40,7 @@ class Download::GenerateZip
       next unless submission.attachments_valid?
       candidate_path = "#{submission.name}".parameterize.underscore
       all_submissions_path = "all_submissions"
-      vacancy_label = form.vacancy.label.scan(/\((.*)\)/).first.first
+      vacancy_label = form.vacancy.formatted_label
       documents_path = "#{zipped_files_path}/#{candidate_path}/#{vacancy_label}_#{candidate_path}"
       cv_extension = File.extname(submission.cv_file_name)
       application_form_extension = File.extname(submission.application_form_file_name)
@@ -62,6 +62,13 @@ class Download::GenerateZip
 
   def zip_exists?
     system("ls #{@path}/#{@zip_path}")
+  end
+
+  def zip_needs_regenerating? last_uploaded_application_time
+    return true unless File.exists?("#{@path}/#{@zip_path}")
+
+    zip_file_modification_time = File.mtime("#{@path}/#{@zip_path}")
+    zip_file_modification_time < last_uploaded_application_time
   end
 
   def delete_zip

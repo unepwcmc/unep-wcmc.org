@@ -12,11 +12,12 @@ class JobApplicationsController < ApplicationController
   def download_all_applications_zip
     form = Form.find(params[:id])
     path = Rails.root.join('private', 'zip', 'all_job_applications')
-    vacancy_label = form.vacancy.label.scan(/\((.*)\)/).first.first
+    vacancy_label = form.vacancy.formatted_label
+    last_uploaded_submission = form.submissions.order(updated_at: :asc).last
     filename = "#{vacancy_label}.zip"
     zip = Download::GenerateZip.new(path, filename)
 
-    unless zip.zip_exists?
+    if zip.zip_needs_regenerating? last_uploaded_submission.updated_at
       zip.all_applications_generate_zip(form.id)
     end
 
@@ -30,11 +31,11 @@ class JobApplicationsController < ApplicationController
   def download_application_zip
     submission = Submission.find_by(slug: params[:id])
     path = Rails.root.join('private', 'zip', 'job_applications')
-    vacancy_label = submission.form.vacancy.label.scan(/\((.*)\)/).first.first
+    vacancy_label = submission.form.vacancy.formatted_label
     filename = "#{vacancy_label}-#{submission.name.parameterize.underscore}.zip"
     zip = Download::GenerateZip.new(path, filename)
 
-    unless zip.zip_exists?
+    if zip.zip_needs_regenerating? submission.updated_at
       zip.application_generate_zip(submission.id)
     end
 
