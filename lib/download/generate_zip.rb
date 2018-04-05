@@ -65,10 +65,9 @@ class Download::GenerateZip
   end
 
   def zip_needs_regenerating? last_uploaded_application_time
-    zip_file_exists = system("ls #{@path}/#{@zip_path}")
-    return true if zip_file_exists == false
+    return true unless File.exists?("#{@path}/#{@zip_path}")
 
-    zip_file_modification_time = File.mtime(@path + @zip_path)
+    zip_file_modification_time = File.mtime("#{@path}/#{@zip_path}")
     zip_file_modification_time < last_uploaded_application_time
   end
 

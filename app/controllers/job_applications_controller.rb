@@ -13,10 +13,11 @@ class JobApplicationsController < ApplicationController
     form = Form.find(params[:id])
     path = Rails.root.join('private', 'zip', 'all_job_applications')
     vacancy_label = form.vacancy.formatted_label
+    last_uploaded_submission = form.submissions.order(updated_at: :asc).last
     filename = "#{vacancy_label}.zip"
     zip = Download::GenerateZip.new(path, filename)
 
-    if zip.zip_needs_regenerating? form.submissions.pluck(:updated_at).sort.last
+    if zip.zip_needs_regenerating? last_uploaded_submission.updated_at
       zip.all_applications_generate_zip(form.id)
     end
 
