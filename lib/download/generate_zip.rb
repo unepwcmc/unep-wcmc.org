@@ -33,6 +33,7 @@ class Download::GenerateZip
 
   def all_applications_generate_zip form_id
     form = Form.find_by(id: form_id)
+    return unless any_submissions_with_documents_valid? form
     zipped_files_path = "form-#{form.vacancy.label}".parameterize.underscore
     system("mkdir #{zipped_files_path}", chdir: @path)
 
@@ -61,7 +62,7 @@ class Download::GenerateZip
   end
 
   def zip_exists?
-    system("ls #{@path}/#{@zip_path}")
+    File.exists?("#{@path}/#{@zip_path}")
   end
 
   def zip_needs_regenerating? last_uploaded_application_time
@@ -69,6 +70,13 @@ class Download::GenerateZip
 
     zip_file_modification_time = File.mtime("#{@path}/#{@zip_path}")
     zip_file_modification_time < last_uploaded_application_time
+  end
+
+  def any_submissions_with_documents_valid? form
+    form.submissions.each do |submission|
+      return true if submission.attachments_valid?
+    end
+    return false
   end
 
   def delete_zip
