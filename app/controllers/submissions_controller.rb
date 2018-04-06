@@ -44,7 +44,6 @@ class SubmissionsController < ApplicationController
     filename = "#{vacancy_label}.zip"
     zip = Download::GenerateZip.new(path, filename)
     zip.delete_zip
-    zip.all_applications_generate_zip(@form.id)
 
     redirect_to job_application_path(@form), notice: 'Job application was successfully destroyed.'
   end
