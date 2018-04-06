@@ -73,11 +73,10 @@ class Download::GenerateZip
   end
 
   def all_documents_valid? form
-    status = []
     form.submissions.each do |submission|
-      status << submission.attachments_valid?
+      return true if submission.attachments_valid?
     end
-    status.include?(true)
+    return false
   end
 
   def delete_zip
