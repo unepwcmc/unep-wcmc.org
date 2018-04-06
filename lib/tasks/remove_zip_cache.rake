@@ -5,11 +5,11 @@ namespace :remove do
 
     logger.info "Removing cached zip files for all_job_applications"
     path = Rails.root.join('private', 'zip', 'all_job_applications')
-    system("rm -rf *.zip", chdir: path)
+    system("rm *.zip", chdir: path)
 
     logger.info "Removing cached zip files for job_applications"
     path = Rails.root.join('private', 'zip', 'job_applications')
-    system("rm -rf *.zip", chdir: path)
+    system("rm *.zip", chdir: path)
   end
 
   def logger
