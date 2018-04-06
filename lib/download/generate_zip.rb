@@ -33,7 +33,7 @@ class Download::GenerateZip
 
   def all_applications_generate_zip form_id
     form = Form.find_by(id: form_id)
-    return unless all_documents_valid? form
+    return unless any_submissions_with_documents_valid? form
     zipped_files_path = "form-#{form.vacancy.label}".parameterize.underscore
     system("mkdir #{zipped_files_path}", chdir: @path)
 
@@ -72,7 +72,7 @@ class Download::GenerateZip
     zip_file_modification_time < last_uploaded_application_time
   end
 
-  def all_documents_valid? form
+  def any_submissions_with_documents_valid? form
     form.submissions.each do |submission|
       return true if submission.attachments_valid?
     end
