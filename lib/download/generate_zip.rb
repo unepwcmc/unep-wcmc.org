@@ -22,9 +22,9 @@ class Download::GenerateZip
 
     system("mkdir #{zipped_files_path}", chdir: @path)
 
-    system("cp #{submission.cv.path} #{document_path}_CV#{cv_extension}", chdir: @path)
-    system("cp #{submission.application_form.path} #{document_path}_Application#{application_form_extension}", chdir: @path)
-    system("cp #{submission.cover_letter.path} #{document_path}_Cover_letter#{cover_letter_extension}", chdir: @path)
+    system("cp \"#{submission.cv.path}\" #{document_path}_CV#{cv_extension}", chdir: @path)
+    system("cp \"#{submission.application_form.path}\" #{document_path}_Application#{application_form_extension}", chdir: @path)
+    system("cp \"#{submission.cover_letter.path}\" #{document_path}_Cover_letter#{cover_letter_extension}", chdir: @path)
 
     add_documents_to_zip(zipped_files_path)
 
@@ -49,9 +49,9 @@ class Download::GenerateZip
 
       system("mkdir #{zipped_files_path}/#{candidate_path}", chdir: @path)
 
-      system("cp #{submission.cv.path} #{documents_path}_CV#{cv_extension}", chdir: @path)
-      system("cp #{submission.application_form.path} #{documents_path}_Application#{application_form_extension}", chdir: @path)
-      system("cp #{submission.cover_letter.path} #{documents_path}_Cover_letter#{cover_letter_extension}", chdir: @path)
+      system("cp \"#{submission.cv.path}\" #{documents_path}_CV#{cv_extension}", chdir: @path)
+      system("cp \"#{submission.application_form.path}\" #{documents_path}_Application#{application_form_extension}", chdir: @path)
+      system("cp \"#{submission.cover_letter.path}\" #{documents_path}_Cover_letter#{cover_letter_extension}", chdir: @path)
 
       system("mkdir #{zipped_files_path}/#{all_submissions_path}", chdir: @path)
       system("cp #{zipped_files_path}/#{candidate_path}/* #{zipped_files_path}/#{all_submissions_path}", chdir: @path)
