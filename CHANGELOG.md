@@ -7,6 +7,7 @@
 * Reduced the length of the zip filenames.
 * Bug fix for a bug which appears on staging within `application_generate_zip`.
 * Bug fix to only generate a zip for all job applications if any of the submissions have valid attachments.
+* Bug fix to handle file attachments which contain characters like `(` or `)` and thus including those files in the zip.
 
 
 ### 0.1.0
