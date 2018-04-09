@@ -68,6 +68,10 @@ class Submission < ActiveRecord::Base
     file_fields.map(&:label).include?("Application form")
   end
 
+  def attachments_valid?
+    application_form_file_name.present? && cover_letter_file_name.present? && cv_file_name.present?
+  end
+
   private
 
   def set_slug

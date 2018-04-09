@@ -38,6 +38,13 @@ class SubmissionsController < ApplicationController
   def destroy
     @submission = @form.submissions.find_by_slug!(params[:id])
     @submission.destroy
+
+    path = Rails.root.join('private', 'zip', 'all_job_applications')
+    vacancy_label = @form.vacancy.formatted_label
+    filename = "#{vacancy_label}.zip"
+    zip = Download::GenerateZip.new(path, filename)
+    zip.delete_zip
+
     redirect_to job_application_path(@form), notice: 'Job application was successfully destroyed.'
   end
 
