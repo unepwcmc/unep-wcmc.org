@@ -6,12 +6,14 @@ class Download::GenerateZip
   end
 
   def add_documents_to_zip resource_path
-    system("zip -ru #{@zip_path} '#{resource_path}'", chdir: @path)
+    logged_system_call("zip -ru #{@zip_path} '#{resource_path}'", @path)
   end
 
   def application_generate_zip submission_id
     submission = Submission.find_by(id: submission_id)
-    return unless submission.attachments_valid?
+    unless submission.attachments_valid?
+      logger.error "Failed attachments_valid? for #{submission.inspect}" && return
+    end
     candidate_path = "#{submission.name}".parameterize.underscore
     vacancy_label = submission.form.vacancy.formatted_label
     zipped_files_path = "form-#{vacancy_label}-#{candidate_path}".parameterize.underscore
@@ -20,22 +22,21 @@ class Download::GenerateZip
     application_form_extension = File.extname(submission.application_form_file_name)
     cover_letter_extension = File.extname(submission.cover_letter_file_name)
 
-    system("mkdir #{zipped_files_path}", chdir: @path)
-
-    system("cp \"#{submission.cv.path}\" #{document_path}_CV#{cv_extension}", chdir: @path)
-    system("cp \"#{submission.application_form.path}\" #{document_path}_Application#{application_form_extension}", chdir: @path)
-    system("cp \"#{submission.cover_letter.path}\" #{document_path}_Cover_letter#{cover_letter_extension}", chdir: @path)
+    logged_system_call("mkdir #{zipped_files_path}", @path)
+    logged_system_call("cp \"#{submission.cv.path}\" #{document_path}_CV#{cv_extension}", @path)
+    logged_system_call("cp \"#{submission.application_form.path}\" #{document_path}_Application#{application_form_extension}", @path)
+    logged_system_call("cp \"#{submission.cover_letter.path}\" #{document_path}_Cover_letter#{cover_letter_extension}", @path)
 
     add_documents_to_zip(zipped_files_path)
 
-    system("rm -rf #{zipped_files_path}", chdir: @path)
+    logged_system_call("rm -rf #{zipped_files_path}", @path)
   end
 
   def all_applications_generate_zip form_id
     form = Form.find_by(id: form_id)
     return unless any_submissions_with_documents_valid? form
     zipped_files_path = "form-#{form.vacancy.label}".parameterize.underscore
-    system("mkdir #{zipped_files_path}", chdir: @path)
+    logged_system_call("mkdir #{zipped_files_path}", @path) unless Dir.exists?("#{@path}/#{zipped_files_path}")
 
     form.submissions.where(is_submitted: true).each do |submission|
       next unless submission.attachments_valid?
@@ -47,18 +48,18 @@ class Download::GenerateZip
       application_form_extension = File.extname(submission.application_form_file_name)
       cover_letter_extension = File.extname(submission.cover_letter_file_name)
 
-      system("mkdir #{zipped_files_path}/#{candidate_path}", chdir: @path)
+      logged_system_call("mkdir #{zipped_files_path}/#{candidate_path}", @path) unless Dir.exists?("#{@path}/#{zipped_files_path}/#{candidate_path}")
 
-      system("cp \"#{submission.cv.path}\" #{documents_path}_CV#{cv_extension}", chdir: @path)
-      system("cp \"#{submission.application_form.path}\" #{documents_path}_Application#{application_form_extension}", chdir: @path)
-      system("cp \"#{submission.cover_letter.path}\" #{documents_path}_Cover_letter#{cover_letter_extension}", chdir: @path)
+      logged_system_call("cp \"#{submission.cv.path}\" #{documents_path}_CV#{cv_extension}", @path)
+      logged_system_call("cp \"#{submission.application_form.path}\" #{documents_path}_Application#{application_form_extension}", @path)
+      logged_system_call("cp \"#{submission.cover_letter.path}\" #{documents_path}_Cover_letter#{cover_letter_extension}", @path)
 
-      system("mkdir #{zipped_files_path}/#{all_submissions_path}", chdir: @path)
-      system("cp #{zipped_files_path}/#{candidate_path}/* #{zipped_files_path}/#{all_submissions_path}", chdir: @path)
+      logged_system_call("mkdir #{zipped_files_path}/#{all_submissions_path}", @path) unless Dir.exists?("#{@path}/#{zipped_files_path}/#{all_submissions_path}")
+      logged_system_call("cp #{zipped_files_path}/#{candidate_path}/* #{zipped_files_path}/#{all_submissions_path}", @path)
     end
 
     add_documents_to_zip(zipped_files_path)
-    system("rm -rf #{zipped_files_path}", chdir: @path)
+    logged_system_call("rm -rf #{zipped_files_path}", @path)
   end
 
   def zip_exists?
@@ -80,7 +81,19 @@ class Download::GenerateZip
   end
 
   def delete_zip
-    system("rm -rf #{@zip_path}", chdir: @path)
+    logged_system_call("rm -rf #{@zip_path}", @path)
+  end
+
+  def logger
+    @logger ||= Logger.new("#{Rails.root}/log/generate_zip.log")
+  end
+
+  def logged_system_call(command, chdir)
+    result = system(command, chdir: chdir)
+    unless result
+      logger.error "Failed #{command} with chdir: #{chdir}"
+    end
+    result
   end
 
 end
