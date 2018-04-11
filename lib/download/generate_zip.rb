@@ -88,10 +88,15 @@ class Download::GenerateZip
     @logger ||= Logger.new("#{Rails.root}/log/generate_zip.log")
   end
 
+  def custom_system(command, chdir)
+    system(command, chdir)
+    if $? != 0 then raise StandardError.new("Error with command #{command} with chdir: #{chdir}") end
+  end
+
   def logged_system_call(command, chdir)
-    result = system(command, chdir: chdir)
-    unless result
-      e = StandardError.new("Error with command #{command} with chdir: #{chdir}")
+    begin
+      custom_system(command, chdir: chdir)
+    rescue Exception => e
       Appsignal.send_error(e)
     end
   end
