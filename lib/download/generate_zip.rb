@@ -91,7 +91,7 @@ class Download::GenerateZip
   def logged_system_call(command, chdir)
     result = system(command, chdir: chdir)
     unless result
-      e = StandardError.new("Error with command #{command} with path: #{@path}")
+      e = StandardError.new("Error with command #{command} with chdir: #{chdir}")
       Appsignal.send_error(e)
     end
   end
