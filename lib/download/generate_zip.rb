@@ -39,7 +39,7 @@ class Download::GenerateZip
       custom_system("rm -rf #{zipped_files_path}", @path)
     rescue Exception => e
       Appsignal.send_error(e)
-      custom_system("rm -rf #{zipped_files_path}", @path)
+      custom_system("rm -r #{zipped_files_path}", @path)
       return
     end
   end
@@ -89,7 +89,7 @@ class Download::GenerateZip
 
     begin
       add_documents_to_zip(zipped_files_path)
-      custom_system("rm -rf #{zipped_files_path}", @path)
+      custom_system("rm -r #{zipped_files_path}", @path)
     rescue Exception => e
       Appsignal.send_error(e)
     end
@@ -115,7 +115,7 @@ class Download::GenerateZip
 
   def delete_zip
     begin
-      custom_system("rm -rf #{@zip_path}", @path)
+      custom_system("rm #{@zip_path}", @path)
     rescue Exception => e
       Appsignal.send_error(e)
     end
