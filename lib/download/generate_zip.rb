@@ -27,13 +27,13 @@ class Download::GenerateZip
     zipped_files_path = "form-#{vacancy_label}-#{candidate_path}".parameterize.underscore
     document_path = "#{zipped_files_path}/#{vacancy_label}_#{candidate_path}"
     cv_extension = File.extname(submission.cv_file_name)
-    application_form_extension = File.extname(submission.application_form_file_name)
+    application_form_extension = submission.application_form_file_name ? File.extname(submission.application_form_file_name) : nil
     cover_letter_extension = File.extname(submission.cover_letter_file_name)
 
     begin
       custom_system("mkdir #{zipped_files_path}", @path)
       custom_system("cp \"#{submission.cv.path}\" #{document_path}_CV#{cv_extension}", @path)
-      custom_system("cp \"#{submission.application_form.path}\" #{document_path}_Application#{application_form_extension}", @path)
+      custom_system("cp \"#{submission.application_form.path}\" #{document_path}_Application#{application_form_extension}", @path) unless application_form_extension.nil?
       custom_system("cp \"#{submission.cover_letter.path}\" #{document_path}_Cover_letter#{cover_letter_extension}", @path)
       add_documents_to_zip(zipped_files_path)
       custom_system("rm -rf #{zipped_files_path}", @path)
