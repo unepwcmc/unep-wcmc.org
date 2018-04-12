@@ -6,7 +6,11 @@ class Download::GenerateZip
   end
 
   def add_documents_to_zip resource_path
-    logged_system_call("zip -ru #{@zip_path} '#{resource_path}'", @path)
+    begin
+      custom_system("zip -ru #{@zip_path} '#{resource_path}'", @path)
+    rescue Exception => e
+      Appsignal.send_error(e)
+    end
   end
 
   def application_generate_zip submission_id
@@ -26,21 +30,31 @@ class Download::GenerateZip
     application_form_extension = File.extname(submission.application_form_file_name)
     cover_letter_extension = File.extname(submission.cover_letter_file_name)
 
-    logged_system_call("mkdir #{zipped_files_path}", @path)
-    logged_system_call("cp \"#{submission.cv.path}\" #{document_path}_CV#{cv_extension}", @path)
-    logged_system_call("cp \"#{submission.application_form.path}\" #{document_path}_Application#{application_form_extension}", @path)
-    logged_system_call("cp \"#{submission.cover_letter.path}\" #{document_path}_Cover_letter#{cover_letter_extension}", @path)
-
-    add_documents_to_zip(zipped_files_path)
-
-    logged_system_call("rm -rf #{zipped_files_path}", @path)
+    begin
+      custom_system("mkdir #{zipped_files_path}", @path)
+      custom_system("cp \"#{submission.cv.path}\" #{document_path}_CV#{cv_extension}", @path)
+      custom_system("cp \"#{submission.application_form.path}\" #{document_path}_Application#{application_form_extension}", @path)
+      custom_system("cp \"#{submission.cover_letter.path}\" #{document_path}_Cover_letter#{cover_letter_extension}", @path)
+      add_documents_to_zip(zipped_files_path)
+      custom_system("rm -rf #{zipped_files_path}", @path)
+    rescue Exception => e
+      Appsignal.send_error(e)
+      custom_system("rm -rf #{zipped_files_path}", @path)
+      return
+    end
   end
 
   def all_applications_generate_zip form_id
     form = Form.find_by(id: form_id)
     return unless any_submissions_with_documents_valid? form
     zipped_files_path = "form-#{form.vacancy.label}".parameterize.underscore
-    logged_system_call("mkdir #{zipped_files_path}", @path) unless Dir.exists?("#{@path}/#{zipped_files_path}")
+
+    begin
+      custom_system("mkdir #{zipped_files_path}", @path) unless Dir.exists?("#{@path}/#{zipped_files_path}")
+    rescue Exception => e
+      Appsignal.send_error(e)
+      return
+    end
 
     form.submissions.where(is_submitted: true).each do |submission|
       begin
@@ -58,18 +72,27 @@ class Download::GenerateZip
       application_form_extension = File.extname(submission.application_form_file_name)
       cover_letter_extension = File.extname(submission.cover_letter_file_name)
 
-      logged_system_call("mkdir #{zipped_files_path}/#{candidate_path}", @path) unless Dir.exists?("#{@path}/#{zipped_files_path}/#{candidate_path}")
+      begin
+        custom_system("mkdir #{zipped_files_path}/#{candidate_path}", @path) unless Dir.exists?("#{@path}/#{zipped_files_path}/#{candidate_path}")
 
-      logged_system_call("cp \"#{submission.cv.path}\" #{documents_path}_CV#{cv_extension}", @path)
-      logged_system_call("cp \"#{submission.application_form.path}\" #{documents_path}_Application#{application_form_extension}", @path)
-      logged_system_call("cp \"#{submission.cover_letter.path}\" #{documents_path}_Cover_letter#{cover_letter_extension}", @path)
+        custom_system("cp \"#{submission.cv.path}\" #{documents_path}_CV#{cv_extension}", @path)
+        custom_system("cp \"#{submission.application_form.path}\" #{documents_path}_Application#{application_form_extension}", @path)
+        custom_system("cp \"#{submission.cover_letter.path}\" #{documents_path}_Cover_letter#{cover_letter_extension}", @path)
 
-      logged_system_call("mkdir #{zipped_files_path}/#{all_submissions_path}", @path) unless Dir.exists?("#{@path}/#{zipped_files_path}/#{all_submissions_path}")
-      logged_system_call("cp #{zipped_files_path}/#{candidate_path}/* #{zipped_files_path}/#{all_submissions_path}", @path)
+        custom_system("mkdir #{zipped_files_path}/#{all_submissions_path}", @path) unless Dir.exists?("#{@path}/#{zipped_files_path}/#{all_submissions_path}")
+        custom_system("cp #{zipped_files_path}/#{candidate_path}/* #{zipped_files_path}/#{all_submissions_path}", @path)
+      rescue Exception => e
+        Appsignal.send_error(e)
+        next
+      end
     end
 
-    add_documents_to_zip(zipped_files_path)
-    logged_system_call("rm -rf #{zipped_files_path}", @path)
+    begin
+      add_documents_to_zip(zipped_files_path)
+      custom_system("rm -rf #{zipped_files_path}", @path)
+    rescue Exception => e
+      Appsignal.send_error(e)
+    end
   end
 
   def zip_exists?
@@ -91,7 +114,11 @@ class Download::GenerateZip
   end
 
   def delete_zip
-    logged_system_call("rm -rf #{@zip_path}", @path)
+    begin
+      custom_system("rm -rf #{@zip_path}", @path)
+    rescue Exception => e
+      Appsignal.send_error(e)
+    end
   end
 
   def custom_attachments_valid submission
@@ -100,16 +127,7 @@ class Download::GenerateZip
   end
 
   def custom_system(command, chdir)
-    system(command, chdir)
+    system(command, chdir: chdir)
     if $? != 0 then raise Exception.new("Error with command #{command} with chdir: #{chdir}") end
   end
-
-  def logged_system_call(command, chdir)
-    begin
-      custom_system(command, chdir: chdir)
-    rescue Exception => e
-      Appsignal.send_error(e)
-    end
-  end
-
 end
