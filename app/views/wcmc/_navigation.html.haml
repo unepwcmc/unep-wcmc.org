@@ -2,8 +2,8 @@
   %ul.subnav
     %li{:class => if @cms_site.identifier == 'wcmc' && @cms_page.label == 'wcmc' then 'active' end}
       %a{href:"/wcmc", title:"Home"} Home
-    %li{title:"History", :class => if @cms_site.identifier == 'wcmc' && @cms_page.slug == 'history' then 'active' end}
-      %a{href:"/wcmc/history"} History
+    //%li{title:"History", :class => if @cms_site.identifier == 'wcmc' && @cms_page.slug == 'history' then 'active' end}
+    //  %a{href:"/wcmc/history"} History
     %li{:class => if @cms_site.identifier == 'wcmc' && @cms_page.slug == 'trustees-and-governance' then 'active' end}
       %a{href:"/wcmc/trustees-and-governance", title:"Trustees and governance"} Trustees and governance
     %li{:class => if @cms_site.identifier == 'wcmc' && @cms_page.slug == 'annual-reports' then 'active' end}
@@ -18,8 +18,8 @@
   %ul.subnav-small
     %li{:class => if @cms_site.identifier == 'wcmc' && @cms_page.label == 'wcmc' then 'active' end}
       %a{href:"/wcmc", title:"Home"} Home
-    %li{title:"History", :class => if @cms_site.identifier == 'wcmc' && @cms_page.slug == 'history' then 'active' end}
-      %a{href:"/wcmc/history"} History
+    //%li{title:"History", :class => if @cms_site.identifier == 'wcmc' && @cms_page.slug == 'history' then 'active' end}
+    //  %a{href:"/wcmc/history"} History
     %li{:class => if @cms_site.identifier == 'wcmc' && @cms_page.slug == 'trustees-and-governance' then 'active' end}
       %a{href:"/wcmc/trustees-and-governance", title:"Trustees and governance"} Trustees and governance
     %li{:class => if @cms_site.identifier == 'wcmc' && @cms_page.slug == 'annual-reports' then 'active' end}
