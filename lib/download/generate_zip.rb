@@ -69,14 +69,14 @@ class Download::GenerateZip
       vacancy_label = form.vacancy.formatted_label
       documents_path = "#{zipped_files_path}/#{candidate_path}/#{vacancy_label}_#{candidate_path}"
       cv_extension = File.extname(submission.cv_file_name)
-      application_form_extension = File.extname(submission.application_form_file_name)
+      application_form_extension = submission.application_form_file_name ? File.extname(submission.application_form_file_name) : nil
       cover_letter_extension = File.extname(submission.cover_letter_file_name)
 
       begin
         custom_system("mkdir #{zipped_files_path}/#{candidate_path}", @path) unless Dir.exists?("#{@path}/#{zipped_files_path}/#{candidate_path}")
 
         custom_system("cp \"#{submission.cv.path}\" #{documents_path}_CV#{cv_extension}", @path)
-        custom_system("cp \"#{submission.application_form.path}\" #{documents_path}_Application#{application_form_extension}", @path)
+        custom_system("cp \"#{submission.application_form.path}\" #{documents_path}_Application#{application_form_extension}", @path) unless application_form_extension.nil?
         custom_system("cp \"#{submission.cover_letter.path}\" #{documents_path}_Cover_letter#{cover_letter_extension}", @path)
 
         custom_system("mkdir #{zipped_files_path}/#{all_submissions_path}", @path) unless Dir.exists?("#{@path}/#{zipped_files_path}/#{all_submissions_path}")
