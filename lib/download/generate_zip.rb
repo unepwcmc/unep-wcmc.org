@@ -11,9 +11,13 @@ class Download::GenerateZip
 
   def application_generate_zip submission_id
     submission = Submission.find_by(id: submission_id)
-    unless submission.attachments_valid?
-      logger.error "Failed attachments_valid? for #{submission.inspect}" && return
+    begin
+      custom_attachments_valid submission
+    rescue Exception => e
+      Appsignal.send_error(e)
+      return
     end
+
     candidate_path = "#{submission.name}".parameterize.underscore
     vacancy_label = submission.form.vacancy.formatted_label
     zipped_files_path = "form-#{vacancy_label}-#{candidate_path}".parameterize.underscore
@@ -39,7 +43,13 @@ class Download::GenerateZip
     logged_system_call("mkdir #{zipped_files_path}", @path) unless Dir.exists?("#{@path}/#{zipped_files_path}")
 
     form.submissions.where(is_submitted: true).each do |submission|
-      next unless submission.attachments_valid?
+      begin
+        custom_attachments_valid submission
+      rescue Exception => e
+        Appsignal.send_error(e)
+        next
+      end
+
       candidate_path = "#{submission.name}".parameterize.underscore
       all_submissions_path = "all_submissions"
       vacancy_label = form.vacancy.formatted_label
@@ -84,13 +94,14 @@ class Download::GenerateZip
     logged_system_call("rm -rf #{@zip_path}", @path)
   end
 
-  def logger
-    @logger ||= Logger.new("#{Rails.root}/log/generate_zip.log")
+  def custom_attachments_valid submission
+    unless submission.attachments_valid? then raise Exception.new("Failed attachments_valid? for slug: #{submission.slug}") end
+    return true
   end
 
   def custom_system(command, chdir)
     system(command, chdir)
-    if $? != 0 then raise StandardError.new("Error with command #{command} with chdir: #{chdir}") end
+    if $? != 0 then raise Exception.new("Error with command #{command} with chdir: #{chdir}") end
   end
 
   def logged_system_call(command, chdir)
