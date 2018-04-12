@@ -6,59 +6,93 @@ class Download::GenerateZip
   end
 
   def add_documents_to_zip resource_path
-    system("zip -ru #{@zip_path} '#{resource_path}'", chdir: @path)
+    begin
+      custom_system("zip -ru #{@zip_path} '#{resource_path}'", @path)
+    rescue Exception => e
+      Appsignal.send_error(e)
+    end
   end
 
   def application_generate_zip submission_id
     submission = Submission.find_by(id: submission_id)
-    return unless submission.attachments_valid?
+    begin
+      custom_attachments_valid submission
+    rescue Exception => e
+      Appsignal.send_error(e)
+      return
+    end
+
     candidate_path = "#{submission.name}".parameterize.underscore
     vacancy_label = submission.form.vacancy.formatted_label
     zipped_files_path = "form-#{vacancy_label}-#{candidate_path}".parameterize.underscore
     document_path = "#{zipped_files_path}/#{vacancy_label}_#{candidate_path}"
     cv_extension = File.extname(submission.cv_file_name)
-    application_form_extension = File.extname(submission.application_form_file_name)
+    application_form_extension = submission.application_form_file_name.present? ? File.extname(submission.application_form_file_name) : nil
     cover_letter_extension = File.extname(submission.cover_letter_file_name)
 
-    system("mkdir #{zipped_files_path}", chdir: @path)
-
-    system("cp \"#{submission.cv.path}\" #{document_path}_CV#{cv_extension}", chdir: @path)
-    system("cp \"#{submission.application_form.path}\" #{document_path}_Application#{application_form_extension}", chdir: @path)
-    system("cp \"#{submission.cover_letter.path}\" #{document_path}_Cover_letter#{cover_letter_extension}", chdir: @path)
-
-    add_documents_to_zip(zipped_files_path)
-
-    system("rm -rf #{zipped_files_path}", chdir: @path)
+    begin
+      custom_system("mkdir #{zipped_files_path}", @path)
+      custom_system("cp \"#{submission.cv.path}\" #{document_path}_CV#{cv_extension}", @path)
+      custom_system("cp \"#{submission.application_form.path}\" #{document_path}_Application#{application_form_extension}", @path) unless application_form_extension.nil?
+      custom_system("cp \"#{submission.cover_letter.path}\" #{document_path}_Cover_letter#{cover_letter_extension}", @path)
+      add_documents_to_zip(zipped_files_path)
+      custom_system("rm -rf #{zipped_files_path}", @path)
+    rescue Exception => e
+      Appsignal.send_error(e)
+      custom_system("rm -r #{zipped_files_path}", @path)
+      return
+    end
   end
 
   def all_applications_generate_zip form_id
     form = Form.find_by(id: form_id)
     return unless any_submissions_with_documents_valid? form
     zipped_files_path = "form-#{form.vacancy.label}".parameterize.underscore
-    system("mkdir #{zipped_files_path}", chdir: @path)
+
+    begin
+      custom_system("mkdir #{zipped_files_path}", @path) unless Dir.exists?("#{@path}/#{zipped_files_path}")
+    rescue Exception => e
+      Appsignal.send_error(e)
+      return
+    end
 
     form.submissions.where(is_submitted: true).each do |submission|
-      next unless submission.attachments_valid?
+      begin
+        custom_attachments_valid submission
+      rescue Exception => e
+        Appsignal.send_error(e)
+        next
+      end
+
       candidate_path = "#{submission.name}".parameterize.underscore
       all_submissions_path = "all_submissions"
       vacancy_label = form.vacancy.formatted_label
       documents_path = "#{zipped_files_path}/#{candidate_path}/#{vacancy_label}_#{candidate_path}"
       cv_extension = File.extname(submission.cv_file_name)
-      application_form_extension = File.extname(submission.application_form_file_name)
+      application_form_extension = submission.application_form_file_name.present? ? File.extname(submission.application_form_file_name) : nil
       cover_letter_extension = File.extname(submission.cover_letter_file_name)
 
-      system("mkdir #{zipped_files_path}/#{candidate_path}", chdir: @path)
+      begin
+        custom_system("mkdir #{zipped_files_path}/#{candidate_path}", @path) unless Dir.exists?("#{@path}/#{zipped_files_path}/#{candidate_path}")
 
-      system("cp \"#{submission.cv.path}\" #{documents_path}_CV#{cv_extension}", chdir: @path)
-      system("cp \"#{submission.application_form.path}\" #{documents_path}_Application#{application_form_extension}", chdir: @path)
-      system("cp \"#{submission.cover_letter.path}\" #{documents_path}_Cover_letter#{cover_letter_extension}", chdir: @path)
+        custom_system("cp \"#{submission.cv.path}\" #{documents_path}_CV#{cv_extension}", @path)
+        custom_system("cp \"#{submission.application_form.path}\" #{documents_path}_Application#{application_form_extension}", @path) unless application_form_extension.nil?
+        custom_system("cp \"#{submission.cover_letter.path}\" #{documents_path}_Cover_letter#{cover_letter_extension}", @path)
 
-      system("mkdir #{zipped_files_path}/#{all_submissions_path}", chdir: @path)
-      system("cp #{zipped_files_path}/#{candidate_path}/* #{zipped_files_path}/#{all_submissions_path}", chdir: @path)
+        custom_system("mkdir #{zipped_files_path}/#{all_submissions_path}", @path) unless Dir.exists?("#{@path}/#{zipped_files_path}/#{all_submissions_path}")
+        custom_system("cp #{zipped_files_path}/#{candidate_path}/* #{zipped_files_path}/#{all_submissions_path}", @path)
+      rescue Exception => e
+        Appsignal.send_error(e)
+        next
+      end
     end
 
-    add_documents_to_zip(zipped_files_path)
-    system("rm -rf #{zipped_files_path}", chdir: @path)
+    begin
+      add_documents_to_zip(zipped_files_path)
+      custom_system("rm -r #{zipped_files_path}", @path)
+    rescue Exception => e
+      Appsignal.send_error(e)
+    end
   end
 
   def zip_exists?
@@ -80,7 +114,20 @@ class Download::GenerateZip
   end
 
   def delete_zip
-    system("rm -rf #{@zip_path}", chdir: @path)
+    begin
+      custom_system("rm #{@zip_path}", @path)
+    rescue Exception => e
+      Appsignal.send_error(e)
+    end
   end
 
+  def custom_attachments_valid submission
+    unless submission.attachments_valid? then raise Exception.new("Failed attachments_valid? for slug: #{submission.slug}") end
+    return true
+  end
+
+  def custom_system(command, chdir)
+    system(command, chdir: chdir)
+    if $? != 0 then raise Exception.new("Error with command #{command} with chdir: #{chdir}") end
+  end
 end
