@@ -27,7 +27,7 @@ class Download::GenerateZip
     zipped_files_path = "form-#{vacancy_label}-#{candidate_path}".parameterize.underscore
     document_path = "#{zipped_files_path}/#{vacancy_label}_#{candidate_path}"
     cv_extension = File.extname(submission.cv_file_name)
-    application_form_extension = submission.application_form_file_name ? File.extname(submission.application_form_file_name) : nil
+    application_form_extension = submission.application_form_file_name.present? ? File.extname(submission.application_form_file_name) : nil
     cover_letter_extension = File.extname(submission.cover_letter_file_name)
 
     begin
@@ -69,7 +69,7 @@ class Download::GenerateZip
       vacancy_label = form.vacancy.formatted_label
       documents_path = "#{zipped_files_path}/#{candidate_path}/#{vacancy_label}_#{candidate_path}"
       cv_extension = File.extname(submission.cv_file_name)
-      application_form_extension = submission.application_form_file_name ? File.extname(submission.application_form_file_name) : nil
+      application_form_extension = submission.application_form_file_name.present? ? File.extname(submission.application_form_file_name) : nil
       cover_letter_extension = File.extname(submission.cover_letter_file_name)
 
       begin
