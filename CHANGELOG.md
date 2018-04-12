@@ -3,6 +3,7 @@
 **Job applications zipped downloads:**
 
 * Added detailed logging for anticipation of fixing a bug which only appears on production.
+* Fixed issue where application form is not provided, where download is now permitted.
 
 
 ### 0.1.1
