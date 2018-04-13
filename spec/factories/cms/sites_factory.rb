@@ -16,4 +16,10 @@ FactoryGirl.define do
     label "Homepage"
     hostname "127.0.0.1"
   end
+
+  factory :vacancies_site, class: Comfy::Cms::Site do
+    identifier "vacancies-site"
+    label "Vacancies"
+    hostname "127.0.0.1"
+  end
 end
