@@ -2,14 +2,10 @@ require 'spec_helper'
 
 describe JobApplicationsController do
 
-  before :all do
-    puts "before all"
-    @form = create(:form)
-  end
-
   before :each do
     @user = create(:user)
     sign_in @user
+    @form = create(:form)
   end
 
   describe "GET #index" do
