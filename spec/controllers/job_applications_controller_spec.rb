@@ -38,7 +38,6 @@ describe JobApplicationsController do
 
   describe "GET #download_all_applications_zip" do
     it "renders the #download_all_applications_zip view" do
-      form = create(:form)
       get :download_all_applications_zip, id: @form
       controller.should_receive(:send_file)
     end
