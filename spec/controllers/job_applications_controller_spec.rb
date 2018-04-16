@@ -5,7 +5,8 @@ describe JobApplicationsController do
   before :each do
     @user = create(:user)
     sign_in @user
-    @form = create(:form)
+    @form ||= create(:form)
+    @vacancy ||= create(:vacancy)
   end
 
   describe "GET #index" do

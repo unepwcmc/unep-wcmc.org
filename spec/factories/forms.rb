@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :form do
-    vacancy = FactoryGirl.create(:vacancy)
+    vacancy_id 1
   end
 end

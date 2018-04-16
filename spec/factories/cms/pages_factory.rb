@@ -42,7 +42,9 @@ FactoryGirl.define do
     label "404"
     slug "404"
   end
+end
 
+FactoryGirl.define do
   factory :vacancy, class: Comfy::Cms::Page do
     before(:create) do |page|
       site = FactoryGirl.create(:vacancies_site)
@@ -50,6 +52,7 @@ FactoryGirl.define do
       page.layout_id = layout.id
       page.site_id = site.id
     end
+    id 1
     label "Awesome job"
     slug "vacancy"
   end
