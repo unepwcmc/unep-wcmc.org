@@ -11,7 +11,7 @@ class JobApplicationsController < ApplicationController
 
   def download_all_applications_zip
     form = Form.find(params[:id]) rescue nil
-    if form.nil?
+    if form.nil? || form.vacancy.nil?
       redirect_to job_applications_path, flash: { error: 'Cannot find that job application' }
       return
     end
