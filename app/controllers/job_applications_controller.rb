@@ -10,10 +10,19 @@ class JobApplicationsController < ApplicationController
   end
 
   def download_all_applications_zip
-    form = Form.find(params[:id])
+    form = Form.find(params[:id]) rescue nil
+    if form.nil?
+      redirect_to job_applications_path, flash: { error: 'Cannot find that job application' }
+      return
+    end
     path = Rails.root.join('private', 'zip', 'all_job_applications')
     vacancy_label = form.vacancy.formatted_label
     last_uploaded_submission = form.submissions.order(updated_at: :asc).last
+    if last_uploaded_submission.nil?
+      redirect_to job_applications_path, flash: { error: 'Cannot find that job application' }
+      return
+    end
+
     filename = "#{vacancy_label}.zip"
     zip = Download::GenerateZip.new(path, filename)
 
@@ -29,7 +38,11 @@ class JobApplicationsController < ApplicationController
   end
 
   def download_application_zip
-    submission = Submission.find_by(slug: params[:id])
+    submission = Submission.find_by(slug: params[:id]) rescue nil
+    if submission.nil?
+      redirect_to job_applications_path, flash: { error: 'Cannot find that job application' }
+      return
+    end
     path = Rails.root.join('private', 'zip', 'job_applications')
     vacancy_label = submission.form.vacancy.formatted_label
     filename = "#{vacancy_label}-#{submission.name.parameterize.underscore}.zip"
