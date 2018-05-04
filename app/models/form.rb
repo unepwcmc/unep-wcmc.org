@@ -11,4 +11,19 @@ class Form < ActiveRecord::Base
   has_many :attachments, dependent: :destroy, inverse_of: :form
   accepts_nested_attributes_for :fields, allow_destroy: true
   accepts_nested_attributes_for :attachments, allow_destroy: true
+
+  def to_csv
+    csv = ''
+    submission_columns = ["name", "email"]
+    csv << submission_columns.join(',')
+    csv << "\n"
+    submissions = self.submissions.order(name: :asc)
+    submissions.each do |submission|
+      csv << submission.name
+      csv << ","
+      csv << submission.email
+      csv << "\n"
+    end
+    csv
+  end
 end

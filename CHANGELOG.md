@@ -1,3 +1,10 @@
+### 0.2.1
+
+**CSV downloads for job applicant details:**
+
+* Added email addresses for each job applicant into a CSV download.
+
+
 ### 0.1.2
 
 **Job applications zipped downloads:**
