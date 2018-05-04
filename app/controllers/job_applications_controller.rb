@@ -28,6 +28,15 @@ class JobApplicationsController < ApplicationController
     end
   end
 
+  def download_all_applications_csv
+    form = Form.find(params[:id])
+    vacancy_label = form.vacancy.formatted_label
+    send_data form.to_csv, {
+          type: "text/csv; charset=iso-8859-1; header=present",
+          disposition: "attachment",
+          filename: "#{vacancy_label}-#{Date.today}.csv" }
+  end
+
   def download_application_zip
     submission = Submission.find_by(slug: params[:id])
     path = Rails.root.join('private', 'zip', 'job_applications')

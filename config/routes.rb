@@ -63,6 +63,7 @@ UnepWcmcOrg::Application.routes.draw do
   resources :job_applications, only: [:index, :show, :destroy]
 
   get '/download_all_applications_zip/:id', controller: :job_applications, action: :download_all_applications_zip, as: 'download_all_applications_zip'
+  get '/download_all_applications_csv/:id', controller: :job_applications, action: :download_all_applications_csv, as: 'download_all_applications_csv'
   get '/download_application_zip/:id', controller: :job_applications, action: :download_application_zip, as: 'download_application_zip'
 
   namespace :api do
