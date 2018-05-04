@@ -17,7 +17,7 @@ class Form < ActiveRecord::Base
     submission_columns = ["name", "email"]
     csv << submission_columns.join(',')
     csv << "\n"
-    submissions = self.submissions.order(name: :asc)
+    submissions = self.submissions.where(is_submitted: true).order(name: :asc)
     submissions.each do |submission|
       csv << submission.name
       csv << ","
