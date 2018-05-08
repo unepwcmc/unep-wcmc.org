@@ -10,6 +10,7 @@
     <% if @form.submissions.empty? %>
       <%= @form.vacancy.label %>
     <% else %>
+      <%= link_to fa_icon("table"), download_all_applications_csv_path(@form) %>
       <%= link_to fa_icon("download"), download_all_applications_zip_path(@form) %>
       <%= link_to @form.vacancy.label, download_all_applications_zip_path(@form) %>
       <%= link_to fa_icon("remove", class: "remove"), job_application_path, method: :delete, data: { confirm: 'Are you sure you want to delete these job applications?' } %>
