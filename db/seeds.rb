@@ -8,12 +8,14 @@
 
 if ContentType.count == 0
   [["Poster", "Posters"],
-   ["Tool", "Tools / Applications"],
+   #["Tool", "Tools / Applications"],
    ["Dataset", "Spatial Data / Maps"],
    ["Book", "Books"],
    ["Report", "Reports"],
    ["Journal Paper", "Journal Papers"],
-   ["News", "News"]].each do |type|
+   ["News", "News"],
+   ["Online Tool", "Online Tools"],
+   ["Proteus Technical Briefing Note", "Proteus Technical Briefing Notes"]].each do |type|
     ContentType.create(singular: type[0], plural: type[1])
    end
 end
