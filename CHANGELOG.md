@@ -1,3 +1,10 @@
+### 0.3.0
+
+**Add Proteus technical briefing note filter:**
+
+* Added Proteus technical briefing note filter to resources and data
+
+
 ### 0.2.1
 
 **CSV downloads for job applicant details:**
