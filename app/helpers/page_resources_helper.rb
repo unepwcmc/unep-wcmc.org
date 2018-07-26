@@ -20,7 +20,7 @@ module PageResourcesHelper
   def employees_page
     @employees_page ||= Comfy::Cms::Site.find_by_identifier('employees').pages.root
   end
-  
+
   def expertise_page
     @expertise_page ||= Comfy::Cms::Site.find_by_identifier('expertise').pages.root
   end

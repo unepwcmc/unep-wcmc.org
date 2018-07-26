@@ -90,22 +90,22 @@ ActiveRecord::Schema.define(version: 20180718082125) do
   add_index "comfy_cms_layouts", ["site_id", "identifier"], name: "index_comfy_cms_layouts_on_site_id_and_identifier", unique: true, using: :btree
 
   create_table "comfy_cms_pages", force: :cascade do |t|
-    t.integer  "site_id",                                                    null: false
+    t.integer  "site_id",                                    null: false
     t.integer  "layout_id"
     t.integer  "parent_id"
     t.integer  "target_page_id"
-    t.string   "label",          limit: 255,                                 null: false
+    t.string   "label",          limit: 255,                 null: false
     t.string   "slug",           limit: 255
-    t.string   "full_path",      limit: 255,                                 null: false
+    t.string   "full_path",      limit: 255,                 null: false
     t.text     "content_cache"
-    t.integer  "position",                   default: 0,                     null: false
-    t.integer  "children_count",             default: 0,                     null: false
-    t.boolean  "is_published",               default: true,                  null: false
-    t.boolean  "is_shared",                  default: false,                 null: false
+    t.integer  "position",                   default: 0,     null: false
+    t.integer  "children_count",             default: 0,     null: false
+    t.boolean  "is_published",               default: true,  null: false
+    t.boolean  "is_shared",                  default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_top_project",             default: false
-    t.datetime "published_date",             default: '2018-07-18 00:00:00'
+    t.datetime "published_date"
   end
 
   add_index "comfy_cms_pages", ["parent_id", "position"], name: "index_comfy_cms_pages_on_parent_id_and_position", using: :btree

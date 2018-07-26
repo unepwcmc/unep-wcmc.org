@@ -1,7 +1,7 @@
 Comfy::Cms::Page.class_eval do
   before_save :extract_published_date
 
-  scope :published, -> { unscoped.where('published_date <= ? AND is_published = true', Date.today) }
+  scope :published, -> { where('published_date <= ? AND is_published = true', Date.today) }
 
   private
 
