@@ -93,8 +93,8 @@ You will need to configure email / slack notifications in the secrets.yml / .env
 
 ##Docker
 * Clone the repo
-* Make a copy of database.yml.docker as docker.yml
-* Make a copy of .env-docker as .env
+* Make a copy of database.yml.docker as database.yml
+* Make a copy of .env-docker as .env and update with the correct info
 * docker-compose build
 * docker-compose run web rake db:create
 * docker-compose run web rake db:migrate
