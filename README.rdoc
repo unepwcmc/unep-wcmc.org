@@ -88,3 +88,18 @@ You will need to configure email / slack notifications in the secrets.yml / .env
 ## Troubleshooting
 
 1. open ssl issues when installing eventmachine `brew install openssl` then `gem install eventmachine -v 1.0.8 -- --with-cppflags=-I/usr/local/opt/openssl/include`
+
+
+
+##Docker
+* Clone the repo
+* Make a copy of database.yml.docker as docker.yml
+* Make a copy of .env-docker as .env
+* docker-compose build
+* docker-compose run web rake db:create
+* docker-compose run web rake db:migrate
+* docker-compose up
+
+You'll need a copy of the database for this to work correctly
+
+
