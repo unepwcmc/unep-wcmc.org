@@ -1,5 +1,4 @@
-.button
-  %a
-    = link_to "Apply for this position", new_form_submission_path(Form.find_by_vacancy_id(@cms_page.id))
-
-
+- if @cms_page.id != 179
+  .button
+    %a
+      = link_to "Apply for this position", new_form_submission_path(Form.find_by_vacancy_id(@cms_page.id))
