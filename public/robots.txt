@@ -1,5 +1,5 @@
 User-Agent: *
-Disallow: /
+Allow: /
 Allow: /about-us
 Allow: /featured-projects
 Allow: /resources-and-data
@@ -10,3 +10,4 @@ Allow: /news
 Allow: /policies
 Allow: /wcmc
 Allow: /terms-and-conditions
+Disallow: /forms/
