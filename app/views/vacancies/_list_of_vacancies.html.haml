@@ -1,7 +1,6 @@
 - if current_user.present?
   %h2.smaller
     = link_to 'Submitted job applications', job_applications_path
-
 - Comfy::Cms::Site.find_by_identifier('vacancies').pages.root.children.published.each do |page|
   %section.list
     %h2.smaller
@@ -9,5 +8,6 @@
         = cms_block_content(:position_title, page)
     %p
       = cms_block_content_render(:position_excerpt, page)
-    %p.link
-      = link_to "Apply", new_form_submission_path(Form.find_by_vacancy_id(page.id))
+    - if Form.find_by_vacancy_id(page.id).id != 179
+      %p.link
+        = link_to "Apply", new_form_submission_path(Form.find_by_vacancy_id(page.id))
