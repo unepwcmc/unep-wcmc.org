@@ -1,3 +1,10 @@
+### 0.4.0
+
+**Add published_date for future published news pages:**
+
+* Added ability to publish articles in the future
+
+
 ### 0.3.0
 
 **Add Proteus technical briefing note filter:**
