@@ -1,3 +1,8 @@
+### 0.3.1
+
+* Temporarely hardcode statement to hide apply button for a submission
+* Update robots.txt to allow Google to parse data for description in the search
+
 ### 0.3.0
 
 **Add Proteus technical briefing note filter:**
