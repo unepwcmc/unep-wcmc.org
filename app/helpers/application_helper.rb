@@ -28,7 +28,7 @@ module ApplicationHelper
   def active_subnav_link_to(text, path, identifier, slug, opts={})
     opts[:title] = text
     opts[:class] ||= ""
-    opts[:class] << " active" if @cms_site.identifier == identifier && @cms_page.slug == slug
+    opts[:class] << " active" if @cms_site.identifier == identifier && @cms_page.slug.to_s == slug
 
     link_to(text, path, opts)
   end

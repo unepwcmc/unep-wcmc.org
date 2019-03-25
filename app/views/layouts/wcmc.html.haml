@@ -41,21 +41,13 @@
     %link{ :href => 'https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', :rel => "stylesheet" }
     %script
       var my_url = "#{request.protocol}#{request.host}:#{request.port}";
+      var speciesplus_dashboard_url = "#{Rails.application.secrets.speciesplus_dashboard_url}";
+      var protectedplanet_dashboard_url = "#{Rails.application.secrets.protectedplanet_dashboard_url}";
+      var protectedplanet_dashboard_token = "#{Rails.application.secrets.protectedplanet_dashboard_token}";
+      var carbon_dashboard_url = "#{Rails.application.secrets.carbon_dashboard_url}";
     %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"}
     = javascript_include_tag "pages/application.js"
-    = stylesheet_link_tag "base", media: "screen"
     = stylesheet_link_tag "application", media: "all"
-    :erb
-      <!--[if !(IE 8)]><!-->
-        <%= stylesheet_link_tag "medium", :media => "only screen and (min-width: 600px)" %>
-        <%= stylesheet_link_tag "large", :media => "screen and (min-width: 1000px)" %>
-      <!--<![endif]-->
-    /[if lt IE 9]
-      = stylesheet_link_tag "medium", media: "all"
-      = stylesheet_link_tag "large", media: "all"
-      = stylesheet_link_tag "ie8", media: "all"
-    /[if IE]
-      = stylesheet_link_tag "ie", media: "all"
     = javascript_include_tag "modernizr.js"
     = csrf_meta_tags
 
@@ -63,7 +55,7 @@
     #nav-container
       #nav
         %a#home_link{ :href => "/", :title => "Home" }
-          = image_tag "wcmc-logo.png", :id => "wcmc-logo"
+          = image_tag "https://s3.amazonaws.com/wcmc.logo/WCMC_logo_white.svg", :id => "wcmc-logo"
         %ul#large-menu
           %li= link_to "UNEP-WCMC", "https://www.unep-wcmc.org", :class => @cms_site
         %button#trigger-menu

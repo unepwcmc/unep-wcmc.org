@@ -4,7 +4,7 @@
 $blue: #4295d5;
 $light-blue: #A8CDEE;
 /*$dark_blue: #3376BA;*/
-$dark_blue: $dark-blue;
+$dark_blue: #043c7b;
 $blue_news: #5175a3;
 $grey: #ddd;
 $light_grey: #f7f7f7;
@@ -264,20 +264,15 @@ ol {
   background-color: $darkest_grey;
   overflow: hidden;
   a#home_link {
-    position: relative;
-    top: 0;
-    z-index: 9999;
-    display: block;
-    width: 100%;
-    float: left;
-    padding: 0;
     background: $blue;
+
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+
     img {
-      max-width: 100%;
-      max-height: 52px;
-      display: block;
-      background: $blue;
-      padding: 2% 5%;
+      margin: rem-calc(10 15);
+      width: rem-calc(150);
     }
   }
   ul{
@@ -343,7 +338,6 @@ div.container.related {
 
 div.heading{
   width: 90%;
-  margin: auto;
   padding: 100px 0;
   text-align: center;
   h1 {
