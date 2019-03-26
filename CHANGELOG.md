@@ -1,5 +1,10 @@
 ### 0.3.1
 
+* Fix up styling on the /wcmc website
+* Fix up styling on mailto buttons
+
+### 0.3.1
+
 * Temporarely hardcode statement to hide apply button for a submission
 * Update robots.txt to allow Google to parse data for description in the search
 
