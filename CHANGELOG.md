@@ -1,4 +1,4 @@
-### 0.3.1
+### 0.3.2
 
 * Fix up styling on the /wcmc website
 * Fix up styling on mailto buttons
