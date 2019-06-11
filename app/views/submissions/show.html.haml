@@ -27,7 +27,7 @@
       %h3 Cover letter
       - if @submission.cover_letter.present?
         = link_to(@submission.cover_letter_file_name, @submission.cover_letter.url)
-      - if Form.find_by_vacancy_id(@cms_page.id).id != 203
+      - if @form.id != 203
         %h3 Application form
         - if @submission.application_form.present?
           = link_to(@submission.application_form_file_name, @submission.application_form.url)

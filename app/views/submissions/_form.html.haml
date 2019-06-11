@@ -36,7 +36,7 @@
     = f.file_field :cover_letter
     - if @submission.cover_letter.present?
       = link_to(@submission.cover_letter_file_name, @submission.cover_letter.url)
-    - if Form.find_by_vacancy_id(@cms_page.id).id != 203
+    - if @form.id != 203
       %p
         %i.icon-upload-alt
         Upload your application form
