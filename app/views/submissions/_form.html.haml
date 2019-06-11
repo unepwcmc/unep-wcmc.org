@@ -36,12 +36,13 @@
     = f.file_field :cover_letter
     - if @submission.cover_letter.present?
       = link_to(@submission.cover_letter_file_name, @submission.cover_letter.url)
-    %p
-      %i.icon-upload-alt
-      Upload your application form
-    = f.file_field :application_form
-    - if @submission.application_form.present?
-      = link_to(@submission.application_form_file_name, @submission.application_form.url)
+    - if Form.find_by_vacancy_id(@cms_page.id).id != 203
+      %p
+        %i.icon-upload-alt
+        Upload your application form
+      = f.file_field :application_form
+      - if @submission.application_form.present?
+        = link_to(@submission.application_form_file_name, @submission.application_form.url)
   - practical_question = cms_block_content(:practical_question_explanation, @form.vacancy)
   - if practical_question.present?
     %section
