@@ -1,22 +1,20 @@
+$blue: #4295d5;
+$light-blue: #A8CDEE;
+$dark_blue: #3376BA;
+$blue_news: #5175a3;
+$grey: #ddd;
+$light_grey: #f7f7f7;
+$medium_grey: #bbb;
+$number_grey: #999;
+$dark_grey: #333;
+$darkest_grey: #222;
+$grey_text: #5e5a5c;
+$green: #B7CF65;
+$red: #EC8486;
+$yellow: #FFDB65;
+$white_link: rgba(255,255,255, 0.75);
+
 @media only screen and (min-width: 600px) {
-
-  $blue: #4295d5;
-  $light-blue: #A8CDEE;
-  $dark_blue: #3376BA;
-  $blue_news: #5175a3;
-  $grey: #ddd;
-  $light_grey: #f7f7f7;
-  $medium_grey: #bbb;
-  $number_grey: #999;
-  $dark_grey: #333;
-  $darkest_grey: #222;
-  $grey_text: #5e5a5c;
-  $green: #B7CF65;
-  $red: #EC8486;
-  $yellow: #FFDB65;
-  $white_link: rgba(255,255,255, 0.75);
-
-
   .container {
     width: 90%;
     overflow: hidden;
@@ -164,25 +162,7 @@ div#nav{
   overflow: hidden;
   width: 90%;
   margin: auto;
-  a#home_link {
-    position: absolute;
-    float: left;
-    width: 40%;
-    min-width: 280px;
-    padding: 10px 0;
-    background: none;
-    img {
-      width: 100%;
-      max-height: 100%;
-      padding: 10px 20px 15px 20px;
-      -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
-      -moz-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
-      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
-    }
-    img#wcmc-logo{
-      width: 23%;
-    }
-  }
+
   ul{
     margin: auto;
     overflow: hidden;
@@ -248,25 +228,7 @@ div#nav{
     overflow: hidden;
     width: 90%;
     margin: auto;
-    a#home_link {
-      position: absolute;
-      float: left;
-      width: 40%;
-      min-width: 280px;
-      padding: 10px 0;
-      background: none;
-      img {
-        width: 100%;
-        max-height: 100%;
-        padding: 10px 20px 15px 20px;
-        -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
-        -moz-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
-        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
-      }
-      img#wcmc-logo{
-        width: 23%;
-      }
-    }
+
     ul{
       margin: auto;
       overflow: hidden;

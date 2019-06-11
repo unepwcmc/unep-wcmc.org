@@ -13,6 +13,31 @@
     color: $white;
   }
 
+  &--outline {
+    border: 1px solid $blue;
+    background-color: transparent;
+    box-shadow: none;
+    color: $dark-blue;
+    font-weight: 300;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    max-width: 250px;
+    
+    display: block;
+    
+    transition: all 0.5s ease;
+    
+    &:hover {
+      background-color: $blue;
+      color: $white;
+      text-decoration: none;
+    }
+  }
+
   &--white {
     background-color: $white;
     border: solid rem-calc(2) $dark-blue;
