@@ -8,6 +8,6 @@
         = cms_block_content(:position_title, page)
     %p
       = cms_block_content_render(:position_excerpt, page)
-    - if Form.find_by_vacancy_id(page.id).id != 203
+    - if Form.find_by_vacancy_id(page.id).id != 1352
       %p.link
         = link_to "Apply", new_form_submission_path(Form.find_by_vacancy_id(page.id))
