@@ -1,3 +1,7 @@
+### 0.3.3
+
+* Fix up og:url content url using relative path of url
+
 ### 0.3.2
 
 * Fix up styling on the /wcmc website
