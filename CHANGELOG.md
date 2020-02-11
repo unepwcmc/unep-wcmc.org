@@ -1,3 +1,7 @@
+### 0.3.3
+
+* Fix admin error on news tab
+
 ### 0.3.2
 
 * Fix up styling on the /wcmc website
