@@ -6,7 +6,7 @@ UnepWcmcOrg::Application.routes.draw do
     put 'users' => 'registrations#update', :as => 'user_registration'
   end
 
-  devise_for :users, :controllers => { :confirmations => "confirmations" }, skip: [:registrations]
+  devise_for :users, :controllers => { :confirmations => "confirmation" }, skip: [:registrations]
 
   get "/about-us/news-archive" => redirect("/news")
 
