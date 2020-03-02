@@ -1,0 +1,122 @@
+.donation-box {
+  padding: 2em 0;
+}
+
+.donation-box__container {
+  background-color: white;
+  padding: rem-calc(10);
+
+}
+
+.donation-box__header {
+  text-align: center;
+}
+
+.donation-box__title {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: black;
+  font-weight: bold;
+}
+
+.donation-box__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.donation-box__input-group {
+  margin-bottom: rem-calc(10);
+}
+
+.donation-box__radio-groups {
+  display: flex;
+  padding: 0;
+  margin: 0 rem-calc(-10) 0 0;
+}
+
+.donation-box__radio-group {
+  padding: 0;
+  list-style: none;
+  flex: 0 0 calc(((1 / 4) * 100%) - #{rem-calc(10)});
+  margin-right: rem-calc(10);
+}
+
+.donation-box__radio {
+  display: none;
+}
+
+.donation-box__radio-label {
+  display: block;
+  text-align: center;
+  border: rem-calc(1) solid black;
+  padding: rem-calc(10 5);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color .3s ease, color .3s ease;
+
+  &:hover,
+  .donation-box__radio:checked + & {
+    background-color: $dark-blue;
+    color: $white;
+  }
+}
+
+.donation-box__label {
+  &.donation-box__label--hidden {
+    display: none;
+  }
+}
+
+.donation-box__input {
+  padding: rem-calc(10);
+  width: 100%;
+  border: rem-calc(1) solid $medium-grey;
+  font-size: rem-calc(14);
+
+
+  &.donation-box__input--number {
+    padding: rem-calc(10 10 10 25);
+    background-image: url('gbp.svg');
+    background-size: 12px;
+    background-position: 10px 13px;
+    background-repeat: no-repeat;
+
+  }
+
+  &::placeholder {
+    font-size: rem-calc(14);
+  }
+}
+
+input[type="submit"].donation-box__submit {
+  width: 100%;
+  margin: 0;
+  background-color: $dark-blue;
+  transition: background-color .3s ease, color .3s ease;
+  border: rem-calc(1) solid $dark-blue;
+  border-radius: 0;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $white;
+    color: $dark-blue;
+  }
+
+  &:disabled {
+    background-color: $grey;
+    color: $grey_text;
+    border-color: $grey;
+  }
+}
+
+.donation-box__error {
+  color: $red;
+  margin-top: rem-calc(5);
+  margin-bottom: 0;
+  display: none;
+
+  .donation-box__submit.error + & {
+    display: block;
+  }
+}

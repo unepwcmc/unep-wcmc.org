@@ -7,3 +7,4 @@ log/**
 public/system
 config/database.yml
 .env
+/node_modules/

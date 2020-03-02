@@ -1,0 +1,42 @@
+$item-padding-mobile: 18px;
+$gutter-medium: 24px;
+$gutter-large: 32px;
+
+.section {
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
+
+  @include breakpoint($tablet) {
+    padding-top: 4em;
+    padding-bottom: 4em;
+  }
+
+  &__container {
+    @include breakpoint($tablet){ @include flexbox; @include justify-content(space-between); }
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+    &__left {
+      margin-bottom: $item-padding-mobile;
+      width: 100%;
+
+      @include breakpoint($tablet) {
+        margin-bottom: 0;
+        width: calc(((6 / 12) * 100%) - 15px);
+      }
+    }
+
+    &__right {
+      width: 100%;
+
+      @include breakpoint($tablet) {
+        padding-left: $gutter-medium;
+        width: calc(((6 / 12) * 100%) - 15px);
+      }
+
+      @include breakpoint($desktop) {
+        padding-right: $gutter-large;
+        padding-left: $gutter-large;
+      }
+    }
+}

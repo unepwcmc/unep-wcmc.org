@@ -8,6 +8,8 @@ UnepWcmcOrg::Application.routes.draw do
 
   devise_for :users, :controllers => { :confirmations => "confirmations" }, skip: [:registrations]
 
+  post '/donate/create', to: 'checkouts#create', as: 'checkouts'
+
   get "/about-us/news-archive" => redirect("/news")
 
   namespace :admin do

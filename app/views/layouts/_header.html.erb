@@ -18,14 +18,11 @@
       </div>
     </div>
   </div>
-  
   <div class="header__menu-bar">
     <a href="/" class="header__logo">
       <%= image_tag 'https://s3.amazonaws.com/wcmc.logo/UN-Environment-WCMC+logo+2017.svg', alt: 'UN Environment WCMC Logo', class: 'header__logo-img' %>
     </a>
-  
     <a href="" class="header__nav-button button js-menu--trigger">Menu</a>
-    
     <nav class="header__menus js-menu--target js-menu--hide">
       <ul class="menu menu--primary menu--bold">
         <li class="menu__item">
@@ -43,8 +40,16 @@
         <li class="menu__item">
           <%= active_class_link_to "About us", "/about-us", { class: "menu__item-link" } %>
         </li>
+        <% unless current_page?('/donate') %>
+          <li class="menu__item menu__item-cta">
+            <%= active_class_link_to "Donate", "/donate", { class: "menu__item-link" } %>
+          </li>
+        <% end %>
       </ul>
       <ul class="menu menu--secondary">
+        <li class="menu__item">
+          <%= link_to "Annual Review", "https://annualreview.unep-wcmc.org/", { class: "menu__item-link", :target => "_blank", :rel => "noopener" } %>
+        </li>
         <li class="menu__item">
           <%= active_class_link_to "Partners", "/about-us/partners", { class: "menu__item-link" } %>
         </li>

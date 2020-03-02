@@ -29,6 +29,7 @@ gem 'dotenv-rails'
 gem 'devise', '~> 3.5.6'
 gem 'appsignal'
 gem 'test-unit', '~> 3.1' # annoyingly, rails console won't start without it in staging / production
+gem 'stripe', '~> 4.24.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.2'
@@ -68,4 +69,3 @@ gem 'kaminari'
 
 gem "geoip", "~> 1.6.1"
 gem "yajl-ruby", "~> 1.2.1"
-

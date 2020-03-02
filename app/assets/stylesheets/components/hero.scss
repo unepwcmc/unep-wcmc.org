@@ -28,6 +28,10 @@
   @media(min-width: $desktop){
     width: $site-width;
   }
+
+  &--no-border {
+    border: 0;
+  }
 }
 
 .hero__title {
