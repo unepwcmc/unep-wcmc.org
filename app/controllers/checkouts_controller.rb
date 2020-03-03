@@ -25,6 +25,6 @@ class CheckoutsController < ApplicationController
       cancel_url: 'https://google.co.uk'
     )
   rescue Stripe::InvalidRequestError => e
-    render json: e
+    e.as_json
   end
 end
