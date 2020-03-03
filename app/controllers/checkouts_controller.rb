@@ -1,7 +1,7 @@
 class CheckoutsController < ApplicationController
 
   def create
-    render create_session(params['amount'])
+    render json: create_session(params['amount'])
   end
 
   def create_session amount
@@ -21,8 +21,8 @@ class CheckoutsController < ApplicationController
       success_url: 'https://example.com/success?session_id={CHECKOUT_SESSION_ID}',
       cancel_url: 'https://google.co.uk'
     )
-    return { body: session, status: '200' }
+    { body: session, status: '200' }
   rescue Stripe::InvalidRequestError => e
-    return { body: e.json_body, status: e.http_status }
+    { body: e.json_body, status: e.http_status }
   end
 end
