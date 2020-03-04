@@ -25,7 +25,12 @@
 }
 
 .donation-box__input-group {
+  position: relative;
   margin-bottom: rem-calc(10);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .donation-box__radio-groups {
@@ -107,6 +112,41 @@ input[type="submit"].donation-box__submit {
     background-color: $grey;
     color: $grey_text;
     border-color: $grey;
+  }
+}
+
+.donation-box__submit-tooltip {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translate(-50%, 10px);
+  width: 200px;
+  text-align: center;
+  background-color: $grey_text;
+  color: $light-grey;
+  padding: rem-calc(5);
+  border-radius: rem-calc(3);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .3s ease, visibility .3s ease;
+
+  &::after {
+    display: block;
+    content: '';
+    width: rem-calc(10);
+    height: rem-calc(10);
+    border: rem-calc(10) solid transparent;
+    border-top-color: $grey_text;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .donation-box__submit:disabled:hover + & {
+    opacity: 1;
+    visibility: visible;
   }
 }
 

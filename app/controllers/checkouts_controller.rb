@@ -17,8 +17,8 @@ class CheckoutsController < ApplicationController
         currency: 'gbp',
         quantity: 1
       }],
-      success_url: 'https://example.com/success?session_id={CHECKOUT_SESSION_ID}',
-      cancel_url: 'https://google.co.uk'
+      success_url: 'https://www.unep-wcmc.org/thankyou?session_id={CHECKOUT_SESSION_ID}',
+      cancel_url: 'https://www.unep-wcmc.org/donate'
     )
     { body: session, status: '200', stripe_key: Rails.application.secrets.stripe_public_key }
   rescue Stripe::InvalidRequestError => e

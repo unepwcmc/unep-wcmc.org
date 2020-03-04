@@ -31,9 +31,11 @@
           <label class="donation-box__label donation-box__label--hidden" for="">Other Amount</label>
           <input class="donation-box__input donation-box__input--number" type="number" placeholder="other amount" step=".01" data-donation-amount-input>
         </div>
-        <input class="donation-box__submit" type="submit" value="Donate" disabled="disabled" data-donation-submit>
-        </input>
-        <p class="donation-box__error">Please enter an amount</p>
+        <div class="donation-box__input-group">
+          <input class="donation-box__submit" type="submit" value="Donate" data-donation-submit>
+          <span class="donation-box__submit-tooltip">Please choose an amount</span>
+          <p class="donation-box__error" data-donation-error-message>Please choose an amount</p>
+        </div>
       </form>
     </div>
   </div>
