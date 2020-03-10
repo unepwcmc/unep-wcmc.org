@@ -39,4 +39,22 @@ $gutter-large: rem-calc(32);
         padding-left: $gutter-large;
       }
     }
+
+    &__link {
+      display: inline-block;
+      -webkit-appearance: none;
+      appearance: none;
+      margin: 0;
+      padding: rem-calc(14 34);
+      background-color: $dark-blue;
+      color: $white;
+      transition: background-color .3s ease, color .3s ease;
+      border: rem-calc(1) solid $dark-blue;
+      border-radius: 0;
+      cursor: pointer;
+
+      &:hover {
+        color: $white;
+      }
+    }
 }
