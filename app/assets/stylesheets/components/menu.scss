@@ -70,8 +70,8 @@
 .menu__item-cta {
   .menu__item-link {
     @include breakpoint($tablet) {
-      padding-left: 30px;
-      padding-right: 30px;
+      padding-left: rem-calc(30);
+      padding-right: rem-calc(30);
       background-color: #42B072;
       color: #fff;
       transition: background-color .5s ease;
@@ -113,7 +113,7 @@
     padding: rem-calc(8 10);
 
     .footer-menu & {
-      font-size: 18px;
+      font-size: rem-calc(18);
     }
   }
 }

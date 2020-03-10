@@ -1,6 +1,6 @@
-$item-padding-mobile: 18px;
-$gutter-medium: 24px;
-$gutter-large: 32px;
+$item-padding-mobile: rem-calc(18);
+$gutter-medium: rem-calc(24);
+$gutter-large: rem-calc(32);
 
 .section {
   padding-top: 2.5em;
@@ -22,7 +22,7 @@ $gutter-large: 32px;
 
       @include breakpoint($tablet) {
         margin-bottom: 0;
-        width: calc(((6 / 12) * 100%) - 15px);
+        width: calc(((6 / 12) * 100%) - #{rem-calc(15)});
       }
     }
 
@@ -31,7 +31,7 @@ $gutter-large: 32px;
 
       @include breakpoint($tablet) {
         padding-left: $gutter-medium;
-        width: calc(((6 / 12) * 100%) - 15px);
+        width: calc(((6 / 12) * 100%) - #{rem-calc(15)});
       }
 
       @include breakpoint($desktop) {

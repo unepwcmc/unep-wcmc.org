@@ -1,7 +1,7 @@
 $line-height-blockquote: 1.2;
 
 blockquote {
-  font-size: 18px;
+  font-size: rem-calc(18px);
   font-style: italic;
   line-height: $line-height-blockquote;
   margin: 0;
@@ -10,9 +10,9 @@ blockquote {
 //--------------------------------------------------
 // settings
 //--------------------------------------------------
-$blockquote-padding-mobile: 26px;
-$blockquote-padding-tablet: 16px;
-$blockquote-padding-desktop: 26px;
+$blockquote-padding-mobile: rem-calc(26);
+$blockquote-padding-tablet: rem-calc(16);
+$blockquote-padding-desktop: rem-calc(26);
 
 @mixin blockquote-top-padding () {
   padding-top: $blockquote-padding-mobile;
@@ -21,22 +21,22 @@ $blockquote-padding-desktop: 26px;
   @include breakpoint($desktop) { padding-top: $blockquote-padding-desktop; }
 }
 
-$blockquote-author-mobile: 14px;
-$blockquote-author-tablet: 14px;
-$blockquote-author-desktop: 18px;
+$blockquote-author-mobile: rem-calc(14);
+$blockquote-author-tablet: rem-calc(14);
+$blockquote-author-desktop: rem-calc(18);
 
 @mixin create-quote-mark($quote-mark) {
   content: $quote-mark;
   color: lighten(#333333, 20%);
-  font-size: 80px;
+  font-size: rem-calc(80);
   font-weight: 500;
   line-height: 1;
 
   display: block;
   position: absolute;
 
-  @include breakpoint($tablet) { font-size: 80px; }
-  @include breakpoint($desktop) { font-size: 170px; }
+  @include breakpoint($tablet) { font-size: rem-calc(80); }
+  @include breakpoint($desktop) { font-size: rem-calc(170); }
 }
 
 //--------------------------------------------------
@@ -44,22 +44,22 @@ $blockquote-author-desktop: 18px;
 //--------------------------------------------------
 .blockquote {
   &--quotes {
-    padding-right: 30px;
-    padding-left: 30px;
+    padding-right: rem-calc(30);
+    padding-left: rem-calc(30);
 
     .blockquote {
       &__quote {
         @include blockquote-top-padding();
-        margin-bottom: 24px;
+        margin-bottom: rem-calc(24);
         position: relative;
-        font-size: 25px;
-        line-height: 30px;
+        font-size: rem-calc(25);
+        line-height: rem-calc(30);
         font-weight: 300;
         color: #31A0C9;
 
         &:before {
           @include create-quote-mark('\201C');
-          top: -10px;
+          top: rem-calc(-10);
           right: calc(100% + .15em);
         }
 

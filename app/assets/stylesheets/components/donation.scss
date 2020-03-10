@@ -14,7 +14,7 @@
 
 .donation-box__title {
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: rem-calc(10);
   color: black;
   font-weight: bold;
 }
@@ -82,8 +82,8 @@
   &.donation-box__input--number {
     padding: rem-calc(10 10 10 25);
     background-image: url('gbp.svg');
-    background-size: 12px;
-    background-position: 10px 13px;
+    background-size: rem-calc(12);
+    background-position: rem-calc(10 13);
     background-repeat: no-repeat;
 
   }
@@ -120,7 +120,7 @@ input[type="submit"].donation-box__submit {
   top: -100%;
   left: 50%;
   transform: translate(-50%, 10px);
-  width: 200px;
+  width: rem-calc(200);
   text-align: center;
   background-color: $grey_text;
   color: $light-grey;
