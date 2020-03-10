@@ -13,12 +13,13 @@ class CheckoutsController < ApplicationController
       line_items: [{
         name: 'Donation',
         description: 'Donation to UNEP-WCMC',
+        images: ['https://p2.piqsels.com/preview/1014/551/768/frog-green-lilypad-eyes.jpg'],
         amount: amount,
         currency: 'gbp',
         quantity: 1
       }],
-      success_url: 'https://www.unep-wcmc.org/thankyou?session_id={CHECKOUT_SESSION_ID}',
-      cancel_url: 'https://www.unep-wcmc.org/donate'
+      success_url: request.base_url + '/donate/success',
+      cancel_url: request.base_url + '/donate'
     )
     { body: session, status: '200', stripe_key: Rails.application.secrets.stripe_public_key }
   rescue Stripe::InvalidRequestError => e

@@ -6,7 +6,7 @@ var _promisePolyfill = _interopRequireDefault(require("promise-polyfill"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 // Using Browserify to import Javascript modules
-window.addEventListener('DOMContentLoaded', function (e) {
+document.addEventListener('DOMContentLoaded', function (e) {
   // Token required for header to make post request to the rails backend
   var csrf = document.querySelectorAll('meta[name="csrf-token"]')[0].getAttribute('content');
   var els = {

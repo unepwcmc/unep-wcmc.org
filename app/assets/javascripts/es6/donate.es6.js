@@ -1,7 +1,7 @@
 // Using Browserify to import Javascript modules
 import Promise from 'promise-polyfill'
 
-window.addEventListener('DOMContentLoaded', (e) => {
+document.addEventListener('DOMContentLoaded', (e) => {
   // Token required for header to make post request to the rails backend
   const csrf = document.querySelectorAll('meta[name="csrf-token"]')[0].getAttribute('content')
 

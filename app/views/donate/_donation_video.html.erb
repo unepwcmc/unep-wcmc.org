@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="flex--2-cols">
+      <section class="flex--2-cols__child">
+        <div class="ratio-16-9">
+          <iframe src="https://www.youtube.com/embed/{{ cms:page:intro_video_id:string }}?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+        </div>
+      </section>
+      <section class="flex--2-cols__child">
+        <h2>{{ cms:page:video_title:string }}</h2>
+        <div>{{ cms:page:video_body:rich_text }}</div>
+      </section>
+    </div>
+  </div>
+</div>
