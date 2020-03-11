@@ -25,4 +25,5 @@
 //= require lunr
 //= require pages/main
 //= require placeholder
+//= require promise-polyfill
 //= require_tree .

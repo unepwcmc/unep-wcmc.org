@@ -1,6 +1,3 @@
-// Using Browserify to import Javascript modules
-import Promise from 'promise-polyfill'
-
 document.addEventListener('DOMContentLoaded', (e) => {
   const donationBox = document.querySelector('[data-donation-box]')
 
