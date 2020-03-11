@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "babel": "babel --presets es2015 app/assets/javascripts/es6/donate.es6.js -o app/assets/javascripts/es6/donate.js",
-    "browserify": "browserify app/assets/javascripts/es6/donate.es6.js -o app/assets/javascripts/es6/donate.js -t babelify --presets es2015"
+    "browserify": "browserify app/assets/javascripts/es6/donate.es6.js -o app/assets/javascripts/pages/donate.js -t babelify --presets es2015"
   },
   "babel": {
     "presets": [
