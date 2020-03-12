@@ -27,7 +27,7 @@ $blockquote-author-desktop: rem-calc(18);
 
 @mixin create-quote-mark($quote-mark) {
   content: $quote-mark;
-  color: lighten(#333333, 20%);
+  color: $dark-mid-grey;
   font-size: rem-calc(80);
   font-weight: 500;
   line-height: 1;
@@ -44,18 +44,19 @@ $blockquote-author-desktop: rem-calc(18);
 //--------------------------------------------------
 .blockquote {
   &--quotes {
-    padding-right: rem-calc(30);
     padding-left: rem-calc(30);
+    padding-right: rem-calc(30);
 
     .blockquote {
       &__quote {
         @include blockquote-top-padding();
-        margin-bottom: rem-calc(24);
-        position: relative;
+        color: $light-blue;
         font-size: rem-calc(25);
-        line-height: rem-calc(30);
         font-weight: 300;
-        color: #31A0C9;
+        line-height: rem-calc(30);
+        margin-bottom: rem-calc(24);
+
+        position: relative;
 
         &:before {
           @include create-quote-mark('\201C');

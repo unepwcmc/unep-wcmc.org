@@ -8,7 +8,7 @@
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
 set :stage, :staging
-set :branch, "master"
+set :branch, "donation-page"
 
 
 server "unep-wcmc-staging.linode.unep-wcmc.org", user: 'wcmc', roles: %w{app web db}
@@ -105,4 +105,3 @@ set :app_port, "80"
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
-

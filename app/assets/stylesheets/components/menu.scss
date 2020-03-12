@@ -70,10 +70,11 @@
 .menu__item-cta {
   .menu__item-link {
     @include breakpoint($tablet) {
-      padding-left: rem-calc(30);
-      padding-right: rem-calc(30);
       background-color: #42B072;
       color: #fff;
+      padding-right: rem-calc(30);
+      padding-left: rem-calc(30);
+
       transition: background-color .5s ease;
 
       &:hover {

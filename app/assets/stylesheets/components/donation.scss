@@ -5,7 +5,6 @@
 .donation-box__container {
   background-color: white;
   padding: rem-calc(10);
-
 }
 
 .donation-box__header {
@@ -13,10 +12,10 @@
 }
 
 .donation-box__title {
-  margin-top: 0;
-  margin-bottom: rem-calc(10);
   color: black;
   font-weight: bold;
+  margin-top: 0;
+  margin-bottom: rem-calc(10);
 }
 
 .donation-box__form {
@@ -25,8 +24,9 @@
 }
 
 .donation-box__input-group {
-  position: relative;
   margin-bottom: rem-calc(10);
+
+  position: relative;
 
   &:last-child {
     margin-bottom: 0;
@@ -34,16 +34,18 @@
 }
 
 .donation-box__radio-groups {
-  display: flex;
-  padding: 0;
   margin: 0 rem-calc(-10) 0 0;
+  padding: 0;
+
+  display: flex;
 }
 
 .donation-box__radio-group {
-  padding: 0;
   list-style: none;
-  flex: 0 0 calc(((1 / 4) * 100%) - #{rem-calc(10)});
   margin-right: rem-calc(10);
+  padding: 0;
+
+  flex: 0 0 calc(((1 / 4) * 100%) - #{rem-calc(10)});
 }
 
 .donation-box__radio {
@@ -51,12 +53,14 @@
 }
 
 .donation-box__radio-label {
-  display: block;
-  text-align: center;
   border: rem-calc(1) solid black;
-  padding: rem-calc(10 5);
-  font-weight: 500;
   cursor: pointer;
+  font-weight: 500;
+  padding: rem-calc(10 5);
+  text-align: center;
+
+  display: block;
+
   transition: background-color .3s ease, color .3s ease;
 
   &:hover,
@@ -73,19 +77,18 @@
 }
 
 .donation-box__input {
-  padding: rem-calc(10);
-  width: 100%;
   border: rem-calc(1) solid $medium-grey;
   font-size: rem-calc(14);
+  padding: rem-calc(10);
+  width: 100%;
 
 
   &.donation-box__input--number {
-    padding: rem-calc(10 10 10 25);
     background-image: image-url('gbp.svg');
     background-size: rem-calc(12);
     background-position: rem-calc(10 13);
     background-repeat: no-repeat;
-
+    padding: rem-calc(10 10 10 25);
   }
 
   &::placeholder {
@@ -96,14 +99,15 @@
 input[type="submit"].donation-box__submit {
   -webkit-appearance: none;
   appearance: none;
-  width: 100%;
-  margin: 0;
   background-color: $dark-blue;
-  transition: background-color .3s ease, color .3s ease;
   border: rem-calc(1) solid $dark-blue;
   border-radius: 0;
-  font-weight: bold;
   cursor: pointer;
+  font-weight: bold;
+  margin: 0;
+  width: 100%;
+
+  transition: background-color .3s ease, color .3s ease;
 
   &:hover {
     background-color: $white;
@@ -112,37 +116,41 @@ input[type="submit"].donation-box__submit {
 
   &:disabled {
     background-color: $grey;
-    color: $grey_text;
     border-color: $grey;
+    color: $grey_text;
   }
 }
 
 .donation-box__submit-tooltip {
+  background-color: $grey_text;
+  border-radius: rem-calc(3);
+  color: $light-grey;
+  opacity: 0;
+  padding: rem-calc(5);
+  pointer-events: none;
+  text-align: center;
+  visibility: hidden;
+  width: rem-calc(200);
+
   position: absolute;
   top: -100%;
   left: 50%;
+
   transform: translate(-50%, 10px);
-  width: rem-calc(200);
-  text-align: center;
-  background-color: $grey_text;
-  color: $light-grey;
-  padding: rem-calc(5);
-  border-radius: rem-calc(3);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
   transition: opacity .3s ease, visibility .3s ease;
 
   &::after {
-    display: block;
     content: '';
-    width: rem-calc(10);
-    height: rem-calc(10);
     border: rem-calc(10) solid transparent;
     border-top-color: $grey_text;
+    width: rem-calc(10);
+    height: rem-calc(10);
+
+    display: block;
     position: absolute;
     top: 100%;
     left: 50%;
+
     transform: translateX(-50%);
   }
 
@@ -156,6 +164,7 @@ input[type="submit"].donation-box__submit {
   color: $red;
   margin-top: rem-calc(5);
   margin-bottom: 0;
+  
   display: none;
 
   .donation-box__submit.error + & {
