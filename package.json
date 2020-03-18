@@ -1,0 +1,27 @@
+{
+  "name": "unep-wcmc.org",
+  "version": "1.0.0",
+  "scripts": {
+    "babel": "babel --presets es2015 app/assets/javascripts/es6/donate.es6.js -o app/assets/javascripts/es6/donate.js",
+    "browserify": "browserify app/assets/javascripts/es6/donate.es6.js -o app/assets/javascripts/pages/donate.js -t babelify --presets es2015"
+  },
+  "babel": {
+    "presets": [
+      "@babel/env"
+    ]
+  },
+  "repository": "git@github.com:unepwcmc/unep-wcmc.org.git",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "axios": "^0.19.2",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^10.0.0",
+    "browserify": "^16.5.0"
+  },
+  "dependencies": {
+    "promise-polyfill": "^8.1.3"
+  }
+}

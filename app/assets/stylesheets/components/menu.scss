@@ -67,6 +67,23 @@
   }
 }
 
+.menu__item-cta {
+  .menu__item-link {
+    @include breakpoint($tablet) {
+      background-color: #42B072;
+      color: #fff;
+      padding-right: rem-calc(30);
+      padding-left: rem-calc(30);
+
+      transition: background-color .5s ease;
+
+      &:hover {
+        background-color: darken(#42B072, 10%);
+      }
+    }
+  }
+}
+
 .menu--footer {
   @include align-items(center);
   margin: 0;
@@ -85,7 +102,7 @@
       padding-left: 0;
     }
   }
-  
+
   &:last-child {
     @media (min-width: $tablet){
       padding-right: 0;
@@ -95,9 +112,9 @@
   a {
     color: $black;
     padding: rem-calc(8 10);
-    
+
     .footer-menu & {
-      font-size: 18px;
+      font-size: rem-calc(18);
     }
   }
 }

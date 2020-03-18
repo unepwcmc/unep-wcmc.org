@@ -1,3 +1,21 @@
 $phone:   499px;
 $tablet:  768px;
 $desktop:  1080px;
+
+@mixin breakpoint($breakpoint) {
+  @media screen and (min-width: rem_calc($breakpoint + 1px)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($breakpoint) {
+  @media screen and (max-width: rem_calc($breakpoint)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-between($breakpoint_1, $breakpoint_2) {
+  @media screen and (max-width: rem_calc($breakpoint_2)) and (min-width: rem_calc($breakpoint_1 + 1px)) {
+    @content;
+  }
+}

@@ -1,0 +1,62 @@
+$item-padding-mobile: rem-calc(18);
+$gutter-medium: rem-calc(24);
+$gutter-large: rem-calc(32);
+
+.section {
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
+
+  @include breakpoint($tablet) {
+    padding-top: 4em;
+    padding-bottom: 4em;
+  }
+
+  &__container {
+    @include breakpoint($tablet){ @include flexbox; @include justify-content(space-between); }
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+    &__left {
+      margin-bottom: $item-padding-mobile;
+      width: 100%;
+
+      @include breakpoint($tablet) {
+        margin-bottom: 0;
+        width: calc(((6 / 12) * 100%) - #{rem-calc(15)});
+      }
+    }
+
+    &__right {
+      width: 100%;
+
+      @include breakpoint($tablet) {
+        padding-left: $gutter-medium;
+        width: calc(((6 / 12) * 100%) - #{rem-calc(15)});
+      }
+
+      @include breakpoint($desktop) {
+        padding-right: $gutter-large;
+        padding-left: $gutter-large;
+      }
+    }
+
+    &__link {
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: $dark-blue;
+      border: rem-calc(1) solid $dark-blue;
+      border-radius: 0;
+      color: $white;
+      cursor: pointer;
+      margin: 0;
+      padding: rem-calc(14 34);
+
+      display: inline-block;
+
+      transition: background-color .3s ease, color .3s ease;
+
+      &:hover {
+        color: $white;
+      }
+    }
+}

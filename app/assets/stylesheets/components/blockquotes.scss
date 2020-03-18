@@ -1,0 +1,87 @@
+$line-height-blockquote: 1.2;
+
+blockquote {
+  font-size: rem-calc(18px);
+  font-style: italic;
+  line-height: $line-height-blockquote;
+  margin: 0;
+}
+
+//--------------------------------------------------
+// settings
+//--------------------------------------------------
+$blockquote-padding-mobile: rem-calc(26);
+$blockquote-padding-tablet: rem-calc(16);
+$blockquote-padding-desktop: rem-calc(26);
+
+@mixin blockquote-top-padding () {
+  padding-top: $blockquote-padding-mobile;
+
+  @include breakpoint($tablet) { padding-top: $blockquote-padding-tablet; }
+  @include breakpoint($desktop) { padding-top: $blockquote-padding-desktop; }
+}
+
+$blockquote-author-mobile: rem-calc(14);
+$blockquote-author-tablet: rem-calc(14);
+$blockquote-author-desktop: rem-calc(18);
+
+@mixin create-quote-mark($quote-mark) {
+  content: $quote-mark;
+  color: $dark-mid-grey;
+  font-size: rem-calc(80);
+  font-weight: 500;
+  line-height: 1;
+
+  display: block;
+  position: absolute;
+
+  @include breakpoint($tablet) { font-size: rem-calc(80); }
+  @include breakpoint($desktop) { font-size: rem-calc(170); }
+}
+
+//--------------------------------------------------
+// classes
+//--------------------------------------------------
+.blockquote {
+  &--quotes {
+    padding-left: rem-calc(30);
+    padding-right: rem-calc(30);
+
+    .blockquote {
+      &__quote {
+        @include blockquote-top-padding();
+        color: $light-blue;
+        font-size: rem-calc(25);
+        font-weight: 300;
+        line-height: rem-calc(30);
+        margin-bottom: rem-calc(24);
+
+        position: relative;
+
+        &:before {
+          @include create-quote-mark('\201C');
+          top: rem-calc(-10);
+          right: calc(100% + .15em);
+        }
+
+        &:after {
+          @include create-quote-mark('\201D');
+          top: calc(100% - .25em);
+          left: calc(100% - .3em);
+        }
+      }
+
+      &__author {
+        color: $white;
+        font-size: $blockquote-author-mobile;
+        font-weight: bold;
+        line-height: $line-height-blockquote;
+
+        display: block;
+
+        @include breakpoint($tablet) { font-size: $blockquote-author-tablet; }
+        @include breakpoint($desktop) { font-size: $blockquote-author-desktop; }
+      }
+    }
+  }
+}

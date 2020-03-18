@@ -1,0 +1,15 @@
+<section class="flex--2-cols__child">
+  <% if cms_block_content(:thumbnail, page).file.present? %>
+    <%= link_to @cms_site.path + page.full_path do %>
+      <%= image_tag cms_block_content(:thumbnail, page).file.url(:thumbnail) %>
+    <% end %>
+  <% end %>
+  <h2 class="smaller">
+    <%= link_to @cms_site.path + page.full_path, class: 'heading' do %>
+      <%= block_content(:project_name, page) %>
+    <% end %>
+  </h2>
+  <p>
+    <%= raw block_content(:short_description, page) %>
+  </p>
+</section>

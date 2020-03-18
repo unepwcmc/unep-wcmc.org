@@ -1,0 +1,5 @@
+<div class="flex--2-cols">
+  <% top_projects.sort_by(&:updated_at).first(4).each do |page| %>
+    <%= render partial: "donate/project", locals: {page: page} %>
+  <% end %>
+</div>

@@ -1,0 +1,173 @@
+.donation-box {
+  padding: 2em 0;
+}
+
+.donation-box__container {
+  background-color: white;
+  padding: rem-calc(10);
+}
+
+.donation-box__header {
+  text-align: center;
+}
+
+.donation-box__title {
+  color: black;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: rem-calc(10);
+}
+
+.donation-box__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.donation-box__input-group {
+  margin-bottom: rem-calc(10);
+
+  position: relative;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.donation-box__radio-groups {
+  margin: 0 rem-calc(-10) 0 0;
+  padding: 0;
+
+  display: flex;
+}
+
+.donation-box__radio-group {
+  list-style: none;
+  margin-right: rem-calc(10);
+  padding: 0;
+
+  flex: 0 0 calc(((1 / 4) * 100%) - #{rem-calc(10)});
+}
+
+.donation-box__radio {
+  display: none;
+}
+
+.donation-box__radio-label {
+  border: rem-calc(1) solid black;
+  cursor: pointer;
+  font-weight: 500;
+  padding: rem-calc(10 5);
+  text-align: center;
+
+  display: block;
+
+  transition: background-color .3s ease, color .3s ease;
+
+  &:hover,
+  .donation-box__radio:checked + & {
+    background-color: $dark-blue;
+    color: $white;
+  }
+}
+
+.donation-box__label {
+  &.donation-box__label--hidden {
+    display: none;
+  }
+}
+
+.donation-box__input {
+  border: rem-calc(1) solid $medium-grey;
+  font-size: rem-calc(14);
+  padding: rem-calc(10);
+  width: 100%;
+
+
+  &.donation-box__input--number {
+    background-image: image-url('gbp.svg');
+    background-size: rem-calc(12);
+    background-position: rem-calc(10 13);
+    background-repeat: no-repeat;
+    padding: rem-calc(10 10 10 25);
+  }
+
+  &::placeholder {
+    font-size: rem-calc(14);
+  }
+}
+
+input[type="submit"].donation-box__submit {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: $dark-blue;
+  border: rem-calc(1) solid $dark-blue;
+  border-radius: 0;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 0;
+  width: 100%;
+
+  transition: background-color .3s ease, color .3s ease;
+
+  &:hover {
+    background-color: $white;
+    color: $dark-blue;
+  }
+
+  &:disabled {
+    background-color: $grey;
+    border-color: $grey;
+    color: $grey_text;
+  }
+}
+
+.donation-box__submit-tooltip {
+  background-color: $grey_text;
+  border-radius: rem-calc(3);
+  color: $light-grey;
+  opacity: 0;
+  padding: rem-calc(5);
+  pointer-events: none;
+  text-align: center;
+  visibility: hidden;
+  width: rem-calc(200);
+
+  position: absolute;
+  top: -100%;
+  left: 50%;
+
+  transform: translate(-50%, 10px);
+  transition: opacity .3s ease, visibility .3s ease;
+
+  &::after {
+    content: '';
+    border: rem-calc(10) solid transparent;
+    border-top-color: $grey_text;
+    width: rem-calc(10);
+    height: rem-calc(10);
+
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+
+    transform: translateX(-50%);
+  }
+
+  .donation-box__submit:disabled:hover + & {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.donation-box__error {
+  color: $red;
+  margin-top: rem-calc(5);
+  margin-bottom: 0;
+  
+  display: none;
+
+  .donation-box__submit.error + & {
+    display: block;
+  }
+}
