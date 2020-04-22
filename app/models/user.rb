@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   def password_required?
     !password.nil? || !password_confirmation.nil?
   end
+
+  def is_recruiter
+    email == Rails.application.secrets.recruiter_mail
+  end
 end
