@@ -1,6 +1,6 @@
 %a{ :href => "mailto:?subject=#{cms_block_content(:email_share_subject)}&body=#{cms_block_content(:email_share_content)}"}
   %i.icon-envelope
   Email
-%a{ :href => "https://twitter.com/share?text=#{cms_block_content(:twitter_share_text)}", :target => "_blank" }
+%a{ :href => "https://twitter.com/intent/tweet?text=#{cms_block_content(:twitter_share_text)}%20%7C%20Read more%20on%20the%20@unepwcmc%20website%20#{request.base_url + request.fullpath}", :target => "_blank" }
   %i.icon-twitter
   Twitter
