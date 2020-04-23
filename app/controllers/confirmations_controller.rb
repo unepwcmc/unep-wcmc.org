@@ -20,8 +20,8 @@ class ConfirmationsController < Devise::ConfirmationsController
   def set_user
     # token = Devise.token_generator.digest(User, :confirmation_token, params[:confirmation_token])
     # @user = User.find_by_confirmation_token!(token)
-    token = params[:confirmation_token]
-    @user = User.confirm_by_token(token)
+
+    @user = User.confirm_by_token(params[:confirmation_token])
   end
 
   def password_params
