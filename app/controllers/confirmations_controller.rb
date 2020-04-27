@@ -36,7 +36,9 @@ class ConfirmationsController < Devise::ConfirmationsController
     if @user
       if !@user.confirmed_at.nil?
         flash[:notice] = "Email address already confirmed, please sign in."
-        redirect_to comfy_admin_cms_path
+        sign_out current_user
+        # To stop users using multiple confirmation links if signed in with one account already.
+        redirect_to new_user_session_path
       elsif @user.id.nil?
         flash[:notice] = 'Invalid confirmation token. Please contact your administrator to resend confirmation instructions.'
         redirect_to '/'
