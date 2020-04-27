@@ -17,7 +17,6 @@ UnepWcmcOrg::Application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.delivery_method = :letter_opener
-  # config.action_mailer.delivery_method = :smtp - was testing with this as letter_opener wasn't working
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -30,7 +29,7 @@ UnepWcmcOrg::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => '127.0.0.1:3000' }
 
 
 end
