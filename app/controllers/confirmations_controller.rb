@@ -18,7 +18,16 @@ class ConfirmationsController < Devise::ConfirmationsController
   private
 
   def set_user
+    if !params[:confirmation_token] || params[:confirmation_token].empty?
+      flash[:notice] = 'Missing confirmation token. Please contact your administrator to resend confirmation instructions.'
+      redirect_to '/'
+    end
     @user = User.confirm_by_token(params[:confirmation_token])
+    # If confirm_by_token cannot find user
+    if @user.id.nil?
+      flash[:notice] = 'Invalid confirmation token. Please contact your administrator to resend confirmation instructions.'
+      redirect_to '/'
+    end
   end
 
   def password_params
