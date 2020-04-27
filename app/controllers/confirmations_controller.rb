@@ -23,15 +23,23 @@ class ConfirmationsController < Devise::ConfirmationsController
       redirect_to '/'
     end
     @user = User.confirm_by_token(params[:confirmation_token])
-    # If confirm_by_token cannot find user
-    if @user.id.nil?
-      flash[:notice] = 'Invalid confirmation token. Please contact your administrator to resend confirmation instructions.'
-      redirect_to '/'
-    end
+    # Handling errors if confirmation_token is valid
+    post_checks
   end
 
   def password_params
     params.require(:user).permit(:password, :password_confirmation)
   end
 
+  def post_checks
+    if @user
+      if !@user.confirmed_at.nil?
+        flash[:notice] = "Email address already confirmed, please sign in."
+        redirect_to comfy_admin_cms_path
+      elsif @user.id.nil?
+        flash[:notice] = 'Invalid confirmation token. Please contact your administrator to resend confirmation instructions.'
+        redirect_to '/'
+      end
+    end
+  end
 end
