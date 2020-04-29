@@ -29,13 +29,13 @@ class ConfirmationsController < Devise::ConfirmationsController
       return
     else
       if @user != current_user && user_signed_in?
-        sign_out current_user
         # To stop users using multiple confirmation links if signed in with one account already.
         if @user.confirmed_at.nil?
-          flash[:error] = "Please confirm your new account."
+          sign_out current_user
+          flash[:notice] = "Please confirm your new account."
         else
-          flash[:error] = "Account already confirmed. Please contact your administrator to resend confirmation instructions."
-          redirect_to '/'
+          flash[:error] = "Account already confirmed. Please contact your administrator for a new confirmation email."
+          redirect_to comfy_admin_cms_path
           return
         end
       end
