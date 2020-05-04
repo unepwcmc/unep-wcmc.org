@@ -1,6 +1,6 @@
 class ConfirmationsController < Devise::ConfirmationsController
   skip_before_filter :authenticate_user!
-  before_action :set_user, only: [:show, :update]
+  before_action :pre_checks, only: [:show, :update]
 
   def update
     if @user.update(password_params)
@@ -17,13 +17,28 @@ class ConfirmationsController < Devise::ConfirmationsController
 
   private
 
-  def set_user
-    token = Devise.token_generator.digest(User, :confirmation_token, params[:confirmation_token])
-    @user = User.find_by_confirmation_token!(token)
-  end
-
   def password_params
     params.require(:user).permit(:password, :password_confirmation)
   end
 
+  def pre_checks
+    @user = User.find_or_initialize_with_error_by(:confirmation_token, params[:confirmation_token])
+    if @user.id.nil? || !user_signed_in? && !@user.confirmed_at.nil?
+      flash[:error] = 'Invalid or already confirmed confirmation token. Please contact your administrator to resend confirmation instructions.'
+      redirect_to '/'
+      return
+    else
+      if @user != current_user && user_signed_in?
+        # To stop users using multiple confirmation links if signed in with one account already.
+        if @user.confirmed_at.nil?
+          sign_out current_user
+          flash[:notice] = "Please confirm your new account."
+        else
+          flash[:error] = "Account already confirmed. Please contact your administrator for a new confirmation email."
+          redirect_to comfy_admin_cms_path
+          return
+        end
+      end
+    end
+  end
 end

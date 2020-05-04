@@ -1,4 +1,4 @@
-- if current_user.present?
+- if current_user.present? && (current_user.is_superadmin || current_user.is_recruiter)
   %h2.smaller
     = link_to 'Submitted job applications', job_applications_path
 - Comfy::Cms::Site.find_by_identifier('vacancies').pages.root.children.published.each do |page|

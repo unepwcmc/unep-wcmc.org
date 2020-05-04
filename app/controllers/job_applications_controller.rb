@@ -69,7 +69,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def authenticate
-    redirect_to new_user_session_path unless current_user
+    redirect_to new_user_session_path unless current_user && (current_user.is_superadmin || current_user.is_recruiter)
   end
 
 end
