@@ -1,3 +1,7 @@
+### 0.3.5
+
+* Fix error with twitter share link
+
 ### 0.3.4
 
 * Fix job application section accessibility
