@@ -36,7 +36,8 @@ March 2017 - Updated the functionality of the filters on the Resources and Data 
   bundle install
   mv config/database.yml.example config/database.yml
   rake db:create
-
+  rake db:migrate
+  
 Previously you would do this:
 
   rake db:migrate

@@ -1,3 +1,9 @@
+### 0.3.4
+
+* Fix job application section accessibility
+* Add link to annual review
+* Fix user confirmation process
+
 ### 0.3.3
 
 * Fix admin error on news tab
