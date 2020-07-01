@@ -8,7 +8,6 @@ function ($scope, $sce) {
 
   var index = lunr(function () {
     this.field('title', {boost: 10});
-    this.field('content');
     this.ref('index');
   });
 
