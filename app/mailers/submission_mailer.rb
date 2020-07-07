@@ -3,14 +3,14 @@ class SubmissionMailer < ActionMailer::Base
     @submission = submission
     @form = form
     if submission.saved_first_time?
-      mail(from: 'no-reply@unep-wcmc.org', to: submission.email, subject: 'Job application saved.').deliver
+      mail(from: 'no-reply@unep-wcmc.org', to: submission.email, subject: 'Job application saved.')
     end
   end
 
   def submit_confirmation(submission, form)
     @submission = submission
     @form = form
-    mail(from: 'no-reply@unep-wcmc.org', to: submission.email, subject: 'Job application submitted.').deliver
+    mail(from: 'no-reply@unep-wcmc.org', to: submission.email, subject: 'Job application submitted.')
   end
 
   def inform_recruitment(submission, form)
@@ -24,6 +24,6 @@ class SubmissionMailer < ActionMailer::Base
       to: 'recruitment@unep-wcmc.org',
       subject: "Job Application submitted: #{@vacancy.label},
         #{@submission.name} (#{@submission.email})"
-    ).deliver
+    )
   end
 end
