@@ -10,7 +10,7 @@ class SubmissionMailer < ActionMailer::Base
   def submit_confirmation(submission, form)
     @submission = submission
     @form = form
-    mail(to: submission.email, from: 'no-reply@unep-wcmc.org', subject: 'Job application submitted.')
+    mail(from: 'no-reply@unep-wcmc.org', to: submission.email, subject: 'Job application submitted.')
   end
 
   def inform_recruitment(submission, form)

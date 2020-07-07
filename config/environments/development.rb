@@ -28,19 +28,11 @@ UnepWcmcOrg::Application.configure do
   config.assets.debug = true
 
   
-  config.action_mailer.delivery_method = :smtp #for the mac apparently run::sudo postfix start
-  config.action_mailer.asset_host = secrets['mailer']['asset_host']
+  config.action_mailer.delivery_method = :letter_opener
+
+
   config.action_mailer.default_url_options = { :host => 'localhost:3000', :protocol => 'http' }
 
-  
-  config.action_mailer.smtp_settings = {
-    :enable_starttls_auto => true,
-    :address => secrets['mailer']['address'],
-    :port => secrets['mailer']['port'],
-    :domain => secrets['mailer']['domain'],
-    :authentication => :login,
-    :user_name => secrets['mailer']['username'],
-    :password => secrets['mailer']['password']
-  }
+
 
 end
