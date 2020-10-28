@@ -25,7 +25,7 @@ class SubmissionMailer < ActionMailer::Base
 
     mail(
       from: 'no-reply@unep-wcmc.org',
-      to: 'stanley.liu@unep-wcmc.org',
+      to: 'recruitment@unep-wcmc.org',
       subject: "Job Application submitted: #{@vacancy.label},
         #{@submission.name} (#{@submission.email})"
     )
