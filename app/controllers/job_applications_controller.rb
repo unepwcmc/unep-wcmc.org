@@ -56,10 +56,17 @@ class JobApplicationsController < ApplicationController
   end
 
   def destroy
-    @form.submissions.each do |submission|
-      submission.destroy
-    end
-    redirect_to job_applications_path, notice: 'Job applications were successfully destroyed.'
+    @form.submissions.each(&:destroy)
+    path = Rails.root.join('private', 'zip', 'all_job_applications')
+    vacancy_label = @form.vacancy.formatted_label
+    filename = "#{vacancy_label}.zip"
+    zip = Download::GenerateZip.new(path, filename)
+    zip.delete_zip
+    path = Rails.root.join('private', 'zip', 'job_applications')
+    filename = "#{vacancy_label}*"
+    zip = Download::GenerateZip.new(path, filename)
+    zip.delete_zip
+    redirect_to job_applications_path, notice: 'Job applications and all related files were successfully destroyed.'
   end
 
   private
