@@ -1,3 +1,11 @@
+### 0.3.10
+
+* ActionMailer set to use Sendmail over SMTP to allow confirmation emails to be sent to Gmail users 
+
+### 0.3.9
+
+* Make sure to delete the files attached to job application on destroy action.
+
 ### 0.3.8
 
 * New Hotjar tracking code added 
