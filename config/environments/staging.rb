@@ -69,10 +69,10 @@ UnepWcmcOrg::Application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.delivery_method = :smtp #for the mac apparently run::sudo postfix start
+  config.action_mailer.delivery_method = :sendmail #for the mac apparently run::sudo postfix start
   config.action_mailer.asset_host = secrets['asset_host']
   config.action_mailer.default_url_options = { :host => secrets['host'] }
-  config.action_mailer.smtp_settings = {
+  config.action_mailer.sendmail_settings = {
     :enable_starttls_auto => true,
     :address => secrets['address'],
     :port => secrets['port'],
@@ -81,6 +81,9 @@ UnepWcmcOrg::Application.configure do
     :user_name => secrets['username'],
     :password => secrets['password']
   }
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).

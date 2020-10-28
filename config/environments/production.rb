@@ -70,10 +70,10 @@ UnepWcmcOrg::Application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.delivery_method = :smtp #for the mac apparently run::sudo postfix start
+  config.action_mailer.delivery_method = :sendmail #for the mac apparently run::sudo postfix start
   config.action_mailer.asset_host = secrets['mailer']['asset_host']
   config.action_mailer.default_url_options = { :host => secrets['mailer']['host'] }
-  config.action_mailer.smtp_settings = {
+  config.action_mailer.sendmail_settings = {
     :enable_starttls_auto => true,
     :address => secrets['mailer']['address'],
     :port => secrets['mailer']['port'],
