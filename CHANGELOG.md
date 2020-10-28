@@ -1,3 +1,11 @@
+### 0.3.8
+
+* New Hotjar tracking code added 
+
+### 0.3.7
+
+* Fixed confirmation emails not being sent to candidates upon submitting their applications.
+
 ### 0.3.5
 
 * Fix error with twitter share link
