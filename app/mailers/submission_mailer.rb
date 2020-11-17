@@ -1,7 +1,4 @@
-require 'digest/sha2'
-
 class SubmissionMailer < ActionMailer::Base
-  default "Message-ID" => proc {"<#{Digest::SHA2.hexdigest(Time.now.to_i.to_s)}@unep-wcmc.org>"}
 
   def save_confirmation(submission, form)
     @submission = submission
