@@ -8,6 +8,7 @@ class Submission < ActiveRecord::Base
 
   REFERENCE_SOURCES = [
     {value: "UNEP-WCMC website", details: false},
+    {value: "LinkedIn", details: false},
     {value: "Advertisement", details: "Please state publication"},
     {value: "Network email", details: false},
     {value: "Agency", details: false},
