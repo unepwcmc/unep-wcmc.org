@@ -115,8 +115,7 @@ class Download::GenerateZip
     # Need to account as well for the all_submissions folder that's generated
     number_of_applications = valid_submissions.pluck(:name).map(&:downcase).uniq.count + 1
 
-    # Subtract one because size takes into account the actual file itself
-    number_of_entries = Zip::File.open("#{@path}/#{@zip_path}").glob('*/*').count - 1
+    number_of_entries = Zip::File.open("#{@path}/#{@zip_path}").glob('*/*').count
 
     number_of_entries != number_of_applications
   end
