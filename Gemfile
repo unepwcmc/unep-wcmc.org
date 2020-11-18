@@ -30,6 +30,8 @@ gem 'devise', '~> 3.5.6'
 gem 'appsignal'
 gem 'test-unit', '~> 3.1' # annoyingly, rails console won't start without it in staging / production
 
+gem 'rubyzip', '~> 1.3.0'
+
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.2'
   gem 'guard'
