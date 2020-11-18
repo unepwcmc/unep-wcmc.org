@@ -1,3 +1,5 @@
+require 'zip'
+
 class Download::GenerateZip
 
   def initialize path, zip_path
