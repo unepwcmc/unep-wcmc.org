@@ -109,6 +109,8 @@ class Download::GenerateZip
   end
 
   def zip_contents_mismatched?(job_submissions)
+    return true unless File.exists?("#{@path}/#{@zip_path}")
+    
     valid_submissions = job_submissions.where.not(cv_file_name: nil, 
       cover_letter_file_name: nil, application_form_file_name: nil)
 
