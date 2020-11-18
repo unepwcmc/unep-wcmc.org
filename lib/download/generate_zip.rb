@@ -109,8 +109,11 @@ class Download::GenerateZip
   end
 
   def zip_contents_mismatched?(job_submissions)
+    valid_submissions = job_submissions.where.not(cv_file_name: nil, 
+      cover_letter_file_name: nil, application_form_file_name: nil)
+
     # Need to account as well for the all_submissions folder that's generated
-    number_of_applications = job_submissions.pluck(:name).uniq.count + 1
+    number_of_applications = valid_submissions.pluck(:name).map(&:downcase).uniq.count + 1
 
     number_of_entries = Zip::File.open("#{@path}/#{@zip_path}") do |zip_file|
       # Subtract one because size takes into account the actual file itself
