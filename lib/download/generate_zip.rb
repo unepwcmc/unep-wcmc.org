@@ -110,12 +110,10 @@ class Download::GenerateZip
     # Need to account as well for the all_submissions folder that's generated
     number_of_applications = job_submissions.pluck(:name).uniq.count + 1
 
-    number_of_entries = nil
-
-    Zip::File.open("#{@path}/#{@zip_path}") do |zip_file|
+    number_of_entries = Zip::File.open("#{@path}/#{@zip_path}") do |zip_file|
       # Subtract one because size takes into account the actual file itself
-      number_of_entries = zip_file.size - 1
-    end
+                          zip_file.size - 1
+                        end
 
     number_of_entries != number_of_applications
   end
