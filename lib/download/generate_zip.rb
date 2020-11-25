@@ -112,7 +112,7 @@ class Download::GenerateZip
     return true unless File.exists?("#{@path}/#{@zip_path}")
     
     valid_submissions = job_submissions.where.not(cv_file_name: nil, 
-      cover_letter_file_name: nil, application_form_file_name: nil)
+      cover_letter_file_name: nil, application_form_file_name: nil, is_submitted: false)
 
     # Need to account as well for the all_submissions folder that's generated
     number_of_applications = valid_submissions.pluck(:name).map(&:downcase).uniq.count + 1
