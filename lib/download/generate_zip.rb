@@ -124,7 +124,7 @@ class Download::GenerateZip
                                 folder.split('/').last.gsub('/', '') == 'all_submissions'
                               end
 
-    number_of_entries - 1 if all_applications_folder
+    number_of_entries -= 1 if all_applications_folder
 
     number_of_entries != number_of_applications
   end

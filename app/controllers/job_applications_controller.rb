@@ -17,8 +17,8 @@ class JobApplicationsController < ApplicationController
     filename = "#{vacancy_label}.zip"
     zip = Download::GenerateZip.new(path, filename)
 
-    if ( zip.zip_needs_regenerating? last_uploaded_submission.updated_at ||
-      zip.zip_contents_mismatched?(form.submissions) )
+    if zip.zip_needs_regenerating?(last_uploaded_submission.updated_at) ||
+      zip.zip_contents_mismatched?(form.submissions) 
       zip.all_applications_generate_zip(form.id)
     end
 
