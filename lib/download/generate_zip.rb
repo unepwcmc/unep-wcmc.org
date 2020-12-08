@@ -121,7 +121,7 @@ class Download::GenerateZip
     # Need to account as well for the all_submissions folder that's usually generated
     number_of_entries = zip_file.glob('*/*').count
     all_applications_folder = zip_file.entries.map(&:name).find do |folder|
-                                folder.split('/').last.gsub('/', '') == 'all_submissions'
+                                folder.split('/').last == 'all_submissions'
                               end
 
     number_of_entries -= 1 if all_applications_folder
