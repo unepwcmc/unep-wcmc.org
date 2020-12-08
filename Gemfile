@@ -26,7 +26,7 @@ gem 'whenever', '~> 0.9.0'
 gem 'backup'
 gem 'bundler'
 gem 'dotenv-rails'
-gem 'devise', '~> 3.5.6'
+gem 'devise', '~> 4.7.1'
 gem 'appsignal'
 gem 'test-unit', '~> 3.1' # annoyingly, rails console won't start without it in staging / production
 
