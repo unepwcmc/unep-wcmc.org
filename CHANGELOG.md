@@ -1,3 +1,12 @@
+### 0.3.12
+
+* Job submissions zip downloads should now contain all folders (from all candidates that have submitted applications for the vacancy in question)
+
+### 0.3.11
+
+* Small updates to job application form questions
+* Confirmation emails now should be sent to iCloud accounts 
+
 ### 0.3.10
 
 * ActionMailer set to use Sendmail over SMTP to allow confirmation emails to be sent to Gmail users 
