@@ -37,15 +37,16 @@ class SubmissionsController < ApplicationController
 
   def destroy
     @submission = @form.submissions.find_by_slug!(params[:id])
+    name = "#{@submission.name}".parameterize.underscore
     @submission.destroy
 
-    path = Rails.root.join('private', 'zip', 'all_job_applications')
+    path = Rails.root.join('private', 'zip', 'job_applications')
     vacancy_label = @form.vacancy.formatted_label
-    filename = "#{vacancy_label}.zip"
+    filename = "#{vacancy_label}-#{name}.zip"
     zip = Download::GenerateZip.new(path, filename)
     zip.delete_zip
 
-    redirect_to job_application_path(@form), notice: 'Job application was successfully destroyed.'
+    redirect_to job_application_path(@form), notice: 'Job application and all related files were successfully destroyed.'
   end
 
   private
@@ -84,10 +85,10 @@ class SubmissionsController < ApplicationController
 
   def send_confirmation_email
     if params[:submit]
-      SubmissionMailer.submit_confirmation(@submission, @form).deliver_later
-      SubmissionMailer.inform_recruitment(@submission, @form).deliver_later
+      SubmissionMailer.submit_confirmation(@submission, @form).deliver_now
+      SubmissionMailer.inform_recruitment(@submission, @form).deliver_now
     else
-      SubmissionMailer.save_confirmation(@submission, @form).deliver_later
+      SubmissionMailer.save_confirmation(@submission, @form).deliver_now
     end
   end
 

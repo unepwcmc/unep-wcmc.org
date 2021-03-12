@@ -1,3 +1,5 @@
+require 'zip'
+
 class Download::GenerateZip
 
   def initialize path, zip_path
@@ -104,6 +106,27 @@ class Download::GenerateZip
 
     zip_file_modification_time = File.mtime("#{@path}/#{@zip_path}")
     zip_file_modification_time < last_uploaded_application_time
+  end
+
+  def zip_contents_mismatched?(job_submissions)
+    return true unless File.exists?("#{@path}/#{@zip_path}")
+    
+    valid_submissions = job_submissions.where.not(cv_file_name: nil, 
+      cover_letter_file_name: nil, application_form_file_name: nil, is_submitted: false)
+
+    number_of_applications = valid_submissions.pluck(:name).map(&:downcase).uniq.count 
+    
+    zip_file = Zip::File.open("#{@path}/#{@zip_path}")
+
+    # Need to account as well for the all_submissions folder that's usually generated
+    number_of_entries = zip_file.glob('*/*').count
+    all_applications_folder = zip_file.entries.map(&:name).find do |folder|
+                                folder.split('/').last == 'all_submissions'
+                              end
+
+    number_of_entries -= 1 if all_applications_folder
+
+    number_of_entries != number_of_applications
   end
 
   def any_submissions_with_documents_valid? form

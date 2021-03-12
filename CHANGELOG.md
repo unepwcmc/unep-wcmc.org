@@ -1,6 +1,37 @@
+### 0.3.11
+
+* Small updates to job application form questions
+* Confirmation emails now should be sent to iCloud accounts 
+
+### 0.3.10
+
+* ActionMailer set to use Sendmail over SMTP to allow confirmation emails to be sent to Gmail users 
+
+### 0.3.9
+
+* Make sure to delete the files attached to job application on destroy action.
+
+### 0.3.8
+
+* New Hotjar tracking code added 
+
+### 0.3.7
+
+* Fixed confirmation emails not being sent to candidates upon submitting their applications.
+
+### 0.3.5
+
+* Fix error with twitter share link
+
+### 0.3.4
+
+* Fix job application section accessibility
+* Add link to annual review
+* Fix user confirmation process
+
 ### 0.3.3
 
-* Fix up og:url content url using relative path of url
+* Fix admin error on news tab
 
 ### 0.3.2
 
