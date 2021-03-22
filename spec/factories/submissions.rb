@@ -6,7 +6,6 @@ FactoryGirl.define do
     slug "MyString"
     email "someone@example.com"
     content OpenStruct.new(
-      uk_working_ability: true,
       last_salary: 0,
       benefits: 'n/a',
       interview_availability: 'yes',
