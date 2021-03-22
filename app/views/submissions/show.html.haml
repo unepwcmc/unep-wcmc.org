@@ -13,7 +13,7 @@
       %h3 Phone number
       %p= @submission.phone
     %section
-      %h2 CV and cover letter
+      %h2 CV, cover letter and personal details
       %h3 CV
       - if @submission.cv.present?
         = link_to(@submission.cv_file_name, @submission.cv.url)
