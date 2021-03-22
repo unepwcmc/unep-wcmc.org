@@ -33,7 +33,6 @@ describe SubmissionsController do
       @submission = Submission.build_for_form(@form)
       @submission.email = "some@example.com"
       @submission.content = OpenStruct.new(
-        uk_working_ability: true,
         last_salary: 0,
         benefits: 'n/a',
         interview_availability: 'yes',
