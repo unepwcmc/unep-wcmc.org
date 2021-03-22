@@ -13,20 +13,16 @@
       %h3 Phone number
       %p= @submission.phone
     %section
-      %h2 Ability to work in the UK
-      %p= @submission.content.uk_working_ability == "true" ? 'Confirmed' : 'Not confirmed'
-      - if @submission.content.uk_working_ability == "false"
-        %p
-          %strong Details
-        %p= @submission.content.uk_working_ability_details
-    %section
-      %h2 CV and cover letter
+      %h2 CV, cover letter and personal details
       %h3 CV
       - if @submission.cv.present?
         = link_to(@submission.cv_file_name, @submission.cv.url)
       %h3 Cover letter
       - if @submission.cover_letter.present?
         = link_to(@submission.cover_letter_file_name, @submission.cover_letter.url)
+      %h3 Personal details form
+      - if @submission.personal_details_form.present?
+        = link_to(@submission.personal_details_form_file_name, @submission.personal_details_form.url)
       %h3 Application form
       - if @submission.application_form.present?
         = link_to(@submission.application_form_file_name, @submission.application_form.url)

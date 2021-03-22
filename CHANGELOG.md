@@ -1,3 +1,11 @@
+### 0.3.13
+
+* Updates to application form:
+  * Remove 'eligibility to work in the UK' section and related code
+  * Add a button to upload the 'Personal Details' form
+  * Add an attachment to the Submission model for the 'Personal Details' form
+  * Bundle the 'Personal Details' form in the zip that can be generated and downloaded
+
 ### 0.3.11
 
 * Small updates to job application form questions
