@@ -21,6 +21,7 @@ class Submission < ActiveRecord::Base
   has_attached_file :cv
   has_attached_file :cover_letter
   has_attached_file :application_form
+  has_attached_file :personal_details_form
 
   accepts_nested_attributes_for :field_submissions
 
@@ -32,6 +33,7 @@ class Submission < ActiveRecord::Base
   validates :phone, presence: true, if: :is_submitted
   validates :cv, presence: true, if: :is_submitted
   validates :cover_letter, presence: true, if: :is_submitted
+  validates :personal_details_form, presence: true, if :is_submitted
   validates :application_form, presence: true,
     if: Proc.new{|a| a.is_submitted? && a.vacancy_has_application_form? }
 
@@ -40,6 +42,7 @@ class Submission < ActiveRecord::Base
   do_not_validate_attachment_file_type :cv
   do_not_validate_attachment_file_type :cover_letter
   do_not_validate_attachment_file_type :application_form
+  do_not_validate_attachment_file_type :personal_details_form
 
   before_create :set_slug
 
@@ -70,7 +73,7 @@ class Submission < ActiveRecord::Base
   end
 
   def attachments_valid?
-    cover_letter_file_name.present? && cv_file_name.present?
+    cover_letter_file_name.present? && cv_file_name.present? && personal_details_file_name.present?
   end
 
   private

@@ -26,6 +26,12 @@
       = link_to(@submission.cover_letter_file_name, @submission.cover_letter.url)
     %p
       %i.icon-upload-alt
+      Upload your personal details form
+    = f.file_field :personal_details_form
+    - if @submission.personal_details_form.present?
+      = link_to(@submission.personal_details_form_file_name, @submission.personal_details_form.url)
+    %p
+      %i.icon-upload-alt
       Upload your application form
     = f.file_field :application_form
     - if @submission.application_form.present?

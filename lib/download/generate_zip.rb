@@ -31,12 +31,14 @@ class Download::GenerateZip
     cv_extension = File.extname(submission.cv_file_name)
     application_form_extension = submission.application_form_file_name.present? ? File.extname(submission.application_form_file_name) : nil
     cover_letter_extension = File.extname(submission.cover_letter_file_name)
+    personal_details_form_extension = File.extname(submission.personal_details_form_file_name)
 
     begin
       custom_system("mkdir #{zipped_files_path}", @path)
       custom_system("cp \"#{submission.cv.path}\" #{document_path}_CV#{cv_extension}", @path)
       custom_system("cp \"#{submission.application_form.path}\" #{document_path}_Application#{application_form_extension}", @path) unless application_form_extension.nil?
       custom_system("cp \"#{submission.cover_letter.path}\" #{document_path}_Cover_letter#{cover_letter_extension}", @path)
+      custom_system("cp \"#{submission.personal_details_form.path}\" #{document_path}_Personal_details#{personal_details_form_extension}", @path)
       add_documents_to_zip(zipped_files_path)
       custom_system("rm -rf #{zipped_files_path}", @path)
     rescue Exception => e
@@ -73,6 +75,7 @@ class Download::GenerateZip
       cv_extension = File.extname(submission.cv_file_name)
       application_form_extension = submission.application_form_file_name.present? ? File.extname(submission.application_form_file_name) : nil
       cover_letter_extension = File.extname(submission.cover_letter_file_name)
+      personal_details_form_extension = File.extname(submission.personal_details_form_file_name)
 
       begin
         custom_system("mkdir #{zipped_files_path}/#{candidate_path}", @path) unless Dir.exists?("#{@path}/#{zipped_files_path}/#{candidate_path}")
@@ -80,6 +83,7 @@ class Download::GenerateZip
         custom_system("cp \"#{submission.cv.path}\" #{documents_path}_CV#{cv_extension}", @path)
         custom_system("cp \"#{submission.application_form.path}\" #{documents_path}_Application#{application_form_extension}", @path) unless application_form_extension.nil?
         custom_system("cp \"#{submission.cover_letter.path}\" #{documents_path}_Cover_letter#{cover_letter_extension}", @path)
+        custom_system("cp \"#{submission.personal_details_form.path}\" #{document_path}_Personal_details#{personal_details_form_extension}", @path)
 
         custom_system("mkdir #{zipped_files_path}/#{all_submissions_path}", @path) unless Dir.exists?("#{@path}/#{zipped_files_path}/#{all_submissions_path}")
         custom_system("cp #{zipped_files_path}/#{candidate_path}/* #{zipped_files_path}/#{all_submissions_path}", @path)
@@ -111,8 +115,13 @@ class Download::GenerateZip
   def zip_contents_mismatched?(job_submissions)
     return true unless File.exists?("#{@path}/#{@zip_path}")
     
-    valid_submissions = job_submissions.where.not(cv_file_name: nil, 
-      cover_letter_file_name: nil, application_form_file_name: nil, is_submitted: false)
+    valid_submissions = job_submissions.where.not(
+      cv_file_name: nil, 
+      cover_letter_file_name: nil, 
+      personal_details_form_file_name: nil, 
+      application_form_file_name: nil, 
+      is_submitted: false
+    )
 
     number_of_applications = valid_submissions.pluck(:name).map(&:downcase).uniq.count 
     
