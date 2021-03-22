@@ -19,16 +19,6 @@
   = @submission.phone
 
 
-%strong Ability to work in the UK
-%p
-= @submission.content.uk_working_ability == "true" ? 'Confirmed' : 'Not confirmed'
-
-%p
-  Details
-  %br
-  - if @submission.content.uk_working_ability == "false"
-    = @submission.content.uk_working_ability_details
-
 %p
   %strong CV and cover letter
 %p Download Zip

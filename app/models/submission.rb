@@ -3,8 +3,8 @@
 
 class Submission < ActiveRecord::Base
 
-  MANDATORY_CONTENT_FIELDS = [:uk_working_ability, :last_salary, :benefits, :interview_availability, :notice_period]
-  ALLOWED_CONTENT_FIELDS = MANDATORY_CONTENT_FIELDS + [:uk_working_ability_details, :reference, :reference_details]
+  MANDATORY_CONTENT_FIELDS = [:last_salary, :benefits, :interview_availability, :notice_period]
+  ALLOWED_CONTENT_FIELDS = MANDATORY_CONTENT_FIELDS + [:reference, :reference_details]
 
   REFERENCE_SOURCES = [
     {value: "UNEP-WCMC website", details: false},
@@ -33,7 +33,7 @@ class Submission < ActiveRecord::Base
   validates :phone, presence: true, if: :is_submitted
   validates :cv, presence: true, if: :is_submitted
   validates :cover_letter, presence: true, if: :is_submitted
-  validates :personal_details_form, presence: true, if :is_submitted
+  validates :personal_details_form, presence: true, if: :is_submitted
   validates :application_form, presence: true,
     if: Proc.new{|a| a.is_submitted? && a.vacancy_has_application_form? }
 
@@ -73,7 +73,7 @@ class Submission < ActiveRecord::Base
   end
 
   def attachments_valid?
-    cover_letter_file_name.present? && cv_file_name.present? && personal_details_file_name.present?
+    cover_letter_file_name.present? && cv_file_name.present? && personal_details_form_file_name.present?
   end
 
   private
