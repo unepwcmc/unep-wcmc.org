@@ -1,3 +1,7 @@
+### 0.3.14
+
+* Allow submissions lacking a 'Personal Details' form to be downloaded both as individual zips, and as part of the combined zip
+
 ### 0.3.13
 
 * Updates to application form:
