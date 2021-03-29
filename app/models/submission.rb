@@ -73,7 +73,7 @@ class Submission < ActiveRecord::Base
   end
 
   def attachments_valid?
-    cover_letter_file_name.present? && cv_file_name.present? && personal_details_form_file_name.present?
+    cover_letter_file_name.present? && cv_file_name.present? 
   end
 
   private
