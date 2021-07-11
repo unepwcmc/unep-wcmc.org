@@ -43,3 +43,17 @@ FactoryGirl.define do
     slug "404"
   end
 end
+
+FactoryGirl.define do
+  factory :vacancy, class: Comfy::Cms::Page do
+    before(:create) do |page|
+      site = FactoryGirl.create(:vacancies_site)
+      layout = FactoryGirl.create(:vacancies_layout, site_id: site.id)
+      page.layout_id = layout.id
+      page.site_id = site.id
+    end
+    id 1
+    label "Awesome job"
+    slug "vacancy"
+  end
+end
