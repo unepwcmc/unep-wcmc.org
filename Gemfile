@@ -69,5 +69,5 @@ gem 'comfortable_mexican_sofa', '1.12.8'
 gem 'kaminari'
 
 gem "geoip", "~> 1.6.1"
-gem "yajl-ruby", "~> 1.2.1"
+gem "yajl-ruby", "~> 1.4.2"
 
